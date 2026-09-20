@@ -8,6 +8,9 @@
     <PackageReference Include="xunit.v3" Version="4.0.1" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="../../reference/golden/**" Link="golden/%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="../../src/ReportDiff.Core/ReportDiff.Core.csproj" />
     <ProjectReference Include="../../src/ReportDiff.Pdf/ReportDiff.Pdf.csproj" />
     <ProjectReference Include="../../src/ReportDiff.Report/ReportDiff.Report.csproj" />
