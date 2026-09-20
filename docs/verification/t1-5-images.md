@@ -8,7 +8,7 @@
 
 - `InputFormatDetector.Detect`：先頭のシグネチャで PNG・JPEG・BMP・TIFF・PDF を識別する。未知の形式は `Unknown`。拡張子は使わない。
 - `ImageReader.Read(path, imageDpi)`：ファイルを .NET の `File.ReadAllBytes` で読み、バイト列を OpenCvSharp の `ImDecode` に渡す。ネイティブにパスは渡さない。
-- `ImageReader.Decode(bytes, imageDpi)`：メモリ上の画像を読み、白背景の BGR 8bit・3 チャンネルへ変換する。TIFF は先頭ページのみ。PDF の読み込みは T1-6 のため、この API では受け付けない。
+- `ImageReader.Decode(bytes, imageDpi)`：メモリ上の画像を読み、白背景の BGR 8bit・3 チャンネルへ変換する。TIFF は先頭ページのみ。PDF は [T1-6 の PdfReader](t1-6-pdf.md) で読み込むため、この API では受け付けない。
 - 戻り値の `LoadedImage` が `Pixels` の所有権を持つ。呼び出し側で `using` によって破棄する。
 - `Dpi` には指定された `imageDpi` を保持する（既定 300、範囲 72〜1200）。設定を使う呼び出し側は `AppSettings.ImageDpi` を渡す。DPI による画像の拡大縮小は行わない。
 - 未対応の形式、破損したデータ、読み込めないパスは日本語の `ImageReadException` とする。
@@ -39,6 +39,6 @@ PNG の透明度は未乗算として白背景へ合成する。TIFF は OpenCV 
 
 ## 残る範囲
 
-T1-6 の PDF 読み込み、T1-7 のサイズ・ページ対応、CLI への接続は未着手。Windows での新しいテストと日本語パスの実機確認は未実施で、[Windows 確認リスト](../TASKS.md) に残している。
+PDF 読み込みは [T1-6 確認結果](t1-6-pdf.md) を参照。T1-7 のサイズ・ページ対応、CLI への接続は未着手。Windows での新しいテストと日本語パスの実機確認は未実施で、[Windows 確認リスト](../TASKS.md) に残している。
 
 再実行はリポジトリのルートで `dotnet build` と `dotnet test`。macOS の初回準備は [ネイティブ依存の準備](../NATIVE_RUNTIME.md) を参照。

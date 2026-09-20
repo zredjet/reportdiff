@@ -1,0 +1,93 @@
+using System.Globalization;
+using System.Text;
+using SkiaSharp;
+
+namespace ReportDiff.Tests;
+
+internal static class PdfFixture
+{
+    public static readonly SKColor[] PageColors = [SKColors.Red, new(0, 255, 0), SKColors.Blue];
+
+    public static byte[] CreatePages(params (float Width, float Height)[] sizes)
+    {
+        using var stream = new MemoryStream();
+        using (var document = SKDocument.CreatePdf(stream))
+        {
+            for (var i = 0; i < sizes.Length; i++)
+            {
+                using var canvas = document.BeginPage(sizes[i].Width, sizes[i].Height);
+                // 背景は描かず、PDF 読み込み側の白背景を検証する。
+                using var rectangle = new SKPaint { Color = PageColors[i % PageColors.Length], IsAntialias = true };
+                canvas.DrawRect(10, 10, 20, 20, rectangle);
+                using var translucent = new SKPaint { Color = new SKColor(255, 0, 0, 128), IsAntialias = true };
+                canvas.DrawRect(40, 10, 20, 20, translucent);
+                using var line = new SKPaint { Color = SKColors.Black, StrokeWidth = 1, IsAntialias = true };
+                canvas.DrawLine(10, 40, 60, 67, line);
+                document.EndPage();
+            }
+            document.Close();
+        }
+        return stream.ToArray();
+    }
+
+    // SkiaSharp では作れない注釈・フォームの外観だけを持つ、フォントに依存しない合成 PDF。
+    public static byte[] CreateAnnotationAndForm()
+    {
+        string[] objects =
+        [
+            "<< /Type /Catalog /Pages 2 0 R /AcroForm 8 0 R >>",
+            "<< /Type /Pages /Kids [3 0 R] /Count 1 >>",
+            "<< /Type /Page /Parent 2 0 R /MediaBox [0 0 100 100] /Resources << >> /Annots [4 0 R 6 0 R] >>",
+            "<< /Type /Annot /Subtype /Square /Rect [10 10 30 30] /F 4 /AP << /N 5 0 R >> >>",
+            Appearance("0 1 0 rg 0 0 20 20 re f\n"),
+            "<< /Type /Annot /Subtype /Widget /FT /Tx /T (test) /V (value) /Rect [50 10 70 30] /F 4 /P 3 0 R /AP << /N 7 0 R >> >>",
+            Appearance("1 0 0 rg 0 0 20 20 re f\n"),
+            "<< /Fields [6 0 R] /NeedAppearances false >>"
+        ];
+        return CreateDocument(objects);
+    }
+
+    public static byte[] CreateFractionalPage() => CreateDocument(
+    [
+        "<< /Type /Catalog /Pages 2 0 R >>",
+        "<< /Type /Pages /Kids [3 0 R] /Count 1 >>",
+        "<< /Type /Page /Parent 2 0 R /MediaBox [0 0 100.25 150.75] /Resources << >> >>"
+    ]);
+
+    private static byte[] CreateDocument(string[] objects)
+    {
+        using var stream = new MemoryStream();
+        void Write(string value) => stream.Write(Encoding.ASCII.GetBytes(value));
+        Write("%PDF-1.7\n");
+        var offsets = new List<long>();
+        for (var i = 0; i < objects.Length; i++)
+        {
+            offsets.Add(stream.Position);
+            Write($"{i + 1} 0 obj\n{objects[i]}\nendobj\n");
+        }
+        var xref = stream.Position;
+        Write($"xref\n0 {objects.Length + 1}\n0000000000 65535 f \n");
+        foreach (var offset in offsets) Write(offset.ToString("D10", CultureInfo.InvariantCulture) + " 00000 n \n");
+        Write($"trailer\n<< /Size {objects.Length + 1} /Root 1 0 R >>\nstartxref\n{xref}\n%%EOF\n");
+        return stream.ToArray();
+    }
+
+    private static string Appearance(string content) =>
+        $"<< /Type /XObject /Subtype /Form /FormType 1 /BBox [0 0 20 20] /Resources << >> /Length {content.Length} >>\nstream\n{content}endstream";
+}
+
+internal sealed class PdfTestFile : IDisposable
+{
+    private readonly string directory = Path.Combine(Path.GetTempPath(), $"reportdiff-PDF 試験-{Guid.NewGuid():N}");
+    public string FilePath { get; }
+
+    public PdfTestFile(byte[] bytes)
+    {
+        Directory.CreateDirectory(directory);
+        // 内容の判定と日本語・空白パスを、すべての PDF テストで通す。
+        FilePath = Path.Combine(directory, "帳票 新版.png");
+        File.WriteAllBytes(FilePath, bytes);
+    }
+
+    public void Dispose() => Directory.Delete(directory, true);
+}
