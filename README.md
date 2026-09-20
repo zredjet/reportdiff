@@ -12,7 +12,20 @@ dotnet build
 dotnet test
 ```
 
-現在は Phase 0 と T1-1〜T1-9（設定・比較コア・最適化・入力・正規化とページ対応・JSON と画像出力・HTML）が完了。比較コアは 37 件の参照結果と一致し、合成 A4 ページの比較は目標の 2 秒以内（[検証・計測結果](docs/verification/t1-4-core.md)）。[画像入力](docs/verification/t1-5-images.md)、[PDF 入力](docs/verification/t1-6-pdf.md)、[正規化とページ対応](docs/verification/t1-7-pages.md)、[JSON・重ね描き・切り出し](docs/verification/t1-8-output.md)、[オフライン HTML](docs/verification/t1-9-html.md)も検証済み。次は T1-10 の CLI。比較コマンドはまだ未実装。
+現在は Phase 0 と T1-1〜T1-10（設定・比較コア・最適化・入力・正規化とページ対応・JSON と画像出力・HTML・CLI）が完了。比較コアは 37 件の参照結果と一致し、合成 A4 ページの比較は目標の 2 秒以内（[検証・計測結果](docs/verification/t1-4-core.md)）。[画像入力](docs/verification/t1-5-images.md)、[PDF 入力](docs/verification/t1-6-pdf.md)、[正規化とページ対応](docs/verification/t1-7-pages.md)、[JSON・重ね描き・切り出し](docs/verification/t1-8-output.md)、[オフライン HTML](docs/verification/t1-9-html.md)、[CLI](docs/verification/t1-10-cli.md)も検証済み。次は T1-11 の結合テスト。
+
+## 比較する
+
+```bash
+dotnet run --project src/ReportDiff.Cli -- compare old.pdf new.pdf --out out/result
+dotnet run --project src/ReportDiff.Cli -- compare old.png new.png --out out/result \
+  --config settings.yaml --profile strict --dpi 300 --pages 1
+dotnet run --project src/ReportDiff.Cli -- --version
+```
+
+終了コードは相違なしが `0`、相違あり（ページ数不一致を含む）が `1`、エラーが `2`。出力先の `report.html` をブラウザで開くと結果を確認できる。出力フォルダ内の `pages/`・`crops/` も一緒に保持する。
+
+出力先が空でない場合はエラーになる。`--force` は指定した出力フォルダ全体を置き換える。`--quiet` で要約を抑止、`--no-html` で JSON と画像だけを保存、`--save-all-pages` で相違なしのページの画像も保存できる。PDF と画像を混在させる場合は設定の `dpi` と `image_dpi` をそろえる。各オプションと失敗時の扱いは [CLI の確認記録](docs/verification/t1-10-cli.md)を参照。
 
 比較コアの計測を再実行する場合：
 
@@ -26,7 +39,7 @@ dotnet run --project tools/ReportDiff.Benchmark -c Release -- 3
 
 両環境で .NET 10 SDK を準備し、`dotnet build` と `dotnet test` を実行する。macOS では Python 3.13 を準備し、FFmpeg を含まないローカルランタイムを毎回ソースから生成する。Intel Mac のテストは対象外。
 
-GitHub Actions で確認済みの結果は [T0-3](docs/verification/t0-3-ci.md)。T1-1〜T1-9 はローカルの macOS で検証済みで、追加したコードの Windows CI は未実行。HTML の `file://` 表示は macOS Chrome で確認済み、Windows の Edge / Chrome は未確認。
+GitHub Actions で確認済みの結果は [T0-3](docs/verification/t0-3-ci.md)。T1-1〜T1-10 はローカルの macOS で検証済みで、追加したコードの Windows CI は未実行。HTML の `file://` 表示は macOS Chrome で確認済み、Windows の Edge / Chrome は未確認。
 
 ## 中身
 

@@ -8,7 +8,7 @@
 
 - `ReportInput.FromFile(path, format, pages)` は .NET のストリームで SHA-256 を求め、入力パス・形式・ページ数とともに保持する。形式とページ数は入力読み込み側の確認結果を渡す。
 - `AppSettings.ToReportConfiguration()` で、既定値・プロファイル・上書き適用後の実効設定を出力層へ渡す。依存の向きは Cli → Report → Pdf → Core のまま。
-- `ReportWriter(outputDirectory, inputs, config, saveAllPages)` は空の出力先を使う。既存ファイルの上書きは行わない。CLI の `--force` による出力先の準備は T1-10 で接続する。
+- `ReportWriter(outputDirectory, inputs, config, saveAllPages)` は空の出力先を使う。既存ファイルの上書きは行わない。CLI の `--force` による出力先の置き換えは [T1-10](t1-10-cli.md) で接続済み。
 - `AddComparedPage(page, normalizedImages, comparison, dpi)` は借用した Mat と比較結果から、そのページの画像を保存して JSON 用データを作る。画像を変更・所有せず、書き出し後に呼び出し側で破棄できる。全ページ分の Mat は保持しない。
 - `AddUnpairedPage(page, image)` は、元の入力ページ数から `only_in_a` / `only_in_b` を決め、存在する側の画像だけを保存する。
 - `Complete()` が `ReportDocument` を返し、`result.json` を UTF-8 で出力する。ページは元のページ番号で昇順にする。書き込みに失敗した writer は続行できず、日本語の `ReportWriteException` を返す。失敗時の途中ファイルは残るため、再実行は空の出力先で行う。
@@ -55,6 +55,6 @@ JSON は SPEC 8.2 の項目と snake_case 名を使う。設定の除外対象�
 
 ## 残る範囲
 
-HTML は [T1-9 確認結果](t1-9-html.md) を参照。T1-10 の CLI 接続は未着手。`--save-all-pages` 相当の API は実装済みだが、比較コマンド自体はまだ実行できない。Windows での追加テスト、日本語の出力パス、実際のディスク容量不足の確認は未実施。
+HTML は [T1-9 確認結果](t1-9-html.md) を参照。比較コマンドと `--save-all-pages` の接続は [T1-10 確認結果](t1-10-cli.md) を参照。Windows での追加テスト、日本語の出力パス、実際のディスク容量不足の確認は未実施。
 
 再実行はリポジトリのルートで `dotnet build` と `dotnet test`。macOS の初回準備は [ネイティブ依存の準備](../NATIVE_RUNTIME.md) を参照。

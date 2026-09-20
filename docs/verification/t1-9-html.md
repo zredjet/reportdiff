@@ -78,4 +78,4 @@ node tools/verify-html-report.mjs /path/to/output/report.html out/html-browser-c
 
 ## 残る範囲
 
-T1-10 の CLI 接続（`--no-html` を含む）は未着手。Windows の追加テスト、Windows の Edge / Chrome の実機表示、スクリーンリーダー、実際のディスク容量不足は未確認。Intel Mac は対象外。
+CLI 接続（`--no-html` を含む）は [T1-10 確認結果](t1-10-cli.md) を参照。Windows の追加テスト、Windows の Edge / Chrome の実機表示、スクリーンリーダー、実際のディスク容量不足は未確認。Intel Mac は対象外。

@@ -128,7 +128,7 @@ public sealed class ReportWriter
         var summary = new ReportSummary(different > 0 || inputs.A.Pages != inputs.B.Pages ? "different" : "same",
             sorted.Count(p => p.Status is not ("only_in_a" or "only_in_b")), different,
             sorted.Sum(p => p.Clusters.Count), sorted.Sum(p => p.AbsorbedGroups));
-        var result = new ReportDocument(1, new("reportdiff", "0.1.0"), generatedAt, inputs, config, summary,
+        var result = new ReportDocument(1, ReportTool.Current, generatedAt, inputs, config, summary,
             Array.AsReadOnly(warnings.ToArray()), Array.AsReadOnly(sorted));
         ExecuteWrite(() =>
         {

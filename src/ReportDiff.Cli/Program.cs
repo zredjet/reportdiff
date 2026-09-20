@@ -1,5 +1,5 @@
 using System.Text;
+using ReportDiff.Cli;
 
-Console.OutputEncoding = Encoding.UTF8;
-Console.Error.WriteLine("比較コマンドは未実装です。");
-return 2;
+Console.OutputEncoding = new UTF8Encoding(false);
+return CliApplication.Run(args, Console.Out, Console.Error);

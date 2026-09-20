@@ -43,6 +43,6 @@
 
 ## 残る範囲
 
-結果出力と形式の混在警告 `MIXED_INPUT_TYPES` は [T1-8 確認結果](t1-8-output.md) を参照。HTML は [T1-9 確認結果](t1-9-html.md) を参照。T1-10 の CLI 接続は未着手。`--pages` の値を解釈する API は実装済みだが、比較コマンド自体はまだ実行できない。Windows の追加テストは未実施で、[Windows 確認リスト](../TASKS.md) に残している。
+結果出力と形式の混在警告 `MIXED_INPUT_TYPES` は [T1-8 確認結果](t1-8-output.md) を参照。HTML は [T1-9 確認結果](t1-9-html.md) を参照。比較コマンドと `--pages` の接続は [T1-10 確認結果](t1-10-cli.md) を参照。Windows の追加テストは未実施で、[Windows 確認リスト](../TASKS.md) に残している。
 
 再実行はリポジトリのルートで `dotnet build` と `dotnet test`。macOS の初回準備は [ネイティブ依存の準備](../NATIVE_RUNTIME.md) を参照。

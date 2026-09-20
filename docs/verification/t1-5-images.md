@@ -39,6 +39,6 @@ PNG の透明度は未乗算として白背景へ合成する。TIFF は OpenCV 
 
 ## 残る範囲
 
-PDF 読み込みは [T1-6 確認結果](t1-6-pdf.md)、サイズ・ページ対応は [T1-7 確認結果](t1-7-pages.md)、結果出力は [T1-8 確認結果](t1-8-output.md) を参照。HTML は [T1-9 確認結果](t1-9-html.md) を参照。CLI への接続は未着手。Windows での新しいテストと日本語パスの実機確認は未実施で、[Windows 確認リスト](../TASKS.md) に残している。
+PDF 読み込みは [T1-6 確認結果](t1-6-pdf.md)、サイズ・ページ対応は [T1-7 確認結果](t1-7-pages.md)、結果出力は [T1-8 確認結果](t1-8-output.md) を参照。HTML は [T1-9 確認結果](t1-9-html.md) を参照。CLI への接続は [T1-10 確認結果](t1-10-cli.md) を参照。Windows での新しいテストと日本語パスの実機確認は未実施で、[Windows 確認リスト](../TASKS.md) に残している。
 
 再実行はリポジトリのルートで `dotnet build` と `dotnet test`。macOS の初回準備は [ネイティブ依存の準備](../NATIVE_RUNTIME.md) を参照。
