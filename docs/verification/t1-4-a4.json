@@ -1,0 +1,153 @@
+{
+  "generated_at": "2026-09-21T00:27:09.021193+09:00",
+  "os": "macOS 26.5.1",
+  "architecture": "Arm64",
+  "dotnet_runtime": "10.0.12",
+  "cpu_count": 16,
+  "width": 2480,
+  "height": 3508,
+  "dpi": 300,
+  "glyphs": 600,
+  "warmup_per_strategy": 1,
+  "results_equal": true,
+  "measurements": [
+    {
+      "scenario": "\u5B8C\u5168\u4E00\u81F4",
+      "strategy": "full_page",
+      "iterations": 3,
+      "total_ms": [
+        7.5957,
+        5.949,
+        4.8945
+      ],
+      "median_ms": 5.949,
+      "stages_at_median_ms": {
+        "PreparationMs": 1.2636,
+        "CandidatesMs": 0,
+        "GroupingMs": 0,
+        "ShiftsMs": 0,
+        "ClusteringMs": 4.3747
+      },
+      "status": "same",
+      "clusters": 0,
+      "raw_pixels": 0,
+      "absorbed_groups": 0,
+      "max_shift_px": 0
+    },
+    {
+      "scenario": "\u5B8C\u5168\u4E00\u81F4",
+      "strategy": "group_bounds",
+      "iterations": 3,
+      "total_ms": [
+        6.227,
+        5.2244,
+        4.9952
+      ],
+      "median_ms": 5.2244,
+      "stages_at_median_ms": {
+        "PreparationMs": 1.2561,
+        "CandidatesMs": 0,
+        "GroupingMs": 0,
+        "ShiftsMs": 0,
+        "ClusteringMs": 3.9188
+      },
+      "status": "same",
+      "clusters": 0,
+      "raw_pixels": 0,
+      "absorbed_groups": 0,
+      "max_shift_px": 0
+    },
+    {
+      "scenario": "1 \u304B\u6240\u5909\u66F4",
+      "strategy": "full_page",
+      "iterations": 3,
+      "total_ms": [
+        1168.9552,
+        1096.6047,
+        1087.9172
+      ],
+      "median_ms": 1096.6047,
+      "stages_at_median_ms": {
+        "PreparationMs": 103.777,
+        "CandidatesMs": 35.3624,
+        "GroupingMs": 58.2552,
+        "ShiftsMs": 877.4565,
+        "ClusteringMs": 21.4136
+      },
+      "status": "different",
+      "clusters": 1,
+      "raw_pixels": 204,
+      "absorbed_groups": 0,
+      "max_shift_px": 0
+    },
+    {
+      "scenario": "1 \u304B\u6240\u5909\u66F4",
+      "strategy": "group_bounds",
+      "iterations": 3,
+      "total_ms": [
+        223.9901,
+        227.4764,
+        225.8239
+      ],
+      "median_ms": 225.8239,
+      "stages_at_median_ms": {
+        "PreparationMs": 105.0389,
+        "CandidatesMs": 36.3113,
+        "GroupingMs": 58.1279,
+        "ShiftsMs": 5.8295,
+        "ClusteringMs": 20.1677
+      },
+      "status": "different",
+      "clusters": 1,
+      "raw_pixels": 204,
+      "absorbed_groups": 0,
+      "max_shift_px": 0
+    },
+    {
+      "scenario": "1 \u304B\u6240\u5909\u66F4\uFF0B\u5168\u4F53 1px \u305A\u308C",
+      "strategy": "full_page",
+      "iterations": 3,
+      "total_ms": [
+        1121.3532,
+        1108.8829,
+        1116.9695
+      ],
+      "median_ms": 1116.9695,
+      "stages_at_median_ms": {
+        "PreparationMs": 108.5514,
+        "CandidatesMs": 40.8009,
+        "GroupingMs": 58.833,
+        "ShiftsMs": 887.4184,
+        "ClusteringMs": 21.3081
+      },
+      "status": "different",
+      "clusters": 1,
+      "raw_pixels": 204,
+      "absorbed_groups": 599,
+      "max_shift_px": 1
+    },
+    {
+      "scenario": "1 \u304B\u6240\u5909\u66F4\uFF0B\u5168\u4F53 1px \u305A\u308C",
+      "strategy": "group_bounds",
+      "iterations": 3,
+      "total_ms": [
+        245.4123,
+        245.6427,
+        238.4578
+      ],
+      "median_ms": 245.4123,
+      "stages_at_median_ms": {
+        "PreparationMs": 105.8476,
+        "CandidatesMs": 40.6979,
+        "GroupingMs": 58.0651,
+        "ShiftsMs": 20.0354,
+        "ClusteringMs": 20.7157
+      },
+      "status": "different",
+      "clusters": 1,
+      "raw_pixels": 204,
+      "absorbed_groups": 599,
+      "max_shift_px": 1
+    }
+  ]
+}

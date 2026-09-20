@@ -1,13 +1,20 @@
 using OpenCvSharp;
+using System.Diagnostics;
 
 namespace ReportDiff.Core;
 
 public static class PageComparer
 {
-    public static PageComparison Compare(Mat a, Mat b, ComparisonParameters parameters)
+    public static PageComparison Compare(Mat a, Mat b, ComparisonParameters parameters) => Compare(a, b, parameters, true);
+
+    internal static PageComparison Compare(Mat a, Mat b, ComparisonParameters parameters,
+        bool useGroupBounds, ComparisonTimings? timings = null)
     {
-        using var raw = TolerantDifference.Calculate(a, b, parameters);
-        return Cluster(raw, parameters);
+        using var raw = TolerantDifference.Calculate(a, b, parameters, useGroupBounds, timings);
+        var started = Stopwatch.GetTimestamp();
+        var result = Cluster(raw, parameters);
+        if (timings is not null) timings.ClusteringMs = Stopwatch.GetElapsedTime(started).TotalMilliseconds;
+        return result;
     }
 
     internal static PageComparison Cluster(RawDifference difference, ComparisonParameters parameters)

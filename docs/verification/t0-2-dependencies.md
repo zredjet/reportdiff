@@ -17,7 +17,7 @@
 | Windows 上の実行 | 2026-09-20、ユーザーが動作 OK を確認済み |
 | Intel Mac | ユーザー指定により対象外。実機確認は残件に含めない |
 
-比較コア・入力正規化・CLI の機能実装はまだ行っていない。CLI は雛形のままで、比較コマンドは未実装。T0-3 では GitHub Actions 上の Windows x64 / macOS Apple Silicon のビルド・疎通テストが成功した（[T0-3 確認結果](t0-3-ci.md)）。Phase 1 は未着手。
+現在は T1-1〜T1-4 の設定・比較コアまで実装・検証済み（[T1-4 確認結果](t1-4-core.md)）。入力正規化と CLI の比較コマンドは未実装。T0-3 で確認した GitHub Actions の Windows x64 / macOS Apple Silicon の結果は、当時の依存疎通テスト 2 件が対象（[T0-3 確認結果](t0-3-ci.md)）。
 
 ユーザー報告：「Windowsは確認。動作OK。Intel Macは用意できないので対象外。」Windows の動作確認結果として記録する。OS バージョン、.NET 未導入環境、疎通テスト 2 件の実行結果、日本語パス等の個別条件は報告されていないため、`TASKS.md` で別途管理する。
 

@@ -12,13 +12,21 @@ dotnet build
 dotnet test
 ```
 
-現在は Phase 0（T0-1〜T0-3）が完了。GitHub Actions で Windows x64 / macOS Apple Silicon のビルドとテストの成功を確認済み（[T0-3 確認結果](docs/verification/t0-3-ci.md)）。Phase 1 と比較コマンドの機能は未実装。
+現在は Phase 0 と T1-1〜T1-4（設定・比較コア・ゴールデンテスト・最適化）が完了。比較コアは 37 件の参照結果と一致し、合成 A4 ページの比較は目標の 2 秒以内（[検証・計測結果](docs/verification/t1-4-core.md)）。次は T1-5 の画像読み込み。比較コマンドはまだ未実装。
+
+比較コアの計測を再実行する場合：
+
+```bash
+dotnet run --project tools/ReportDiff.Benchmark -c Release -- 3
+```
 
 ## CI
 
 [GitHub Actions](https://github.com/zredjet/reportdiff/actions/workflows/ci.yml) で、`master` への push・pull request と手動実行時に Windows x64 / macOS Apple Silicon のビルドとテストを実行する。設定は [ci.yml](.github/workflows/ci.yml)。
 
 両環境で .NET 10 SDK を準備し、`dotnet build` と `dotnet test` を実行する。macOS では Python 3.13 を準備し、FFmpeg を含まないローカルランタイムを毎回ソースから生成する。Intel Mac のテストは対象外。
+
+GitHub Actions で確認済みの結果は [T0-3](docs/verification/t0-3-ci.md)。T1-1〜T1-4 はローカルの macOS で検証済みで、追加したコードの Windows CI は未実行。
 
 ## 中身
 

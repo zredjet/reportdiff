@@ -1,0 +1,10 @@
+namespace ReportDiff.Core;
+
+internal sealed class ComparisonTimings
+{
+    public double PreparationMs { get; set; }
+    public double CandidatesMs { get; set; }
+    public double GroupingMs { get; set; }
+    public double ShiftsMs { get; set; }
+    public double ClusteringMs { get; set; }
+}
