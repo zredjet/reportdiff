@@ -22,7 +22,7 @@
 
 受け入れ条件：`dotnet build` が警告ゼロ。`dotnet test` がテスト 0 件で成功。
 
-確認済み（2026-09-20、macOS arm64、SDK 10.0.401）：`dotnet build --disable-build-servers -m:1` は警告 0・エラー 0、`dotnet test --disable-build-servers -m:1` は終了コード 0。テストケースとテストランナーの導入は T0-2 で行うため、この時点のテストは 0 件。実行環境の制約に合わせて並列ビルドとビルドサーバーを無効にした。
+確認済み（2026-09-20、macOS arm64、SDK 10.0.401）：`dotnet build` は警告 0・エラー 0、`dotnet test` は終了コード 0。テストケースとテストランナーの導入は T0-2 で行うため、この時点のテストは 0 件。サンドボックス内では `--disable-build-servers -m:1` を付けた実行でも成功。
 
 ### [ ] T0-2 依存の疎通確認（最大のリスクなので最初に潰す）
 
@@ -35,6 +35,8 @@
 止まる条件：macOS 用の OpenCvSharp ランタイムが解決できない、または publish に Windows 用ネイティブが入らない場合は、作業を止めて状況と選択肢を報告する。
 
 **T0-2 が終わったら、結果を報告して一度止まる。**
+
+調査で停止（2026-09-20）：公式 macOS ランタイムは Apple Silicon・Intel ともに存在するが、両方のネイティブバイナリに LGPL の FFmpeg が静的リンクされている。Windows 標準ランタイムにも FFmpeg DLL が含まれる。CLAUDE.md ルール 10 の許可ライセンスに含まれないため、依存追加前で停止した。詳細・確認した安定版・再開の選択肢は [T0-2 依存調査](verification/t0-2-dependencies.md) を参照。疎通テスト 2 件と Windows publish は未実施で、T0-2 は未完了。T0-3 以降は未着手。
 
 ### [ ] T0-3 CI（任意）
 
