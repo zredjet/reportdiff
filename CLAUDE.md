@@ -14,7 +14,7 @@
 
 - C# / .NET 10、`Nullable` 有効、警告はエラー扱い
 - PDF のラスタライズ: PDFtoImage（PDFium + SkiaSharp）
-- 画像処理: OpenCvSharp4（Windows 用と macOS 用のランタイムパッケージを両方参照）
+- 画像処理: OpenCvSharp4（Windows は公式 `OpenCvSharp4.runtime.win.slim`、macOS は `tools/build-macos-runtime.py` で生成する FFmpeg なしの arm64 / x64 ローカルランタイム。詳細は `docs/NATIVE_RUNTIME.md`）
 - 設定: YamlDotNet ／ JSON: System.Text.Json ／ テスト: xUnit
 - PDF テキスト層（Phase 2）: PdfPig
 - パッケージ ID とバージョンは NuGet で実在を確認してから追加する（上記は 2026-09 時点の調査結果）

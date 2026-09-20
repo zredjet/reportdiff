@@ -1,77 +1,98 @@
-# T0-2 依存調査
+# T0-2 依存の疎通確認
 
 確認日：2026-09-20。環境：macOS 26.5 / Apple Silicon（osx-arm64）、.NET SDK 10.0.401、.NET Runtime 10.0.12。
 
 ## 結果
 
-T0-2 は未完了。依存候補の調査で CLAUDE.md ルール 10「依存の追加は MIT / Apache-2.0 / BSD のみ」と衝突する同梱ライブラリを確認し、依存追加前で停止した。技術スタックやライセンス条件は変更していない。
-
-T0-1 の雛形については、通常の `dotnet build` が警告 0・エラー 0、`dotnet test` が終了コード 0 で成功。テストケース・ランナーの導入前なので、この成功は依存の疎通確認を意味しない。
+**T0-2 完了。** FFmpeg を含まないランタイムを用意する方針の承認を受け、Windows は公式 slim、macOS は比較と画像入出力に必要なモジュールのみのローカルビルドを採用した。
 
 | 確認項目 | 結果 |
 |---|---|
-| NuGet 上の候補の実在・最新安定版 | 確認済み。下表参照 |
-| macOS arm64 / x64 のネイティブ資産 | 両方存在。実体のアーキテクチャを確認済み |
-| 許可ライセンスだけでの依存構成 | 未解決。macOS の標準ランタイムに FFmpeg の静的リンクを確認 |
-| プロジェクトへの依存追加 | 未実施 |
-| PDF → 300dpi → BGR Mat の疎通テスト | 未実施 |
-| OpenCV 各演算の疎通テスト | 未実施 |
-| win-x64 自己完結・単一 exe の publish | 未実施 |
-| 配布物のサイズと pdfium / OpenCvSharpExtern / libSkiaSharp の同梱 | 未確認。配布物を生成していない |
-| Windows / Intel Mac の実機での動作 | 未確認 |
+| `dotnet build` | 成功、警告 0・エラー 0 |
+| `dotnet test` | 成功 2 / 2、失敗 0、スキップ 0（macOS arm64） |
+| macOS の arm64 / x64 ランタイム | 両方のビルド成功、Mach-O のアーキテクチャとリンク先を確認 |
+| FFmpeg の除外 | macOS は構成・シンボル・リンク先を検査。Windows はパッケージ資産・DLL の import / export・実装由来の文字列を検査 |
+| Windows x64 の自己完結・単一 exe | macOS 上で publish 成功 |
+| 必須ネイティブ DLL | exe 内部に Windows x64 の 3 種を確認、NuGet 内の DLL と SHA-256 が一致 |
+| Windows / Intel Mac 上の実行 | 未実施。クロスビルドと静的検証だけでは実機の受け入れにはしない |
 
-## NuGet の調査結果
+比較コア・入力正規化・CLI の機能実装はまだ行っていない。CLI は雛形のままで、比較コマンドは未実装。T0-3 と Phase 1 は未着手。
 
-公式 V3 Flat Container API の `https://api.nuget.org/v3-flatcontainer/<小文字のパッケージID>/index.json` で公開バージョンを取得し、プレリリースを除く最新バージョンの nupkg を取得した。ライセンス欄は nuspec の宣言値であり、ネイティブバイナリ内の全ライブラリが同じライセンスであることを意味しない。以下は採用済み依存の一覧ではない。
+## 採用した依存
 
-| パッケージ | 最新安定版 | nuspec のライセンス |
+公式 NuGet V3 API で公開バージョンを取得し、プレリリースを除く最新安定版の nupkg と nuspec を確認してから追加した。
+
+| 直接依存 | バージョン | 用途 |
 |---|---|---|
-| [PDFtoImage](https://www.nuget.org/packages/PDFtoImage/5.4.0) | 5.4.0 | MIT |
-| [OpenCvSharp4](https://www.nuget.org/packages/OpenCvSharp4/4.13.0.20260627) | 4.13.0.20260627 | Apache-2.0 |
-| [OpenCvSharp4.runtime.win](https://www.nuget.org/packages/OpenCvSharp4.runtime.win/4.13.0.20260627) | 4.13.0.20260627 | Apache-2.0 |
-| [OpenCvSharp4.runtime.osx.arm64](https://www.nuget.org/packages/OpenCvSharp4.runtime.osx.arm64/4.13.0.20260627) | 4.13.0.20260627 | Apache-2.0 |
-| [OpenCvSharp4.runtime.osx.x64](https://www.nuget.org/packages/OpenCvSharp4.runtime.osx.x64/4.13.0.20260627) | 4.13.0.20260627 | Apache-2.0 |
-| [YamlDotNet](https://www.nuget.org/packages/YamlDotNet/18.1.0) | 18.1.0 | MIT |
-| [xunit.v3](https://www.nuget.org/packages/xunit.v3/4.0.1) | 4.0.1 | Apache-2.0 |
-| [Microsoft.NET.Test.Sdk](https://www.nuget.org/packages/Microsoft.NET.Test.Sdk/18.10.1) | 18.10.1 | MIT |
-| [xunit.runner.visualstudio](https://www.nuget.org/packages/xunit.runner.visualstudio/4.0.0) | 4.0.0 | Apache-2.0 |
+| [OpenCvSharp4](https://www.nuget.org/packages/OpenCvSharp4/4.13.0.20260627) | 4.13.0.20260627 | 比較コアの画像演算 |
+| [OpenCvSharp4.runtime.win.slim](https://www.nuget.org/packages/OpenCvSharp4.runtime.win.slim/4.13.0.20260627) | 4.13.0.20260627 | Windows x64 の FFmpeg なしランタイム |
+| ReportDiff.OpenCvSharp4.runtime.osx | 4.13.0.20260627 | ローカル生成する macOS arm64 / x64 ランタイム。公式 NuGet のパッケージではない |
+| [PDFtoImage](https://www.nuget.org/packages/PDFtoImage/5.4.0) | 5.4.0 | PDFium / SkiaSharp による PDF ラスタライズ |
+| [YamlDotNet](https://www.nuget.org/packages/YamlDotNet/18.1.0) | 18.1.0 | 設定用。読み込み機能は T1-1 で実装 |
+| [xunit.v3](https://www.nuget.org/packages/xunit.v3/4.0.1) | 4.0.1 | テスト。Microsoft.Testing.Platform 2.4.0 を使用 |
 
-`xunit` 2.9.3 は NuGet で非推奨とされ、後継に `xunit.v3` が案内されているため、後継の安定版も調査した。テストランナー構成はまだ導入していない。
+PDFtoImage から SkiaSharp / NativeAssets 4.150.1 と bblanchon.PDFium 152.0.7961 が復元された。ライセンスとテスト用の間接依存は [THIRD_PARTY_NOTICES.md](../../THIRD_PARTY_NOTICES.md) に記録した。NuGet 宣言値と、ネイティブに組み込まれたコーデック固有の許諾文を区別している。
 
-## 停止の根拠
+`xunit` 2.9.3 は NuGet で非推奨のため後継を使用。`global.json` で .NET 10 のテストランナーを Microsoft.Testing.Platform に指定した。調査時に確認した Microsoft.NET.Test.Sdk と xunit.runner.visualstudio は追加していない。
 
-OpenCvSharp の各ランタイム nupkg に同梱された `README.runtime.md` は、macOS の arm64 / x64 両版について FFmpeg の静的リンクを明記している。[公式ランタイムの説明](https://www.nuget.org/packages/OpenCvSharp4.runtime.win/4.13.0.20260627)にも同じ記載がある。[FFmpeg の公式ライセンス説明](https://ffmpeg.org/legal.html)は LGPL 2.1 以降を示している。
+## 疎通テストの内容
 
-実際に nupkg 内のバイナリを取り出し、`file` と `strings` でも以下を確認した。
+`tests/ReportDiff.Tests/DependencySmokeTests.cs` の 2 件を逐次実行する。
 
-| パッケージ内の資産 | 形式 | 確認内容 |
-|---|---|---|
-| `runtimes/osx-arm64/native/libOpenCvSharpExtern.dylib` | Mach-O arm64 | `FFMPEG: YES`、`libswscale license: LGPL version 2.1 or later` |
-| `runtimes/osx-x64/native/libOpenCvSharpExtern.dylib` | Mach-O x86_64 | `libswscale license: LGPL version 2.1 or later` |
-| `runtimes/win-x64/native/opencv_videoio_ffmpeg4130_64.dll` | PE32+ x86-64 | `libswscale license: LGPL version 2.1 or later` |
+1. SkiaSharp で 144 × 216 pt の白地に黒い矩形・赤い線を描いた PDF をメモリ上に作り、PDFtoImage で 300dpi にラスタライズする。600 × 900 px（許容 ±1px）、BGR 8bit 3 チャンネル、矩形中心の黒・余白の白・線の赤を確認した。ストリーム、画素ポインタ、ストライドを通じて変換し、ファイルパスをネイティブに渡していない。
+2. BGR → float32 → Lab の値域、Blur の平均値、Erode / Dilate の画素数、ConnectedComponents のラベル、WarpAffine の移動先を小配列で確認した。PNG・JPEG・BMP・TIFF のメモリ上の encode / decode も成功し、可逆形式は元の画素と一致した。ロードされたラッパーに動画 API がないことも確認した。
 
-Windows パッケージには `runtimes/win-x64/native/OpenCvSharpExtern.dll` も存在する。ただし、これはパッケージ内の確認であり、publish の成功や単一 exe への同梱を確認したものではない。
+## macOS ローカルランタイム
 
-調査した nupkg の SHA-256：
+再生成方法は [NATIVE_RUNTIME.md](../NATIVE_RUNTIME.md)。OpenCV 4.13.0 と OpenCvSharp コミット `b161e7e012f5101f6d5dc68a835c59db6cc88b18` を使用し、取得アーカイブの SHA-256 をスクリプトに固定した。
 
-```text
-OpenCvSharp4.runtime.osx.arm64 4.13.0.20260627
-485f8994f42130d76da122f4d02fba035d83f7e5586708cfef15a641a76302bf
+`core` / `imgproc` / `imgcodecs` のみを静的リンク。`WITH_FFMPEG=OFF`、`NO_VIDEOIO` などを指定し、FFmpeg と動画入出力を除外した。CMake の CPU 判定がビルドホストに引きずられないよう、キャッシュを初期化し、対象 CPU・アーキテクチャを指定している。
 
-OpenCvSharp4.runtime.osx.x64 4.13.0.20260627
-96ef2a4bbe3a66b458a974d952594edb365cee63b9875fd3a88716286fac8190
+| RID | dylib のサイズ | SHA-256 |
+|---|---:|---|
+| osx-arm64 | 8,980,712 bytes | `2af68d4767a44d916b641c0d99aa1bf2ea2478144a0c94caf49442fdaa1a1818` |
+| osx-x64 | 11,766,144 bytes | `5154b814e5eb12b5a8be9957055e1338773fd523909a5c4e4865b4c66428e791` |
 
-OpenCvSharp4.runtime.win 4.13.0.20260627
-907fc3f682b1d430ef47f6782fb2c78a8337ac9bed2e5e7f8f01b9585c42c830
+`lipo -archs` で arm64 / x86_64 を確認。`otool -L` のリンク先はライブラリ自身、AppKit、libc++、libSystem のみ。Homebrew のパスはなく、FFmpeg のシンボルと LGPL 表示も検出されなかった。
+
+生成 nupkg は `out/packages/ReportDiff.OpenCvSharp4.runtime.osx.4.13.0.20260627.nupkg`、7,805,508 bytes。SHA-256 は `5935d3792ae93e1f322abd23f5b495cdd0b5fefdb6b79828913ba684b415fb2d`。原文ライセンスと両 RID のネイティブ資産を同梱する。これらのバイナリは Git 管理対象外で、手順とソースの固定値を管理する。ビルド環境やパスが変わる場合、生成バイナリのハッシュが一致することまでは保証しない。
+
+## Windows publish
+
+実行したコマンド：
+
+```bash
+dotnet publish src/ReportDiff.Cli -c Release -r win-x64 --self-contained \
+  -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
+python3 tools/inspect-win-bundle.py \
+  src/ReportDiff.Cli/bin/Release/net10.0/win-x64/publish/reportdiff.exe
 ```
 
-`OpenCvSharp4.runtime.osx.arm64.slim` と `OpenCvSharp4.runtime.osx.x64.slim` の V3 バージョン一覧は HTTP 404 だった。この 2 つのパッケージ ID を指定して回避することはできなかった。他の配布元の全パッケージを調査したという意味ではない。
+- exe：`src/ReportDiff.Cli/bin/Release/net10.0/win-x64/publish/reportdiff.exe`
+- サイズ：**150,507,849 bytes（143.54 MiB）**
+- SHA-256：`f0fa88990bff68019f026db30c85e87ed826fd2a1db53b698029e5c9b07d3675`
+- バンドル形式 6.0、埋め込みファイル 185 件
+- FFmpeg の資産、macOS / Linux のネイティブ資産はバンドルに存在しない
 
-調査用の nupkg は一時ディレクトリに置いた。プロジェクトへの PackageReference 追加・ネイティブライブラリの取り込み・ランタイムの実行は行っていない。採用した依存がないため、`THIRD_PARTY_NOTICES.md` の表は空のまま。
+必須 DLL はファイル名の文字列検索だけでなく、バンドルのエントリから範囲を取り出し、PE の Machine 値が x64（0x8664）であること、元の NuGet 資産と SHA-256 が一致することを確認した。
 
-## 再開の選択肢
+| exe 内のネイティブライブラリ | サイズ | SHA-256 |
+|---|---:|---|
+| pdfium.dll | 7,220,736 bytes | `d3d9f4b7c9dabe3363f30779c5c3c715c47332749fa590e4b4a2b8b6780cb1c4` |
+| OpenCvSharpExtern.dll | 55,547,904 bytes | `1fa122bdb8e94175e7719fb8aa8f2ab211268a756f5d0c7a13c710ed79ae30cd` |
+| libSkiaSharp.dll | 12,254,048 bytes | `c8770c219e0d3cd9bb119fad46f2d00ae1855b11315816e86e909e3332826212` |
 
-1. **推奨：許可ライセンスの条件を維持し、FFmpeg を含まないランタイム構成を用意する。** Windows は公式 `OpenCvSharp4.runtime.win.slim` が候補。macOS は FFmpeg など不要なモジュールを無効にしたビルドまたは同等の配布物を検討する。独自ビルドの追加は現行タスクに明記されていないため、方針を確認してから行う。Windows slim を含め、最終的な構成の同梱ライブラリ確認と疎通確認は別途必要。
-2. **LGPL を許可する例外を明示する。** 例外の対象（macOS の開発・テスト用のみか、Windows 配布物も含むか）を決めてから、ライセンス条件・通知・配布方法を整理し、指定ランタイムによる T0-2 を再開する。
+publish ディレクトリには実行用 exe のほかデバッグ用 PDB が 5 個出力され、合計は 239,560,173 bytes。特に libSkiaSharp.pdb は 89,006,080 bytes。これらの PDB は実行に必要なサイドカー DLL ではない。
 
-方針決定後は T0-2 の依存追加から再開する。テスト 2 件、警告ゼロのビルド、Windows publish、配布サイズとネイティブ同梱の確認がすべて成功するまで完了チェックを付けない。T0-3 と Phase 1 は未着手。
+Windows slim の DLL にある `FFMPEG: YES` はリンク前の OpenCV 全体の構成文字列。そのまま FFmpeg 含有の根拠にはしない。DLL の import に FFmpeg はなく、`videoio_VideoCapture_new1`、`avcodec_`、`avformat_`、`libswscale license` も存在しなかった。一方、Media Foundation の import は残るため、Windows Server の実機確認項目は維持する。
+
+## 標準ランタイムを使わない理由
+
+公式 macOS 標準ランタイム 4.13.0.20260627 は FFmpeg を静的リンクし、Windows 標準版には FFmpeg DLL が含まれる。[上流の説明](https://www.nuget.org/packages/OpenCvSharp4.runtime.win/4.13.0.20260627)と実バイナリ中の LGPL 表示を確認済み。[FFmpeg のライセンス](https://ffmpeg.org/legal.html)を追加しない構成に切り替えた。
+
+## 受け入れの範囲と残件
+
+- macOS arm64 での依存疎通と、macOS 上からの Windows publish・バンドル静的検証を完了した。
+- Intel Mac はバイナリ生成・アーキテクチャ・リンク先まで確認。Intel Mac 上での 2 件のテスト実行は未実施。
+- Windows の起動・ネイティブ展開・日本語パス・Media Foundation 等は実機未確認。`TASKS.md` の確認リストを維持する。
+- Phase 1 の比較アルゴリズム・参照実装との一致・実帳票・完成版 CLI の受け入れには進んでいない。

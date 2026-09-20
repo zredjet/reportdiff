@@ -2,6 +2,18 @@
 
 帳票（PDF・画像）の画像比較ツール「ReportDiff」を、Claude Code に実装してもらうための一式。
 
+## 開発用ビルド
+
+macOS では初回に FFmpeg を含まないローカルランタイムを生成する。必要なツールと詳細は [ネイティブ依存の準備](docs/NATIVE_RUNTIME.md) を参照。
+
+```bash
+python3 tools/build-macos-runtime.py
+dotnet build
+dotnet test
+```
+
+現在は T0-2 の依存疎通確認まで完了。比較コマンドの機能は未実装。
+
 ## 中身
 
 | ファイル | 役割 |

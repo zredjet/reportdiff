@@ -4,6 +4,9 @@
     <AssemblyName>reportdiff</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="YamlDotNet" Version="18.1.0" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="../ReportDiff.Report/ReportDiff.Report.csproj" />
   </ItemGroup>
 </Project>

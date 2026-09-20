@@ -24,7 +24,7 @@
 
 確認済み（2026-09-20、macOS arm64、SDK 10.0.401）：`dotnet build` は警告 0・エラー 0、`dotnet test` は終了コード 0。テストケースとテストランナーの導入は T0-2 で行うため、この時点のテストは 0 件。サンドボックス内では `--disable-build-servers -m:1` を付けた実行でも成功。
 
-### [ ] T0-2 依存の疎通確認（最大のリスクなので最初に潰す）
+### [x] T0-2 依存の疎通確認（最大のリスクなので最初に潰す）
 
 - NuGet で実在と最新の安定版を確認してから追加：PDFtoImage、OpenCvSharp4、その Windows 用ランタイム、macOS 用ランタイム（Apple Silicon と Intel）。YamlDotNet、xUnit
 - テスト 1：SkiaSharp の `SKDocument.CreatePdf` で、白地に黒い矩形と赤い線だけの 1 ページ PDF をメモリ上に作る → PDFtoImage で 300dpi にラスタライズ → `Mat`（BGR 8bit）に変換 → 大きさと、矩形の中心・余白の画素の色を検証
@@ -36,7 +36,7 @@
 
 **T0-2 が終わったら、結果を報告して一度止まる。**
 
-調査で停止（2026-09-20）：公式 macOS ランタイムは Apple Silicon・Intel ともに存在するが、両方のネイティブバイナリに LGPL の FFmpeg が静的リンクされている。Windows 標準ランタイムにも FFmpeg DLL が含まれる。CLAUDE.md ルール 10 の許可ライセンスに含まれないため、依存追加前で停止した。詳細・確認した安定版・再開の選択肢は [T0-2 依存調査](verification/t0-2-dependencies.md) を参照。疎通テスト 2 件と Windows publish は未実施で、T0-2 は未完了。T0-3 以降は未着手。
+確認済み（2026-09-20）：承認された FFmpeg なしの構成を用意した。Windows は公式 slim、macOS は arm64 / x64 のローカルランタイムを生成。macOS arm64 でビルド警告 0・疎通テスト 2 / 2 成功。Windows publish が成功し、exe は 150,507,849 bytes（143.54 MiB）、内部に Windows x64 の pdfium / OpenCvSharpExtern / libSkiaSharp を確認した。詳細は [T0-2 確認結果](verification/t0-2-dependencies.md)、再生成方法は [ネイティブ依存の準備](NATIVE_RUNTIME.md)。Windows と Intel Mac 上の実行は未確認。T0-3 以降は未着手。
 
 ### [ ] T0-3 CI（任意）
 
@@ -115,6 +115,8 @@ SkiaSharp で 2 ページの PDF を新旧 2 つ作る（1 ページ目は同一
 ## Windows 確認リスト（人が実機で行う）
 
 - [ ] .NET を入れていない PC で exe が単体で動く
+- [ ] 単一 exe から pdfium / OpenCvSharpExtern / libSkiaSharp が展開・ロードされる（T0-2 はバンドル内の静的確認まで）
+- [ ] Windows 上で T0-2 の疎通テスト 2 件が成功する
 - [ ] 日本語・空白を含むパス、長いパスで動く
 - [ ] cmd と PowerShell で日本語のメッセージが化けない
 - [ ] フォント埋め込み済みの同じ PDF で、macOS と同じ `result.json`（クラスタ数と位置）になる

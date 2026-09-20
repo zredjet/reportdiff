@@ -366,6 +366,7 @@ C# 側のテストは 2 種類用意する。
 | 判断 | 理由 |
 |---|---|
 | C# / .NET | Windows に自己完結の単一 exe で配布でき、macOS 上でビルドできる。Python は PyInstaller がクロスビルドできず、exe が大きく誤検知されやすい |
+| FFmpeg を含まない OpenCvSharp ランタイム | Windows は公式 slim、macOS は core / imgproc / imgcodecs だけのローカルビルドを使う。標準ランタイムに含まれる FFmpeg を避けるため、2026-09-20 にこの方針を承認。比較アルゴリズムは変更しない |
 | PDFium（PDFtoImage） | MIT。Windows・macOS・Linux のネイティブを同梱。PyMuPDF / MuPDF は AGPL なので使わない |
 | looks-same から採ったもの | 知覚的な色空間（Lab）で比べること、完全一致を先に判定する高速化 |
 | looks-same から採らなかったもの | アンチエイリアス検出（直線には効かず、一段目の方式で代替できる）。矩形ベースのクラスタリング（表の外枠が変わると矩形が表全体を覆い、中の差分が埋もれる） |
