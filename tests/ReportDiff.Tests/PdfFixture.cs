@@ -58,6 +58,26 @@ internal static class PdfFixture
         return stream.ToArray();
     }
 
+    /// <summary>別クラスタになる移動と、同じクラスタに収まる移動を持つ合成 PDF。</summary>
+    public static byte[] CreateMovementReport(bool revised)
+    {
+        using var stream = new MemoryStream();
+        using (var document = SKDocument.CreatePdf(stream))
+        {
+            using var canvas = document.BeginPage(216, 216);
+            using var ink = new SKPaint { Color = SKColors.Black };
+            foreach (var (y, shift) in new[] { (36f, 12f), (84f, 6f) })
+            {
+                var x = 36 + (revised ? shift : 0);
+                canvas.DrawRect(x, y, 0.72f, 3.60f, ink);
+                canvas.DrawRect(x, y + 2.88f, 2.16f, 0.72f, ink);
+            }
+            document.EndPage();
+            document.Close();
+        }
+        return stream.ToArray();
+    }
+
     public static byte[] CreatePages(params (float Width, float Height)[] sizes)
     {
         using var stream = new MemoryStream();

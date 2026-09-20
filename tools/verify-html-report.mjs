@@ -39,7 +39,7 @@ try {
     }
     assert.equal(await page.locator('.page').count(), result.pages.length);
     assert.equal(await page.locator('.clusters tbody tr').count(), result.pages.reduce((sum, item) => sum + item.clusters.length, 0));
-    const kindLabels = { added: '追加（推定）', removed: '削除（推定）', changed: '変更', color_changed: '色変更（推定）' };
+    const kindLabels = { added: '追加（推定）', removed: '削除（推定）', changed: '変更', color_changed: '色変更（推定）', moved: '移動（推定）' };
     const kinds = result.pages.flatMap(item => item.clusters.map(cluster => kindLabels[cluster.kind] ?? cluster.kind ?? '未分類'));
     assert.deepEqual(await page.locator('.kind').allTextContents(), kinds);
     assert.ok((await page.locator('#pages').innerText()).includes('緑は A だけのインク'));
@@ -85,6 +85,25 @@ try {
       await viewer.locator(`button[data-src="${initialSource}"]`).click();
       assert.deepEqual(await page.locator('.page-image').evaluateAll(items => items.map(item => item.getAttribute('src'))), initialSources);
     }
+    for (const item of result.pages) {
+      for (const cluster of item.clusters.filter(cluster => cluster.kind === 'moved')) {
+        const row = page.locator(`#page-${item.page}-cluster-${cluster.id}`);
+        const { dx, dy } = cluster.shift_px;
+        if (dx) assert.ok((await row.innerText()).includes(`${dx > 0 ? '右' : '左'} ${Math.abs(dx)} px`));
+        if (dy) assert.ok((await row.innerText()).includes(`${dy > 0 ? '下' : '上'} ${Math.abs(dy)} px`));
+        assert.deepEqual(await row.locator('.movement a').allTextContents(), cluster.related_cluster_ids.map(String));
+      }
+    }
+    for (const link of await page.locator('.movement a').all()) {
+      const target = await link.getAttribute('href');
+      assert.equal(await page.locator(target).count(), 1);
+      await link.click();
+      assert.equal(await page.locator(target).evaluate(element => element.matches(':target')), true);
+      await link.focus();
+      await page.keyboard.press('Enter');
+      assert.equal(await page.locator(target).evaluate(element => element.matches(':target')), true);
+    }
+    await page.evaluate(() => history.replaceState(null, '', location.href.split('#')[0]));
     assert.deepEqual(await page.locator('.kind').evaluateAll(items => items.filter(item => {
       const rect = item.getBoundingClientRect();
       const cell = item.closest('th').getBoundingClientRect();

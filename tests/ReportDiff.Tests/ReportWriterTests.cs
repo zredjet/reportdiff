@@ -44,7 +44,7 @@ public sealed class ReportWriterTests
         Assert.Equal(new ReportTool("reportdiff", "0.1.0"), loaded.Tool);
         Assert.Equal(timestamp, loaded.GeneratedAt);
         Assert.Equal(result.Inputs, loaded.Inputs);
-        Keys(root.GetProperty("config"), "dpi", "image_dpi", "diff", "cluster", "exclude", "report");
+        Keys(root.GetProperty("config"), "dpi", "image_dpi", "diff", "cluster", "move", "exclude", "report");
         var clusterConfig = root.GetProperty("config").GetProperty("cluster");
         Keys(clusterConfig, "merge_x_mm", "merge_y_mm", "min_pixels", "max_clusters_per_page", "max_diff_ratio");
         Assert.Equal(settings.Diff, loaded.Config.Diff);
@@ -62,12 +62,14 @@ public sealed class ReportWriterTests
         Assert.Equal(81, page.RawPixels); Assert.Equal(1, page.NoiseDropped);
         var cluster = Assert.Single(page.Clusters);
         var clusterJson = root.GetProperty("pages")[0].GetProperty("clusters")[0];
-        Keys(clusterJson, "id", "bbox_px", "bbox_mm", "pixels", "fill_ratio", "kind", "shift_px", "text_a", "text_b", "crops");
+        Keys(clusterJson, "id", "bbox_px", "bbox_mm", "pixels", "fill_ratio", "kind", "shift_px", "text_a", "text_b", "crops", "related_cluster_ids");
         Assert.Equal(new PixelBox(20, 20, 10, 8), cluster.BboxPx);
         Assert.Equal(3.5277777777777777, cluster.BboxMm.X, 10);
         Assert.Equal(1.7638888888888888, cluster.BboxMm.W, 10);
         Assert.Equal(80, cluster.Pixels); Assert.Equal(1, cluster.FillRatio);
         Assert.Equal("added", clusterJson.GetProperty("kind").GetString());
+        Assert.Empty(cluster.RelatedClusterIds);
+        Assert.Equal(settings.Move, loaded.Config.Move);
         foreach (var key in new[] { "shift_px", "text_a", "text_b" }) Assert.Equal(JsonValueKind.Null, clusterJson.GetProperty(key).ValueKind);
         Assert.Equal("pages/p001_overlay.png", page.Images.Overlay);
         Assert.Equal("crops/p001_c001_diff.png", cluster.Crops.Diff);
@@ -304,7 +306,7 @@ public sealed class ReportWriterTests
         using var a = White(100, 80); using var b = White(100, 80);
         Cv2.Rectangle(a, new Rect(20, 20, 5, 8), Scalar.All(0), -1);
         Cv2.Rectangle(b, new Rect(30, 20, 5, 8), Scalar.All(0), -1);
-        var settings = Settings() with { Report = new() { CropMarginMm = 0 } };
+        var settings = Settings() with { Move = new() { SearchMm = 0 }, Report = new() { CropMarginMm = 0 } };
         using var pair = PageNormalizer.Normalize(a, b);
         using var comparison = PageComparer.Compare(pair.A, pair.B, settings.ForPage(1, 300));
         var writer = new ReportWriter(directory.Output, Inputs(), settings.ToReportConfiguration());

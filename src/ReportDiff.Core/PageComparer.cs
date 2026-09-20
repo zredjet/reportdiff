@@ -13,7 +13,7 @@ public static class PageComparer
         using var raw = TolerantDifference.Calculate(a, b, parameters, useGroupBounds, timings);
         var started = Stopwatch.GetTimestamp();
         var result = Cluster(raw, parameters, classify ? a : null, classify ? b : null, timings);
-        if (timings is not null) timings.ClusteringMs = Stopwatch.GetElapsedTime(started).TotalMilliseconds - timings.ClassificationMs;
+        if (timings is not null) timings.ClusteringMs = Stopwatch.GetElapsedTime(started).TotalMilliseconds - timings.ClassificationMs - timings.MovementMs;
         return result;
     }
 
@@ -106,6 +106,18 @@ public static class PageComparer
         {
             var clusters = accepted.Select((item, index) => item.Cluster with
                 { Id = index + 1, Kind = kinds?[item.Label] }).ToArray();
+            if (a is not null && b is not null && clusters.Length > 0 && parameters.Move.SearchMm > 0)
+            {
+                var started = Stopwatch.GetTimestamp();
+                var allocated = GC.GetAllocatedBytesForCurrentThread();
+                clusters = MovementAnnotator.Annotate(a, b, parameters, raw, labels,
+                    accepted.Select(item => item.Label).ToArray(), clusters);
+                if (timings is not null)
+                {
+                    timings.MovementMs = Stopwatch.GetElapsedTime(started).TotalMilliseconds;
+                    timings.MovementManagedBytes = GC.GetAllocatedBytesForCurrentThread() - allocated;
+                }
+            }
             return new(clusters.Length == 0 ? "same" : "different", clusters, rawPixels, dropped,
                 difference.AbsorbedGroups, difference.MaxShiftPx, MatBuffers.Mask(raw, width, height),
                 MatBuffers.Mask(labelMask, width, height), limited ? ["CLUSTER_LIMIT"] : [], removalMask);

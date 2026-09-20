@@ -12,6 +12,10 @@ cluster:
   min_pixels: 4
   max_clusters_per_page: 500
   max_diff_ratio: 0.30
+move:
+  search_mm: 5.0       # 各軸の探索距離。0 で移動の注釈を無効化
+  min_score: 0.98
+  min_score_gap: 0.02
 exclude: []
 # 除外する場合は上の exclude: [] を次のように置き換える。
 # exclude:

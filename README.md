@@ -2,7 +2,7 @@
 
 業務帳票の PDF・画像を比較し、相違を「箇所」単位で報告する CLI ツール。細かな描画差や許容範囲内の位置ずれを吸収し、変更部分の画像と JSON・オフライン HTML を出力する。
 
-実行対象は Windows x64。開発・検証環境は macOS Apple Silicon。Intel Mac は対象外。Phase 1 と T2-1（差分の分類）を実装済み。macOS では全 450 テストが成功している。Windows 向け publish・ZIP の静的検証は T1-12 時点のもの。完成版の Windows CI・実機確認は [確認リスト](docs/TASKS.md#windows-確認リスト人が実機で行う)に残る。
+実行対象は Windows x64。開発・検証環境は macOS Apple Silicon。Intel Mac は対象外。Phase 1、T2-1（差分の分類）、T2-2（移動の注釈）を実装済み。macOS では全 504 テストが成功している。Windows 向け publish・ZIP の静的検証は T1-12 時点のもの。完成版の Windows CI・実機確認は [確認リスト](docs/TASKS.md#windows-確認リスト人が実機で行う)に残る。
 
 ## Windows で使う
 
@@ -44,6 +44,17 @@ cmd でも `reportdiff.exe compare "帳票 旧.pdf" "帳票 新.pdf" --out "比�
 HTML では A / B / 重ね描きを切り替え、変更位置（mm）・分類・切り出しを確認できる。レポートを移動するときは出力フォルダごとコピーする。相違のないページの PNG は既定で保存しない。
 
 分類は A→B のインクの有無に基づく「追加（推定）」「削除（推定）」「色変更（推定）」「変更」。切り出しの緑は A だけのインク、赤はその他の差分を示す。背景や塗り、形状が明確でない差は「変更」に残すため、業務上の意味や文字の内容を断定する分類ではない。JSON の `kind` にも記録する。[分類の仕様](docs/SPEC.md#111-追加削除変更の分類t2-1)を参照。
+
+近くへの移動を一意に確認できた箇所には「移動（推定）」を付け、A→B の方向・px 数・関連箇所へのリンクを表示する。移動元と移動先が別クラスタでも、番号・検出数はそのまま残る。コピーや反復、移動元に別の変更が残る場合などは、元の分類を維持する。移動も相違として扱う。
+
+```yaml
+move:
+  search_mm: 5.0       # 各軸の探索距離（0〜20mm）。0 で移動の注釈を無効化
+  min_score: 0.98
+  min_score_gap: 0.02
+```
+
+JSON では `kind: moved`、`shift_px: {dx, dy}`（右・下が正）、`related_cluster_ids` に記録する。クラスタ数は移動操作の件数ではない。サブピクセル・回転・拡縮、複合箇所の一部だけの移動は対象外。画像端や単純な長い線、薄い塗りも推定されないことがある。[移動の仕様](docs/SPEC.md#112-移動の注釈t2-2)を参照。
 
 ### オプション
 
@@ -96,7 +107,7 @@ report:
 
 小さい文字が多い帳票は 400dpi を検討する。200dpi 以下では「未／末」「ば／ぱ」などを安定して検出できない。細い線の微妙な濃淡差や 1px 以内の長さの変化は通常設定で吸収される場合がある。行の挿入で下がずれると、それ以降がまとめて差分になる。[既知の限界の一覧](docs/SPEC.md#56-既知の限界仕様)を確認する。
 
-フォントを埋め込んでいない PDF は OS の代替フォントにより描画が変わる。A と B は同じマシンの同じ実行で比較する。PDF のパスワード指定、文字認識、移動判定、全体の位置補正、フォルダ一括比較は現在の対象外。[入力仕様](docs/SPEC.md#4-入力の正規化)と [今後の範囲](docs/SPEC.md#11-phase-2-以降の仕様の概要)を参照。
+フォントを埋め込んでいない PDF は OS の代替フォントにより描画が変わる。A と B は同じマシンの同じ実行で比較する。PDF のパスワード指定、文字認識、全体の位置補正、フォルダ一括比較は現在の対象外。[入力仕様](docs/SPEC.md#4-入力の正規化)と [今後の範囲](docs/SPEC.md#11-phase-2-以降の仕様の概要)を参照。
 
 ## ソースから実行・ビルドする
 
@@ -119,11 +130,12 @@ Windows では macOS ランタイムの生成は不要。復元前にローカ�
 
 - [SPEC](docs/SPEC.md)：アルゴリズム・設定・入出力の正本
 - [TASKS](docs/TASKS.md)：完了範囲と Windows 実機確認リスト
+- [T2-2 の検証記録](docs/verification/t2-2-movement.md)：移動量・関連 ID・誤判定防止・PDF 結合・多数候補の計測
 - [T2-1 の検証記録](docs/verification/t2-1-classification.md)：分類・切り出し・PDF 結合・ブラウザ・時間とメモリ
 - [T1-12 の検証記録](docs/verification/t1-12-distribution.md)：publish・バンドル・配布 ZIP の確認結果
 - `CLAUDE.md`：開発ルール。`reference/prototype.py` と `reference/golden/`：比較結果の参照実装と 37 ケース
 - [サードパーティ通知](THIRD_PARTY_NOTICES.md)：依存一覧と同梱ライセンス。配布時は `licenses/` を含めて保持する
 
-[GitHub Actions](https://github.com/zredjet/reportdiff/actions/workflows/ci.yml) は Windows x64 / macOS Apple Silicon でビルドとテストを実行する。リモートで確認済みなのは [T0-3](docs/verification/t0-3-ci.md) 時点の疎通 2 件。T2-1 までの全 450 件はローカル macOS で検証済みで、Windows の追加テスト・完成版 exe の実行・Edge / Chrome 表示は未確認。
+[GitHub Actions](https://github.com/zredjet/reportdiff/actions/workflows/ci.yml) は Windows x64 / macOS Apple Silicon でビルドとテストを実行する。リモートで確認済みなのは [T0-3](docs/verification/t0-3-ci.md) 時点の疎通 2 件。T2-2 までの全 504 件はローカル macOS で検証済みで、Windows の追加テスト・完成版 exe の実行・Edge / Chrome 表示は未確認。
 
 実帳票は `samples/private/` に置き、Git に含めない。テストには合成データだけを使う。

@@ -133,6 +133,66 @@ public sealed class PdfCliIntegrationTests
         Assert.True(JsonNode.DeepEquals(JsonNode.Parse(embedded.Groups[1].Value), JsonSerializer.SerializeToNode(report, ReportJson.Options)));
     }
 
+    [Theory]
+    [InlineData(false, false)]
+    [InlineData(true, false)]
+    [InlineData(false, true)]
+    [InlineData(true, true)]
+    public async Task MovementPdfProducesVectorsRelatedIdsAndStableDetection(bool reverse, bool disabled)
+    {
+        using var directory = new ReportTestDirectory();
+        var a = Path.Combine(directory.Root, "移動 旧.pdf");
+        var b = Path.Combine(directory.Root, "移動 新.pdf");
+        var config = Path.Combine(directory.Root, "移動 設定.yaml");
+        File.WriteAllBytes(a, PdfFixture.CreateMovementReport(reverse));
+        File.WriteAllBytes(b, PdfFixture.CreateMovementReport(!reverse));
+        File.WriteAllText(config, $"move: {{search_mm: {(disabled ? 0 : 5)}}}");
+        var result = await CliProcess.Run("compare", a, b, "--out", directory.Output, "--config", config);
+        Assert.Equal(1, result.Code); Assert.Empty(result.Error);
+        var report = JsonSerializer.Deserialize<ReportDocument>(File.ReadAllBytes(Path.Combine(directory.Output, "result.json")), ReportJson.Options)!;
+        var page = Assert.Single(report.Pages);
+        Assert.Equal("different", report.Summary.Status);
+        Assert.Equal(3, report.Summary.Clusters);
+        Assert.Equal(disabled ? 0 : 5, report.Config.Move.SearchMm);
+        var sign = reverse ? -1 : 1;
+        for (var i = 0; i < page.Clusters.Count; i++)
+        {
+            var cluster = page.Clusters[i];
+            Assert.Null(cluster.TextA); Assert.Null(cluster.TextB);
+            if (disabled)
+            {
+                Assert.NotEqual("moved", cluster.Kind); Assert.Null(cluster.ShiftPx); Assert.Empty(cluster.RelatedClusterIds);
+            }
+            else
+            {
+                Assert.Equal("moved", cluster.Kind);
+                Assert.Equal(new PixelShift((i < 2 ? 50 : 25) * sign, 0), cluster.ShiftPx);
+                Assert.Equal(i < 2 ? new[] { i == 0 ? 2 : 1 } : [], cluster.RelatedClusterIds);
+            }
+        }
+        var html = File.ReadAllText(Path.Combine(directory.Output, "report.html"));
+        if (!disabled)
+        {
+            Assert.Contains($"{(reverse ? "左" : "右")} 50 px", html);
+            Assert.Contains("href=\"#page-1-cluster-2\">2</a>", html);
+            Assert.Contains("href=\"#page-1-cluster-1\">1</a>", html);
+        }
+        Assert.DoesNotContain("http://", html); Assert.DoesNotContain("https://", html);
+        var embedded = Regex.Match(html, "<script type=\"application/json\" id=\"result\">(.*?)</script>", RegexOptions.Singleline);
+        Assert.True(JsonNode.DeepEquals(JsonNode.Parse(embedded.Groups[1].Value), JsonSerializer.SerializeToNode(report, ReportJson.Options)));
+        // 色と画素数も実プロセスの出力まで通す。移動注釈で緑／赤の意味を変えない。
+        var pairColors = new[] { new Vec3b(0, 255, 0), new Vec3b(0, 0, 255) };
+        if (reverse) Array.Reverse(pairColors);
+        for (var i = 0; i < 2; i++)
+        {
+            using var image = directory.Read(page.Clusters[i].Crops.Diff);
+            using var selected = new Mat();
+            var color = pairColors[i];
+            Cv2.InRange(image, new Scalar(color.Item0, color.Item1, color.Item2), new Scalar(color.Item0, color.Item1, color.Item2), selected);
+            Assert.True(Cv2.CountNonZero(selected) > 10);
+        }
+    }
+
     private static void AssertInputs(ReportDocument report, string a, string b)
     {
         Assert.Equal("pdf", report.Inputs.A.Type); Assert.Equal("pdf", report.Inputs.B.Type);

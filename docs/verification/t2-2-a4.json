@@ -1,0 +1,202 @@
+{
+  "generated_at": "2026-09-21T02:51:46.501907+09:00",
+  "os": "macOS 26.5.1",
+  "architecture": "Arm64",
+  "dotnet_runtime": "10.0.12",
+  "cpu_count": 16,
+  "width": 2480,
+  "height": 3508,
+  "dpi": 300,
+  "glyphs": 600,
+  "validation_runs_per_scenario": 2,
+  "memory_note": "ClassificationManagedBytes / MovementManagedBytes は分類／移動注釈のスレッド別マネージド割当量。RetainedRemovalMaskBytes は保持するネイティブ削除マスクのみで、一時 Mat やプロセスのピークを含まない。",
+  "results_equal": true,
+  "measurements": [
+    {
+      "scenario": "完全一致",
+      "strategy": "full_page",
+      "classification": true,
+      "movement": true,
+      "iterations": 3,
+      "total_ms": [
+        5.6737,
+        6.6685,
+        4.5543
+      ],
+      "median_ms": 5.6737,
+      "stages_at_median_ms": {
+        "PreparationMs": 1.2614,
+        "CandidatesMs": 0,
+        "GroupingMs": 0,
+        "ShiftsMs": 0,
+        "ClusteringMs": 4.274,
+        "ClassificationMs": 0,
+        "MovementMs": 0
+      },
+      "classification_managed_bytes": 0,
+      "movement_managed_bytes": 0,
+      "retained_removal_mask_bytes": 0,
+      "status": "same",
+      "clusters": 0,
+      "moved_clusters": 0,
+      "raw_pixels": 0,
+      "absorbed_groups": 0,
+      "max_shift_px": 0
+    },
+    {
+      "scenario": "完全一致",
+      "strategy": "group_bounds",
+      "classification": true,
+      "movement": true,
+      "iterations": 3,
+      "total_ms": [
+        4.6411,
+        4.6047,
+        4.8455
+      ],
+      "median_ms": 4.6411,
+      "stages_at_median_ms": {
+        "PreparationMs": 1.1473,
+        "CandidatesMs": 0,
+        "GroupingMs": 0,
+        "ShiftsMs": 0,
+        "ClusteringMs": 3.4545,
+        "ClassificationMs": 0,
+        "MovementMs": 0
+      },
+      "classification_managed_bytes": 0,
+      "movement_managed_bytes": 0,
+      "retained_removal_mask_bytes": 0,
+      "status": "same",
+      "clusters": 0,
+      "moved_clusters": 0,
+      "raw_pixels": 0,
+      "absorbed_groups": 0,
+      "max_shift_px": 0
+    },
+    {
+      "scenario": "1 か所変更",
+      "strategy": "full_page",
+      "classification": true,
+      "movement": true,
+      "iterations": 3,
+      "total_ms": [
+        1050.3302,
+        1118.9237,
+        1064.5736
+      ],
+      "median_ms": 1064.5736,
+      "stages_at_median_ms": {
+        "PreparationMs": 96.3282,
+        "CandidatesMs": 35.252,
+        "GroupingMs": 57.8555,
+        "ShiftsMs": 853.3342,
+        "ClusteringMs": 19.6764,
+        "ClassificationMs": 0.8028,
+        "MovementMs": 0.9855
+      },
+      "classification_managed_bytes": 8715928,
+      "movement_managed_bytes": 61528,
+      "retained_removal_mask_bytes": 8699840,
+      "status": "different",
+      "clusters": 1,
+      "moved_clusters": 0,
+      "raw_pixels": 204,
+      "absorbed_groups": 0,
+      "max_shift_px": 0
+    },
+    {
+      "scenario": "1 か所変更",
+      "strategy": "group_bounds",
+      "classification": true,
+      "movement": true,
+      "iterations": 3,
+      "total_ms": [
+        222.6696,
+        220.0762,
+        227.2007
+      ],
+      "median_ms": 222.6696,
+      "stages_at_median_ms": {
+        "PreparationMs": 99.832,
+        "CandidatesMs": 37.2571,
+        "GroupingMs": 56.7011,
+        "ShiftsMs": 3.809,
+        "ClusteringMs": 21.4256,
+        "ClassificationMs": 1.9354,
+        "MovementMs": 1.3888
+      },
+      "classification_managed_bytes": 8715928,
+      "movement_managed_bytes": 61528,
+      "retained_removal_mask_bytes": 8699840,
+      "status": "different",
+      "clusters": 1,
+      "moved_clusters": 0,
+      "raw_pixels": 204,
+      "absorbed_groups": 0,
+      "max_shift_px": 0
+    },
+    {
+      "scenario": "1 か所変更＋全体 1px ずれ",
+      "strategy": "full_page",
+      "classification": true,
+      "movement": true,
+      "iterations": 3,
+      "total_ms": [
+        1062.3339,
+        1063.402,
+        1070.8051
+      ],
+      "median_ms": 1063.402,
+      "stages_at_median_ms": {
+        "PreparationMs": 98.3328,
+        "CandidatesMs": 35.0404,
+        "GroupingMs": 59.8726,
+        "ShiftsMs": 848.0315,
+        "ClusteringMs": 20.2657,
+        "ClassificationMs": 0.8357,
+        "MovementMs": 0.9815
+      },
+      "classification_managed_bytes": 8715928,
+      "movement_managed_bytes": 61528,
+      "retained_removal_mask_bytes": 8699840,
+      "status": "different",
+      "clusters": 1,
+      "moved_clusters": 0,
+      "raw_pixels": 204,
+      "absorbed_groups": 599,
+      "max_shift_px": 1
+    },
+    {
+      "scenario": "1 か所変更＋全体 1px ずれ",
+      "strategy": "group_bounds",
+      "classification": true,
+      "movement": true,
+      "iterations": 3,
+      "total_ms": [
+        235.0932,
+        235.8615,
+        236.0992
+      ],
+      "median_ms": 235.8615,
+      "stages_at_median_ms": {
+        "PreparationMs": 100.1207,
+        "CandidatesMs": 36.5524,
+        "GroupingMs": 59.12,
+        "ShiftsMs": 17.222,
+        "ClusteringMs": 20.958299999999998,
+        "ClassificationMs": 0.8977,
+        "MovementMs": 0.9537
+      },
+      "classification_managed_bytes": 8715928,
+      "movement_managed_bytes": 61528,
+      "retained_removal_mask_bytes": 8699840,
+      "status": "different",
+      "clusters": 1,
+      "moved_clusters": 0,
+      "raw_pixels": 204,
+      "absorbed_groups": 599,
+      "max_shift_px": 1
+    }
+  ]
+}

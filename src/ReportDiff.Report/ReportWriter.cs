@@ -84,7 +84,9 @@ public sealed class ReportWriter
                 clusters.Add(new(cluster.Id, new(bounds.X, bounds.Y, bounds.Width, bounds.Height),
                     new(Units.PixelsToMm(bounds.X, dpi), Units.PixelsToMm(bounds.Y, dpi),
                         Units.PixelsToMm(bounds.Width, dpi), Units.PixelsToMm(bounds.Height, dpi)),
-                    cluster.Pixels, cluster.FillRatio, cluster.Kind, null, null, null, crops));
+                    cluster.Pixels, cluster.FillRatio, cluster.Kind,
+                    cluster.ShiftPx is { } shift ? new PixelShift(shift.Dx, shift.Dy) : null, null, null, crops)
+                    { RelatedClusterIds = Array.AsReadOnly(cluster.RelatedClusterIds.ToArray()) });
             }
         });
         var result = new ReportPage(page, comparison.Status, new(size.Width, size.Height), images.SizeMismatch,

@@ -52,6 +52,7 @@ public sealed class HtmlReportTests
     [InlineData("removed", "削除（推定）")]
     [InlineData("color_changed", "色変更（推定）")]
     [InlineData("changed", "変更")]
+    [InlineData("moved", "移動（推定）")]
     [InlineData(null, "未分類")]
     public void ClassificationLabelsAndLegendExplainColors(string? kind, string label)
     {
@@ -62,6 +63,27 @@ public sealed class HtmlReportTests
         Assert.Contains("緑は A だけのインク", html);
         Assert.Contains("赤は B だけ・両方のインクやその他の差分", html);
         Assert.Contains("背景・塗りや判定が明確でない差は「変更」", html);
+        AssertEmbeddedReport(report, html);
+    }
+
+    [Theory]
+    [InlineData(59, -24, "右 59 px、上 24 px")]
+    [InlineData(-59, 24, "左 59 px、下 24 px")]
+    [InlineData(0, 24, "下 24 px")]
+    [InlineData(-59, 0, "左 59 px")]
+    public void MovementShowsDirectionAndLinksOnlyToRelatedClusters(int dx, int dy, string direction)
+    {
+        var report = Example();
+        var first = report.Pages[0].Clusters[0] with { Kind = "moved", ShiftPx = new(dx, dy), RelatedClusterIds = [1, 2, 2, 999] };
+        var second = first with { Id = 2, RelatedClusterIds = [1] };
+        report = report with { Pages = [report.Pages[0] with { Clusters = [first, second] }] };
+        var html = HtmlReportWriter.Render(report);
+        Assert.Contains($"<span class=\"movement\">{direction}</span>", html);
+        Assert.Contains("href=\"#page-1-cluster-2\">2</a>", html);
+        Assert.Contains("id=\"page-1-cluster-2\"", html);
+        Assert.DoesNotContain("href=\"#page-1-cluster-999\"", html);
+        Assert.Contains("向きは A→B", html);
+        Assert.Contains("移動の探索距離（各軸）", html);
         AssertEmbeddedReport(report, html);
     }
 

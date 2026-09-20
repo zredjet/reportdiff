@@ -16,6 +16,7 @@ public sealed class ConfigurationTests
         Assert.Equal(3, p.Cluster.MergeXMm); Assert.Equal(1, p.Cluster.MergeYMm);
         Assert.Equal(4, p.Cluster.MinPixels); Assert.Equal(500, p.Cluster.MaxClustersPerPage);
         Assert.Equal(0.30, p.Cluster.MaxDiffRatio);
+        Assert.Equal(new MoveOptions(), p.Move);
         Assert.Equal(2, p.Report.CropMarginMm); Assert.Empty(p.Exclude);
     }
 
@@ -61,6 +62,36 @@ public sealed class ConfigurationTests
     {
         var error = Assert.Throws<ConfigurationException>(() => ConfigurationLoader.Load(yaml));
         Assert.Contains("設定", error.Message); Assert.Contains(field, error.Message);
+    }
+
+    [Theory]
+    [InlineData("move: {search_mm: -1}", "move.search_mm")]
+    [InlineData("move: {search_mm: 20.01}", "move.search_mm")]
+    [InlineData("move: {search_mm: NaN}", "move.search_mm")]
+    [InlineData("move: {min_score: 0}", "move.min_score")]
+    [InlineData("move: {min_score: 1.01}", "move.min_score")]
+    [InlineData("move: {min_score: .inf}", "move.min_score")]
+    [InlineData("move: {min_score_gap: 0}", "move.min_score_gap")]
+    [InlineData("move: {min_score_gap: -0.1}", "move.min_score_gap")]
+    [InlineData("move: {min_score_gap: 1.01}", "move.min_score_gap")]
+    [InlineData("move: {min_score_gap: NaN}", "move.min_score_gap")]
+    [InlineData("move: {search_px: 10}", "move.search_px")]
+    public void InvalidMovementSettingsAreRejected(string yaml, string field)
+    {
+        Assert.Contains(field, Assert.Throws<ConfigurationException>(() => ConfigurationLoader.Load(yaml)).Message);
+    }
+
+    [Theory]
+    [InlineData("normal")]
+    [InlineData("strict")]
+    [InlineData("loose")]
+    public void MovementSettingsReachCoreAndReportWithoutProfileOverride(string profile)
+    {
+        var settings = ConfigurationLoader.Load("move: {search_mm: 20, min_score: 1, min_score_gap: 1}", profile, 400);
+        Assert.Equal(new MoveOptions { SearchMm = 20, MinScore = 1, MinScoreGap = 1 }, settings.Move);
+        Assert.Equal(settings.Move, settings.ForPage(1, 400).Move);
+        Assert.Equal(settings.Move, settings.ToReportConfiguration().Move);
+        Assert.Equal(0, ConfigurationLoader.Load("move: {search_mm: 0}", profile).Move.SearchMm);
     }
 
     [Theory]

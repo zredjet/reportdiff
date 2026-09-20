@@ -74,7 +74,7 @@ public static partial class HtmlReportWriter
         }
         html.Append("</section>");
         AppendSettings(html, report.Config);
-        html.Append("<section id=\"pages\" aria-labelledby=\"pages-title\"><h2 id=\"pages-title\">ページ別の結果</h2><p class=\"muted\">重ね描きの赤は差分・輪郭・番号、黄色は除外領域です。画像を選ぶと元の大きさで開きます。</p><p class=\"muted\">分類は A→B のインクの有無からの推定です。背景・塗りや判定が明確でない差は「変更」とします。切り出しの緑は A だけのインク、赤は B だけ・両方のインクやその他の差分です。</p>");
+        html.Append("<section id=\"pages\" aria-labelledby=\"pages-title\"><h2 id=\"pages-title\">ページ別の結果</h2><p class=\"muted\">重ね描きの赤は差分・輪郭・番号、黄色は除外領域です。画像を選ぶと元の大きさで開きます。</p><p class=\"muted\">追加・削除などの分類は A→B のインクの有無からの推定です。背景・塗りや判定が明確でない差は「変更」とします。「移動（推定）」は位置を変えると内容が一致し、対応が一意と判断できた箇所です。移動の向きは A→B です。移動も相違として数えます。切り出しの緑は A だけのインク、赤は B だけ・両方のインクやその他の差分です。</p>");
         foreach (var page in report.Pages) AppendPage(html, page);
         html.Append("</section><footer>ReportDiff · オフライン比較レポート</footer></main>");
         // HTML の終了タグとして解釈されない既定エンコーダを使用する。スラッシュも符号化し、URL のリテラルを残さない。
@@ -100,6 +100,9 @@ public static partial class HtmlReportWriter
         html.Append(Metric("クラスタの最小画素数", config.Cluster.MinPixels));
         html.Append(Metric("ページのクラスタ数上限", config.Cluster.MaxClustersPerPage));
         html.Append(Metric("差分の割合の上限", N(config.Cluster.MaxDiffRatio)));
+        html.Append(Metric("移動の探索距離（各軸）", $"{N(config.Move.SearchMm)} mm"));
+        html.Append(Metric("移動の一致度の下限", N(config.Move.MinScore)));
+        html.Append(Metric("移動候補の次点との差", N(config.Move.MinScoreGap)));
         html.Append(Metric("切り出し画像の余白", $"{N(config.Report.CropMarginMm)} mm"));
         html.Append("</dl><h3>除外領域</h3>");
         if (config.Exclude.Count == 0) html.Append("<p>除外領域はありません。</p>");
@@ -132,7 +135,7 @@ public static partial class HtmlReportWriter
             foreach (var cluster in page.Clusters)
             {
                 var box = cluster.BboxMm;
-                html.Append($"<tr><th scope=\"row\">{cluster.Id}<br><span class=\"kind\">{Kind(cluster.Kind)}</span></th><td class=\"bounds\">X {Mm(box.X)} · Y {Mm(box.Y)}<br>幅 {Mm(box.W)} × 高さ {Mm(box.H)}</td><td>{cluster.Pixels}</td>");
+                html.Append($"<tr id=\"page-{page.Page}-cluster-{cluster.Id}\"><th scope=\"row\">{cluster.Id}<br><span class=\"kind\">{Kind(cluster.Kind)}</span>{Movement(page, cluster)}</th><td class=\"bounds\">X {Mm(box.X)} · Y {Mm(box.Y)}<br>幅 {Mm(box.W)} × 高さ {Mm(box.H)}</td><td>{cluster.Pixels}</td>");
                 AppendCrop(html, cluster.Crops.A, $"{page.Page} ページ・相違 {cluster.Id}・A の切り出し");
                 AppendCrop(html, cluster.Crops.B, $"{page.Page} ページ・相違 {cluster.Id}・B の切り出し");
                 AppendCrop(html, cluster.Crops.Diff, $"{page.Page} ページ・相違 {cluster.Id}・差分の切り出し");
@@ -174,12 +177,30 @@ public static partial class HtmlReportWriter
         html.Append($"<td><a href=\"{path}\"><img class=\"crop\" src=\"{path}\" alt=\"{H(alt)}\" loading=\"lazy\"></a></td>");
     }
 
+    private static string Movement(ReportPage page, ReportCluster cluster)
+    {
+        if (cluster.Kind != "moved" || cluster.ShiftPx is not { } shift) return "";
+        var directions = new List<string>();
+        if (shift.Dx != 0) directions.Add($"{(shift.Dx > 0 ? "右" : "左")} {Math.Abs((long)shift.Dx)} px");
+        if (shift.Dy != 0) directions.Add($"{(shift.Dy > 0 ? "下" : "上")} {Math.Abs((long)shift.Dy)} px");
+        var html = new StringBuilder($"<span class=\"movement\">{string.Join("、", directions)}</span>");
+        var related = cluster.RelatedClusterIds.Where(id => id != cluster.Id && page.Clusters.Any(c => c.Id == id)).Distinct().Order().ToArray();
+        if (related.Length > 0)
+        {
+            html.Append("<span class=\"movement\">関連：");
+            html.Append(string.Join("、", related.Select(id => $"<a href=\"#page-{page.Page}-cluster-{id}\">{id}</a>")));
+            html.Append("</span>");
+        }
+        return html.ToString();
+    }
+
     private static string Kind(string? kind) => kind switch
     {
         "added" => "追加（推定）",
         "removed" => "削除（推定）",
         "color_changed" => "色変更（推定）",
         "changed" => "変更",
+        "moved" => "移動（推定）",
         null => "未分類",
         _ => H(kind)
     };

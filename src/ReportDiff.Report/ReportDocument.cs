@@ -33,13 +33,19 @@ public sealed record PixelShift(int Dx, int Dy);
 public sealed record PageImages(string? A, string? B, string? Overlay);
 public sealed record ClusterCrops(string A, string B, string Diff);
 public sealed record ReportCluster(int Id, PixelBox BboxPx, MillimeterBox BboxMm, int Pixels, double FillRatio,
-    string? Kind, PixelShift? ShiftPx, string? TextA, string? TextB, ClusterCrops Crops);
+    string? Kind, PixelShift? ShiftPx, string? TextA, string? TextB, ClusterCrops Crops)
+{
+    public IReadOnlyList<int> RelatedClusterIds { get; init; } = [];
+}
 public sealed record ReportPage(int Page, string Status, PixelSize SizePx, bool SizeMismatch, int RawPixels,
     int NoiseDropped, int AbsorbedGroups, int MaxShiftPx, PageImages Images, IReadOnlyList<ReportCluster> Clusters);
 
 // CLI への逆参照を作らず、設定の実効値を出力用の型で受け取る。
 public sealed record ReportConfiguration(int Dpi, int ImageDpi, DiffOptions Diff, ClusterOptions Cluster,
-    IReadOnlyList<ReportExclusion> Exclude, ReportOutputOptions Report);
+    IReadOnlyList<ReportExclusion> Exclude, ReportOutputOptions Report)
+{
+    public MoveOptions Move { get; init; } = new();
+}
 public sealed record ReportOutputOptions(double CropMarginMm);
 public sealed record ReportExclusion(
     [property: JsonConverter(typeof(ExclusionPageConverter))] int? Page,

@@ -48,7 +48,10 @@ public sealed class OptimizationTests
         Assert.Equal(baseline.AbsorbedGroups, optimized.AbsorbedGroups);
         Assert.Equal(baseline.MaxShiftPx, optimized.MaxShiftPx);
         Assert.Equal(baseline.NoiseDropped, optimized.NoiseDropped);
-        Assert.Equal(baseline.Clusters, optimized.Clusters);
+        Assert.Equal(baseline.Clusters.Select(c => c with { RelatedClusterIds = [] }),
+            optimized.Clusters.Select(c => c with { RelatedClusterIds = [] }));
+        for (var i = 0; i < baseline.Clusters.Count; i++)
+            Assert.Equal(baseline.Clusters[i].RelatedClusterIds, optimized.Clusters[i].RelatedClusterIds);
         Assert.Equal(baseline.RemovalMask is null, optimized.RemovalMask is null);
         if (baseline.RemovalMask is not null)
             Assert.Equal(0, Cv2.Norm(baseline.RemovalMask, optimized.RemovalMask!, NormTypes.INF));

@@ -44,7 +44,7 @@ public sealed class DifferenceClassificationTests
         // 一つのクラスタに追加・削除を混在させる。
         Cv2.Rectangle(a, new Rect(80, 140, 6, 8), Scalar.All(0), -1);
         Cv2.Rectangle(b, new Rect(90, 140, 6, 8), Scalar.All(0), -1);
-        var p = new ComparisonParameters { Dpi = dpi, Diff = new() { MaxShiftMm = 0, EdgeTolerance = edge } };
+        var p = new ComparisonParameters { Move = new() { SearchMm = 0 }, Dpi = dpi, Diff = new() { MaxShiftMm = 0, EdgeTolerance = edge } };
         using var result = PageComparer.Compare(a, b, p);
         Assert.Equal(new[] { "added", "color_changed", "changed", "removed" }, result.Clusters.Select(c => c.Kind));
         Assert.NotNull(result.RemovalMask);

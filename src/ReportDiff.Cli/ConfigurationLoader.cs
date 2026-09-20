@@ -19,7 +19,7 @@ public static class ConfigurationLoader
                 stream.Load(new StringReader(yaml));
                 if (stream.Documents.Count != 1)
                     throw Error("設定ファイル", "YAML ドキュメントは 1 個にしてください");
-                var root = Mapping(stream.Documents[0].RootNode, "", "dpi", "image_dpi", "diff", "cluster", "exclude", "report");
+                var root = Mapping(stream.Documents[0].RootNode, "", "dpi", "image_dpi", "diff", "cluster", "move", "exclude", "report");
                 if (root.TryGetValue("dpi", out var node)) settings = settings with { Dpi = Integer(node, "dpi") };
                 if (root.TryGetValue("image_dpi", out node)) imageDpi = Integer(node, "image_dpi");
                 if (root.TryGetValue("diff", out node))
@@ -42,6 +42,16 @@ public static class ConfigurationLoader
                         MinPixels = values.TryGetValue("min_pixels", out var min) ? Integer(min, "cluster.min_pixels") : 4,
                         MaxClustersPerPage = values.TryGetValue("max_clusters_per_page", out var max) ? Integer(max, "cluster.max_clusters_per_page") : 500,
                         MaxDiffRatio = Number(values, "max_diff_ratio", "cluster", 0.30)
+                    }};
+                }
+                if (root.TryGetValue("move", out node))
+                {
+                    var values = Mapping(node, "move", "search_mm", "min_score", "min_score_gap");
+                    settings = settings with { Move = new MoveOptions
+                    {
+                        SearchMm = Number(values, "search_mm", "move", 5),
+                        MinScore = Number(values, "min_score", "move", 0.98),
+                        MinScoreGap = Number(values, "min_score_gap", "move", 0.02)
                     }};
                 }
                 if (root.TryGetValue("report", out node))
@@ -133,6 +143,12 @@ public static class ConfigurationLoader
         if (settings.Cluster.MinPixels < 1) throw Error("cluster.min_pixels", "1 以上にしてください");
         if (settings.Cluster.MaxClustersPerPage < 1) throw Error("cluster.max_clusters_per_page", "1 以上にしてください");
         if (settings.Cluster.MaxDiffRatio is <= 0 or > 1) throw Error("cluster.max_diff_ratio", "0 より大きく 1 以下にしてください");
+        if (!double.IsFinite(settings.Move.SearchMm) || settings.Move.SearchMm is < 0 or > 20)
+            throw Error("move.search_mm", "0〜20mm にしてください（0 は移動注釈を無効化）");
+        if (!double.IsFinite(settings.Move.MinScore) || settings.Move.MinScore is <= 0 or > 1)
+            throw Error("move.min_score", "0 より大きく 1 以下にしてください");
+        if (!double.IsFinite(settings.Move.MinScoreGap) || settings.Move.MinScoreGap is <= 0 or > 1)
+            throw Error("move.min_score_gap", "0 より大きく 1 以下にしてください");
         Nonnegative(settings.Report.CropMarginMm, "report.crop_margin_mm");
         foreach (var e in settings.Exclude)
         {

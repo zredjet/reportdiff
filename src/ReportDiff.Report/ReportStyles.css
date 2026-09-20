@@ -50,6 +50,8 @@ td { overflow-wrap: anywhere; }
 .clusters { min-width: 960px; table-layout: fixed; }
 .clusters th:nth-child(1) { width: 148px; }
 .kind { white-space: nowrap; font-weight: 500; }
+.movement { display: block; font-weight: 400; font-size: .8rem; overflow-wrap: anywhere; }
+.clusters tr:target { background: #fff6da; }
 .clusters th:nth-child(2) { width: 230px; }
 .clusters th:nth-child(3) { width: 80px; }
 .bounds { font-variant-numeric: tabular-nums; }

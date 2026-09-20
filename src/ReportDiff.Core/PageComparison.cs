@@ -2,9 +2,13 @@ using OpenCvSharp;
 
 namespace ReportDiff.Core;
 
+public sealed record MovementShift(int Dx, int Dy);
+
 public sealed record DifferenceCluster(int Id, Rect Bounds, int Pixels)
 {
     public string? Kind { get; init; }
+    public MovementShift? ShiftPx { get; init; }
+    public IReadOnlyList<int> RelatedClusterIds { get; init; } = [];
     public double FillRatio => Pixels / ((double)Bounds.Width * Bounds.Height);
 }
 

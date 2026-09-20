@@ -18,7 +18,7 @@ public sealed class PageComparerTests
         using var result = PageComparer.Compare(a, b, GoldenData.Parameters(expected));
         using var unclassified = PageComparer.Compare(a, b, GoldenData.Parameters(expected), true, classify: false);
         Assert.Equal(unclassified.Status, result.Status);
-        Assert.Equal(unclassified.Clusters, result.Clusters.Select(c => c with { Kind = null }));
+        Assert.Equal(unclassified.Clusters, result.Clusters.Select(c => c with { Kind = null, ShiftPx = null, RelatedClusterIds = [] }));
         Assert.Equal(unclassified.RawPixels, result.RawPixels);
         Assert.Equal(unclassified.NoiseDropped, result.NoiseDropped);
         Assert.Equal(unclassified.AbsorbedGroups, result.AbsorbedGroups);
@@ -26,6 +26,7 @@ public sealed class PageComparerTests
         Assert.Equal(unclassified.Warnings, result.Warnings);
         Assert.Equal(0, Cv2.Norm(unclassified.RawMask, result.RawMask, NormTypes.INF));
         Assert.Equal(0, Cv2.Norm(unclassified.LabelMask, result.LabelMask, NormTypes.INF));
+        MovementTests.AssertDetectionUnchanged(a, b, GoldenData.Parameters(expected), result);
         Assert.Equal(expected.GetProperty("status").GetString(), result.Status);
         var pixels = expected.GetProperty("raw_pixels").GetInt32();
         Assert.InRange(result.RawPixels, pixels * 0.98, pixels * 1.02);

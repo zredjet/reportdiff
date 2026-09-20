@@ -1,0 +1,35 @@
+{
+  "environment": "macOS 26.5.1 arm64 / .NET 10.0.12 Release",
+  "method": "/usr/bin/time -l; each entry is one isolated benchmark process; includes inputs, validation results, GC and native temporary memory",
+  "unit": "bytes",
+  "runs": [
+    {
+      "scenario": "600 glyphs, one change",
+      "movement": false,
+      "iterations": 5,
+      "maximum_resident_set_size": 2167848960,
+      "peak_memory_footprint": 2139163168
+    },
+    {
+      "scenario": "600 glyphs, one change",
+      "movement": true,
+      "iterations": 5,
+      "maximum_resident_set_size": 2169602048,
+      "peak_memory_footprint": 2140686856
+    },
+    {
+      "scenario": "120 movements",
+      "movement": false,
+      "iterations": 3,
+      "maximum_resident_set_size": 2121547776,
+      "peak_memory_footprint": 2093042184
+    },
+    {
+      "scenario": "120 movements",
+      "movement": true,
+      "iterations": 3,
+      "maximum_resident_set_size": 2142011392,
+      "peak_memory_footprint": 2113194528
+    }
+  ]
+}
