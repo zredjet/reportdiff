@@ -1,7 +1,7 @@
 # ReportDiff
 
 業務帳票（PDF・画像）の出力結果を画像として比較し、相違箇所を「まとまり」単位で報告する CLI ツール。
-開発は macOS、実行は主に Windows（x64）。
+開発は macOS（Apple Silicon）、実行は主に Windows（x64）。Intel Mac は対象外。
 
 ## まず読むもの
 

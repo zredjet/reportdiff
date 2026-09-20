@@ -1,6 +1,8 @@
 # ネイティブ依存の準備
 
-## macOS
+## macOS（Apple Silicon）
+
+対象は Apple Silicon。Intel Mac は確認環境を用意できないため対象外とする（2026-09-20、ユーザー指定）。現行スクリプトとパッケージには x64 資産も残っているが、Intel Mac のサポート・実機受け入れは行わない。
 
 必要なものは .NET 10 SDK、Python 3.12 以降、Xcode Command Line Tools、初回取得用のネットワーク接続。CMake と Ninja はスクリプトが `out/native-build/tools/` の仮想環境へ固定バージョンで導入する。
 
@@ -37,7 +39,7 @@ python3 tools/inspect-win-bundle.py \
   src/ReportDiff.Cli/bin/Release/net10.0/win-x64/publish/reportdiff.exe
 ```
 
-このコマンドによる発行成功は Windows 上での実行成功を意味しない。実機確認項目は `TASKS.md` を参照。
+T0-2 の成果物は、2026-09-20 にユーザーから Windows での動作 OK が報告されている。個別の実機確認項目は `TASKS.md` を参照。
 
 ## ライブラリの範囲
 

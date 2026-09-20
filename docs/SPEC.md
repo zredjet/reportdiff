@@ -341,6 +341,7 @@ C# 側のテストは 2 種類用意する。
 
 ## 10. macOS で開発し Windows で動かすための注意
 
+- 対象環境は macOS（Apple Silicon）と Windows x64。Intel Mac は確認環境を用意できないため、対象外とする（2026-09-20、ユーザー指定）
 - フォントが埋め込まれていない PDF は、OS によって代替フォントが変わり、見た目が変わる。A と B は必ず同じマシンの同じ実行でラスタライズし、ラスタライズ済みの画像を別のマシンと混ぜない。テストにはフォントに依存しない合成データか、フォント埋め込み済みの PDF を使う
 - Windows では OpenCV の `imread` / `imwrite` が非 ASCII のパスを扱えない。CLAUDE.md のルール 5 を守る
 - テスト用 PDF は SkiaSharp の `SKDocument.CreatePdf` で図形だけを描いて作る（新しい依存を増やさない。文字を入れる場合は図形として描くか、フォントを埋め込む）
@@ -367,6 +368,7 @@ C# 側のテストは 2 種類用意する。
 |---|---|
 | C# / .NET | Windows に自己完結の単一 exe で配布でき、macOS 上でビルドできる。Python は PyInstaller がクロスビルドできず、exe が大きく誤検知されやすい |
 | FFmpeg を含まない OpenCvSharp ランタイム | Windows は公式 slim、macOS は core / imgproc / imgcodecs だけのローカルビルドを使う。標準ランタイムに含まれる FFmpeg を避けるため、2026-09-20 にこの方針を承認。比較アルゴリズムは変更しない |
+| Intel Mac を対象外とする | 確認環境を用意できないため、2026-09-20 にユーザーが対象外と指定。macOS の受け入れ対象は Apple Silicon とする |
 | PDFium（PDFtoImage） | MIT。Windows・macOS・Linux のネイティブを同梱。PyMuPDF / MuPDF は AGPL なので使わない |
 | looks-same から採ったもの | 知覚的な色空間（Lab）で比べること、完全一致を先に判定する高速化 |
 | looks-same から採らなかったもの | アンチエイリアス検出（直線には効かず、一段目の方式で代替できる）。矩形ベースのクラスタリング（表の外枠が変わると矩形が表全体を覆い、中の差分が埋もれる） |

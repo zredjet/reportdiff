@@ -4,7 +4,7 @@
 
 ## 開発用ビルド
 
-macOS では初回に FFmpeg を含まないローカルランタイムを生成する。必要なツールと詳細は [ネイティブ依存の準備](docs/NATIVE_RUNTIME.md) を参照。
+macOS（Apple Silicon）では初回に FFmpeg を含まないローカルランタイムを生成する。Intel Mac は対象外。必要なツールと詳細は [ネイティブ依存の準備](docs/NATIVE_RUNTIME.md) を参照。
 
 ```bash
 python3 tools/build-macos-runtime.py

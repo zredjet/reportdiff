@@ -14,9 +14,12 @@
 | FFmpeg の除外 | macOS は構成・シンボル・リンク先を検査。Windows はパッケージ資産・DLL の import / export・実装由来の文字列を検査 |
 | Windows x64 の自己完結・単一 exe | macOS 上で publish 成功 |
 | 必須ネイティブ DLL | exe 内部に Windows x64 の 3 種を確認、NuGet 内の DLL と SHA-256 が一致 |
-| Windows / Intel Mac 上の実行 | 未実施。クロスビルドと静的検証だけでは実機の受け入れにはしない |
+| Windows 上の実行 | 2026-09-20、ユーザーが動作 OK を確認済み |
+| Intel Mac | ユーザー指定により対象外。実機確認は残件に含めない |
 
 比較コア・入力正規化・CLI の機能実装はまだ行っていない。CLI は雛形のままで、比較コマンドは未実装。T0-3 と Phase 1 は未着手。
+
+ユーザー報告：「Windowsは確認。動作OK。Intel Macは用意できないので対象外。」Windows の動作確認結果として記録する。OS バージョン、.NET 未導入環境、疎通テスト 2 件の実行結果、日本語パス等の個別条件は報告されていないため、`TASKS.md` で別途管理する。
 
 ## 採用した依存
 
@@ -43,6 +46,8 @@ PDFtoImage から SkiaSharp / NativeAssets 4.150.1 と bblanchon.PDFium 152.0.79
 2. BGR → float32 → Lab の値域、Blur の平均値、Erode / Dilate の画素数、ConnectedComponents のラベル、WarpAffine の移動先を小配列で確認した。PNG・JPEG・BMP・TIFF のメモリ上の encode / decode も成功し、可逆形式は元の画素と一致した。ロードされたラッパーに動画 API がないことも確認した。
 
 ## macOS ローカルランタイム
+
+以下は生成済みバイナリの記録。受け入れ対象は Apple Silicon とし、Intel Mac 向けの x64 資産は参考情報として保持する。
 
 再生成方法は [NATIVE_RUNTIME.md](../NATIVE_RUNTIME.md)。OpenCV 4.13.0 と OpenCvSharp コミット `b161e7e012f5101f6d5dc68a835c59db6cc88b18` を使用し、取得アーカイブの SHA-256 をスクリプトに固定した。
 
@@ -93,6 +98,6 @@ Windows slim の DLL にある `FFMPEG: YES` はリンク前の OpenCV 全体の
 ## 受け入れの範囲と残件
 
 - macOS arm64 での依存疎通と、macOS 上からの Windows publish・バンドル静的検証を完了した。
-- Intel Mac はバイナリ生成・アーキテクチャ・リンク先まで確認。Intel Mac 上での 2 件のテスト実行は未実施。
-- Windows の起動・ネイティブ展開・日本語パス・Media Foundation 等は実機未確認。`TASKS.md` の確認リストを維持する。
+- Windows の動作 OK はユーザー確認済み。ネイティブ展開・日本語パス・Media Foundation 等の個別条件は `TASKS.md` の確認リストで管理する。
+- Intel Mac はユーザー指定により対象外。既存のバイナリ生成・アーキテクチャ・リンク先の検証記録は保持するが、実機確認を残件に含めない。
 - Phase 1 の比較アルゴリズム・参照実装との一致・実帳票・完成版 CLI の受け入れには進んでいない。
