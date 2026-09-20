@@ -12,7 +12,7 @@ dotnet build
 dotnet test
 ```
 
-現在は Phase 0 と T1-1〜T1-10（設定・比較コア・最適化・入力・正規化とページ対応・JSON と画像出力・HTML・CLI）が完了。比較コアは 37 件の参照結果と一致し、合成 A4 ページの比較は目標の 2 秒以内（[検証・計測結果](docs/verification/t1-4-core.md)）。[画像入力](docs/verification/t1-5-images.md)、[PDF 入力](docs/verification/t1-6-pdf.md)、[正規化とページ対応](docs/verification/t1-7-pages.md)、[JSON・重ね描き・切り出し](docs/verification/t1-8-output.md)、[オフライン HTML](docs/verification/t1-9-html.md)、[CLI](docs/verification/t1-10-cli.md)も検証済み。次は T1-11 の結合テスト。
+現在は Phase 0 と T1-1〜T1-11（設定・比較コア・最適化・入力・正規化とページ対応・JSON と画像出力・HTML・CLI・結合テスト）が完了。比較コアは 37 件の参照結果と一致し、合成 A4 ページの比較は目標の 2 秒以内（[検証・計測結果](docs/verification/t1-4-core.md)）。[画像入力](docs/verification/t1-5-images.md)、[PDF 入力](docs/verification/t1-6-pdf.md)、[正規化とページ対応](docs/verification/t1-7-pages.md)、[JSON・重ね描き・切り出し](docs/verification/t1-8-output.md)、[オフライン HTML](docs/verification/t1-9-html.md)、[CLI](docs/verification/t1-10-cli.md)、[2 ページ PDF の結合テスト](docs/verification/t1-11-integration.md)も検証済み。次は T1-12 の配布物。
 
 ## 比較する
 
@@ -39,7 +39,7 @@ dotnet run --project tools/ReportDiff.Benchmark -c Release -- 3
 
 両環境で .NET 10 SDK を準備し、`dotnet build` と `dotnet test` を実行する。macOS では Python 3.13 を準備し、FFmpeg を含まないローカルランタイムを毎回ソースから生成する。Intel Mac のテストは対象外。
 
-GitHub Actions で確認済みの結果は [T0-3](docs/verification/t0-3-ci.md)。T1-1〜T1-10 はローカルの macOS で検証済みで、追加したコードの Windows CI は未実行。HTML の `file://` 表示は macOS Chrome で確認済み、Windows の Edge / Chrome は未確認。
+GitHub Actions で確認済みの結果は [T0-3](docs/verification/t0-3-ci.md)。T1-1〜T1-11 はローカルの macOS で検証済みで、追加したコードの Windows CI は未実行。HTML の `file://` 表示は macOS Chrome で確認済み、Windows の Edge / Chrome は未確認。
 
 ## 中身
 

@@ -8,6 +8,36 @@ internal static class PdfFixture
 {
     public static readonly SKColor[] PageColors = [SKColors.Red, new(0, 255, 0), SKColors.Blue];
 
+    /// <summary>1 ページ目は固定、2 ページ目だけ本文と出力日時相当の領域を変更する合成帳票。</summary>
+    public static byte[] CreateComparisonReport(bool revised)
+    {
+        using var stream = new MemoryStream();
+        using (var document = SKDocument.CreatePdf(stream))
+        {
+            for (var page = 1; page <= 2; page++)
+            {
+                // 216 × 288 pt = 76.2 × 101.6 mm。フォントの違いが結果に影響しない図形だけを使う。
+                using var canvas = document.BeginPage(216, 288);
+                using var ink = new SKPaint { Color = new SKColor(40, 40, 40), IsAntialias = true };
+                canvas.DrawRect(24, 24, 72, 12, ink);
+                using var grid = new SKPaint { Color = SKColors.Gray, Style = SKPaintStyle.Stroke, StrokeWidth = 1, IsAntialias = true };
+                canvas.DrawRect(24, 72, 168, 156, grid);
+                for (var y = 96; y < 228; y += 48) canvas.DrawLine(24, y, 192, y, grid);
+                canvas.DrawLine(108, 72, 108, 228, grid);
+                var changed = page == 2 && revised;
+                // 検出対象: x=12.7, y=38.1, w=12.7, h=6.35 mm。
+                using var body = new SKPaint { Color = changed ? new SKColor(190, 45, 60) : new SKColor(45, 95, 180), IsAntialias = true };
+                canvas.DrawRect(36, 108, 36, 18, body);
+                // 除外対象: x=50.8, y=8.466..., w=12.7, h=4.233... mm。
+                using var timestamp = new SKPaint { Color = changed ? new SKColor(80, 80, 80) : new SKColor(210, 210, 210), IsAntialias = true };
+                canvas.DrawRect(144, 24, 36, 12, timestamp);
+                document.EndPage();
+            }
+            document.Close();
+        }
+        return stream.ToArray();
+    }
+
     public static byte[] CreatePages(params (float Width, float Height)[] sizes)
     {
         using var stream = new MemoryStream();

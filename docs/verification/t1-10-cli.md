@@ -85,6 +85,6 @@ dotnet test -- --filter-class ReportDiff.Tests.OutputWorkspaceTests
 
 ## 残る範囲
 
-T1-11 指定の「2 ページ PDF・1 箇所の変更と除外領域内の変更」の結合シナリオと、T1-12 の配布確認は未着手。今回追加したコードの Windows CI・実機動作、cmd / PowerShell の日本語表示、Windows Edge / Chrome、実際のディスク容量不足は未確認。
+指定の「2 ページ PDF・1 箇所の変更と除外領域内の変更」の結合シナリオは [T1-11 確認結果](t1-11-integration.md) を参照。T1-12 の配布確認は未着手。今回追加したコードの Windows CI・実機動作、cmd / PowerShell の日本語表示、Windows Edge / Chrome、実際のディスク容量不足は未確認。
 
 リンクに関する 5 テストと macOS 固有の Unicode 正規化の 1 テストは macOS で実施。Windows ではこの 6 件をスキップし、リンク作成権限・ジャンクションを別途確認する。復元そのものの失敗・退避済み旧出力の削除失敗・電源断は自動テストの受け入れ対象に含めていない。Intel Mac は対象外。
