@@ -47,8 +47,9 @@ caption { text-align: left; padding: 12px; }
 th, td { padding: 12px; border-top: 1px solid #e2e7ee; vertical-align: middle; }
 thead th { background: #f3f5f8; white-space: nowrap; }
 td { overflow-wrap: anywhere; }
-.clusters { min-width: 860px; table-layout: fixed; }
-.clusters th:nth-child(1) { width: 56px; }
+.clusters { min-width: 960px; table-layout: fixed; }
+.clusters th:nth-child(1) { width: 148px; }
+.kind { white-space: nowrap; font-weight: 500; }
 .clusters th:nth-child(2) { width: 230px; }
 .clusters th:nth-child(3) { width: 80px; }
 .bounds { font-variant-numeric: tabular-nums; }

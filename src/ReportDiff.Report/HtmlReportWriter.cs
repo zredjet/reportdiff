@@ -74,7 +74,7 @@ public static partial class HtmlReportWriter
         }
         html.Append("</section>");
         AppendSettings(html, report.Config);
-        html.Append("<section id=\"pages\" aria-labelledby=\"pages-title\"><h2 id=\"pages-title\">ページ別の結果</h2><p class=\"muted\">重ね描きの赤は差分・輪郭・番号、黄色は除外領域です。画像を選ぶと元の大きさで開きます。</p>");
+        html.Append("<section id=\"pages\" aria-labelledby=\"pages-title\"><h2 id=\"pages-title\">ページ別の結果</h2><p class=\"muted\">重ね描きの赤は差分・輪郭・番号、黄色は除外領域です。画像を選ぶと元の大きさで開きます。</p><p class=\"muted\">分類は A→B のインクの有無からの推定です。背景・塗りや判定が明確でない差は「変更」とします。切り出しの緑は A だけのインク、赤は B だけ・両方のインクやその他の差分です。</p>");
         foreach (var page in report.Pages) AppendPage(html, page);
         html.Append("</section><footer>ReportDiff · オフライン比較レポート</footer></main>");
         // HTML の終了タグとして解釈されない既定エンコーダを使用する。スラッシュも符号化し、URL のリテラルを残さない。
@@ -128,11 +128,11 @@ public static partial class HtmlReportWriter
         AppendViewer(html, page);
         if (page.Clusters.Count > 0)
         {
-            html.Append($"<h3>相違箇所 <span class=\"muted\">{page.Clusters.Count} 件</span></h3><p class=\"muted table-hint\">一覧は横にスクロールできます。</p><div class=\"table-scroll\" role=\"region\" aria-label=\"{page.Page} ページの相違箇所\" tabindex=\"0\"><table class=\"clusters\"><caption>位置は左上が原点です。位置と大きさは mm（小数第 2 位まで）、画素数は差分に属する画素数です。</caption><thead><tr><th scope=\"col\">番号</th><th scope=\"col\">位置・大きさ（mm）</th><th scope=\"col\">画素数</th><th scope=\"col\">A · 基準</th><th scope=\"col\">B · 比較</th><th scope=\"col\">差分</th></tr></thead><tbody>");
+            html.Append($"<h3>相違箇所 <span class=\"muted\">{page.Clusters.Count} 件</span></h3><p class=\"muted table-hint\">一覧は横にスクロールできます。</p><div class=\"table-scroll\" role=\"region\" aria-label=\"{page.Page} ページの相違箇所\" tabindex=\"0\"><table class=\"clusters\"><caption>位置は左上が原点です。位置と大きさは mm（小数第 2 位まで）、画素数は差分に属する画素数です。</caption><thead><tr><th scope=\"col\">番号・分類</th><th scope=\"col\">位置・大きさ（mm）</th><th scope=\"col\">画素数</th><th scope=\"col\">A · 基準</th><th scope=\"col\">B · 比較</th><th scope=\"col\">差分</th></tr></thead><tbody>");
             foreach (var cluster in page.Clusters)
             {
                 var box = cluster.BboxMm;
-                html.Append($"<tr><th scope=\"row\">{cluster.Id}</th><td class=\"bounds\">X {Mm(box.X)} · Y {Mm(box.Y)}<br>幅 {Mm(box.W)} × 高さ {Mm(box.H)}</td><td>{cluster.Pixels}</td>");
+                html.Append($"<tr><th scope=\"row\">{cluster.Id}<br><span class=\"kind\">{Kind(cluster.Kind)}</span></th><td class=\"bounds\">X {Mm(box.X)} · Y {Mm(box.Y)}<br>幅 {Mm(box.W)} × 高さ {Mm(box.H)}</td><td>{cluster.Pixels}</td>");
                 AppendCrop(html, cluster.Crops.A, $"{page.Page} ページ・相違 {cluster.Id}・A の切り出し");
                 AppendCrop(html, cluster.Crops.B, $"{page.Page} ページ・相違 {cluster.Id}・B の切り出し");
                 AppendCrop(html, cluster.Crops.Diff, $"{page.Page} ページ・相違 {cluster.Id}・差分の切り出し");
@@ -173,6 +173,16 @@ public static partial class HtmlReportWriter
         ValidateImagePath(path);
         html.Append($"<td><a href=\"{path}\"><img class=\"crop\" src=\"{path}\" alt=\"{H(alt)}\" loading=\"lazy\"></a></td>");
     }
+
+    private static string Kind(string? kind) => kind switch
+    {
+        "added" => "追加（推定）",
+        "removed" => "削除（推定）",
+        "color_changed" => "色変更（推定）",
+        "changed" => "変更",
+        null => "未分類",
+        _ => H(kind)
+    };
 
     private static string Metric(string label, object value) => $"<div><dt>{label}</dt><dd>{H(Convert.ToString(value, CultureInfo.InvariantCulture)!)}</dd></div>";
     private static string N(double value) => value.ToString(CultureInfo.InvariantCulture);

@@ -1,0 +1,103 @@
+{
+  "generated_at": "2026-09-21T02:29:03.201688+09:00",
+  "os": "macOS 26.5.1",
+  "architecture": "Arm64",
+  "dotnet_runtime": "10.0.12",
+  "cpu_count": 16,
+  "width": 2480,
+  "height": 3508,
+  "dpi": 300,
+  "glyphs": 600,
+  "memory_note": "ClassificationManagedBytes は分類のスレッド別マネージド割当量。RetainedRemovalMaskBytes は保持するネイティブ削除マスクのみで、一時 Mat やプロセスのピークを含まない。",
+  "results_equal": true,
+  "measurements": [
+    {
+      "scenario": "完全一致",
+      "strategy": "group_bounds",
+      "classification": false,
+      "iterations": 5,
+      "total_ms": [
+        6.2438,
+        6.3687,
+        5.123,
+        4.8918,
+        4.784
+      ],
+      "median_ms": 5.123,
+      "stages_at_median_ms": {
+        "PreparationMs": 1.2185,
+        "CandidatesMs": 0,
+        "GroupingMs": 0,
+        "ShiftsMs": 0,
+        "ClusteringMs": 3.8688,
+        "ClassificationMs": 0
+      },
+      "classification_managed_bytes": 0,
+      "retained_removal_mask_bytes": 0,
+      "status": "same",
+      "clusters": 0,
+      "raw_pixels": 0,
+      "absorbed_groups": 0,
+      "max_shift_px": 0
+    },
+    {
+      "scenario": "1 か所変更",
+      "strategy": "group_bounds",
+      "classification": false,
+      "iterations": 5,
+      "total_ms": [
+        224.5677,
+        221.3763,
+        216.9918,
+        220.0488,
+        225.6061
+      ],
+      "median_ms": 221.3763,
+      "stages_at_median_ms": {
+        "PreparationMs": 102.0268,
+        "CandidatesMs": 38.0457,
+        "GroupingMs": 56.6076,
+        "ShiftsMs": 3.8047,
+        "ClusteringMs": 20.6084,
+        "ClassificationMs": 0
+      },
+      "classification_managed_bytes": 0,
+      "retained_removal_mask_bytes": 0,
+      "status": "different",
+      "clusters": 1,
+      "raw_pixels": 204,
+      "absorbed_groups": 0,
+      "max_shift_px": 0
+    },
+    {
+      "scenario": "1 か所変更＋全体 1px ずれ",
+      "strategy": "group_bounds",
+      "classification": false,
+      "iterations": 5,
+      "total_ms": [
+        232.3205,
+        232.7202,
+        231.7789,
+        235.9247,
+        235.5865
+      ],
+      "median_ms": 232.7202,
+      "stages_at_median_ms": {
+        "PreparationMs": 100.5151,
+        "CandidatesMs": 38.7973,
+        "GroupingMs": 57.4598,
+        "ShiftsMs": 16.8839,
+        "ClusteringMs": 19.0255,
+        "ClassificationMs": 0
+      },
+      "classification_managed_bytes": 0,
+      "retained_removal_mask_bytes": 0,
+      "status": "different",
+      "clusters": 1,
+      "raw_pixels": 204,
+      "absorbed_groups": 599,
+      "max_shift_px": 1
+    }
+  ],
+  "validation_runs_per_scenario": 2
+}

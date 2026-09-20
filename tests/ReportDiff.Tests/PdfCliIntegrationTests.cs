@@ -100,6 +100,39 @@ public sealed class PdfCliIntegrationTests
         else Assert.Empty(report.Config.Exclude);
     }
 
+    [Theory]
+    [InlineData(false)]
+    [InlineData(true)]
+    public async Task ClassificationFlowsFromPdfToJsonCropsAndHtml(bool reverse)
+    {
+        using var directory = new ReportTestDirectory();
+        var a = Path.Combine(directory.Root, "分類 旧.pdf");
+        var b = Path.Combine(directory.Root, "分類 新.pdf");
+        File.WriteAllBytes(a, PdfFixture.CreateClassificationReport(reverse));
+        File.WriteAllBytes(b, PdfFixture.CreateClassificationReport(!reverse));
+        var result = await CliProcess.Run("compare", a, b, "--out", directory.Output);
+        Assert.Equal(1, result.Code); Assert.Empty(result.Error);
+        var report = JsonSerializer.Deserialize<ReportDocument>(File.ReadAllBytes(Path.Combine(directory.Output, "result.json")), ReportJson.Options)!;
+        Assert.Equal(1, report.SchemaVersion);
+        var page = Assert.Single(report.Pages);
+        Assert.Equal(new[] { reverse ? "removed" : "added", reverse ? "added" : "removed", "color_changed", "changed" }, page.Clusters.Select(c => c.Kind));
+        var html = File.ReadAllText(Path.Combine(directory.Output, "report.html"));
+        Assert.Contains("追加（推定）", html); Assert.Contains("削除（推定）", html);
+        Assert.Contains("色変更（推定）", html); Assert.Contains("緑は A だけのインク", html);
+        Assert.DoesNotContain("https://", html); Assert.DoesNotContain("http://", html);
+        using var overlay = directory.Read(page.Images.Overlay!);
+        foreach (var cluster in page.Clusters)
+        {
+            Assert.Null(cluster.ShiftPx); Assert.Null(cluster.TextA); Assert.Null(cluster.TextB);
+            using var diff = directory.Read(cluster.Crops.Diff);
+            Assert.Equal(cluster.Kind == "removed" ? new Vec3b(0, 255, 0) : new Vec3b(0, 0, 255), diff.At<Vec3b>(diff.Height / 2, diff.Width / 2));
+            var box = cluster.BboxPx;
+            Assert.Equal(new Vec3b(0, 0, 255), overlay.At<Vec3b>(box.Y + box.H / 2, box.X + box.W / 2));
+        }
+        var embedded = Regex.Match(html, "<script type=\"application/json\" id=\"result\">(.*?)</script>", RegexOptions.Singleline);
+        Assert.True(JsonNode.DeepEquals(JsonNode.Parse(embedded.Groups[1].Value), JsonSerializer.SerializeToNode(report, ReportJson.Options)));
+    }
+
     private static void AssertInputs(ReportDocument report, string a, string b)
     {
         Assert.Equal("pdf", report.Inputs.A.Type); Assert.Equal("pdf", report.Inputs.B.Type);

@@ -32,12 +32,21 @@ internal static class ReportImages
         catch { output.Dispose(); throw; }
     }
 
-    public static Mat DifferenceCrop(Mat b, Mat raw, Rect bounds)
+    public static Mat DifferenceCrop(Mat b, Mat raw, Rect bounds, Mat? removal = null)
     {
         using var source = new Mat(b, bounds);
         using var mask = new Mat(raw, bounds);
         var output = source.Clone();
-        try { output.SetTo(Red, mask); return output; }
+        try
+        {
+            output.SetTo(Red, mask);
+            if (removal is not null)
+            {
+                using var removed = new Mat(removal, bounds);
+                output.SetTo(new Scalar(0, 255, 0), removed);
+            }
+            return output;
+        }
         catch { output.Dispose(); throw; }
     }
 

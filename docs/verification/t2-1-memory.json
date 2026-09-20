@@ -1,0 +1,16 @@
+{
+  "measurement": "macOS /usr/bin/time -l, optimized comparison only, 5 measured iterations per scenario after 2 validation calls",
+  "unit": "bytes",
+  "runs": [
+    {
+      "classification": false,
+      "maximum_resident_set_size": 2150121472,
+      "peak_memory_footprint": 2121452064
+    },
+    {
+      "classification": true,
+      "maximum_resident_set_size": 2167947264,
+      "peak_memory_footprint": 2139277856
+    }
+  ]
+}

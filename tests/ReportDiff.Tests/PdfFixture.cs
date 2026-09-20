@@ -38,6 +38,26 @@ internal static class PdfFixture
         return stream.ToArray();
     }
 
+    /// <summary>追加・削除・色変更・背景変更を離れた行に置く、分類確認用の合成 PDF。</summary>
+    public static byte[] CreateClassificationReport(bool revised)
+    {
+        using var stream = new MemoryStream();
+        using (var document = SKDocument.CreatePdf(stream))
+        {
+            using var canvas = document.BeginPage(216, 216);
+            using var ink = new SKPaint { Color = SKColors.Black };
+            if (revised) canvas.DrawRect(24, 24, 24, 6, ink);
+            if (!revised) canvas.DrawRect(24, 60, 24, 6, ink);
+            ink.Color = revised ? new SKColor(160, 0, 0) : new SKColor(0, 0, 160);
+            canvas.DrawRect(24, 96, 24, 6, ink);
+            ink.Color = revised ? new SKColor(242, 242, 242) : SKColors.White;
+            canvas.DrawRect(24, 132, 24, 12, ink);
+            document.EndPage();
+            document.Close();
+        }
+        return stream.ToArray();
+    }
+
     public static byte[] CreatePages(params (float Width, float Height)[] sizes)
     {
         using var stream = new MemoryStream();

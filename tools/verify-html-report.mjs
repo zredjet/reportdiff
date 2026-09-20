@@ -39,6 +39,10 @@ try {
     }
     assert.equal(await page.locator('.page').count(), result.pages.length);
     assert.equal(await page.locator('.clusters tbody tr').count(), result.pages.reduce((sum, item) => sum + item.clusters.length, 0));
+    const kindLabels = { added: '追加（推定）', removed: '削除（推定）', changed: '変更', color_changed: '色変更（推定）' };
+    const kinds = result.pages.flatMap(item => item.clusters.map(cluster => kindLabels[cluster.kind] ?? cluster.kind ?? '未分類'));
+    assert.deepEqual(await page.locator('.kind').allTextContents(), kinds);
+    assert.ok((await page.locator('#pages').innerText()).includes('緑は A だけのインク'));
     assert.deepEqual(await page.locator('.input-path').allTextContents(), [result.inputs.a.path, result.inputs.b.path]);
     for (const warning of result.warnings) assert.ok((await page.locator('.warnings').innerText()).includes(warning.message));
     assert.equal(await page.locator('.summary-metrics dd').last().innerText(), String(result.summary.absorbed_groups));
@@ -81,6 +85,11 @@ try {
       await viewer.locator(`button[data-src="${initialSource}"]`).click();
       assert.deepEqual(await page.locator('.page-image').evaluateAll(items => items.map(item => item.getAttribute('src'))), initialSources);
     }
+    assert.deepEqual(await page.locator('.kind').evaluateAll(items => items.filter(item => {
+      const rect = item.getBoundingClientRect();
+      const cell = item.closest('th').getBoundingClientRect();
+      return item.getClientRects().length !== 1 || rect.left < cell.left || rect.right > cell.right;
+    }).map(item => item.textContent)), [], '分類名が折り返されたり、セルの外へはみ出しています。');
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, `${width}px の画面が横にはみ出しています。`);
     assert.deepEqual(await page.locator('button, .input-path, .metrics dt, .metrics dd').evaluateAll(items => items.filter(item => {
       const rect = item.getBoundingClientRect();

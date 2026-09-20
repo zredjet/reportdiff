@@ -1,0 +1,178 @@
+{
+  "generated_at": "2026-09-21T02:28:59.523343+09:00",
+  "os": "macOS 26.5.1",
+  "architecture": "Arm64",
+  "dotnet_runtime": "10.0.12",
+  "cpu_count": 16,
+  "width": 2480,
+  "height": 3508,
+  "dpi": 300,
+  "glyphs": 600,
+  "memory_note": "ClassificationManagedBytes は分類のスレッド別マネージド割当量。RetainedRemovalMaskBytes は保持するネイティブ削除マスクのみで、一時 Mat やプロセスのピークを含まない。",
+  "results_equal": true,
+  "measurements": [
+    {
+      "scenario": "完全一致",
+      "strategy": "full_page",
+      "classification": true,
+      "iterations": 3,
+      "total_ms": [
+        7.1441,
+        6.3608,
+        4.8995
+      ],
+      "median_ms": 6.3608,
+      "stages_at_median_ms": {
+        "PreparationMs": 1.2977,
+        "CandidatesMs": 0,
+        "GroupingMs": 0,
+        "ShiftsMs": 0,
+        "ClusteringMs": 4.9653,
+        "ClassificationMs": 0
+      },
+      "classification_managed_bytes": 0,
+      "retained_removal_mask_bytes": 0,
+      "status": "same",
+      "clusters": 0,
+      "raw_pixels": 0,
+      "absorbed_groups": 0,
+      "max_shift_px": 0
+    },
+    {
+      "scenario": "完全一致",
+      "strategy": "group_bounds",
+      "classification": true,
+      "iterations": 3,
+      "total_ms": [
+        4.5686,
+        5.1725,
+        4.9682
+      ],
+      "median_ms": 4.9682,
+      "stages_at_median_ms": {
+        "PreparationMs": 1.3345,
+        "CandidatesMs": 0,
+        "GroupingMs": 0,
+        "ShiftsMs": 0,
+        "ClusteringMs": 3.595,
+        "ClassificationMs": 0
+      },
+      "classification_managed_bytes": 0,
+      "retained_removal_mask_bytes": 0,
+      "status": "same",
+      "clusters": 0,
+      "raw_pixels": 0,
+      "absorbed_groups": 0,
+      "max_shift_px": 0
+    },
+    {
+      "scenario": "1 か所変更",
+      "strategy": "full_page",
+      "classification": true,
+      "iterations": 3,
+      "total_ms": [
+        1067.9359,
+        1067.4202,
+        1063.0682
+      ],
+      "median_ms": 1067.4202,
+      "stages_at_median_ms": {
+        "PreparationMs": 99.6583,
+        "CandidatesMs": 37.4258,
+        "GroupingMs": 58.1204,
+        "ShiftsMs": 852.5209,
+        "ClusteringMs": 18.6241,
+        "ClassificationMs": 0.7817
+      },
+      "classification_managed_bytes": 8715928,
+      "retained_removal_mask_bytes": 8699840,
+      "status": "different",
+      "clusters": 1,
+      "raw_pixels": 204,
+      "absorbed_groups": 0,
+      "max_shift_px": 0
+    },
+    {
+      "scenario": "1 か所変更",
+      "strategy": "group_bounds",
+      "classification": true,
+      "iterations": 3,
+      "total_ms": [
+        219.2818,
+        218.0475,
+        219.6963
+      ],
+      "median_ms": 219.2818,
+      "stages_at_median_ms": {
+        "PreparationMs": 101.0497,
+        "CandidatesMs": 36.1885,
+        "GroupingMs": 55.9053,
+        "ShiftsMs": 3.6919,
+        "ClusteringMs": 20.2289,
+        "ClassificationMs": 1.904
+      },
+      "classification_managed_bytes": 8715928,
+      "retained_removal_mask_bytes": 8699840,
+      "status": "different",
+      "clusters": 1,
+      "raw_pixels": 204,
+      "absorbed_groups": 0,
+      "max_shift_px": 0
+    },
+    {
+      "scenario": "1 か所変更＋全体 1px ずれ",
+      "strategy": "full_page",
+      "classification": true,
+      "iterations": 3,
+      "total_ms": [
+        1060.4645,
+        1068.5477,
+        1060.396
+      ],
+      "median_ms": 1060.4645,
+      "stages_at_median_ms": {
+        "PreparationMs": 101.4297,
+        "CandidatesMs": 37.5692,
+        "GroupingMs": 56.6973,
+        "ShiftsMs": 845.1535,
+        "ClusteringMs": 18.7608,
+        "ClassificationMs": 0.7985
+      },
+      "classification_managed_bytes": 8715928,
+      "retained_removal_mask_bytes": 8699840,
+      "status": "different",
+      "clusters": 1,
+      "raw_pixels": 204,
+      "absorbed_groups": 599,
+      "max_shift_px": 1
+    },
+    {
+      "scenario": "1 か所変更＋全体 1px ずれ",
+      "strategy": "group_bounds",
+      "classification": true,
+      "iterations": 3,
+      "total_ms": [
+        233.5396,
+        230.162,
+        230.8684
+      ],
+      "median_ms": 230.8684,
+      "stages_at_median_ms": {
+        "PreparationMs": 102.2512,
+        "CandidatesMs": 36.3508,
+        "GroupingMs": 55.1119,
+        "ShiftsMs": 17.7533,
+        "ClusteringMs": 18.4875,
+        "ClassificationMs": 0.8704
+      },
+      "classification_managed_bytes": 8715928,
+      "retained_removal_mask_bytes": 8699840,
+      "status": "different",
+      "clusters": 1,
+      "raw_pixels": 204,
+      "absorbed_groups": 599,
+      "max_shift_px": 1
+    }
+  ],
+  "validation_runs_per_scenario": 2
+}

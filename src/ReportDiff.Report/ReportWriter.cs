@@ -50,6 +50,7 @@ public sealed class ReportWriter
         ValidateImage(images.A); ValidateImage(images.B);
         var size = images.A.Size();
         if (images.B.Size() != size || comparison.RawMask.Size() != size || comparison.LabelMask.Size() != size
+            || (comparison.RemovalMask is { } removal && (removal.Size() != size || removal.Type() != MatType.CV_8UC1))
             || comparison.RawMask.Type() != MatType.CV_8UC1 || comparison.LabelMask.Type() != MatType.CV_8UC1)
             throw new ArgumentException("画像と差分マスクのサイズ・画素形式が一致していません。");
         if (comparison.Status is not ("same" or "different" or "too_different")) throw new ArgumentException("比較結果の状態が不正です。");
@@ -78,12 +79,12 @@ public sealed class ReportWriter
                 var crops = new ClusterCrops(prefix + "_a.png", prefix + "_b.png", prefix + "_diff.png");
                 using var a = new Mat(images.A, crop);
                 using var b = new Mat(images.B, crop);
-                using var diff = ReportImages.DifferenceCrop(images.B, comparison.RawMask, crop);
+                using var diff = ReportImages.DifferenceCrop(images.B, comparison.RawMask, crop, comparison.RemovalMask);
                 WritePng(crops.A, a); WritePng(crops.B, b); WritePng(crops.Diff, diff);
                 clusters.Add(new(cluster.Id, new(bounds.X, bounds.Y, bounds.Width, bounds.Height),
                     new(Units.PixelsToMm(bounds.X, dpi), Units.PixelsToMm(bounds.Y, dpi),
                         Units.PixelsToMm(bounds.Width, dpi), Units.PixelsToMm(bounds.Height, dpi)),
-                    cluster.Pixels, cluster.FillRatio, null, null, null, null, crops));
+                    cluster.Pixels, cluster.FillRatio, cluster.Kind, null, null, null, crops));
             }
         });
         var result = new ReportPage(page, comparison.Status, new(size.Width, size.Height), images.SizeMismatch,

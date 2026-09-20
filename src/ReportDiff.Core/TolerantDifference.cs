@@ -38,8 +38,8 @@ public static class TolerantDifference
             }
         }
 
-        using var labA = ToLab(a);
-        using var labB = ToLab(b);
+        using var labA = ImageInk.ToLab(a);
+        using var labB = ImageInk.ToLab(b);
         var featuresA = Features.Create(labA, parameters.Diff.EdgeTolerance);
         var featuresB = Features.Create(labB, parameters.Diff.EdgeTolerance);
         if (timings is not null) timings.PreparationMs = Stopwatch.GetElapsedTime(started).TotalMilliseconds;
@@ -185,15 +185,6 @@ public static class TolerantDifference
         return false;
     }
 
-    private static Mat ToLab(Mat image)
-    {
-        using var normalized = new Mat();
-        image.ConvertTo(normalized, MatType.CV_32FC3, 1.0 / 255);
-        var lab = new Mat();
-        try { Cv2.CvtColor(normalized, lab, ColorConversionCodes.BGR2Lab); return lab; }
-        catch { lab.Dispose(); throw; }
-    }
-
     private sealed record Features(float[] Values, float[] Contrast)
     {
         public static Features Create(Mat lab, double tolerance)
@@ -242,8 +233,8 @@ public static class TolerantDifference
 
     private static int[] Groups(Mat labA, Mat labB, byte[] candidates, int dpi, int shift, out int count)
     {
-        using var inkA = Ink(labA, dpi);
-        using var inkB = Ink(labB, dpi);
+        using var inkA = ImageInk.FromLab(labA, dpi);
+        using var inkB = ImageInk.FromLab(labB, dpi);
         using var ink = new Mat();
         Cv2.BitwiseOr(inkA, inkB, ink);
         using var inkLabels = new Mat();
@@ -269,18 +260,4 @@ public static class TolerantDifference
         return MatBuffers.Integers(groupLabels);
     }
 
-    private static Mat Ink(Mat lab, int dpi)
-    {
-        var radius = Math.Max(1, Units.RoundPixels(1.5, dpi));
-        using var lightness = new Mat();
-        using var background = new Mat();
-        using var difference = new Mat();
-        using var kernel = Cv2.GetStructuringElement(MorphShapes.Rect, new Size(2 * radius + 1, 2 * radius + 1));
-        Cv2.ExtractChannel(lab, lightness, 0);
-        Cv2.Dilate(lightness, background, kernel);
-        Cv2.Subtract(background, lightness, difference);
-        var mask = new Mat();
-        try { Cv2.Compare(difference, 25, mask, CmpTypes.GT); return mask; }
-        catch { mask.Dispose(); throw; }
-    }
 }

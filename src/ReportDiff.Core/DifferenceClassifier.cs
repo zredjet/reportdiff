@@ -1,0 +1,86 @@
+using OpenCvSharp;
+
+namespace ReportDiff.Core;
+
+/// <summary>採用した連結成分に注釈を付ける。検出マスク・クラスタの形は変更しない。</summary>
+internal static class DifferenceClassifier
+{
+    public static string?[] Classify(Mat a, Mat b, ComparisonParameters parameters, byte[] raw,
+        int[] labels, bool[] keep, Rect region, out Mat? removalMask)
+    {
+        var width = a.Width;
+        var height = a.Height;
+        var (originalA, inkA) = ReadInk(a, region, parameters);
+        var (originalB, inkB) = ReadInk(b, region, parameters);
+        var kinds = new string?[keep.Length];
+        // 各種の有無だけで分類できるため、割合や多数決のしきい値を持たない。
+        var states = new byte[keep.Length];
+        var shapeMismatch = new bool[keep.Length];
+        var exclusions = parameters.Exclude.Select(e =>
+        {
+            var left = (int)Math.Clamp(Math.Floor(Units.MmToPixels(e.X, parameters.Dpi)), 0, width);
+            var top = (int)Math.Clamp(Math.Floor(Units.MmToPixels(e.Y, parameters.Dpi)), 0, height);
+            var right = (int)Math.Clamp(Math.Ceiling(Units.MmToPixels(e.X + e.W, parameters.Dpi)), 0, width);
+            var bottom = (int)Math.Clamp(Math.Ceiling(Units.MmToPixels(e.Y + e.H, parameters.Dpi)), 0, height);
+            return new Rect(left, top, Math.Max(0, right - left), Math.Max(0, bottom - top));
+        }).ToArray();
+        byte[]? removed = null;
+        for (var y = region.Top; y < region.Bottom; y++)
+        for (var x = region.Left; x < region.Right; x++)
+        {
+            var pixel = y * width + x;
+            var label = labels[pixel];
+            if (!keep[label]) continue;
+            var local = (y - region.Top) * region.Width + x - region.Left;
+            if (originalA[local] != originalB[local] && !IsExcluded(exclusions, x, y))
+                shapeMismatch[label] = true;
+            if (raw[pixel] == 0) continue;
+            var state = inkA[local] != 0 ? (inkB[local] != 0 ? 4 : 1) : (inkB[local] != 0 ? 2 : 8);
+            states[label] |= (byte)state;
+            if (state == 1)
+            {
+                removed ??= new byte[raw.Length];
+                removed[pixel] = 255;
+            }
+        }
+        for (var label = 1; label < keep.Length; label++)
+            if (keep[label]) kinds[label] = states[label] switch
+            {
+                1 => "removed",
+                2 => "added",
+                4 when !shapeMismatch[label] => "color_changed",
+                _ => "changed"
+            };
+        removalMask = removed is null ? null : MatBuffers.Mask(removed, width, height);
+        return kinds;
+    }
+
+    private static bool IsExcluded(Rect[] exclusions, int x, int y)
+    {
+        foreach (var exclusion in exclusions) if (exclusion.Contains(x, y)) return true;
+        return false;
+    }
+
+    private static (byte[] Original, byte[] Ink) ReadInk(Mat image, Rect region, ComparisonParameters parameters)
+    {
+        var edge = parameters.Diff.EdgeTolerance > 0;
+        // 局所最大値と 1px 膨張に必要な余白を付け、ROI の端に偽の背景を作らない。
+        var margin = Math.Max(1, Units.RoundPixels(1.5, parameters.Dpi)) + (edge ? 1 : 0);
+        var left = Math.Max(0, region.Left - margin);
+        var top = Math.Max(0, region.Top - margin);
+        var right = Math.Min(image.Width, region.Right + margin);
+        var bottom = Math.Min(image.Height, region.Bottom + margin);
+        using var source = new Mat(image, new Rect(left, top, right - left, bottom - top));
+        using var lab = ImageInk.ToLab(source);
+        using var ink = ImageInk.FromLab(lab, parameters.Dpi);
+        var local = new Rect(region.Left - left, region.Top - top, region.Width, region.Height);
+        using var original = new Mat(ink, local);
+        var data = MatBuffers.Bytes(original);
+        if (!edge) return (data, data);
+        using var expanded = new Mat();
+        using var kernel = Cv2.GetStructuringElement(MorphShapes.Rect, new Size(3, 3));
+        Cv2.Dilate(ink, expanded, kernel);
+        using var matched = new Mat(expanded, local);
+        return (data, MatBuffers.Bytes(matched));
+    }
+}

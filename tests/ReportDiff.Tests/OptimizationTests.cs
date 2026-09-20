@@ -49,6 +49,9 @@ public sealed class OptimizationTests
         Assert.Equal(baseline.MaxShiftPx, optimized.MaxShiftPx);
         Assert.Equal(baseline.NoiseDropped, optimized.NoiseDropped);
         Assert.Equal(baseline.Clusters, optimized.Clusters);
+        Assert.Equal(baseline.RemovalMask is null, optimized.RemovalMask is null);
+        if (baseline.RemovalMask is not null)
+            Assert.Equal(0, Cv2.Norm(baseline.RemovalMask, optimized.RemovalMask!, NormTypes.INF));
         Assert.Equal(baseline.Warnings, optimized.Warnings);
         Assert.Equal(0, Cv2.Norm(baseline.RawMask, optimized.RawMask, NormTypes.INF));
         Assert.Equal(0, Cv2.Norm(baseline.LabelMask, optimized.LabelMask, NormTypes.INF));

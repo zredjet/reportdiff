@@ -47,6 +47,24 @@ public sealed class HtmlReportTests
         AssertEmbeddedReport(report, html);
     }
 
+    [Theory]
+    [InlineData("added", "追加（推定）")]
+    [InlineData("removed", "削除（推定）")]
+    [InlineData("color_changed", "色変更（推定）")]
+    [InlineData("changed", "変更")]
+    [InlineData(null, "未分類")]
+    public void ClassificationLabelsAndLegendExplainColors(string? kind, string label)
+    {
+        var report = Example();
+        report = report with { Pages = [report.Pages[0] with { Clusters = [report.Pages[0].Clusters[0] with { Kind = kind }] }] };
+        var html = HtmlReportWriter.Render(report);
+        Assert.Contains($"<span class=\"kind\">{label}</span>", html);
+        Assert.Contains("緑は A だけのインク", html);
+        Assert.Contains("赤は B だけ・両方のインクやその他の差分", html);
+        Assert.Contains("背景・塗りや判定が明確でない差は「変更」", html);
+        AssertEmbeddedReport(report, html);
+    }
+
     [Fact]
     public void UntrustedTextIsEscapedWithoutLosingEmbeddedJsonContent()
     {
@@ -56,7 +74,8 @@ public sealed class HtmlReportTests
         {
             Inputs = report.Inputs with { A = report.Inputs.A with { Path = hostile } },
             Warnings = [new(hostile, hostile)],
-            Config = report.Config with { Exclude = [new(null, 1, 2, 3, 4, hostile)] }
+            Config = report.Config with { Exclude = [new(null, 1, 2, 3, 4, hostile)] },
+            Pages = [report.Pages[0] with { Clusters = [report.Pages[0].Clusters[0] with { Kind = hostile }] }]
         };
         var html = HtmlReportWriter.Render(report);
         Assert.DoesNotContain("<script>alert", html);

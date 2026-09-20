@@ -8,16 +8,17 @@ public static class PageComparer
     public static PageComparison Compare(Mat a, Mat b, ComparisonParameters parameters) => Compare(a, b, parameters, true);
 
     internal static PageComparison Compare(Mat a, Mat b, ComparisonParameters parameters,
-        bool useGroupBounds, ComparisonTimings? timings = null)
+        bool useGroupBounds, ComparisonTimings? timings = null, bool classify = true)
     {
         using var raw = TolerantDifference.Calculate(a, b, parameters, useGroupBounds, timings);
         var started = Stopwatch.GetTimestamp();
-        var result = Cluster(raw, parameters);
-        if (timings is not null) timings.ClusteringMs = Stopwatch.GetElapsedTime(started).TotalMilliseconds;
+        var result = Cluster(raw, parameters, classify ? a : null, classify ? b : null, timings);
+        if (timings is not null) timings.ClusteringMs = Stopwatch.GetElapsedTime(started).TotalMilliseconds - timings.ClassificationMs;
         return result;
     }
 
-    internal static PageComparison Cluster(RawDifference difference, ComparisonParameters parameters)
+    internal static PageComparison Cluster(RawDifference difference, ComparisonParameters parameters,
+        Mat? a = null, Mat? b = null, ComparisonTimings? timings = null)
     {
         var width = difference.RawMask.Cols;
         var height = difference.RawMask.Rows;
@@ -81,7 +82,34 @@ public static class PageComparer
         var keep = new bool[count];
         foreach (var item in accepted) keep[item.Label] = true;
         for (var i = 0; i < labels.Length; i++) if (keep[labels[i]]) labelMask[i] = 255;
-        var clusters = accepted.Select((item, index) => item.Cluster with { Id = index + 1 }).ToArray();
-        return Result(clusters.Length == 0 ? "same" : "different", clusters, dropped, limited ? ["CLUSTER_LIMIT"] : []);
+        Mat? removalMask = null;
+        string?[]? kinds = null;
+        if (accepted.Count > 0 && a is not null && b is not null)
+        {
+            var started = Stopwatch.GetTimestamp();
+            var allocated = GC.GetAllocatedBytesForCurrentThread();
+            // 形状確認には膨張した連結成分全体を含める。外接矩形内の別成分は混ぜない。
+            var left = Math.Max(0, accepted.Min(item => item.Cluster.Bounds.Left) - hx);
+            var top = Math.Max(0, accepted.Min(item => item.Cluster.Bounds.Top) - hy);
+            var right = Math.Min(width, accepted.Max(item => item.Cluster.Bounds.Right) + hx);
+            var bottom = Math.Min(height, accepted.Max(item => item.Cluster.Bounds.Bottom) + hy);
+            kinds = DifferenceClassifier.Classify(a, b, parameters, raw, labels, keep,
+                new Rect(left, top, right - left, bottom - top), out removalMask);
+            if (timings is not null)
+            {
+                timings.ClassificationMs = Stopwatch.GetElapsedTime(started).TotalMilliseconds;
+                timings.ClassificationManagedBytes = GC.GetAllocatedBytesForCurrentThread() - allocated;
+                timings.RetainedRemovalMaskBytes = removalMask is null ? 0 : (long)width * height;
+            }
+        }
+        try
+        {
+            var clusters = accepted.Select((item, index) => item.Cluster with
+                { Id = index + 1, Kind = kinds?[item.Label] }).ToArray();
+            return new(clusters.Length == 0 ? "same" : "different", clusters, rawPixels, dropped,
+                difference.AbsorbedGroups, difference.MaxShiftPx, MatBuffers.Mask(raw, width, height),
+                MatBuffers.Mask(labelMask, width, height), limited ? ["CLUSTER_LIMIT"] : [], removalMask);
+        }
+        catch { removalMask?.Dispose(); throw; }
     }
 }

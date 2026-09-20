@@ -67,7 +67,8 @@ public sealed class ReportWriterTests
         Assert.Equal(3.5277777777777777, cluster.BboxMm.X, 10);
         Assert.Equal(1.7638888888888888, cluster.BboxMm.W, 10);
         Assert.Equal(80, cluster.Pixels); Assert.Equal(1, cluster.FillRatio);
-        foreach (var key in new[] { "kind", "shift_px", "text_a", "text_b" }) Assert.Equal(JsonValueKind.Null, clusterJson.GetProperty(key).ValueKind);
+        Assert.Equal("added", clusterJson.GetProperty("kind").GetString());
+        foreach (var key in new[] { "shift_px", "text_a", "text_b" }) Assert.Equal(JsonValueKind.Null, clusterJson.GetProperty(key).ValueKind);
         Assert.Equal("pages/p001_overlay.png", page.Images.Overlay);
         Assert.Equal("crops/p001_c001_diff.png", cluster.Crops.Diff);
         foreach (var path in new[] { page.Images.A!, page.Images.B!, page.Images.Overlay!, cluster.Crops.A, cluster.Crops.B, cluster.Crops.Diff })
@@ -294,6 +295,32 @@ public sealed class ReportWriterTests
         Assert.Contains("書き込めません", Assert.Throws<ReportWriteException>(() => writer.AddComparedPage(1, pair, comparison, 300)).Message);
         Assert.Throws<ReportWriteException>(() => writer.Complete());
         Assert.False(File.Exists(Path.Combine(directory.Output, "result.json")));
+    }
+
+    [Fact]
+    public void MixedChangeCropHasGreenRemovalAndRedAdditionWhileOverlayStaysRed()
+    {
+        using var directory = new ReportTestDirectory();
+        using var a = White(100, 80); using var b = White(100, 80);
+        Cv2.Rectangle(a, new Rect(20, 20, 5, 8), Scalar.All(0), -1);
+        Cv2.Rectangle(b, new Rect(30, 20, 5, 8), Scalar.All(0), -1);
+        var settings = Settings() with { Report = new() { CropMarginMm = 0 } };
+        using var pair = PageNormalizer.Normalize(a, b);
+        using var comparison = PageComparer.Compare(pair.A, pair.B, settings.ForPage(1, 300));
+        var writer = new ReportWriter(directory.Output, Inputs(), settings.ToReportConfiguration());
+        writer.AddComparedPage(1, pair, comparison, 300);
+        var result = directory.CompleteAndRead(writer);
+        var page = Assert.Single(result.Pages);
+        var cluster = Assert.Single(page.Clusters);
+        Assert.Equal("changed", cluster.Kind);
+        using var diff = directory.Read(cluster.Crops.Diff);
+        using var overlay = directory.Read(page.Images.Overlay!);
+        Assert.Equal(new Vec3b(0, 255, 0), diff.At<Vec3b>(1, 1));
+        Assert.Equal(new Vec3b(0, 0, 255), diff.At<Vec3b>(1, 11));
+        Assert.Equal(new Vec3b(255, 255, 255), diff.At<Vec3b>(1, 7));
+        Assert.Equal(new Vec3b(0, 0, 255), overlay.At<Vec3b>(21, 21));
+        Assert.Equal(0, Cv2.Norm(a, pair.A, NormTypes.INF));
+        Assert.Equal(0, Cv2.Norm(b, pair.B, NormTypes.INF));
     }
 
     private static AppSettings Settings() => ConfigurationLoader.Load(profile: "strict");
