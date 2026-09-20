@@ -1,4 +1,5 @@
 using ReportDiff.Core;
+using ReportDiff.Report;
 
 namespace ReportDiff.Cli;
 
@@ -16,6 +17,10 @@ public sealed record AppSettings
     public ClusterOptions Cluster { get; init; } = new();
     public IReadOnlyList<ExclusionSetting> Exclude { get; init; } = [];
     public ReportOptions Report { get; init; } = new();
+
+    public ReportConfiguration ToReportConfiguration() => new(Dpi, ImageDpi, Diff, Cluster,
+        Exclude.Select(e => new ReportExclusion(e.Page, e.X, e.Y, e.W, e.H, e.Note)).ToArray(),
+        new ReportOutputOptions(Report.CropMarginMm));
 
     public ComparisonParameters ForPage(int page, int dpi) => new()
     {
