@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../src/ReportDiff.Core/ReportDiff.Core.csproj" />
+    <ProjectReference Include="../../src/ReportDiff.Pdf/ReportDiff.Pdf.csproj" />
+    <ProjectReference Include="../../src/ReportDiff.Report/ReportDiff.Report.csproj" />
+    <ProjectReference Include="../../src/ReportDiff.Cli/ReportDiff.Cli.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,1107 @@
+{
+ "opencv": "4.13.0",
+ "cases": [
+  {
+   "id": "I01",
+   "title": "完全一致",
+   "expect": "ignore",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.15,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.3,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": []
+   },
+   "status": "same",
+   "raw_pixels": 0,
+   "noise_dropped": 0,
+   "absorbed_groups": 0,
+   "max_shift_px": 0,
+   "clusters": []
+  },
+  {
+   "id": "I02-1",
+   "title": "全体サブピクセルずれ (0.25, 0)",
+   "expect": "ignore",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.15,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.3,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": []
+   },
+   "status": "same",
+   "raw_pixels": 0,
+   "noise_dropped": 0,
+   "absorbed_groups": 0,
+   "max_shift_px": 0,
+   "clusters": []
+  },
+  {
+   "id": "I02-2",
+   "title": "全体サブピクセルずれ (0.5, 0)",
+   "expect": "ignore",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.15,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.3,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": []
+   },
+   "status": "same",
+   "raw_pixels": 0,
+   "noise_dropped": 0,
+   "absorbed_groups": 0,
+   "max_shift_px": 0,
+   "clusters": []
+  },
+  {
+   "id": "I02-3",
+   "title": "全体サブピクセルずれ (0.75, 0)",
+   "expect": "ignore",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.15,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.3,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": []
+   },
+   "status": "same",
+   "raw_pixels": 0,
+   "noise_dropped": 0,
+   "absorbed_groups": 0,
+   "max_shift_px": 0,
+   "clusters": []
+  },
+  {
+   "id": "I02-4",
+   "title": "全体サブピクセルずれ (0, 0.5)",
+   "expect": "ignore",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.15,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.3,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": []
+   },
+   "status": "same",
+   "raw_pixels": 0,
+   "noise_dropped": 0,
+   "absorbed_groups": 0,
+   "max_shift_px": 0,
+   "clusters": []
+  },
+  {
+   "id": "I02-5",
+   "title": "全体サブピクセルずれ (0.5, 0.5)",
+   "expect": "ignore",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.15,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.3,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": []
+   },
+   "status": "same",
+   "raw_pixels": 0,
+   "noise_dropped": 0,
+   "absorbed_groups": 0,
+   "max_shift_px": 0,
+   "clusters": []
+  },
+  {
+   "id": "I03-1",
+   "title": "全体 1px ずれ (1, 0)",
+   "expect": "ignore",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.15,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.3,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": []
+   },
+   "status": "same",
+   "raw_pixels": 0,
+   "noise_dropped": 0,
+   "absorbed_groups": 22,
+   "max_shift_px": 1,
+   "clusters": []
+  },
+  {
+   "id": "I03-2",
+   "title": "全体 1px ずれ (0, 1)",
+   "expect": "ignore",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.15,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.3,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": []
+   },
+   "status": "same",
+   "raw_pixels": 0,
+   "noise_dropped": 0,
+   "absorbed_groups": 32,
+   "max_shift_px": 1,
+   "clusters": []
+  },
+  {
+   "id": "I03-3",
+   "title": "全体 1px ずれ (1, 1)",
+   "expect": "ignore",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.15,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.3,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": []
+   },
+   "status": "same",
+   "raw_pixels": 0,
+   "noise_dropped": 0,
+   "absorbed_groups": 20,
+   "max_shift_px": 1,
+   "clusters": []
+  },
+  {
+   "id": "I03-4",
+   "title": "全体 1px ずれ (-1, 1)",
+   "expect": "ignore",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.15,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.3,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": []
+   },
+   "status": "same",
+   "raw_pixels": 0,
+   "noise_dropped": 0,
+   "absorbed_groups": 22,
+   "max_shift_px": 1,
+   "clusters": []
+  },
+  {
+   "id": "I03-5",
+   "title": "全体 1.5px ずれ",
+   "expect": "ignore",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.15,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.3,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": []
+   },
+   "status": "same",
+   "raw_pixels": 0,
+   "noise_dropped": 0,
+   "absorbed_groups": 19,
+   "max_shift_px": 1,
+   "clusters": []
+  },
+  {
+   "id": "L02",
+   "title": "[限界] 全体 3px ずれ (max_shift を超える)",
+   "expect": "limit",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.15,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.3,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": []
+   },
+   "status": "different",
+   "raw_pixels": 6525,
+   "noise_dropped": 1,
+   "absorbed_groups": 2,
+   "max_shift_px": 2,
+   "clusters": [
+    {
+     "id": 1,
+     "x": 93,
+     "y": 96,
+     "w": 130,
+     "h": 281,
+     "pixels": 1995,
+     "fill_ratio": 0.05461264713933753
+    },
+    {
+     "id": 2,
+     "x": 471,
+     "y": 97,
+     "w": 144,
+     "h": 279,
+     "pixels": 808,
+     "fill_ratio": 0.020111509358821188
+    },
+    {
+     "id": 3,
+     "x": 849,
+     "y": 97,
+     "w": 125,
+     "h": 279,
+     "pixels": 1081,
+     "fill_ratio": 0.03099641577060932
+    },
+    {
+     "id": 4,
+     "x": 1227,
+     "y": 96,
+     "w": 4,
+     "h": 281,
+     "pixels": 552,
+     "fill_ratio": 0.49110320284697506
+    },
+    {
+     "id": 5,
+     "x": 513,
+     "y": 129,
+     "w": 84,
+     "h": 37,
+     "pixels": 345,
+     "fill_ratio": 0.111003861003861
+    },
+    {
+     "id": 6,
+     "x": 526,
+     "y": 318,
+     "w": 97,
+     "h": 34,
+     "pixels": 402,
+     "fill_ratio": 0.12189205579138872
+    },
+    {
+     "id": 7,
+     "x": 106,
+     "y": 484,
+     "w": 177,
+     "h": 36,
+     "pixels": 630,
+     "fill_ratio": 0.09887005649717515
+    },
+    {
+     "id": 8,
+     "x": 106,
+     "y": 602,
+     "w": 179,
+     "h": 36,
+     "pixels": 710,
+     "fill_ratio": 0.11018001241464928
+    }
+   ]
+  },
+  {
+   "id": "I04",
+   "title": "オブジェクトごとに異なるサブピクセルずれ",
+   "expect": "ignore",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.15,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.3,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": []
+   },
+   "status": "same",
+   "raw_pixels": 0,
+   "noise_dropped": 0,
+   "absorbed_groups": 0,
+   "max_shift_px": 0,
+   "clusters": []
+  },
+  {
+   "id": "I05",
+   "title": "除外領域内だけの変更",
+   "expect": "ignore",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.15,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.3,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": [
+     [
+      40.5,
+      8.5,
+      31.0,
+      7.0
+     ]
+    ]
+   },
+   "status": "same",
+   "raw_pixels": 0,
+   "noise_dropped": 0,
+   "absorbed_groups": 0,
+   "max_shift_px": 0,
+   "clusters": []
+  },
+  {
+   "id": "D01",
+   "title": "小数点の有無",
+   "expect": "detect",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.15,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.3,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": []
+   },
+   "status": "different",
+   "raw_pixels": 22,
+   "noise_dropped": 0,
+   "absorbed_groups": 0,
+   "max_shift_px": 0,
+   "clusters": [
+    {
+     "id": 1,
+     "x": 536,
+     "y": 255,
+     "w": 5,
+     "h": 5,
+     "pixels": 22,
+     "fill_ratio": 0.88
+    }
+   ]
+  },
+  {
+   "id": "D02",
+   "title": "マイナス記号の有無",
+   "expect": "detect",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.15,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.3,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": []
+   },
+   "status": "different",
+   "raw_pixels": 55,
+   "noise_dropped": 0,
+   "absorbed_groups": 0,
+   "max_shift_px": 0,
+   "clusters": [
+    {
+     "id": 1,
+     "x": 496,
+     "y": 336,
+     "w": 19,
+     "h": 3,
+     "pixels": 55,
+     "fill_ratio": 0.9649122807017544
+    }
+   ]
+  },
+  {
+   "id": "D03",
+   "title": "数字 1 文字の変更 120 -> 125",
+   "expect": "detect",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.15,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.3,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": []
+   },
+   "status": "different",
+   "raw_pixels": 315,
+   "noise_dropped": 0,
+   "absorbed_groups": 0,
+   "max_shift_px": 0,
+   "clusters": [
+    {
+     "id": 1,
+     "x": 568,
+     "y": 127,
+     "w": 28,
+     "h": 38,
+     "pixels": 315,
+     "fill_ratio": 0.29605263157894735
+    }
+   ]
+  },
+  {
+   "id": "D06a",
+   "title": "1px 線の 2mm 延長",
+   "expect": "detect",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.15,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.3,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": []
+   },
+   "status": "different",
+   "raw_pixels": 44,
+   "noise_dropped": 0,
+   "absorbed_groups": 0,
+   "max_shift_px": 0,
+   "clusters": [
+    {
+     "id": 1,
+     "x": 828,
+     "y": 507,
+     "w": 22,
+     "h": 2,
+     "pixels": 44,
+     "fill_ratio": 1.0
+    }
+   ]
+  },
+  {
+   "id": "D07",
+   "title": "線色のみ変更 (青 -> 赤)",
+   "expect": "detect",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.15,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.3,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": []
+   },
+   "status": "different",
+   "raw_pixels": 1418,
+   "noise_dropped": 0,
+   "absorbed_groups": 0,
+   "max_shift_px": 0,
+   "clusters": [
+    {
+     "id": 1,
+     "x": 355,
+     "y": 507,
+     "w": 473,
+     "h": 3,
+     "pixels": 1418,
+     "fill_ratio": 0.9992952783650458
+    }
+   ]
+  },
+  {
+   "id": "D08",
+   "title": "実線 -> 破線",
+   "expect": "detect",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.15,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.3,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": []
+   },
+   "status": "different",
+   "raw_pixels": 266,
+   "noise_dropped": 0,
+   "absorbed_groups": 0,
+   "max_shift_px": 0,
+   "clusters": [
+    {
+     "id": 1,
+     "x": 379,
+     "y": 507,
+     "w": 435,
+     "h": 2,
+     "pixels": 266,
+     "fill_ratio": 0.3057471264367816
+    }
+   ]
+  },
+  {
+   "id": "D09",
+   "title": "セル塗り 白 -> #F2F2F2",
+   "expect": "detect",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.15,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.3,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": []
+   },
+   "status": "different",
+   "raw_pixels": 24219,
+   "noise_dropped": 0,
+   "absorbed_groups": 0,
+   "max_shift_px": 0,
+   "clusters": [
+    {
+     "id": 1,
+     "x": 864,
+     "y": 202,
+     "w": 351,
+     "h": 69,
+     "pixels": 24219,
+     "fill_ratio": 1.0
+    }
+   ]
+  },
+  {
+   "id": "D10",
+   "title": "2mm マーカーの追加",
+   "expect": "detect",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.15,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.3,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": []
+   },
+   "status": "different",
+   "raw_pixels": 320,
+   "noise_dropped": 0,
+   "absorbed_groups": 0,
+   "max_shift_px": 0,
+   "clusters": [
+    {
+     "id": 1,
+     "x": 697,
+     "y": 721,
+     "w": 23,
+     "h": 24,
+     "pixels": 320,
+     "fill_ratio": 0.5797101449275363
+    }
+   ]
+  },
+  {
+   "id": "D11",
+   "title": "外枠の太さ変更 + 枠内の数値変更",
+   "expect": "detect",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.15,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.3,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": []
+   },
+   "status": "different",
+   "raw_pixels": 18972,
+   "noise_dropped": 0,
+   "absorbed_groups": 0,
+   "max_shift_px": 0,
+   "clusters": [
+    {
+     "id": 1,
+     "x": 91,
+     "y": 91,
+     "w": 1141,
+     "h": 290,
+     "pixels": 18657,
+     "fill_ratio": 0.056384296896249506
+    },
+    {
+     "id": 2,
+     "x": 568,
+     "y": 127,
+     "w": 28,
+     "h": 38,
+     "pixels": 315,
+     "fill_ratio": 0.29605263157894735
+    }
+   ]
+  },
+  {
+   "id": "D12a",
+   "title": "離れた 2 箇所の変更",
+   "expect": "detect",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.15,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.3,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": []
+   },
+   "status": "different",
+   "raw_pixels": 723,
+   "noise_dropped": 0,
+   "absorbed_groups": 0,
+   "max_shift_px": 0,
+   "clusters": [
+    {
+     "id": 1,
+     "x": 568,
+     "y": 127,
+     "w": 28,
+     "h": 38,
+     "pixels": 315,
+     "fill_ratio": 0.29605263157894735
+    },
+    {
+     "id": 2,
+     "x": 904,
+     "y": 316,
+     "w": 35,
+     "h": 41,
+     "pixels": 408,
+     "fill_ratio": 0.2843205574912892
+    }
+   ]
+  },
+  {
+   "id": "D12b",
+   "title": "同一行の隣接 2 文字の変更",
+   "expect": "detect",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.15,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.3,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": []
+   },
+   "status": "different",
+   "raw_pixels": 1172,
+   "noise_dropped": 0,
+   "absorbed_groups": 0,
+   "max_shift_px": 0,
+   "clusters": [
+    {
+     "id": 1,
+     "x": 904,
+     "y": 127,
+     "w": 70,
+     "h": 41,
+     "pixels": 1172,
+     "fill_ratio": 0.4083623693379791
+    }
+   ]
+  },
+  {
+   "id": "D13",
+   "title": "数値変更 + 全体 0.5px ずれ",
+   "expect": "detect",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.15,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.3,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": []
+   },
+   "status": "different",
+   "raw_pixels": 316,
+   "noise_dropped": 0,
+   "absorbed_groups": 0,
+   "max_shift_px": 0,
+   "clusters": [
+    {
+     "id": 1,
+     "x": 568,
+     "y": 128,
+     "w": 28,
+     "h": 40,
+     "pixels": 316,
+     "fill_ratio": 0.28214285714285714
+    }
+   ]
+  },
+  {
+   "id": "D14",
+   "title": "3px 線の色を薄く (同系色)",
+   "expect": "detect",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.15,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.3,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": []
+   },
+   "status": "different",
+   "raw_pixels": 1418,
+   "noise_dropped": 0,
+   "absorbed_groups": 0,
+   "max_shift_px": 0,
+   "clusters": [
+    {
+     "id": 1,
+     "x": 354,
+     "y": 625,
+     "w": 709,
+     "h": 2,
+     "pixels": 1418,
+     "fill_ratio": 1.0
+    }
+   ]
+  },
+  {
+   "id": "S01",
+   "title": "[厳密] 外枠 1px -> 3px",
+   "expect": "detect",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.0,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.0,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": []
+   },
+   "status": "different",
+   "raw_pixels": 9617,
+   "noise_dropped": 0,
+   "absorbed_groups": 0,
+   "max_shift_px": 0,
+   "clusters": [
+    {
+     "id": 1,
+     "x": 93,
+     "y": 93,
+     "w": 1137,
+     "h": 287,
+     "pixels": 9617,
+     "fill_ratio": 0.02947116165469985
+    }
+   ]
+  },
+  {
+   "id": "S02",
+   "title": "[厳密] 完全一致",
+   "expect": "ignore",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.0,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.0,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": []
+   },
+   "status": "same",
+   "raw_pixels": 0,
+   "noise_dropped": 0,
+   "absorbed_groups": 0,
+   "max_shift_px": 0,
+   "clusters": []
+  },
+  {
+   "id": "D15",
+   "title": "線幅 1px -> 3px (各辺 1px 増)",
+   "expect": "detect",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.15,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.3,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": []
+   },
+   "status": "different",
+   "raw_pixels": 11818,
+   "noise_dropped": 0,
+   "absorbed_groups": 0,
+   "max_shift_px": 0,
+   "clusters": [
+    {
+     "id": 1,
+     "x": 92,
+     "y": 95,
+     "w": 1139,
+     "h": 286,
+     "pixels": 11818,
+     "fill_ratio": 0.03627890985221977
+    }
+   ]
+  },
+  {
+   "id": "L01",
+   "title": "[限界] 1px 線を同系色で薄く (ΔL 約 20)",
+   "expect": "limit",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.15,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.3,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": []
+   },
+   "status": "same",
+   "raw_pixels": 0,
+   "noise_dropped": 0,
+   "absorbed_groups": 0,
+   "max_shift_px": 0,
+   "clusters": []
+  },
+  {
+   "id": "J01",
+   "title": "濁点 -> 半濁点 (ば -> ぱ)",
+   "expect": "detect",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.15,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.3,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": []
+   },
+   "status": "different",
+   "raw_pixels": 12,
+   "noise_dropped": 0,
+   "absorbed_groups": 0,
+   "max_shift_px": 0,
+   "clusters": [
+    {
+     "id": 1,
+     "x": 271,
+     "y": 130,
+     "w": 7,
+     "h": 8,
+     "pixels": 12,
+     "fill_ratio": 0.21428571428571427
+    }
+   ]
+  },
+  {
+   "id": "J02",
+   "title": "長音 -> 漢数字 (ー -> 一)",
+   "expect": "detect",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.15,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.3,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": []
+   },
+   "status": "different",
+   "raw_pixels": 14,
+   "noise_dropped": 0,
+   "absorbed_groups": 0,
+   "max_shift_px": 0,
+   "clusters": [
+    {
+     "id": 1,
+     "x": 440,
+     "y": 146,
+     "w": 36,
+     "h": 3,
+     "pixels": 14,
+     "fill_ratio": 0.12962962962962962
+    }
+   ]
+  },
+  {
+   "id": "J03",
+   "title": "似た漢字 (未 -> 末)",
+   "expect": "detect",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.15,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.3,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": []
+   },
+   "status": "different",
+   "raw_pixels": 31,
+   "noise_dropped": 0,
+   "absorbed_groups": 0,
+   "max_shift_px": 0,
+   "clusters": [
+    {
+     "id": 1,
+     "x": 120,
+     "y": 255,
+     "w": 34,
+     "h": 12,
+     "pixels": 31,
+     "fill_ratio": 0.07598039215686274
+    }
+   ]
+  },
+  {
+   "id": "J04",
+   "title": "桁区切りの有無 (1,250 -> 1250)",
+   "expect": "detect",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.15,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.3,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": []
+   },
+   "status": "different",
+   "raw_pixels": 1622,
+   "noise_dropped": 0,
+   "absorbed_groups": 0,
+   "max_shift_px": 0,
+   "clusters": [
+    {
+     "id": 1,
+     "x": 261,
+     "y": 250,
+     "w": 118,
+     "h": 37,
+     "pixels": 1622,
+     "fill_ratio": 0.37150710032065964
+    }
+   ]
+  },
+  {
+   "id": "J05",
+   "title": "日本語文字列の 0.5px ずれ",
+   "expect": "ignore",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.15,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.3,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": []
+   },
+   "status": "same",
+   "raw_pixels": 0,
+   "noise_dropped": 0,
+   "absorbed_groups": 0,
+   "max_shift_px": 0,
+   "clusters": []
+  },
+  {
+   "id": "J06",
+   "title": "日本語文字列の 1px ずれ",
+   "expect": "ignore",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.15,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.3,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": []
+   },
+   "status": "same",
+   "raw_pixels": 0,
+   "noise_dropped": 0,
+   "absorbed_groups": 11,
+   "max_shift_px": 1,
+   "clusters": []
+  }
+ ]
+}
