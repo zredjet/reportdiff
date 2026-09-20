@@ -41,6 +41,6 @@ SkiaSharp は生成時にページ寸法を整数 pt に丸めるため、小数
 
 ## 残る範囲
 
-T1-7 のサイズ・ページ対応、`--pages` の解釈、CLI への接続は未着手。Windows の追加テストと PDF の日本語パス実機確認は未実施で、[Windows 確認リスト](../TASKS.md) に残している。
+サイズ・ページ対応と `--pages` の解釈は [T1-7 確認結果](t1-7-pages.md) を参照。結果出力と CLI への接続は未着手。Windows の追加テストと PDF の日本語パス実機確認は未実施で、[Windows 確認リスト](../TASKS.md) に残している。
 
 再実行はリポジトリのルートで `dotnet build` と `dotnet test`。macOS の初回準備は [ネイティブ依存の準備](../NATIVE_RUNTIME.md) を参照。
