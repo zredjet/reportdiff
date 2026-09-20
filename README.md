@@ -12,7 +12,13 @@ dotnet build
 dotnet test
 ```
 
-現在は T0-1・T0-2 が完了。T0-3 の CI は GitHub 接続先が未設定のため、作業リストの条件に従って省略。比較コマンドの機能は未実装。
+現在は T0-1・T0-2 が完了。T0-3 の CI 構成を追加済みで、GitHub Actions での成功確認は未実施。比較コマンドの機能は未実装。
+
+## CI
+
+[GitHub Actions](https://github.com/zredjet/reportdiff/actions/workflows/ci.yml) で、`master` への push・pull request と手動実行時に Windows x64 / macOS Apple Silicon のビルドとテストを実行する。設定は [ci.yml](.github/workflows/ci.yml)。
+
+両環境で .NET 10 SDK を準備し、`dotnet build` と `dotnet test` を実行する。macOS では Python 3.13 を準備し、FFmpeg を含まないローカルランタイムを毎回ソースから生成する。Intel Mac のテストは対象外。
 
 ## 中身
 

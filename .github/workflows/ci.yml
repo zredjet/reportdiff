@@ -1,0 +1,78 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  DOTNET_CLI_TELEMETRY_OPTOUT: '1'
+  DOTNET_NOLOGO: '1'
+  TESTINGPLATFORM_TELEMETRY_OPTOUT: '1'
+
+jobs:
+  build-and-test:
+    name: ${{ matrix.name }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Windows x64
+            os: windows-latest
+            arch: X64
+          - name: macOS Apple Silicon
+            os: macos-latest
+            arch: ARM64
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: ソースを取得
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: 対象アーキテクチャを確認
+        env:
+          EXPECTED_ARCH: ${{ matrix.arch }}
+        run: test "$RUNNER_ARCH" = "$EXPECTED_ARCH"
+
+      - name: .NET 10 SDK を準備
+        uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6.0.0
+        with:
+          dotnet-version: '10.0.x'
+          dotnet-quality: ga
+
+      - name: Python を準備
+        if: runner.os == 'macOS'
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.13'
+          architecture: arm64
+
+      - name: ローカル NuGet ソースを準備
+        run: mkdir -p out/packages
+
+      - name: FFmpeg なしの macOS ランタイムを生成
+        if: runner.os == 'macOS'
+        run: python3 tools/build-macos-runtime.py --jobs 3
+
+      - name: SDK とランタイムを表示
+        run: dotnet --info
+
+      - name: ビルド
+        run: dotnet build
+
+      - name: テスト
+        run: dotnet test

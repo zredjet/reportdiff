@@ -38,11 +38,13 @@
 
 確認済み（2026-09-20）：承認された FFmpeg なしの構成を用意した。Windows は公式 slim、macOS は arm64 / x64 のローカルランタイムを生成。macOS arm64 でビルド警告 0・疎通テスト 2 / 2 成功。Windows publish が成功し、exe は 150,507,849 bytes（143.54 MiB）、内部に Windows x64 の pdfium / OpenCvSharpExtern / libSkiaSharp を確認した。Windows での動作 OK をユーザーが確認済み。Intel Mac はユーザー指定により対象外とし、実機確認を残件に含めない。詳細は [T0-2 確認結果](verification/t0-2-dependencies.md)、再生成方法は [ネイティブ依存の準備](NATIVE_RUNTIME.md)。Phase 1 は未着手。
 
-### [x] T0-3 CI（任意・省略）
+### [ ] T0-3 CI（任意）
 
 GitHub Actions で `windows-latest` と `macos-latest` の両方で `dotnet build` と `dotnet test`。リポジトリが GitHub にない場合は省略。
 
-省略（2026-09-20）：`git remote -v` の出力は空で、`origin` も未設定。GitHub の接続先を確認できないため、省略条件に従い CI の追加・実行は行わない。このチェックは CI の成功を示すものではない。GitHub リポジトリを接続して CI を導入する際は、Windows x64 と macOS Apple Silicon を対象に、このタスクを再開する。
+構成追加（2026-09-21）：Public リポジトリ `zredjet/reportdiff` への接続を確認し、`.github/workflows/ci.yml` を追加。`master` への push・pull request と手動実行を対象に、Windows x64 / macOS Apple Silicon の両方で `dotnet build` と `dotnet test` を行う。macOS は FFmpeg なしのローカルランタイムを毎回ソースから生成する。GitHub Actions での成功確認は未実施のため、このタスクは未完了。Phase 1 は未着手。
+
+ローカル確認：actionlint 1.7.12 でワークフローの検証に成功。macOS arm64 の `dotnet build` は警告 0・エラー 0、`dotnet test` は 2 / 2 成功。GitHub への push 後、Windows と macOS の両ジョブの成功を確認してチェックを付ける。
 
 ---
 
