@@ -55,6 +55,6 @@ JSON は SPEC 8.2 の項目と snake_case 名を使う。設定の除外対象�
 
 ## 残る範囲
 
-T1-9 の HTML と T1-10 の CLI 接続は未着手。`--save-all-pages` 相当の API は実装済みだが、比較コマンド自体はまだ実行できない。Windows での追加テスト、日本語の出力パス、実際のディスク容量不足の確認は未実施。
+HTML は [T1-9 確認結果](t1-9-html.md) を参照。T1-10 の CLI 接続は未着手。`--save-all-pages` 相当の API は実装済みだが、比較コマンド自体はまだ実行できない。Windows での追加テスト、日本語の出力パス、実際のディスク容量不足の確認は未実施。
 
 再実行はリポジトリのルートで `dotnet build` と `dotnet test`。macOS の初回準備は [ネイティブ依存の準備](../NATIVE_RUNTIME.md) を参照。

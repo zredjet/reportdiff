@@ -23,6 +23,7 @@
 | .NET（自己完結配布） | 10.0.12 | MIT と .NET 同梱通知 | https://github.com/dotnet/runtime |
 | CMake（ビルド用） | 4.3.0 | BSD-3-Clause | https://cmake.org/ |
 | Ninja（ビルド用） | 1.13.0 | Apache-2.0 | https://ninja-build.org/ |
+| Playwright / playwright-core（任意のブラウザ検証用、アプリには含めない） | 1.62.1 で確認 | Apache-2.0 | https://github.com/microsoft/playwright |
 
 ## ネイティブ画像コーデック
 

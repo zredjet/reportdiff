@@ -1,5 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
     <ProjectReference Include="../ReportDiff.Pdf/ReportDiff.Pdf.csproj" />
+    <EmbeddedResource Include="ReportStyles.css" />
+    <EmbeddedResource Include="ReportInteractions.js" />
   </ItemGroup>
 </Project>
