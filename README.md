@@ -12,7 +12,7 @@ dotnet build
 dotnet test
 ```
 
-現在は T0-1・T0-2 が完了。T0-3 の CI 構成を追加済みで、GitHub Actions での成功確認は未実施。比較コマンドの機能は未実装。
+現在は Phase 0（T0-1〜T0-3）が完了。GitHub Actions で Windows x64 / macOS Apple Silicon のビルドとテストの成功を確認済み（[T0-3 確認結果](docs/verification/t0-3-ci.md)）。Phase 1 と比較コマンドの機能は未実装。
 
 ## CI
 
