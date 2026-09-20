@@ -42,6 +42,19 @@ try {
     const kindLabels = { added: '追加（推定）', removed: '削除（推定）', changed: '変更', color_changed: '色変更（推定）', moved: '移動（推定）' };
     const kinds = result.pages.flatMap(item => item.clusters.map(cluster => kindLabels[cluster.kind] ?? cluster.kind ?? '未分類'));
     assert.deepEqual(await page.locator('.kind').allTextContents(), kinds);
+    const annotationText = value => value == null ? 'テキスト注釈なし' : value === '' ? '該当テキストなし' : value;
+    assert.deepEqual(await page.locator('.text-value').allTextContents(), result.pages.flatMap(item =>
+      item.clusters.flatMap(cluster => [annotationText(cluster.text_a), annotationText(cluster.text_b)])));
+    for (const text of await page.locator('.text-value').all()) {
+      assert.equal(await text.evaluate(element => element.scrollWidth <= element.clientWidth), true, 'PDF テキストが横にはみ出しています。');
+      if (await text.evaluate(element => element.scrollHeight > element.clientHeight)) {
+        await text.focus();
+        assert.equal(await text.evaluate(element => getComputedStyle(element).outlineStyle), 'solid');
+        await page.keyboard.press('ArrowDown');
+        await page.waitForFunction(element => element.scrollTop > 0, await text.elementHandle(), { timeout: 5000 });
+        await text.evaluate(element => { element.scrollTop = 0; });
+      }
+    }
     assert.ok((await page.locator('#pages').innerText()).includes('緑は A だけのインク'));
     assert.deepEqual(await page.locator('.input-path').allTextContents(), [result.inputs.a.path, result.inputs.b.path]);
     for (const warning of result.warnings) assert.ok((await page.locator('.warnings').innerText()).includes(warning.message));
@@ -125,11 +138,21 @@ try {
     assert.deepEqual(await page.evaluate(() => window.reportCspViolations), []);
     await page.locator('details.page').evaluateAll((items, states) => items.forEach((item, i) => { item.open = states[i]; }), originalOpen);
     await page.locator('.settings > summary').click();
+    // キーによるスクロールのアニメーションが撮影直前の復帰を上書きしないようにする。
+    await page.waitForTimeout(250);
     await page.evaluate(() => {
       document.querySelectorAll('.table-scroll').forEach(element => { element.scrollLeft = 0; });
+      document.querySelectorAll('.text-value').forEach(element => { element.scrollTop = 0; });
       document.activeElement.blur(); window.scrollTo(0, 0);
     });
     await page.screenshot({ path: path.join(screenshotDirectory, `${path.basename(reportPath, '.html')}-${width}.png`), fullPage: true });
+    if (width === 390 && await page.locator('.pdf-text').count()) {
+      await page.locator('.table-scroll').filter({ has: page.locator('.clusters') }).first().evaluate(element => {
+        element.scrollLeft = element.querySelector('.pdf-text').closest('td').offsetLeft;
+      });
+      await page.locator('.clusters').first().scrollIntoViewIfNeeded();
+      await page.screenshot({ path: path.join(screenshotDirectory, `${path.basename(reportPath, '.html')}-text-${width}.png`) });
+    }
     await context.close();
   }
   const noScript = await browser.newContext({ javaScriptEnabled: false });

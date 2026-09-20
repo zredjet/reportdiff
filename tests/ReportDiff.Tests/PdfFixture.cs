@@ -4,7 +4,7 @@ using SkiaSharp;
 
 namespace ReportDiff.Tests;
 
-internal static class PdfFixture
+internal static partial class PdfFixture
 {
     public static readonly SKColor[] PageColors = [SKColors.Red, new(0, 255, 0), SKColors.Blue];
 

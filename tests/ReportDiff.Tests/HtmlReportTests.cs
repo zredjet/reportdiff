@@ -97,7 +97,7 @@ public sealed class HtmlReportTests
             Inputs = report.Inputs with { A = report.Inputs.A with { Path = hostile } },
             Warnings = [new(hostile, hostile)],
             Config = report.Config with { Exclude = [new(null, 1, 2, 3, 4, hostile)] },
-            Pages = [report.Pages[0] with { Clusters = [report.Pages[0].Clusters[0] with { Kind = hostile }] }]
+            Pages = [report.Pages[0] with { Clusters = [report.Pages[0].Clusters[0] with { Kind = hostile, TextA = hostile, TextB = hostile }] }]
         };
         var html = HtmlReportWriter.Render(report);
         Assert.DoesNotContain("<script>alert", html);
@@ -105,6 +105,22 @@ public sealed class HtmlReportTests
         Assert.DoesNotContain("https://", html);
         Assert.Contains(hostile, WebUtility.HtmlDecode(html));
         Assert.Equal(2, Regex.Matches(html, "</script>").Count);
+        AssertEmbeddedReport(report, html);
+    }
+
+    [Theory]
+    [InlineData(null, "テキスト注釈なし")]
+    [InlineData("", "該当テキストなし")]
+    [InlineData("日本語\n123", "日本語\n123")]
+    public void PdfTextStatesAndLineBreaksAreShown(string? text, string expected)
+    {
+        var report = Example();
+        report = report with { Pages = [report.Pages[0] with { Clusters = [report.Pages[0].Clusters[0] with { TextA = text, TextB = text }] }] };
+        var html = HtmlReportWriter.Render(report);
+        Assert.Equal(2, Regex.Matches(html, "class=\"pdf-text\"").Count);
+        Assert.Contains($">{expected}</div>", html);
+        Assert.Contains("class=\"text-value\" tabindex=\"0\" role=\"region\"", html);
+        Assert.Contains("画像の文字認識結果ではなく", html);
         AssertEmbeddedReport(report, html);
     }
 

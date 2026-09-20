@@ -70,8 +70,11 @@ public static class CliApplication
                 using var imageA = a.ReadPage(page.PageNumber);
                 using var imageB = b.ReadPage(page.PageNumber);
                 using var normalized = PageNormalizer.Normalize(imageA.Pixels, imageB.Pixels);
-                using var comparison = PageComparer.Compare(normalized.A, normalized.B, settings.ForPage(page.PageNumber, a.Dpi));
-                writer.AddComparedPage(page.PageNumber, normalized, comparison, a.Dpi);
+                var parameters = settings.ForPage(page.PageNumber, a.Dpi);
+                using var comparison = PageComparer.Compare(normalized.A, normalized.B, parameters);
+                var textA = a.Annotate(page.PageNumber, normalized.OriginalSizeA, comparison.Clusters, parameters.Exclude);
+                var textB = b.Annotate(page.PageNumber, normalized.OriginalSizeB, comparison.Clusters, parameters.Exclude);
+                writer.AddComparedPage(page.PageNumber, normalized, comparison, a.Dpi, textA, textB);
             }
             else
             {

@@ -1,0 +1,92 @@
+{
+  "file": "reportdiff.exe",
+  "size_bytes": 156440645,
+  "sha256": "14a6bf1957f0f632094fdd300b7c5d25ea576a9a6d2b60f4c532822d703baa9b",
+  "bundle_version": "6.0",
+  "bundle_id": "sxmb9qn7WIZ0",
+  "embedded_files": 192,
+  "required_native_libraries": [
+    {
+      "name": "pdfium.dll",
+      "size_bytes": 7220736,
+      "machine": "win-x64",
+      "sha256": "d3d9f4b7c9dabe3363f30779c5c3c715c47332749fa590e4b4a2b8b6780cb1c4"
+    },
+    {
+      "name": "OpenCvSharpExtern.dll",
+      "size_bytes": 55547904,
+      "machine": "win-x64",
+      "sha256": "1fa122bdb8e94175e7719fb8aa8f2ab211268a756f5d0c7a13c710ed79ae30cd"
+    },
+    {
+      "name": "libSkiaSharp.dll",
+      "size_bytes": 12254048,
+      "machine": "win-x64",
+      "sha256": "c8770c219e0d3cd9bb119fad46f2d00ae1855b11315816e86e909e3332826212"
+    }
+  ],
+  "pdf_text_assemblies": [
+    {
+      "name": "UglyToad.PdfPig.Core.dll",
+      "size_bytes": 50176,
+      "sha256": "cbdd1809ee0f4ba617900845d182e5e67183377fe5848a8d9d1222b3c395116b"
+    },
+    {
+      "name": "UglyToad.PdfPig.DocumentLayoutAnalysis.dll",
+      "size_bytes": 248320,
+      "sha256": "c0d1e237eabcb2c741fc7ab7b26c255af6f5751d1cd7e86d7ae613611f79bc88"
+    },
+    {
+      "name": "UglyToad.PdfPig.Fonts.dll",
+      "size_bytes": 1095680,
+      "sha256": "30521d2aa02252c0097cd3a9b12832368d5c925e1ccb4bc3a5735671bd3d2e1e"
+    },
+    {
+      "name": "UglyToad.PdfPig.Package.dll",
+      "size_bytes": 4608,
+      "sha256": "3227f79347329b57e50745d2ade1deb7ccdfe57da1d382796283832aae6ea41a"
+    },
+    {
+      "name": "UglyToad.PdfPig.Tokenization.dll",
+      "size_bytes": 23040,
+      "sha256": "539d0ca2c7981b9eaf8541e17434911042f7cc73d3abc24962994bb99472ed3c"
+    },
+    {
+      "name": "UglyToad.PdfPig.Tokens.dll",
+      "size_bytes": 48128,
+      "sha256": "d6fbd73a520bb961ffcc98030ab686f43c88b03f5b059ba11e3781e0f091433d"
+    },
+    {
+      "name": "UglyToad.PdfPig.dll",
+      "size_bytes": 4251648,
+      "sha256": "c47abebdffebb6e48a1d40f4c22ce5f673c57558ecdb3187841b728112dea279"
+    }
+  ],
+  "dependencies": {
+    "runtimepack.Microsoft.NETCore.App.Runtime.win-x64/10.0.12": "runtimepack",
+    "bblanchon.PDFium.Win32/152.0.7961": "package",
+    "OpenCvSharp4/4.13.0.20260627": "package",
+    "OpenCvSharp4.runtime.win.slim/4.13.0.20260627": "package",
+    "PdfPig/0.1.16": "package",
+    "PDFtoImage/5.4.0": "package",
+    "SkiaSharp/4.150.1": "package",
+    "SkiaSharp.NativeAssets.Win32/4.150.1": "package",
+    "YamlDotNet/18.1.0": "package"
+  },
+  "runtime_options": {
+    "tfm": "net10.0",
+    "includedFrameworks": [
+      {
+        "name": "Microsoft.NETCore.App",
+        "version": "10.0.12"
+      }
+    ],
+    "configProperties": {
+      "System.Globalization.Invariant": false,
+      "System.Reflection.Metadata.MetadataUpdater.IsSupported": false,
+      "System.Runtime.Serialization.EnableUnsafeBinaryFormatterSerialization": false
+    }
+  },
+  "ffmpeg_assets": [],
+  "foreign_native_assets": []
+}

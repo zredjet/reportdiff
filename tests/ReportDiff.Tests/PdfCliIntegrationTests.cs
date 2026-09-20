@@ -123,7 +123,7 @@ public sealed class PdfCliIntegrationTests
         using var overlay = directory.Read(page.Images.Overlay!);
         foreach (var cluster in page.Clusters)
         {
-            Assert.Null(cluster.ShiftPx); Assert.Null(cluster.TextA); Assert.Null(cluster.TextB);
+            Assert.Null(cluster.ShiftPx); Assert.Equal("", cluster.TextA); Assert.Equal("", cluster.TextB);
             using var diff = directory.Read(cluster.Crops.Diff);
             Assert.Equal(cluster.Kind == "removed" ? new Vec3b(0, 255, 0) : new Vec3b(0, 0, 255), diff.At<Vec3b>(diff.Height / 2, diff.Width / 2));
             var box = cluster.BboxPx;
@@ -158,7 +158,7 @@ public sealed class PdfCliIntegrationTests
         for (var i = 0; i < page.Clusters.Count; i++)
         {
             var cluster = page.Clusters[i];
-            Assert.Null(cluster.TextA); Assert.Null(cluster.TextB);
+            Assert.Equal("", cluster.TextA); Assert.Equal("", cluster.TextB);
             if (disabled)
             {
                 Assert.NotEqual("moved", cluster.Kind); Assert.Null(cluster.ShiftPx); Assert.Empty(cluster.RelatedClusterIds);

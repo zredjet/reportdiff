@@ -1,0 +1,7 @@
+{
+  "environment": "macOS 26.5.1 arm64 / .NET 10.0.12 Release",
+  "method": "/usr/bin/time -l、A4 600 単語、1/120/500 クラスタ、各 5 回。合成 PDF の生成・描画・検証・GC を含むプロセス全体のピーク。",
+  "maximum_resident_set_size": 164970496,
+  "peak_memory_footprint": 126550952,
+  "unit": "bytes"
+}

@@ -7,6 +7,7 @@ This software is based in part on the work of the Independent JPEG Group.
 | 名前 | バージョン | ライセンス | 配布元 |
 |---|---|---|---|
 | PDFtoImage | 5.4.0 | MIT | https://github.com/sungaila/PDFtoImage |
+| PdfPig | 0.1.16 | Apache-2.0（内蔵 Adobe データの通知は下記） | https://github.com/UglyToad/PdfPig |
 | OpenCvSharp4 / OpenCvSharp4.runtime.win.slim | 4.13.0.20260627 | Apache-2.0 | https://github.com/shimat/opencvsharp |
 | ReportDiff.OpenCvSharp4.runtime.osx（macOS 開発用） | 4.13.0.20260627 | ローカル nupkg 内の `licenses/NOTICE.md` と各原文を参照 | `tools/build-macos-runtime.py` で生成するローカルパッケージ |
 | OpenCV | 4.13.0 | Apache-2.0 | https://github.com/opencv/opencv |
@@ -32,6 +33,7 @@ This software is based in part on the work of the Independent JPEG Group.
 | 対象 | 原文 |
 |---|---|
 | PDFtoImage | [MIT](licenses/PDFtoImage/LICENSE) |
+| PdfPig と内蔵 Adobe データ | [Apache-2.0](licenses/PdfPig/LICENSE)、[NOTICES](licenses/PdfPig/NOTICES.txt)、[Glyph List](licenses/PdfPig/glyphlist-LICENSE.txt)、[Zapf Dingbats](licenses/PdfPig/zapfdingbats-LICENSE.txt)、[AFM の許諾](licenses/PdfPig/AdobeFontMetrics/MustRead.html)と[各著作権表示](licenses/PdfPig/AdobeFontMetrics/) |
 | YamlDotNet | [MIT](licenses/YamlDotNet/LICENSE.txt) |
 | OpenCvSharp | [Apache-2.0](licenses/OpenCvSharp/LICENSE) |
 | OpenCV | [Apache-2.0](licenses/OpenCV/LICENSE)、[著作権](licenses/OpenCV/COPYRIGHT)、[旧 BSD コード](licenses/OpenCV/doc/LICENSE_BSD.txt) |
@@ -40,6 +42,8 @@ This software is based in part on the work of the Independent JPEG Group.
 | .NET 自己完結ランタイム | [MIT](licenses/dotnet/LICENSE.TXT)、[全文通知](licenses/dotnet/THIRD-PARTY-NOTICES.TXT) |
 
 SkiaSharp と .NET は使用中の NuGet パッケージから原文をコピーした。PDFium は同じバージョンの公式 Windows x64 アーカイブから全通知を取得し、アーカイブ内の `pdfium.dll` と NuGet の DLL が SHA-256 で一致することを確認した。残る直接依存は nuspec のコミットに対応する原文を使用した。各ファイルの出典と SHA-256 は [sources.json](licenses/sources.json)、確認した依存と DLL のハッシュは [dependencies.json](licenses/dependencies.json) に記録する。
+
+PdfPig は nuspec が指す `a7bb35662bbbf405efddad50aedc9bcdcf515afc` の原文を使用する。内蔵 Adobe Glyph List は BSD 形式の許諾文を保持し、Adobe Font Metrics は独自の再配布許諾（MustRead.html）と全 14 ファイルの著作権表示を保持する。これらの内蔵データの条件を PdfPig の Apache-2.0 表記で置き換えない。net9.0 アセットを .NET 10 で利用し、新しい推移的パッケージやネイティブライブラリは追加しない。
 
 ### Windows OpenCV の内蔵ライブラリ
 

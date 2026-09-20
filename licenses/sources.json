@@ -234,6 +234,117 @@
       "file": "OpenCV/liblzma/COPYING.0BSD",
       "source": "https://raw.githubusercontent.com/tukaani-project/xz/v5.8.2/COPYING.0BSD",
       "sha256": "0b01625d853911cd0e2e088dcfb743261034a091bb379246cb25a14cc4c74bf1"
+    },
+    {
+      "file": "PdfPig/LICENSE",
+      "source": "https://raw.githubusercontent.com/UglyToad/PdfPig/a7bb35662bbbf405efddad50aedc9bcdcf515afc/LICENSE",
+      "sha256": "4c510e162f896ea43b4b1cf1b743641d7c756f1004d0e5eaf0615b28b7ded409"
+    },
+    {
+      "file": "PdfPig/NOTICES.txt",
+      "source": "https://raw.githubusercontent.com/UglyToad/PdfPig/a7bb35662bbbf405efddad50aedc9bcdcf515afc/NOTICES.txt",
+      "sha256": "d7a07a105f64d9240ed40a8ebe0c45658616c1660bf9fd8a36e2dbf3165f6e92"
+    },
+    {
+      "file": "PdfPig/glyphlist-LICENSE.txt",
+      "source": "https://raw.githubusercontent.com/UglyToad/PdfPig/a7bb35662bbbf405efddad50aedc9bcdcf515afc/src/UglyToad.PdfPig.Fonts/Resources/GlyphList/glyphlist",
+      "sha256": "2cd85109f110f0f5fea93e5c1056cd1bc5576865ecc92adc6587d6b9304efc61",
+      "excerpt": "Original lines 1-36; copyright and license notice"
+    },
+    {
+      "file": "PdfPig/zapfdingbats-LICENSE.txt",
+      "source": "https://raw.githubusercontent.com/UglyToad/PdfPig/a7bb35662bbbf405efddad50aedc9bcdcf515afc/src/UglyToad.PdfPig.Fonts/Resources/GlyphList/zapfdingbats",
+      "sha256": "54b5c2e65e8aa355b0c506099e26d14009b7a78fc3ba877220c2c2fb6d84307a",
+      "excerpt": "Original lines 1-36; copyright and license notice"
+    },
+    {
+      "file": "PdfPig/AdobeFontMetrics/MustRead.html",
+      "source": "https://raw.githubusercontent.com/UglyToad/PdfPig/a7bb35662bbbf405efddad50aedc9bcdcf515afc/src/UglyToad.PdfPig.Fonts/Resources/AdobeFontMetrics/MustRead.html",
+      "sha256": "b226bfc00e1b8b8a80c7b3cfbbc322d13b4b0401f94cdeafdd93b2210ad802eb"
+    },
+    {
+      "file": "PdfPig/AdobeFontMetrics/Courier-Bold-NOTICE.txt",
+      "source": "https://raw.githubusercontent.com/UglyToad/PdfPig/a7bb35662bbbf405efddad50aedc9bcdcf515afc/src/UglyToad.PdfPig.Fonts/Resources/AdobeFontMetrics/Courier-Bold.afm",
+      "sha256": "81c6a7ab0bebbc06c1078dd0b7ed07efe47a57421e21187b4fddd1f3b88aa8fc",
+      "excerpt": "Original lines 1-35; copyright and license notice"
+    },
+    {
+      "file": "PdfPig/AdobeFontMetrics/Courier-BoldOblique-NOTICE.txt",
+      "source": "https://raw.githubusercontent.com/UglyToad/PdfPig/a7bb35662bbbf405efddad50aedc9bcdcf515afc/src/UglyToad.PdfPig.Fonts/Resources/AdobeFontMetrics/Courier-BoldOblique.afm",
+      "sha256": "f9cfe87062c01f09fe96459d342429c47324bce328c286632740934b2020ba28",
+      "excerpt": "Original lines 1-35; copyright and license notice"
+    },
+    {
+      "file": "PdfPig/AdobeFontMetrics/Courier-Oblique-NOTICE.txt",
+      "source": "https://raw.githubusercontent.com/UglyToad/PdfPig/a7bb35662bbbf405efddad50aedc9bcdcf515afc/src/UglyToad.PdfPig.Fonts/Resources/AdobeFontMetrics/Courier-Oblique.afm",
+      "sha256": "5daa4618481a46a9b22deb2fea994788330e708188f0fb2ffccbaee543ad8edd",
+      "excerpt": "Original lines 1-35; copyright and license notice"
+    },
+    {
+      "file": "PdfPig/AdobeFontMetrics/Courier-NOTICE.txt",
+      "source": "https://raw.githubusercontent.com/UglyToad/PdfPig/a7bb35662bbbf405efddad50aedc9bcdcf515afc/src/UglyToad.PdfPig.Fonts/Resources/AdobeFontMetrics/Courier.afm",
+      "sha256": "e34fd09904e2929dade04ebd244cc5be49d32691d7d689baf6d9d2d703d40afc",
+      "excerpt": "Original lines 1-35; copyright and license notice"
+    },
+    {
+      "file": "PdfPig/AdobeFontMetrics/Helvetica-Bold-NOTICE.txt",
+      "source": "https://raw.githubusercontent.com/UglyToad/PdfPig/a7bb35662bbbf405efddad50aedc9bcdcf515afc/src/UglyToad.PdfPig.Fonts/Resources/AdobeFontMetrics/Helvetica-Bold.afm",
+      "sha256": "e77cae02916d9f28c6e79fdd5c347cb94cb05257fb9fdf516d65a040df33406c",
+      "excerpt": "Original lines 1-35; copyright and license notice"
+    },
+    {
+      "file": "PdfPig/AdobeFontMetrics/Helvetica-BoldOblique-NOTICE.txt",
+      "source": "https://raw.githubusercontent.com/UglyToad/PdfPig/a7bb35662bbbf405efddad50aedc9bcdcf515afc/src/UglyToad.PdfPig.Fonts/Resources/AdobeFontMetrics/Helvetica-BoldOblique.afm",
+      "sha256": "c77b6e0528986a6779e02650185a742b5cf478494ba239553d7247fdf08b659c",
+      "excerpt": "Original lines 1-35; copyright and license notice"
+    },
+    {
+      "file": "PdfPig/AdobeFontMetrics/Helvetica-Oblique-NOTICE.txt",
+      "source": "https://raw.githubusercontent.com/UglyToad/PdfPig/a7bb35662bbbf405efddad50aedc9bcdcf515afc/src/UglyToad.PdfPig.Fonts/Resources/AdobeFontMetrics/Helvetica-Oblique.afm",
+      "sha256": "60e0aa16409d52ce093b7668e75a619709c39cdd1edc4461810cc8d34cda94a3",
+      "excerpt": "Original lines 1-35; copyright and license notice"
+    },
+    {
+      "file": "PdfPig/AdobeFontMetrics/Helvetica-NOTICE.txt",
+      "source": "https://raw.githubusercontent.com/UglyToad/PdfPig/a7bb35662bbbf405efddad50aedc9bcdcf515afc/src/UglyToad.PdfPig.Fonts/Resources/AdobeFontMetrics/Helvetica.afm",
+      "sha256": "8c6516c5d0f5b18a9f5a12f63628608059b7e65c5e0a193e8615ae5cc574a78c",
+      "excerpt": "Original lines 1-35; copyright and license notice"
+    },
+    {
+      "file": "PdfPig/AdobeFontMetrics/Symbol-NOTICE.txt",
+      "source": "https://raw.githubusercontent.com/UglyToad/PdfPig/a7bb35662bbbf405efddad50aedc9bcdcf515afc/src/UglyToad.PdfPig.Fonts/Resources/AdobeFontMetrics/Symbol.afm",
+      "sha256": "b3603d3ab33cb3adb06c05598f0adb731ef02db985e662b52b1432ef27b32c69",
+      "excerpt": "Original lines 1-35; copyright and license notice"
+    },
+    {
+      "file": "PdfPig/AdobeFontMetrics/Times-Bold-NOTICE.txt",
+      "source": "https://raw.githubusercontent.com/UglyToad/PdfPig/a7bb35662bbbf405efddad50aedc9bcdcf515afc/src/UglyToad.PdfPig.Fonts/Resources/AdobeFontMetrics/Times-Bold.afm",
+      "sha256": "84dc3ad1e72e8083d58a89cd49c3a29f4ebe899e01777a06ec1a4d7623cc91b7",
+      "excerpt": "Original lines 1-35; copyright and license notice"
+    },
+    {
+      "file": "PdfPig/AdobeFontMetrics/Times-BoldItalic-NOTICE.txt",
+      "source": "https://raw.githubusercontent.com/UglyToad/PdfPig/a7bb35662bbbf405efddad50aedc9bcdcf515afc/src/UglyToad.PdfPig.Fonts/Resources/AdobeFontMetrics/Times-BoldItalic.afm",
+      "sha256": "f08e411d2b124ed57740d6ea9f3bab19c539263f81870f3e58827300641f4d1f",
+      "excerpt": "Original lines 1-35; copyright and license notice"
+    },
+    {
+      "file": "PdfPig/AdobeFontMetrics/Times-Italic-NOTICE.txt",
+      "source": "https://raw.githubusercontent.com/UglyToad/PdfPig/a7bb35662bbbf405efddad50aedc9bcdcf515afc/src/UglyToad.PdfPig.Fonts/Resources/AdobeFontMetrics/Times-Italic.afm",
+      "sha256": "5bd221e80374ca5ae19cc3cf68c3e058a52968b01af6674727ede7a63ab66b2e",
+      "excerpt": "Original lines 1-35; copyright and license notice"
+    },
+    {
+      "file": "PdfPig/AdobeFontMetrics/Times-Roman-NOTICE.txt",
+      "source": "https://raw.githubusercontent.com/UglyToad/PdfPig/a7bb35662bbbf405efddad50aedc9bcdcf515afc/src/UglyToad.PdfPig.Fonts/Resources/AdobeFontMetrics/Times-Roman.afm",
+      "sha256": "461e26295169c3556f718d9d4c3af50986ce5df5431bf1119095d5d624479091",
+      "excerpt": "Original lines 1-35; copyright and license notice"
+    },
+    {
+      "file": "PdfPig/AdobeFontMetrics/ZapfDingbats-NOTICE.txt",
+      "source": "https://raw.githubusercontent.com/UglyToad/PdfPig/a7bb35662bbbf405efddad50aedc9bcdcf515afc/src/UglyToad.PdfPig.Fonts/Resources/AdobeFontMetrics/ZapfDingbats.afm",
+      "sha256": "d31baada28c0a6b049f5b9e4373d48f08623674a693ccfcc6b477655b2da282b",
+      "excerpt": "Original lines 1-35; copyright and license notice"
     }
   ]
 }

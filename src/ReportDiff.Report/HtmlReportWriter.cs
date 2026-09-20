@@ -75,6 +75,7 @@ public static partial class HtmlReportWriter
         html.Append("</section>");
         AppendSettings(html, report.Config);
         html.Append("<section id=\"pages\" aria-labelledby=\"pages-title\"><h2 id=\"pages-title\">ページ別の結果</h2><p class=\"muted\">重ね描きの赤は差分・輪郭・番号、黄色は除外領域です。画像を選ぶと元の大きさで開きます。</p><p class=\"muted\">追加・削除などの分類は A→B のインクの有無からの推定です。背景・塗りや判定が明確でない差は「変更」とします。「移動（推定）」は位置を変えると内容が一致し、対応が一意と判断できた箇所です。移動の向きは A→B です。移動も相違として数えます。切り出しの緑は A だけのインク、赤は B だけ・両方のインクやその他の差分です。</p>");
+        html.Append("<p class=\"muted\">PDF テキストは元ファイルの文字情報を添えた補足です。画像の文字認識結果ではなく、不可視の文字や変更されていない部分を含むことがあります。複雑な段組みや縦書きの読み順は再現しません。画像と併せて確認してください。</p>");
         foreach (var page in report.Pages) AppendPage(html, page);
         html.Append("</section><footer>ReportDiff · オフライン比較レポート</footer></main>");
         // HTML の終了タグとして解釈されない既定エンコーダを使用する。スラッシュも符号化し、URL のリテラルを残さない。
@@ -136,8 +137,8 @@ public static partial class HtmlReportWriter
             {
                 var box = cluster.BboxMm;
                 html.Append($"<tr id=\"page-{page.Page}-cluster-{cluster.Id}\"><th scope=\"row\">{cluster.Id}<br><span class=\"kind\">{Kind(cluster.Kind)}</span>{Movement(page, cluster)}</th><td class=\"bounds\">X {Mm(box.X)} · Y {Mm(box.Y)}<br>幅 {Mm(box.W)} × 高さ {Mm(box.H)}</td><td>{cluster.Pixels}</td>");
-                AppendCrop(html, cluster.Crops.A, $"{page.Page} ページ・相違 {cluster.Id}・A の切り出し");
-                AppendCrop(html, cluster.Crops.B, $"{page.Page} ページ・相違 {cluster.Id}・B の切り出し");
+                AppendCrop(html, cluster.Crops.A, $"{page.Page} ページ・相違 {cluster.Id}・A の切り出し", true, cluster.TextA);
+                AppendCrop(html, cluster.Crops.B, $"{page.Page} ページ・相違 {cluster.Id}・B の切り出し", true, cluster.TextB);
                 AppendCrop(html, cluster.Crops.Diff, $"{page.Page} ページ・相違 {cluster.Id}・差分の切り出し");
                 html.Append("</tr>");
             }
@@ -171,10 +172,16 @@ public static partial class HtmlReportWriter
         html.Append($"</div><span class=\"viewer-label\" aria-live=\"polite\">{page.Page} ページ・{initial.Label}</span></figcaption><a class=\"page-image-link\" href=\"{initial.Path}\"><img class=\"page-image\" src=\"{initial.Path}\" alt=\"{page.Page} ページ・{initial.Label}\" loading=\"lazy\" width=\"{page.SizePx.W}\" height=\"{page.SizePx.H}\"></a></figure>");
     }
 
-    private static void AppendCrop(StringBuilder html, string path, string alt)
+    private static void AppendCrop(StringBuilder html, string path, string alt, bool annotate = false, string? text = null)
     {
         ValidateImagePath(path);
-        html.Append($"<td><a href=\"{path}\"><img class=\"crop\" src=\"{path}\" alt=\"{H(alt)}\" loading=\"lazy\"></a></td>");
+        html.Append($"<td><a href=\"{path}\"><img class=\"crop\" src=\"{path}\" alt=\"{H(alt)}\" loading=\"lazy\"></a>");
+        if (annotate)
+        {
+            var display = text switch { null => "テキスト注釈なし", "" => "該当テキストなし", _ => text };
+            html.Append($"<div class=\"pdf-text\"><span class=\"muted\">PDF テキスト</span><div class=\"text-value\" tabindex=\"0\" role=\"region\" aria-label=\"{H(alt)}の PDF テキスト\">{H(display)}</div></div>");
+        }
+        html.Append("</td>");
     }
 
     private static string Movement(ReportPage page, ReportCluster cluster)

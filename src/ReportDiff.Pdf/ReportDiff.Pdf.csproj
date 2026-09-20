@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
     <PackageReference Include="PDFtoImage" Version="5.4.0" />
+    <PackageReference Include="PdfPig" Version="0.1.16" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="../ReportDiff.Core/ReportDiff.Core.csproj" />

@@ -42,7 +42,8 @@ public sealed class ReportWriter
             warnings.Add(new("MIXED_INPUT_TYPES", $"入力形式が異なります（A: {inputs.A.Type}、B: {inputs.B.Type}）。"));
     }
 
-    public ReportPage AddComparedPage(int page, NormalizedPagePair images, PageComparison comparison, int dpi)
+    public ReportPage AddComparedPage(int page, NormalizedPagePair images, PageComparison comparison, int dpi,
+        PageTextAnnotations? textA = null, PageTextAnnotations? textB = null)
     {
         CheckPage(page);
         if (page > Math.Min(inputs.A.Pages, inputs.B.Pages)) throw new ArgumentException("両方の入力にあるページを指定してください。");
@@ -85,7 +86,8 @@ public sealed class ReportWriter
                     new(Units.PixelsToMm(bounds.X, dpi), Units.PixelsToMm(bounds.Y, dpi),
                         Units.PixelsToMm(bounds.Width, dpi), Units.PixelsToMm(bounds.Height, dpi)),
                     cluster.Pixels, cluster.FillRatio, cluster.Kind,
-                    cluster.ShiftPx is { } shift ? new PixelShift(shift.Dx, shift.Dy) : null, null, null, crops)
+                    cluster.ShiftPx is { } shift ? new PixelShift(shift.Dx, shift.Dy) : null,
+                    textA?.TextByCluster.GetValueOrDefault(cluster.Id), textB?.TextByCluster.GetValueOrDefault(cluster.Id), crops)
                     { RelatedClusterIds = Array.AsReadOnly(cluster.RelatedClusterIds.ToArray()) });
             }
         });
@@ -93,6 +95,10 @@ public sealed class ReportWriter
             comparison.RawPixels, comparison.NoiseDropped, comparison.AbsorbedGroups, comparison.MaxShiftPx,
             paths, Array.AsReadOnly(clusters.ToArray()));
         pages.Add(result);
+        foreach (var (side, annotations) in new[] { ("A", textA), ("B", textB) })
+            if (annotations is not null)
+                foreach (var warning in annotations.Warnings)
+                    warnings.Add(new(warning.Code, $"{side}・{page} ページ: {warning.Message}"));
         if (images.SizeMismatch)
             warnings.Add(new("SIZE_MISMATCH", $"{page} ページ: サイズが異なります（A: {images.OriginalSizeA.Width}×{images.OriginalSizeA.Height}px、B: {images.OriginalSizeB.Width}×{images.OriginalSizeB.Height}px）。右と下を白で埋めました。"));
         foreach (var code in comparison.Warnings)

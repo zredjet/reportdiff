@@ -13,6 +13,8 @@ import zlib
 # https://github.com/dotnet/runtime/tree/v10.0.0/src/installer/managed/Microsoft.NET.HostModel/Bundle
 SIGNATURE = bytes.fromhex("8b1202b96a612038727b930214d7a03213f5b9e6efae3318ee3b2dce24b36aae")
 REQUIRED = {"pdfium.dll", "OpenCvSharpExtern.dll", "libSkiaSharp.dll"}
+PDF_TEXT = {"UglyToad.PdfPig" + suffix + ".dll" for suffix in
+            ["", ".Core", ".DocumentLayoutAnalysis", ".Fonts", ".Package", ".Tokenization", ".Tokens"]}
 
 
 def read_string(stream):
@@ -55,6 +57,7 @@ def inspect(path):
     bundle_id = read_string(stream)
     stream.read(40)  # deps.json・runtimeconfig.json の位置とフラグ
     native = []
+    pdf_text = []
     names = []
     metadata = {}
     for _ in range(count):
@@ -66,7 +69,7 @@ def inspect(path):
         stored_size = compressed or size
         if start < 0 or size < 0 or stored_size < 0 or start + stored_size > offset:
             raise ValueError(f"埋め込み範囲が不正です: {name}")
-        if name in REQUIRED or name in {"reportdiff.deps.json", "reportdiff.runtimeconfig.json"}:
+        if name in REQUIRED or name in PDF_TEXT or name in {"reportdiff.deps.json", "reportdiff.runtimeconfig.json"}:
             payload = data[start:start + stored_size]
             if compressed:
                 payload = zlib.decompress(payload, -15)
@@ -74,6 +77,11 @@ def inspect(path):
                 raise ValueError(f"DLL サイズが一致しません: {name}")
             if name.endswith(".json"):
                 metadata[name] = json.loads(payload)
+                continue
+            if name in PDF_TEXT:
+                if kind != 1 or payload[:2] != b"MZ":
+                    raise ValueError(f"PDF テキスト用の管理 DLL が不正です: {name}")
+                pdf_text.append({"name": name, "size_bytes": size, "sha256": hashlib.sha256(payload).hexdigest()})
                 continue
             if kind != 2:
                 raise ValueError(f"ネイティブ DLL として記録されていません: {name}")
@@ -92,9 +100,12 @@ def inspect(path):
         raise ValueError("依存関係またはランタイム設定の JSON がありません。")
     dependencies = {name: library["type"] for name, library in metadata["reportdiff.deps.json"]["libraries"].items()
                     if library["type"] in {"package", "runtimepack"}}
+    if any(name.startswith("PdfPig/") for name in dependencies) and {entry["name"] for entry in pdf_text} != PDF_TEXT:
+        raise ValueError("PdfPig の管理 DLL が揃っていません。")
     return {"file": str(path), "size_bytes": len(data), "sha256": hashlib.sha256(data).hexdigest(),
             "bundle_version": f"{major}.{minor}", "bundle_id": bundle_id,
             "embedded_files": count, "required_native_libraries": native,
+            "pdf_text_assemblies": pdf_text,
             "dependencies": dependencies,
             "runtime_options": metadata["reportdiff.runtimeconfig.json"]["runtimeOptions"],
             "ffmpeg_assets": [], "foreign_native_assets": []}

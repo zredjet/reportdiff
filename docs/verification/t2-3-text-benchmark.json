@@ -1,0 +1,97 @@
+{
+  "generated_at": "2026-09-21T05:26:23.701931+09:00",
+  "os": "macOS 26.5.1",
+  "architecture": "Arm64",
+  "runtime": "10.0.12",
+  "dpi": 300,
+  "width": 2480,
+  "height": 3507,
+  "words": 600,
+  "results_equal": true,
+  "measurements": [
+    {
+      "clusters": 1,
+      "mode": "open_and_annotate",
+      "iterations": 5,
+      "median_ms": 18.6894,
+      "managed_bytes_at_median": 3968792,
+      "samples_ms": [
+        23.4198,
+        18.6894,
+        22.6291,
+        17.6238,
+        17.5048
+      ]
+    },
+    {
+      "clusters": 1,
+      "mode": "reuse_document",
+      "iterations": 5,
+      "median_ms": 17.2017,
+      "managed_bytes_at_median": 3842776,
+      "samples_ms": [
+        17.3993,
+        17.2017,
+        17.1138,
+        17.2566,
+        16.9567
+      ]
+    },
+    {
+      "clusters": 120,
+      "mode": "open_and_annotate",
+      "iterations": 5,
+      "median_ms": 18.7778,
+      "managed_bytes_at_median": 4143488,
+      "samples_ms": [
+        17.7566,
+        19.114,
+        18.7778,
+        18.6448,
+        18.933
+      ]
+    },
+    {
+      "clusters": 120,
+      "mode": "reuse_document",
+      "iterations": 5,
+      "median_ms": 18.447,
+      "managed_bytes_at_median": 4017472,
+      "samples_ms": [
+        18.0466,
+        18.5143,
+        18.447,
+        18.7689,
+        18.4153
+      ]
+    },
+    {
+      "clusters": 500,
+      "mode": "open_and_annotate",
+      "iterations": 5,
+      "median_ms": 21.2207,
+      "managed_bytes_at_median": 4707312,
+      "samples_ms": [
+        21.4329,
+        21.2354,
+        20.5756,
+        21.2207,
+        20.8722
+      ]
+    },
+    {
+      "clusters": 500,
+      "mode": "reuse_document",
+      "iterations": 5,
+      "median_ms": 21.6763,
+      "managed_bytes_at_median": 4581296,
+      "samples_ms": [
+        20.7462,
+        20.9451,
+        21.6763,
+        26.2358,
+        21.6775
+      ]
+    }
+  ]
+}

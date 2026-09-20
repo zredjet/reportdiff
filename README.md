@@ -2,7 +2,7 @@
 
 業務帳票の PDF・画像を比較し、相違を「箇所」単位で報告する CLI ツール。細かな描画差や許容範囲内の位置ずれを吸収し、変更部分の画像と JSON・オフライン HTML を出力する。
 
-実行対象は Windows x64。開発・検証環境は macOS Apple Silicon。Intel Mac は対象外。Phase 1、T2-1（差分の分類）、T2-2（移動の注釈）を実装済み。macOS では全 504 テストが成功している。Windows 向け publish・ZIP の静的検証は T1-12 時点のもの。完成版の Windows CI・実機確認は [確認リスト](docs/TASKS.md#windows-確認リスト人が実機で行う)に残る。
+実行対象は Windows x64。開発・検証環境は macOS Apple Silicon。Intel Mac は対象外。Phase 1 と T2-1〜T2-3（分類・移動・PDF テキスト注釈）を実装済み。macOS では全 538 テストが成功している。T2-3 の Windows 向け publish・ZIP の静的検証も完了。完成版の Windows CI・実機確認は [確認リスト](docs/TASKS.md#windows-確認リスト人が実機で行う)に残る。
 
 ## Windows で使う
 
@@ -55,6 +55,10 @@ move:
 ```
 
 JSON では `kind: moved`、`shift_px: {dx, dy}`（右・下が正）、`related_cluster_ids` に記録する。クラスタ数は移動操作の件数ではない。サブピクセル・回転・拡縮、複合箇所の一部だけの移動は対象外。画像端や単純な長い線、薄い塗りも推定されないことがある。[移動の仕様](docs/SPEC.md#112-移動の注釈t2-2)を参照。
+
+PDF 入力には、差分矩形に重なる単語全文を A/B 別の「PDF テキスト」として添える。JSON の `text_a` / `text_b` にも記録する。OCR ではなく元 PDF の文字情報なので、不可視の文字や変更されていない部分を含むことがある。画像と併せて確認する。
+
+除外領域に触れる単語は省き、本文は片側 2,000 文字まで。回転ページ・未対応の座標・抽出失敗は警告とともにその側の注釈だけを省略し、画像比較を続ける。「該当テキストなし」は抽出成功で対象の単語がない場合、「テキスト注釈なし」は画像入力・省略・失敗の場合を示す。詳しくは [テキスト注釈の仕様](docs/SPEC.md#113-pdf-テキスト層の注釈t2-3)を参照。
 
 ### オプション
 
@@ -130,12 +134,13 @@ Windows では macOS ランタイムの生成は不要。復元前にローカ�
 
 - [SPEC](docs/SPEC.md)：アルゴリズム・設定・入出力の正本
 - [TASKS](docs/TASKS.md)：完了範囲と Windows 実機確認リスト
+- [T2-3 の検証記録](docs/verification/t2-3-text.md)：PDF テキスト・座標・失敗時の継続・長文表示・性能・Windows 配布物
 - [T2-2 の検証記録](docs/verification/t2-2-movement.md)：移動量・関連 ID・誤判定防止・PDF 結合・多数候補の計測
 - [T2-1 の検証記録](docs/verification/t2-1-classification.md)：分類・切り出し・PDF 結合・ブラウザ・時間とメモリ
 - [T1-12 の検証記録](docs/verification/t1-12-distribution.md)：publish・バンドル・配布 ZIP の確認結果
 - `CLAUDE.md`：開発ルール。`reference/prototype.py` と `reference/golden/`：比較結果の参照実装と 37 ケース
 - [サードパーティ通知](THIRD_PARTY_NOTICES.md)：依存一覧と同梱ライセンス。配布時は `licenses/` を含めて保持する
 
-[GitHub Actions](https://github.com/zredjet/reportdiff/actions/workflows/ci.yml) は Windows x64 / macOS Apple Silicon でビルドとテストを実行する。リモートで確認済みなのは [T0-3](docs/verification/t0-3-ci.md) 時点の疎通 2 件。T2-2 までの全 504 件はローカル macOS で検証済みで、Windows の追加テスト・完成版 exe の実行・Edge / Chrome 表示は未確認。
+[GitHub Actions](https://github.com/zredjet/reportdiff/actions/workflows/ci.yml) は Windows x64 / macOS Apple Silicon でビルドとテストを実行する。リモートで確認済みなのは [T0-3](docs/verification/t0-3-ci.md) 時点の疎通 2 件。T2-3 までの全 538 件はローカル macOS で検証済みで、Windows の追加テスト・完成版 exe の実行・Edge / Chrome 表示は未確認。
 
 実帳票は `samples/private/` に置き、Git に含めない。テストには合成データだけを使う。

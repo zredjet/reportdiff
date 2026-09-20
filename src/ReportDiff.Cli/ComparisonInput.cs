@@ -1,4 +1,6 @@
 using System.Runtime.Versioning;
+using OpenCvSharp;
+using ReportDiff.Core;
 using ReportDiff.Pdf;
 using ReportDiff.Report;
 
@@ -11,6 +13,7 @@ internal sealed class ComparisonInput : IDisposable
 {
     private readonly string path;
     private readonly PdfReader? pdf;
+    private readonly PdfTextReader? text;
     public InputFormat Format { get; }
     public int PageCount => pdf?.PageCount ?? 1;
     public int Dpi { get; }
@@ -30,11 +33,17 @@ internal sealed class ComparisonInput : IDisposable
             throw new CommandLineException($"入力ファイルを読み込めません: {path}");
         }
         if (Format == InputFormat.Unknown) throw new CommandLineException($"入力は PDF・PNG・JPEG・BMP・TIFF のいずれかにしてください: {path}");
-        if (Format == InputFormat.Pdf) pdf = PdfReader.Open(path);
+        if (Format == InputFormat.Pdf) { pdf = PdfReader.Open(path); text = new PdfTextReader(path); }
         Dpi = Format == InputFormat.Pdf ? settings.Dpi : settings.ImageDpi;
     }
 
     public ReportInput Describe() => ReportInput.FromFile(path, Format, PageCount);
     public LoadedImage ReadPage(int page) => pdf is null ? ImageReader.Read(path, Dpi) : pdf.ReadPage(page, Dpi);
-    public void Dispose() => pdf?.Dispose();
+    public PageTextAnnotations? Annotate(int page, Size originalSize, IReadOnlyList<DifferenceCluster> clusters,
+        IReadOnlyList<RectMm> exclusions) => text?.Annotate(page, originalSize, Dpi, clusters, exclusions);
+    public void Dispose()
+    {
+        try { text?.Dispose(); }
+        finally { pdf?.Dispose(); }
+    }
 }

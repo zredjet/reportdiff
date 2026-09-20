@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><OutputType>Exe</OutputType></PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../src/ReportDiff.Pdf/ReportDiff.Pdf.csproj" />
+    <Compile Include="../../tests/ReportDiff.Tests/PdfFixture.cs" Link="PdfFixture.cs" />
+    <Compile Include="../../tests/ReportDiff.Tests/PdfTextFixture.cs" Link="PdfTextFixture.cs" />
+  </ItemGroup>
+</Project>
