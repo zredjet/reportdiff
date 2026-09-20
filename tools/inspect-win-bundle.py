@@ -56,21 +56,27 @@ def inspect(path):
     stream.read(40)  # deps.json・runtimeconfig.json の位置とフラグ
     native = []
     names = []
+    metadata = {}
     for _ in range(count):
         start, size, compressed, kind = struct.unpack("<qqqB", stream.read(25))
         name = read_string(stream)
+        if name in names:
+            raise ValueError(f"バンドル内のファイル名が重複しています: {name}")
         names.append(name)
         stored_size = compressed or size
         if start < 0 or size < 0 or stored_size < 0 or start + stored_size > offset:
             raise ValueError(f"埋め込み範囲が不正です: {name}")
-        if name in REQUIRED:
-            if kind != 2:
-                raise ValueError(f"ネイティブ DLL として記録されていません: {name}")
+        if name in REQUIRED or name in {"reportdiff.deps.json", "reportdiff.runtimeconfig.json"}:
             payload = data[start:start + stored_size]
             if compressed:
                 payload = zlib.decompress(payload, -15)
             if len(payload) != size:
                 raise ValueError(f"DLL サイズが一致しません: {name}")
+            if name.endswith(".json"):
+                metadata[name] = json.loads(payload)
+                continue
+            if kind != 2:
+                raise ValueError(f"ネイティブ DLL として記録されていません: {name}")
             require_x64_pe(payload, name)
             if name == "OpenCvSharpExtern.dll":
                 for forbidden in [b"videoio_VideoCapture_new1", b"avcodec_", b"avformat_", b"libswscale license"]:
@@ -82,9 +88,15 @@ def inspect(path):
         raise ValueError("必須ネイティブ DLL が揃っていません。")
     if any("ffmpeg" in name.lower() or name.endswith((".dylib", ".so")) for name in names):
         raise ValueError("FFmpeg または Windows 以外のネイティブ資産が含まれています。")
+    if len(metadata) != 2:
+        raise ValueError("依存関係またはランタイム設定の JSON がありません。")
+    dependencies = {name: library["type"] for name, library in metadata["reportdiff.deps.json"]["libraries"].items()
+                    if library["type"] in {"package", "runtimepack"}}
     return {"file": str(path), "size_bytes": len(data), "sha256": hashlib.sha256(data).hexdigest(),
             "bundle_version": f"{major}.{minor}", "bundle_id": bundle_id,
             "embedded_files": count, "required_native_libraries": native,
+            "dependencies": dependencies,
+            "runtime_options": metadata["reportdiff.runtimeconfig.json"]["runtimeOptions"],
             "ffmpeg_assets": [], "foreign_native_assets": []}
 
 

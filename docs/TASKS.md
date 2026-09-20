@@ -126,9 +126,9 @@ SkiaSharp で 2 ページの PDF を新旧 2 つ作る（1 ページ目は同一
 
 受け入れ条件：終了コード 1。`summary.clusters` が 1。1 ページ目は `same`。出力ファイルがそろっている。同一の PDF 同士では終了コード 0。
 
-確認済み（2026-09-21）：SkiaSharp で新旧 2 ページ PDF を生成し、既定の 300dpi・通常設定で CLI 実プロセスを検証。A/B を入れ替えても除外後の変更は 1 箇所・終了コード 1、1 ページ目は same、JSON・HTML・PNG 6 枚がそろう。同一 PDF 同士は終了コード 0。除外なし・除外ページ違いでは 2 箇所になることも確認。結合 6 件を追加し、ビルド警告 0・全 423 件成功。生成 HTML は macOS Chrome の 1280 / 390px 幅で表示・操作・外部リクエスト 0 件を確認。詳細は [T1-11 確認結果](verification/t1-11-integration.md)。T1-12 は未着手。
+確認済み（2026-09-21）：SkiaSharp で新旧 2 ページ PDF を生成し、既定の 300dpi・通常設定で CLI 実プロセスを検証。A/B を入れ替えても除外後の変更は 1 箇所・終了コード 1、1 ページ目は same、JSON・HTML・PNG 6 枚がそろう。同一 PDF 同士は終了コード 0。除外なし・除外ページ違いでは 2 箇所になることも確認。結合 6 件を追加し、ビルド警告 0・全 423 件成功。生成 HTML は macOS Chrome の 1280 / 390px 幅で表示・操作・外部リクエスト 0 件を確認。詳細は [T1-11 確認結果](verification/t1-11-integration.md)。配布物の確認結果は T1-12 に記載。
 
-### [ ] T1-12 配布物
+### [x] T1-12 配布物
 
 - `README.md`（使い方、設定例、プロファイルの選び方、既知の限界へのリンク）
 - `THIRD_PARTY_NOTICES.md` を完成させる
@@ -136,20 +136,23 @@ SkiaSharp で 2 ページの PDF を新旧 2 つ作る（1 ページ目は同一
 
 受け入れ条件：publish が成功。下の「Windows 確認リスト」を最新にする。
 
+確認済み（2026-09-21）：README の使い方・設定例・プロファイル・既知の限界、全文ライセンス通知、Windows 用発行プロファイルと ZIP 作成手順を整備。macOS 上の win-x64 単一 exe の publish が成功し、150,653,769 bytes、必須 DLL 3 種の x64・ハッシュ一致、FFmpeg と他 OS 資産の不在を確認。配布 ZIP の内容・ハッシュと、依存や通知が確認済みの内容から変わった場合の拒否を検証。ビルド警告 0・全 423 件成功。詳細は [T1-12 確認結果](verification/t1-12-distribution.md)。完成版の Windows CI・実機確認は下記に残す。Phase 2 は未着手。
+
 ---
 
 ## Windows 確認リスト（人が実機で行う）
 
 - [x] T0-2 の Windows 動作確認（2026-09-20、ユーザー報告「Windowsは確認。動作OK。」）
 
-T0-3 の GitHub Actions では Windows x64 の疎通テスト 2 件が成功している。以下はユーザーの実機での個別条件として、CI と分けて確認状況を管理する。
+T0-3 の GitHub Actions では Windows x64 の疎通テスト 2 件が成功している。T1-12 の完成版は macOS 上で publish・バンドル・ZIP の静的検証まで完了し、Windows では未実行。以下はユーザーの実機での個別条件として、CI と分けて確認状況を管理する。
 
-- [ ] .NET を入れていない PC で exe が単体で動く
-- [ ] 単一 exe から pdfium / OpenCvSharpExtern / libSkiaSharp が展開・ロードされる（T0-2 はバンドル内の静的確認まで）
+- [ ] T1-12 の配布 ZIP を展開し、.NET を入れていない PC で exe が単体で動く
+- [ ] 単一 exe から pdfium / OpenCvSharpExtern / libSkiaSharp が展開・ロードされる（T1-12 はバンドル内の x64 と SHA-256 の静的確認まで）
+- [ ] ネイティブ展開先（既定の `%TEMP%/.net` または `DOTNET_BUNDLE_EXTRACT_BASE_DIR`）の権限・空き容量が実行環境で適切である
 - [ ] 確認用の Windows 実機上で T0-2 の疎通テスト 2 件が成功する
 - [ ] T1-1〜T1-11 の追加テストを Windows でも確認する（macOS では 423 件成功。リンク 5 件・macOS 固有の Unicode 正規化 1 件は Windows ではスキップし、リンクは下記で実機確認。T1-11 の 2 ページ PDF 結合 6 件も Windows では未実行）
 - [ ] 日本語・空白を含むパス、長いパスで動く（画像・PDF 入力、JSON・PNG・HTML 出力、T1-10・T1-11 の CLI 実プロセスを含む日本語・空白パスは macOS で確認済み）
-- [ ] cmd と PowerShell で日本語のメッセージが化けず、終了コード 0/1/2、`--quiet`、`--no-html`、`--version` が動く
+- [ ] 完成版 exe を cmd と PowerShell で実行して日本語のメッセージが化けず、終了コード 0/1/2、`--quiet`、`--no-html`、`--version` が動く。同梱の `examples/settings.yaml` が使える
 - [ ] `--force` の置き換え・失敗時の旧結果保持、入力・設定ファイルの保護、シンボリックリンク・ジャンクションの拒否とリンク先保護
 - [ ] フォント埋め込み済みの同じ PDF で、macOS と同じ `result.json`（クラスタ数と位置）になる
 - [ ] フォントが埋め込まれていない帳票での見た目と結果

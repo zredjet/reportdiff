@@ -70,4 +70,4 @@ dotnet test
 dotnet test -- --filter-class ReportDiff.Tests.PdfCliIntegrationTests
 ```
 
-Windows の追加テスト・実機動作・Edge / Chrome 表示は未確認。フォントを含む実帳票の評価や Windows 向け単一 exe の配布確認を、この合成 PDF の結果で代替しない。Intel Mac は対象外。T1-12 には未着手。
+Windows の追加テスト・実機動作・Edge / Chrome 表示は未確認。フォントを含む実帳票の評価や Windows 向け単一 exe の実行確認を、この合成 PDF の結果で代替しない。Intel Mac は対象外。配布準備は [T1-12 確認結果](t1-12-distribution.md) を参照。

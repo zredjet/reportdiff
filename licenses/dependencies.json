@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "runtimepack.Microsoft.NETCore.App.Runtime.win-x64/10.0.12": "runtimepack",
+    "bblanchon.PDFium.Win32/152.0.7961": "package",
+    "OpenCvSharp4/4.13.0.20260627": "package",
+    "OpenCvSharp4.runtime.win.slim/4.13.0.20260627": "package",
+    "PDFtoImage/5.4.0": "package",
+    "SkiaSharp/4.150.1": "package",
+    "SkiaSharp.NativeAssets.Win32/4.150.1": "package",
+    "YamlDotNet/18.1.0": "package"
+  },
+  "included_frameworks": [
+    {
+      "name": "Microsoft.NETCore.App",
+      "version": "10.0.12"
+    }
+  ],
+  "native_sha256": {
+    "pdfium.dll": "d3d9f4b7c9dabe3363f30779c5c3c715c47332749fa590e4b4a2b8b6780cb1c4",
+    "OpenCvSharpExtern.dll": "1fa122bdb8e94175e7719fb8aa8f2ab211268a756f5d0c7a13c710ed79ae30cd",
+    "libSkiaSharp.dll": "c8770c219e0d3cd9bb119fad46f2d00ae1855b11315816e86e909e3332826212"
+  }
+}

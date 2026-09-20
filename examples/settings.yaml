@@ -1,0 +1,22 @@
+# 既定値と同じ設定。必要なキーだけ残して利用できる。
+dpi: 300
+# image_dpi は省略すると最終的な dpi（--dpi を含む）に追従する。
+# image_dpi: 300
+diff:
+  max_shift_mm: 0.15
+  color_threshold: 3.0
+  edge_tolerance: 0.3
+cluster:
+  merge_x_mm: 3.0
+  merge_y_mm: 1.0
+  min_pixels: 4
+  max_clusters_per_page: 500
+  max_diff_ratio: 0.30
+exclude: []
+# 除外する場合は上の exclude: [] を次のように置き換える。
+# exclude:
+#   - {page: all, x: 150, y: 8, w: 50, h: 6, note: 出力日時}
+#   - {page: 2, x: 10, y: 270, w: 80, h: 10, note: 担当者欄}
+# 座標・幅・高さは mm、左上原点。page は all または 1 始まり。
+report:
+  crop_margin_mm: 2.0

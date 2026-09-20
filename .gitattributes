@@ -1,3 +1,5 @@
 * text=auto eol=lf
 *.png binary
 *.pdf binary
+# 許諾文の原文とハッシュを保つため、改行・空白を変換しない。
+licenses/** -text -whitespace

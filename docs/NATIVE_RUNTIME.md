@@ -30,16 +30,15 @@ NuGet のローカルパッケージには両アーキテクチャの資産と�
 
 Windows では `OpenCvSharp4.runtime.win.slim` を NuGet から復元する。macOS 用のローカルパッケージを作る必要はない。PDFtoImage が PDFium と SkiaSharp の対応プラットフォーム資産を依存として導入する。
 
-macOS 上からの自己完結・単一 exe の発行：
+macOS 上からの自己完結・単一 exe の発行（原文通知に対応するランタイムの版を発行プロファイルで固定）：
 
 ```bash
-dotnet publish src/ReportDiff.Cli -c Release -r win-x64 --self-contained \
-  -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
-python3 tools/inspect-win-bundle.py \
-  src/ReportDiff.Cli/bin/Release/net10.0/win-x64/publish/reportdiff.exe
+dotnet publish src/ReportDiff.Cli -p:PublishProfile=win-x64 -o out/publish/win-x64
+python3 tools/inspect-win-bundle.py out/publish/win-x64/reportdiff.exe
+python3 tools/package-win.py out/publish/win-x64/reportdiff.exe out/dist/reportdiff-win-x64.zip
 ```
 
-T0-2 の成果物は、2026-09-20 にユーザーから Windows での動作 OK が報告されている。個別の実機確認項目は `TASKS.md` を参照。
+全文通知と設定例を含む ZIP の内容・更新方法は [配布手順](DISTRIBUTION.md) を参照。T0-2 の成果物は、2026-09-20 にユーザーから Windows での動作 OK が報告されている。T1-12 の完成版は macOS 上の静的検証まで。個別の実機確認項目は `TASKS.md` を参照。
 
 ## ライブラリの範囲
 
