@@ -1,0 +1,2178 @@
+{
+  "date": "2026-09-21",
+  "baseline_commit": "23158f3",
+  "scope": "grouping_native_intermediate_lifetimes",
+  "environment": {
+    "cpu": "Apple M4 Max",
+    "cpu_count": 16,
+    "memory_bytes": 137438953472,
+    "os": "macOS 26.5.1",
+    "dotnet": "10.0.12",
+    "configuration": "Release"
+  },
+  "tests": {
+    "total": 923,
+    "passed": 923,
+    "failed": 0,
+    "skipped": 0,
+    "added": 0,
+    "build_warnings": 0
+  },
+  "validation": {
+    "snapshot_count": 100,
+    "snapshots_exact": true,
+    "core_sha256": {
+      "baseline": "45ba5837e6212399f8d7215fb032da7ec8d3712292b5dfdec4fb86bd77a1e52d",
+      "optimized": "ba3b8144ad741638a98c91f029398a6a88ca25cfbcbf3f3d046368bec96052de"
+    }
+  },
+  "metrics": [
+    {
+      "condition": "A3・300dpi・1ページ",
+      "medians": {
+        "baseline": {
+          "elapsed_ms": 1598.0597080197185,
+          "peak_rss_bytes": 1995882496
+        },
+        "optimized": {
+          "elapsed_ms": 1594.576167059131,
+          "peak_rss_bytes": 1924169728
+        }
+      },
+      "ranges": {
+        "baseline": {
+          "peak_rss_bytes": [
+            1995259904,
+            1995948032
+          ],
+          "elapsed_ms": [
+            1585.7537910342216,
+            1598.6291660228744
+          ]
+        },
+        "optimized": {
+          "peak_rss_bytes": [
+            1924071424,
+            1927118848
+          ],
+          "elapsed_ms": [
+            1583.8805839885026,
+            1606.8008330184966
+          ]
+        }
+      }
+    },
+    {
+      "condition": "A3・400dpi・1ページ",
+      "medians": {
+        "baseline": {
+          "elapsed_ms": 2448.82841699291,
+          "peak_rss_bytes": 3578183680
+        },
+        "optimized": {
+          "elapsed_ms": 2429.0062920190394,
+          "peak_rss_bytes": 3496017920
+        }
+      },
+      "ranges": {
+        "baseline": {
+          "peak_rss_bytes": [
+            3576299520,
+            3585032192
+          ],
+          "elapsed_ms": [
+            2427.4397919652984,
+            2464.413291076198
+          ]
+        },
+        "optimized": {
+          "peak_rss_bytes": [
+            3494854656,
+            3499802624
+          ],
+          "elapsed_ms": [
+            2423.0725408997387,
+            2440.915917046368
+          ]
+        }
+      }
+    },
+    {
+      "condition": "A3・300dpi・4ページ",
+      "medians": {
+        "baseline": {
+          "elapsed_ms": 4382.503208005801,
+          "peak_rss_bytes": 2176581632
+        },
+        "optimized": {
+          "elapsed_ms": 4370.547124999575,
+          "peak_rss_bytes": 2107670528
+        }
+      },
+      "ranges": {
+        "baseline": {
+          "peak_rss_bytes": [
+            2080407552,
+            2182103040
+          ],
+          "elapsed_ms": [
+            4345.629749936052,
+            4421.9522919738665
+          ]
+        },
+        "optimized": {
+          "peak_rss_bytes": [
+            2009481216,
+            2111127552
+          ],
+          "elapsed_ms": [
+            4330.330124939792,
+            4398.622790933587
+          ]
+        }
+      }
+    },
+    {
+      "condition": "A3・300dpi・20ページ",
+      "medians": {
+        "baseline": {
+          "elapsed_ms": 19194.872083025984,
+          "peak_rss_bytes": 2288599040
+        },
+        "optimized": {
+          "elapsed_ms": 19142.53783400636,
+          "peak_rss_bytes": 2215673856
+        }
+      },
+      "ranges": {
+        "baseline": {
+          "peak_rss_bytes": [
+            2286436352,
+            2291875840
+          ],
+          "elapsed_ms": [
+            19021.370082977228,
+            19226.27129103057
+          ]
+        },
+        "optimized": {
+          "peak_rss_bytes": [
+            2215395328,
+            2219032576
+          ],
+          "elapsed_ms": [
+            19090.941083966754,
+            19181.72033398878
+          ]
+        }
+      }
+    }
+  ],
+  "runs": [
+    {
+      "name": "cli-final-300-baseline-0",
+      "variant": "baseline",
+      "warmup": true,
+      "command": [
+        "dotnet",
+        "out/perf2c-memory/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2c-memory-20260921/cli-final-300-baseline-0",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 1601.6755839809775,
+      "peak_rss_bytes": 1996275712,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-300-optimized-0",
+      "variant": "optimized",
+      "warmup": true,
+      "command": [
+        "dotnet",
+        "out/perf2c-memory/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2c-memory-20260921/cli-final-300-optimized-0",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 2519.530582940206,
+      "peak_rss_bytes": 1929101312,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-300-optimized-1",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2c-memory/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2c-memory-20260921/cli-final-300-optimized-1",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 1583.8805839885026,
+      "peak_rss_bytes": 1924071424,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-300-baseline-1",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2c-memory/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2c-memory-20260921/cli-final-300-baseline-1",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 1598.0597080197185,
+      "peak_rss_bytes": 1995882496,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-300-baseline-2",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2c-memory/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2c-memory-20260921/cli-final-300-baseline-2",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 1598.6291660228744,
+      "peak_rss_bytes": 1995259904,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-300-optimized-2",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2c-memory/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2c-memory-20260921/cli-final-300-optimized-2",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 1606.8008330184966,
+      "peak_rss_bytes": 1927118848,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-300-optimized-3",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2c-memory/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2c-memory-20260921/cli-final-300-optimized-3",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 1594.576167059131,
+      "peak_rss_bytes": 1924169728,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-300-baseline-3",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2c-memory/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2c-memory-20260921/cli-final-300-baseline-3",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 1585.7537910342216,
+      "peak_rss_bytes": 1995948032,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-400-baseline-0",
+      "variant": "baseline",
+      "warmup": true,
+      "command": [
+        "dotnet",
+        "out/perf2c-memory/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2c-memory-20260921/cli-final-400-baseline-0",
+        "--dpi",
+        "400",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 2445.3664999455214,
+      "peak_rss_bytes": 3582115840,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-400-optimized-0",
+      "variant": "optimized",
+      "warmup": true,
+      "command": [
+        "dotnet",
+        "out/perf2c-memory/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2c-memory-20260921/cli-final-400-optimized-0",
+        "--dpi",
+        "400",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 2462.682291981764,
+      "peak_rss_bytes": 3495526400,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-400-optimized-1",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2c-memory/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2c-memory-20260921/cli-final-400-optimized-1",
+        "--dpi",
+        "400",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 2440.915917046368,
+      "peak_rss_bytes": 3496017920,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-400-baseline-1",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2c-memory/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2c-memory-20260921/cli-final-400-baseline-1",
+        "--dpi",
+        "400",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 2427.4397919652984,
+      "peak_rss_bytes": 3576299520,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-400-baseline-2",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2c-memory/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2c-memory-20260921/cli-final-400-baseline-2",
+        "--dpi",
+        "400",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 2448.82841699291,
+      "peak_rss_bytes": 3578183680,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-400-optimized-2",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2c-memory/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2c-memory-20260921/cli-final-400-optimized-2",
+        "--dpi",
+        "400",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 2423.0725408997387,
+      "peak_rss_bytes": 3499802624,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-400-optimized-3",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2c-memory/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2c-memory-20260921/cli-final-400-optimized-3",
+        "--dpi",
+        "400",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 2429.0062920190394,
+      "peak_rss_bytes": 3494854656,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-400-baseline-3",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2c-memory/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2c-memory-20260921/cli-final-400-baseline-3",
+        "--dpi",
+        "400",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 2464.413291076198,
+      "peak_rss_bytes": 3585032192,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-baseline-0",
+      "variant": "baseline",
+      "warmup": true,
+      "command": [
+        "dotnet",
+        "out/perf2c-memory/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2c-memory-20260921/cli4-final-300-baseline-0",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 4368.222792050801,
+      "peak_rss_bytes": 2178777088,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-optimized-0",
+      "variant": "optimized",
+      "warmup": true,
+      "command": [
+        "dotnet",
+        "out/perf2c-memory/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2c-memory-20260921/cli4-final-300-optimized-0",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 4386.664165998809,
+      "peak_rss_bytes": 2109407232,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-optimized-1",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2c-memory/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2c-memory-20260921/cli4-final-300-optimized-1",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 4330.330124939792,
+      "peak_rss_bytes": 2107670528,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-baseline-1",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2c-memory/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2c-memory-20260921/cli4-final-300-baseline-1",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 4345.629749936052,
+      "peak_rss_bytes": 2176270336,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-baseline-2",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2c-memory/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2c-memory-20260921/cli4-final-300-baseline-2",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 4387.919707922265,
+      "peak_rss_bytes": 2176335872,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-optimized-2",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2c-memory/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2c-memory-20260921/cli4-final-300-optimized-2",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 4370.547124999575,
+      "peak_rss_bytes": 2108096512,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-optimized-3",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2c-memory/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2c-memory-20260921/cli4-final-300-optimized-3",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 4373.43116698321,
+      "peak_rss_bytes": 2109440000,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-baseline-3",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2c-memory/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2c-memory-20260921/cli4-final-300-baseline-3",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 4348.208375042304,
+      "peak_rss_bytes": 2080407552,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-baseline-4",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2c-memory/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2c-memory-20260921/cli4-final-300-baseline-4",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 4369.081667042337,
+      "peak_rss_bytes": 2176581632,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-optimized-4",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2c-memory/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2c-memory-20260921/cli4-final-300-optimized-4",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 4391.031125094742,
+      "peak_rss_bytes": 2009481216,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-optimized-5",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2c-memory/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2c-memory-20260921/cli4-final-300-optimized-5",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 4398.622790933587,
+      "peak_rss_bytes": 2013429760,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-baseline-5",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2c-memory/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2c-memory-20260921/cli4-final-300-baseline-5",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 4382.503208005801,
+      "peak_rss_bytes": 2182103040,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-baseline-6",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2c-memory/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2c-memory-20260921/cli4-final-300-baseline-6",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 4393.859957926907,
+      "peak_rss_bytes": 2176892928,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-optimized-6",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2c-memory/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2c-memory-20260921/cli4-final-300-optimized-6",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 4345.5861249240115,
+      "peak_rss_bytes": 2010972160,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-optimized-7",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2c-memory/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2c-memory-20260921/cli4-final-300-optimized-7",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 4348.849375033751,
+      "peak_rss_bytes": 2111127552,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-baseline-7",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2c-memory/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2c-memory-20260921/cli4-final-300-baseline-7",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 4421.9522919738665,
+      "peak_rss_bytes": 2179448832,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli20-final-300-baseline-0",
+      "variant": "baseline",
+      "warmup": true,
+      "command": [
+        "dotnet",
+        "out/perf2c-memory/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-original.pdf",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2c-memory-20260921/cli20-final-300-baseline-0",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 19344.410249963403,
+      "peak_rss_bytes": 2292449280,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 3480,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli20-final-300-optimized-0",
+      "variant": "optimized",
+      "warmup": true,
+      "command": [
+        "dotnet",
+        "out/perf2c-memory/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-original.pdf",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2c-memory-20260921/cli20-final-300-optimized-0",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 19210.503041977063,
+      "peak_rss_bytes": 2225094656,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 3480,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli20-final-300-optimized-1",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2c-memory/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-original.pdf",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2c-memory-20260921/cli20-final-300-optimized-1",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 19181.72033398878,
+      "peak_rss_bytes": 2219032576,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 3480,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli20-final-300-baseline-1",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2c-memory/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-original.pdf",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2c-memory-20260921/cli20-final-300-baseline-1",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 19194.872083025984,
+      "peak_rss_bytes": 2286436352,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 3480,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli20-final-300-baseline-2",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2c-memory/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-original.pdf",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2c-memory-20260921/cli20-final-300-baseline-2",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 19226.27129103057,
+      "peak_rss_bytes": 2288599040,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 3480,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli20-final-300-optimized-2",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2c-memory/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-original.pdf",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2c-memory-20260921/cli20-final-300-optimized-2",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 19142.53783400636,
+      "peak_rss_bytes": 2215395328,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 3480,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli20-final-300-optimized-3",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2c-memory/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-original.pdf",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2c-memory-20260921/cli20-final-300-optimized-3",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 19090.941083966754,
+      "peak_rss_bytes": 2215673856,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 3480,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli20-final-300-baseline-3",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2c-memory/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-original.pdf",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2c-memory-20260921/cli20-final-300-baseline-3",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 19021.370082977228,
+      "peak_rss_bytes": 2291875840,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 3480,
+      "png_sha256_equal": true
+    }
+  ],
+  "diagnostics": {
+    "before-search": {
+      "trace_profile": "gc-verbose; buffersize=16MB; rundown=false",
+      "gen2_collections": 8,
+      "heap_samples": [
+        {
+          "ms": 1638.86275,
+          "loh_bytes": 86998536,
+          "loh_promoted_bytes": 86998472
+        },
+        {
+          "ms": 2246.295625,
+          "loh_bytes": 359473512,
+          "loh_promoted_bytes": 0
+        },
+        {
+          "ms": 2266.420333,
+          "loh_bytes": 359473512,
+          "loh_promoted_bytes": 0
+        },
+        {
+          "ms": 2288.682166,
+          "loh_bytes": 359473512,
+          "loh_promoted_bytes": 0
+        },
+        {
+          "ms": 2309.131666,
+          "loh_bytes": 359473512,
+          "loh_promoted_bytes": 0
+        },
+        {
+          "ms": 2606.95,
+          "loh_bytes": 365424184,
+          "loh_promoted_bytes": 0
+        },
+        {
+          "ms": 2963.544625,
+          "loh_bytes": 447757992,
+          "loh_promoted_bytes": 87440000
+        },
+        {
+          "ms": 2989.695625,
+          "loh_bytes": 378159216,
+          "loh_promoted_bytes": 104839704
+        },
+        {
+          "ms": 3406.88625,
+          "loh_bytes": 262224064,
+          "loh_promoted_bytes": 139450320
+        },
+        {
+          "ms": 3781.01475,
+          "loh_bytes": 262224064,
+          "loh_promoted_bytes": 0
+        },
+        {
+          "ms": 4080.515,
+          "loh_bytes": 331822840,
+          "loh_promoted_bytes": 104839704
+        },
+        {
+          "ms": 4495.3395,
+          "loh_bytes": 262224064,
+          "loh_promoted_bytes": 139450320
+        },
+        {
+          "ms": 5166.393791,
+          "loh_bytes": 331822840,
+          "loh_promoted_bytes": 104839704
+        },
+        {
+          "ms": 5582.328875,
+          "loh_bytes": 262224064,
+          "loh_promoted_bytes": 139450320
+        },
+        {
+          "ms": 5616.737375,
+          "loh_bytes": 262224064,
+          "loh_promoted_bytes": 0
+        },
+        {
+          "ms": 5895.866041,
+          "loh_bytes": 262224064,
+          "loh_promoted_bytes": 0
+        }
+      ],
+      "large_allocations": [
+        {
+          "ms": 1584.306166,
+          "type": "System.Byte[]",
+          "bytes": 17399712
+        },
+        {
+          "ms": 1638.40225,
+          "type": "System.Int32[]",
+          "bytes": 69598744
+        },
+        {
+          "ms": 1661.626375,
+          "type": "System.Byte[]",
+          "bytes": 17399712
+        },
+        {
+          "ms": 1679.688,
+          "type": "System.Int32[]",
+          "bytes": 69598752
+        },
+        {
+          "ms": 1698.868666,
+          "type": "System.Byte[]",
+          "bytes": 17399712
+        },
+        {
+          "ms": 2066.085708,
+          "type": "System.Byte[]",
+          "bytes": 17399712
+        },
+        {
+          "ms": 2072.930375,
+          "type": "System.Byte[]",
+          "bytes": 17399712
+        },
+        {
+          "ms": 2086.6545,
+          "type": "System.Int32[]",
+          "bytes": 69598752
+        },
+        {
+          "ms": 2124.752458,
+          "type": "System.Byte[]",
+          "bytes": 11536880
+        },
+        {
+          "ms": 2126.186208,
+          "type": "System.Byte[]",
+          "bytes": 11536880
+        },
+        {
+          "ms": 2127.4675,
+          "type": "System.Byte[]",
+          "bytes": 11536880
+        },
+        {
+          "ms": 2128.906541,
+          "type": "System.Byte[]",
+          "bytes": 11536880
+        },
+        {
+          "ms": 2131.165708,
+          "type": "System.Byte[]",
+          "bytes": 17399712
+        },
+        {
+          "ms": 2529.513083,
+          "type": "System.Byte[]",
+          "bytes": 1171536
+        },
+        {
+          "ms": 2900.7845,
+          "type": "System.Byte[]",
+          "bytes": 17399712
+        },
+        {
+          "ms": 2948.092875,
+          "type": "System.Int32[]",
+          "bytes": 69598752
+        },
+        {
+          "ms": 2963.638,
+          "type": "System.Byte[]",
+          "bytes": 17399736
+        },
+        {
+          "ms": 2974.549916,
+          "type": "System.Int32[]",
+          "bytes": 69598776
+        },
+        {
+          "ms": 2987.341916,
+          "type": "System.Byte[]",
+          "bytes": 17399704
+        },
+        {
+          "ms": 3357.028541,
+          "type": "System.Byte[]",
+          "bytes": 17399736
+        },
+        {
+          "ms": 3363.421208,
+          "type": "System.Byte[]",
+          "bytes": 17399736
+        },
+        {
+          "ms": 3378.138333,
+          "type": "System.Int32[]",
+          "bytes": 69598776
+        },
+        {
+          "ms": 3404.015125,
+          "type": "System.Byte[]",
+          "bytes": 11536872
+        },
+        {
+          "ms": 3404.966583,
+          "type": "System.Byte[]",
+          "bytes": 11536872
+        },
+        {
+          "ms": 3405.640375,
+          "type": "System.Byte[]",
+          "bytes": 11536904
+        },
+        {
+          "ms": 3406.926625,
+          "type": "System.Byte[]",
+          "bytes": 11536904
+        },
+        {
+          "ms": 3407.289,
+          "type": "System.Byte[]",
+          "bytes": 17399736
+        },
+        {
+          "ms": 3621.297583,
+          "type": "System.Byte[]",
+          "bytes": 1171560
+        },
+        {
+          "ms": 3990.629833,
+          "type": "System.Byte[]",
+          "bytes": 17399736
+        },
+        {
+          "ms": 4037.489541,
+          "type": "System.Int32[]",
+          "bytes": 69598752
+        },
+        {
+          "ms": 4051.725125,
+          "type": "System.Byte[]",
+          "bytes": 17399736
+        },
+        {
+          "ms": 4062.20475,
+          "type": "System.Int32[]",
+          "bytes": 69598752
+        },
+        {
+          "ms": 4077.702916,
+          "type": "System.Byte[]",
+          "bytes": 17399704
+        },
+        {
+          "ms": 4447.995916,
+          "type": "System.Byte[]",
+          "bytes": 17399736
+        },
+        {
+          "ms": 4453.467375,
+          "type": "System.Byte[]",
+          "bytes": 17399736
+        },
+        {
+          "ms": 4466.826833,
+          "type": "System.Int32[]",
+          "bytes": 69598776
+        },
+        {
+          "ms": 4492.76525,
+          "type": "System.Byte[]",
+          "bytes": 11536872
+        },
+        {
+          "ms": 4493.815791,
+          "type": "System.Byte[]",
+          "bytes": 11536872
+        },
+        {
+          "ms": 4494.558708,
+          "type": "System.Byte[]",
+          "bytes": 11536904
+        },
+        {
+          "ms": 4495.487583,
+          "type": "System.Byte[]",
+          "bytes": 11536904
+        },
+        {
+          "ms": 4495.840041,
+          "type": "System.Byte[]",
+          "bytes": 17399736
+        },
+        {
+          "ms": 4703.115333,
+          "type": "System.Byte[]",
+          "bytes": 1171560
+        },
+        {
+          "ms": 5078.656916,
+          "type": "System.Byte[]",
+          "bytes": 17399736
+        },
+        {
+          "ms": 5125.879416,
+          "type": "System.Int32[]",
+          "bytes": 69598752
+        },
+        {
+          "ms": 5138.374583,
+          "type": "System.Byte[]",
+          "bytes": 17399736
+        },
+        {
+          "ms": 5148.487208,
+          "type": "System.Int32[]",
+          "bytes": 69598752
+        },
+        {
+          "ms": 5162.930875,
+          "type": "System.Byte[]",
+          "bytes": 17399704
+        },
+        {
+          "ms": 5534.766416,
+          "type": "System.Byte[]",
+          "bytes": 17399736
+        },
+        {
+          "ms": 5540.11475,
+          "type": "System.Byte[]",
+          "bytes": 17399736
+        },
+        {
+          "ms": 5553.746625,
+          "type": "System.Int32[]",
+          "bytes": 69598776
+        },
+        {
+          "ms": 5579.616083,
+          "type": "System.Byte[]",
+          "bytes": 11536872
+        },
+        {
+          "ms": 5580.605083,
+          "type": "System.Byte[]",
+          "bytes": 11536872
+        },
+        {
+          "ms": 5581.275375,
+          "type": "System.Byte[]",
+          "bytes": 11536904
+        },
+        {
+          "ms": 5582.379208,
+          "type": "System.Byte[]",
+          "bytes": 11536904
+        },
+        {
+          "ms": 5582.771916,
+          "type": "System.Byte[]",
+          "bytes": 17399736
+        },
+        {
+          "ms": 5783.273583,
+          "type": "System.Byte[]",
+          "bytes": 1171560
+        }
+      ]
+    },
+    "baseline": {
+      "trace_profile": "gc-verbose; buffersize=16MB; rundown=false",
+      "gen2_collections": 7,
+      "heap_samples": [
+        {
+          "ms": 1943.50275,
+          "loh_bytes": 86998536,
+          "loh_promoted_bytes": 86998472
+        },
+        {
+          "ms": 2353.369667,
+          "loh_bytes": 360097160,
+          "loh_promoted_bytes": 0
+        },
+        {
+          "ms": 2373.832833,
+          "loh_bytes": 360097160,
+          "loh_promoted_bytes": 0
+        },
+        {
+          "ms": 2395.273333,
+          "loh_bytes": 360097160,
+          "loh_promoted_bytes": 0
+        },
+        {
+          "ms": 2416.396417,
+          "loh_bytes": 360097160,
+          "loh_promoted_bytes": 0
+        },
+        {
+          "ms": 2706.687125,
+          "loh_bytes": 366047832,
+          "loh_promoted_bytes": 0
+        },
+        {
+          "ms": 3069.692167,
+          "loh_bytes": 448708936,
+          "loh_promoted_bytes": 87440000
+        },
+        {
+          "ms": 3092.009875,
+          "loh_bytes": 379110160,
+          "loh_promoted_bytes": 88063616
+        },
+        {
+          "ms": 3307.888625,
+          "loh_bytes": 262847712,
+          "loh_promoted_bytes": 139450320
+        },
+        {
+          "ms": 3624.294792,
+          "loh_bytes": 262847712,
+          "loh_promoted_bytes": 0
+        },
+        {
+          "ms": 3967.688458,
+          "loh_bytes": 332446488,
+          "loh_promoted_bytes": 87440000
+        },
+        {
+          "ms": 4154.872708,
+          "loh_bytes": 262847712,
+          "loh_promoted_bytes": 35240960
+        },
+        {
+          "ms": 4194.107875,
+          "loh_bytes": 262847712,
+          "loh_promoted_bytes": 127913448
+        },
+        {
+          "ms": 5111.68125,
+          "loh_bytes": 541054224,
+          "loh_promoted_bytes": 0
+        },
+        {
+          "ms": 5421.054667,
+          "loh_bytes": 541054224,
+          "loh_promoted_bytes": 0
+        }
+      ],
+      "large_allocations": [
+        {
+          "ms": 1886.694792,
+          "type": "System.Byte[]",
+          "bytes": 17399712
+        },
+        {
+          "ms": 1943.016958,
+          "type": "System.Int32[]",
+          "bytes": 69598744
+        },
+        {
+          "ms": 1965.776667,
+          "type": "System.Byte[]",
+          "bytes": 17399712
+        },
+        {
+          "ms": 1983.668875,
+          "type": "System.Int32[]",
+          "bytes": 69598752
+        },
+        {
+          "ms": 2004.712542,
+          "type": "System.Byte[]",
+          "bytes": 17399712
+        },
+        {
+          "ms": 2173.996958,
+          "type": "System.Byte[]",
+          "bytes": 17399712
+        },
+        {
+          "ms": 2182.716833,
+          "type": "System.Byte[]",
+          "bytes": 17399712
+        },
+        {
+          "ms": 2196.159042,
+          "type": "System.Int32[]",
+          "bytes": 69598752
+        },
+        {
+          "ms": 2232.859333,
+          "type": "System.Byte[]",
+          "bytes": 11536880
+        },
+        {
+          "ms": 2234.564208,
+          "type": "System.Byte[]",
+          "bytes": 11536880
+        },
+        {
+          "ms": 2235.840333,
+          "type": "System.Byte[]",
+          "bytes": 11536880
+        },
+        {
+          "ms": 2237.256583,
+          "type": "System.Byte[]",
+          "bytes": 11536880
+        },
+        {
+          "ms": 2239.451792,
+          "type": "System.Byte[]",
+          "bytes": 17399712
+        },
+        {
+          "ms": 2629.903,
+          "type": "System.Byte[]",
+          "bytes": 1171536
+        },
+        {
+          "ms": 3002.247625,
+          "type": "System.Byte[]",
+          "bytes": 17399712
+        },
+        {
+          "ms": 3052.934375,
+          "type": "System.Int32[]",
+          "bytes": 69598752
+        },
+        {
+          "ms": 3069.789042,
+          "type": "System.Byte[]",
+          "bytes": 17399736
+        },
+        {
+          "ms": 3079.544792,
+          "type": "System.Int32[]",
+          "bytes": 69598776
+        },
+        {
+          "ms": 3094.239375,
+          "type": "System.Byte[]",
+          "bytes": 17399736
+        },
+        {
+          "ms": 3260.157125,
+          "type": "System.Byte[]",
+          "bytes": 17399736
+        },
+        {
+          "ms": 3266.8465,
+          "type": "System.Byte[]",
+          "bytes": 17399736
+        },
+        {
+          "ms": 3280.173458,
+          "type": "System.Int32[]",
+          "bytes": 69598776
+        },
+        {
+          "ms": 3304.621833,
+          "type": "System.Byte[]",
+          "bytes": 11536872
+        },
+        {
+          "ms": 3305.895583,
+          "type": "System.Byte[]",
+          "bytes": 11536872
+        },
+        {
+          "ms": 3306.642,
+          "type": "System.Byte[]",
+          "bytes": 11536904
+        },
+        {
+          "ms": 3307.929083,
+          "type": "System.Byte[]",
+          "bytes": 11536904
+        },
+        {
+          "ms": 3308.291458,
+          "type": "System.Byte[]",
+          "bytes": 17399736
+        },
+        {
+          "ms": 3519.312042,
+          "type": "System.Byte[]",
+          "bytes": 1171560
+        },
+        {
+          "ms": 3894.187042,
+          "type": "System.Byte[]",
+          "bytes": 17399736
+        },
+        {
+          "ms": 3941.619542,
+          "type": "System.Int32[]",
+          "bytes": 69598752
+        },
+        {
+          "ms": 3954.843583,
+          "type": "System.Byte[]",
+          "bytes": 17399736
+        },
+        {
+          "ms": 3964.870583,
+          "type": "System.Int32[]",
+          "bytes": 69598744
+        },
+        {
+          "ms": 3981.886167,
+          "type": "System.Byte[]",
+          "bytes": 17399736
+        },
+        {
+          "ms": 4146.650917,
+          "type": "System.Byte[]",
+          "bytes": 17399736
+        },
+        {
+          "ms": 4152.494708,
+          "type": "System.Byte[]",
+          "bytes": 17399704
+        },
+        {
+          "ms": 4166.127167,
+          "type": "System.Int32[]",
+          "bytes": 69598776
+        },
+        {
+          "ms": 4192.28825,
+          "type": "System.Byte[]",
+          "bytes": 11536872
+        },
+        {
+          "ms": 4193.856542,
+          "type": "System.Byte[]",
+          "bytes": 11536904
+        },
+        {
+          "ms": 4194.20325,
+          "type": "System.Byte[]",
+          "bytes": 11536904
+        },
+        {
+          "ms": 4195.336042,
+          "type": "System.Byte[]",
+          "bytes": 11536904
+        },
+        {
+          "ms": 4195.719458,
+          "type": "System.Byte[]",
+          "bytes": 17399736
+        },
+        {
+          "ms": 4402.574292,
+          "type": "System.Byte[]",
+          "bytes": 1171560
+        },
+        {
+          "ms": 4778.538625,
+          "type": "System.Byte[]",
+          "bytes": 17399736
+        },
+        {
+          "ms": 4827.604,
+          "type": "System.Int32[]",
+          "bytes": 69598752
+        },
+        {
+          "ms": 4842.422,
+          "type": "System.Byte[]",
+          "bytes": 17399736
+        },
+        {
+          "ms": 4852.018375,
+          "type": "System.Int32[]",
+          "bytes": 69598752
+        },
+        {
+          "ms": 4868.039542,
+          "type": "System.Byte[]",
+          "bytes": 17399736
+        },
+        {
+          "ms": 5027.930542,
+          "type": "System.Byte[]",
+          "bytes": 17399736
+        },
+        {
+          "ms": 5035.262958,
+          "type": "System.Byte[]",
+          "bytes": 17399712
+        },
+        {
+          "ms": 5050.831208,
+          "type": "System.Int32[]",
+          "bytes": 69598752
+        },
+        {
+          "ms": 5080.95725,
+          "type": "System.Byte[]",
+          "bytes": 11536904
+        },
+        {
+          "ms": 5082.170667,
+          "type": "System.Byte[]",
+          "bytes": 11536880
+        },
+        {
+          "ms": 5083.0515,
+          "type": "System.Byte[]",
+          "bytes": 11536880
+        },
+        {
+          "ms": 5084.886792,
+          "type": "System.Byte[]",
+          "bytes": 11536880
+        },
+        {
+          "ms": 5085.765375,
+          "type": "System.Byte[]",
+          "bytes": 17399712
+        },
+        {
+          "ms": 5305.883875,
+          "type": "System.Byte[]",
+          "bytes": 1171560
+        }
+      ]
+    }
+  },
+  "exploratory_trials": {
+    "cli4-groups-300": {
+      "baseline": {
+        "elapsed_ms": 4257.096583023667,
+        "peak_rss_bytes": 2180481024
+      },
+      "nativegroups": {
+        "elapsed_ms": 4246.745374985039,
+        "peak_rss_bytes": 2153889792
+      }
+    },
+    "cli4-lifetime-300": {
+      "baseline": {
+        "elapsed_ms": 4242.6102079916745,
+        "peak_rss_bytes": 2178875392
+      },
+      "scopedgroups": {
+        "elapsed_ms": 4307.514707907103,
+        "peak_rss_bytes": 2077835264
+      },
+      "pressure": {
+        "elapsed_ms": 4230.902084033005,
+        "peak_rss_bytes": 2007728128
+      }
+    },
+    "cli20-trial-300": {
+      "baseline": {
+        "elapsed_ms": 18663.27616595663,
+        "peak_rss_bytes": 2285027328
+      },
+      "scopedgroups": {
+        "elapsed_ms": 19330.31866699457,
+        "peak_rss_bytes": 2335768576
+      }
+    },
+    "cli20-scopes-300": {
+      "baseline": {
+        "elapsed_ms": 19227.769166929647,
+        "peak_rss_bytes": 2287468544
+      },
+      "scopesonly": {
+        "elapsed_ms": 19194.328790996224,
+        "peak_rss_bytes": 2217230336
+      }
+    },
+    "cli20-early-300": {
+      "baseline": {
+        "elapsed_ms": 19332.106958026998,
+        "peak_rss_bytes": 2289811456
+      },
+      "early": {
+        "elapsed_ms": 19285.880667041056,
+        "peak_rss_bytes": 2220261376
+      }
+    }
+  },
+  "native_grouping_mats": {
+    "bytes_per_pixel_before": 13,
+    "bytes_per_pixel_after": 5,
+    "excluded": "kernels, input ink, native algorithm scratch, managed arrays, allocator retention"
+  },
+  "source_sha256": {
+    "src/ReportDiff.Core/TolerantDifference.cs": "e836a8702f42646802128f301feeddd0a619b31aa926264ecfebab3d3fd09745"
+  },
+  "input_sha256": {
+    "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf": "0b30618efa2b809b7b3c483ca69d594f3e6ba2b5d54589a17489a3cfbe5c5e57",
+    "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf": "5585ad8ef072fc57cd63293ef0c1d9bbd4a5c9d41a8d7e84829aba0fdf408425",
+    "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf": "b9b5bfd1683043e9bcbf0b9b39fe7af9440aa64c1da6cbb651bb6566f03b32e4",
+    "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf": "d074b01368f32f80a439f04fce706d708ee5cb05beee14f18c91c580fd617dcd",
+    "samples/private/perf2c-memory-20260921/inputs/twenty-pages-original.pdf": "01ee30049efabf2e09d8bea65b464dc5fc1fd28bf64ba244d5632a0809c2887b",
+    "samples/private/perf2c-memory-20260921/inputs/twenty-pages-revised.pdf": "74748f24939cb9346d02e485ec2ab442b054226947a5d66c68a0a860bd027583"
+  }
+}

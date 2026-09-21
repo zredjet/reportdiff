@@ -255,29 +255,45 @@ public static class TolerantDifference
 
     private static int[] Groups(Mat inkA, Mat inkB, byte[] candidates, int shift, out int count)
     {
-        using var ink = new Mat();
-        Cv2.BitwiseOr(inkA, inkB, ink);
-        using var inkLabels = new Mat();
-        var inkCount = Cv2.ConnectedComponents(ink, inkLabels, PixelConnectivity.Connectivity8);
-        var inkData = MatBuffers.Integers(inkLabels);
-        var touched = new bool[inkCount];
-        for (var i = 0; i < candidates.Length; i++)
-            if (candidates[i] != 0) touched[inkData[i]] = true;
-        touched[0] = false;
-        using var original = MatBuffers.Mask(candidates, inkA.Cols, inkA.Rows);
-        using var region = new Mat();
-        using var kernel = Cv2.GetStructuringElement(MorphShapes.Rect, new Size(5, 5));
-        Cv2.Dilate(original, region, kernel);
-        var regionData = MatBuffers.Bytes(region);
-        for (var i = 0; i < regionData.Length; i++)
-            if (touched[inkData[i]]) regionData[i] = 255;
-        using var united = MatBuffers.Mask(regionData, inkA.Cols, inkA.Rows);
+        // 次のラベル画像を確保する前に、前段のネイティブ画像を解放する。
+        // 配列の構成は維持し、連続ページで GC の回収時期が変わる影響を抑える。
         using var dilated = new Mat();
-        using var expansion = Cv2.GetStructuringElement(MorphShapes.Rect, new Size(checked(2 * shift + 1), checked(2 * shift + 1)));
-        Cv2.Dilate(united, dilated, expansion);
+        {
+            using var united = GroupRegion(inkA, inkB, candidates);
+            using var expansion = Cv2.GetStructuringElement(MorphShapes.Rect, new Size(checked(2 * shift + 1), checked(2 * shift + 1)));
+            Cv2.Dilate(united, dilated, expansion);
+        }
         using var groupLabels = new Mat();
         count = Cv2.ConnectedComponents(dilated, groupLabels, PixelConnectivity.Connectivity8);
         return MatBuffers.Integers(groupLabels);
     }
 
+    private static Mat GroupRegion(Mat inkA, Mat inkB, byte[] candidates)
+    {
+        // この段階で必要なデータだけを残し、Mat の寿命を次段へ持ち越さない。
+        int[] inkData;
+        int inkCount;
+        {
+            using var ink = new Mat();
+            Cv2.BitwiseOr(inkA, inkB, ink);
+            using var inkLabels = new Mat();
+            inkCount = Cv2.ConnectedComponents(ink, inkLabels, PixelConnectivity.Connectivity8);
+            inkData = MatBuffers.Integers(inkLabels);
+        }
+        var touched = new bool[inkCount];
+        for (var i = 0; i < candidates.Length; i++)
+            if (candidates[i] != 0) touched[inkData[i]] = true;
+        touched[0] = false;
+        byte[] regionData;
+        {
+            using var original = MatBuffers.Mask(candidates, inkA.Cols, inkA.Rows);
+            using var region = new Mat();
+            using var kernel = Cv2.GetStructuringElement(MorphShapes.Rect, new Size(5, 5));
+            Cv2.Dilate(original, region, kernel);
+            regionData = MatBuffers.Bytes(region);
+        }
+        for (var i = 0; i < regionData.Length; i++)
+            if (touched[inkData[i]]) regionData[i] = 255;
+        return MatBuffers.Mask(regionData, inkA.Cols, inkA.Rows);
+    }
 }
