@@ -18,6 +18,7 @@ parser.add_argument('--names', default='baseline,linear,inner2,inner4')
 parser.add_argument('--dpi', type=int, default=300)
 parser.add_argument('--repeats', type=int, default=5)
 parser.add_argument('--probe', action='store_true')
+parser.add_argument('--expected-exit', type=int, choices=[0, 1], default=1)
 args = parser.parse_args()
 if args.output.exists() or args.repeats < 1:
     parser.error('未使用の出力先と1以上の反復数を指定してください。')
@@ -39,7 +40,7 @@ for iteration in range(args.repeats + 1):
         elapsed = (time.perf_counter() - started) * 1000
         (args.output / f'{name}-{iteration}.stdout').write_text(run.stdout)
         (args.output / f'{name}-{iteration}.stderr').write_text(run.stderr)
-        assert run.returncode == (0 if args.probe else 1), (name, run.stdout, run.stderr)
+        assert run.returncode == (0 if args.probe else args.expected_exit), (name, run.stdout, run.stderr)
         report = json.loads((output / 'result.json').read_text())
         report = {key: report[key] for key in ['schema_version', 'tool', 'inputs', 'config', 'summary', 'warnings', 'pages']}
         png = {str(p.relative_to(output)): hashlib.sha256(p.read_bytes()).hexdigest()

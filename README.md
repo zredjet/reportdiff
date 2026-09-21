@@ -186,6 +186,7 @@ Windows では macOS ランタイムの生成は不要。復元前にローカ�
 
 ## 開発資料と確認状況
 
+- [PERF-2m の調査記録](docs/verification/perf-2m-pdf-text.md)：PDFテキスト解析の初回負荷とA/B分担の評価。追加の並列化は導入見送り
 - [PERF-2l の検証記録](docs/verification/perf-2l-group-inner.md)：大グループの候補内並列化、メモリ予算と逐次復帰、出力一致、時間とメモリ。v0.1.2以降の開発版の変更
 - [PERF-2j の検証記録](docs/verification/perf-2j-adaptive-features.md)：特徴量の条件付き帯分担・Lab再利用、出力一致、時間とメモリ。v0.1.2はここまでの性能改善を含む
 - [v0.1.2 の配布準備](docs/verification/v0.1.2-release.md)：自作サンプル・README画面・ローカル検証・配布確認の範囲

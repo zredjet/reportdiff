@@ -1,0 +1,21 @@
+using System.Runtime.ExceptionServices;
+
+namespace ReportDiff.Cli;
+
+// 調査コピー専用。PDFiumの呼び出し・ページ・他の並列段階と重ねない。
+internal static class PdfPairTrial
+{
+    public static void Run(bool parallel, Action a, Action b)
+    {
+        if (!parallel || Environment.ProcessorCount < 2) { a(); b(); return; }
+        var errors = new Exception?[2];
+        Parallel.For(0, 2, new ParallelOptions { MaxDegreeOfParallelism = 2 }, side =>
+        {
+            try { if (side == 0) a(); else b(); }
+            catch (Exception error) { errors[side] = error; }
+        });
+        // writerへ渡す前に両側の終了を待ち、A/B順で例外を再送出する。
+        foreach (var error in errors)
+            if (error is not null) ExceptionDispatchInfo.Capture(error).Throw();
+    }
+}

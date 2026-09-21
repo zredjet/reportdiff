@@ -37,7 +37,7 @@ python3 tools/ReportDiff.SearchBenchmark/measure.py out/search-trial \
   --probe --names baseline,trace,inner4trace
 ```
 
-`measure.py`はmacOSの `/usr/bin/time -l` を使う。各構成を交互・逆順で実行し、最初の1回をウォームアップとして除外する。GCの強制実行はしない。通常CLIは起動からHTML保存・終了まで、probeは既存の [PipelineBenchmark](../ReportDiff.PipelineBenchmark/README.md) と同じ範囲を処理する。JSONの生成日時以外の比較内容と全PNGの相対パス・SHA-256を照合する。HTML生成は時間に含むが、HTMLのバイト一致は検証しない。入力には差異のあるペアを使う。
+`measure.py`はmacOSの `/usr/bin/time -l` を使う。各構成を交互・逆順で実行し、最初の1回をウォームアップとして除外する。GCの強制実行はしない。通常CLIは起動からHTML保存・終了まで、probeは既存の [PipelineBenchmark](../ReportDiff.PipelineBenchmark/README.md) と同じ範囲を処理する。JSONの生成日時以外の比較内容と全PNGの相対パス・SHA-256を照合する。HTML生成は時間に含むが、HTMLのバイト一致は検証しない。既定は差異のあるペアを使う。同一入力の通常CLIでは`--expected-exit 0`を指定する（probeの成功は常に0）。
 
 製品同士の比較にも`measure.py`を使える。各版の`PipelineBenchmark`をReleaseビルドし、依存・nativeランタイムを含む出力ディレクトリ全体をそれぞれ`<比較先>/<版名>/Probe/bin/Release/net10.0/`へ固定する。`--names baseline,product`等で版名を指定する。CPU数1は両版に`DOTNET_PROCESSOR_COUNT=1`を指定して別の未使用出力先で測る。ビルド済みバイナリとソースのハッシュを残し、測定中に再ビルドしない。
 

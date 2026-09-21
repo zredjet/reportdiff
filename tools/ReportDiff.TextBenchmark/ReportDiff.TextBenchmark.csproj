@@ -1,6 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup><OutputType>Exe</OutputType></PropertyGroup>
   <ItemGroup>
+    <!-- 調査コピー専用。従来の単体ベンチマークとは別の実行ファイルで使う。 -->
+    <Compile Remove="TrialChecks.cs" />
+    <Compile Remove="FontConcurrencyProbe.cs" />
     <ProjectReference Include="../../src/ReportDiff.Pdf/ReportDiff.Pdf.csproj" />
     <Compile Include="../../tests/ReportDiff.Tests/PdfFixture.cs" Link="PdfFixture.cs" />
     <Compile Include="../../tests/ReportDiff.Tests/PdfTextFixture.cs" Link="PdfTextFixture.cs" />
