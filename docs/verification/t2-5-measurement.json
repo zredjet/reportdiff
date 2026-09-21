@@ -1,0 +1,32 @@
+{
+  "runtime": "10.0.12",
+  "pages": 1,
+  "words": 600,
+  "letters": 3600,
+  "dpi": 300,
+  "samples": 9,
+  "processPeakWorkingSetBytes": null,
+  "results": [
+    {
+      "mode": "inspect_with_open",
+      "medianMs": 7.3289,
+      "minMs": 6.4103,
+      "maxMs": 15.2946,
+      "medianAllocatedBytes": 2248872
+    },
+    {
+      "mode": "annotate_with_open",
+      "medianMs": 20.7401,
+      "minMs": 18.7277,
+      "maxMs": 23.5238,
+      "medianAllocatedBytes": 4165872
+    },
+    {
+      "mode": "inspect_after_annotation",
+      "medianMs": 0.212,
+      "minMs": 0.1791,
+      "maxMs": 0.2807,
+      "medianAllocatedBytes": 11624
+    }
+  ]
+}

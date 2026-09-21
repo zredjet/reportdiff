@@ -143,6 +143,16 @@ public sealed class ReportWriter
         return result;
     }
 
+    public void AddFontWarnings(int page, string side, IReadOnlyList<PdfFontWarning> fontWarnings)
+    {
+        CheckWritable();
+        if (side is not ("A" or "B") || page < 1 || page > (side == "A" ? inputs.A.Pages : inputs.B.Pages)
+            || !pages.Any(p => p.Page == page))
+            throw new ArgumentException("出力済みのページと存在する入力 A/B を指定してください。");
+        foreach (var warning in fontWarnings)
+            warnings.Add(new(warning.Code, $"{side}・{page} ページ: {warning.Message}"));
+    }
+
     public ReportDocument Complete()
     {
         CheckWritable();

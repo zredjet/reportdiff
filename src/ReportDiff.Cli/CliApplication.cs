@@ -84,6 +84,8 @@ public static class CliApplication
                 using var image = (page.HasA ? a : b).ReadPage(page.PageNumber);
                 writer.AddUnpairedPage(page.PageNumber, image.Pixels);
             }
+            if (page.HasA) writer.AddFontWarnings(page.PageNumber, "A", a.InspectFonts(page.PageNumber));
+            if (page.HasB) writer.AddFontWarnings(page.PageNumber, "B", b.InspectFonts(page.PageNumber));
         }
         var report = writer.Complete();
         if (!command.NoHtml) HtmlReportWriter.Write(workspace.StagingPath, report);

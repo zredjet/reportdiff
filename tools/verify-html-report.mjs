@@ -58,6 +58,13 @@ try {
     assert.ok((await page.locator('#pages').innerText()).includes('緑は A だけのインク'));
     assert.deepEqual(await page.locator('.input-path').allTextContents(), [result.inputs.a.path, result.inputs.b.path]);
     for (const warning of result.warnings) assert.ok((await page.locator('.warnings').innerText()).includes(warning.message));
+    assert.deepEqual(await page.locator('.warnings li').evaluateAll(items => items.filter(item => {
+      const rect = item.getBoundingClientRect();
+      return item.scrollWidth > item.clientWidth || rect.left < 0 || rect.right > innerWidth;
+    }).map(item => item.textContent)), [], '警告のフォント名・理由が横にはみ出しています。');
+    if (result.warnings.some(warning => warning.code === 'NON_EMBEDDED_FONT' || warning.code === 'FONT_INSPECTION_INCOMPLETE')) {
+      await page.locator('.warnings').screenshot({ path: path.join(screenshotDirectory, `${path.basename(reportPath, '.html')}-warnings-${width}.png`) });
+    }
     assert.equal(await page.locator('.summary-metrics dd').last().innerText(), String(result.summary.absorbed_groups));
     const originalOpen = await page.locator('details.page').evaluateAll(items => items.map(item => item.open));
     await page.locator('details.page').evaluateAll(items => items.forEach(item => { item.open = true; }));
