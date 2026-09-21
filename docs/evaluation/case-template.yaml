@@ -1,0 +1,52 @@
+# T2-7 の人による評価記録。CLI の --config / --rules に渡す設定ではない。
+# samples/private/t2-7/review/cases.yaml にコピーして記入する。
+# 実帳票のパス・内容・ハッシュ・確認者・結果は samples/private/ 内だけに保存する。
+# null / pending は未確認。空欄を成功・相違なし・0 件と扱わない。
+cases:
+  - id: E001 # 公開記録では匿名 ID のみを使う。
+    document_type: null # 表主体 / 図主体等。公開不可の業務名はローカルだけに記録。
+    # inputs/A と inputs/B からの相対パス。同じパスが自動で対応付けられる。
+    relative_path_a: null
+    relative_path_b: null
+    input_sha256_a: null
+    input_sha256_b: null
+    input_format: null # PDF / PNG 等。画像の生成 DPI も下に記録。
+    source_image_dpi: null
+    pdf_font_conditions: null # 埋め込み・代替フォント等。未検査なら null。
+    generation_environment: null # A/B の出力元・版・PDF 化条件。評価 OS と区別する。
+
+    expectation:
+      status: pending # 人が内容・対象ページ・位置・理由を確認したら confirmed。
+      confirmed_by: null
+      confirmed_at: null
+      changes:
+        - id: E001-C01
+          page: null # 1 始まり。対象ページを明示する。
+          region_mm: null # ページ左上基準 {x: ..., y: ..., w: ..., h: ...}。未確定なら null。
+          description: null # 数値 1 文字の変更、出力日時の違い、全体の位置ずれ等。
+          expected_behavior: null # detect / ignore / known_limitation。結果を見る前に記録。
+          reason: null # 検出・無視の根拠。限界は SPEC の該当箇所も記録。
+      page_count_expectation: null # 同数 / 追加・削除されたページ等。
+      unreviewed_pages: null # 全ページを確認していなければ、未確認ページを残す。
+
+    runs:
+      - id: baseline-001
+        source_commit: null
+        environment: null # OS・CPU・メモリ・.NET・ツール版等。
+        command: null # 実行した引数をそのままローカル記録。
+        config_path: null
+        config_sha256: null
+        result_path: null # samples/private/ 内の JSON / HTML。
+        exit_code: null # 終了コード 0 は業務上の期待どおりを意味しない。
+        review_status: pending
+        observations: [] # 期待変更 ID、ページ、クラスタ ID、検出/見逃し/誤検出/未判定と理由。
+        warnings: [] # 未収集と 0 件を区別するため、下の確認状態も使う。
+        warnings_reviewed: false
+        measurement:
+          method: null # 起動・描画・比較・出力を含むか、予備実行、計測器を記録。
+          elapsed_ms_samples: []
+          median_elapsed_ms: null
+          peak_rss_bytes_samples: [] # 取得不能なら空。0 として補完しない。
+          median_peak_rss_bytes: null
+          limitation: null # 未測定・OS の取得制約など。
+    decision: null # 変更不要 / 帳票別 YAML で対応 / 共通仕様の変更案 / 保留と、その根拠。
