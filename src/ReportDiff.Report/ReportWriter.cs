@@ -109,9 +109,9 @@ public sealed class ReportWriter
                 using var b = new Mat(comparisonB, crop);
                 using var diff = ReportImages.DifferenceCrop(comparisonB, comparison.RawMask, crop, comparison.RemovalMask);
                 WritePng(crops.A, a); WritePng(crops.B, b); WritePng(crops.Diff, diff);
+                var mm = PageMap.CanvasMillimeters(bounds, dpi);
                 clusters.Add(new(cluster.Id, new(bounds.X, bounds.Y, bounds.Width, bounds.Height),
-                    new(Units.PixelsToMm(bounds.X, dpi), Units.PixelsToMm(bounds.Y, dpi),
-                        Units.PixelsToMm(bounds.Width, dpi), Units.PixelsToMm(bounds.Height, dpi)),
+                    new(mm.X, mm.Y, mm.W, mm.H),
                     cluster.Pixels, cluster.FillRatio, cluster.Kind,
                     cluster.ShiftPx is { } movement ? new PixelShift(movement.Dx, movement.Dy) : null,
                     textA?.TextByCluster.GetValueOrDefault(cluster.Id), textB?.TextByCluster.GetValueOrDefault(cluster.Id), crops)

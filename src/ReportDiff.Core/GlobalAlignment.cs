@@ -108,19 +108,9 @@ public static class GlobalAligner
     public static Mat TranslateB(Mat b, GlobalShift shift)
     {
         ValidateImage(b);
-        var width = b.Width; var height = b.Height;
-        if (Math.Abs((long)shift.Dx) >= width || Math.Abs((long)shift.Dy) >= height)
+        if (Math.Abs((long)shift.Dx) >= b.Width || Math.Abs((long)shift.Dy) >= b.Height)
             throw new ArgumentException("補正量は画像サイズ未満にしてください。");
-        var result = new Mat(b.Size(), MatType.CV_8UC3, Scalar.All(255));
-        try
-        {
-            var w = width - Math.Abs(shift.Dx); var h = height - Math.Abs(shift.Dy);
-            using var source = new Mat(b, new Rect(Math.Max(0, -shift.Dx), Math.Max(0, -shift.Dy), w, h));
-            using var destination = new Mat(result, new Rect(Math.Max(0, shift.Dx), Math.Max(0, shift.Dy), w, h));
-            source.CopyTo(destination);
-            return result;
-        }
-        catch { result.Dispose(); throw; }
+        return PageMap.Global(b.Size(), b.Size(), b.Size(), shift).Render(b, PageSpace.B);
     }
 
     private static Match Score(Mat a, Mat b, Mat mask, Rect region, int dx, int dy)
@@ -145,12 +135,9 @@ public static class GlobalAligner
             if (!double.IsFinite(e.X) || !double.IsFinite(e.Y) || !double.IsFinite(e.W) || !double.IsFinite(e.H)
                 || e.X < 0 || e.Y < 0 || e.W < 0 || e.H < 0) throw new ArgumentException("除外領域が不正です。");
             if (e.W == 0 || e.H == 0) continue;
-            var left = (int)Math.Clamp(Math.Floor(Units.MmToPixels(e.X, parameters.Dpi)) - radius, 0, original.Width);
-            var top = (int)Math.Clamp(Math.Floor(Units.MmToPixels(e.Y, parameters.Dpi)) - radius, 0, original.Height);
-            var right = (int)Math.Clamp(Math.Ceiling(Units.MmToPixels(e.X + e.W, parameters.Dpi)) + radius, 0, original.Width);
-            var bottom = (int)Math.Clamp(Math.Ceiling(Units.MmToPixels(e.Y + e.H, parameters.Dpi)) + radius, 0, original.Height);
-            if (right <= left || bottom <= top) continue;
-            using var excluded = new Mat(allowed, new Rect(left, top, right - left, bottom - top));
+            var box = PageMap.CanvasRectangle(e, parameters.Dpi, original, radius);
+            if (box.Width <= 0 || box.Height <= 0) continue;
+            using var excluded = new Mat(allowed, box);
             excluded.SetTo(Scalar.All(0));
         }
         using var reduced = new Mat();

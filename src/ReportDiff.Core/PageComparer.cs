@@ -41,12 +41,9 @@ public static class PageComparer
         var raw = MatBuffers.Bytes(difference.RawMask);
         foreach (var e in parameters.Exclude)
         {
-            var x0 = (int)Math.Clamp(Math.Floor(Units.MmToPixels(e.X, parameters.Dpi)), 0, width);
-            var y0 = (int)Math.Clamp(Math.Floor(Units.MmToPixels(e.Y, parameters.Dpi)), 0, height);
-            var x1 = (int)Math.Clamp(Math.Ceiling(Units.MmToPixels(e.X + e.W, parameters.Dpi)), 0, width);
-            var y1 = (int)Math.Clamp(Math.Ceiling(Units.MmToPixels(e.Y + e.H, parameters.Dpi)), 0, height);
-            for (var y = y0; y < y1; y++)
-                if (x1 > x0) Array.Clear(raw, y * width + x0, x1 - x0);
+            var box = PageMap.CanvasRectangle(e, parameters.Dpi, new(width, height));
+            for (var y = box.Top; y < box.Bottom; y++)
+                if (box.Width > 0) Array.Clear(raw, y * width + box.Left, box.Width);
         }
         var rawPixels = raw.Count(value => value != 0);
         var labelMask = new byte[raw.Length];

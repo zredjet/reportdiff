@@ -17,14 +17,7 @@ internal static class DifferenceClassifier
         // 各種の有無だけで分類できるため、割合や多数決のしきい値を持たない。
         var states = new byte[keep.Length];
         var shapeMismatch = new bool[keep.Length];
-        var exclusions = parameters.Exclude.Select(e =>
-        {
-            var left = (int)Math.Clamp(Math.Floor(Units.MmToPixels(e.X, parameters.Dpi)), 0, width);
-            var top = (int)Math.Clamp(Math.Floor(Units.MmToPixels(e.Y, parameters.Dpi)), 0, height);
-            var right = (int)Math.Clamp(Math.Ceiling(Units.MmToPixels(e.X + e.W, parameters.Dpi)), 0, width);
-            var bottom = (int)Math.Clamp(Math.Ceiling(Units.MmToPixels(e.Y + e.H, parameters.Dpi)), 0, height);
-            return new Rect(left, top, Math.Max(0, right - left), Math.Max(0, bottom - top));
-        }).ToArray();
+        var exclusions = parameters.Exclude.Select(e => PageMap.CanvasRectangle(e, parameters.Dpi, new(width, height))).ToArray();
         byte[]? removed = null;
         for (var y = region.Top; y < region.Bottom; y++)
         for (var x = region.Left; x < region.Right; x++)

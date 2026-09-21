@@ -27,7 +27,7 @@ public sealed record PageRegions(string CoordinateSystem, string SuppressionMeth
         var items = declarations.Select((r, i) =>
         {
             var applied = result?.Regions.SingleOrDefault(x => x.Index == i);
-            var box = applied?.Bounds ?? Units.ClipRectangle(new(r.X, r.Y, r.W, r.H), dpi, size.W, size.H);
+            var box = applied?.Bounds ?? PageMap.CanvasRectangle(new(r.X, r.Y, r.W, r.H), dpi, new(size.W, size.H));
             return new PageRegion(i, r.Name, r.Mode, r.Page is not null && r.Page != page ? "not_applicable"
                 : applied?.Status ?? "not_compared", new(box.X, box.Y, box.Width, box.Height), applied?.EffectivePixels ?? 0,
                 applied?.RawPixels ?? 0, applied?.SuppressedPixels ?? 0, applied?.SuppressedComponents ?? 0,

@@ -29,10 +29,11 @@ internal static class ComparisonRunner
                 var parameters = settings.ForPage(page.PageNumber, a.Dpi);
                 var alignment = GlobalAligner.Estimate(normalized.A, normalized.B, parameters, settings.Align, normalized.SizeMismatch);
                 var appliedShift = alignment.Status == "applied" ? alignment.EstimatedShiftPx : null;
-                using var correctedB = appliedShift is null ? null : GlobalAligner.TranslateB(normalized.B, appliedShift);
+                var map = PageMap.Global(normalized.OriginalSizeA, normalized.OriginalSizeB, normalized.A.Size(), appliedShift);
+                using var correctedB = appliedShift is null ? null : map.Render(normalized.B, PageSpace.B);
                 using var comparison = PageComparer.Compare(normalized.A, correctedB ?? normalized.B, parameters);
-                var textA = a.Annotate(page.PageNumber, normalized.OriginalSizeA, comparison.Clusters, parameters.Exclude);
-                var textB = b.Annotate(page.PageNumber, normalized.OriginalSizeB, comparison.Clusters, parameters.Exclude, appliedShift);
+                var textA = a.Annotate(page.PageNumber, map, PageSpace.A, comparison.Clusters, parameters.Exclude);
+                var textB = b.Annotate(page.PageNumber, map, PageSpace.B, comparison.Clusters, parameters.Exclude);
                 writer.AddComparedPage(page.PageNumber, normalized, comparison, a.Dpi, textA, textB, alignment, correctedB);
             }
             else

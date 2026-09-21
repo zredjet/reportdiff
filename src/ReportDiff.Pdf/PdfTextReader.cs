@@ -40,6 +40,14 @@ public sealed class PdfTextReader(string path, TextOptions? textOptions = null) 
 
     public PageTextAnnotations Annotate(int pageNumber, Size originalSize, int dpi,
         IReadOnlyList<DifferenceCluster> clusters, IReadOnlyList<RectMm> exclusions, GlobalShift? shift = null)
+        => AnnotateCore(pageNumber, originalSize, dpi, clusters, exclusions, null, PageSpace.B, shift);
+
+    public PageTextAnnotations AnnotateMapped(int pageNumber, PageMap map, PageSpace side, int dpi,
+        IReadOnlyList<DifferenceCluster> clusters, IReadOnlyList<RectMm> exclusions)
+        => AnnotateCore(pageNumber, map.SizeOf(side), dpi, clusters, exclusions, map, side, null);
+
+    private PageTextAnnotations AnnotateCore(int pageNumber, Size originalSize, int dpi,
+        IReadOnlyList<DifferenceCluster> clusters, IReadOnlyList<RectMm> exclusions, PageMap? map, PageSpace side, GlobalShift? shift)
     {
         ObjectDisposedException.ThrowIf(disposed, this);
         if (clusters.Count == 0) return new(new Dictionary<int, string>(), []);
@@ -58,29 +66,18 @@ public sealed class PdfTextReader(string path, TextOptions? textOptions = null) 
             if (page.Letters.Count > options.MaxLettersPerPage) return Skipped($"文字要素が {options.MaxLettersPerPage} 件を超えたため注釈を省略しました。");
             var words = page.GetWords(WordExtractor).Where(w => !string.IsNullOrWhiteSpace(w.Text)).Take(options.MaxWordsPerPage + 1).ToArray();
             if (words.Length > options.MaxWordsPerPage) return Skipped($"単語が {options.MaxWordsPerPage} 件を超えたため注釈を省略しました。");
-            // PdfPig 0.1.16 は MediaBox と交差した CropBox の原点を補正済み。
-            // 実際の描画寸法への比率で端数を合わせ、右・下の白埋めには拡大しない。
-            var sx = originalSize.Width / page.Width; var sy = originalSize.Height / page.Height;
+            map ??= PageMap.Global(originalSize, originalSize, originalSize, shift);
             var mapped = new List<TextWord>();
             foreach (var word in words)
             {
                 var box = word.BoundingBox;
                 var points = new[] { box.BottomLeft, box.BottomRight, box.TopLeft, box.TopRight };
-                var left = points.Min(p => p.X) * sx; var right = points.Max(p => p.X) * sx;
-                var top = (page.Height - points.Max(p => p.Y)) * sy;
-                var bottom = (page.Height - points.Min(p => p.Y)) * sy;
-                if (!double.IsFinite(left) || !double.IsFinite(right) || !double.IsFinite(top) || !double.IsFinite(bottom))
+                var source = map.PdfToSource(side, page.Width, page.Height, points.Min(p => p.X), points.Min(p => p.Y),
+                    points.Max(p => p.X), points.Max(p => p.Y));
+                if (!PageMap.Finite(source))
                     return Skipped("単語の座標が不正なため注釈を省略しました。");
-                // 切り抜き境界の外にある文字を白埋め部分へ対応付けない。
-                left = Math.Max(0, left); top = Math.Max(0, top);
-                right = Math.Min(originalSize.Width, right); bottom = Math.Min(originalSize.Height, bottom);
-                if (right <= left || bottom <= top) continue;
-                // 元ページで切り抜いた後、比較に使った B と同じ座標へ移す。
-                left += shift?.Dx ?? 0; right += shift?.Dx ?? 0;
-                top += shift?.Dy ?? 0; bottom += shift?.Dy ?? 0;
-                left = Math.Max(0, left); top = Math.Max(0, top);
-                right = Math.Min(originalSize.Width, right); bottom = Math.Min(originalSize.Height, bottom);
-                if (right > left && bottom > top) mapped.Add(new(word.Text, new(left, top, right - left, bottom - top)));
+                if (map.MapBounds(source, side, PageSpace.Canvas) is { } canvas)
+                    mapped.Add(new(word.Text, canvas.Rectangle));
             }
             return TextAnnotations.Create(mapped, clusters, exclusions, dpi, options);
         }

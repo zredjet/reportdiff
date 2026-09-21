@@ -16,11 +16,8 @@ internal static class ReportImages
             using var excluded = new Mat(b.Size(), MatType.CV_8UC1, Scalar.All(0));
             foreach (var e in exclusions)
             {
-                var left = (int)Math.Clamp(Math.Floor(Units.MmToPixels(e.X, dpi)), 0, b.Width);
-                var top = (int)Math.Clamp(Math.Floor(Units.MmToPixels(e.Y, dpi)), 0, b.Height);
-                var right = (int)Math.Clamp(Math.Ceiling(Units.MmToPixels(e.X + e.W, dpi)), 0, b.Width);
-                var bottom = (int)Math.Clamp(Math.Ceiling(Units.MmToPixels(e.Y + e.H, dpi)), 0, b.Height);
-                if (right > left && bottom > top) Cv2.Rectangle(excluded, new Rect(left, top, right - left, bottom - top), Scalar.All(255), -1);
+                var box = PageMap.CanvasRectangle(new(e.X, e.Y, e.W, e.H), dpi, b.Size());
+                if (box.Width > 0 && box.Height > 0) Cv2.Rectangle(excluded, box, Scalar.All(255), -1);
             }
             Tint(output, excluded, new Scalar(0, 255, 255));
             if (comparison.Regional is { } regional)
@@ -55,15 +52,8 @@ internal static class ReportImages
         catch { output.Dispose(); throw; }
     }
 
-    public static Rect CropBounds(Rect bounds, Size size, double marginMm, int dpi)
-    {
-        var margin = Units.MmToPixels(marginMm, dpi);
-        var left = (int)Math.Max(0, Math.Floor(bounds.X - margin));
-        var top = (int)Math.Max(0, Math.Floor(bounds.Y - margin));
-        var right = (int)Math.Min(size.Width, Math.Ceiling(bounds.Right + margin));
-        var bottom = (int)Math.Min(size.Height, Math.Ceiling(bounds.Bottom + margin));
-        return new(left, top, right - left, bottom - top);
-    }
+    public static Rect CropBounds(Rect bounds, Size size, double marginMm, int dpi) =>
+        PageMap.CropRectangle(bounds, size, marginMm, dpi);
 
     private static void Tint(Mat image, Mat mask, Scalar color)
     {

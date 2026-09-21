@@ -40,8 +40,8 @@ internal sealed class ComparisonInput : IDisposable
     public ReportInput Describe() => ReportInput.FromFile(path, Format, PageCount);
     public LoadedImage ReadPage(int page) => pdf is null ? ImageReader.Read(path, Dpi) : pdf.ReadPage(page, Dpi);
     public IReadOnlyList<PdfFontWarning> InspectFonts(int page) => text?.InspectFonts(page) ?? [];
-    public PageTextAnnotations? Annotate(int page, Size originalSize, IReadOnlyList<DifferenceCluster> clusters,
-        IReadOnlyList<RectMm> exclusions, GlobalShift? shift = null) => text?.Annotate(page, originalSize, Dpi, clusters, exclusions, shift);
+    public PageTextAnnotations? Annotate(int page, PageMap map, PageSpace side, IReadOnlyList<DifferenceCluster> clusters,
+        IReadOnlyList<RectMm> exclusions) => text?.AnnotateMapped(page, map, side, Dpi, clusters, exclusions);
     public void Dispose()
     {
         try { text?.Dispose(); }

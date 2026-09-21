@@ -12,8 +12,7 @@ internal static class TextAnnotations
         IReadOnlyList<RectMm> exclusions, int dpi, TextOptions? textOptions = null)
     {
         var options = (textOptions ?? new()).Validated();
-        var excluded = exclusions.Select(e => new Rect2d(Units.MmToPixels(e.X, dpi), Units.MmToPixels(e.Y, dpi),
-            Units.MmToPixels(e.W, dpi), Units.MmToPixels(e.H, dpi))).ToArray();
+        var excluded = exclusions.Select(e => PageMap.ContinuousPixels(e, dpi)).ToArray();
         var candidates = words.Select(w => w with { Text = Clean(w.Text) }).Where(w => w.Text.Length > 0
             && !excluded.Any(e => Intersects(w.Bounds, e))).Distinct().OrderBy(w => w.Bounds.Top).ThenBy(w => w.Bounds.Left)
             .ThenBy(w => w.Text, StringComparer.Ordinal).ToArray();

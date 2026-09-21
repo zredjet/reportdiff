@@ -15,14 +15,7 @@ internal static class MovementAnnotator
         if (radius < 1) return clusters;
         var margin = Math.Max(1, (int)Math.Ceiling(Units.MmToPixels(parameters.Move.TemplateMarginMm, parameters.Dpi)));
         var kept = acceptedLabels.ToHashSet();
-        var exclusions = parameters.Exclude.Select(e =>
-        {
-            var left = (int)Math.Clamp(Math.Floor(Units.MmToPixels(e.X, parameters.Dpi)), 0, width);
-            var top = (int)Math.Clamp(Math.Floor(Units.MmToPixels(e.Y, parameters.Dpi)), 0, height);
-            var right = (int)Math.Clamp(Math.Ceiling(Units.MmToPixels(e.X + e.W, parameters.Dpi)), 0, width);
-            var bottom = (int)Math.Clamp(Math.Ceiling(Units.MmToPixels(e.Y + e.H, parameters.Dpi)), 0, height);
-            return new Rect(left, top, Math.Max(0, right - left), Math.Max(0, bottom - top));
-        }).ToArray();
+        var exclusions = parameters.Exclude.Select(e => PageMap.CanvasRectangle(e, parameters.Dpi, new(width, height))).ToArray();
         var windows = clusters.Select(c => new Rect(c.Bounds.X - margin, c.Bounds.Y - margin,
             c.Bounds.Width + 2 * margin, c.Bounds.Height + 2 * margin)).ToArray();
         var validation = parameters with { Diff = parameters.Diff with { MaxShiftMm = 0 } };

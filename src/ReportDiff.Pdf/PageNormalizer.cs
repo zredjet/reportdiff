@@ -1,4 +1,5 @@
 using OpenCvSharp;
+using ReportDiff.Core;
 
 namespace ReportDiff.Pdf;
 
@@ -33,19 +34,18 @@ public static class PageNormalizer
         Validate(b, nameof(b));
         var sizeA = a.Size();
         var sizeB = b.Size();
-        var width = Math.Max(sizeA.Width, sizeB.Width);
-        var height = Math.Max(sizeA.Height, sizeB.Height);
-        var outputA = new Mat();
-        var outputB = new Mat();
+        var map = PageMap.Unaligned(sizeA, sizeB);
+        var outputA = map.Render(a, PageSpace.A);
         try
         {
-            // ROI の外側にある元画像の画素を余白に取り込まない。
-            const BorderTypes border = BorderTypes.Constant | BorderTypes.Isolated;
-            Cv2.CopyMakeBorder(a, outputA, 0, height - sizeA.Height, 0, width - sizeA.Width, border, Scalar.All(255));
-            Cv2.CopyMakeBorder(b, outputB, 0, height - sizeB.Height, 0, width - sizeB.Width, border, Scalar.All(255));
-            return new NormalizedPagePair(outputA, outputB, sizeA, sizeB);
+            var outputB = map.Render(b, PageSpace.B);
+            try
+            {
+                return new NormalizedPagePair(outputA, outputB, sizeA, sizeB);
+            }
+            catch { outputB.Dispose(); throw; }
         }
-        catch { outputA.Dispose(); outputB.Dispose(); throw; }
+        catch { outputA.Dispose(); throw; }
     }
 
     private static void Validate(Mat image, string name)

@@ -29,7 +29,7 @@ internal sealed class RegionMap
         validationRegions = Regions.Select(r => r.Diff with { MaxShiftMm = 0 }).ToArray();
         Owners = Enumerable.Repeat(-1, checked(width * height)).ToArray();
         Excluded = new bool[Owners.Length];
-        Bounds = Regions.Select(r => Units.ClipRectangle(r.Bounds, parameters.Dpi, width, height)).ToArray();
+        Bounds = Regions.Select(r => PageMap.CanvasRectangle(r.Bounds, parameters.Dpi, new(width, height))).ToArray();
         EffectivePixels = new int[Regions.Length];
         // 内包する側から塗る。同面積は非交差だけなので宣言順で結果は変わらない。
         var order = Enumerable.Range(0, Regions.Length).OrderByDescending(i => Regions[i].Bounds.W * Regions[i].Bounds.H).ToArray();
@@ -47,7 +47,7 @@ internal sealed class RegionMap
         }
         foreach (var exclusion in parameters.Exclude)
         {
-            var box = Units.ClipRectangle(exclusion, parameters.Dpi, width, height);
+            var box = PageMap.CanvasRectangle(exclusion, parameters.Dpi, new(width, height));
             for (var y = box.Top; y < box.Bottom; y++)
             for (var x = box.Left; x < box.Right; x++) Excluded[y * width + x] = true;
         }
@@ -81,8 +81,7 @@ public static class RegionGeometry
 
     private static RectMm Pixels(RectMm r, int dpi)
     {
-        var x = Math.Floor(Units.MmToPixels(r.X, dpi)); var y = Math.Floor(Units.MmToPixels(r.Y, dpi));
-        return new(x, y, Math.Ceiling(Units.MmToPixels(r.X + r.W, dpi)) - x,
-            Math.Ceiling(Units.MmToPixels(r.Y + r.H, dpi)) - y);
+        var box = PageMap.RoundedPixels(r, dpi);
+        return new(box.Left, box.Top, box.Right - box.Left, box.Bottom - box.Top);
     }
 }
