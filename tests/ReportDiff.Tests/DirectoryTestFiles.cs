@@ -16,7 +16,8 @@ internal sealed class DirectoryTestFiles : IDisposable
     public DirectoryTestFiles() { Directory.CreateDirectory(A); Directory.CreateDirectory(B); }
     public string Bytes(string name, byte[] bytes)
     {
-        var path = Path.Combine(Root, name); Directory.CreateDirectory(Path.GetDirectoryName(path)!);
+        // Windows でも単一比較とフォルダ比較へ同じ区切り表記の絶対パスを渡す。
+        var path = Path.GetFullPath(Path.Combine(Root, name)); Directory.CreateDirectory(Path.GetDirectoryName(path)!);
         File.WriteAllBytes(path, bytes); return path;
     }
     public string Text(string name, string text) => Bytes(name, Encoding.UTF8.GetBytes(text));
