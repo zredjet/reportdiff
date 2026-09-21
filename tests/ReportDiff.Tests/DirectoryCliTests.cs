@@ -77,6 +77,7 @@ public sealed class DirectoryCliTests
         var rules = files.Text("rules.yaml", "schema_version: 1\nrules: [{pattern: '請求/', config: selected.yaml}]");
         Assert.Equal(1, (await files.Run("--config", common, "--rules", rules, "--profile", "strict", "--dpi", "300")).Code);
         var report = files.Read(); var row = Assert.Single(report.Files); var child = files.Child(row);
+        Assert.Equal(a, child.Inputs.A.Path); Assert.Equal(b, child.Inputs.B.Path);
         Assert.Equal(1, row.SelectedRule!.Index); Assert.Equal(300, child.Config.ImageDpi); Assert.Empty(child.Config.Exclude);
         Assert.Equal(8, child.Config.Diff.ColorThreshold); Assert.Equal(1, child.Config.Report.CropMarginMm);
         Assert.Equal(3, new[] { report.Configuration.Common, report.Configuration.Rules, report.Configuration.Referenced.Single() }.Count(x => x!.Sha256.Length == 64));
@@ -86,7 +87,7 @@ public sealed class DirectoryCliTests
         var actual = JsonNode.Parse(File.ReadAllText(Path.Combine(files.Output, row.Json!)))!.AsObject();
         var expected = JsonNode.Parse(File.ReadAllText(Path.Combine(single, "result.json")))!.AsObject();
         actual.Remove("generated_at"); expected.Remove("generated_at");
-        Assert.True(JsonNode.DeepEquals(expected, actual));
+        Assert.True(JsonNode.DeepEquals(expected, actual), $"単一比較: {expected}\n一括比較: {actual}");
         foreach (var png in Directory.GetFiles(single, "*.png", SearchOption.AllDirectories))
             Assert.Equal(File.ReadAllBytes(png), File.ReadAllBytes(Path.Combine(files.Output, Path.GetDirectoryName(row.Json!)!, Path.GetRelativePath(single, png))));
     }

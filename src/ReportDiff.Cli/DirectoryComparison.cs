@@ -33,7 +33,14 @@ internal static class DirectoryComparison
             var child = Path.Combine(workspace.StagingPath, "files", pair.Id);
             try
             {
-                var single = command with { InputA = Path.Combine(plan.RootA, pair.A), InputB = Path.Combine(plan.RootB, pair.B), IsDirectory = false, Rules = null };
+                // 一覧用の / 区切りを、単一比較へ渡すときは OS 標準の絶対パスに戻す。
+                var single = command with
+                {
+                    InputA = Path.GetFullPath(Path.Combine(plan.RootA, pair.A)),
+                    InputB = Path.GetFullPath(Path.Combine(plan.RootB, pair.B)),
+                    IsDirectory = false,
+                    Rules = null
+                };
                 ReportDocument report;
                 if (compare is not null) report = compare(single, rule?.Settings ?? rules.Common, child);
                 else if (OperatingSystem.IsWindows() || OperatingSystem.IsMacOS() || OperatingSystem.IsLinux())
