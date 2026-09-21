@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <!-- 既存の内部計測APIへアクセスするfriend assembly名。製品からは参照しない。 -->
+    <AssemblyName>ReportDiff.Tests</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup><ProjectReference Include="../../src/ReportDiff.Cli/ReportDiff.Cli.csproj" /></ItemGroup>
+</Project>
