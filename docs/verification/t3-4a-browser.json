@@ -1,0 +1,39 @@
+{
+  "browser": "153.0.8010.52",
+  "records": [
+    {
+      "width": 1280,
+      "javaScriptEnabled": true,
+      "snippets": 2,
+      "keyboardSelection": true,
+      "readOnly": true,
+      "fitsCell": true
+    },
+    {
+      "width": 1280,
+      "javaScriptEnabled": false,
+      "snippets": 2,
+      "keyboardSelection": true,
+      "readOnly": true,
+      "fitsCell": true
+    },
+    {
+      "width": 390,
+      "javaScriptEnabled": true,
+      "snippets": 2,
+      "keyboardSelection": true,
+      "readOnly": true,
+      "fitsCell": true
+    },
+    {
+      "width": 390,
+      "javaScriptEnabled": false,
+      "snippets": 2,
+      "keyboardSelection": true,
+      "readOnly": true,
+      "fitsCell": true
+    }
+  ],
+  "pageErrors": [],
+  "externalRequests": []
+}

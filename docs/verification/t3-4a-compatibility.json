@@ -1,0 +1,262 @@
+{
+  "baseline": "e02a6fd",
+  "cases": [
+    {
+      "id": "I01",
+      "exit_code": 0,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 3
+    },
+    {
+      "id": "I02-1",
+      "exit_code": 0,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 3
+    },
+    {
+      "id": "I02-2",
+      "exit_code": 0,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 3
+    },
+    {
+      "id": "I02-3",
+      "exit_code": 0,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 3
+    },
+    {
+      "id": "I02-4",
+      "exit_code": 0,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 3
+    },
+    {
+      "id": "I02-5",
+      "exit_code": 0,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 3
+    },
+    {
+      "id": "I03-1",
+      "exit_code": 0,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 3
+    },
+    {
+      "id": "I03-2",
+      "exit_code": 0,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 3
+    },
+    {
+      "id": "I03-3",
+      "exit_code": 0,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 3
+    },
+    {
+      "id": "I03-4",
+      "exit_code": 0,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 3
+    },
+    {
+      "id": "I03-5",
+      "exit_code": 0,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 3
+    },
+    {
+      "id": "L02",
+      "exit_code": 1,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 27
+    },
+    {
+      "id": "I04",
+      "exit_code": 0,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 3
+    },
+    {
+      "id": "I05",
+      "exit_code": 0,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 3
+    },
+    {
+      "id": "D01",
+      "exit_code": 1,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 6
+    },
+    {
+      "id": "D02",
+      "exit_code": 1,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 6
+    },
+    {
+      "id": "D03",
+      "exit_code": 1,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 6
+    },
+    {
+      "id": "D06a",
+      "exit_code": 1,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 6
+    },
+    {
+      "id": "D07",
+      "exit_code": 1,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 6
+    },
+    {
+      "id": "D08",
+      "exit_code": 1,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 6
+    },
+    {
+      "id": "D09",
+      "exit_code": 1,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 6
+    },
+    {
+      "id": "D10",
+      "exit_code": 1,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 6
+    },
+    {
+      "id": "D11",
+      "exit_code": 1,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 9
+    },
+    {
+      "id": "D12a",
+      "exit_code": 1,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 9
+    },
+    {
+      "id": "D12b",
+      "exit_code": 1,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 6
+    },
+    {
+      "id": "D13",
+      "exit_code": 1,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 6
+    },
+    {
+      "id": "D14",
+      "exit_code": 1,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 6
+    },
+    {
+      "id": "S01",
+      "exit_code": 1,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 6
+    },
+    {
+      "id": "S02",
+      "exit_code": 0,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 3
+    },
+    {
+      "id": "D15",
+      "exit_code": 1,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 6
+    },
+    {
+      "id": "L01",
+      "exit_code": 0,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 3
+    },
+    {
+      "id": "J01",
+      "exit_code": 1,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 6
+    },
+    {
+      "id": "J02",
+      "exit_code": 1,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 6
+    },
+    {
+      "id": "J03",
+      "exit_code": 1,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 6
+    },
+    {
+      "id": "J04",
+      "exit_code": 1,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 6
+    },
+    {
+      "id": "J05",
+      "exit_code": 0,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 3
+    },
+    {
+      "id": "J06",
+      "exit_code": 0,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 3
+    },
+    {
+      "id": "I10",
+      "exit_code": 0,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 3
+    },
+    {
+      "id": "I11",
+      "exit_code": 0,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 3
+    },
+    {
+      "id": "I12",
+      "exit_code": 0,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 3
+    },
+    {
+      "id": "D20",
+      "exit_code": 1,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 6
+    },
+    {
+      "id": "D21",
+      "exit_code": 1,
+      "json_existing_fields_equal": true,
+      "png_files_equal": 6
+    }
+  ],
+  "ignored_fields": [
+    "generated_at",
+    "config.report.snippet_margin_mm (added)"
+  ],
+  "all_equal": true
+}

@@ -56,7 +56,10 @@ public sealed record ReportConfiguration(int Dpi, int ImageDpi, DiffOptions Diff
     public AlignOptions Align { get; init; } = new();
     public TextOptions Text { get; init; } = new();
 }
-public sealed record ReportOutputOptions(double CropMarginMm);
+public sealed record ReportOutputOptions(double CropMarginMm)
+{
+    public double SnippetMarginMm { get; init; } = 1.0;
+}
 public sealed record ReportExclusion(
     [property: JsonConverter(typeof(ExclusionPageConverter))] int? Page,
     double X, double Y, double W, double H, string Note);

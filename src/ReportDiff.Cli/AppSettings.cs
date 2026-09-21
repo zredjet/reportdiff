@@ -8,6 +8,7 @@ public sealed record ExclusionSetting(int? Page, double X, double Y, double W, d
 public sealed record ReportOptions
 {
     public double CropMarginMm { get; init; } = 2.0;
+    public double SnippetMarginMm { get; init; } = 1.0;
 }
 
 public sealed record AppSettings
@@ -25,7 +26,8 @@ public sealed record AppSettings
 
     public ReportConfiguration ToReportConfiguration() => new(Dpi, ImageDpi, Diff, Cluster,
         Exclude.Select(e => new ReportExclusion(e.Page, e.X, e.Y, e.W, e.H, e.Note)).ToArray(),
-        new ReportOutputOptions(Report.CropMarginMm)) { Ink = Ink, Move = Move, Align = Align, Text = Text };
+        new ReportOutputOptions(Report.CropMarginMm) { SnippetMarginMm = Report.SnippetMarginMm })
+        { Ink = Ink, Move = Move, Align = Align, Text = Text };
 
     public ComparisonParameters ForPage(int page, int dpi) => new()
     {

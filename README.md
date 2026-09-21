@@ -147,9 +147,12 @@ exclude:
   - {page: all, x: 150, y: 8, w: 50, h: 6, note: 出力日時}
 report:
   crop_margin_mm: 2.0
+  snippet_margin_mm: 1.0
 ```
 
 長さはすべて mm、座標はページ左上が原点。`page` は `all` または 1 始まりの番号。未知のキーや範囲外の値はエラーになる。実際に使った設定と除外領域は JSON・HTML で確認できる。
+
+レポートの相違行で「除外 YAML」を開くと、その箇所の設定をコピーできる。「YAML を選択」を押すか欄を手動で選択し、`exclude:` の下に半角スペース 2 個を付けて貼り付け、同じ入力・比較設定で再実行する。対象は表示中のページだけ。全体補正を使った場合は A／補正後 B の位置になる。候補には既定で 1mm の余白を付け、0.5mm 単位で外側へ丸める。`report.snippet_margin_mm` で余白を 0〜20mm に調整できる。
 
 設定の優先順位は **既定値 → YAML → 明示した `--profile` → `--dpi`**。プロファイルが上書きするのは `diff.max_shift_mm` と `diff.edge_tolerance` で、`move`・`align` は変えない。`image_dpi` を省略すると最終的な `dpi` に追従する。画像入力では埋め込み DPI を使わず `image_dpi` で mm 換算するため、画像を作った解像度に合わせる。PDF と画像を混在させる場合は `dpi` と `image_dpi` をそろえる。不一致はエラーになる。
 

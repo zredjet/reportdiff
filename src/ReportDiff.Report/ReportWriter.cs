@@ -30,6 +30,8 @@ public sealed class ReportWriter
         if (inputs.A.Pages < 1 || inputs.B.Pages < 1) throw new ArgumentException("入力のページ数は 1 以上にしてください。");
         if (!double.IsFinite(config.Report.CropMarginMm) || config.Report.CropMarginMm < 0)
             throw new ArgumentException("切り出し余白は 0 以上の有限の mm 値にしてください。");
+        if (!double.IsFinite(config.Report.SnippetMarginMm) || config.Report.SnippetMarginMm is < 0 or > 20)
+            throw new ArgumentException("除外 YAML の余白は 0〜20 の有限の mm 値にしてください。");
         this.outputDirectory = Path.GetFullPath(outputDirectory);
         this.inputs = inputs;
         this.config = config with { Exclude = Array.AsReadOnly(config.Exclude.ToArray()) };

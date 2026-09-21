@@ -13,3 +13,13 @@ document.querySelectorAll('.viewer').forEach(viewer => {
     });
   });
 });
+
+document.querySelectorAll('.exclusion-snippet').forEach(snippet => {
+  const button = snippet.querySelector('.select-yaml');
+  button.hidden = false;
+  button.addEventListener('click', () => {
+    const field = snippet.querySelector('textarea');
+    field.focus();
+    field.select();
+  });
+});

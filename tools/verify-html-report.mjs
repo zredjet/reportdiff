@@ -152,7 +152,8 @@ try {
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, `${width}px の画面が横にはみ出しています。`);
     assert.deepEqual(await page.locator('button, .input-path, .metrics dt, .metrics dd, .alignment dt, .alignment dd').evaluateAll(items => items.filter(item => {
       const rect = item.getBoundingClientRect();
-      return rect.width > 0 && (rect.left < 0 || rect.right > innerWidth);
+      // 閉じた details の子要素は矩形が残る場合がある。表示中の要素だけを確認する。
+      return item.checkVisibility() && rect.width > 0 && (rect.left < 0 || rect.right > innerWidth);
     }).map(item => item.textContent)), []);
     if (width === 390 && await page.locator('.clusters').count() > 0) {
       const scrollRegion = page.locator('.table-scroll').filter({ has: page.locator('.clusters') }).first();

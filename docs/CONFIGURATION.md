@@ -37,6 +37,7 @@ UTF-8 の YAML を `--config` で読み込む。`#` のコメントを記載で�
 | `exclude[].w` / `h` | mm、必須 | 0 以上 | 除外矩形の幅・高さ。0 は空領域 |
 | `exclude[].note` | 文字列、空 | YAML のスカラー文字列 | レポートに表示する除外理由。判定には使わない |
 | `report.crop_margin_mm` | mm、2 | 0 以上 | ReportWriter の切り出し余白。検出結果には影響しない |
+| `report.snippet_margin_mm` | mm、1 | 0〜20 | HTML の除外 YAML に付ける余白。0.5mm 単位で外側へ丸め、ページ端でクリップする。切り出し画像や検出結果には影響しない |
 
 読み込み時に省略値を補い、実効設定に記録する。diff.max_shift_mm と cluster.merge_x_mm / merge_y_mm は、最終 DPI での探索候補数・カーネル寸法が整数で表現できることも検証する。
 

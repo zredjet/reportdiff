@@ -135,8 +135,12 @@ public static class ConfigurationLoader
                 }
                 if (root.TryGetValue("report", out node))
                 {
-                    var values = Mapping(node, "report", "crop_margin_mm");
-                    settings = settings with { Report = new ReportOptions { CropMarginMm = Number(values, "crop_margin_mm", "report", settings.Report.CropMarginMm) } };
+                    var values = Mapping(node, "report", "crop_margin_mm", "snippet_margin_mm");
+                    settings = settings with { Report = new ReportOptions
+                    {
+                        CropMarginMm = Number(values, "crop_margin_mm", "report", settings.Report.CropMarginMm),
+                        SnippetMarginMm = Number(values, "snippet_margin_mm", "report", settings.Report.SnippetMarginMm)
+                    }};
                 }
                 if (root.TryGetValue("exclude", out node))
                 {
@@ -282,6 +286,7 @@ public static class ConfigurationLoader
         if (!double.IsFinite(settings.Move.MinScoreGap) || settings.Move.MinScoreGap is <= 0 or > 1)
             throw Error("move.min_score_gap", "0 より大きく 1 以下にしてください");
         Nonnegative(settings.Report.CropMarginMm, "report.crop_margin_mm");
+        Range(settings.Report.SnippetMarginMm, "report.snippet_margin_mm", 0, 20);
         Range(settings.Text.MaxLettersPerPage, "text.max_letters_per_page", 1, 1_000_000);
         Range(settings.Text.MaxWordsPerPage, "text.max_words_per_page", 1, 200_000);
         Range(settings.Text.MaxRunesPerCluster, "text.max_runes_per_cluster", 1, 100_000);

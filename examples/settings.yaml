@@ -95,3 +95,5 @@ exclude: []
 report:
   # 切り出し余白（mm、0以上、既定2）。表示用の範囲だけを変え、検出には影響しない。
   crop_margin_mm: 2.0
+  # HTML からコピーする除外 YAML の余白。0〜20mm。切り出し画像とは独立。
+  snippet_margin_mm: 1.0
