@@ -1,0 +1,351 @@
+{
+  "opencv": "4.13.0",
+  "numpy": "2.5.3",
+  "candidate_count": 8,
+  "expectation_failures": [
+    "D16",
+    "D17"
+  ],
+  "all_csharp_exact_match": true,
+  "cases": [
+    {
+      "id": "I06",
+      "expected_status": "same",
+      "expected_clusters": 0,
+      "params": {
+        "dpi": 300,
+        "max_shift_mm": 0.15,
+        "color_threshold": 3.0,
+        "edge_tolerance": 0.3,
+        "ink_background_radius_mm": 1.5,
+        "ink_contrast_threshold": 25.0,
+        "reading_band_mm": 5.0,
+        "merge_x_mm": 3.0,
+        "merge_y_mm": 1.0,
+        "min_pixels": 4,
+        "max_diff_ratio": 0.3,
+        "exclude_mm": []
+      },
+      "observed": {
+        "status": "same",
+        "raw_pixels": 0,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": []
+      },
+      "expectation_met": true,
+      "initial_candidate_pixels": 0,
+      "whole_page_residual_at_alternative_shift": {},
+      "csharp_exact_match": true,
+      "cli_exit_code": 0,
+      "png_sha256": {
+        "a": "be74b028786fb3f4f96283d8020efc35079cedcb5a7f1d331f2947b21ec24177",
+        "b": "b956b78325315a9c565b764a4f7a4437c3877a943d1bd31c9ca673e9d2915a03"
+      }
+    },
+    {
+      "id": "I07",
+      "expected_status": "same",
+      "expected_clusters": 0,
+      "params": {
+        "dpi": 300,
+        "max_shift_mm": 0.15,
+        "color_threshold": 3.0,
+        "edge_tolerance": 0.3,
+        "ink_background_radius_mm": 1.5,
+        "ink_contrast_threshold": 25.0,
+        "reading_band_mm": 5.0,
+        "merge_x_mm": 3.0,
+        "merge_y_mm": 1.0,
+        "min_pixels": 4,
+        "max_diff_ratio": 0.3,
+        "exclude_mm": []
+      },
+      "observed": {
+        "status": "same",
+        "raw_pixels": 0,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": []
+      },
+      "expectation_met": true,
+      "initial_candidate_pixels": 0,
+      "whole_page_residual_at_alternative_shift": {
+        "-2": 0,
+        "2": 0
+      },
+      "csharp_exact_match": true,
+      "cli_exit_code": 0,
+      "png_sha256": {
+        "a": "be74b028786fb3f4f96283d8020efc35079cedcb5a7f1d331f2947b21ec24177",
+        "b": "3571eba8b635e71ddcde322da5165f5c70943220fbcad6d837673a8b3392dabe"
+      }
+    },
+    {
+      "id": "I08",
+      "expected_status": "same",
+      "expected_clusters": 0,
+      "params": {
+        "dpi": 300,
+        "max_shift_mm": 0.15,
+        "color_threshold": 3.0,
+        "edge_tolerance": 0.3,
+        "ink_background_radius_mm": 1.5,
+        "ink_contrast_threshold": 25.0,
+        "reading_band_mm": 5.0,
+        "merge_x_mm": 3.0,
+        "merge_y_mm": 1.0,
+        "min_pixels": 4,
+        "max_diff_ratio": 0.3,
+        "exclude_mm": []
+      },
+      "observed": {
+        "status": "same",
+        "raw_pixels": 0,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": []
+      },
+      "expectation_met": true,
+      "initial_candidate_pixels": 0,
+      "whole_page_residual_at_alternative_shift": {},
+      "csharp_exact_match": true,
+      "cli_exit_code": 0,
+      "png_sha256": {
+        "a": "fbbf634048dcacd4e5eb8b1ffe8980610f9f7248886ae8e08b26749772102fea",
+        "b": "b23725b18b7ca59d24246e27705b4b62ae24f8435b34b596cfaaa365f31e3bf5"
+      }
+    },
+    {
+      "id": "I09",
+      "expected_status": "same",
+      "expected_clusters": 0,
+      "params": {
+        "dpi": 300,
+        "max_shift_mm": 0.3,
+        "color_threshold": 3.0,
+        "edge_tolerance": 0.3,
+        "ink_background_radius_mm": 1.5,
+        "ink_contrast_threshold": 25.0,
+        "reading_band_mm": 5.0,
+        "merge_x_mm": 3.0,
+        "merge_y_mm": 1.0,
+        "min_pixels": 4,
+        "max_diff_ratio": 0.3,
+        "exclude_mm": []
+      },
+      "observed": {
+        "status": "same",
+        "raw_pixels": 0,
+        "noise_dropped": 0,
+        "absorbed_groups": 1,
+        "max_shift_px": 2,
+        "clusters": []
+      },
+      "expectation_met": true,
+      "initial_candidate_pixels": 1272,
+      "whole_page_residual_at_alternative_shift": {
+        "-4": 0,
+        "4": 12
+      },
+      "csharp_exact_match": true,
+      "cli_exit_code": 0,
+      "png_sha256": {
+        "a": "71bd0be0d83413e2b5b835dd9e2b4db54a386fb55a107289b80ec150a927d37e",
+        "b": "b503cd27425feb324838aa18b632e582edc7b7ae641d72ddc7643fdf3c85c34f"
+      }
+    },
+    {
+      "id": "D16",
+      "expected_status": "different",
+      "expected_clusters": 1,
+      "params": {
+        "dpi": 300,
+        "max_shift_mm": 0.15,
+        "color_threshold": 3.0,
+        "edge_tolerance": 0.3,
+        "ink_background_radius_mm": 1.5,
+        "ink_contrast_threshold": 25.0,
+        "reading_band_mm": 5.0,
+        "merge_x_mm": 3.0,
+        "merge_y_mm": 1.0,
+        "min_pixels": 4,
+        "max_diff_ratio": 0.3,
+        "exclude_mm": []
+      },
+      "observed": {
+        "status": "same",
+        "raw_pixels": 0,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": []
+      },
+      "expectation_met": false,
+      "initial_candidate_pixels": 0,
+      "whole_page_residual_at_alternative_shift": {},
+      "csharp_exact_match": true,
+      "cli_exit_code": 0,
+      "png_sha256": {
+        "a": "be74b028786fb3f4f96283d8020efc35079cedcb5a7f1d331f2947b21ec24177",
+        "b": "ebfa4bd33f039f3f7632cb72427237b6d1a732792a8c6f63c978dca8418d2dbc"
+      },
+      "first_stage_evidence": {
+        "input_changed_pixels": 2,
+        "max_blurred_L_difference": 22.22222137451172,
+        "minimum_threshold_at_changed_L": 33.0,
+        "maximum_threshold_at_changed_L": 33.0,
+        "candidate_pixels": 0
+      }
+    },
+    {
+      "id": "D17",
+      "expected_status": "different",
+      "expected_clusters": null,
+      "params": {
+        "dpi": 300,
+        "max_shift_mm": 0.15,
+        "color_threshold": 3.0,
+        "edge_tolerance": 0.3,
+        "ink_background_radius_mm": 1.5,
+        "ink_contrast_threshold": 25.0,
+        "reading_band_mm": 5.0,
+        "merge_x_mm": 3.0,
+        "merge_y_mm": 1.0,
+        "min_pixels": 4,
+        "max_diff_ratio": 0.3,
+        "exclude_mm": []
+      },
+      "observed": {
+        "status": "same",
+        "raw_pixels": 0,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": []
+      },
+      "expectation_met": false,
+      "initial_candidate_pixels": 0,
+      "whole_page_residual_at_alternative_shift": {},
+      "csharp_exact_match": true,
+      "cli_exit_code": 0,
+      "png_sha256": {
+        "a": "be74b028786fb3f4f96283d8020efc35079cedcb5a7f1d331f2947b21ec24177",
+        "b": "312e109547b5159833f48e402e73b066fc25728b953bc08af332432682e3e5bb"
+      },
+      "first_stage_evidence": {
+        "input_changed_pixels": 420,
+        "max_blurred_L_difference": 22.22222137451172,
+        "minimum_threshold_at_changed_L": 33.0,
+        "maximum_threshold_at_changed_L": 33.0,
+        "candidate_pixels": 0
+      }
+    },
+    {
+      "id": "D18",
+      "expected_status": "different",
+      "expected_clusters": 1,
+      "params": {
+        "dpi": 300,
+        "max_shift_mm": 0.15,
+        "color_threshold": 3.0,
+        "edge_tolerance": 0.3,
+        "ink_background_radius_mm": 1.5,
+        "ink_contrast_threshold": 25.0,
+        "reading_band_mm": 5.0,
+        "merge_x_mm": 3.0,
+        "merge_y_mm": 1.0,
+        "min_pixels": 4,
+        "max_diff_ratio": 0.3,
+        "exclude_mm": []
+      },
+      "observed": {
+        "status": "different",
+        "raw_pixels": 2520,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 241,
+            "y": 418,
+            "w": 840,
+            "h": 5,
+            "pixels": 2520,
+            "fill_ratio": 0.6
+          }
+        ]
+      },
+      "expectation_met": true,
+      "initial_candidate_pixels": 2520,
+      "whole_page_residual_at_alternative_shift": {},
+      "csharp_exact_match": true,
+      "cli_exit_code": 1,
+      "png_sha256": {
+        "a": "644699ce0041572532104bfd4db295661d20afbd481c9468188dbf2f3552a650",
+        "b": "bd19d49eb18bc970bb84201b4ea0ade91d021994f4ffe3b314a1ec542eb021d0"
+      }
+    },
+    {
+      "id": "D19",
+      "expected_status": "different",
+      "expected_clusters": 1,
+      "params": {
+        "dpi": 300,
+        "max_shift_mm": 0.3,
+        "color_threshold": 3.0,
+        "edge_tolerance": 0.3,
+        "ink_background_radius_mm": 1.5,
+        "ink_contrast_threshold": 25.0,
+        "reading_band_mm": 5.0,
+        "merge_x_mm": 3.0,
+        "merge_y_mm": 1.0,
+        "min_pixels": 4,
+        "max_diff_ratio": 0.3,
+        "exclude_mm": []
+      },
+      "observed": {
+        "status": "different",
+        "raw_pixels": 3364,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 240,
+            "y": 415,
+            "w": 842,
+            "h": 4,
+            "pixels": 3364,
+            "fill_ratio": 0.998812351543943
+          }
+        ]
+      },
+      "expectation_met": true,
+      "initial_candidate_pixels": 6724,
+      "whole_page_residual_at_alternative_shift": {},
+      "csharp_exact_match": true,
+      "cli_exit_code": 1,
+      "png_sha256": {
+        "a": "5f19bc038855bd7c27cf853287c476129a4c92a3760412441832d440116503b1",
+        "b": "b5cb21aec5309a2dc79da662a15e3a750a34553cc09db0cf8962129ea57f71c1"
+      }
+    }
+  ],
+  "source_commit": "eb83ba8d55e206165f804d8095061882f1dc7d9f",
+  "scope": "T2-8 preflight only; production code and canonical golden files unchanged",
+  "drawing": {
+    "dpi": 300,
+    "width": 1350,
+    "height": 960,
+    "supersampling": 4,
+    "method": "Scene; black pixel-aligned rectangles; INTER_AREA downsampling",
+    "case_definitions": "tools/probe-periodic-golden.py"
+  },
+  "repeat_exact_match": true
+}

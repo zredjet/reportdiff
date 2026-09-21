@@ -12,7 +12,7 @@ public sealed class SyntheticSceneTests
     [MemberData(nameof(Cases))]
     public void GeneratedScenePreservesInputsAndExpectedDetection(string id)
     {
-        using var a = SyntheticScene.Base().Render();
+        using var a = SyntheticScene.Original(id);
         using var b = SyntheticScene.Changed(id);
         using var goldenA = GoldenData.Image(id, "a");
         using var goldenB = GoldenData.Image(id, "b");

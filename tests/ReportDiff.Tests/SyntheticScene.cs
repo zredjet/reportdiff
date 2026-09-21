@@ -48,6 +48,39 @@ internal sealed class SyntheticScene
                 scale, Scalar.All(0), Math.Max(1, (int)Math.Round(scale * 1.6)), LineTypes.Link8);
         });
 
+    // Python の periodic_scene と同じ整数境界・濃淡丸め。比較設定は変更しない。
+    internal static SyntheticScene Periodic(int period = 4, int fade = 128, bool vertical = false, bool missing = false)
+    {
+        var scene = new SyntheticScene();
+        var length = 2 * fade + 24 * period;
+        var half = period / 2;
+        for (var offset = 0; offset < length; offset++)
+        {
+            if (offset % period >= half || missing && offset >= fade + 12 * period && offset < fade + 12 * period + half)
+                continue;
+            var position = offset;
+            var gray = 255 - (int)Math.Round(255.0 * Math.Min(Math.Min(offset, length - 1 - offset), fade) / fade);
+            scene.Add("periodic", (m, ox, oy) =>
+            {
+                var x = vertical ? 240 : 240 + position;
+                var y = vertical ? 240 + position : 240;
+                var width = vertical ? 16 : 1;
+                var height = vertical ? 1 : 16;
+                using var strip = new Mat(m, new Rect(x * Scale + ox, y * Scale + oy, width * Scale, height * Scale));
+                strip.SetTo(Scalar.All(gray));
+            });
+        }
+        return scene;
+    }
+
+    public static Mat Original(string id) => id switch
+    {
+        "I10" or "D20" => Periodic().Render(),
+        "I11" => Periodic(vertical: true).Render(),
+        "I12" or "D21" => Periodic(8, 256).Render(),
+        _ => Base().Render()
+    };
+
     public static SyntheticScene Base(string amount = "120", bool dot = true, bool minus = true, double barEnd = 70,
         Scalar? barColor = null, bool dashed = false, Scalar? cellFill = null, bool marker = false,
         double frame = 1, string second = "ABC", string pair = "XY", Scalar? bar2Color = null)
@@ -88,6 +121,11 @@ internal sealed class SyntheticScene
         }
         return id switch
         {
+            "I10" => Periodic().Render(2, 0),
+            "I11" => Periodic(vertical: true).Render(0, 2),
+            "I12" => Periodic(8, 256).Render(4, 0),
+            "D20" => Periodic(missing: true).Render(2, 0),
+            "D21" => Periodic(8, 256, missing: true).Render(4, 0),
             "I01" or "S02" => Base().Render(),
             "I04" => Base().Render(groupShifts: new Dictionary<string, (double, double)>
             {

@@ -1213,6 +1213,151 @@
    "absorbed_groups": 11,
    "max_shift_px": 1,
    "clusters": []
+  },
+  {
+   "id": "I10",
+   "title": "周期帯の横 2px ずれ (二段目、±2px とも残差0)",
+   "expect": "ignore",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.15,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.3,
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": []
+   },
+   "status": "same",
+   "raw_pixels": 0,
+   "noise_dropped": 0,
+   "absorbed_groups": 1,
+   "max_shift_px": 2,
+   "clusters": []
+  },
+  {
+   "id": "I11",
+   "title": "周期帯の縦 2px ずれ (二段目、±2px とも残差0)",
+   "expect": "ignore",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.15,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.3,
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": []
+   },
+   "status": "same",
+   "raw_pixels": 0,
+   "noise_dropped": 0,
+   "absorbed_groups": 1,
+   "max_shift_px": 2,
+   "clusters": []
+  },
+  {
+   "id": "I12",
+   "title": "[loose] 周期帯の横 4px ずれ (二段目、±4px とも残差0)",
+   "expect": "ignore",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.3,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.3,
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": []
+   },
+   "status": "same",
+   "raw_pixels": 0,
+   "noise_dropped": 0,
+   "absorbed_groups": 1,
+   "max_shift_px": 4,
+   "clusters": []
+  },
+  {
+   "id": "D20",
+   "title": "周期帯の 1 本欠落 + 横 2px ずれ",
+   "expect": "detect",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.15,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.3,
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": []
+   },
+   "status": "different",
+   "raw_pixels": 60,
+   "noise_dropped": 0,
+   "absorbed_groups": 0,
+   "max_shift_px": 0,
+   "clusters": [
+    {
+     "id": 1,
+     "x": 415,
+     "y": 240,
+     "w": 4,
+     "h": 16,
+     "pixels": 60,
+     "fill_ratio": 0.9375
+    }
+   ]
+  },
+  {
+   "id": "D21",
+   "title": "[loose] 周期帯の 1 本欠落 + 横 4px ずれ",
+   "expect": "detect",
+   "params": {
+    "dpi": 300,
+    "max_shift_mm": 0.3,
+    "color_threshold": 3.0,
+    "edge_tolerance": 0.3,
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0,
+    "merge_x_mm": 3.0,
+    "merge_y_mm": 1.0,
+    "min_pixels": 4,
+    "max_diff_ratio": 0.3,
+    "exclude_mm": []
+   },
+   "status": "different",
+   "raw_pixels": 96,
+   "noise_dropped": 0,
+   "absorbed_groups": 0,
+   "max_shift_px": 0,
+   "clusters": [
+    {
+     "id": 1,
+     "x": 591,
+     "y": 239,
+     "w": 6,
+     "h": 18,
+     "pixels": 96,
+     "fill_ratio": 0.8888888888888888
+    }
+   ]
   }
  ]
 }

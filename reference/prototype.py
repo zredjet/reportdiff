@@ -330,6 +330,26 @@ def op_triangle(cx, cy, size_mm=2.0, color=(0, 0, 0)):
     return fn
 
 
+def periodic_scene(period_px=4, fade_px=128, vertical=False, missing=False) -> Scene:
+    """二段目の複数解を検証する周期帯。有限の線端は緩い濃淡勾配にする。"""
+    scene = Scene()
+    length = 2 * fade_px + 24 * period_px
+    half = period_px // 2
+    for offset in range(length):
+        if offset % period_px >= half:
+            continue
+        if missing and fade_px + 12 * period_px <= offset < fade_px + 12 * period_px + half:
+            continue
+        gray = 255 - int(round(255 * min(offset, length - 1 - offset, fade_px) / fade_px))
+
+        def draw(img, ox, oy, offset=offset, gray=gray):
+            x, y = (240, 240 + offset) if vertical else (240 + offset, 240)
+            w, h = (16, 1) if vertical else (1, 16)
+            img[y * SS + oy:(y + h) * SS + oy, x * SS + ox:(x + w) * SS + ox] = gray
+        scene.add(draw)
+    return scene
+
+
 def base_scene(amount="120", dot=True, minus=True, bar_end=70.0, bar_color=(160, 60, 0), dashed=False,
                cell_fill=None, marker=False, frame_px=1.0, second="ABC", pair="XY") -> Scene:
     """表 + 工程線を持つ小さな帳票。引数を変えると 1 箇所だけ違う画像が作れる。"""
@@ -428,7 +448,27 @@ def build_cases() -> list:
     # ---- 既知の限界 (既定の許容設定では検出できない。仕様として記録) ----
     cases.append(Case("D15", "線幅 1px -> 3px (各辺 1px 増)", A, base_scene(frame_px=3.0).render(), "detect", None, [(8, 8, 96, 24)]))
     cases.append(Case("L01", "[限界] 1px 線を同系色で薄く (ΔL 約 20)", A, base_scene(bar_color=(190, 115, 70)).render(), "limit"))
-    return cases
+    return cases + build_periodic_cases()
+
+
+def build_periodic_cases() -> list:
+    # I06〜I09 / D16〜D19 の予備候補とは別 ID。比較の式や許容値は変更しない。
+    a = periodic_scene().render()
+    vertical = periodic_scene(vertical=True)
+    loose = Params(max_shift_mm=0.30)
+    wide = periodic_scene(8, 256)
+    return [
+        Case("I10", "周期帯の横 2px ずれ (二段目、±2px とも残差0)", a,
+             periodic_scene().render(shift_px=(2, 0)), "ignore"),
+        Case("I11", "周期帯の縦 2px ずれ (二段目、±2px とも残差0)", vertical.render(),
+             vertical.render(shift_px=(0, 2)), "ignore"),
+        Case("I12", "[loose] 周期帯の横 4px ずれ (二段目、±4px とも残差0)", wide.render(),
+             wide.render(shift_px=(4, 0)), "ignore", params=loose),
+        Case("D20", "周期帯の 1 本欠落 + 横 2px ずれ", a,
+             periodic_scene(missing=True).render(shift_px=(2, 0)), "detect", 1),
+        Case("D21", "[loose] 周期帯の 1 本欠落 + 横 4px ずれ", wide.render(),
+             periodic_scene(8, 256, missing=True).render(shift_px=(4, 0)), "detect", 1, params=loose),
+    ]
 
 
 def base_scene_bar2(color) -> Scene:
