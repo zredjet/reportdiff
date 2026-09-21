@@ -128,6 +128,7 @@ public static partial class HtmlReportWriter
         html.Append(Metric("PDF 注釈の行の重なり率の下限", N(config.Text.MinLineOverlap)));
         html.Append(Metric("切り出し画像の余白", $"{N(config.Report.CropMarginMm)} mm"));
         html.Append(Metric("除外 YAML の余白", $"{N(config.Report.SnippetMarginMm)} mm"));
+        html.Append(Metric("確認用オーバーレイ（補正前）", config.Report.RawOverlay ? "有効" : "無効"));
         html.Append("</dl><h3>除外領域</h3>");
         if (config.Exclude.Count == 0) html.Append("<p>除外領域はありません。</p>");
         else
@@ -153,7 +154,9 @@ public static partial class HtmlReportWriter
         html.Append("</dl>");
         if (page.SizeMismatch) html.Append("<p class=\"notice\">画像サイズが異なるため、右と下を白で埋めて比較しました。</p>");
         AppendAlignment(html, page);
+        if (page.RawEvidence is not null) html.Append("<h3>判定表示</h3>");
         AppendViewer(html, page);
+        if (page.RawEvidence is { } evidence) AppendRawEvidence(html, page.Page, evidence);
         if (page.Clusters.Count > 0)
         {
             html.Append("<p class=\"muted\">相違を次回から除外する場合は、各行の「除外 YAML」を開いて設定の <code>exclude:</code> の下へ貼り付けてください。行頭に半角スペース 2 個を付けます。対象はこのページだけです。座標は A／補正後 B が基準です。</p>");
@@ -200,6 +203,27 @@ public static partial class HtmlReportWriter
             html.Append($"<button type=\"button\" aria-pressed=\"{(view.Path == initial.Path ? "true" : "false")}\" data-src=\"{view.Path}\" data-label=\"{H(alt)}\"{(view.Path is null ? " disabled" : "")}>{view.Label}</button>");
         }
         html.Append($"</div><span class=\"viewer-label\" aria-live=\"polite\">{page.Page} ページ・{initial.Label}</span></figcaption><a class=\"page-image-link\" href=\"{initial.Path}\"><img class=\"page-image\" src=\"{initial.Path}\" alt=\"{page.Page} ページ・{initial.Label}\" loading=\"lazy\" width=\"{page.SizePx.W}\" height=\"{page.SizePx.H}\"></a></figure>");
+    }
+
+    private static void AppendRawEvidence(StringBuilder html, int page, RawEvidence evidence)
+    {
+        var views = new[] { (Label: "確認用オーバーレイ（補正前）", Path: evidence.Overlay),
+            (Label: evidence.A.Missing ? "元 A（欠落・白）" : "元 A（補正前）", Path: evidence.A.Image),
+            (Label: evidence.B.Missing ? "元 B（欠落・白）" : "元 B（補正前）", Path: evidence.B.Image) };
+        foreach (var view in views) ValidateImagePath(view.Path);
+        html.Append("<section class=\"raw-evidence\"><h3>確認用オーバーレイ（補正前）</h3><p class=\"muted\">判定から独立した元画像の重ね合わせです。左上を合わせ、右・下だけ白で埋めています。位置補正・除外・差分判定は反映しません。判定表示や相違箇所の座標と異なる場合があります。</p>");
+        html.Append("<p class=\"raw-legend\"><span class=\"raw-a\">赤：A のみ</span> · <span class=\"raw-b\">青：B のみ</span> · <span>黒／グレー：共通</span></p><p class=\"muted\">濃淡をグレーに変換して重ねています。同じグレー値になる色相の違いは見えません。色は元 A/B で確認してください。</p>");
+        html.Append($"<p class=\"muted\">{evidence.Dpi} dpi · 白埋め後 {evidence.CanvasSizePx.W} × {evidence.CanvasSizePx.H} px<br>{Source("A", evidence.A)}<br>{Source("B", evidence.B)}</p>");
+        var initial = views[0];
+        html.Append($"<figure class=\"viewer\"><figcaption class=\"viewer-toolbar\"><div class=\"image-switch\" role=\"group\" aria-label=\"{page} ページの確認用画像\" hidden>");
+        foreach (var view in views)
+            html.Append($"<button type=\"button\" aria-pressed=\"{(view == initial ? "true" : "false")}\" data-src=\"{view.Path}\" data-label=\"{page} ページ・{view.Label}\">{view.Label}</button>");
+        html.Append($"</div><span class=\"viewer-label\" aria-live=\"polite\">{page} ページ・{initial.Label}</span></figcaption><a class=\"page-image-link\" href=\"{initial.Path}\"><img class=\"page-image\" src=\"{initial.Path}\" alt=\"{page} ページ・{initial.Label}\" loading=\"lazy\" width=\"{evidence.CanvasSizePx.W}\" height=\"{evidence.CanvasSizePx.H}\"></a></figure><nav class=\"raw-links\" aria-label=\"{page} ページの確認用 PNG\">");
+        foreach (var view in views) html.Append($"<a href=\"{view.Path}\">{view.Label} PNG</a>");
+        html.Append("</nav></section>");
+
+        static string Source(string side, RawEvidenceSource source) => source.Missing ? $"{side}：ページ欠落（白で表示）"
+            : $"{side} 元サイズ {source.OriginalSizePx!.W} × {source.OriginalSizePx.H} px · 白埋め 右 {source.PaddingPx!.Right} / 下 {source.PaddingPx.Bottom} px";
     }
 
     private static void AppendCrop(StringBuilder html, string path, string alt, bool annotate = false, string? text = null)

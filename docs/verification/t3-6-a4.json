@@ -1,0 +1,195 @@
+{
+  "platform": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+  "opencv": "4.13.0",
+  "width": 2480,
+  "height": 3508,
+  "dpi": 300,
+  "glyphs": 600,
+  "iterations": 3,
+  "warmup_pairs": 1,
+  "measurements": [
+    {
+      "scenario": "same",
+      "disabled": {
+        "runs": [
+          {
+            "elapsed_ms": 292.2257089521736,
+            "peak_rss_bytes": 249839616,
+            "output_bytes": 2682,
+            "png_files": 0
+          },
+          {
+            "elapsed_ms": 290.80395796336234,
+            "peak_rss_bytes": 249839616,
+            "output_bytes": 2682,
+            "png_files": 0
+          },
+          {
+            "elapsed_ms": 289.13954203017056,
+            "peak_rss_bytes": 249905152,
+            "output_bytes": 2682,
+            "png_files": 0
+          }
+        ],
+        "median_ms": 290.80395796336234,
+        "maximum_rss_bytes": 249905152,
+        "output_bytes": 2682,
+        "png_files": 0
+      },
+      "enabled": {
+        "runs": [
+          {
+            "elapsed_ms": 383.41091701295227,
+            "peak_rss_bytes": 251641856,
+            "output_bytes": 2125638,
+            "png_files": 3
+          },
+          {
+            "elapsed_ms": 373.4934999374673,
+            "peak_rss_bytes": 251592704,
+            "output_bytes": 2125638,
+            "png_files": 3
+          },
+          {
+            "elapsed_ms": 372.0814159605652,
+            "peak_rss_bytes": 252903424,
+            "output_bytes": 2125638,
+            "png_files": 3
+          }
+        ],
+        "median_ms": 373.4934999374673,
+        "maximum_rss_bytes": 252903424,
+        "output_bytes": 2125638,
+        "png_files": 3
+      },
+      "added_median_ms": 82.68954197410494,
+      "added_output_bytes": 2122956,
+      "difference_in_maximum_rss_bytes": 2998272,
+      "existing_outputs_equal": true
+    },
+    {
+      "scenario": "changed",
+      "disabled": {
+        "runs": [
+          {
+            "elapsed_ms": 532.0272500393912,
+            "peak_rss_bytes": 995328000,
+            "output_bytes": 2131150,
+            "png_files": 6
+          },
+          {
+            "elapsed_ms": 538.3852500235662,
+            "peak_rss_bytes": 994328576,
+            "output_bytes": 2131148,
+            "png_files": 6
+          },
+          {
+            "elapsed_ms": 535.6494589941576,
+            "peak_rss_bytes": 1002536960,
+            "output_bytes": 2131150,
+            "png_files": 6
+          }
+        ],
+        "median_ms": 535.6494589941576,
+        "maximum_rss_bytes": 1002536960,
+        "output_bytes": 2131150,
+        "png_files": 6
+      },
+      "enabled": {
+        "runs": [
+          {
+            "elapsed_ms": 570.4548750072718,
+            "peak_rss_bytes": 1000095744,
+            "output_bytes": 2839623,
+            "png_files": 7
+          },
+          {
+            "elapsed_ms": 579.2849160498008,
+            "peak_rss_bytes": 995934208,
+            "output_bytes": 2839623,
+            "png_files": 7
+          },
+          {
+            "elapsed_ms": 575.3958750283346,
+            "peak_rss_bytes": 993918976,
+            "output_bytes": 2839623,
+            "png_files": 7
+          }
+        ],
+        "median_ms": 575.3958750283346,
+        "maximum_rss_bytes": 1000095744,
+        "output_bytes": 2839623,
+        "png_files": 7
+      },
+      "added_median_ms": 39.746416034176946,
+      "added_output_bytes": 708473,
+      "difference_in_maximum_rss_bytes": -2441216,
+      "existing_outputs_equal": true
+    },
+    {
+      "scenario": "shifted",
+      "disabled": {
+        "runs": [
+          {
+            "elapsed_ms": 559.5985829131678,
+            "peak_rss_bytes": 999456768,
+            "output_bytes": 2131607,
+            "png_files": 6
+          },
+          {
+            "elapsed_ms": 545.6223749788478,
+            "peak_rss_bytes": 1002045440,
+            "output_bytes": 2131607,
+            "png_files": 6
+          },
+          {
+            "elapsed_ms": 553.0407910700887,
+            "peak_rss_bytes": 996032512,
+            "output_bytes": 2131607,
+            "png_files": 6
+          }
+        ],
+        "median_ms": 553.0407910700887,
+        "maximum_rss_bytes": 1002045440,
+        "output_bytes": 2131607,
+        "png_files": 6
+      },
+      "enabled": {
+        "runs": [
+          {
+            "elapsed_ms": 629.4243329903111,
+            "peak_rss_bytes": 998047744,
+            "output_bytes": 2871530,
+            "png_files": 7
+          },
+          {
+            "elapsed_ms": 616.72891699709,
+            "peak_rss_bytes": 1003274240,
+            "output_bytes": 2871530,
+            "png_files": 7
+          },
+          {
+            "elapsed_ms": 591.0625420510769,
+            "peak_rss_bytes": 996982784,
+            "output_bytes": 2871530,
+            "png_files": 7
+          }
+        ],
+        "median_ms": 616.72891699709,
+        "maximum_rss_bytes": 1003274240,
+        "output_bytes": 2871530,
+        "png_files": 7
+      },
+      "added_median_ms": 63.68812592700124,
+      "added_output_bytes": 739923,
+      "difference_in_maximum_rss_bytes": 1228800,
+      "existing_outputs_equal": true
+    }
+  ],
+  "scope": "独立 CLI プロセス。起動・PNG 読み込み・比較・PNG/JSON 保存を含む。HTML と PDF 描画は含まない。RSS は macOS time -l のプロセス最大値。",
+  "input_sha256": {
+    "a": "b7842cf872de9c801e493b656705aa913e80b33990e2f5b6c1c26994f2677934",
+    "changed": "4d339d105eb1ef984496b903a8ca590bec52e73af513df1633eded35efc9ebc4",
+    "shifted": "6c523c4f128bb55099e3313cd71dc589342a8c92613ffe249e030455ce575478"
+  }
+}

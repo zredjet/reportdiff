@@ -18,7 +18,7 @@ public static class CliApplication
             }
             var command = CommandLine.Parse(args);
             if (command.IsDirectory) return DirectoryComparison.Run(command, output, error);
-            var settings = ConfigurationLoader.Load(ReadConfiguration(command.Config), command.Profile, command.Dpi);
+            var settings = command.ApplyReportOptions(ConfigurationLoader.Load(ReadConfiguration(command.Config), command.Profile, command.Dpi));
             ReportDocument result;
             if (OperatingSystem.IsWindows() || OperatingSystem.IsMacOS() || OperatingSystem.IsLinux())
             {

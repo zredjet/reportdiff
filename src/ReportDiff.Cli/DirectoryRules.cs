@@ -40,7 +40,7 @@ internal sealed class DirectoryRules
         }
 
         var common = command.Config is null ? null : Read(command.Config);
-        Common = ConfigurationLoader.Load(common?.Text, command.Profile, command.Dpi);
+        Common = command.ApplyReportOptions(ConfigurationLoader.Load(common?.Text, command.Profile, command.Dpi));
         var rules = command.Rules is null ? null : Read(command.Rules);
         var loaded = new List<Rule>();
         var referenced = new List<ConfigurationSource>();
@@ -72,7 +72,7 @@ internal sealed class DirectoryRules
                     catch (Exception ex) when (ex is ArgumentException or NotSupportedException)
                     { throw new ConfigurationException($"rules[{index}].pattern の正規表現が不正または非対応です。先読み・後読み・後方参照は使用できません。"); }
                     var config = Read(Path.Combine(Path.GetDirectoryName(rules.Source.Path)!, Required("config")));
-                    var settings = ConfigurationLoader.LoadLayered(common?.Text, config.Text, command.Profile, command.Dpi);
+                    var settings = command.ApplyReportOptions(ConfigurationLoader.LoadLayered(common?.Text, config.Text, command.Profile, command.Dpi));
                     loaded.Add(new(new(index, pattern, config.Source.Path), regex, settings));
                     if (!referenced.Contains(config.Source)) referenced.Add(config.Source);
                 }
@@ -81,7 +81,8 @@ internal sealed class DirectoryRules
         }
         Rules = loaded;
         Description = new(common?.Source, rules?.Source, referenced,
-            new(command.Profile, command.Dpi, command.Pages, command.SaveAllPages, command.NoHtml, command.Force, command.Quiet));
+            new(command.Profile, command.Dpi, command.Pages, command.SaveAllPages, command.NoHtml, command.Force, command.Quiet)
+                { RawOverlay = command.RawOverlay });
     }
 
     public IReadOnlyList<Rule> Match(string a, string b) => Rules.Where(rule =>

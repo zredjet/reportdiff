@@ -38,8 +38,11 @@ UTF-8 の YAML を `--config` で読み込む。`#` のコメントを記載で�
 | `exclude[].note` | 文字列、空 | YAML のスカラー文字列 | レポートに表示する除外理由。判定には使わない |
 | `report.crop_margin_mm` | mm、2 | 0 以上 | ReportWriter の切り出し余白。検出結果には影響しない |
 | `report.snippet_margin_mm` | mm、1 | 0〜20 | HTML の除外 YAML に付ける余白。0.5mm 単位で外側へ丸め、ページ端でクリップする。切り出し画像や検出結果には影響しない |
+| `report.raw_overlay` | 真偽、false | true / false | 補正前の元画像から赤青の確認用 PNG を作る。判定は変えず、相違なしを含む選択全ページを保存する。`--raw-overlay` の指定で true を優先 |
 
 読み込み時に省略値を補い、実効設定に記録する。diff.max_shift_mm と cluster.merge_x_mm / merge_y_mm は、最終 DPI での探索候補数・カーネル寸法が整数で表現できることも検証する。
+
+確認用オーバーレイは共通 YAML → 帳票別 YAML → `--raw-overlay` の順で決まる。帳票別の `false` は共通の `true` を解除し、省略すれば継承する。CLI に指定した場合はすべての比較対象で有効になる。グレー化の係数・丸め・赤青合成式は固定で、プロファイルや各しきい値では変更しない。[表示式と出力項目](SPEC.md#84-確認用オーバーレイ補正前)を参照。
 
 ## インク・注釈・探索条件
 

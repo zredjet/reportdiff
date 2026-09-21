@@ -35,6 +35,10 @@ public sealed record PageImages(string? A, string? B, string? Overlay)
     public string? BOriginal { get; init; }
 }
 public sealed record ClusterCrops(string A, string B, string Diff);
+public sealed record RawEvidencePadding(int Right, int Bottom);
+public sealed record RawEvidenceSource(bool Missing, PixelSize? OriginalSizePx, RawEvidencePadding? PaddingPx, string Image);
+public sealed record RawEvidence(string Method, string CoordinateSystem, int Dpi, PixelSize CanvasSizePx,
+    RawEvidenceSource A, RawEvidenceSource B, string Overlay);
 public sealed record ReportCluster(int Id, PixelBox BboxPx, MillimeterBox BboxMm, int Pixels, double FillRatio,
     string? Kind, PixelShift? ShiftPx, string? TextA, string? TextB, ClusterCrops Crops)
 {
@@ -45,6 +49,8 @@ public sealed record ReportPage(int Page, string Status, PixelSize SizePx, bool 
 {
     public PixelShift? GlobalShiftPx { get; init; }
     public AlignmentResult Alignment { get; init; } = AlignmentResult.Disabled;
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    public RawEvidence? RawEvidence { get; init; }
 }
 
 // CLI への逆参照を作らず、設定の実効値を出力用の型で受け取る。
@@ -59,6 +65,7 @@ public sealed record ReportConfiguration(int Dpi, int ImageDpi, DiffOptions Diff
 public sealed record ReportOutputOptions(double CropMarginMm)
 {
     public double SnippetMarginMm { get; init; } = 1.0;
+    public bool RawOverlay { get; init; }
 }
 public sealed record ReportExclusion(
     [property: JsonConverter(typeof(ExclusionPageConverter))] int? Page,

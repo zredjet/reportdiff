@@ -116,13 +116,14 @@ try {
     for (const item of result.pages) {
       const section = page.locator(`#page-${item.page}`);
       if (item.global_shift_px) {
-        assert.ok((await section.locator('summary').innerText()).includes('全体補正あり'));
-        assert.equal(await section.locator(`button[data-src="${item.images.b_original}"]`).count(), 1);
+        assert.ok((await section.locator(':scope > summary').innerText()).includes('全体補正あり'));
+        const detectionViewer = section.locator(':scope > .viewer');
+        assert.equal(await detectionViewer.locator(`button[data-src="${item.images.b_original}"]`).count(), 1);
         const originalButton = section.getByRole('button', { name: 'B · 補正前', exact: true });
         await originalButton.focus();
         await page.keyboard.press('Enter');
         assert.equal(await originalButton.getAttribute('aria-pressed'), 'true');
-        assert.equal(await section.locator('.page-image').getAttribute('src'), item.images.b_original);
+        assert.equal(await detectionViewer.locator('.page-image').getAttribute('src'), item.images.b_original);
         await section.getByRole('button', { name: '重ね描き', exact: true }).click();
         assert.ok((await section.locator('.alignment').innerText()).includes('B→A'));
       }

@@ -186,13 +186,14 @@ OpenCV の既定の境界処理（`blur` は `BORDER_REFLECT_101`、`erode` / `d
 | 線の 1px 以内の延長・短縮は吸収される | 1px の位置ずれと区別できない | 厳密プロファイルを使う |
 | 文字が罫線に触れていて、文字と罫線のずれ量が違うと、その文字が差分になる | 触れているインクは同じグループになる | 実害が出たらグループの分割を検討（Phase 2） |
 | 行の挿入で下がずれると、それ以降がすべて差分になる | 画像比較の原理的な弱点 | Phase 2 の移動判定、Phase 3 の帯の整列 |
+| 確認用オーバーレイでは同じグレー値に変換される色相差が見えない | 判定とは独立した固定の濃淡合成（8.4 節） | 元カラー A/B を確認する。カラーの差分判定には影響しない |
 
 ## 6. CLI
 
 ```
 reportdiff compare <A> <B> --out <dir>
     [--config <file.yaml>] [--profile normal|strict|loose]
-    [--dpi <n>] [--pages <1-3,5>] [--save-all-pages] [--no-html] [--force] [--quiet]
+    [--dpi <n>] [--pages <1-3,5>] [--save-all-pages] [--raw-overlay] [--no-html] [--force] [--quiet]
 reportdiff --version
 ```
 
@@ -204,6 +205,7 @@ reportdiff --version
 - `--dpi`：設定ファイルと `--profile` より優先
 - `--pages`：比較するページ（1 始まり）。省略時は全ページ
 - `--save-all-pages`：差分のないページの画像も保存する（既定は差分のあるページだけ）
+- `--raw-overlay`：補正前の元 A/B による赤青の確認用画像を選択全ページへ追加する。YAML の `report.raw_overlay` に優先。判定・終了コードは変更しない（8.4 節）
 - 標準出力：1 行の要約（例 `相違あり: 20 ページ中 3 ページ、7 箇所 → out/report.html`）。`--quiet` で抑止
 - `--no-html`：HTML を作らず、要約には `result.json` の保存先を表示する
 - エラーは標準エラー出力に日本語で出す
@@ -266,6 +268,7 @@ exclude:                  # mm、左上原点。page は数値か all
 report:
   crop_margin_mm: 2.0     # 切り出し画像の余白
   snippet_margin_mm: 1.0  # HTML の除外 YAML に付ける余白（0〜20mm）
+  raw_overlay: false     # 判定から独立した確認用画像。--raw-overlay で true を優先
 ```
 
 - 未知のキーはエラーにする（綴りの誤りに気づけるように）
@@ -378,6 +381,49 @@ JPEG やスキャン画像を入力にするときは、`color_threshold` を 8�
 - 移動には「移動（推定）」、A→B の向きと px 数、関連クラスタへのページ内リンクを表示する
 - A/B の切り出しの下に PDF テキストを補足表示する。改行を保持し、長文は折り返しとキーボード操作できる縦スクロールで表示する。空文字列は「該当テキストなし」、null は「テキスト注釈なし」。本文は HTML エスケープし、外部 URL を参照にしない
 - 文言は日本語
+
+### 8.4 確認用オーバーレイ（補正前）
+
+`report.raw_overlay`（既定 false）または `--raw-overlay` で有効化する。共通 YAML → 帳票別 YAML → 明示 CLI の順に適用する。相違なし・除外で差分が消えたページ・too_different・片側ページを含め、`--pages` で選択したすべてのページを保存する。`--save-all-pages` は不要で、`--no-html` でも PNG と JSON を出力する。compare-dir の片側だけの**ファイル**は従来どおり開かず、確認用画像も作らない。
+
+元の PDF を同じ DPI で描画、または画像を読み込んだ BGR 8bit データを使う。左上合わせ・右下の白埋めだけを行い、全体補正・行整列・領域移動を反映しない。比較マスク・インク・分類・除外・プロファイル・注釈は生成に使わない。しきい値や輪郭・番号・除外色も加えない。表示方式 `grayscale_red_blue_v1` は次の固定式とする。
+
+```text
+g = floor((299*R + 587*G + 114*B + 500) / 1000)  # 8bit、四捨五入
+overlay RGB = (gB, min(gA, gB), gA)
+```
+
+A のみ赤、B のみ青、同じ濃淡は黒／グレー、白同士は白。追加のガンマ変換・平滑化・二値化は行わず、アンチエイリアスの濃淡を残す。「共通」はグレー値の一致であり、同じ値になる色相差は表示できない。元カラー A/B を併せて保存・参照する。
+
+`pages/p001_raw_overlay.png` と JSON の `pages[].raw_evidence` を追加する。無効時は追加 PNG を保存せず、raw_evidence 自体を省略する。`config.report.raw_overlay` は常に実効値を記録する。既存 `images`・比較値・summary・schema_version=1 の意味を維持する。
+
+```json
+"raw_evidence": {
+  "method": "grayscale_red_blue_v1",
+  "coordinate_system": "original_top_left",
+  "dpi": 300,
+  "canvas_size_px": { "w": 2480, "h": 3508 },
+  "a": {
+    "missing": false,
+    "original_size_px": { "w": 2480, "h": 3500 },
+    "padding_px": { "right": 0, "bottom": 8 },
+    "image": "pages/p001_a.png"
+  },
+  "b": {
+    "missing": false,
+    "original_size_px": { "w": 2480, "h": 3508 },
+    "padding_px": { "right": 0, "bottom": 0 },
+    "image": "pages/p001_b.png"
+  },
+  "overlay": "pages/p001_raw_overlay.png"
+}
+```
+
+確認用 A/B の image は元カラーに右下の白埋めだけを加えたキャンバス。既に保存した `images.a`、補正なしの `images.b`、補正ありの `images.b_original` と内容が同じならパスを共有する。既存の保存条件は変えず、画像がない場合のみ `_raw_a.png` / `_raw_b.png` を保存する。片側ページの欠落側は全白画像を保存し、missing=true、original_size_px=null、padding_px=null とする。存在する側の元サイズは保持し、only_in_a / only_in_b と終了コードは維持する。
+
+追加画像はページごとに逐次生成・保存・破棄する。グレー化の作業領域は行単位。PNG の失敗は既存の出力エラーとし、途中結果を確定せず、`--force` の旧結果も保持する。
+
+HTML には判定表示と別の「確認用オーバーレイ（補正前）」ビュー、赤 A／青 B／黒・グレー共通の凡例、元カラー A/B への切り替えを追加する。元座標・白埋め量・DPI と、判定・除外座標とは異なり得ることを説明する。全 PNG に通常のリンクも置き、JavaScript なしでも開ける。表示切り替えは比較状態・件数に影響しない。
 
 ## 9. ゴールデンセット
 
@@ -570,7 +616,7 @@ FontFile は Type1 / MMType1、FontFile2 は TrueType / CIDFontType2 に対応�
 reportdiff compare-dir <dirA> <dirB> --out <result>
   [--config common.yaml] [--rules rules.yaml]
   [--profile normal|strict|loose] [--dpi n] [--pages 1-3,5]
-  [--save-all-pages] [--no-html] [--force] [--quiet]
+  [--save-all-pages] [--raw-overlay] [--no-html] [--force] [--quiet]
 ```
 
 既存の `compare` と個別 schema_version、比較式・既定値・注釈の定義を共用する。ファイルも PDF 描画も逐次処理する。`--rules` は `compare-dir` 専用。

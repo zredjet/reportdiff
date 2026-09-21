@@ -75,6 +75,7 @@ public sealed class ReportWriter
             throw new ArgumentException("クラスタの番号・矩形が不正です。");
 
         PageImages paths = new(null, null, null);
+        RawEvidence? rawEvidence = null;
         var clusters = new List<ReportCluster>();
         ExecuteWrite(() =>
         {
@@ -92,6 +93,9 @@ public sealed class ReportWriter
                 using var overlay = ReportImages.Overlay(comparisonB, comparison, config.Exclude.Where(e => e.Page is null || e.Page == page), dpi);
                 WritePng(paths.Overlay!, overlay);
             }
+            if (config.Report.RawOverlay)
+                rawEvidence = WriteRawEvidence(page, images.A, images.B, images.OriginalSizeA, images.OriginalSizeB,
+                    dpi, paths.A, shift is null ? paths.B : paths.BOriginal);
             foreach (var cluster in comparison.Clusters)
             {
                 var bounds = cluster.Bounds;
@@ -114,7 +118,7 @@ public sealed class ReportWriter
         var result = new ReportPage(page, comparison.Status, new(size.Width, size.Height), images.SizeMismatch,
             comparison.RawPixels, comparison.NoiseDropped, comparison.AbsorbedGroups, comparison.MaxShiftPx,
             paths, Array.AsReadOnly(clusters.ToArray()))
-            { Alignment = alignment, GlobalShiftPx = shift is null ? null : new(shift.Dx, shift.Dy) };
+            { Alignment = alignment, GlobalShiftPx = shift is null ? null : new(shift.Dx, shift.Dy), RawEvidence = rawEvidence };
         pages.Add(result);
         if (shift is not null)
             warnings.Add(new("GLOBAL_SHIFT_APPLIED", $"{page} ページ: B 全体を A に合わせて補正しました（B→A: 横 {shift.Dx}px、縦 {shift.Dy}px。右・下が正）。補正前 B も保存しています。"));
@@ -144,12 +148,45 @@ public sealed class ReportWriter
         if (page <= Math.Min(inputs.A.Pages, inputs.B.Pages)) throw new ArgumentException("片方だけにあるページを指定してください。");
         var onlyA = page <= inputs.A.Pages;
         var path = "pages/" + PageStem(page) + (onlyA ? "_a.png" : "_b.png");
-        ExecuteWrite(() => WritePng(path, image));
+        RawEvidence? rawEvidence = null;
+        ExecuteWrite(() =>
+        {
+            WritePng(path, image);
+            if (config.Report.RawOverlay)
+            {
+                using var white = new Mat(image.Size(), MatType.CV_8UC3, Scalar.All(255));
+                var dpi = (onlyA ? inputs.A.Type : inputs.B.Type) == "pdf" ? config.Dpi : config.ImageDpi;
+                rawEvidence = WriteRawEvidence(page, onlyA ? image : white, onlyA ? white : image,
+                    onlyA ? image.Size() : null, onlyA ? null : image.Size(), dpi,
+                    onlyA ? path : null, onlyA ? null : path);
+            }
+        });
         var result = new ReportPage(page, onlyA ? "only_in_a" : "only_in_b", new(image.Width, image.Height),
             false, 0, 0, 0, 0, new(onlyA ? path : null, onlyA ? null : path, null), [])
-            { Alignment = config.Align.Enabled ? AlignmentResult.Skipped("unpaired_page") : AlignmentResult.Disabled };
+            { Alignment = config.Align.Enabled ? AlignmentResult.Skipped("unpaired_page") : AlignmentResult.Disabled,
+                RawEvidence = rawEvidence };
         pages.Add(result);
         return result;
+    }
+
+    private RawEvidence WriteRawEvidence(int page, Mat a, Mat b, Size? originalA, Size? originalB,
+        int dpi, string? pathA, string? pathB)
+    {
+        var prefix = "pages/" + PageStem(page) + "_raw";
+        var sourceA = Source(a, originalA, pathA, prefix + "_a.png");
+        var sourceB = Source(b, originalB, pathB, prefix + "_b.png");
+        var overlayPath = prefix + "_overlay.png";
+        using var overlay = RawOverlay.Create(a, b);
+        WritePng(overlayPath, overlay);
+        return new(RawOverlay.Method, "original_top_left", dpi, new(a.Width, a.Height), sourceA, sourceB, overlayPath);
+
+        RawEvidenceSource Source(Mat image, Size? original, string? sharedPath, string newPath)
+        {
+            if (sharedPath is null) WritePng(newPath, image);
+            return new(original is null, original is { } size ? new(size.Width, size.Height) : null,
+                original is { } source ? new(image.Width - source.Width, image.Height - source.Height) : null,
+                sharedPath ?? newPath);
+        }
     }
 
     public void AddFontWarnings(int page, string side, IReadOnlyList<PdfFontWarning> fontWarnings)

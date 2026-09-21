@@ -135,11 +135,12 @@ public static class ConfigurationLoader
                 }
                 if (root.TryGetValue("report", out node))
                 {
-                    var values = Mapping(node, "report", "crop_margin_mm", "snippet_margin_mm");
+                    var values = Mapping(node, "report", "crop_margin_mm", "snippet_margin_mm", "raw_overlay");
                     settings = settings with { Report = new ReportOptions
                     {
                         CropMarginMm = Number(values, "crop_margin_mm", "report", settings.Report.CropMarginMm),
-                        SnippetMarginMm = Number(values, "snippet_margin_mm", "report", settings.Report.SnippetMarginMm)
+                        SnippetMarginMm = Number(values, "snippet_margin_mm", "report", settings.Report.SnippetMarginMm),
+                        RawOverlay = values.TryGetValue("raw_overlay", out var rawOverlay) ? Boolean(rawOverlay, "report.raw_overlay") : settings.Report.RawOverlay
                     }};
                 }
                 if (root.TryGetValue("exclude", out node))

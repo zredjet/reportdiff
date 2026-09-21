@@ -97,3 +97,6 @@ report:
   crop_margin_mm: 2.0
   # HTML からコピーする除外 YAML の余白。0〜20mm。切り出し画像とは独立。
   snippet_margin_mm: 1.0
+  # 判定から独立した赤青の確認用画像。補正前の元 A/B を使用する。
+  # true なら相違なしを含む選択全ページに保存。--raw-overlay は常に true を優先する。
+  raw_overlay: false
