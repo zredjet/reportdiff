@@ -6,6 +6,7 @@ internal sealed class ComparisonTimings
     public int FeatureWorkers { get; set; }
     public long FeatureWorkerTemporaryBytes { get; set; }
     public double CandidatesMs { get; set; }
+    public int CandidateWorkers { get; set; }
     public double GroupingMs { get; set; }
     public double ShiftsMs { get; set; }
     // GroupIndexMsはShiftsMsの内数。公開レポートには出さない。

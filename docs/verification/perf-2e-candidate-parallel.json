@@ -1,0 +1,4168 @@
+{
+  "date": "2026-09-21",
+  "baseline_commit": "745ecd6",
+  "scope": [
+    "bounded_initial_candidate_row_parallelism",
+    "zero_shift_same_coordinate_scan"
+  ],
+  "environment": {
+    "cpu": "Apple M4 Max",
+    "cpu_count": 16,
+    "memory_bytes": 137438953472,
+    "os": "macOS 26.5.1",
+    "dotnet": "10.0.12",
+    "configuration": "Release"
+  },
+  "policy": {
+    "max_workers": 4,
+    "minimum_parallel_pixels": 1000000,
+    "mask_count": 1,
+    "worker_image_copies": 0
+  },
+  "tests": {
+    "total": 996,
+    "passed": 996,
+    "failed": 0,
+    "skipped": 0,
+    "added": 57,
+    "build_warnings": 0
+  },
+  "validation": {
+    "snapshot_count": 100,
+    "snapshots_exact": true,
+    "a4_exact": true,
+    "core_sha256": {
+      "baseline": "04a8910afc3ff207301b8fd200d00a4ab5ae39d376be871ea91760b90fec2247",
+      "serial": "26a2de31b24f59ad26363ae83b06789e6f9d5d8214428173d24fc663a32ffe91",
+      "optimized": "88c529bb65aedb0e4292acc7bcc8902f662a20661859202a4e353d4ac550f718"
+    }
+  },
+  "metrics": [
+    {
+      "condition": "A3・300dpi・1ページ",
+      "medians": {
+        "baseline": {
+          "elapsed_ms": 1378.8977920776233,
+          "peak_rss_bytes": 1968537600
+        },
+        "optimized": {
+          "elapsed_ms": 1345.0304589932784,
+          "peak_rss_bytes": 1967259648
+        }
+      },
+      "ranges": {
+        "baseline": {
+          "peak_rss_bytes": [
+            1965670400,
+            1975975936
+          ],
+          "elapsed_ms": [
+            1360.0365000311285,
+            1403.1342499656603
+          ]
+        },
+        "optimized": {
+          "peak_rss_bytes": [
+            1959886848,
+            1968390144
+          ],
+          "elapsed_ms": [
+            1324.4532500393689,
+            1353.1962080160156
+          ]
+        }
+      },
+      "reduction_percent": 2.4561162748194754
+    },
+    {
+      "condition": "A3・400dpi・1ページ",
+      "medians": {
+        "baseline": {
+          "elapsed_ms": 2129.670042078942,
+          "peak_rss_bytes": 3509321728
+        },
+        "optimized": {
+          "elapsed_ms": 2066.630457993597,
+          "peak_rss_bytes": 3503783936
+        }
+      },
+      "ranges": {
+        "baseline": {
+          "peak_rss_bytes": [
+            3501916160,
+            3520856064
+          ],
+          "elapsed_ms": [
+            2107.503250008449,
+            2151.6610409598798
+          ]
+        },
+        "optimized": {
+          "peak_rss_bytes": [
+            3501064192,
+            3507306496
+          ],
+          "elapsed_ms": [
+            2019.7085000108927,
+            2092.2600419726223
+          ]
+        }
+      },
+      "reduction_percent": 2.9600634295351758
+    },
+    {
+      "condition": "A3・300dpi・4ページ",
+      "medians": {
+        "baseline": {
+          "elapsed_ms": 3670.202750014141,
+          "peak_rss_bytes": 2155184128
+        },
+        "optimized": {
+          "elapsed_ms": 3525.5758750718087,
+          "peak_rss_bytes": 2152595456
+        }
+      },
+      "ranges": {
+        "baseline": {
+          "peak_rss_bytes": [
+            2046984192,
+            2159378432
+          ],
+          "elapsed_ms": [
+            3601.991417002864,
+            3704.256832948886
+          ]
+        },
+        "optimized": {
+          "peak_rss_bytes": [
+            2050588672,
+            2156167168
+          ],
+          "elapsed_ms": [
+            3489.338167011738,
+            3637.469500070438
+          ]
+        }
+      },
+      "reduction_percent": 3.940569085502843
+    },
+    {
+      "condition": "A3・300dpi・20ページ",
+      "medians": {
+        "baseline": {
+          "elapsed_ms": 15641.529750078917,
+          "peak_rss_bytes": 2263924736
+        },
+        "optimized": {
+          "elapsed_ms": 14911.605249973945,
+          "peak_rss_bytes": 2266873856
+        }
+      },
+      "ranges": {
+        "baseline": {
+          "peak_rss_bytes": [
+            2262138880,
+            2264743936
+          ],
+          "elapsed_ms": [
+            15626.142667024396,
+            15702.228207956068
+          ]
+        },
+        "optimized": {
+          "peak_rss_bytes": [
+            2265694208,
+            2267381760
+          ],
+          "elapsed_ms": [
+            14851.79533297196,
+            15046.86624999158
+          ]
+        }
+      },
+      "reduction_percent": 4.666580006992527
+    }
+  ],
+  "probe": {
+    "probe-final-300": {
+      "baseline": {
+        "elapsed_ms": 1405.731457984075,
+        "peak_rss_bytes": 1968898048,
+        "timings": {
+          "PreparationMs": 197.1027,
+          "FeatureWorkers": 3,
+          "FeatureWorkerTemporaryBytes": 27954560,
+          "CandidatesMs": 51.7545,
+          "GroupingMs": 46.8572,
+          "ShiftsMs": 195.7148,
+          "GroupIndexMs": 14.6243,
+          "SearchGroups": 139,
+          "SearchRuns": 51966,
+          "SearchWorkers": 4,
+          "UsedRectangleSearch": false,
+          "MovementMs": 70.1127,
+          "MovementManagedBytes": 2028840,
+          "ClassificationMs": 22.3224,
+          "ClassificationManagedBytes": 63550176,
+          "RetainedRemovalMaskBytes": 17399680,
+          "ClusteringMs": 69.72599999999998
+        },
+        "stages_ms": {
+          "start": 0.5404,
+          "open": 181.42499999999998,
+          "render-a": 29.703000000000003,
+          "render-b": 13.128000000000014,
+          "normalize": 4.6036,
+          "compare": 659.8732,
+          "text": 202.2657999999999,
+          "images": 228.9188999999999,
+          "fonts": 4.669200000000046,
+          "json": 21.777699999999868,
+          "html": 5.0275000000001455
+        }
+      },
+      "serial": {
+        "elapsed_ms": 1391.9434159761295,
+        "peak_rss_bytes": 1968357376,
+        "timings": {
+          "PreparationMs": 199.9892,
+          "FeatureWorkers": 3,
+          "FeatureWorkerTemporaryBytes": 27954560,
+          "CandidatesMs": 44.5226,
+          "CandidateWorkers": 1,
+          "GroupingMs": 44.4428,
+          "ShiftsMs": 194.6166,
+          "GroupIndexMs": 14.5818,
+          "SearchGroups": 139,
+          "SearchRuns": 51966,
+          "SearchWorkers": 4,
+          "UsedRectangleSearch": false,
+          "MovementMs": 71.1607,
+          "MovementManagedBytes": 2035032,
+          "ClassificationMs": 21.1072,
+          "ClassificationManagedBytes": 63550176,
+          "RetainedRemovalMaskBytes": 17399680,
+          "ClusteringMs": 68.60989999999998
+        },
+        "stages_ms": {
+          "start": 0.5287,
+          "open": 181.18099999999998,
+          "render-a": 29.385400000000004,
+          "render-b": 13.275300000000016,
+          "normalize": 4.730800000000016,
+          "compare": 645.8762,
+          "text": 200.54020000000003,
+          "images": 231.0447999999999,
+          "fonts": 4.247200000000021,
+          "json": 22.308300000000145,
+          "html": 4.924399999999878
+        }
+      },
+      "optimized": {
+        "elapsed_ms": 1365.5938330339268,
+        "peak_rss_bytes": 1967685632,
+        "timings": {
+          "PreparationMs": 199.1833,
+          "FeatureWorkers": 3,
+          "FeatureWorkerTemporaryBytes": 27954560,
+          "CandidatesMs": 12.9328,
+          "CandidateWorkers": 4,
+          "GroupingMs": 45.9365,
+          "ShiftsMs": 193.6133,
+          "GroupIndexMs": 14.6686,
+          "SearchGroups": 139,
+          "SearchRuns": 51966,
+          "SearchWorkers": 4,
+          "UsedRectangleSearch": false,
+          "MovementMs": 71.1597,
+          "MovementManagedBytes": 2028840,
+          "ClassificationMs": 21.4592,
+          "ClassificationManagedBytes": 63550176,
+          "RetainedRemovalMaskBytes": 17399680,
+          "ClusteringMs": 69.659
+        },
+        "stages_ms": {
+          "start": 0.5722,
+          "open": 182.3177,
+          "render-a": 30.442300000000017,
+          "render-b": 13.462799999999987,
+          "normalize": 4.790099999999995,
+          "compare": 615.3312000000001,
+          "text": 201.25209999999993,
+          "images": 232.06040000000007,
+          "fonts": 4.504400000000032,
+          "json": 21.464899999999943,
+          "html": 4.748100000000022
+        }
+      }
+    },
+    "probe-final-400": {
+      "baseline": {
+        "elapsed_ms": 2105.8460409985855,
+        "peak_rss_bytes": 3502899200,
+        "timings": {
+          "PreparationMs": 417.7397,
+          "FeatureWorkers": 2,
+          "FeatureWorkerTemporaryBytes": 39260704,
+          "CandidatesMs": 85.461,
+          "GroupingMs": 73.5785,
+          "ShiftsMs": 289.662,
+          "GroupIndexMs": 24.4441,
+          "SearchGroups": 197,
+          "SearchRuns": 76677,
+          "SearchWorkers": 4,
+          "UsedRectangleSearch": false,
+          "MovementMs": 179.4273,
+          "MovementManagedBytes": 3413216,
+          "ClassificationMs": 35.6538,
+          "ClassificationManagedBytes": 112924992,
+          "RetainedRemovalMaskBytes": 30933678,
+          "ClusteringMs": 118.77889999999994
+        },
+        "stages_ms": {
+          "start": 0.5289,
+          "open": 178.627,
+          "render-a": 38.190499999999986,
+          "render-b": 19.84730000000002,
+          "normalize": 7.403199999999998,
+          "compare": 1204.7998000000002,
+          "text": 196.5578999999998,
+          "images": 375.4978000000001,
+          "fonts": 2.738700000000108,
+          "json": 20.53989999999999,
+          "html": 7.714100000000144
+        }
+      },
+      "serial": {
+        "elapsed_ms": 2101.265959092416,
+        "peak_rss_bytes": 3510091776,
+        "timings": {
+          "PreparationMs": 419.3688,
+          "FeatureWorkers": 2,
+          "FeatureWorkerTemporaryBytes": 39260704,
+          "CandidatesMs": 76.411,
+          "CandidateWorkers": 1,
+          "GroupingMs": 75.8177,
+          "ShiftsMs": 289.7574,
+          "GroupIndexMs": 24.6797,
+          "SearchGroups": 197,
+          "SearchRuns": 76677,
+          "SearchWorkers": 4,
+          "UsedRectangleSearch": false,
+          "MovementMs": 182.0218,
+          "MovementManagedBytes": 3413216,
+          "ClassificationMs": 36.1196,
+          "ClassificationManagedBytes": 112924992,
+          "RetainedRemovalMaskBytes": 30933678,
+          "ClusteringMs": 120.71830000000003
+        },
+        "stages_ms": {
+          "start": 0.4362,
+          "open": 178.2074,
+          "render-a": 38.679100000000005,
+          "render-b": 20.002899999999983,
+          "normalize": 7.1952,
+          "compare": 1202.9832999999999,
+          "text": 199.6817000000001,
+          "images": 363.6576,
+          "fonts": 2.776800000000094,
+          "json": 20.3291999999999,
+          "html": 7.470500000000129
+        }
+      },
+      "optimized": {
+        "elapsed_ms": 2042.1773750567809,
+        "peak_rss_bytes": 3505176576,
+        "timings": {
+          "PreparationMs": 416.1515,
+          "FeatureWorkers": 2,
+          "FeatureWorkerTemporaryBytes": 39260704,
+          "CandidatesMs": 20.2967,
+          "CandidateWorkers": 4,
+          "GroupingMs": 76.0158,
+          "ShiftsMs": 289.1267,
+          "GroupIndexMs": 23.9355,
+          "SearchGroups": 197,
+          "SearchRuns": 76677,
+          "SearchWorkers": 4,
+          "UsedRectangleSearch": false,
+          "MovementMs": 180.2547,
+          "MovementManagedBytes": 3413216,
+          "ClassificationMs": 35.8583,
+          "ClassificationManagedBytes": 112931184,
+          "RetainedRemovalMaskBytes": 30933678,
+          "ClusteringMs": 119.20709999999997
+        },
+        "stages_ms": {
+          "start": 0.4465,
+          "open": 177.2312,
+          "render-a": 37.61170000000001,
+          "render-b": 19.88839999999999,
+          "normalize": 7.272400000000005,
+          "compare": 1140.0983,
+          "text": 199.9217000000001,
+          "images": 371.75749999999994,
+          "fonts": 2.5914999999999964,
+          "json": 20.465599999999995,
+          "html": 7.509499999999889
+        }
+      }
+    }
+  },
+  "a4": {
+    "baseline": {
+      "generated_at": "2026-09-21T18:00:52.634253+09:00",
+      "os": "macOS 26.5.1",
+      "architecture": "Arm64",
+      "dotnet_runtime": "10.0.12",
+      "cpu_count": 16,
+      "width": 2480,
+      "height": 3508,
+      "dpi": 300,
+      "glyphs": 600,
+      "validation_runs_per_scenario": 2,
+      "memory_note": "ClassificationManagedBytes / MovementManagedBytes は分類／移動注釈のスレッド別マネージド割当量。RetainedRemovalMaskBytes は保持するネイティブ削除マスクのみで、一時 Mat やプロセスのピークを含まない。",
+      "results_equal": true,
+      "measurements": [
+        {
+          "scenario": "完全一致",
+          "strategy": "group_bounds",
+          "classification": true,
+          "movement": true,
+          "iterations": 5,
+          "total_ms": [
+            6.2323,
+            7.01,
+            5.107,
+            5.1978,
+            4.9017
+          ],
+          "median_ms": 5.1978,
+          "stages_at_median_ms": {
+            "PreparationMs": 1.3012,
+            "CandidatesMs": 0,
+            "GroupingMs": 0,
+            "ShiftsMs": 0,
+            "ClusteringMs": 3.8561,
+            "ClassificationMs": 0,
+            "MovementMs": 0
+          },
+          "classification_managed_bytes": 0,
+          "movement_managed_bytes": 0,
+          "retained_removal_mask_bytes": 0,
+          "status": "same",
+          "clusters": 0,
+          "moved_clusters": 0,
+          "raw_pixels": 0,
+          "absorbed_groups": 0,
+          "max_shift_px": 0
+        },
+        {
+          "scenario": "1 か所変更",
+          "strategy": "group_bounds",
+          "classification": true,
+          "movement": true,
+          "iterations": 5,
+          "total_ms": [
+            114.0433,
+            114.1757,
+            111.6488,
+            114.6745,
+            110.9407
+          ],
+          "median_ms": 114.0433,
+          "stages_at_median_ms": {
+            "PreparationMs": 44.6272,
+            "CandidatesMs": 25.6377,
+            "GroupingMs": 15.976,
+            "ShiftsMs": 4.3354,
+            "ClusteringMs": 20.872500000000002,
+            "ClassificationMs": 1.118,
+            "MovementMs": 1.0134
+          },
+          "classification_managed_bytes": 8711336,
+          "movement_managed_bytes": 61536,
+          "retained_removal_mask_bytes": 8699840,
+          "status": "different",
+          "clusters": 1,
+          "moved_clusters": 0,
+          "raw_pixels": 204,
+          "absorbed_groups": 0,
+          "max_shift_px": 0
+        },
+        {
+          "scenario": "1 か所変更＋全体 1px ずれ",
+          "strategy": "group_bounds",
+          "classification": true,
+          "movement": true,
+          "iterations": 5,
+          "total_ms": [
+            118.203,
+            117.9153,
+            122.8655,
+            120.8507,
+            121.0063
+          ],
+          "median_ms": 120.8507,
+          "stages_at_median_ms": {
+            "PreparationMs": 44.9392,
+            "CandidatesMs": 25.8609,
+            "GroupingMs": 18.1387,
+            "ShiftsMs": 10.1632,
+            "ClusteringMs": 19.9179,
+            "ClassificationMs": 0.7729,
+            "MovementMs": 1.0363
+          },
+          "classification_managed_bytes": 8711336,
+          "movement_managed_bytes": 61536,
+          "retained_removal_mask_bytes": 8699840,
+          "status": "different",
+          "clusters": 1,
+          "moved_clusters": 0,
+          "raw_pixels": 204,
+          "absorbed_groups": 599,
+          "max_shift_px": 1
+        }
+      ]
+    },
+    "serial": {
+      "generated_at": "2026-09-21T18:00:54.848432+09:00",
+      "os": "macOS 26.5.1",
+      "architecture": "Arm64",
+      "dotnet_runtime": "10.0.12",
+      "cpu_count": 16,
+      "width": 2480,
+      "height": 3508,
+      "dpi": 300,
+      "glyphs": 600,
+      "validation_runs_per_scenario": 2,
+      "memory_note": "ClassificationManagedBytes / MovementManagedBytes は分類／移動注釈のスレッド別マネージド割当量。RetainedRemovalMaskBytes は保持するネイティブ削除マスクのみで、一時 Mat やプロセスのピークを含まない。",
+      "results_equal": true,
+      "measurements": [
+        {
+          "scenario": "完全一致",
+          "strategy": "group_bounds",
+          "classification": true,
+          "movement": true,
+          "iterations": 5,
+          "total_ms": [
+            6.5695,
+            6.9137,
+            5.1372,
+            5.2345,
+            5.3032
+          ],
+          "median_ms": 5.3032,
+          "stages_at_median_ms": {
+            "PreparationMs": 1.2695,
+            "CandidatesMs": 0,
+            "GroupingMs": 0,
+            "ShiftsMs": 0,
+            "ClusteringMs": 3.9817,
+            "ClassificationMs": 0,
+            "MovementMs": 0
+          },
+          "classification_managed_bytes": 0,
+          "movement_managed_bytes": 0,
+          "retained_removal_mask_bytes": 0,
+          "status": "same",
+          "clusters": 0,
+          "moved_clusters": 0,
+          "raw_pixels": 0,
+          "absorbed_groups": 0,
+          "max_shift_px": 0
+        },
+        {
+          "scenario": "1 か所変更",
+          "strategy": "group_bounds",
+          "classification": true,
+          "movement": true,
+          "iterations": 5,
+          "total_ms": [
+            110.6945,
+            111.7255,
+            108.5182,
+            112.4861,
+            107.0668
+          ],
+          "median_ms": 110.6945,
+          "stages_at_median_ms": {
+            "PreparationMs": 46.4082,
+            "CandidatesMs": 19.9402,
+            "GroupingMs": 15.2811,
+            "ShiftsMs": 4.0107,
+            "ClusteringMs": 22.4069,
+            "ClassificationMs": 1.0874,
+            "MovementMs": 1.0837
+          },
+          "classification_managed_bytes": 8711336,
+          "movement_managed_bytes": 61536,
+          "retained_removal_mask_bytes": 8699840,
+          "status": "different",
+          "clusters": 1,
+          "moved_clusters": 0,
+          "raw_pixels": 204,
+          "absorbed_groups": 0,
+          "max_shift_px": 0
+        },
+        {
+          "scenario": "1 か所変更＋全体 1px ずれ",
+          "strategy": "group_bounds",
+          "classification": true,
+          "movement": true,
+          "iterations": 5,
+          "total_ms": [
+            116.9867,
+            116.7865,
+            115.9359,
+            117.0052,
+            118.4369
+          ],
+          "median_ms": 116.9867,
+          "stages_at_median_ms": {
+            "PreparationMs": 43.4931,
+            "CandidatesMs": 20.9622,
+            "GroupingMs": 17.6555,
+            "ShiftsMs": 12.2175,
+            "ClusteringMs": 21.059499999999996,
+            "ClassificationMs": 0.5714,
+            "MovementMs": 1.004
+          },
+          "classification_managed_bytes": 8711336,
+          "movement_managed_bytes": 61536,
+          "retained_removal_mask_bytes": 8699840,
+          "status": "different",
+          "clusters": 1,
+          "moved_clusters": 0,
+          "raw_pixels": 204,
+          "absorbed_groups": 599,
+          "max_shift_px": 1
+        }
+      ]
+    },
+    "optimized": {
+      "generated_at": "2026-09-21T18:00:56.844886+09:00",
+      "os": "macOS 26.5.1",
+      "architecture": "Arm64",
+      "dotnet_runtime": "10.0.12",
+      "cpu_count": 16,
+      "width": 2480,
+      "height": 3508,
+      "dpi": 300,
+      "glyphs": 600,
+      "validation_runs_per_scenario": 2,
+      "memory_note": "ClassificationManagedBytes / MovementManagedBytes は分類／移動注釈のスレッド別マネージド割当量。RetainedRemovalMaskBytes は保持するネイティブ削除マスクのみで、一時 Mat やプロセスのピークを含まない。",
+      "results_equal": true,
+      "measurements": [
+        {
+          "scenario": "完全一致",
+          "strategy": "group_bounds",
+          "classification": true,
+          "movement": true,
+          "iterations": 5,
+          "total_ms": [
+            6.4152,
+            5.8993,
+            5.286,
+            6.2815,
+            4.9483
+          ],
+          "median_ms": 5.8993,
+          "stages_at_median_ms": {
+            "PreparationMs": 1.3339,
+            "CandidatesMs": 0,
+            "GroupingMs": 0,
+            "ShiftsMs": 0,
+            "ClusteringMs": 4.5021,
+            "ClassificationMs": 0,
+            "MovementMs": 0
+          },
+          "classification_managed_bytes": 0,
+          "movement_managed_bytes": 0,
+          "retained_removal_mask_bytes": 0,
+          "status": "same",
+          "clusters": 0,
+          "moved_clusters": 0,
+          "raw_pixels": 0,
+          "absorbed_groups": 0,
+          "max_shift_px": 0
+        },
+        {
+          "scenario": "1 か所変更",
+          "strategy": "group_bounds",
+          "classification": true,
+          "movement": true,
+          "iterations": 5,
+          "total_ms": [
+            94.2027,
+            91.1942,
+            91.0743,
+            96.1145,
+            96.1385
+          ],
+          "median_ms": 94.2027,
+          "stages_at_median_ms": {
+            "PreparationMs": 44.6062,
+            "CandidatesMs": 6.2513,
+            "GroupingMs": 15.0624,
+            "ShiftsMs": 4.4371,
+            "ClusteringMs": 21.3491,
+            "ClassificationMs": 1.0118,
+            "MovementMs": 1.0205
+          },
+          "classification_managed_bytes": 8711336,
+          "movement_managed_bytes": 61536,
+          "retained_removal_mask_bytes": 8699840,
+          "status": "different",
+          "clusters": 1,
+          "moved_clusters": 0,
+          "raw_pixels": 204,
+          "absorbed_groups": 0,
+          "max_shift_px": 0
+        },
+        {
+          "scenario": "1 か所変更＋全体 1px ずれ",
+          "strategy": "group_bounds",
+          "classification": true,
+          "movement": true,
+          "iterations": 5,
+          "total_ms": [
+            102.7352,
+            106.0868,
+            98.7204,
+            98.1567,
+            98.5845
+          ],
+          "median_ms": 98.7204,
+          "stages_at_median_ms": {
+            "PreparationMs": 43.4452,
+            "CandidatesMs": 6.0906,
+            "GroupingMs": 17.9812,
+            "ShiftsMs": 11.287,
+            "ClusteringMs": 18.2055,
+            "ClassificationMs": 0.7243,
+            "MovementMs": 0.9631
+          },
+          "classification_managed_bytes": 8711336,
+          "movement_managed_bytes": 61536,
+          "retained_removal_mask_bytes": 8699840,
+          "status": "different",
+          "clusters": 1,
+          "moved_clusters": 0,
+          "raw_pixels": 204,
+          "absorbed_groups": 599,
+          "max_shift_px": 1
+        }
+      ]
+    }
+  },
+  "runs": [
+    {
+      "name": "cli-final-300-baseline-0",
+      "variant": "baseline",
+      "warmup": true,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli-final-300-baseline-0",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 1396.3864160468802,
+      "peak_rss_bytes": 1972781056,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-300-optimized-0",
+      "variant": "optimized",
+      "warmup": true,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli-final-300-optimized-0",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 1349.0056669106707,
+      "peak_rss_bytes": 1961443328,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-300-optimized-1",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli-final-300-optimized-1",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 1324.4532500393689,
+      "peak_rss_bytes": 1968390144,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-300-baseline-1",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli-final-300-baseline-1",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 1377.0354579901323,
+      "peak_rss_bytes": 1969930240,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-300-baseline-2",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli-final-300-baseline-2",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 1360.0365000311285,
+      "peak_rss_bytes": 1968537600,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-300-optimized-2",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli-final-300-optimized-2",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 1341.936583048664,
+      "peak_rss_bytes": 1959886848,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-300-optimized-3",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli-final-300-optimized-3",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 1353.1962080160156,
+      "peak_rss_bytes": 1967259648,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-300-baseline-3",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli-final-300-baseline-3",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 1378.8977920776233,
+      "peak_rss_bytes": 1965670400,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-300-baseline-4",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli-final-300-baseline-4",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 1392.0030830195174,
+      "peak_rss_bytes": 1975975936,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-300-optimized-4",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli-final-300-optimized-4",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 1345.0304589932784,
+      "peak_rss_bytes": 1960787968,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-300-optimized-5",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli-final-300-optimized-5",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 1347.6015420164913,
+      "peak_rss_bytes": 1967849472,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-300-baseline-5",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli-final-300-baseline-5",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 1403.1342499656603,
+      "peak_rss_bytes": 1967341568,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-400-baseline-0",
+      "variant": "baseline",
+      "warmup": true,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli-final-400-baseline-0",
+        "--dpi",
+        "400",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 2117.7683339919895,
+      "peak_rss_bytes": 3507945472,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-400-optimized-0",
+      "variant": "optimized",
+      "warmup": true,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli-final-400-optimized-0",
+        "--dpi",
+        "400",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 2024.5988329406828,
+      "peak_rss_bytes": 3502358528,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-400-optimized-1",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli-final-400-optimized-1",
+        "--dpi",
+        "400",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 2019.7085000108927,
+      "peak_rss_bytes": 3501211648,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-400-baseline-1",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli-final-400-baseline-1",
+        "--dpi",
+        "400",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 2124.465041910298,
+      "peak_rss_bytes": 3501916160,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-400-baseline-2",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli-final-400-baseline-2",
+        "--dpi",
+        "400",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 2151.6610409598798,
+      "peak_rss_bytes": 3510632448,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-400-optimized-2",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli-final-400-optimized-2",
+        "--dpi",
+        "400",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 2092.2600419726223,
+      "peak_rss_bytes": 3507208192,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-400-optimized-3",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli-final-400-optimized-3",
+        "--dpi",
+        "400",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 2066.630457993597,
+      "peak_rss_bytes": 3503783936,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-400-baseline-3",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli-final-400-baseline-3",
+        "--dpi",
+        "400",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 2139.777792035602,
+      "peak_rss_bytes": 3520856064,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-400-baseline-4",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli-final-400-baseline-4",
+        "--dpi",
+        "400",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 2129.670042078942,
+      "peak_rss_bytes": 3509321728,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-400-optimized-4",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli-final-400-optimized-4",
+        "--dpi",
+        "400",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 2071.631249971688,
+      "peak_rss_bytes": 3501064192,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-400-optimized-5",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli-final-400-optimized-5",
+        "--dpi",
+        "400",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 2044.952291995287,
+      "peak_rss_bytes": 3507306496,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-400-baseline-5",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli-final-400-baseline-5",
+        "--dpi",
+        "400",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 2107.503250008449,
+      "peak_rss_bytes": 3507093504,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-baseline-0",
+      "variant": "baseline",
+      "warmup": true,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli4-final-300-baseline-0",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 3586.606916040182,
+      "peak_rss_bytes": 2053111808,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-optimized-0",
+      "variant": "optimized",
+      "warmup": true,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli4-final-300-optimized-0",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 3489.493625005707,
+      "peak_rss_bytes": 2156249088,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-optimized-1",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli4-final-300-optimized-1",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 3493.373709032312,
+      "peak_rss_bytes": 2050588672,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-baseline-1",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli4-final-300-baseline-1",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 3601.991417002864,
+      "peak_rss_bytes": 2046984192,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-baseline-2",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli4-final-300-baseline-2",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 3666.9485000893474,
+      "peak_rss_bytes": 2158051328,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-optimized-2",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli4-final-300-optimized-2",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 3542.5431659677997,
+      "peak_rss_bytes": 2154037248,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-optimized-3",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli4-final-300-optimized-3",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 3637.469500070438,
+      "peak_rss_bytes": 2151858176,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-baseline-3",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli4-final-300-baseline-3",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 3704.256832948886,
+      "peak_rss_bytes": 2157166592,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-baseline-4",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli4-final-300-baseline-4",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 3648.9878749707714,
+      "peak_rss_bytes": 2159378432,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-optimized-4",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli4-final-300-optimized-4",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 3489.338167011738,
+      "peak_rss_bytes": 2152595456,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-optimized-5",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli4-final-300-optimized-5",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 3522.9385419515893,
+      "peak_rss_bytes": 2153709568,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-baseline-5",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli4-final-300-baseline-5",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 3693.933874950744,
+      "peak_rss_bytes": 2153742336,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-baseline-6",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli4-final-300-baseline-6",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 3676.181333954446,
+      "peak_rss_bytes": 2052964352,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-optimized-6",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli4-final-300-optimized-6",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 3540.891541983001,
+      "peak_rss_bytes": 2056404992,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-optimized-7",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli4-final-300-optimized-7",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 3525.5758750718087,
+      "peak_rss_bytes": 2156167168,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-baseline-7",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli4-final-300-baseline-7",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 3670.202750014141,
+      "peak_rss_bytes": 2155184128,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli20-final-300-baseline-0",
+      "variant": "baseline",
+      "warmup": true,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-original.pdf",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli20-final-300-baseline-0",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 15916.849208064377,
+      "peak_rss_bytes": 2270429184,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 3480,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli20-final-300-optimized-0",
+      "variant": "optimized",
+      "warmup": true,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-original.pdf",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli20-final-300-optimized-0",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 14982.203959021717,
+      "peak_rss_bytes": 2271215616,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 3480,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli20-final-300-optimized-1",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-original.pdf",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli20-final-300-optimized-1",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 14911.605249973945,
+      "peak_rss_bytes": 2265694208,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 3480,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli20-final-300-baseline-1",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-original.pdf",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli20-final-300-baseline-1",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 15702.228207956068,
+      "peak_rss_bytes": 2262138880,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 3480,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli20-final-300-baseline-2",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-original.pdf",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli20-final-300-baseline-2",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 15641.529750078917,
+      "peak_rss_bytes": 2264743936,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 3480,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli20-final-300-optimized-2",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-original.pdf",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli20-final-300-optimized-2",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 14851.79533297196,
+      "peak_rss_bytes": 2266873856,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 3480,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli20-final-300-optimized-3",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-original.pdf",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli20-final-300-optimized-3",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 15046.86624999158,
+      "peak_rss_bytes": 2267381760,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 3480,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli20-final-300-baseline-3",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-original.pdf",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2e-candidates-20260921/cli20-final-300-baseline-3",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 15626.142667024396,
+      "peak_rss_bytes": 2263924736,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 3480,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "probe-final-300-baseline-0",
+      "variant": "baseline",
+      "warmup": true,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/baseline/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2e-candidates-20260921/probe-final-300-baseline-0",
+        "normal",
+        "300"
+      ],
+      "elapsed_ms": 1417.4764170311391,
+      "peak_rss_bytes": 1966063616,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 200.182,
+        "FeatureWorkers": 3,
+        "FeatureWorkerTemporaryBytes": 27954560,
+        "CandidatesMs": 50.358,
+        "GroupingMs": 46.0283,
+        "ShiftsMs": 194.6995,
+        "GroupIndexMs": 13.4984,
+        "SearchGroups": 139,
+        "SearchRuns": 51966,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 70.4668,
+        "MovementManagedBytes": 2028840,
+        "ClassificationMs": 21.5436,
+        "ClassificationManagedBytes": 63550176,
+        "RetainedRemovalMaskBytes": 17399680,
+        "ClusteringMs": 70.8716
+      }
+    },
+    {
+      "name": "probe-final-300-serial-0",
+      "variant": "serial",
+      "warmup": true,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/serial/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2e-candidates-20260921/probe-final-300-serial-0",
+        "normal",
+        "300"
+      ],
+      "elapsed_ms": 1398.203167016618,
+      "peak_rss_bytes": 1967980544,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 194.7428,
+        "FeatureWorkers": 3,
+        "FeatureWorkerTemporaryBytes": 27954560,
+        "CandidatesMs": 42.0257,
+        "CandidateWorkers": 1,
+        "GroupingMs": 43.3605,
+        "ShiftsMs": 198.3982,
+        "GroupIndexMs": 14.5596,
+        "SearchGroups": 139,
+        "SearchRuns": 51966,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 70.4149,
+        "MovementManagedBytes": 2028840,
+        "ClassificationMs": 21.4668,
+        "ClassificationManagedBytes": 63550176,
+        "RetainedRemovalMaskBytes": 17399680,
+        "ClusteringMs": 69.29449999999999
+      }
+    },
+    {
+      "name": "probe-final-300-optimized-0",
+      "variant": "optimized",
+      "warmup": true,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/optimized/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2e-candidates-20260921/probe-final-300-optimized-0",
+        "normal",
+        "300"
+      ],
+      "elapsed_ms": 1386.1949580023065,
+      "peak_rss_bytes": 1964769280,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 200.075,
+        "FeatureWorkers": 3,
+        "FeatureWorkerTemporaryBytes": 27954560,
+        "CandidatesMs": 13.399,
+        "CandidateWorkers": 4,
+        "GroupingMs": 50.8562,
+        "ShiftsMs": 203.2963,
+        "GroupIndexMs": 14.5732,
+        "SearchGroups": 139,
+        "SearchRuns": 51966,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 71.2101,
+        "MovementManagedBytes": 2028840,
+        "ClassificationMs": 21.628,
+        "ClassificationManagedBytes": 63550176,
+        "RetainedRemovalMaskBytes": 17399680,
+        "ClusteringMs": 70.4686
+      }
+    },
+    {
+      "name": "probe-final-300-optimized-1",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/optimized/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2e-candidates-20260921/probe-final-300-optimized-1",
+        "normal",
+        "300"
+      ],
+      "elapsed_ms": 1366.9677089201286,
+      "peak_rss_bytes": 1967587328,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 197.8033,
+        "FeatureWorkers": 3,
+        "FeatureWorkerTemporaryBytes": 27954560,
+        "CandidatesMs": 12.1417,
+        "CandidateWorkers": 4,
+        "GroupingMs": 46.099,
+        "ShiftsMs": 193.6133,
+        "GroupIndexMs": 14.8014,
+        "SearchGroups": 139,
+        "SearchRuns": 51966,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 71.1597,
+        "MovementManagedBytes": 2028840,
+        "ClassificationMs": 21.6752,
+        "ClassificationManagedBytes": 63550176,
+        "RetainedRemovalMaskBytes": 17399680,
+        "ClusteringMs": 69.659
+      }
+    },
+    {
+      "name": "probe-final-300-serial-1",
+      "variant": "serial",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/serial/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2e-candidates-20260921/probe-final-300-serial-1",
+        "normal",
+        "300"
+      ],
+      "elapsed_ms": 1407.4089170899242,
+      "peak_rss_bytes": 1968357376,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 201.2574,
+        "FeatureWorkers": 3,
+        "FeatureWorkerTemporaryBytes": 27954560,
+        "CandidatesMs": 45.2432,
+        "CandidateWorkers": 1,
+        "GroupingMs": 47.7035,
+        "ShiftsMs": 198.301,
+        "GroupIndexMs": 14.5978,
+        "SearchGroups": 139,
+        "SearchRuns": 51966,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 71.294,
+        "MovementManagedBytes": 2028840,
+        "ClassificationMs": 22.1641,
+        "ClassificationManagedBytes": 63550176,
+        "RetainedRemovalMaskBytes": 17399680,
+        "ClusteringMs": 71.35800000000002
+      }
+    },
+    {
+      "name": "probe-final-300-baseline-1",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/baseline/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2e-candidates-20260921/probe-final-300-baseline-1",
+        "normal",
+        "300"
+      ],
+      "elapsed_ms": 1405.731457984075,
+      "peak_rss_bytes": 1980350464,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 200.6447,
+        "FeatureWorkers": 3,
+        "FeatureWorkerTemporaryBytes": 27954560,
+        "CandidatesMs": 51.6797,
+        "GroupingMs": 47.2475,
+        "ShiftsMs": 195.7148,
+        "GroupIndexMs": 14.6243,
+        "SearchGroups": 139,
+        "SearchRuns": 51966,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 69.2927,
+        "MovementManagedBytes": 2028840,
+        "ClassificationMs": 22.3224,
+        "ClassificationManagedBytes": 63550176,
+        "RetainedRemovalMaskBytes": 17399680,
+        "ClusteringMs": 69.66490000000002
+      }
+    },
+    {
+      "name": "probe-final-300-baseline-2",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/baseline/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2e-candidates-20260921/probe-final-300-baseline-2",
+        "normal",
+        "300"
+      ],
+      "elapsed_ms": 1396.5368329081684,
+      "peak_rss_bytes": 1968898048,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 197.1027,
+        "FeatureWorkers": 3,
+        "FeatureWorkerTemporaryBytes": 27954560,
+        "CandidatesMs": 52.3901,
+        "GroupingMs": 46.8572,
+        "ShiftsMs": 194.7875,
+        "GroupIndexMs": 14.168,
+        "SearchGroups": 139,
+        "SearchRuns": 51966,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 71.5055,
+        "MovementManagedBytes": 2028840,
+        "ClassificationMs": 21.2906,
+        "ClassificationManagedBytes": 63550176,
+        "RetainedRemovalMaskBytes": 17399680,
+        "ClusteringMs": 69.72599999999998
+      }
+    },
+    {
+      "name": "probe-final-300-serial-2",
+      "variant": "serial",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/serial/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2e-candidates-20260921/probe-final-300-serial-2",
+        "normal",
+        "300"
+      ],
+      "elapsed_ms": 1391.9434159761295,
+      "peak_rss_bytes": 1966850048,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 199.9892,
+        "FeatureWorkers": 3,
+        "FeatureWorkerTemporaryBytes": 27954560,
+        "CandidatesMs": 44.5226,
+        "CandidateWorkers": 1,
+        "GroupingMs": 43.9027,
+        "ShiftsMs": 194.6166,
+        "GroupIndexMs": 14.5818,
+        "SearchGroups": 139,
+        "SearchRuns": 51966,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 69.9239,
+        "MovementManagedBytes": 2035032,
+        "ClassificationMs": 21.1072,
+        "ClassificationManagedBytes": 63550176,
+        "RetainedRemovalMaskBytes": 17399680,
+        "ClusteringMs": 68.60989999999998
+      }
+    },
+    {
+      "name": "probe-final-300-optimized-2",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/optimized/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2e-candidates-20260921/probe-final-300-optimized-2",
+        "normal",
+        "300"
+      ],
+      "elapsed_ms": 1360.0173329468817,
+      "peak_rss_bytes": 1967685632,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 200.69,
+        "FeatureWorkers": 3,
+        "FeatureWorkerTemporaryBytes": 27954560,
+        "CandidatesMs": 12.9328,
+        "CandidateWorkers": 4,
+        "GroupingMs": 44.4188,
+        "ShiftsMs": 192.5354,
+        "GroupIndexMs": 14.5458,
+        "SearchGroups": 139,
+        "SearchRuns": 51966,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 70.949,
+        "MovementManagedBytes": 2028840,
+        "ClassificationMs": 21.2192,
+        "ClassificationManagedBytes": 63550176,
+        "RetainedRemovalMaskBytes": 17399680,
+        "ClusteringMs": 68.83829999999999
+      }
+    },
+    {
+      "name": "probe-final-300-optimized-3",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/optimized/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2e-candidates-20260921/probe-final-300-optimized-3",
+        "normal",
+        "300"
+      ],
+      "elapsed_ms": 1365.5938330339268,
+      "peak_rss_bytes": 1970012160,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 199.1833,
+        "FeatureWorkers": 3,
+        "FeatureWorkerTemporaryBytes": 27954560,
+        "CandidatesMs": 13.4076,
+        "CandidateWorkers": 4,
+        "GroupingMs": 45.9365,
+        "ShiftsMs": 196.4185,
+        "GroupIndexMs": 14.6686,
+        "SearchGroups": 139,
+        "SearchRuns": 51966,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 71.3112,
+        "MovementManagedBytes": 2028840,
+        "ClassificationMs": 21.4592,
+        "ClassificationManagedBytes": 63550176,
+        "RetainedRemovalMaskBytes": 17399680,
+        "ClusteringMs": 69.68209999999998
+      }
+    },
+    {
+      "name": "probe-final-300-serial-3",
+      "variant": "serial",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/serial/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2e-candidates-20260921/probe-final-300-serial-3",
+        "normal",
+        "300"
+      ],
+      "elapsed_ms": 1381.9862919626758,
+      "peak_rss_bytes": 1978990592,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 198.2476,
+        "FeatureWorkers": 3,
+        "FeatureWorkerTemporaryBytes": 27954560,
+        "CandidatesMs": 42.7175,
+        "CandidateWorkers": 1,
+        "GroupingMs": 44.4428,
+        "ShiftsMs": 194.2812,
+        "GroupIndexMs": 14.322,
+        "SearchGroups": 139,
+        "SearchRuns": 51966,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 71.1607,
+        "MovementManagedBytes": 2035032,
+        "ClassificationMs": 20.7008,
+        "ClassificationManagedBytes": 63550176,
+        "RetainedRemovalMaskBytes": 17399680,
+        "ClusteringMs": 67.27029999999998
+      }
+    },
+    {
+      "name": "probe-final-300-baseline-3",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/baseline/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2e-candidates-20260921/probe-final-300-baseline-3",
+        "normal",
+        "300"
+      ],
+      "elapsed_ms": 1410.7821669895202,
+      "peak_rss_bytes": 1967652864,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 196.126,
+        "FeatureWorkers": 3,
+        "FeatureWorkerTemporaryBytes": 27954560,
+        "CandidatesMs": 51.7545,
+        "GroupingMs": 44.6297,
+        "ShiftsMs": 196.3988,
+        "GroupIndexMs": 14.6595,
+        "SearchGroups": 139,
+        "SearchRuns": 51966,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 70.1127,
+        "MovementManagedBytes": 2028840,
+        "ClassificationMs": 23.0896,
+        "ClassificationManagedBytes": 63550176,
+        "RetainedRemovalMaskBytes": 17399680,
+        "ClusteringMs": 75.08490000000002
+      }
+    },
+    {
+      "name": "probe-final-400-baseline-0",
+      "variant": "baseline",
+      "warmup": true,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/baseline/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2e-candidates-20260921/probe-final-400-baseline-0",
+        "normal",
+        "400"
+      ],
+      "elapsed_ms": 2142.4559579463676,
+      "peak_rss_bytes": 3510419456,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 421.0811,
+        "FeatureWorkers": 2,
+        "FeatureWorkerTemporaryBytes": 39260704,
+        "CandidatesMs": 87.5409,
+        "GroupingMs": 72.6107,
+        "ShiftsMs": 290.1079,
+        "GroupIndexMs": 23.9507,
+        "SearchGroups": 197,
+        "SearchRuns": 76677,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 183.4717,
+        "MovementManagedBytes": 3413216,
+        "ClassificationMs": 36.2456,
+        "ClassificationManagedBytes": 112924992,
+        "RetainedRemovalMaskBytes": 30933678,
+        "ClusteringMs": 122.029
+      }
+    },
+    {
+      "name": "probe-final-400-serial-0",
+      "variant": "serial",
+      "warmup": true,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/serial/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2e-candidates-20260921/probe-final-400-serial-0",
+        "normal",
+        "400"
+      ],
+      "elapsed_ms": 2117.7685420261696,
+      "peak_rss_bytes": 3509026816,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 427.5149,
+        "FeatureWorkers": 2,
+        "FeatureWorkerTemporaryBytes": 39260704,
+        "CandidatesMs": 76.0304,
+        "CandidateWorkers": 1,
+        "GroupingMs": 74.1167,
+        "ShiftsMs": 289.6277,
+        "GroupIndexMs": 24.0979,
+        "SearchGroups": 197,
+        "SearchRuns": 76677,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 181.7134,
+        "MovementManagedBytes": 3413216,
+        "ClassificationMs": 35.533,
+        "ClassificationManagedBytes": 112931184,
+        "RetainedRemovalMaskBytes": 30933678,
+        "ClusteringMs": 120.08869999999999
+      }
+    },
+    {
+      "name": "probe-final-400-optimized-0",
+      "variant": "optimized",
+      "warmup": true,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/optimized/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2e-candidates-20260921/probe-final-400-optimized-0",
+        "normal",
+        "400"
+      ],
+      "elapsed_ms": 2071.3879170361906,
+      "peak_rss_bytes": 3522592768,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 426.033,
+        "FeatureWorkers": 2,
+        "FeatureWorkerTemporaryBytes": 39260704,
+        "CandidatesMs": 21.5491,
+        "CandidateWorkers": 4,
+        "GroupingMs": 75.3597,
+        "ShiftsMs": 301.3958,
+        "GroupIndexMs": 24.573,
+        "SearchGroups": 197,
+        "SearchRuns": 76677,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 181.5093,
+        "MovementManagedBytes": 3413216,
+        "ClassificationMs": 36.607,
+        "ClassificationManagedBytes": 112931184,
+        "RetainedRemovalMaskBytes": 30933678,
+        "ClusteringMs": 121.1252
+      }
+    },
+    {
+      "name": "probe-final-400-optimized-1",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/optimized/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2e-candidates-20260921/probe-final-400-optimized-1",
+        "normal",
+        "400"
+      ],
+      "elapsed_ms": 2045.9947499912232,
+      "peak_rss_bytes": 3505176576,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 417.9456,
+        "FeatureWorkers": 2,
+        "FeatureWorkerTemporaryBytes": 39260704,
+        "CandidatesMs": 20.2558,
+        "CandidateWorkers": 4,
+        "GroupingMs": 75.7962,
+        "ShiftsMs": 289.1267,
+        "GroupIndexMs": 24.9043,
+        "SearchGroups": 197,
+        "SearchRuns": 76677,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 178.8099,
+        "MovementManagedBytes": 3413216,
+        "ClassificationMs": 36.3828,
+        "ClassificationManagedBytes": 112931184,
+        "RetainedRemovalMaskBytes": 30933678,
+        "ClusteringMs": 122.91929999999999
+      }
+    },
+    {
+      "name": "probe-final-400-serial-1",
+      "variant": "serial",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/serial/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2e-candidates-20260921/probe-final-400-serial-1",
+        "normal",
+        "400"
+      ],
+      "elapsed_ms": 2120.775208924897,
+      "peak_rss_bytes": 3505274880,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 418.304,
+        "FeatureWorkers": 2,
+        "FeatureWorkerTemporaryBytes": 39260704,
+        "CandidatesMs": 78.2068,
+        "CandidateWorkers": 1,
+        "GroupingMs": 75.8177,
+        "ShiftsMs": 291.6951,
+        "GroupIndexMs": 24.1341,
+        "SearchGroups": 197,
+        "SearchRuns": 76677,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 182.0218,
+        "MovementManagedBytes": 3413216,
+        "ClassificationMs": 36.467,
+        "ClassificationManagedBytes": 112931184,
+        "RetainedRemovalMaskBytes": 30933678,
+        "ClusteringMs": 120.71830000000003
+      }
+    },
+    {
+      "name": "probe-final-400-baseline-1",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/baseline/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2e-candidates-20260921/probe-final-400-baseline-1",
+        "normal",
+        "400"
+      ],
+      "elapsed_ms": 2105.8460409985855,
+      "peak_rss_bytes": 3502899200,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 415.46,
+        "FeatureWorkers": 2,
+        "FeatureWorkerTemporaryBytes": 39260704,
+        "CandidatesMs": 85.4601,
+        "GroupingMs": 71.2532,
+        "ShiftsMs": 295.9831,
+        "GroupIndexMs": 24.4441,
+        "SearchGroups": 197,
+        "SearchRuns": 76677,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 179.4273,
+        "MovementManagedBytes": 3413216,
+        "ClassificationMs": 35.6538,
+        "ClassificationManagedBytes": 112924992,
+        "RetainedRemovalMaskBytes": 30933678,
+        "ClusteringMs": 118.39660000000003
+      }
+    },
+    {
+      "name": "probe-final-400-baseline-2",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/baseline/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2e-candidates-20260921/probe-final-400-baseline-2",
+        "normal",
+        "400"
+      ],
+      "elapsed_ms": 2105.5469169514254,
+      "peak_rss_bytes": 3506470912,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 417.7397,
+        "FeatureWorkers": 2,
+        "FeatureWorkerTemporaryBytes": 39260704,
+        "CandidatesMs": 88.2268,
+        "GroupingMs": 73.5785,
+        "ShiftsMs": 285.3228,
+        "GroupIndexMs": 24.6597,
+        "SearchGroups": 197,
+        "SearchRuns": 76677,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 177.5474,
+        "MovementManagedBytes": 3413216,
+        "ClassificationMs": 34.5094,
+        "ClassificationManagedBytes": 112924992,
+        "RetainedRemovalMaskBytes": 30933678,
+        "ClusteringMs": 118.77889999999994
+      }
+    },
+    {
+      "name": "probe-final-400-serial-2",
+      "variant": "serial",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/serial/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2e-candidates-20260921/probe-final-400-serial-2",
+        "normal",
+        "400"
+      ],
+      "elapsed_ms": 2083.4170000161976,
+      "peak_rss_bytes": 3510091776,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 419.3688,
+        "FeatureWorkers": 2,
+        "FeatureWorkerTemporaryBytes": 39260704,
+        "CandidatesMs": 75.598,
+        "CandidateWorkers": 1,
+        "GroupingMs": 75.8296,
+        "ShiftsMs": 284.8306,
+        "GroupIndexMs": 24.6797,
+        "SearchGroups": 197,
+        "SearchRuns": 76677,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 178.7175,
+        "MovementManagedBytes": 3413216,
+        "ClassificationMs": 34.7652,
+        "ClassificationManagedBytes": 112924992,
+        "RetainedRemovalMaskBytes": 30933678,
+        "ClusteringMs": 116.5857
+      }
+    },
+    {
+      "name": "probe-final-400-optimized-2",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/optimized/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2e-candidates-20260921/probe-final-400-optimized-2",
+        "normal",
+        "400"
+      ],
+      "elapsed_ms": 2042.1773750567809,
+      "peak_rss_bytes": 3507142656,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 416.1515,
+        "FeatureWorkers": 2,
+        "FeatureWorkerTemporaryBytes": 39260704,
+        "CandidatesMs": 20.2967,
+        "CandidateWorkers": 4,
+        "GroupingMs": 77.3162,
+        "ShiftsMs": 287.5168,
+        "GroupIndexMs": 23.9355,
+        "SearchGroups": 197,
+        "SearchRuns": 76677,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 180.2547,
+        "MovementManagedBytes": 3413216,
+        "ClassificationMs": 35.8583,
+        "ClassificationManagedBytes": 112924992,
+        "RetainedRemovalMaskBytes": 30933678,
+        "ClusteringMs": 115.89280000000002
+      }
+    },
+    {
+      "name": "probe-final-400-optimized-3",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/optimized/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2e-candidates-20260921/probe-final-400-optimized-3",
+        "normal",
+        "400"
+      ],
+      "elapsed_ms": 2036.2891660770401,
+      "peak_rss_bytes": 3503374336,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 414.3087,
+        "FeatureWorkers": 2,
+        "FeatureWorkerTemporaryBytes": 39260704,
+        "CandidatesMs": 22.2721,
+        "CandidateWorkers": 4,
+        "GroupingMs": 76.0158,
+        "ShiftsMs": 289.7304,
+        "GroupIndexMs": 23.8891,
+        "SearchGroups": 197,
+        "SearchRuns": 76677,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 180.404,
+        "MovementManagedBytes": 3413216,
+        "ClassificationMs": 34.9583,
+        "ClassificationManagedBytes": 112931184,
+        "RetainedRemovalMaskBytes": 30933678,
+        "ClusteringMs": 119.20709999999997
+      }
+    },
+    {
+      "name": "probe-final-400-serial-3",
+      "variant": "serial",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/serial/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2e-candidates-20260921/probe-final-400-serial-3",
+        "normal",
+        "400"
+      ],
+      "elapsed_ms": 2101.265959092416,
+      "peak_rss_bytes": 3515973632,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 420.1502,
+        "FeatureWorkers": 2,
+        "FeatureWorkerTemporaryBytes": 39260704,
+        "CandidatesMs": 76.411,
+        "CandidateWorkers": 1,
+        "GroupingMs": 73.9727,
+        "ShiftsMs": 289.7574,
+        "GroupIndexMs": 24.8187,
+        "SearchGroups": 197,
+        "SearchRuns": 76677,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 182.1735,
+        "MovementManagedBytes": 3413216,
+        "ClassificationMs": 36.1196,
+        "ClassificationManagedBytes": 112924992,
+        "RetainedRemovalMaskBytes": 30933678,
+        "ClusteringMs": 120.96050000000002
+      }
+    },
+    {
+      "name": "probe-final-400-baseline-3",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2e-candidates/binaries/baseline/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2e-candidates-20260921/probe-final-400-baseline-3",
+        "normal",
+        "400"
+      ],
+      "elapsed_ms": 2133.6056670406833,
+      "peak_rss_bytes": 3501981696,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 417.8887,
+        "FeatureWorkers": 2,
+        "FeatureWorkerTemporaryBytes": 39260704,
+        "CandidatesMs": 85.461,
+        "GroupingMs": 75.3839,
+        "ShiftsMs": 289.662,
+        "GroupIndexMs": 23.6261,
+        "SearchGroups": 197,
+        "SearchRuns": 76677,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 182.563,
+        "MovementManagedBytes": 3413216,
+        "ClassificationMs": 36.1818,
+        "ClassificationManagedBytes": 112924992,
+        "RetainedRemovalMaskBytes": 30933678,
+        "ClusteringMs": 122.05149999999998
+      }
+    }
+  ],
+  "exploratory_worker_trial": {
+    "baseline": {
+      "elapsed_ms": 1367.9086660267785,
+      "peak_rss_bytes": 1965719552,
+      "timings": {
+        "PreparationMs": 196.5176,
+        "FeatureWorkers": 3,
+        "FeatureWorkerTemporaryBytes": 27954560,
+        "CandidatesMs": 48.6394,
+        "GroupingMs": 44.5836,
+        "ShiftsMs": 191.4549,
+        "GroupIndexMs": 14.4168,
+        "SearchGroups": 139,
+        "SearchRuns": 51966,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 69.0004,
+        "MovementManagedBytes": 2028840,
+        "ClassificationMs": 20.7262,
+        "ClassificationManagedBytes": 63550176,
+        "RetainedRemovalMaskBytes": 17399680,
+        "ClusteringMs": 67.78819999999999
+      },
+      "stages_ms": {
+        "start": 0.4973,
+        "open": 175.104,
+        "render-a": 30.165399999999977,
+        "render-b": 12.985500000000002,
+        "normalize": 4.5201999999999884,
+        "compare": 648.6786999999999,
+        "text": 193.49079999999992,
+        "images": 226.62360000000012,
+        "fonts": 4.516599999999926,
+        "json": 21.771200000000135,
+        "html": 4.895999999999958
+      }
+    },
+    "serial": {
+      "elapsed_ms": 1361.2573330756277,
+      "peak_rss_bytes": 1963442176,
+      "timings": {
+        "PreparationMs": 193.9088,
+        "FeatureWorkers": 3,
+        "FeatureWorkerTemporaryBytes": 27954560,
+        "CandidatesMs": 45.4108,
+        "CandidateWorkers": 1,
+        "GroupingMs": 45.8208,
+        "ShiftsMs": 193.7367,
+        "GroupIndexMs": 14.1,
+        "SearchGroups": 139,
+        "SearchRuns": 51966,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 68.8708,
+        "MovementManagedBytes": 2028840,
+        "ClassificationMs": 21.146,
+        "ClassificationManagedBytes": 63550176,
+        "RetainedRemovalMaskBytes": 17399680,
+        "ClusteringMs": 68.23769999999999
+      },
+      "stages_ms": {
+        "start": 0.5427,
+        "open": 172.0821,
+        "render-a": 28.587699999999984,
+        "render-b": 12.866700000000009,
+        "normalize": 4.4576000000000136,
+        "compare": 637.5347999999999,
+        "text": 195.73669999999993,
+        "images": 225.87419999999997,
+        "fonts": 4.3431000000000495,
+        "json": 20.49429999999984,
+        "html": 4.710299999999961
+      }
+    },
+    "two": {
+      "elapsed_ms": 1353.6199160153046,
+      "peak_rss_bytes": 1970651136,
+      "timings": {
+        "PreparationMs": 193.287,
+        "FeatureWorkers": 3,
+        "FeatureWorkerTemporaryBytes": 27954560,
+        "CandidatesMs": 22.4506,
+        "CandidateWorkers": 2,
+        "GroupingMs": 43.5625,
+        "ShiftsMs": 191.1959,
+        "GroupIndexMs": 14.164,
+        "SearchGroups": 139,
+        "SearchRuns": 51966,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 71.821,
+        "MovementManagedBytes": 2028840,
+        "ClassificationMs": 20.7047,
+        "ClassificationManagedBytes": 63550176,
+        "RetainedRemovalMaskBytes": 17399680,
+        "ClusteringMs": 67.09890000000001
+      },
+      "stages_ms": {
+        "start": 0.4559,
+        "open": 171.7104,
+        "render-a": 29.0968,
+        "render-b": 13.196399999999983,
+        "normalize": 4.473600000000005,
+        "compare": 616.4691,
+        "text": 197.24440000000004,
+        "images": 226.24329999999986,
+        "fonts": 4.433999999999969,
+        "json": 20.799499999999853,
+        "html": 4.962500000000091
+      }
+    },
+    "optimized": {
+      "elapsed_ms": 1333.0878330161795,
+      "peak_rss_bytes": 1966997504,
+      "timings": {
+        "PreparationMs": 192.5767,
+        "FeatureWorkers": 3,
+        "FeatureWorkerTemporaryBytes": 27954560,
+        "CandidatesMs": 12.4147,
+        "CandidateWorkers": 4,
+        "GroupingMs": 45.1596,
+        "ShiftsMs": 192.6754,
+        "GroupIndexMs": 13.8698,
+        "SearchGroups": 139,
+        "SearchRuns": 51966,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 69.29,
+        "MovementManagedBytes": 2028840,
+        "ClassificationMs": 20.9062,
+        "ClassificationManagedBytes": 63550176,
+        "RetainedRemovalMaskBytes": 17399680,
+        "ClusteringMs": 66.6532
+      },
+      "stages_ms": {
+        "start": 0.4676,
+        "open": 174.8213,
+        "render-a": 29.126600000000025,
+        "render-b": 13.264999999999986,
+        "normalize": 4.410200000000003,
+        "compare": 604.0945,
+        "text": 193.8641,
+        "images": 226.45389999999998,
+        "fonts": 4.723100000000159,
+        "json": 20.386799999999994,
+        "html": 4.548099999999977
+      }
+    },
+    "eight": {
+      "elapsed_ms": 1329.7747919568792,
+      "peak_rss_bytes": 1966833664,
+      "timings": {
+        "PreparationMs": 192.2806,
+        "FeatureWorkers": 3,
+        "FeatureWorkerTemporaryBytes": 27954560,
+        "CandidatesMs": 7.721,
+        "CandidateWorkers": 8,
+        "GroupingMs": 45.549,
+        "ShiftsMs": 194.1888,
+        "GroupIndexMs": 14.3647,
+        "SearchGroups": 139,
+        "SearchRuns": 51966,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 70.4072,
+        "MovementManagedBytes": 2028840,
+        "ClassificationMs": 21.4155,
+        "ClassificationManagedBytes": 63550176,
+        "RetainedRemovalMaskBytes": 17399680,
+        "ClusteringMs": 67.926
+      },
+      "stages_ms": {
+        "start": 0.5145,
+        "open": 172.3557,
+        "render-a": 28.378799999999984,
+        "render-b": 12.602000000000004,
+        "normalize": 4.271999999999991,
+        "compare": 606.0507,
+        "text": 198.43869999999993,
+        "images": 223.4869000000001,
+        "fonts": 4.288299999999936,
+        "json": 22.009000000000015,
+        "html": 4.701199999999972
+      }
+    }
+  },
+  "candidate_micro": [
+    {
+      "width": 32,
+      "height": 32,
+      "edge": 0,
+      "dense": false,
+      "hash": "0DFD579D1802B1FE2200241D8D3A0075D46A428446853A9FA6F75050E1DDE955",
+      "workers": {
+        "baseline": 1,
+        "serial": 1,
+        "two": 2,
+        "four": 4,
+        "eight": 8,
+        "default": 1
+      },
+      "median_ms": {
+        "baseline": 0.0148,
+        "serial": 0.0107,
+        "two": 0.0186,
+        "four": 0.0294,
+        "eight": 0.0241,
+        "default": 0.0107
+      }
+    },
+    {
+      "width": 32,
+      "height": 32,
+      "edge": 0,
+      "dense": true,
+      "hash": "5F4ECDB7B71C3E403983FE405CDDCDC2F2576B655FDB3E80D94A6F7C32E58BC2",
+      "workers": {
+        "baseline": 1,
+        "serial": 1,
+        "two": 2,
+        "four": 4,
+        "eight": 8,
+        "default": 1
+      },
+      "median_ms": {
+        "baseline": 0.0138,
+        "serial": 0.01,
+        "two": 0.0205,
+        "four": 0.0125,
+        "eight": 0.0127,
+        "default": 0.0104
+      }
+    },
+    {
+      "width": 32,
+      "height": 32,
+      "edge": 0.3,
+      "dense": false,
+      "hash": "224BA1C2C8D46FBE1A05B97D8BE1D8A952F82D274C6FE5F669BF1AC57D0DF1D5",
+      "workers": {
+        "baseline": 1,
+        "serial": 1,
+        "two": 2,
+        "four": 4,
+        "eight": 8,
+        "default": 1
+      },
+      "median_ms": {
+        "baseline": 0.015,
+        "serial": 0.0132,
+        "two": 0.0231,
+        "four": 0.0252,
+        "eight": 0.0212,
+        "default": 0.0133
+      }
+    },
+    {
+      "width": 32,
+      "height": 32,
+      "edge": 0.3,
+      "dense": true,
+      "hash": "5F4ECDB7B71C3E403983FE405CDDCDC2F2576B655FDB3E80D94A6F7C32E58BC2",
+      "workers": {
+        "baseline": 1,
+        "serial": 1,
+        "two": 2,
+        "four": 4,
+        "eight": 8,
+        "default": 1
+      },
+      "median_ms": {
+        "baseline": 0.0126,
+        "serial": 0.0104,
+        "two": 0.018,
+        "four": 0.0109,
+        "eight": 0.0105,
+        "default": 0.0122
+      }
+    },
+    {
+      "width": 512,
+      "height": 512,
+      "edge": 0,
+      "dense": false,
+      "hash": "939212C237B05E144AEF3EBD30B1E9005A8A0C6AF13CBBD9F5699B950FF0996F",
+      "workers": {
+        "baseline": 1,
+        "serial": 1,
+        "two": 2,
+        "four": 4,
+        "eight": 8,
+        "default": 1
+      },
+      "median_ms": {
+        "baseline": 0.571,
+        "serial": 0.4193,
+        "two": 0.2566,
+        "four": 0.1499,
+        "eight": 0.1936,
+        "default": 0.3981
+      }
+    },
+    {
+      "width": 512,
+      "height": 512,
+      "edge": 0,
+      "dense": true,
+      "hash": "3B874D3BA46C638FC3094F8E92FB744CA974893873F8885F54E23760F9B6311B",
+      "workers": {
+        "baseline": 1,
+        "serial": 1,
+        "two": 2,
+        "four": 4,
+        "eight": 8,
+        "default": 1
+      },
+      "median_ms": {
+        "baseline": 0.2892,
+        "serial": 0.1774,
+        "two": 0.1207,
+        "four": 0.0739,
+        "eight": 0.091,
+        "default": 0.1718
+      }
+    },
+    {
+      "width": 512,
+      "height": 512,
+      "edge": 0.3,
+      "dense": false,
+      "hash": "CD421F3CCACE2B29C58C4CAA1B1F8EA784A63CFEAB675B9C429F4EF28E7F4AF9",
+      "workers": {
+        "baseline": 1,
+        "serial": 1,
+        "two": 2,
+        "four": 4,
+        "eight": 8,
+        "default": 1
+      },
+      "median_ms": {
+        "baseline": 1.0034,
+        "serial": 0.8247,
+        "two": 0.4377,
+        "four": 0.3107,
+        "eight": 0.2395,
+        "default": 0.8114
+      }
+    },
+    {
+      "width": 512,
+      "height": 512,
+      "edge": 0.3,
+      "dense": true,
+      "hash": "3B874D3BA46C638FC3094F8E92FB744CA974893873F8885F54E23760F9B6311B",
+      "workers": {
+        "baseline": 1,
+        "serial": 1,
+        "two": 2,
+        "four": 4,
+        "eight": 8,
+        "default": 1
+      },
+      "median_ms": {
+        "baseline": 0.3552,
+        "serial": 0.3325,
+        "two": 0.2045,
+        "four": 0.1233,
+        "eight": 0.1567,
+        "default": 0.3334
+      }
+    },
+    {
+      "width": 999,
+      "height": 1000,
+      "edge": 0,
+      "dense": false,
+      "hash": "4D5A54FBA20373C25C23C0065AE447F667EDD9E22E11940152C1344D8DAB958A",
+      "workers": {
+        "baseline": 1,
+        "serial": 1,
+        "two": 2,
+        "four": 4,
+        "eight": 8,
+        "default": 1
+      },
+      "median_ms": {
+        "baseline": 2.2242,
+        "serial": 1.72,
+        "two": 0.9142,
+        "four": 0.542,
+        "eight": 0.3763,
+        "default": 1.7547
+      }
+    },
+    {
+      "width": 999,
+      "height": 1000,
+      "edge": 0,
+      "dense": true,
+      "hash": "AFB294CC4C180B8B9E4F8D4EE1132FDE6E4981566A465C15C34E4885A64FA888",
+      "workers": {
+        "baseline": 1,
+        "serial": 1,
+        "two": 2,
+        "four": 4,
+        "eight": 8,
+        "default": 1
+      },
+      "median_ms": {
+        "baseline": 1.0625,
+        "serial": 0.7036,
+        "two": 0.3827,
+        "four": 0.2217,
+        "eight": 0.2326,
+        "default": 0.6681
+      }
+    },
+    {
+      "width": 999,
+      "height": 1000,
+      "edge": 0.3,
+      "dense": false,
+      "hash": "875ECB94B5BC1FEBAE4035101700DEEF7246F8C2E3FC021A9644FCC5FA847952",
+      "workers": {
+        "baseline": 1,
+        "serial": 1,
+        "two": 2,
+        "four": 4,
+        "eight": 8,
+        "default": 1
+      },
+      "median_ms": {
+        "baseline": 3.8524,
+        "serial": 2.6854,
+        "two": 1.4803,
+        "four": 0.7811,
+        "eight": 0.486,
+        "default": 2.7047
+      }
+    },
+    {
+      "width": 999,
+      "height": 1000,
+      "edge": 0.3,
+      "dense": true,
+      "hash": "AFB294CC4C180B8B9E4F8D4EE1132FDE6E4981566A465C15C34E4885A64FA888",
+      "workers": {
+        "baseline": 1,
+        "serial": 1,
+        "two": 2,
+        "four": 4,
+        "eight": 8,
+        "default": 1
+      },
+      "median_ms": {
+        "baseline": 1.2812,
+        "serial": 0.8782,
+        "two": 0.4877,
+        "four": 0.3071,
+        "eight": 0.2578,
+        "default": 0.8471
+      }
+    },
+    {
+      "width": 1000,
+      "height": 1000,
+      "edge": 0,
+      "dense": false,
+      "hash": "A18824AEDB3960AFF4F7DD536F62AC1FB392B1983E2C8C4D5F74B203693AFC5A",
+      "workers": {
+        "baseline": 1,
+        "serial": 1,
+        "two": 2,
+        "four": 4,
+        "eight": 8,
+        "default": 4
+      },
+      "median_ms": {
+        "baseline": 2.0578,
+        "serial": 2.18,
+        "two": 1.0299,
+        "four": 0.5507,
+        "eight": 0.3703,
+        "default": 0.5389
+      }
+    },
+    {
+      "width": 1000,
+      "height": 1000,
+      "edge": 0,
+      "dense": true,
+      "hash": "BFA872A3021D48C84643F831EE5F9358BCECCF3AD6A5F8B3A7A00E0B3F22BDBC",
+      "workers": {
+        "baseline": 1,
+        "serial": 1,
+        "two": 2,
+        "four": 4,
+        "eight": 8,
+        "default": 4
+      },
+      "median_ms": {
+        "baseline": 1.0084,
+        "serial": 0.6146,
+        "two": 0.3729,
+        "four": 0.2545,
+        "eight": 0.2248,
+        "default": 0.2047
+      }
+    },
+    {
+      "width": 1000,
+      "height": 1000,
+      "edge": 0.3,
+      "dense": false,
+      "hash": "6D4C841C935A0513B7957E5C929A8C8F9AA96D2926F43BA9D96E8C25B2B41B70",
+      "workers": {
+        "baseline": 1,
+        "serial": 1,
+        "two": 2,
+        "four": 4,
+        "eight": 8,
+        "default": 4
+      },
+      "median_ms": {
+        "baseline": 2.7868,
+        "serial": 2.9554,
+        "two": 1.3992,
+        "four": 0.7617,
+        "eight": 0.4443,
+        "default": 0.7561
+      }
+    },
+    {
+      "width": 1000,
+      "height": 1000,
+      "edge": 0.3,
+      "dense": true,
+      "hash": "BFA872A3021D48C84643F831EE5F9358BCECCF3AD6A5F8B3A7A00E0B3F22BDBC",
+      "workers": {
+        "baseline": 1,
+        "serial": 1,
+        "two": 2,
+        "four": 4,
+        "eight": 8,
+        "default": 4
+      },
+      "median_ms": {
+        "baseline": 1.216,
+        "serial": 0.886,
+        "two": 0.4824,
+        "four": 0.3052,
+        "eight": 0.2558,
+        "default": 0.3124
+      }
+    },
+    {
+      "width": 2000,
+      "height": 1000,
+      "edge": 0,
+      "dense": false,
+      "hash": "1A9FFC8A4663943DCA9368AE5ECF8E3C4E82D680DC8D72CB1149487350B2CEB3",
+      "workers": {
+        "baseline": 1,
+        "serial": 1,
+        "two": 2,
+        "four": 4,
+        "eight": 8,
+        "default": 4
+      },
+      "median_ms": {
+        "baseline": 3.9903,
+        "serial": 4.226,
+        "two": 2.0428,
+        "four": 1.2858,
+        "eight": 0.6123,
+        "default": 1.153
+      }
+    },
+    {
+      "width": 2000,
+      "height": 1000,
+      "edge": 0,
+      "dense": true,
+      "hash": "80BA255C480CBAF980212D7B2FE103518F93EBBBAAA7360E33BE6F47FD134395",
+      "workers": {
+        "baseline": 1,
+        "serial": 1,
+        "two": 2,
+        "four": 4,
+        "eight": 8,
+        "default": 4
+      },
+      "median_ms": {
+        "baseline": 1.8946,
+        "serial": 1.6185,
+        "two": 0.7012,
+        "four": 0.5951,
+        "eight": 0.4634,
+        "default": 0.4021
+      }
+    },
+    {
+      "width": 2000,
+      "height": 1000,
+      "edge": 0.3,
+      "dense": false,
+      "hash": "A6BF7A52DD07448C110FBC91CE6B77412E46B28A928A4878E2850FF1807ED259",
+      "workers": {
+        "baseline": 1,
+        "serial": 1,
+        "two": 2,
+        "four": 4,
+        "eight": 8,
+        "default": 4
+      },
+      "median_ms": {
+        "baseline": 5.3332,
+        "serial": 5.416,
+        "two": 2.7379,
+        "four": 1.4886,
+        "eight": 0.7398,
+        "default": 1.6234
+      }
+    },
+    {
+      "width": 2000,
+      "height": 1000,
+      "edge": 0.3,
+      "dense": true,
+      "hash": "80BA255C480CBAF980212D7B2FE103518F93EBBBAAA7360E33BE6F47FD134395",
+      "workers": {
+        "baseline": 1,
+        "serial": 1,
+        "two": 2,
+        "four": 4,
+        "eight": 8,
+        "default": 4
+      },
+      "median_ms": {
+        "baseline": 2.6312,
+        "serial": 1.7595,
+        "two": 0.9464,
+        "four": 0.9565,
+        "eight": 0.5142,
+        "default": 0.7017
+      }
+    },
+    {
+      "width": 1000000,
+      "height": 1,
+      "edge": 0,
+      "dense": false,
+      "hash": "10B0AEFA9B701A909162D6C2E083F8C4CA5CD248F8C9F4DD22FA22A46C0B8E42",
+      "workers": {
+        "baseline": 1,
+        "serial": 1,
+        "two": 1,
+        "four": 1,
+        "eight": 1,
+        "default": 1
+      },
+      "median_ms": {
+        "baseline": 1.7222,
+        "serial": 1.9909,
+        "two": 2.049,
+        "four": 1.9828,
+        "eight": 1.9969,
+        "default": 1.7429
+      }
+    },
+    {
+      "width": 1000000,
+      "height": 1,
+      "edge": 0,
+      "dense": true,
+      "hash": "BFA872A3021D48C84643F831EE5F9358BCECCF3AD6A5F8B3A7A00E0B3F22BDBC",
+      "workers": {
+        "baseline": 1,
+        "serial": 1,
+        "two": 1,
+        "four": 1,
+        "eight": 1,
+        "default": 1
+      },
+      "median_ms": {
+        "baseline": 0.9759,
+        "serial": 0.6028,
+        "two": 0.5835,
+        "four": 0.6015,
+        "eight": 0.5873,
+        "default": 0.5825
+      }
+    },
+    {
+      "width": 1000000,
+      "height": 1,
+      "edge": 0.3,
+      "dense": false,
+      "hash": "B9F717A878A1757715EEB8A1798709E0B8084D3248CADDEBDC6443ACFFD04518",
+      "workers": {
+        "baseline": 1,
+        "serial": 1,
+        "two": 1,
+        "four": 1,
+        "eight": 1,
+        "default": 1
+      },
+      "median_ms": {
+        "baseline": 2.5205,
+        "serial": 2.603,
+        "two": 2.7112,
+        "four": 2.7352,
+        "eight": 2.8194,
+        "default": 2.8239
+      }
+    },
+    {
+      "width": 1000000,
+      "height": 1,
+      "edge": 0.3,
+      "dense": true,
+      "hash": "BFA872A3021D48C84643F831EE5F9358BCECCF3AD6A5F8B3A7A00E0B3F22BDBC",
+      "workers": {
+        "baseline": 1,
+        "serial": 1,
+        "two": 1,
+        "four": 1,
+        "eight": 1,
+        "default": 1
+      },
+      "median_ms": {
+        "baseline": 1.2358,
+        "serial": 0.8997,
+        "two": 0.8727,
+        "four": 0.8702,
+        "eight": 0.8887,
+        "default": 0.888
+      }
+    },
+    {
+      "width": 4960,
+      "height": 3508,
+      "edge": 0,
+      "dense": false,
+      "hash": "8F23103DF1BA6981D83A58B442E9FE964AFDDA8658C0DF9667A25270BCE2F8F6",
+      "workers": {
+        "baseline": 1,
+        "serial": 1,
+        "two": 2,
+        "four": 4,
+        "eight": 8,
+        "default": 4
+      },
+      "median_ms": {
+        "baseline": 32.9716,
+        "serial": 36.0732,
+        "two": 14.4137,
+        "four": 7.7295,
+        "eight": 3.8164,
+        "default": 7.4885
+      }
+    },
+    {
+      "width": 4960,
+      "height": 3508,
+      "edge": 0,
+      "dense": true,
+      "hash": "C613DD534505BC54B946E2BCDCD282758288602FED975C1E6010C17C365C3DCD",
+      "workers": {
+        "baseline": 1,
+        "serial": 1,
+        "two": 2,
+        "four": 4,
+        "eight": 8,
+        "default": 4
+      },
+      "median_ms": {
+        "baseline": 16.6822,
+        "serial": 11.6376,
+        "two": 5.9517,
+        "four": 3.0595,
+        "eight": 2.7376,
+        "default": 2.8834
+      }
+    },
+    {
+      "width": 4960,
+      "height": 3508,
+      "edge": 0.3,
+      "dense": false,
+      "hash": "F5A021B309A151976DF1A0911AF4CB8AA9FA56A9C3D857C8D686882CC221B8CD",
+      "workers": {
+        "baseline": 1,
+        "serial": 1,
+        "two": 2,
+        "four": 4,
+        "eight": 8,
+        "default": 4
+      },
+      "median_ms": {
+        "baseline": 47.0362,
+        "serial": 50.2463,
+        "two": 22.6659,
+        "four": 12.2084,
+        "eight": 6.4233,
+        "default": 12.4257
+      }
+    },
+    {
+      "width": 4960,
+      "height": 3508,
+      "edge": 0.3,
+      "dense": true,
+      "hash": "C613DD534505BC54B946E2BCDCD282758288602FED975C1E6010C17C365C3DCD",
+      "workers": {
+        "baseline": 1,
+        "serial": 1,
+        "two": 2,
+        "four": 4,
+        "eight": 8,
+        "default": 4
+      },
+      "median_ms": {
+        "baseline": 22.4902,
+        "serial": 16.7723,
+        "two": 7.9861,
+        "four": 4.2858,
+        "eight": 4.125,
+        "default": 4.6762
+      }
+    }
+  ],
+  "source_sha256": {
+    "src/ReportDiff.Core/CandidateRowSchedule.cs": "d3c3deb2467083a063e2f9d5a522760ca616ff74d3439c92830e1ddd91c329d9",
+    "src/ReportDiff.Core/InitialCandidates.cs": "74822751930b3401ca4145b7ec5e9e2cfe6f0569a234c8f189d580d8301136d2",
+    "src/ReportDiff.Core/ComparisonTimings.cs": "022b57fb712d87e958f7faba42298435f9e5efe7574496b84f626c7e30a151c0",
+    "src/ReportDiff.Core/TolerantDifference.cs": "2d8934d17dcf2c88218ee3f9d6583e2d3fe4425cd640a5eb71f549f805400d9b",
+    "tests/ReportDiff.Tests/CandidateParallelTests.cs": "e9e4b7b6459a78103b08f888abf95240e8e7034196ae70ce2bcd9e6c39e71c5c"
+  },
+  "input_sha256": {
+    "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf": "0b30618efa2b809b7b3c483ca69d594f3e6ba2b5d54589a17489a3cfbe5c5e57",
+    "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf": "5585ad8ef072fc57cd63293ef0c1d9bbd4a5c9d41a8d7e84829aba0fdf408425",
+    "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf": "b9b5bfd1683043e9bcbf0b9b39fe7af9440aa64c1da6cbb651bb6566f03b32e4",
+    "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf": "d074b01368f32f80a439f04fce706d708ee5cb05beee14f18c91c580fd617dcd",
+    "samples/private/perf2c-memory-20260921/inputs/twenty-pages-original.pdf": "01ee30049efabf2e09d8bea65b464dc5fc1fd28bf64ba244d5632a0809c2887b",
+    "samples/private/perf2c-memory-20260921/inputs/twenty-pages-revised.pdf": "74748f24939cb9346d02e485ec2ab442b054226947a5d66c68a0a860bd027583"
+  }
+}

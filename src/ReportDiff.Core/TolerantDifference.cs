@@ -24,6 +24,11 @@ public static class TolerantDifference
 
     internal static RawDifference Calculate(Mat a, Mat b, ComparisonParameters parameters,
         bool useGroupBounds, ComparisonTimings? timings, ComparisonInk? classificationInk, GroupSearchExecution execution)
+        => Calculate(a, b, parameters, useGroupBounds, timings, classificationInk, execution, new());
+
+    internal static RawDifference Calculate(Mat a, Mat b, ComparisonParameters parameters,
+        bool useGroupBounds, ComparisonTimings? timings, ComparisonInk? classificationInk,
+        GroupSearchExecution execution, CandidateExecution candidateExecution)
     {
         var started = Stopwatch.GetTimestamp();
         ArgumentNullException.ThrowIfNull(parameters);
@@ -54,8 +59,15 @@ public static class TolerantDifference
         var featuresB = ownedB.Read();
         if (timings is not null) timings.PreparationMs = Stopwatch.GetElapsedTime(started).TotalMilliseconds;
         started = Stopwatch.GetTimestamp();
-        var candidates = Candidates(featuresA, featuresB, width, height, parameters.Diff, 0, 0);
-        if (timings is not null) timings.CandidatesMs = Stopwatch.GetElapsedTime(started).TotalMilliseconds;
+        var candidateWorkers = 1;
+        var candidates = useGroupBounds
+            ? InitialCandidates.Calculate(ownedA, ownedB, width, height, parameters.Diff, candidateExecution, out candidateWorkers)
+            : Candidates(featuresA, featuresB, width, height, parameters.Diff, 0, 0);
+        if (timings is not null)
+        {
+            timings.CandidatesMs = Stopwatch.GetElapsedTime(started).TotalMilliseconds;
+            timings.CandidateWorkers = candidateWorkers;
+        }
         if (shift <= 0 || !candidates.Contains((byte)255))
             return new(MatBuffers.Mask(candidates, width, height), 0, 0);
 
