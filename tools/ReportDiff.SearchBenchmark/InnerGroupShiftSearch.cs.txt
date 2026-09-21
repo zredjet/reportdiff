@@ -1,0 +1,90 @@
+using System.Diagnostics;
+
+namespace ReportDiff.Core;
+
+// 調査コピー専用。ずれは逐次、1候補の画素だけを最大4workerで分担する。
+internal static class InnerGroupShiftSearch
+{
+    internal const int Degree = 4;
+    internal const bool Trace = false;
+    private const int BlockPixels = 16384;
+
+    public static GroupShiftResult Evaluate(ComparisonFeatures ownedA, ComparisonFeatures ownedB,
+        int width, int height, DiffOptions options, GroupRun[] runs, int initialCount,
+        (int dx, int dy)[] shifts, byte[] raw, int group)
+    {
+        var started = Stopwatch.GetTimestamp();
+        var blocks = new List<(int Start, int End)>();
+        var first = 0; var pixels = 0; var totalPixels = 0;
+        for (var r = 0; r < runs.Length; r++)
+        {
+            pixels += runs[r].Right - runs[r].Left;
+            totalPixels += runs[r].Right - runs[r].Left;
+            if (pixels < BlockPixels) continue;
+            blocks.Add((first, r + 1)); first = r + 1; pixels = 0;
+        }
+        if (first < runs.Length) blocks.Add((first, runs.Length));
+        var degree = Math.Min(Degree, Math.Min(Environment.ProcessorCount, blocks.Count));
+        var threshold = (float)options.ColorThreshold;
+        var tolerance = (float)options.EdgeTolerance;
+        var bestCount = initialCount; var best = 0;
+        var events = Trace ? new List<object>() : null;
+        for (var index = 1; index < shifts.Length && bestCount != 0; index++)
+        {
+            var shiftStarted = Stopwatch.GetTimestamp();
+            var (dx, dy) = shifts[index];
+            var cutoff = bestCount; var count = 0; var next = -1;
+            var scans = Trace ? new long[degree] : null;
+            Parallel.For(0, degree, new ParallelOptions { MaxDegreeOfParallelism = degree }, worker =>
+            {
+                // Spanはworker内で取得し、Parallel.Forの終了後まで所有Matを保持する。
+                var a = ownedA.Read(); var b = ownedB.Read();
+                long scanned = 0;
+                while (Volatile.Read(ref count) < cutoff)
+                {
+                    var block = Interlocked.Increment(ref next);
+                    if (block >= blocks.Count) break;
+                    var local = 0; var remaining = cutoff - Volatile.Read(ref count);
+                    var (start, end) = blocks[block];
+                    for (var r = start; r < end && local < remaining; r++)
+                    {
+                        var run = runs[r]; var row = run.Y * width;
+                        var sourceRow = Math.Clamp(run.Y - dy, 0, height - 1) * width;
+                        var x = run.Left;
+                        for (; x < run.Right && local < remaining; x++)
+                            if (GroupShiftSearch.IsCandidate(a, b, row + x,
+                                sourceRow + Math.Clamp(x - dx, 0, width - 1), threshold, tolerance)) local++;
+                        if (Trace) scanned += x - run.Left;
+                    }
+                    // 共有値は区間ブロックごと。画素ループでの同期はしない。
+                    Interlocked.Add(ref count, local);
+                }
+                if (Trace) scans![worker] = scanned;
+            });
+            // cutoff以上は不採用。cutoff未満なら全ブロックを走査した正確な値。
+            var candidateCount = Math.Min(count, cutoff);
+            if (Trace) events!.Add(new { index, dx, dy, cutoff, count = candidateCount,
+                scanned = scans!.Sum(), elapsed_ms = Stopwatch.GetElapsedTime(shiftStarted).TotalMilliseconds });
+            if (candidateCount >= bestCount) continue;
+            bestCount = candidateCount; best = index;
+        }
+        if (bestCount != 0)
+        {
+            var a = ownedA.Read(); var b = ownedB.Read();
+            var (dx, dy) = shifts[best];
+            foreach (var run in runs)
+            {
+                var row = run.Y * width;
+                var sourceRow = Math.Clamp(run.Y - dy, 0, height - 1) * width;
+                for (var x = run.Left; x < run.Right; x++)
+                    if (GroupShiftSearch.IsCandidate(a, b, row + x,
+                        sourceRow + Math.Clamp(x - dx, 0, width - 1), threshold, tolerance)) raw[row + x] = 255;
+            }
+        }
+        if (Trace) PipelineMetrics.Add("search.inner", started, new { group, pixels = totalPixels,
+            runs = runs.Length, blocks = blocks.Count, degree, initial = initialCount,
+            remaining = bestCount, best_shift = best, candidates = events,
+            output_scanned = bestCount == 0 ? 0 : totalPixels });
+        return new(bestCount, best);
+    }
+}
