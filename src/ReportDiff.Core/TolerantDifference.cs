@@ -19,7 +19,7 @@ public static class TolerantDifference
         Calculate(a, b, parameters, true);
 
     internal static RawDifference Calculate(Mat a, Mat b, ComparisonParameters parameters,
-        bool useGroupBounds, ComparisonTimings? timings = null)
+        bool useGroupBounds, ComparisonTimings? timings = null, ComparisonInk? classificationInk = null)
     {
         var started = Stopwatch.GetTimestamp();
         ArgumentNullException.ThrowIfNull(parameters);
@@ -52,6 +52,7 @@ public static class TolerantDifference
 
         started = Stopwatch.GetTimestamp();
         var labels = Groups(ownedA.Ink, ownedB.Ink, candidates, shift, out var count);
+        classificationInk?.Capture(a, b, parameters, ownedA.Ink, ownedB.Ink);
         if (timings is not null) timings.GroupingMs = Stopwatch.GetElapsedTime(started).TotalMilliseconds;
         started = Stopwatch.GetTimestamp();
         var shifts = (from dx in Enumerable.Range(-shift, checked(2 * shift + 1))

@@ -6,12 +6,13 @@ namespace ReportDiff.Core;
 internal static class DifferenceClassifier
 {
     public static string?[] Classify(Mat a, Mat b, ComparisonParameters parameters, byte[] raw,
-        int[] labels, bool[] keep, Rect region, out Mat? removalMask)
+        int[] labels, bool[] keep, Rect region, out Mat? removalMask, ComparisonInk? prepared = null)
     {
         var width = a.Width;
         var height = a.Height;
-        var (originalA, inkA) = ReadInk(a, region, parameters);
-        var (originalB, inkB) = ReadInk(b, region, parameters);
+        var (preparedA, preparedB) = prepared?.ReadFor(a, b, parameters) ?? (null, null);
+        var (originalA, inkA) = ReadInk(a, region, parameters, preparedA);
+        var (originalB, inkB) = ReadInk(b, region, parameters, preparedB);
         var kinds = new string?[keep.Length];
         // 各種の有無だけで分類できるため、割合や多数決のしきい値を持たない。
         var states = new byte[keep.Length];
@@ -61,18 +62,19 @@ internal static class DifferenceClassifier
         return false;
     }
 
-    private static (byte[] Original, byte[] Ink) ReadInk(Mat image, Rect region, ComparisonParameters parameters)
+    private static (byte[] Original, byte[] Ink) ReadInk(Mat image, Rect region, ComparisonParameters parameters, Mat? prepared)
     {
         var edge = parameters.Diff.EdgeTolerance > 0;
-        // 局所最大値と 1px 膨張に必要な余白を付け、ROI の端に偽の背景を作らない。
-        var margin = Math.Max(1, Units.RoundPixels(parameters.Ink.BackgroundRadiusMm, parameters.Dpi)) + (edge ? 1 : 0);
+        // 生成済みインクには局所背景の余白は不要。分類用の 1px 膨張の余白だけを残す。
+        // 未生成の場合は従来どおり背景半径も含め、ROI の端に偽の背景を作らない。
+        var margin = (prepared is null ? Math.Max(1, Units.RoundPixels(parameters.Ink.BackgroundRadiusMm, parameters.Dpi)) : 0)
+            + (edge ? 1 : 0);
         var left = Math.Max(0, region.Left - margin);
         var top = Math.Max(0, region.Top - margin);
         var right = Math.Min(image.Width, region.Right + margin);
         var bottom = Math.Min(image.Height, region.Bottom + margin);
-        using var source = new Mat(image, new Rect(left, top, right - left, bottom - top));
-        using var lab = ImageInk.ToLab(source);
-        using var ink = ImageInk.FromLab(lab, parameters.Dpi, parameters.Ink);
+        var bounds = new Rect(left, top, right - left, bottom - top);
+        using var ink = prepared is null ? CreateInk(image, bounds, parameters) : new Mat(prepared, bounds);
         var local = new Rect(region.Left - left, region.Top - top, region.Width, region.Height);
         using var original = new Mat(ink, local);
         var data = MatBuffers.Bytes(original);
@@ -82,5 +84,12 @@ internal static class DifferenceClassifier
         Cv2.Dilate(ink, expanded, kernel);
         using var matched = new Mat(expanded, local);
         return (data, MatBuffers.Bytes(matched));
+    }
+
+    private static Mat CreateInk(Mat image, Rect bounds, ComparisonParameters parameters)
+    {
+        using var source = new Mat(image, bounds);
+        using var lab = ImageInk.ToLab(source);
+        return ImageInk.FromLab(lab, parameters.Dpi, parameters.Ink);
     }
 }

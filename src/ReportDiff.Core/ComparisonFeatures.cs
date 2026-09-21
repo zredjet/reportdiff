@@ -62,12 +62,17 @@ internal sealed class ComparisonFeatures : IDisposable
             using var lab = ImageInk.ToLab(source);
             if (tolerant)
             {
-                Cv2.Blur(lab, blur, new Size(3, 3));
-                Cv2.Dilate(lab, maximum, kernel);
-                Cv2.Erode(lab, minimum, kernel);
+                // インクの局所背景に必要な広い余白では、特徴量フィルターを繰り返さない。
+                // 5×5 の半径 2px を残せば、保存する帯の画素値は全ページ演算と一致する。
+                var featureTop = Math.Max(0, y - 2);
+                var featureBottom = (int)Math.Min(rows, (long)end + 2);
+                using var featureLab = new Mat(lab, new Rect(0, featureTop - top, cols, featureBottom - featureTop));
+                Cv2.Blur(featureLab, blur, new Size(3, 3));
+                Cv2.Dilate(featureLab, maximum, kernel);
+                Cv2.Erode(featureLab, minimum, kernel);
                 Cv2.Subtract(maximum, minimum, maximum);
-                CopyRows(blur, values, y - top, y, end - y);
-                CopyRows(maximum, contrast, y - top, y, end - y);
+                CopyRows(blur, values, y - featureTop, y, end - y);
+                CopyRows(maximum, contrast, y - featureTop, y, end - y);
             }
             else
                 CopyRows(lab, values, y - top, y, end - y);

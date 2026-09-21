@@ -1,0 +1,2796 @@
+{
+  "date": "2026-09-21",
+  "baseline_commit": "0ba9fcb0ead84550a852bd654ebfe0ff1ac38161",
+  "scope": [
+    "reuse_classification_ink",
+    "narrow_feature_filter_halo"
+  ],
+  "environment": {
+    "os": "macOS 26.5.1",
+    "cpu": "Apple M4 Max",
+    "cores": 16,
+    "ram_bytes": 137438953472,
+    "dotnet": "10.0.12",
+    "configuration": "Release"
+  },
+  "tests": {
+    "total": 873,
+    "passed": 873,
+    "failed": 0,
+    "skipped": 0,
+    "added": 50,
+    "build_warnings": 0
+  },
+  "validation": {
+    "snapshot_count": 100,
+    "snapshots_exact": true,
+    "a4_exact": true,
+    "core_sha256": {
+      "baseline": "ae0f7e80460050a4ff66047c6caa9fef0d0cfddd7cd058d7eb51b9b423e24884",
+      "optimized": "fb3ab2ddf17b2526936552a16fdac3179c41d9b78e6f3b0812fdbaf0595c075d"
+    }
+  },
+  "metrics": [
+    {
+      "condition": "A3・300dpi・1ページ",
+      "baseline": {
+        "elapsed_ms": 1908.6134999524802,
+        "peak_rss_bytes": 2081292288
+      },
+      "optimized": {
+        "elapsed_ms": 1789.3863330828026,
+        "peak_rss_bytes": 1994473472
+      },
+      "time_reduction_percent": 6.246794695345392,
+      "rss_reduction_percent": 4.171389886012977
+    },
+    {
+      "condition": "A3・400dpi・1ページ",
+      "baseline": {
+        "elapsed_ms": 3150.7789170136675,
+        "peak_rss_bytes": 3694166016
+      },
+      "optimized": {
+        "elapsed_ms": 2884.3686250038445,
+        "peak_rss_bytes": 3580166144
+      },
+      "time_reduction_percent": 8.455378781775291,
+      "rss_reduction_percent": 3.0859433903687394
+    },
+    {
+      "condition": "A3・300dpi・4ページ",
+      "baseline": {
+        "elapsed_ms": 5737.738166004419,
+        "peak_rss_bytes": 2166308864
+      },
+      "optimized": {
+        "elapsed_ms": 5368.160499958321,
+        "peak_rss_bytes": 2080784384
+      },
+      "time_reduction_percent": 6.441173426766178,
+      "rss_reduction_percent": 3.947935653186707
+    }
+  ],
+  "summaries": {
+    "probe-300-summary": {
+      "mode": "probe",
+      "dpi": 300,
+      "runs": [
+        {
+          "name": "probe-300-baseline-0",
+          "variant": "baseline",
+          "warmup": true,
+          "command": [
+            "dotnet",
+            "out/perf2a-ink-filter/binaries/baseline/ReportDiff.Tests.dll",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+            "samples/private/perf2a-ink-filter-20260921/probe-300-baseline-0",
+            "normal",
+            "300"
+          ],
+          "elapsed_ms": 1954.226917005144,
+          "peak_rss_bytes": 2081046528,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "profile": {
+            "mode": "normal",
+            "stages": [
+              {
+                "stage": "start",
+                "elapsed_ms": 0.6398,
+                "stage_ms": 0.6398,
+                "allocated_bytes": 70824,
+                "total_allocated_bytes": 70824,
+                "gc_heap_bytes": 71064,
+                "gc_committed_bytes": 0,
+                "working_set_bytes": 44384256,
+                "peak_working_set_bytes": 0,
+                "gen0": 0,
+                "gen1": 0,
+                "gen2": 0
+              },
+              {
+                "stage": "open",
+                "elapsed_ms": 177.5984,
+                "stage_ms": 176.9586,
+                "allocated_bytes": 68536,
+                "total_allocated_bytes": 139360,
+                "gc_heap_bytes": 139864,
+                "gc_committed_bytes": 0,
+                "working_set_bytes": 65519616,
+                "peak_working_set_bytes": 0,
+                "gen0": 0,
+                "gen1": 0,
+                "gen2": 0
+              },
+              {
+                "stage": "render-a",
+                "elapsed_ms": 206.0827,
+                "stage_ms": 28.48429999999999,
+                "allocated_bytes": 89576,
+                "total_allocated_bytes": 228936,
+                "gc_heap_bytes": 229536,
+                "gc_committed_bytes": 0,
+                "working_set_bytes": 194969600,
+                "peak_working_set_bytes": 0,
+                "gen0": 0,
+                "gen1": 0,
+                "gen2": 0
+              },
+              {
+                "stage": "render-b",
+                "elapsed_ms": 219.7391,
+                "stage_ms": 13.65640000000002,
+                "allocated_bytes": 22576,
+                "total_allocated_bytes": 251512,
+                "gc_heap_bytes": 252184,
+                "gc_committed_bytes": 0,
+                "working_set_bytes": 247529472,
+                "peak_working_set_bytes": 0,
+                "gen0": 0,
+                "gen1": 0,
+                "gen2": 0
+              },
+              {
+                "stage": "normalize",
+                "elapsed_ms": 224.4387,
+                "stage_ms": 4.699600000000004,
+                "allocated_bytes": 8200,
+                "total_allocated_bytes": 259712,
+                "gc_heap_bytes": 260408,
+                "gc_committed_bytes": 0,
+                "working_set_bytes": 299859968,
+                "peak_working_set_bytes": 0,
+                "gen0": 0,
+                "gen1": 0,
+                "gen2": 0
+              },
+              {
+                "stage": "compare",
+                "elapsed_ms": 1439.588,
+                "stage_ms": 1215.1493,
+                "allocated_bytes": 361665744,
+                "total_allocated_bytes": 361925456,
+                "gc_heap_bytes": 361749016,
+                "gc_committed_bytes": 87605248,
+                "working_set_bytes": 2026045440,
+                "peak_working_set_bytes": 0,
+                "gen0": 1,
+                "gen1": 1,
+                "gen2": 1
+              },
+              {
+                "stage": "text",
+                "elapsed_ms": 1642.3415,
+                "stage_ms": 202.75350000000003,
+                "allocated_bytes": 38311432,
+                "total_allocated_bytes": 400236888,
+                "gc_heap_bytes": 373585848,
+                "gc_committed_bytes": 371032064,
+                "working_set_bytes": 2051948544,
+                "peak_working_set_bytes": 0,
+                "gen0": 5,
+                "gen1": 2,
+                "gen2": 1
+              },
+              {
+                "stage": "images",
+                "elapsed_ms": 1874.6048,
+                "stage_ms": 232.26330000000007,
+                "allocated_bytes": 6610432,
+                "total_allocated_bytes": 406847320,
+                "gc_heap_bytes": 380201656,
+                "gc_committed_bytes": 371032064,
+                "working_set_bytes": 2075623424,
+                "peak_working_set_bytes": 0,
+                "gen0": 5,
+                "gen1": 2,
+                "gen2": 1
+              },
+              {
+                "stage": "fonts",
+                "elapsed_ms": 1879.5131,
+                "stage_ms": 4.9082999999998265,
+                "allocated_bytes": 1431072,
+                "total_allocated_bytes": 408278392,
+                "gc_heap_bytes": 376802104,
+                "gc_committed_bytes": 378961920,
+                "working_set_bytes": 2077081600,
+                "peak_working_set_bytes": 0,
+                "gen0": 6,
+                "gen1": 2,
+                "gen2": 1
+              },
+              {
+                "stage": "json",
+                "elapsed_ms": 1900.566,
+                "stage_ms": 21.052900000000136,
+                "allocated_bytes": 1224472,
+                "total_allocated_bytes": 409502864,
+                "gc_heap_bytes": 378038184,
+                "gc_committed_bytes": 378961920,
+                "working_set_bytes": 2080161792,
+                "peak_working_set_bytes": 0,
+                "gen0": 6,
+                "gen1": 2,
+                "gen2": 1
+              },
+              {
+                "stage": "html",
+                "elapsed_ms": 1905.5163,
+                "stage_ms": 4.95029999999997,
+                "allocated_bytes": 737232,
+                "total_allocated_bytes": 410240096,
+                "gc_heap_bytes": 378776112,
+                "gc_committed_bytes": 378961920,
+                "working_set_bytes": 2080817152,
+                "peak_working_set_bytes": 0,
+                "gen0": 6,
+                "gen1": 2,
+                "gen2": 1
+              }
+            ],
+            "timings": {
+              "PreparationMs": 432.408,
+              "CandidatesMs": 65.8501,
+              "GroupingMs": 61.0752,
+              "ShiftsMs": 414.7417,
+              "MovementMs": 70.3721,
+              "MovementManagedBytes": 2028840,
+              "ClassificationMs": 94.2875,
+              "ClassificationManagedBytes": 63554768,
+              "RetainedRemovalMaskBytes": 17399680,
+              "ClusteringMs": 73.33
+            },
+            "Summary": {
+              "Status": "different",
+              "PagesCompared": 1,
+              "PagesDifferent": 1,
+              "Clusters": 57,
+              "AbsorbedGroups": 11
+            }
+          }
+        },
+        {
+          "name": "probe-300-optimized-0",
+          "variant": "optimized",
+          "warmup": true,
+          "command": [
+            "dotnet",
+            "out/perf2a-ink-filter/binaries/optimized/ReportDiff.Tests.dll",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+            "samples/private/perf2a-ink-filter-20260921/probe-300-optimized-0",
+            "normal",
+            "300"
+          ],
+          "elapsed_ms": 1851.510834065266,
+          "peak_rss_bytes": 1995751424,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "profile": {
+            "mode": "normal",
+            "stages": [
+              {
+                "stage": "start",
+                "elapsed_ms": 0.442,
+                "stage_ms": 0.442,
+                "allocated_bytes": 70856,
+                "total_allocated_bytes": 70856,
+                "gc_heap_bytes": 71096,
+                "gc_committed_bytes": 0,
+                "working_set_bytes": 44449792,
+                "peak_working_set_bytes": 0,
+                "gen0": 0,
+                "gen1": 0,
+                "gen2": 0
+              },
+              {
+                "stage": "open",
+                "elapsed_ms": 177.3864,
+                "stage_ms": 176.9444,
+                "allocated_bytes": 68568,
+                "total_allocated_bytes": 139424,
+                "gc_heap_bytes": 139928,
+                "gc_committed_bytes": 0,
+                "working_set_bytes": 65208320,
+                "peak_working_set_bytes": 0,
+                "gen0": 0,
+                "gen1": 0,
+                "gen2": 0
+              },
+              {
+                "stage": "render-a",
+                "elapsed_ms": 206.5329,
+                "stage_ms": 29.146500000000003,
+                "allocated_bytes": 89576,
+                "total_allocated_bytes": 229000,
+                "gc_heap_bytes": 229600,
+                "gc_committed_bytes": 0,
+                "working_set_bytes": 194166784,
+                "peak_working_set_bytes": 0,
+                "gen0": 0,
+                "gen1": 0,
+                "gen2": 0
+              },
+              {
+                "stage": "render-b",
+                "elapsed_ms": 220.3265,
+                "stage_ms": 13.793599999999998,
+                "allocated_bytes": 22576,
+                "total_allocated_bytes": 251576,
+                "gc_heap_bytes": 252248,
+                "gc_committed_bytes": 0,
+                "working_set_bytes": 246644736,
+                "peak_working_set_bytes": 0,
+                "gen0": 0,
+                "gen1": 0,
+                "gen2": 0
+              },
+              {
+                "stage": "normalize",
+                "elapsed_ms": 225.0653,
+                "stage_ms": 4.738799999999998,
+                "allocated_bytes": 8200,
+                "total_allocated_bytes": 259776,
+                "gc_heap_bytes": 260472,
+                "gc_committed_bytes": 0,
+                "working_set_bytes": 298975232,
+                "peak_working_set_bytes": 0,
+                "gen0": 0,
+                "gen1": 0,
+                "gen2": 0
+              },
+              {
+                "stage": "compare",
+                "elapsed_ms": 1340.983,
+                "stage_ms": 1115.9177,
+                "allocated_bytes": 361665888,
+                "total_allocated_bytes": 361925664,
+                "gc_heap_bytes": 361746960,
+                "gc_committed_bytes": 87605248,
+                "working_set_bytes": 1940815872,
+                "peak_working_set_bytes": 0,
+                "gen0": 1,
+                "gen1": 1,
+                "gen2": 1
+              },
+              {
+                "stage": "text",
+                "elapsed_ms": 1545.5898,
+                "stage_ms": 204.60680000000002,
+                "allocated_bytes": 38316584,
+                "total_allocated_bytes": 400242248,
+                "gc_heap_bytes": 373593344,
+                "gc_committed_bytes": 371032064,
+                "working_set_bytes": 1966653440,
+                "peak_working_set_bytes": 0,
+                "gen0": 5,
+                "gen1": 2,
+                "gen2": 1
+              },
+              {
+                "stage": "images",
+                "elapsed_ms": 1773.2615,
+                "stage_ms": 227.6717000000001,
+                "allocated_bytes": 6607112,
+                "total_allocated_bytes": 406849360,
+                "gc_heap_bytes": 380205784,
+                "gc_committed_bytes": 371032064,
+                "working_set_bytes": 1990410240,
+                "peak_working_set_bytes": 0,
+                "gen0": 5,
+                "gen1": 2,
+                "gen2": 1
+              },
+              {
+                "stage": "fonts",
+                "elapsed_ms": 1778.0815,
+                "stage_ms": 4.819999999999936,
+                "allocated_bytes": 1431072,
+                "total_allocated_bytes": 408280432,
+                "gc_heap_bytes": 376802872,
+                "gc_committed_bytes": 378961920,
+                "working_set_bytes": 1991835648,
+                "peak_working_set_bytes": 0,
+                "gen0": 6,
+                "gen1": 2,
+                "gen2": 1
+              },
+              {
+                "stage": "json",
+                "elapsed_ms": 1799.6064,
+                "stage_ms": 21.52489999999989,
+                "allocated_bytes": 1220560,
+                "total_allocated_bytes": 409500992,
+                "gc_heap_bytes": 378035040,
+                "gc_committed_bytes": 378961920,
+                "working_set_bytes": 1994866688,
+                "peak_working_set_bytes": 0,
+                "gen0": 6,
+                "gen1": 2,
+                "gen2": 1
+              },
+              {
+                "stage": "html",
+                "elapsed_ms": 1804.0957,
+                "stage_ms": 4.489300000000185,
+                "allocated_bytes": 737232,
+                "total_allocated_bytes": 410238224,
+                "gc_heap_bytes": 378772968,
+                "gc_committed_bytes": 378961920,
+                "working_set_bytes": 1995538432,
+                "peak_working_set_bytes": 0,
+                "gen0": 6,
+                "gen1": 2,
+                "gen2": 1
+              }
+            ],
+            "timings": {
+              "PreparationMs": 406.6962,
+              "CandidatesMs": 70.6324,
+              "GroupingMs": 59.557,
+              "ShiftsMs": 412.3841,
+              "MovementMs": 71.4488,
+              "MovementManagedBytes": 2028840,
+              "ClassificationMs": 22.8537,
+              "ClassificationManagedBytes": 63550176,
+              "RetainedRemovalMaskBytes": 17399680,
+              "ClusteringMs": 69.16409999999999
+            },
+            "Summary": {
+              "Status": "different",
+              "PagesCompared": 1,
+              "PagesDifferent": 1,
+              "Clusters": 57,
+              "AbsorbedGroups": 11
+            }
+          }
+        },
+        {
+          "name": "probe-300-optimized-1",
+          "variant": "optimized",
+          "warmup": false,
+          "command": [
+            "dotnet",
+            "out/perf2a-ink-filter/binaries/optimized/ReportDiff.Tests.dll",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+            "samples/private/perf2a-ink-filter-20260921/probe-300-optimized-1",
+            "normal",
+            "300"
+          ],
+          "elapsed_ms": 1860.1848750840873,
+          "peak_rss_bytes": 1993457664,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "profile": {
+            "mode": "normal",
+            "stages": [
+              {
+                "stage": "start",
+                "elapsed_ms": 0.4705,
+                "stage_ms": 0.4705,
+                "allocated_bytes": 70856,
+                "total_allocated_bytes": 70856,
+                "gc_heap_bytes": 71096,
+                "gc_committed_bytes": 0,
+                "working_set_bytes": 44351488,
+                "peak_working_set_bytes": 0,
+                "gen0": 0,
+                "gen1": 0,
+                "gen2": 0
+              },
+              {
+                "stage": "open",
+                "elapsed_ms": 177.3293,
+                "stage_ms": 176.8588,
+                "allocated_bytes": 68568,
+                "total_allocated_bytes": 139424,
+                "gc_heap_bytes": 139928,
+                "gc_committed_bytes": 0,
+                "working_set_bytes": 65601536,
+                "peak_working_set_bytes": 0,
+                "gen0": 0,
+                "gen1": 0,
+                "gen2": 0
+              },
+              {
+                "stage": "render-a",
+                "elapsed_ms": 206.4977,
+                "stage_ms": 29.16840000000002,
+                "allocated_bytes": 89576,
+                "total_allocated_bytes": 229000,
+                "gc_heap_bytes": 229600,
+                "gc_committed_bytes": 0,
+                "working_set_bytes": 194904064,
+                "peak_working_set_bytes": 0,
+                "gen0": 0,
+                "gen1": 0,
+                "gen2": 0
+              },
+              {
+                "stage": "render-b",
+                "elapsed_ms": 220.1384,
+                "stage_ms": 13.640699999999981,
+                "allocated_bytes": 22576,
+                "total_allocated_bytes": 251576,
+                "gc_heap_bytes": 252248,
+                "gc_committed_bytes": 0,
+                "working_set_bytes": 247316480,
+                "peak_working_set_bytes": 0,
+                "gen0": 0,
+                "gen1": 0,
+                "gen2": 0
+              },
+              {
+                "stage": "normalize",
+                "elapsed_ms": 224.4245,
+                "stage_ms": 4.286100000000005,
+                "allocated_bytes": 8200,
+                "total_allocated_bytes": 259776,
+                "gc_heap_bytes": 260472,
+                "gc_committed_bytes": 0,
+                "working_set_bytes": 299663360,
+                "peak_working_set_bytes": 0,
+                "gen0": 0,
+                "gen1": 0,
+                "gen2": 0
+              },
+              {
+                "stage": "compare",
+                "elapsed_ms": 1347.6406,
+                "stage_ms": 1123.2160999999999,
+                "allocated_bytes": 361665888,
+                "total_allocated_bytes": 361925664,
+                "gc_heap_bytes": 361747016,
+                "gc_committed_bytes": 87605248,
+                "working_set_bytes": 1938325504,
+                "peak_working_set_bytes": 0,
+                "gen0": 1,
+                "gen1": 1,
+                "gen2": 1
+              },
+              {
+                "stage": "text",
+                "elapsed_ms": 1553.3869,
+                "stage_ms": 205.74630000000002,
+                "allocated_bytes": 38316528,
+                "total_allocated_bytes": 400242192,
+                "gc_heap_bytes": 373593344,
+                "gc_committed_bytes": 371032064,
+                "working_set_bytes": 1964343296,
+                "peak_working_set_bytes": 0,
+                "gen0": 5,
+                "gen1": 2,
+                "gen2": 1
+              },
+              {
+                "stage": "images",
+                "elapsed_ms": 1784.1777,
+                "stage_ms": 230.7908,
+                "allocated_bytes": 6607112,
+                "total_allocated_bytes": 406849304,
+                "gc_heap_bytes": 380205784,
+                "gc_committed_bytes": 371032064,
+                "working_set_bytes": 1988018176,
+                "peak_working_set_bytes": 0,
+                "gen0": 5,
+                "gen1": 2,
+                "gen2": 1
+              },
+              {
+                "stage": "fonts",
+                "elapsed_ms": 1789.0341,
+                "stage_ms": 4.8564000000001215,
+                "allocated_bytes": 1431072,
+                "total_allocated_bytes": 408280376,
+                "gc_heap_bytes": 376802848,
+                "gc_committed_bytes": 378961920,
+                "working_set_bytes": 1989443584,
+                "peak_working_set_bytes": 0,
+                "gen0": 6,
+                "gen1": 2,
+                "gen2": 1
+              },
+              {
+                "stage": "json",
+                "elapsed_ms": 1810.1806,
+                "stage_ms": 21.146499999999833,
+                "allocated_bytes": 1213584,
+                "total_allocated_bytes": 409493960,
+                "gc_heap_bytes": 378028016,
+                "gc_committed_bytes": 378961920,
+                "working_set_bytes": 1992589312,
+                "peak_working_set_bytes": 0,
+                "gen0": 6,
+                "gen1": 2,
+                "gen2": 1
+              },
+              {
+                "stage": "html",
+                "elapsed_ms": 1814.859,
+                "stage_ms": 4.6784000000000106,
+                "allocated_bytes": 737232,
+                "total_allocated_bytes": 410231192,
+                "gc_heap_bytes": 378765944,
+                "gc_committed_bytes": 378961920,
+                "working_set_bytes": 1993244672,
+                "peak_working_set_bytes": 0,
+                "gen0": 6,
+                "gen1": 2,
+                "gen2": 1
+              }
+            ],
+            "timings": {
+              "PreparationMs": 399.4732,
+              "CandidatesMs": 71.7365,
+              "GroupingMs": 59.4024,
+              "ShiftsMs": 423.5227,
+              "MovementMs": 72.1928,
+              "MovementManagedBytes": 2028840,
+              "ClassificationMs": 22.5001,
+              "ClassificationManagedBytes": 63550176,
+              "RetainedRemovalMaskBytes": 17399680,
+              "ClusteringMs": 71.20679999999999
+            },
+            "Summary": {
+              "Status": "different",
+              "PagesCompared": 1,
+              "PagesDifferent": 1,
+              "Clusters": 57,
+              "AbsorbedGroups": 11
+            }
+          }
+        },
+        {
+          "name": "probe-300-baseline-1",
+          "variant": "baseline",
+          "warmup": false,
+          "command": [
+            "dotnet",
+            "out/perf2a-ink-filter/binaries/baseline/ReportDiff.Tests.dll",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+            "samples/private/perf2a-ink-filter-20260921/probe-300-baseline-1",
+            "normal",
+            "300"
+          ],
+          "elapsed_ms": 1948.3138750074431,
+          "peak_rss_bytes": 2079195136,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "profile": {
+            "mode": "normal",
+            "stages": [
+              {
+                "stage": "start",
+                "elapsed_ms": 0.4376,
+                "stage_ms": 0.4376,
+                "allocated_bytes": 70824,
+                "total_allocated_bytes": 70824,
+                "gc_heap_bytes": 71064,
+                "gc_committed_bytes": 0,
+                "working_set_bytes": 44433408,
+                "peak_working_set_bytes": 0,
+                "gen0": 0,
+                "gen1": 0,
+                "gen2": 0
+              },
+              {
+                "stage": "open",
+                "elapsed_ms": 178.5712,
+                "stage_ms": 178.1336,
+                "allocated_bytes": 68536,
+                "total_allocated_bytes": 139360,
+                "gc_heap_bytes": 139864,
+                "gc_committed_bytes": 0,
+                "working_set_bytes": 65224704,
+                "peak_working_set_bytes": 0,
+                "gen0": 0,
+                "gen1": 0,
+                "gen2": 0
+              },
+              {
+                "stage": "render-a",
+                "elapsed_ms": 208.3412,
+                "stage_ms": 29.769999999999982,
+                "allocated_bytes": 89576,
+                "total_allocated_bytes": 228936,
+                "gc_heap_bytes": 229536,
+                "gc_committed_bytes": 0,
+                "working_set_bytes": 194625536,
+                "peak_working_set_bytes": 0,
+                "gen0": 0,
+                "gen1": 0,
+                "gen2": 0
+              },
+              {
+                "stage": "render-b",
+                "elapsed_ms": 221.186,
+                "stage_ms": 12.84480000000002,
+                "allocated_bytes": 22576,
+                "total_allocated_bytes": 251512,
+                "gc_heap_bytes": 252184,
+                "gc_committed_bytes": 0,
+                "working_set_bytes": 247709696,
+                "peak_working_set_bytes": 0,
+                "gen0": 0,
+                "gen1": 0,
+                "gen2": 0
+              },
+              {
+                "stage": "normalize",
+                "elapsed_ms": 226.1981,
+                "stage_ms": 5.012100000000004,
+                "allocated_bytes": 8200,
+                "total_allocated_bytes": 259712,
+                "gc_heap_bytes": 260408,
+                "gc_committed_bytes": 0,
+                "working_set_bytes": 300040192,
+                "peak_working_set_bytes": 0,
+                "gen0": 0,
+                "gen1": 0,
+                "gen2": 0
+              },
+              {
+                "stage": "compare",
+                "elapsed_ms": 1439.0957,
+                "stage_ms": 1212.8976,
+                "allocated_bytes": 361665744,
+                "total_allocated_bytes": 361925456,
+                "gc_heap_bytes": 361749016,
+                "gc_committed_bytes": 87605248,
+                "working_set_bytes": 2024341504,
+                "peak_working_set_bytes": 0,
+                "gen0": 1,
+                "gen1": 1,
+                "gen2": 1
+              },
+              {
+                "stage": "text",
+                "elapsed_ms": 1643.2109,
+                "stage_ms": 204.11519999999996,
+                "allocated_bytes": 38311432,
+                "total_allocated_bytes": 400236888,
+                "gc_heap_bytes": 373585928,
+                "gc_committed_bytes": 371032064,
+                "working_set_bytes": 2050113536,
+                "peak_working_set_bytes": 0,
+                "gen0": 5,
+                "gen1": 2,
+                "gen2": 1
+              },
+              {
+                "stage": "images",
+                "elapsed_ms": 1872.7728,
+                "stage_ms": 229.56189999999992,
+                "allocated_bytes": 6610432,
+                "total_allocated_bytes": 406847320,
+                "gc_heap_bytes": 380201736,
+                "gc_committed_bytes": 371032064,
+                "working_set_bytes": 2073722880,
+                "peak_working_set_bytes": 0,
+                "gen0": 5,
+                "gen1": 2,
+                "gen2": 1
+              },
+              {
+                "stage": "fonts",
+                "elapsed_ms": 1877.2717,
+                "stage_ms": 4.498900000000049,
+                "allocated_bytes": 1431072,
+                "total_allocated_bytes": 408278392,
+                "gc_heap_bytes": 376802184,
+                "gc_committed_bytes": 378961920,
+                "working_set_bytes": 2075181056,
+                "peak_working_set_bytes": 0,
+                "gen0": 6,
+                "gen1": 2,
+                "gen2": 1
+              },
+              {
+                "stage": "json",
+                "elapsed_ms": 1898.002,
+                "stage_ms": 20.730299999999943,
+                "allocated_bytes": 1187904,
+                "total_allocated_bytes": 409466296,
+                "gc_heap_bytes": 378001624,
+                "gc_committed_bytes": 378961920,
+                "working_set_bytes": 2078310400,
+                "peak_working_set_bytes": 0,
+                "gen0": 6,
+                "gen1": 2,
+                "gen2": 1
+              },
+              {
+                "stage": "html",
+                "elapsed_ms": 1902.594,
+                "stage_ms": 4.592000000000098,
+                "allocated_bytes": 737224,
+                "total_allocated_bytes": 410203520,
+                "gc_heap_bytes": 378739544,
+                "gc_committed_bytes": 378961920,
+                "working_set_bytes": 2078965760,
+                "peak_working_set_bytes": 0,
+                "gen0": 6,
+                "gen1": 2,
+                "gen2": 1
+              }
+            ],
+            "timings": {
+              "PreparationMs": 438.0351,
+              "CandidatesMs": 63.2195,
+              "GroupingMs": 60.264,
+              "ShiftsMs": 412.4811,
+              "MovementMs": 70.8227,
+              "MovementManagedBytes": 2028840,
+              "ClassificationMs": 94.777,
+              "ClassificationManagedBytes": 63554768,
+              "RetainedRemovalMaskBytes": 17399680,
+              "ClusteringMs": 70.24560000000002
+            },
+            "Summary": {
+              "Status": "different",
+              "PagesCompared": 1,
+              "PagesDifferent": 1,
+              "Clusters": 57,
+              "AbsorbedGroups": 11
+            }
+          }
+        },
+        {
+          "name": "probe-300-baseline-2",
+          "variant": "baseline",
+          "warmup": false,
+          "command": [
+            "dotnet",
+            "out/perf2a-ink-filter/binaries/baseline/ReportDiff.Tests.dll",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+            "samples/private/perf2a-ink-filter-20260921/probe-300-baseline-2",
+            "normal",
+            "300"
+          ],
+          "elapsed_ms": 1971.9093339517713,
+          "peak_rss_bytes": 2080915456,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "profile": {
+            "mode": "normal",
+            "stages": [
+              {
+                "stage": "start",
+                "elapsed_ms": 0.4699,
+                "stage_ms": 0.4699,
+                "allocated_bytes": 70824,
+                "total_allocated_bytes": 70824,
+                "gc_heap_bytes": 71064,
+                "gc_committed_bytes": 0,
+                "working_set_bytes": 44531712,
+                "peak_working_set_bytes": 0,
+                "gen0": 0,
+                "gen1": 0,
+                "gen2": 0
+              },
+              {
+                "stage": "open",
+                "elapsed_ms": 181.3918,
+                "stage_ms": 180.9219,
+                "allocated_bytes": 68536,
+                "total_allocated_bytes": 139360,
+                "gc_heap_bytes": 139864,
+                "gc_committed_bytes": 0,
+                "working_set_bytes": 65765376,
+                "peak_working_set_bytes": 0,
+                "gen0": 0,
+                "gen1": 0,
+                "gen2": 0
+              },
+              {
+                "stage": "render-a",
+                "elapsed_ms": 212.0932,
+                "stage_ms": 30.701400000000007,
+                "allocated_bytes": 89576,
+                "total_allocated_bytes": 228936,
+                "gc_heap_bytes": 229536,
+                "gc_committed_bytes": 0,
+                "working_set_bytes": 194805760,
+                "peak_working_set_bytes": 0,
+                "gen0": 0,
+                "gen1": 0,
+                "gen2": 0
+              },
+              {
+                "stage": "render-b",
+                "elapsed_ms": 226.3185,
+                "stage_ms": 14.225300000000004,
+                "allocated_bytes": 22576,
+                "total_allocated_bytes": 251512,
+                "gc_heap_bytes": 252184,
+                "gc_committed_bytes": 0,
+                "working_set_bytes": 247365632,
+                "peak_working_set_bytes": 0,
+                "gen0": 0,
+                "gen1": 0,
+                "gen2": 0
+              },
+              {
+                "stage": "normalize",
+                "elapsed_ms": 231.6496,
+                "stage_ms": 5.331099999999992,
+                "allocated_bytes": 8200,
+                "total_allocated_bytes": 259712,
+                "gc_heap_bytes": 260408,
+                "gc_committed_bytes": 0,
+                "working_set_bytes": 299696128,
+                "peak_working_set_bytes": 0,
+                "gen0": 0,
+                "gen1": 0,
+                "gen2": 0
+              },
+              {
+                "stage": "compare",
+                "elapsed_ms": 1456.3221,
+                "stage_ms": 1224.6725000000001,
+                "allocated_bytes": 361665744,
+                "total_allocated_bytes": 361925456,
+                "gc_heap_bytes": 361749016,
+                "gc_committed_bytes": 87605248,
+                "working_set_bytes": 2026110976,
+                "peak_working_set_bytes": 0,
+                "gen0": 1,
+                "gen1": 1,
+                "gen2": 1
+              },
+              {
+                "stage": "text",
+                "elapsed_ms": 1659.1189,
+                "stage_ms": 202.79679999999985,
+                "allocated_bytes": 38311432,
+                "total_allocated_bytes": 400236888,
+                "gc_heap_bytes": 373586104,
+                "gc_committed_bytes": 371032064,
+                "working_set_bytes": 2051883008,
+                "peak_working_set_bytes": 0,
+                "gen0": 5,
+                "gen1": 2,
+                "gen2": 1
+              },
+              {
+                "stage": "images",
+                "elapsed_ms": 1893.3101,
+                "stage_ms": 234.19119999999998,
+                "allocated_bytes": 6610432,
+                "total_allocated_bytes": 406847320,
+                "gc_heap_bytes": 380201912,
+                "gc_committed_bytes": 371032064,
+                "working_set_bytes": 2075541504,
+                "peak_working_set_bytes": 0,
+                "gen0": 5,
+                "gen1": 2,
+                "gen2": 1
+              },
+              {
+                "stage": "fonts",
+                "elapsed_ms": 1898.0651,
+                "stage_ms": 4.755000000000109,
+                "allocated_bytes": 1431072,
+                "total_allocated_bytes": 408278392,
+                "gc_heap_bytes": 376802384,
+                "gc_committed_bytes": 378961920,
+                "working_set_bytes": 2076999680,
+                "peak_working_set_bytes": 0,
+                "gen0": 6,
+                "gen1": 2,
+                "gen2": 1
+              },
+              {
+                "stage": "json",
+                "elapsed_ms": 1919.4848,
+                "stage_ms": 21.41969999999992,
+                "allocated_bytes": 1109080,
+                "total_allocated_bytes": 409387472,
+                "gc_heap_bytes": 377922856,
+                "gc_committed_bytes": 378961920,
+                "working_set_bytes": 2080030720,
+                "peak_working_set_bytes": 0,
+                "gen0": 6,
+                "gen1": 2,
+                "gen2": 1
+              },
+              {
+                "stage": "html",
+                "elapsed_ms": 1923.8626,
+                "stage_ms": 4.377799999999979,
+                "allocated_bytes": 786432,
+                "total_allocated_bytes": 410173904,
+                "gc_heap_bytes": 378710008,
+                "gc_committed_bytes": 378961920,
+                "working_set_bytes": 2080686080,
+                "peak_working_set_bytes": 0,
+                "gen0": 6,
+                "gen1": 2,
+                "gen2": 1
+              }
+            ],
+            "timings": {
+              "PreparationMs": 431.9652,
+              "CandidatesMs": 62.595,
+              "GroupingMs": 59.5894,
+              "ShiftsMs": 419.9955,
+              "MovementMs": 71.4207,
+              "MovementManagedBytes": 2028840,
+              "ClassificationMs": 100.6944,
+              "ClassificationManagedBytes": 63554768,
+              "RetainedRemovalMaskBytes": 17399680,
+              "ClusteringMs": 75.27120000000001
+            },
+            "Summary": {
+              "Status": "different",
+              "PagesCompared": 1,
+              "PagesDifferent": 1,
+              "Clusters": 57,
+              "AbsorbedGroups": 11
+            }
+          }
+        },
+        {
+          "name": "probe-300-optimized-2",
+          "variant": "optimized",
+          "warmup": false,
+          "command": [
+            "dotnet",
+            "out/perf2a-ink-filter/binaries/optimized/ReportDiff.Tests.dll",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+            "samples/private/perf2a-ink-filter-20260921/probe-300-optimized-2",
+            "normal",
+            "300"
+          ],
+          "elapsed_ms": 1860.0803340086713,
+          "peak_rss_bytes": 1996275712,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "profile": {
+            "mode": "normal",
+            "stages": [
+              {
+                "stage": "start",
+                "elapsed_ms": 0.5378,
+                "stage_ms": 0.5378,
+                "allocated_bytes": 70856,
+                "total_allocated_bytes": 70856,
+                "gc_heap_bytes": 71096,
+                "gc_committed_bytes": 0,
+                "working_set_bytes": 44449792,
+                "peak_working_set_bytes": 0,
+                "gen0": 0,
+                "gen1": 0,
+                "gen2": 0
+              },
+              {
+                "stage": "open",
+                "elapsed_ms": 179.7216,
+                "stage_ms": 179.1838,
+                "allocated_bytes": 68568,
+                "total_allocated_bytes": 139424,
+                "gc_heap_bytes": 139928,
+                "gc_committed_bytes": 0,
+                "working_set_bytes": 65568768,
+                "peak_working_set_bytes": 0,
+                "gen0": 0,
+                "gen1": 0,
+                "gen2": 0
+              },
+              {
+                "stage": "render-a",
+                "elapsed_ms": 209.2823,
+                "stage_ms": 29.560699999999997,
+                "allocated_bytes": 89576,
+                "total_allocated_bytes": 229000,
+                "gc_heap_bytes": 229600,
+                "gc_committed_bytes": 0,
+                "working_set_bytes": 194772992,
+                "peak_working_set_bytes": 0,
+                "gen0": 0,
+                "gen1": 0,
+                "gen2": 0
+              },
+              {
+                "stage": "render-b",
+                "elapsed_ms": 222.8105,
+                "stage_ms": 13.528199999999998,
+                "allocated_bytes": 22576,
+                "total_allocated_bytes": 251576,
+                "gc_heap_bytes": 252248,
+                "gc_committed_bytes": 0,
+                "working_set_bytes": 247447552,
+                "peak_working_set_bytes": 0,
+                "gen0": 0,
+                "gen1": 0,
+                "gen2": 0
+              },
+              {
+                "stage": "normalize",
+                "elapsed_ms": 227.1777,
+                "stage_ms": 4.367199999999997,
+                "allocated_bytes": 8200,
+                "total_allocated_bytes": 259776,
+                "gc_heap_bytes": 260472,
+                "gc_committed_bytes": 0,
+                "working_set_bytes": 299778048,
+                "peak_working_set_bytes": 0,
+                "gen0": 0,
+                "gen1": 0,
+                "gen2": 0
+              },
+              {
+                "stage": "compare",
+                "elapsed_ms": 1352.0748,
+                "stage_ms": 1124.8971000000001,
+                "allocated_bytes": 361668248,
+                "total_allocated_bytes": 361928024,
+                "gc_heap_bytes": 361749296,
+                "gc_committed_bytes": 87605248,
+                "working_set_bytes": 1941258240,
+                "peak_working_set_bytes": 0,
+                "gen0": 1,
+                "gen1": 1,
+                "gen2": 1
+              },
+              {
+                "stage": "text",
+                "elapsed_ms": 1554.3052,
+                "stage_ms": 202.23039999999992,
+                "allocated_bytes": 38313616,
+                "total_allocated_bytes": 400241640,
+                "gc_heap_bytes": 373588456,
+                "gc_committed_bytes": 371032064,
+                "working_set_bytes": 1967194112,
+                "peak_working_set_bytes": 0,
+                "gen0": 5,
+                "gen1": 2,
+                "gen2": 1
+              },
+              {
+                "stage": "images",
+                "elapsed_ms": 1784.9866,
+                "stage_ms": 230.68139999999994,
+                "allocated_bytes": 6607720,
+                "total_allocated_bytes": 406849360,
+                "gc_heap_bytes": 380201552,
+                "gc_committed_bytes": 371032064,
+                "working_set_bytes": 1990885376,
+                "peak_working_set_bytes": 0,
+                "gen0": 5,
+                "gen1": 2,
+                "gen2": 1
+              },
+              {
+                "stage": "fonts",
+                "elapsed_ms": 1789.3924,
+                "stage_ms": 4.405799999999999,
+                "allocated_bytes": 1431072,
+                "total_allocated_bytes": 408280432,
+                "gc_heap_bytes": 376798200,
+                "gc_committed_bytes": 378961920,
+                "working_set_bytes": 1992343552,
+                "peak_working_set_bytes": 0,
+                "gen0": 6,
+                "gen1": 2,
+                "gen2": 1
+              },
+              {
+                "stage": "json",
+                "elapsed_ms": 1809.36,
+                "stage_ms": 19.967599999999948,
+                "allocated_bytes": 1178432,
+                "total_allocated_bytes": 409458864,
+                "gc_heap_bytes": 377988120,
+                "gc_committed_bytes": 378961920,
+                "working_set_bytes": 1995390976,
+                "peak_working_set_bytes": 0,
+                "gen0": 6,
+                "gen1": 2,
+                "gen2": 1
+              },
+              {
+                "stage": "html",
+                "elapsed_ms": 1814.102,
+                "stage_ms": 4.742000000000189,
+                "allocated_bytes": 737232,
+                "total_allocated_bytes": 410196096,
+                "gc_heap_bytes": 378726048,
+                "gc_committed_bytes": 378961920,
+                "working_set_bytes": 1996046336,
+                "peak_working_set_bytes": 0,
+                "gen0": 6,
+                "gen1": 2,
+                "gen2": 1
+              }
+            ],
+            "timings": {
+              "PreparationMs": 401.0191,
+              "CandidatesMs": 65.8509,
+              "GroupingMs": 59.8975,
+              "ShiftsMs": 432.6315,
+              "MovementMs": 71.0327,
+              "MovementManagedBytes": 2028840,
+              "ClassificationMs": 22.9677,
+              "ClassificationManagedBytes": 63550176,
+              "RetainedRemovalMaskBytes": 17399680,
+              "ClusteringMs": 68.48989999999998
+            },
+            "Summary": {
+              "Status": "different",
+              "PagesCompared": 1,
+              "PagesDifferent": 1,
+              "Clusters": 57,
+              "AbsorbedGroups": 11
+            }
+          }
+        },
+        {
+          "name": "probe-300-optimized-3",
+          "variant": "optimized",
+          "warmup": false,
+          "command": [
+            "dotnet",
+            "out/perf2a-ink-filter/binaries/optimized/ReportDiff.Tests.dll",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+            "samples/private/perf2a-ink-filter-20260921/probe-300-optimized-3",
+            "normal",
+            "300"
+          ],
+          "elapsed_ms": 1845.3781249700114,
+          "peak_rss_bytes": 1995030528,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "profile": {
+            "mode": "normal",
+            "stages": [
+              {
+                "stage": "start",
+                "elapsed_ms": 0.5925,
+                "stage_ms": 0.5925,
+                "allocated_bytes": 70856,
+                "total_allocated_bytes": 70856,
+                "gc_heap_bytes": 71096,
+                "gc_committed_bytes": 0,
+                "working_set_bytes": 44433408,
+                "peak_working_set_bytes": 0,
+                "gen0": 0,
+                "gen1": 0,
+                "gen2": 0
+              },
+              {
+                "stage": "open",
+                "elapsed_ms": 178.4632,
+                "stage_ms": 177.8707,
+                "allocated_bytes": 68568,
+                "total_allocated_bytes": 139424,
+                "gc_heap_bytes": 139928,
+                "gc_committed_bytes": 0,
+                "working_set_bytes": 65650688,
+                "peak_working_set_bytes": 0,
+                "gen0": 0,
+                "gen1": 0,
+                "gen2": 0
+              },
+              {
+                "stage": "render-a",
+                "elapsed_ms": 206.9832,
+                "stage_ms": 28.52000000000001,
+                "allocated_bytes": 89576,
+                "total_allocated_bytes": 229000,
+                "gc_heap_bytes": 229600,
+                "gc_committed_bytes": 0,
+                "working_set_bytes": 194772992,
+                "peak_working_set_bytes": 0,
+                "gen0": 0,
+                "gen1": 0,
+                "gen2": 0
+              },
+              {
+                "stage": "render-b",
+                "elapsed_ms": 219.3035,
+                "stage_ms": 12.320300000000003,
+                "allocated_bytes": 22576,
+                "total_allocated_bytes": 251576,
+                "gc_heap_bytes": 252248,
+                "gc_committed_bytes": 0,
+                "working_set_bytes": 247562240,
+                "peak_working_set_bytes": 0,
+                "gen0": 0,
+                "gen1": 0,
+                "gen2": 0
+              },
+              {
+                "stage": "normalize",
+                "elapsed_ms": 223.601,
+                "stage_ms": 4.297499999999985,
+                "allocated_bytes": 8200,
+                "total_allocated_bytes": 259776,
+                "gc_heap_bytes": 260472,
+                "gc_committed_bytes": 0,
+                "working_set_bytes": 299892736,
+                "peak_working_set_bytes": 0,
+                "gen0": 0,
+                "gen1": 0,
+                "gen2": 0
+              },
+              {
+                "stage": "compare",
+                "elapsed_ms": 1331.9223,
+                "stage_ms": 1108.3213,
+                "allocated_bytes": 361671568,
+                "total_allocated_bytes": 361931344,
+                "gc_heap_bytes": 361752696,
+                "gc_committed_bytes": 87605248,
+                "working_set_bytes": 1940013056,
+                "peak_working_set_bytes": 0,
+                "gen0": 1,
+                "gen1": 1,
+                "gen2": 1
+              },
+              {
+                "stage": "text",
+                "elapsed_ms": 1539.5831,
+                "stage_ms": 207.6608000000001,
+                "allocated_bytes": 38310848,
+                "total_allocated_bytes": 400242192,
+                "gc_heap_bytes": 373593344,
+                "gc_committed_bytes": 371032064,
+                "working_set_bytes": 1965998080,
+                "peak_working_set_bytes": 0,
+                "gen0": 5,
+                "gen1": 2,
+                "gen2": 1
+              },
+              {
+                "stage": "images",
+                "elapsed_ms": 1767.8632,
+                "stage_ms": 228.28009999999995,
+                "allocated_bytes": 6607112,
+                "total_allocated_bytes": 406849304,
+                "gc_heap_bytes": 380205784,
+                "gc_committed_bytes": 371032064,
+                "working_set_bytes": 1989672960,
+                "peak_working_set_bytes": 0,
+                "gen0": 5,
+                "gen1": 2,
+                "gen2": 1
+              },
+              {
+                "stage": "fonts",
+                "elapsed_ms": 1772.6236,
+                "stage_ms": 4.7603999999998905,
+                "allocated_bytes": 1431072,
+                "total_allocated_bytes": 408280376,
+                "gc_heap_bytes": 376802848,
+                "gc_committed_bytes": 378961920,
+                "working_set_bytes": 1991098368,
+                "peak_working_set_bytes": 0,
+                "gen0": 6,
+                "gen1": 2,
+                "gen2": 1
+              },
+              {
+                "stage": "json",
+                "elapsed_ms": 1794.0971,
+                "stage_ms": 21.473500000000058,
+                "allocated_bytes": 1219984,
+                "total_allocated_bytes": 409500360,
+                "gc_heap_bytes": 378034440,
+                "gc_committed_bytes": 378961920,
+                "working_set_bytes": 1994145792,
+                "peak_working_set_bytes": 0,
+                "gen0": 6,
+                "gen1": 2,
+                "gen2": 1
+              },
+              {
+                "stage": "html",
+                "elapsed_ms": 1798.992,
+                "stage_ms": 4.894900000000007,
+                "allocated_bytes": 737232,
+                "total_allocated_bytes": 410237592,
+                "gc_heap_bytes": 378772368,
+                "gc_committed_bytes": 378961920,
+                "working_set_bytes": 1994817536,
+                "peak_working_set_bytes": 0,
+                "gen0": 6,
+                "gen1": 2,
+                "gen2": 1
+              }
+            ],
+            "timings": {
+              "PreparationMs": 396.3733,
+              "CandidatesMs": 62.9745,
+              "GroupingMs": 58.4935,
+              "ShiftsMs": 419.366,
+              "MovementMs": 71.5754,
+              "MovementManagedBytes": 2035032,
+              "ClassificationMs": 22.7602,
+              "ClassificationManagedBytes": 63550176,
+              "RetainedRemovalMaskBytes": 17399680,
+              "ClusteringMs": 73.8665
+            },
+            "Summary": {
+              "Status": "different",
+              "PagesCompared": 1,
+              "PagesDifferent": 1,
+              "Clusters": 57,
+              "AbsorbedGroups": 11
+            }
+          }
+        },
+        {
+          "name": "probe-300-baseline-3",
+          "variant": "baseline",
+          "warmup": false,
+          "command": [
+            "dotnet",
+            "out/perf2a-ink-filter/binaries/baseline/ReportDiff.Tests.dll",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+            "samples/private/perf2a-ink-filter-20260921/probe-300-baseline-3",
+            "normal",
+            "300"
+          ],
+          "elapsed_ms": 1958.4935000166297,
+          "peak_rss_bytes": 2081587200,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "profile": {
+            "mode": "normal",
+            "stages": [
+              {
+                "stage": "start",
+                "elapsed_ms": 0.4486,
+                "stage_ms": 0.4486,
+                "allocated_bytes": 70824,
+                "total_allocated_bytes": 70824,
+                "gc_heap_bytes": 71064,
+                "gc_committed_bytes": 0,
+                "working_set_bytes": 44482560,
+                "peak_working_set_bytes": 0,
+                "gen0": 0,
+                "gen1": 0,
+                "gen2": 0
+              },
+              {
+                "stage": "open",
+                "elapsed_ms": 176.9165,
+                "stage_ms": 176.46790000000001,
+                "allocated_bytes": 68536,
+                "total_allocated_bytes": 139360,
+                "gc_heap_bytes": 139864,
+                "gc_committed_bytes": 0,
+                "working_set_bytes": 65536000,
+                "peak_working_set_bytes": 0,
+                "gen0": 0,
+                "gen1": 0,
+                "gen2": 0
+              },
+              {
+                "stage": "render-a",
+                "elapsed_ms": 207.0433,
+                "stage_ms": 30.126799999999974,
+                "allocated_bytes": 89576,
+                "total_allocated_bytes": 228936,
+                "gc_heap_bytes": 229536,
+                "gc_committed_bytes": 0,
+                "working_set_bytes": 194445312,
+                "peak_working_set_bytes": 0,
+                "gen0": 0,
+                "gen1": 0,
+                "gen2": 0
+              },
+              {
+                "stage": "render-b",
+                "elapsed_ms": 220.4592,
+                "stage_ms": 13.415900000000022,
+                "allocated_bytes": 22576,
+                "total_allocated_bytes": 251512,
+                "gc_heap_bytes": 252184,
+                "gc_committed_bytes": 0,
+                "working_set_bytes": 246808576,
+                "peak_working_set_bytes": 0,
+                "gen0": 0,
+                "gen1": 0,
+                "gen2": 0
+              },
+              {
+                "stage": "normalize",
+                "elapsed_ms": 224.809,
+                "stage_ms": 4.349799999999988,
+                "allocated_bytes": 8200,
+                "total_allocated_bytes": 259712,
+                "gc_heap_bytes": 260408,
+                "gc_committed_bytes": 0,
+                "working_set_bytes": 299139072,
+                "peak_working_set_bytes": 0,
+                "gen0": 0,
+                "gen1": 0,
+                "gen2": 0
+              },
+              {
+                "stage": "compare",
+                "elapsed_ms": 1450.8624,
+                "stage_ms": 1226.0534,
+                "allocated_bytes": 361665744,
+                "total_allocated_bytes": 361925456,
+                "gc_heap_bytes": 361749016,
+                "gc_committed_bytes": 87605248,
+                "working_set_bytes": 2026668032,
+                "peak_working_set_bytes": 0,
+                "gen0": 1,
+                "gen1": 1,
+                "gen2": 1
+              },
+              {
+                "stage": "text",
+                "elapsed_ms": 1654.3261,
+                "stage_ms": 203.46370000000002,
+                "allocated_bytes": 38311432,
+                "total_allocated_bytes": 400236888,
+                "gc_heap_bytes": 373585928,
+                "gc_committed_bytes": 371032064,
+                "working_set_bytes": 2052505600,
+                "peak_working_set_bytes": 0,
+                "gen0": 5,
+                "gen1": 2,
+                "gen2": 1
+              },
+              {
+                "stage": "images",
+                "elapsed_ms": 1881.5348,
+                "stage_ms": 227.2086999999999,
+                "allocated_bytes": 6610432,
+                "total_allocated_bytes": 406847320,
+                "gc_heap_bytes": 380201736,
+                "gc_committed_bytes": 371032064,
+                "working_set_bytes": 2076213248,
+                "peak_working_set_bytes": 0,
+                "gen0": 5,
+                "gen1": 2,
+                "gen2": 1
+              },
+              {
+                "stage": "fonts",
+                "elapsed_ms": 1885.9517,
+                "stage_ms": 4.416900000000169,
+                "allocated_bytes": 1431072,
+                "total_allocated_bytes": 408278392,
+                "gc_heap_bytes": 376802184,
+                "gc_committed_bytes": 378961920,
+                "working_set_bytes": 2077671424,
+                "peak_working_set_bytes": 0,
+                "gen0": 6,
+                "gen1": 2,
+                "gen2": 1
+              },
+              {
+                "stage": "json",
+                "elapsed_ms": 1906.7081,
+                "stage_ms": 20.756399999999985,
+                "allocated_bytes": 1122952,
+                "total_allocated_bytes": 409401344,
+                "gc_heap_bytes": 377936600,
+                "gc_committed_bytes": 378961920,
+                "working_set_bytes": 2080702464,
+                "peak_working_set_bytes": 0,
+                "gen0": 6,
+                "gen1": 2,
+                "gen2": 1
+              },
+              {
+                "stage": "html",
+                "elapsed_ms": 1911.3308,
+                "stage_ms": 4.622699999999895,
+                "allocated_bytes": 786432,
+                "total_allocated_bytes": 410187776,
+                "gc_heap_bytes": 378723752,
+                "gc_committed_bytes": 378961920,
+                "working_set_bytes": 2081357824,
+                "peak_working_set_bytes": 0,
+                "gen0": 6,
+                "gen1": 2,
+                "gen2": 1
+              }
+            ],
+            "timings": {
+              "PreparationMs": 434.5613,
+              "CandidatesMs": 65.9467,
+              "GroupingMs": 61.3275,
+              "ShiftsMs": 418.7668,
+              "MovementMs": 71.0977,
+              "MovementManagedBytes": 2028840,
+              "ClassificationMs": 99.3902,
+              "ClassificationManagedBytes": 63554768,
+              "RetainedRemovalMaskBytes": 17399680,
+              "ClusteringMs": 72.01410000000001
+            },
+            "Summary": {
+              "Status": "different",
+              "PagesCompared": 1,
+              "PagesDifferent": 1,
+              "Clusters": 57,
+              "AbsorbedGroups": 11
+            }
+          }
+        }
+      ],
+      "medians": {
+        "baseline": {
+          "elapsed_ms": 1958.4935000166297,
+          "peak_rss_bytes": 2080915456,
+          "timings": {
+            "PreparationMs": 434.5613,
+            "CandidatesMs": 63.2195,
+            "GroupingMs": 60.264,
+            "ShiftsMs": 418.7668,
+            "MovementMs": 71.0977,
+            "MovementManagedBytes": 2028840,
+            "ClassificationMs": 99.3902,
+            "ClassificationManagedBytes": 63554768,
+            "RetainedRemovalMaskBytes": 17399680,
+            "ClusteringMs": 72.01410000000001
+          },
+          "stages_ms": {
+            "start": 0.4486,
+            "open": 178.1336,
+            "render-a": 30.126799999999974,
+            "render-b": 13.415900000000022,
+            "normalize": 5.012100000000004,
+            "compare": 1224.6725000000001,
+            "text": 203.46370000000002,
+            "images": 229.56189999999992,
+            "fonts": 4.498900000000049,
+            "json": 20.756399999999985,
+            "html": 4.592000000000098
+          }
+        },
+        "optimized": {
+          "elapsed_ms": 1860.0803340086713,
+          "peak_rss_bytes": 1995030528,
+          "timings": {
+            "PreparationMs": 399.4732,
+            "CandidatesMs": 65.8509,
+            "GroupingMs": 59.4024,
+            "ShiftsMs": 423.5227,
+            "MovementMs": 71.5754,
+            "MovementManagedBytes": 2028840,
+            "ClassificationMs": 22.7602,
+            "ClassificationManagedBytes": 63550176,
+            "RetainedRemovalMaskBytes": 17399680,
+            "ClusteringMs": 71.20679999999999
+          },
+          "stages_ms": {
+            "start": 0.5378,
+            "open": 177.8707,
+            "render-a": 29.16840000000002,
+            "render-b": 13.528199999999998,
+            "normalize": 4.297499999999985,
+            "compare": 1123.2160999999999,
+            "text": 205.74630000000002,
+            "images": 230.68139999999994,
+            "fonts": 4.7603999999998905,
+            "json": 21.146499999999833,
+            "html": 4.742000000000189
+          }
+        }
+      }
+    },
+    "cli-300-summary": {
+      "mode": "cli",
+      "dpi": 300,
+      "runs": [
+        {
+          "name": "cli-300-baseline-0",
+          "variant": "baseline",
+          "warmup": true,
+          "command": [
+            "dotnet",
+            "out/perf2a-ink-filter/binaries/baseline/reportdiff.dll",
+            "compare",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+            "--out",
+            "samples/private/perf2a-ink-filter-20260921/cli-300-baseline-0",
+            "--dpi",
+            "300",
+            "--save-all-pages"
+          ],
+          "elapsed_ms": 3196.6224160278216,
+          "peak_rss_bytes": 2080849920,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "cli-300-optimized-0",
+          "variant": "optimized",
+          "warmup": true,
+          "command": [
+            "dotnet",
+            "out/perf2a-ink-filter/binaries/optimized/reportdiff.dll",
+            "compare",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+            "--out",
+            "samples/private/perf2a-ink-filter-20260921/cli-300-optimized-0",
+            "--dpi",
+            "300",
+            "--save-all-pages"
+          ],
+          "elapsed_ms": 1803.289374918677,
+          "peak_rss_bytes": 1992867840,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "cli-300-optimized-1",
+          "variant": "optimized",
+          "warmup": false,
+          "command": [
+            "dotnet",
+            "out/perf2a-ink-filter/binaries/optimized/reportdiff.dll",
+            "compare",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+            "--out",
+            "samples/private/perf2a-ink-filter-20260921/cli-300-optimized-1",
+            "--dpi",
+            "300",
+            "--save-all-pages"
+          ],
+          "elapsed_ms": 1791.9521670555696,
+          "peak_rss_bytes": 1994899456,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "cli-300-baseline-1",
+          "variant": "baseline",
+          "warmup": false,
+          "command": [
+            "dotnet",
+            "out/perf2a-ink-filter/binaries/baseline/reportdiff.dll",
+            "compare",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+            "--out",
+            "samples/private/perf2a-ink-filter-20260921/cli-300-baseline-1",
+            "--dpi",
+            "300",
+            "--save-all-pages"
+          ],
+          "elapsed_ms": 1923.81779209245,
+          "peak_rss_bytes": 2081292288,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "cli-300-baseline-2",
+          "variant": "baseline",
+          "warmup": false,
+          "command": [
+            "dotnet",
+            "out/perf2a-ink-filter/binaries/baseline/reportdiff.dll",
+            "compare",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+            "--out",
+            "samples/private/perf2a-ink-filter-20260921/cli-300-baseline-2",
+            "--dpi",
+            "300",
+            "--save-all-pages"
+          ],
+          "elapsed_ms": 1906.200374942273,
+          "peak_rss_bytes": 2079834112,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "cli-300-optimized-2",
+          "variant": "optimized",
+          "warmup": false,
+          "command": [
+            "dotnet",
+            "out/perf2a-ink-filter/binaries/optimized/reportdiff.dll",
+            "compare",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+            "--out",
+            "samples/private/perf2a-ink-filter-20260921/cli-300-optimized-2",
+            "--dpi",
+            "300",
+            "--save-all-pages"
+          ],
+          "elapsed_ms": 1786.9867919944227,
+          "peak_rss_bytes": 1991049216,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "cli-300-optimized-3",
+          "variant": "optimized",
+          "warmup": false,
+          "command": [
+            "dotnet",
+            "out/perf2a-ink-filter/binaries/optimized/reportdiff.dll",
+            "compare",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+            "--out",
+            "samples/private/perf2a-ink-filter-20260921/cli-300-optimized-3",
+            "--dpi",
+            "300",
+            "--save-all-pages"
+          ],
+          "elapsed_ms": 1789.3863330828026,
+          "peak_rss_bytes": 1994473472,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "cli-300-baseline-3",
+          "variant": "baseline",
+          "warmup": false,
+          "command": [
+            "dotnet",
+            "out/perf2a-ink-filter/binaries/baseline/reportdiff.dll",
+            "compare",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+            "--out",
+            "samples/private/perf2a-ink-filter-20260921/cli-300-baseline-3",
+            "--dpi",
+            "300",
+            "--save-all-pages"
+          ],
+          "elapsed_ms": 1908.6134999524802,
+          "peak_rss_bytes": 2083684352,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true
+        }
+      ],
+      "medians": {
+        "baseline": {
+          "elapsed_ms": 1908.6134999524802,
+          "peak_rss_bytes": 2081292288
+        },
+        "optimized": {
+          "elapsed_ms": 1789.3863330828026,
+          "peak_rss_bytes": 1994473472
+        }
+      }
+    },
+    "cli-400-summary": {
+      "mode": "cli",
+      "dpi": 400,
+      "runs": [
+        {
+          "name": "cli-400-baseline-0",
+          "variant": "baseline",
+          "warmup": true,
+          "command": [
+            "dotnet",
+            "out/perf2a-ink-filter/binaries/baseline/reportdiff.dll",
+            "compare",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+            "--out",
+            "samples/private/perf2a-ink-filter-20260921/cli-400-baseline-0",
+            "--dpi",
+            "400",
+            "--save-all-pages"
+          ],
+          "elapsed_ms": 3060.7654170598835,
+          "peak_rss_bytes": 3692724224,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "cli-400-optimized-0",
+          "variant": "optimized",
+          "warmup": true,
+          "command": [
+            "dotnet",
+            "out/perf2a-ink-filter/binaries/optimized/reportdiff.dll",
+            "compare",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+            "--out",
+            "samples/private/perf2a-ink-filter-20260921/cli-400-optimized-0",
+            "--dpi",
+            "400",
+            "--save-all-pages"
+          ],
+          "elapsed_ms": 2833.4905409719795,
+          "peak_rss_bytes": 3579265024,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "cli-400-optimized-1",
+          "variant": "optimized",
+          "warmup": false,
+          "command": [
+            "dotnet",
+            "out/perf2a-ink-filter/binaries/optimized/reportdiff.dll",
+            "compare",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+            "--out",
+            "samples/private/perf2a-ink-filter-20260921/cli-400-optimized-1",
+            "--dpi",
+            "400",
+            "--save-all-pages"
+          ],
+          "elapsed_ms": 2858.822542009875,
+          "peak_rss_bytes": 3580166144,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "cli-400-baseline-1",
+          "variant": "baseline",
+          "warmup": false,
+          "command": [
+            "dotnet",
+            "out/perf2a-ink-filter/binaries/baseline/reportdiff.dll",
+            "compare",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+            "--out",
+            "samples/private/perf2a-ink-filter-20260921/cli-400-baseline-1",
+            "--dpi",
+            "400",
+            "--save-all-pages"
+          ],
+          "elapsed_ms": 3150.7789170136675,
+          "peak_rss_bytes": 3695050752,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "cli-400-baseline-2",
+          "variant": "baseline",
+          "warmup": false,
+          "command": [
+            "dotnet",
+            "out/perf2a-ink-filter/binaries/baseline/reportdiff.dll",
+            "compare",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+            "--out",
+            "samples/private/perf2a-ink-filter-20260921/cli-400-baseline-2",
+            "--dpi",
+            "400",
+            "--save-all-pages"
+          ],
+          "elapsed_ms": 3111.7607089690864,
+          "peak_rss_bytes": 3690823680,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "cli-400-optimized-2",
+          "variant": "optimized",
+          "warmup": false,
+          "command": [
+            "dotnet",
+            "out/perf2a-ink-filter/binaries/optimized/reportdiff.dll",
+            "compare",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+            "--out",
+            "samples/private/perf2a-ink-filter-20260921/cli-400-optimized-2",
+            "--dpi",
+            "400",
+            "--save-all-pages"
+          ],
+          "elapsed_ms": 2884.3686250038445,
+          "peak_rss_bytes": 3581984768,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "cli-400-optimized-3",
+          "variant": "optimized",
+          "warmup": false,
+          "command": [
+            "dotnet",
+            "out/perf2a-ink-filter/binaries/optimized/reportdiff.dll",
+            "compare",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+            "--out",
+            "samples/private/perf2a-ink-filter-20260921/cli-400-optimized-3",
+            "--dpi",
+            "400",
+            "--save-all-pages"
+          ],
+          "elapsed_ms": 2889.6649590460584,
+          "peak_rss_bytes": 3575070720,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "cli-400-baseline-3",
+          "variant": "baseline",
+          "warmup": false,
+          "command": [
+            "dotnet",
+            "out/perf2a-ink-filter/binaries/baseline/reportdiff.dll",
+            "compare",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+            "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+            "--out",
+            "samples/private/perf2a-ink-filter-20260921/cli-400-baseline-3",
+            "--dpi",
+            "400",
+            "--save-all-pages"
+          ],
+          "elapsed_ms": 3156.5952920354903,
+          "peak_rss_bytes": 3694166016,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true
+        }
+      ],
+      "medians": {
+        "baseline": {
+          "elapsed_ms": 3150.7789170136675,
+          "peak_rss_bytes": 3694166016
+        },
+        "optimized": {
+          "elapsed_ms": 2884.3686250038445,
+          "peak_rss_bytes": 3580166144
+        }
+      }
+    },
+    "cli4-300-summary": {
+      "mode": "cli4",
+      "dpi": 300,
+      "runs": [
+        {
+          "name": "cli4-300-baseline-0",
+          "variant": "baseline",
+          "warmup": true,
+          "command": [
+            "dotnet",
+            "out/perf2a-ink-filter/binaries/baseline/reportdiff.dll",
+            "compare",
+            "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+            "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+            "--out",
+            "samples/private/perf2a-ink-filter-20260921/cli4-300-baseline-0",
+            "--dpi",
+            "300",
+            "--save-all-pages"
+          ],
+          "elapsed_ms": 5774.239375023171,
+          "peak_rss_bytes": 2167406592,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 696,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "cli4-300-optimized-0",
+          "variant": "optimized",
+          "warmup": true,
+          "command": [
+            "dotnet",
+            "out/perf2a-ink-filter/binaries/optimized/reportdiff.dll",
+            "compare",
+            "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+            "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+            "--out",
+            "samples/private/perf2a-ink-filter-20260921/cli4-300-optimized-0",
+            "--dpi",
+            "300",
+            "--save-all-pages"
+          ],
+          "elapsed_ms": 5324.355916003697,
+          "peak_rss_bytes": 2079768576,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 696,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "cli4-300-optimized-1",
+          "variant": "optimized",
+          "warmup": false,
+          "command": [
+            "dotnet",
+            "out/perf2a-ink-filter/binaries/optimized/reportdiff.dll",
+            "compare",
+            "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+            "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+            "--out",
+            "samples/private/perf2a-ink-filter-20260921/cli4-300-optimized-1",
+            "--dpi",
+            "300",
+            "--save-all-pages"
+          ],
+          "elapsed_ms": 5273.976334021427,
+          "peak_rss_bytes": 2078965760,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 696,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "cli4-300-baseline-1",
+          "variant": "baseline",
+          "warmup": false,
+          "command": [
+            "dotnet",
+            "out/perf2a-ink-filter/binaries/baseline/reportdiff.dll",
+            "compare",
+            "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+            "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+            "--out",
+            "samples/private/perf2a-ink-filter-20260921/cli4-300-baseline-1",
+            "--dpi",
+            "300",
+            "--save-all-pages"
+          ],
+          "elapsed_ms": 5695.053749950603,
+          "peak_rss_bytes": 2164506624,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 696,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "cli4-300-baseline-2",
+          "variant": "baseline",
+          "warmup": false,
+          "command": [
+            "dotnet",
+            "out/perf2a-ink-filter/binaries/baseline/reportdiff.dll",
+            "compare",
+            "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+            "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+            "--out",
+            "samples/private/perf2a-ink-filter-20260921/cli4-300-baseline-2",
+            "--dpi",
+            "300",
+            "--save-all-pages"
+          ],
+          "elapsed_ms": 5758.7177499663085,
+          "peak_rss_bytes": 2166308864,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 696,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "cli4-300-optimized-2",
+          "variant": "optimized",
+          "warmup": false,
+          "command": [
+            "dotnet",
+            "out/perf2a-ink-filter/binaries/optimized/reportdiff.dll",
+            "compare",
+            "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+            "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+            "--out",
+            "samples/private/perf2a-ink-filter-20260921/cli4-300-optimized-2",
+            "--dpi",
+            "300",
+            "--save-all-pages"
+          ],
+          "elapsed_ms": 5368.160499958321,
+          "peak_rss_bytes": 2081718272,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 696,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "cli4-300-optimized-3",
+          "variant": "optimized",
+          "warmup": false,
+          "command": [
+            "dotnet",
+            "out/perf2a-ink-filter/binaries/optimized/reportdiff.dll",
+            "compare",
+            "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+            "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+            "--out",
+            "samples/private/perf2a-ink-filter-20260921/cli4-300-optimized-3",
+            "--dpi",
+            "300",
+            "--save-all-pages"
+          ],
+          "elapsed_ms": 5439.124917029403,
+          "peak_rss_bytes": 2080784384,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 696,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "cli4-300-baseline-3",
+          "variant": "baseline",
+          "warmup": false,
+          "command": [
+            "dotnet",
+            "out/perf2a-ink-filter/binaries/baseline/reportdiff.dll",
+            "compare",
+            "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+            "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+            "--out",
+            "samples/private/perf2a-ink-filter-20260921/cli4-300-baseline-3",
+            "--dpi",
+            "300",
+            "--save-all-pages"
+          ],
+          "elapsed_ms": 5737.738166004419,
+          "peak_rss_bytes": 2166308864,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 696,
+          "png_sha256_equal": true
+        }
+      ],
+      "medians": {
+        "baseline": {
+          "elapsed_ms": 5737.738166004419,
+          "peak_rss_bytes": 2166308864
+        },
+        "optimized": {
+          "elapsed_ms": 5368.160499958321,
+          "peak_rss_bytes": 2080784384
+        }
+      }
+    }
+  },
+  "a4": {
+    "baseline": {
+      "generated_at": "2026-09-21T15:57:46.263271+09:00",
+      "os": "macOS 26.5.1",
+      "architecture": "Arm64",
+      "dotnet_runtime": "10.0.12",
+      "cpu_count": 16,
+      "width": 2480,
+      "height": 3508,
+      "dpi": 300,
+      "glyphs": 600,
+      "validation_runs_per_scenario": 2,
+      "memory_note": "ClassificationManagedBytes / MovementManagedBytes は分類／移動注釈のスレッド別マネージド割当量。RetainedRemovalMaskBytes は保持するネイティブ削除マスクのみで、一時 Mat やプロセスのピークを含まない。",
+      "results_equal": true,
+      "measurements": [
+        {
+          "scenario": "完全一致",
+          "strategy": "group_bounds",
+          "classification": true,
+          "movement": true,
+          "iterations": 5,
+          "total_ms": [
+            6.3712,
+            7.5023,
+            5.9828,
+            5.6586,
+            5.7595
+          ],
+          "median_ms": 5.9828,
+          "stages_at_median_ms": {
+            "PreparationMs": 1.3542,
+            "CandidatesMs": 0,
+            "GroupingMs": 0,
+            "ShiftsMs": 0,
+            "ClusteringMs": 4.5871,
+            "ClassificationMs": 0,
+            "MovementMs": 0
+          },
+          "classification_managed_bytes": 0,
+          "movement_managed_bytes": 0,
+          "retained_removal_mask_bytes": 0,
+          "status": "same",
+          "clusters": 0,
+          "moved_clusters": 0,
+          "raw_pixels": 0,
+          "absorbed_groups": 0,
+          "max_shift_px": 0
+        },
+        {
+          "scenario": "1 か所変更",
+          "strategy": "group_bounds",
+          "classification": true,
+          "movement": true,
+          "iterations": 5,
+          "total_ms": [
+            238.3774,
+            223.0835,
+            224.8975,
+            221.4739,
+            216.9392
+          ],
+          "median_ms": 223.0835,
+          "stages_at_median_ms": {
+            "PreparationMs": 157.3153,
+            "CandidatesMs": 23.4174,
+            "GroupingMs": 17.1839,
+            "ShiftsMs": 4.5209,
+            "ClusteringMs": 18.7503,
+            "ClassificationMs": 0.6889,
+            "MovementMs": 0.9136
+          },
+          "classification_managed_bytes": 8716040,
+          "movement_managed_bytes": 61536,
+          "retained_removal_mask_bytes": 8699840,
+          "status": "different",
+          "clusters": 1,
+          "moved_clusters": 0,
+          "raw_pixels": 204,
+          "absorbed_groups": 0,
+          "max_shift_px": 0
+        },
+        {
+          "scenario": "1 か所変更＋全体 1px ずれ",
+          "strategy": "group_bounds",
+          "classification": true,
+          "movement": true,
+          "iterations": 5,
+          "total_ms": [
+            235.7298,
+            235.4326,
+            232.9886,
+            232.3945,
+            230.6864
+          ],
+          "median_ms": 232.9886,
+          "stages_at_median_ms": {
+            "PreparationMs": 153.077,
+            "CandidatesMs": 24.2066,
+            "GroupingMs": 16.889,
+            "ShiftsMs": 16.998,
+            "ClusteringMs": 19.8229,
+            "ClassificationMs": 1.0321,
+            "MovementMs": 0.9405
+          },
+          "classification_managed_bytes": 8715928,
+          "movement_managed_bytes": 61536,
+          "retained_removal_mask_bytes": 8699840,
+          "status": "different",
+          "clusters": 1,
+          "moved_clusters": 0,
+          "raw_pixels": 204,
+          "absorbed_groups": 599,
+          "max_shift_px": 1
+        }
+      ]
+    },
+    "optimized": {
+      "generated_at": "2026-09-21T15:57:49.712546+09:00",
+      "os": "macOS 26.5.1",
+      "architecture": "Arm64",
+      "dotnet_runtime": "10.0.12",
+      "cpu_count": 16,
+      "width": 2480,
+      "height": 3508,
+      "dpi": 300,
+      "glyphs": 600,
+      "validation_runs_per_scenario": 2,
+      "memory_note": "ClassificationManagedBytes / MovementManagedBytes は分類／移動注釈のスレッド別マネージド割当量。RetainedRemovalMaskBytes は保持するネイティブ削除マスクのみで、一時 Mat やプロセスのピークを含まない。",
+      "results_equal": true,
+      "measurements": [
+        {
+          "scenario": "完全一致",
+          "strategy": "group_bounds",
+          "classification": true,
+          "movement": true,
+          "iterations": 5,
+          "total_ms": [
+            5.9737,
+            6.1366,
+            5.2502,
+            5.032,
+            5.0137
+          ],
+          "median_ms": 5.2502,
+          "stages_at_median_ms": {
+            "PreparationMs": 1.3362,
+            "CandidatesMs": 0,
+            "GroupingMs": 0,
+            "ShiftsMs": 0,
+            "ClusteringMs": 3.8681,
+            "ClassificationMs": 0,
+            "MovementMs": 0
+          },
+          "classification_managed_bytes": 0,
+          "movement_managed_bytes": 0,
+          "retained_removal_mask_bytes": 0,
+          "status": "same",
+          "clusters": 0,
+          "moved_clusters": 0,
+          "raw_pixels": 0,
+          "absorbed_groups": 0,
+          "max_shift_px": 0
+        },
+        {
+          "scenario": "1 か所変更",
+          "strategy": "group_bounds",
+          "classification": true,
+          "movement": true,
+          "iterations": 5,
+          "total_ms": [
+            211.9787,
+            209.6547,
+            206.9178,
+            211.4524,
+            205.6609
+          ],
+          "median_ms": 209.6547,
+          "stages_at_median_ms": {
+            "PreparationMs": 141.7878,
+            "CandidatesMs": 25.1008,
+            "GroupingMs": 16.345,
+            "ShiftsMs": 4.9838,
+            "ClusteringMs": 19.7595,
+            "ClassificationMs": 0.2876,
+            "MovementMs": 1.1072
+          },
+          "classification_managed_bytes": 8711336,
+          "movement_managed_bytes": 61704,
+          "retained_removal_mask_bytes": 8699840,
+          "status": "different",
+          "clusters": 1,
+          "moved_clusters": 0,
+          "raw_pixels": 204,
+          "absorbed_groups": 0,
+          "max_shift_px": 0
+        },
+        {
+          "scenario": "1 か所変更＋全体 1px ずれ",
+          "strategy": "group_bounds",
+          "classification": true,
+          "movement": true,
+          "iterations": 5,
+          "total_ms": [
+            220.5894,
+            224.9839,
+            224.0768,
+            221.7392,
+            221.2717
+          ],
+          "median_ms": 221.7392,
+          "stages_at_median_ms": {
+            "PreparationMs": 142.2336,
+            "CandidatesMs": 23.7216,
+            "GroupingMs": 16.2441,
+            "ShiftsMs": 17.6804,
+            "ClusteringMs": 20.224999999999998,
+            "ClassificationMs": 0.6553,
+            "MovementMs": 0.9585
+          },
+          "classification_managed_bytes": 8719432,
+          "movement_managed_bytes": 61536,
+          "retained_removal_mask_bytes": 8699840,
+          "status": "different",
+          "clusters": 1,
+          "moved_clusters": 0,
+          "raw_pixels": 204,
+          "absorbed_groups": 599,
+          "max_shift_px": 1
+        }
+      ]
+    }
+  },
+  "input_sha256": {
+    "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf": "0b30618efa2b809b7b3c483ca69d594f3e6ba2b5d54589a17489a3cfbe5c5e57",
+    "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf": "5585ad8ef072fc57cd63293ef0c1d9bbd4a5c9d41a8d7e84829aba0fdf408425",
+    "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf": "b9b5bfd1683043e9bcbf0b9b39fe7af9440aa64c1da6cbb651bb6566f03b32e4",
+    "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf": "d074b01368f32f80a439f04fce706d708ee5cb05beee14f18c91c580fd617dcd"
+  },
+  "source_sha256": {
+    "src/ReportDiff.Core/ComparisonFeatures.cs": "44e0176548b4c72fe8a50a6c562b6fafffd1d15d9cab099d453cb8db2aea6f8e",
+    "src/ReportDiff.Core/ComparisonInk.cs": "bb06f1b539af62988ece41b65d992c07c8c791ab41d3ee087e2ae6c4bfadcf03",
+    "src/ReportDiff.Core/DifferenceClassifier.cs": "94a1448e0c68e6587effb0dfb6493faef76001d9a0307737b720e06da615ad1f",
+    "src/ReportDiff.Core/PageComparer.cs": "578d2a03ec12b9af4e7dbf294468c898a426bb7754071e51bac4d9ffeed386a5",
+    "src/ReportDiff.Core/TolerantDifference.cs": "c023e9f8f49eacae3ec20d216f338bde9fb685d34a179b3fce985eabc1f42548",
+    "tests/ReportDiff.Tests/ComparisonInkTests.cs": "120af76566c726ae44de6d7ae2a139df737e492cd1f3cfd907a7f86b931540b9"
+  }
+}

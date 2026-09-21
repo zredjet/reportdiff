@@ -10,15 +10,16 @@ public static class PageComparer
     internal static PageComparison Compare(Mat a, Mat b, ComparisonParameters parameters,
         bool useGroupBounds, ComparisonTimings? timings = null, bool classify = true)
     {
-        using var raw = TolerantDifference.Calculate(a, b, parameters, useGroupBounds, timings);
+        using var ink = classify ? new ComparisonInk() : null;
+        using var raw = TolerantDifference.Calculate(a, b, parameters, useGroupBounds, timings, ink);
         var started = Stopwatch.GetTimestamp();
-        var result = Cluster(raw, parameters, classify ? a : null, classify ? b : null, timings);
+        var result = Cluster(raw, parameters, classify ? a : null, classify ? b : null, timings, ink);
         if (timings is not null) timings.ClusteringMs = Stopwatch.GetElapsedTime(started).TotalMilliseconds - timings.ClassificationMs - timings.MovementMs;
         return result;
     }
 
     internal static PageComparison Cluster(RawDifference difference, ComparisonParameters parameters,
-        Mat? a = null, Mat? b = null, ComparisonTimings? timings = null)
+        Mat? a = null, Mat? b = null, ComparisonTimings? timings = null, ComparisonInk? classificationInk = null)
     {
         var width = difference.RawMask.Cols;
         var height = difference.RawMask.Rows;
@@ -94,7 +95,7 @@ public static class PageComparer
             var right = Math.Min(width, accepted.Max(item => item.Cluster.Bounds.Right) + hx);
             var bottom = Math.Min(height, accepted.Max(item => item.Cluster.Bounds.Bottom) + hy);
             kinds = DifferenceClassifier.Classify(a, b, parameters, raw, labels, keep,
-                new Rect(left, top, right - left, bottom - top), out removalMask);
+                new Rect(left, top, right - left, bottom - top), out removalMask, classificationInk);
             if (timings is not null)
             {
                 timings.ClassificationMs = Stopwatch.GetElapsedTime(started).TotalMilliseconds;
