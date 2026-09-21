@@ -2,7 +2,7 @@
 
 ## 利用する環境
 
-配布対象は Windows x64。自己完結の `reportdiff.exe` に .NET 10 ランタイム、PDFium、OpenCvSharpExtern、SkiaSharp、PdfPig を含める。実行に必要なアプリのバイナリは exe 1 個で、配布 ZIP には README・設定例・ライセンス通知も同梱する。
+配布対象は Windows x64。自己完結の `reportdiff.exe` に .NET 10 ランタイム、PDFium、OpenCvSharpExtern、SkiaSharp、PdfPig を含める。実行に必要なアプリのバイナリは exe 1 個で、配布 ZIP には本体の MIT License・README・設定例・第三者ライセンス通知も同梱する。
 
 ネイティブ DLL は起動時に `%TEMP%/.net` 以下へ展開される。`DOTNET_BUNDLE_EXTRACT_BASE_DIR` を設定すると展開先を変更できる。実行ユーザーが書き込め、他のユーザーが改変できない領域を使う。この動作は [.NET の単一ファイル配布](https://learn.microsoft.com/en-us/dotnet/core/deploying/single-file/overview#native-libraries)に従う。
 
@@ -37,6 +37,7 @@ dotnet publish src/ReportDiff.Cli -c Release -r win-x64 --self-contained \
 
 ```text
 reportdiff.exe
+LICENSE                  # ReportDiff 本体の MIT License
 README.md
 THIRD_PARTY_NOTICES.md
 examples/*.yaml           # 通常設定
@@ -49,6 +50,7 @@ manifest.json             # manifest 自身を除く全ファイルのサイズ�
 
 梱包時に次を検証する。
 
+- 本体の `LICENSE` と第三者通知が存在し、ZIP に同梱される。`LICENSE` がない場合は ZIP を作らず失敗する。
 - exe 内の pdfium / OpenCvSharpExtern / libSkiaSharp が Windows x64 の DLL であり、確認済みの SHA-256 と一致する。
 - PdfPig が依存に含まれる場合、管理 DLL 7 件がすべて埋め込まれている。
 - FFmpeg 資産・他 OS のネイティブ資産が含まれていない。OpenCvSharpExtern に動画用ラッパーや FFmpeg 実装由来の指定シンボルがない。
@@ -57,5 +59,7 @@ manifest.json             # manifest 自身を除く全ファイルのサイズ�
 - 作成した ZIP に欠損や CRC エラーがなく、全ファイルの SHA-256 が一致する。
 
 依存を更新するときは、許諾文の再取得・版とネイティブ DLL の対応確認を行ってから `sources.json` と `dependencies.json` を更新する。単に検証を通すために期待値を差し替えない。SDK が更新されてもランタイムは固定のため、ランタイム更新時には発行プロファイルと通知を一緒に更新する。
+
+再配布は `LICENSE`・`THIRD_PARTY_NOTICES.md`・`licenses/` を保持した ZIP で行う。exe だけを渡すと必要な許諾文・著作権表示が欠ける。本体の MIT License は Intel IPP 等の第三者条件を置き換えない。FreeType の使用謝辞や内蔵ライブラリの個別通知も保持する。
 
 この検証は Windows での実行確認ではない。作成した ZIP を実機に展開し、[README の比較例](../README.md#windows-で使う)、日本語パス・終了コード・HTML 表示等を確認する。現在の結果は [T2-6 検証記録](verification/t2-6-directory.md)、配布の初期確認は [T1-12 検証記録](verification/t1-12-distribution.md)を参照。

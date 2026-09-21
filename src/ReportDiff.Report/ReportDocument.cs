@@ -11,7 +11,7 @@ public sealed record ReportDocument(int SchemaVersion, ReportTool Tool, DateTime
     IReadOnlyList<ReportWarning> Warnings, IReadOnlyList<ReportPage> Pages);
 public sealed record ReportTool(string Name, string Version)
 {
-    public static ReportTool Current { get; } = new("reportdiff", "0.1.0");
+    public static ReportTool Current { get; } = new("reportdiff", "0.1.1");
 }
 public sealed record ReportInputs(ReportInput A, ReportInput B);
 public sealed record ReportInput(string Path, string Type, int Pages, string Sha256)

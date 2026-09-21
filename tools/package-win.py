@@ -40,7 +40,7 @@ def package(exe, output):
     files = {"reportdiff.exe": exe.read_bytes()}
     if digest(files["reportdiff.exe"]) != inspection["sha256"]:
         raise ValueError("検査後に exe が変更されました。再実行してください。")
-    for name in ["README.md", "THIRD_PARTY_NOTICES.md", "examples/settings.yaml"]:
+    for name in ["LICENSE", "README.md", "THIRD_PARTY_NOTICES.md", "examples/settings.yaml"]:
         files[name] = (ROOT / name).read_bytes()
     for path in sorted((ROOT / "examples").rglob("*.yaml")):
         files[path.relative_to(ROOT).as_posix()] = path.read_bytes()

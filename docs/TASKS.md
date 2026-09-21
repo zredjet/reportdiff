@@ -144,7 +144,7 @@ SkiaSharp で 2 ページの PDF を新旧 2 つ作る（1 ページ目は同一
 
 - [x] T0-2 の Windows 動作確認（2026-09-20、ユーザー報告「Windowsは確認。動作OK。」）
 
-T0-3 の GitHub Actions では Windows x64 の疎通テスト 2 件が成功している。T2-6 までを含む版は macOS 上で publish・バンドル・ZIP の静的検証まで完了し、Windows では未実行。以下はユーザーの実機での個別条件として、CI と分けて確認状況を管理する。
+T2-6 までを含む v0.1.0 の [CI](https://github.com/zredjet/reportdiff/actions/runs/35558470655) は Windows x64 766 件成功・6 件スキップ、macOS Apple Silicon 772 件成功。従来の「Windows 未実行」は各タスク完了時点の記録であり、CI はその後確認済み。以下の未チェック項目はユーザー実機での個別条件として、CI と分けて確認状況を管理する。
 
 - [ ] T2-6 の配布 ZIP を展開し、.NET を入れていない PC で exe が単体で動く
 - [ ] 単一 exe から pdfium / OpenCvSharpExtern / libSkiaSharp が展開・ロードされる（T2-6 もバンドル内の x64 と SHA-256 の静的確認まで）
@@ -218,6 +218,14 @@ T0-3 の GitHub Actions では Windows x64 の疎通テスト 2 件が成功し�
 ### [ ] T2-7 実帳票での評価を受けたパラメータとゴールデンケースの見直し（スキップ）
 
 2026-09-21、ユーザーが実帳票は未準備と確認し、スキップを許可したため見送り。開始点は `b0f2777`。[評価手順・受け入れ条件](planning/t2-7-evaluation.md)、[記録用 YAML](evaluation/case-template.yaml)、Git 対象外のローカル保存先を準備済み。実帳票比較・パラメータ変更・ゴールデン追加は未実施で、受け入れ完了には含めない。実帳票 A/B と人が確認した期待値を用意した後、改めて T2-7 の再開を依頼する。
+
+## リリース整備
+
+### [x] R0-1 MIT License と第三者通知・配布処理の整備（v0.1.1）
+
+本体の MIT License、FreeType 使用謝辞、SkiaSharp 内部依存の原文・出典・ハッシュを追加し、Intel IPP 等の第三者条件との境界を明示する。ZIP に本体の `LICENSE` を同梱し、表示バージョンを 0.1.1 にそろえる。受け入れ条件は警告なしのビルド・全テスト成功・Windows publish・ZIP 内の本体と第三者ライセンスの一致・LICENSE 欠落時の作成拒否。CI と公開結果はリリースページに記録する。
+
+確認済み（2026-09-21）：ビルド警告 0・772 件成功、CLI / JSON / 埋め込みアプリ版は 0.1.1。Windows publish と本体・第三者ライセンスを含む ZIP の検証、LICENSE 欠落時の拒否を確認。詳細は [v0.1.1 配布準備の確認](verification/v0.1.1-licenses.md)。
 
 ## Phase 3（検討項目）
 

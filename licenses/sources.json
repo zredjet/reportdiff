@@ -345,6 +345,26 @@
       "source": "https://raw.githubusercontent.com/UglyToad/PdfPig/a7bb35662bbbf405efddad50aedc9bcdcf515afc/src/UglyToad.PdfPig.Fonts/Resources/AdobeFontMetrics/ZapfDingbats.afm",
       "sha256": "d31baada28c0a6b049f5b9e4373d48f08623674a693ccfcc6b477655b2da282b",
       "excerpt": "Original lines 1-35; copyright and license notice"
+    },
+    {
+      "file": "SkiaSharp/VulkanMemoryAllocator-LICENSE.txt",
+      "source": "https://raw.githubusercontent.com/GPUOpen-LibrariesAndSDKs/VulkanMemoryAllocator/c788c52156f3ef7bc7ab769cb03c110a53ac8fcb/LICENSE.txt",
+      "sha256": "8d70e4cf2a9941f6454da71cd60e38484dd3e34810c824760d550e982af6d97a"
+    },
+    {
+      "file": "SkiaSharp/D3D12MemoryAllocator-LICENSE.txt",
+      "source": "https://raw.githubusercontent.com/GPUOpen-LibrariesAndSDKs/D3D12MemoryAllocator/169895d529dfce00390a20e69c2f516066fe7a3b/LICENSE.txt",
+      "sha256": "e078ee4f8c5ed0673f4d93b5318557eb8b4e0d7dbccef2ab45c763c7693f0f37"
+    },
+    {
+      "file": "SkiaSharp/Wuffs-LICENSE",
+      "source": "https://raw.githubusercontent.com/google/wuffs-mirror-release-c/e3f919ccfe3ef542cfc983a82146070258fb57f8/LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "file": "SkiaSharp/SPIRV-Cross-LICENSE",
+      "source": "https://raw.githubusercontent.com/KhronosGroup/SPIRV-Cross/b8fcf307f1f347089e3c46eb4451d27f32ebc8d3/LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
     }
   ]
 }

@@ -2,7 +2,7 @@
 
 業務帳票の PDF・画像を比較し、相違を「箇所」単位で報告する CLI ツール。細かな描画差や許容範囲内の位置ずれを吸収し、変更部分の画像と JSON・オフライン HTML を出力する。
 
-実行対象は Windows x64。開発・検証環境は macOS Apple Silicon。Intel Mac は対象外。Phase 1 と T2-1〜T2-4a（分類・移動・PDF テキスト注釈・任意の全体補正・YAML 設定整備）を実装済み。macOS では全 640 テストが成功している。T2-4a の Windows 向け publish とバンドルの静的検証も完了。完成版の Windows CI・実機確認は [確認リスト](docs/TASKS.md#windows-確認リスト人が実機で行う)に残る。
+実行対象は Windows x64。開発・検証環境は macOS Apple Silicon。Intel Mac は対象外。Phase 1 と T2-1〜T2-6（分類・移動・PDF テキスト注釈・任意の全体補正・YAML 設定・フォント警告・フォルダ比較）を実装済み。配布物は [GitHub Releases](https://github.com/zredjet/reportdiff/releases) から取得できる。実帳票による評価（T2-7）はサンプル未準備のためスキップしている。ユーザー実機での条件は [確認リスト](docs/TASKS.md#windows-確認リスト人が実機で行う)で管理する。
 
 ## Windows で使う
 
@@ -177,6 +177,10 @@ Windows では macOS ランタイムの生成は不要。復元前にローカ�
 - `CLAUDE.md`：開発ルール。`reference/prototype.py` と `reference/golden/`：比較結果の参照実装と 37 ケース
 - [サードパーティ通知](THIRD_PARTY_NOTICES.md)：依存一覧と同梱ライセンス。配布時は `licenses/` を含めて保持する
 
-[GitHub Actions](https://github.com/zredjet/reportdiff/actions/workflows/ci.yml) は Windows x64 / macOS Apple Silicon でビルドとテストを実行する。リモートで確認済みなのは [T0-3](docs/verification/t0-3-ci.md) 時点の疎通 2 件。T2-6 までの全 772 件はローカル macOS で検証済みで、Windows の追加テスト・完成版 exe の実行・Edge / Chrome 表示は未確認。
+[GitHub Actions](https://github.com/zredjet/reportdiff/actions/workflows/ci.yml) は Windows x64 / macOS Apple Silicon でビルドとテストを実行する。v0.1.0 の [CI](https://github.com/zredjet/reportdiff/actions/runs/35558470655) は Windows 766 件成功・6 件スキップ、macOS 772 件成功。各リリースの検証結果はリリースページに記載する。完成版 exe のユーザー実機での実行・Edge / Chrome 表示は未確認。
 
 実帳票は `samples/private/` に置き、Git に含めない。テストには合成データだけを使う。
+
+## ライセンス
+
+ReportDiff 本体は [MIT License](LICENSE)（Copyright (c) 2026 zredjet）。依存ライブラリ・ネイティブ DLL・内蔵データはそれぞれのライセンスに従い、本体の MIT License では置き換えない。特に Intel IPP は独自の許諾条件を持つ。[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) と [licenses/](licenses/) を参照し、再配布時はこれらと本体の `LICENSE` を保持する。

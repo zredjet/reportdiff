@@ -41,7 +41,7 @@ public sealed class ReportWriterTests
         var root = document.RootElement;
         Keys(root, "schema_version", "tool", "generated_at", "inputs", "config", "summary", "warnings", "pages");
         Assert.Equal(1, loaded.SchemaVersion);
-        Assert.Equal(new ReportTool("reportdiff", "0.1.0"), loaded.Tool);
+        Assert.Equal(new ReportTool("reportdiff", "0.1.1"), loaded.Tool);
         Assert.Equal(timestamp, loaded.GeneratedAt);
         Assert.Equal(result.Inputs, loaded.Inputs);
         Keys(root.GetProperty("config"), "dpi", "image_dpi", "diff", "ink", "cluster", "move", "align", "text", "exclude", "report");

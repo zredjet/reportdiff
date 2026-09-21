@@ -26,6 +26,10 @@
 - 行の挿入で下がずれたページの自動整列（Phase 3 の検討項目）
 - GUI（当面は HTML レポートが UI）
 
+### 1.3 ライセンスと再配布
+
+ReportDiff 本体は [MIT License](../LICENSE)。第三者のコード・ライブラリ・内蔵データには、それぞれの許諾条件を適用する。本体の MIT License でそれらを置き換えない。配布物には `LICENSE`、`THIRD_PARTY_NOTICES.md`、`licenses/` の原文・著作権表示・使用謝辞を同梱する。詳細は [配布手順](DISTRIBUTION.md) と [サードパーティ通知](../THIRD_PARTY_NOTICES.md)を参照。
+
 ## 2. 用語
 
 | 用語 | 意味 |
