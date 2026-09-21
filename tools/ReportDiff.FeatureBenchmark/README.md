@@ -1,6 +1,6 @@
 # 特徴量の帯サイズ・余白処理の評価
 
-製品を変更する前に、特徴量生成の追加最適化を比較する開発用ツール。製品から参照せず、新しい依存も追加しない。結果と採否は [PERF-2i](../../docs/verification/perf-2i-feature-stripes.md) に記録する。
+特徴量生成の追加最適化と、製品導入後の条件切り替えを検証・計測する開発用ツール。製品から参照せず、新しい依存も追加しない。試作の結果と採否は [PERF-2i](../../docs/verification/perf-2i-feature-stripes.md)、製品導入の結果は [PERF-2j](../../docs/verification/perf-2j-adaptive-features.md) に記録する。
 
 ## 製品方式の検証と計測
 
@@ -16,7 +16,7 @@ dotnet tools/ReportDiff.FeatureBenchmark/bin/Release/net10.0/ReportDiff.Tests.dl
 
 `verify` は37ゴールデンのA/Bと、幅1・帯境界・末尾1行・非連続ROI・300/400dpi・通常／厳密・インク有無・背景半径0.001/1.5/20mmを検証する。合成入力では1/2/4/8workerと予算0への復帰も確認する。全ページ演算を基準に、float32特徴量・コントラスト・インクをバイト単位で照合し、親画像の不変も確認する。構成ごとに314照合。不一致は終了コード非0となる。
 
-`measure 入力PNG [dpi=300 edge=0.3 radius=1.5 ink=true]` は1画像分の特徴量生成を測定する。3回ウォームアップ後7回、強制GCなし。読み込み・特徴量のハッシュ検査・解放は時間に含めない。各回のSHA-256、worker数、1workerの一時Mat見積もりを記録する。すべての反復で特徴量が同じことを確認するが、構成をまたぐ照合は出力SHA-256を比較する。キャッシュが温まった補助計測なので、プロセス初回・PDF描画・比較・保存までのCLI計測とは分けて読む。
+`measure 入力PNG [dpi=300 edge=0.3 radius=1.5 ink=true]` は1画像分の特徴量生成を測定する。3回ウォームアップ後7回、強制GCなし。読み込み・特徴量のハッシュ検査・解放は時間に含めない。各回のSHA-256、worker数、実際に選んだ帯の高さ（`StripeRows`）、1workerの一時Mat見積もりを記録する。すべての反復で特徴量が同じことを確認するが、構成をまたぐ照合は出力SHA-256を比較する。キャッシュが温まった補助計測なので、プロセス初回・PDF描画・比較・保存までのCLI計測とは分けて読む。
 
 ```sh
 # .NETが認識するCPU数を1に制限する補助計測。物理的な1コア実機の評価ではない。
@@ -27,9 +27,9 @@ dotnet tools/ReportDiff.FeatureBenchmark/bin/Release/net10.0/ReportDiff.Tests.dl
 dotnet tools/ReportDiff.FeatureBenchmark/bin/Release/net10.0/ReportDiff.Tests.dll measure input.png 300 0.3 1.5 false
 ```
 
-## 比較用コピー
+## PERF-2i時点の比較用コピー
 
-`experiments.py` は現在の製品を `out/` にコピーし、選んだ処理だけを変更する。製品ソースは編集しない。コピー先が既存・`out/` 外の場合、またはパッチ対象が一意でない場合は停止する。途中失敗したコピーは使用しない。PERF-2iの基準は `c9660c3` で、後続の製品変更にも使える汎用パッチではない。
+`experiments.py` は現在の製品を `out/` にコピーし、選んだ処理だけを変更する。製品ソースは編集しない。コピー先が既存・`out/` 外の場合、またはパッチ対象が一意でない場合は停止する。途中失敗したコピーは使用しない。PERF-2iの基準は `c9660c3` で、後続の製品変更にも使える汎用パッチではない。再現には評価ツールが追加された `46f34fa` のチェックアウトを使う。条件切り替え導入後のソースではパッチ不一致で停止する。
 
 ```sh
 python3 tools/ReportDiff.FeatureBenchmark/experiments.py out/feature-experiments

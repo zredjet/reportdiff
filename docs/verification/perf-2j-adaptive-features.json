@@ -1,0 +1,3572 @@
+{
+  "task": "PERF-2j",
+  "date": "2026-09-21",
+  "base_commit": "46f34fab357ab37c9084fa5b6ced2b244c7500e6",
+  "baseline_product_commit": "c9660c3",
+  "environment": {
+    "cpu": "Apple M4 Max",
+    "logical_processors": 16,
+    "ram_gib": 128,
+    "os": "macOS 26.5.1",
+    "runtime": ".NET 10.0.12",
+    "sdk": "10.0.401",
+    "configuration": "Release"
+  },
+  "execution": {
+    "adaptive_selector_implemented": true,
+    "selection": "Use 64 rows with ink ROI and worker-local Lab reuse only if it yields 4 workers and current128 yields fewer; otherwise retain current128 path.",
+    "max_default_workers": 4,
+    "temporary_mat_budget_mib": 96,
+    "temporary_mat_budget_is_rss_limit": false,
+    "nested_parallelism": false,
+    "public_settings_changed": false
+  },
+  "validation": {
+    "build_warnings": 0,
+    "build_errors": 0,
+    "tests_passed": 1057,
+    "tests_failed": 0,
+    "tests_skipped": 0,
+    "added_tests": 34,
+    "failure_injection_and_disposal_tested": true,
+    "feature_reference_checks": 314,
+    "feature_verification": {
+      "checks": 314,
+      "exact": true,
+      "default_stripe_rows": 128
+    },
+    "snapshot_validation": {
+      "count": 100,
+      "exact": true,
+      "core_sha256": {
+        "baseline": "ade00f07dd787b691947048f2132ce3151a6e8c6ecb6df2c19ff6999c38b38c3",
+        "adaptive": "dba99667a25bf4ec8f51db581cc213476ee5dff095e43e41556a0a9f2ea9ab76"
+      }
+    },
+    "cli_runs": 68,
+    "stage_runs": 16,
+    "all_84_runs_json_and_png_equal": true,
+    "feature_iterations": 160,
+    "additional_noink_iterations": 60,
+    "feature_hashes_equal_within_each_condition": true,
+    "measured_binaries_equal_product_build": true,
+    "baseline_core_equals_perf2i_baseline": true,
+    "pdf_report_cli_reference_source_unchanged": true,
+    "windows": false,
+    "low_memory_hardware": false,
+    "single_cpu_hardware": false,
+    "over_twenty_pages": false,
+    "diverse_real_reports": false
+  },
+  "method": {
+    "full_cli_elapsed": "Process start through PDF render, compare, image/JSON/HTML save and exit; /usr/bin/time -l peak RSS.",
+    "full_cli_warmups": 1,
+    "full_cli_measured_repeats": {
+      "single_and_four_pages": 5,
+      "twenty_pages_small_and_cpu1": 3
+    },
+    "stage_warmups": 1,
+    "stage_measured_repeats": 3,
+    "feature_warmups": 3,
+    "feature_measured_repeats": 7,
+    "feature_elapsed_excludes": [
+      "PNG load",
+      "hash verification",
+      "disposal"
+    ],
+    "forced_gc": false,
+    "cpu1_simulation": "DOTNET_PROCESSOR_COUNT=1; not physical single core.",
+    "json_equality_fields": [
+      "schema_version",
+      "tool",
+      "inputs",
+      "config",
+      "summary",
+      "warnings",
+      "pages"
+    ],
+    "png_equality": "relative paths and SHA-256",
+    "html_byte_equality_checked": false,
+    "repeated_pages_use_same_public_page": true,
+    "benchmarks_concurrent_with_build_or_tests": false
+  },
+  "measurements": {
+    "cli-cpu1-300-summary": {
+      "mode": "cli-cpu1",
+      "dpi": 300,
+      "records": [
+        {
+          "name": "cli-cpu1-300-baseline-0",
+          "variant": "baseline",
+          "warmup": true,
+          "cpu_count_override": "1",
+          "elapsed_ms": 1727.2049579769373,
+          "peak_rss_bytes": 1909719040,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli-cpu1-300-baseline-0.run.json",
+            "sha256": "74be1d5b692afc7343337b1d58b7ad196d05f80851f023c2ed794d82f813b023"
+          }
+        },
+        {
+          "name": "cli-cpu1-300-adaptive-0",
+          "variant": "adaptive",
+          "warmup": true,
+          "cpu_count_override": "1",
+          "elapsed_ms": 1714.8863750044256,
+          "peak_rss_bytes": 1907015680,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli-cpu1-300-adaptive-0.run.json",
+            "sha256": "4ffd29ec799cfb1f3b4cd2e0e7d84c735cdc767c8f6e31331e7d4305bc64eb8e"
+          }
+        },
+        {
+          "name": "cli-cpu1-300-adaptive-1",
+          "variant": "adaptive",
+          "warmup": false,
+          "cpu_count_override": "1",
+          "elapsed_ms": 1707.7333749039099,
+          "peak_rss_bytes": 1909735424,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli-cpu1-300-adaptive-1.run.json",
+            "sha256": "faed3b1d0d3cfe7ae0f0b5dbea4cece2042fc8a8ee77c632a81bf922b9587c3c"
+          }
+        },
+        {
+          "name": "cli-cpu1-300-baseline-1",
+          "variant": "baseline",
+          "warmup": false,
+          "cpu_count_override": "1",
+          "elapsed_ms": 1706.7337080370635,
+          "peak_rss_bytes": 1906032640,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli-cpu1-300-baseline-1.run.json",
+            "sha256": "0c7a346416551f6a178ef1705b768898449268a59fb35d88923f3e996c1a6377"
+          }
+        },
+        {
+          "name": "cli-cpu1-300-baseline-2",
+          "variant": "baseline",
+          "warmup": false,
+          "cpu_count_override": "1",
+          "elapsed_ms": 1709.5535829430446,
+          "peak_rss_bytes": 1908326400,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli-cpu1-300-baseline-2.run.json",
+            "sha256": "2b251a8e016c3cd8ae7b70f4e06ec4f3dcfdbe0f3ade1314d04d9825070eab9f"
+          }
+        },
+        {
+          "name": "cli-cpu1-300-adaptive-2",
+          "variant": "adaptive",
+          "warmup": false,
+          "cpu_count_override": "1",
+          "elapsed_ms": 1689.0576250152662,
+          "peak_rss_bytes": 1903968256,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli-cpu1-300-adaptive-2.run.json",
+            "sha256": "205b8d79052ff1cbd1e145741e6aae2322d3b9f4f927b742c9d29b19f472a54f"
+          }
+        },
+        {
+          "name": "cli-cpu1-300-adaptive-3",
+          "variant": "adaptive",
+          "warmup": false,
+          "cpu_count_override": "1",
+          "elapsed_ms": 1685.4392499662936,
+          "peak_rss_bytes": 1908097024,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli-cpu1-300-adaptive-3.run.json",
+            "sha256": "abc5e2076017e77d8eaec4439476a539aa7901403e5815bdec475e7b9b9f6807"
+          }
+        },
+        {
+          "name": "cli-cpu1-300-baseline-3",
+          "variant": "baseline",
+          "warmup": false,
+          "cpu_count_override": "1",
+          "elapsed_ms": 1685.860416968353,
+          "peak_rss_bytes": 1909096448,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli-cpu1-300-baseline-3.run.json",
+            "sha256": "d5975672311421617be7e84626b37d2ed234bd9faa900d199457318136f3cbee"
+          }
+        }
+      ],
+      "medians": {
+        "baseline": {
+          "elapsed_ms": 1706.7337080370635,
+          "peak_rss_bytes": 1908326400,
+          "measured_count": 3,
+          "elapsed_ms_range": [
+            1685.860416968353,
+            1709.5535829430446
+          ],
+          "peak_rss_bytes_range": [
+            1906032640,
+            1909096448
+          ]
+        },
+        "adaptive": {
+          "elapsed_ms": 1689.0576250152662,
+          "peak_rss_bytes": 1908097024,
+          "measured_count": 3,
+          "elapsed_ms_range": [
+            1685.4392499662936,
+            1707.7333749039099
+          ],
+          "peak_rss_bytes_range": [
+            1903968256,
+            1909735424
+          ]
+        }
+      },
+      "elapsed_improvement_percent": 1.0356673064204402,
+      "raw_summary": {
+        "path": "samples/private/perf2j-features-20260921/cli-cpu1-300-summary.json",
+        "sha256": "4af63276eef4288aa9961ced410164a4c11da67ce6eb56c597e3879603557349"
+      }
+    },
+    "cli-cpu1-400-summary": {
+      "mode": "cli-cpu1",
+      "dpi": 400,
+      "records": [
+        {
+          "name": "cli-cpu1-400-baseline-0",
+          "variant": "baseline",
+          "warmup": true,
+          "cpu_count_override": "1",
+          "elapsed_ms": 2627.657208009623,
+          "peak_rss_bytes": 3466772480,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli-cpu1-400-baseline-0.run.json",
+            "sha256": "d1cf0cf8b10713cc476b6f0d132220cd12f58731c6bb29803a983b1d00da4889"
+          }
+        },
+        {
+          "name": "cli-cpu1-400-adaptive-0",
+          "variant": "adaptive",
+          "warmup": true,
+          "cpu_count_override": "1",
+          "elapsed_ms": 2576.955166994594,
+          "peak_rss_bytes": 3470409728,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli-cpu1-400-adaptive-0.run.json",
+            "sha256": "6f2501a00eb8156b5f27c9803a089cfcd0ba133ee7b5b91a285f1d8e4d5db4e7"
+          }
+        },
+        {
+          "name": "cli-cpu1-400-adaptive-1",
+          "variant": "adaptive",
+          "warmup": false,
+          "cpu_count_override": "1",
+          "elapsed_ms": 2647.7069159736857,
+          "peak_rss_bytes": 3467001856,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli-cpu1-400-adaptive-1.run.json",
+            "sha256": "c8cfb5d839f2c5e4eb2f6eb3d2c5055d3c12b69bc7a86958ed3eb99360ab23c7"
+          }
+        },
+        {
+          "name": "cli-cpu1-400-baseline-1",
+          "variant": "baseline",
+          "warmup": false,
+          "cpu_count_override": "1",
+          "elapsed_ms": 2620.604582945816,
+          "peak_rss_bytes": 3470311424,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli-cpu1-400-baseline-1.run.json",
+            "sha256": "0e3235dd5eecde6851202a10acf3ac7afdc375f8f4e6e347e79a8602e1e62fe8"
+          }
+        },
+        {
+          "name": "cli-cpu1-400-baseline-2",
+          "variant": "baseline",
+          "warmup": false,
+          "cpu_count_override": "1",
+          "elapsed_ms": 2600.4804159747437,
+          "peak_rss_bytes": 3469017088,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli-cpu1-400-baseline-2.run.json",
+            "sha256": "716de620a0f954eff5154aee0ad19349941655b77fb92abf5c403bfbf9de6626"
+          }
+        },
+        {
+          "name": "cli-cpu1-400-adaptive-2",
+          "variant": "adaptive",
+          "warmup": false,
+          "cpu_count_override": "1",
+          "elapsed_ms": 2598.3662919607013,
+          "peak_rss_bytes": 3467362304,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli-cpu1-400-adaptive-2.run.json",
+            "sha256": "b6ae8910cc56cf59d689a4bdeb153217d01fdaab1e3d823734318be903b21809"
+          }
+        },
+        {
+          "name": "cli-cpu1-400-adaptive-3",
+          "variant": "adaptive",
+          "warmup": false,
+          "cpu_count_override": "1",
+          "elapsed_ms": 2626.3501669745892,
+          "peak_rss_bytes": 3468165120,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli-cpu1-400-adaptive-3.run.json",
+            "sha256": "806d20c0a34a0394b95aefa46ccf15b1c65283613a897837abcc724927c52fea"
+          }
+        },
+        {
+          "name": "cli-cpu1-400-baseline-3",
+          "variant": "baseline",
+          "warmup": false,
+          "cpu_count_override": "1",
+          "elapsed_ms": 2616.077332990244,
+          "peak_rss_bytes": 3469017088,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli-cpu1-400-baseline-3.run.json",
+            "sha256": "cc39756263ebbc7c4422d8d3d99c3ca8fd2e8f83df95f4c19c38d16c27459d88"
+          }
+        }
+      ],
+      "medians": {
+        "baseline": {
+          "elapsed_ms": 2616.077332990244,
+          "peak_rss_bytes": 3469017088,
+          "measured_count": 3,
+          "elapsed_ms_range": [
+            2600.4804159747437,
+            2620.604582945816
+          ],
+          "peak_rss_bytes_range": [
+            3469017088,
+            3470311424
+          ]
+        },
+        "adaptive": {
+          "elapsed_ms": 2626.3501669745892,
+          "peak_rss_bytes": 3467362304,
+          "measured_count": 3,
+          "elapsed_ms_range": [
+            2598.3662919607013,
+            2647.7069159736857
+          ],
+          "peak_rss_bytes_range": [
+            3467001856,
+            3468165120
+          ]
+        }
+      },
+      "elapsed_improvement_percent": -0.39268082234416024,
+      "raw_summary": {
+        "path": "samples/private/perf2j-features-20260921/cli-cpu1-400-summary.json",
+        "sha256": "390d52b6df34dee2bb8d1231cd1f23521ca6f0cd884c76bcda343459e845cf76"
+      }
+    },
+    "cli-final-300-summary": {
+      "mode": "cli-final",
+      "dpi": 300,
+      "records": [
+        {
+          "name": "cli-final-300-baseline-0",
+          "variant": "baseline",
+          "warmup": true,
+          "cpu_count_override": null,
+          "elapsed_ms": 1317.2179580433294,
+          "peak_rss_bytes": 1970159616,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli-final-300-baseline-0.run.json",
+            "sha256": "9de2f24ccf5592c8619ca753945ec220e1ed9192f2abbce8211bea3917fc3157"
+          }
+        },
+        {
+          "name": "cli-final-300-adaptive-0",
+          "variant": "adaptive",
+          "warmup": true,
+          "cpu_count_override": null,
+          "elapsed_ms": 1296.98279092554,
+          "peak_rss_bytes": 1926348800,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli-final-300-adaptive-0.run.json",
+            "sha256": "b87ca815b788637f226bf70a044a5f7fa8b737889e7c82d9b7f46268583cf375"
+          }
+        },
+        {
+          "name": "cli-final-300-adaptive-1",
+          "variant": "adaptive",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 1299.287666915916,
+          "peak_rss_bytes": 1922416640,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli-final-300-adaptive-1.run.json",
+            "sha256": "049b47d8e34795eeda3f11de3c7fe764f507891d4791a739660c1bf07c30c8e5"
+          }
+        },
+        {
+          "name": "cli-final-300-baseline-1",
+          "variant": "baseline",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 1307.7317090937868,
+          "peak_rss_bytes": 1965146112,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli-final-300-baseline-1.run.json",
+            "sha256": "99bfb5a90e7c5e2406e02bc8a2ffac2e5636b0afb15f7a34fa45d0a7a6e59f65"
+          }
+        },
+        {
+          "name": "cli-final-300-baseline-2",
+          "variant": "baseline",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 1322.3069999366999,
+          "peak_rss_bytes": 1966899200,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli-final-300-baseline-2.run.json",
+            "sha256": "7395f1b7c668e0ceb26d5b563ecfe8c82151ef92fa01cadaf745f454a695d259"
+          }
+        },
+        {
+          "name": "cli-final-300-adaptive-2",
+          "variant": "adaptive",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 1276.33975003846,
+          "peak_rss_bytes": 1927561216,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli-final-300-adaptive-2.run.json",
+            "sha256": "9d00c02ae2cbe6d7fe1585030baf60cf05b64a0f80354f8b19750ed9a53d289c"
+          }
+        },
+        {
+          "name": "cli-final-300-adaptive-3",
+          "variant": "adaptive",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 1310.5760000180453,
+          "peak_rss_bytes": 1930067968,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli-final-300-adaptive-3.run.json",
+            "sha256": "9765cfea55708650b880eb5781fa22ae8cb580efb6bf42878964f6463774410f"
+          }
+        },
+        {
+          "name": "cli-final-300-baseline-3",
+          "variant": "baseline",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 1329.2763329809532,
+          "peak_rss_bytes": 1965031424,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli-final-300-baseline-3.run.json",
+            "sha256": "b3623264405ad58225f0284a15d4a42f65232bb353ec33fae40401a8ea8228b6"
+          }
+        },
+        {
+          "name": "cli-final-300-baseline-4",
+          "variant": "baseline",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 1319.1537499660626,
+          "peak_rss_bytes": 1963409408,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli-final-300-baseline-4.run.json",
+            "sha256": "057a6b2bc9d7a37dc73790d68708d8ff56e6d29a7d7218c2cdab4ff6494ac37a"
+          }
+        },
+        {
+          "name": "cli-final-300-adaptive-4",
+          "variant": "adaptive",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 1306.4962499774992,
+          "peak_rss_bytes": 1922498560,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli-final-300-adaptive-4.run.json",
+            "sha256": "095ede313cb2acdb446d908eb5b540207dbb3677be153d161fe657fe9982c298"
+          }
+        },
+        {
+          "name": "cli-final-300-adaptive-5",
+          "variant": "adaptive",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 1289.9704589508474,
+          "peak_rss_bytes": 1919303680,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli-final-300-adaptive-5.run.json",
+            "sha256": "2d36ae7b95550cf02c84da1b5db352fd628ebcb9f44db62cc970acd2c528ea40"
+          }
+        },
+        {
+          "name": "cli-final-300-baseline-5",
+          "variant": "baseline",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 1338.3747499901801,
+          "peak_rss_bytes": 1966653440,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli-final-300-baseline-5.run.json",
+            "sha256": "e111f4d96aae10a211992e1b6c268be6ff90ed972c58d259ef027f570d0839c9"
+          }
+        }
+      ],
+      "medians": {
+        "baseline": {
+          "elapsed_ms": 1322.3069999366999,
+          "peak_rss_bytes": 1965146112,
+          "measured_count": 5,
+          "elapsed_ms_range": [
+            1307.7317090937868,
+            1338.3747499901801
+          ],
+          "peak_rss_bytes_range": [
+            1963409408,
+            1966899200
+          ]
+        },
+        "adaptive": {
+          "elapsed_ms": 1299.287666915916,
+          "peak_rss_bytes": 1922498560,
+          "measured_count": 5,
+          "elapsed_ms_range": [
+            1276.33975003846,
+            1310.5760000180453
+          ],
+          "peak_rss_bytes_range": [
+            1919303680,
+            1930067968
+          ]
+        }
+      },
+      "elapsed_improvement_percent": 1.7408463406671792,
+      "raw_summary": {
+        "path": "samples/private/perf2j-features-20260921/cli-final-300-summary.json",
+        "sha256": "fdbcaba880148b0aef301a6bdc9a7adcd0f0e4a57d2d4f570b0c10faf0cd8990"
+      }
+    },
+    "cli-final-400-summary": {
+      "mode": "cli-final",
+      "dpi": 400,
+      "records": [
+        {
+          "name": "cli-final-400-baseline-0",
+          "variant": "baseline",
+          "warmup": true,
+          "cpu_count_override": null,
+          "elapsed_ms": 2031.7346249939874,
+          "peak_rss_bytes": 3521445888,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli-final-400-baseline-0.run.json",
+            "sha256": "e9f8dbc49796f0e06798ba013a545a4453e3e9748ff4c7972c477f627f41f895"
+          }
+        },
+        {
+          "name": "cli-final-400-adaptive-0",
+          "variant": "adaptive",
+          "warmup": true,
+          "cpu_count_override": null,
+          "elapsed_ms": 1884.8004169994965,
+          "peak_rss_bytes": 3506601984,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli-final-400-adaptive-0.run.json",
+            "sha256": "4467e8dd1344ca7a8833d66a79818ee071f2e7d51a0e3f875c1f8b3b7f05ea89"
+          }
+        },
+        {
+          "name": "cli-final-400-adaptive-1",
+          "variant": "adaptive",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 1864.2750000581145,
+          "peak_rss_bytes": 3507126272,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli-final-400-adaptive-1.run.json",
+            "sha256": "6470d54c2a4d7bb9d00ce425c14ada56a990c2ef75a2e869c1404d4d588440fd"
+          }
+        },
+        {
+          "name": "cli-final-400-baseline-1",
+          "variant": "baseline",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 2041.346290963702,
+          "peak_rss_bytes": 3505537024,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli-final-400-baseline-1.run.json",
+            "sha256": "2f3b3d53d4b28ab4b7fd10562ac089ff6460e79d4965b7822290101f0d21fab6"
+          }
+        },
+        {
+          "name": "cli-final-400-baseline-2",
+          "variant": "baseline",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 2014.034166932106,
+          "peak_rss_bytes": 3507781632,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli-final-400-baseline-2.run.json",
+            "sha256": "5725838cbf0698df87f4c084fff424325f050740d062ce01971d2705207135bc"
+          }
+        },
+        {
+          "name": "cli-final-400-adaptive-2",
+          "variant": "adaptive",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 1849.8682919889688,
+          "peak_rss_bytes": 3506241536,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli-final-400-adaptive-2.run.json",
+            "sha256": "65d9c2c87c682e3990ee676b6b017a41e11753c21f215594be19ae95c4edca56"
+          }
+        },
+        {
+          "name": "cli-final-400-adaptive-3",
+          "variant": "adaptive",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 1857.9257499659434,
+          "peak_rss_bytes": 3512827904,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli-final-400-adaptive-3.run.json",
+            "sha256": "5a6c7961e323ce4058ef5aa9ce78051dac5ad12d4a91e1f760b7ec700f36d71c"
+          }
+        },
+        {
+          "name": "cli-final-400-baseline-3",
+          "variant": "baseline",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 2009.4999999273568,
+          "peak_rss_bytes": 3510910976,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli-final-400-baseline-3.run.json",
+            "sha256": "1055280a1aa64dfbc047cc661cdf77361efab0f84c76b14ab30ca6e5486bc2a7"
+          }
+        },
+        {
+          "name": "cli-final-400-baseline-4",
+          "variant": "baseline",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 1994.361500022933,
+          "peak_rss_bytes": 3505766400,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli-final-400-baseline-4.run.json",
+            "sha256": "a532e6ab79c30d391aa0ac4541b0640e1508fcbadf2577e9c08afc8451f6dda1"
+          }
+        },
+        {
+          "name": "cli-final-400-adaptive-4",
+          "variant": "adaptive",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 1839.8722090059891,
+          "peak_rss_bytes": 3503964160,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli-final-400-adaptive-4.run.json",
+            "sha256": "de52cfa8fd7e2f307476fef436f214d45df4cda9d9cd1b1bb6c449d75f139b02"
+          }
+        },
+        {
+          "name": "cli-final-400-adaptive-5",
+          "variant": "adaptive",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 1851.7283340916038,
+          "peak_rss_bytes": 3513057280,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli-final-400-adaptive-5.run.json",
+            "sha256": "c7bb1e22d364d0f6ceece4d4c2819c9ed874d3211bccf11a3f77ce7bfbb46fe2"
+          }
+        },
+        {
+          "name": "cli-final-400-baseline-5",
+          "variant": "baseline",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 2052.6955000823364,
+          "peak_rss_bytes": 3520495616,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli-final-400-baseline-5.run.json",
+            "sha256": "c0eb0944a5a833693a38fa9e6ba43967aa927f66466446288a826825fb170736"
+          }
+        }
+      ],
+      "medians": {
+        "baseline": {
+          "elapsed_ms": 2014.034166932106,
+          "peak_rss_bytes": 3507781632,
+          "measured_count": 5,
+          "elapsed_ms_range": [
+            1994.361500022933,
+            2052.6955000823364
+          ],
+          "peak_rss_bytes_range": [
+            3505537024,
+            3520495616
+          ]
+        },
+        "adaptive": {
+          "elapsed_ms": 1851.7283340916038,
+          "peak_rss_bytes": 3507126272,
+          "measured_count": 5,
+          "elapsed_ms_range": [
+            1839.8722090059891,
+            1864.2750000581145
+          ],
+          "peak_rss_bytes_range": [
+            3503964160,
+            3513057280
+          ]
+        }
+      },
+      "elapsed_improvement_percent": 8.058742771366978,
+      "raw_summary": {
+        "path": "samples/private/perf2j-features-20260921/cli-final-400-summary.json",
+        "sha256": "cc3c98893b0380d0540b48033ae3de3f1efd49f1d46b0b86f8bb650beff90bcb"
+      }
+    },
+    "cli20-final-300-summary": {
+      "mode": "cli20-final",
+      "dpi": 300,
+      "records": [
+        {
+          "name": "cli20-final-300-baseline-0",
+          "variant": "baseline",
+          "warmup": true,
+          "cpu_count_override": null,
+          "elapsed_ms": 14475.597167038359,
+          "peak_rss_bytes": 2265972736,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 3480,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli20-final-300-baseline-0.run.json",
+            "sha256": "09851066cad50c6bee6c64b3d043ac8c708a04482f6cb1a0a11ac987d8f7aef4"
+          }
+        },
+        {
+          "name": "cli20-final-300-adaptive-0",
+          "variant": "adaptive",
+          "warmup": true,
+          "cpu_count_override": null,
+          "elapsed_ms": 13905.776374973357,
+          "peak_rss_bytes": 2229272576,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 3480,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli20-final-300-adaptive-0.run.json",
+            "sha256": "a0867da862265d159a35ddc64cefc1009ab9e18943a76455b032a10db3cd31f0"
+          }
+        },
+        {
+          "name": "cli20-final-300-adaptive-1",
+          "variant": "adaptive",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 14000.757374917157,
+          "peak_rss_bytes": 2233417728,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 3480,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli20-final-300-adaptive-1.run.json",
+            "sha256": "06f6fc19db70d3e04d1bb032de29c81c4deae667087b99ecba033d299931eca7"
+          }
+        },
+        {
+          "name": "cli20-final-300-baseline-1",
+          "variant": "baseline",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 14545.993292005733,
+          "peak_rss_bytes": 2262155264,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 3480,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli20-final-300-baseline-1.run.json",
+            "sha256": "dd584dc64adc5227e12e2b185c24f8902cbde1cad748ef88a5fa1f81938cf193"
+          }
+        },
+        {
+          "name": "cli20-final-300-baseline-2",
+          "variant": "baseline",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 14588.607458979823,
+          "peak_rss_bytes": 2265268224,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 3480,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli20-final-300-baseline-2.run.json",
+            "sha256": "b458ce9dd15df3491032c8116cf733b0ae53bad272539e7c97d89a1003881153"
+          }
+        },
+        {
+          "name": "cli20-final-300-adaptive-2",
+          "variant": "adaptive",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 14109.266499988735,
+          "peak_rss_bytes": 2234548224,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 3480,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli20-final-300-adaptive-2.run.json",
+            "sha256": "271ed1e7c81a764a4e4ee80b4362273351c264352c3fdf6a6a8f5d28ea2c3ab2"
+          }
+        },
+        {
+          "name": "cli20-final-300-adaptive-3",
+          "variant": "adaptive",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 14060.882291989401,
+          "peak_rss_bytes": 2237251584,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 3480,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli20-final-300-adaptive-3.run.json",
+            "sha256": "153525dd18d238cf2fcea94887c5634868599fd3a753fe5d0fa881627480b94a"
+          }
+        },
+        {
+          "name": "cli20-final-300-baseline-3",
+          "variant": "baseline",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 14506.55258295592,
+          "peak_rss_bytes": 2263580672,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 3480,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli20-final-300-baseline-3.run.json",
+            "sha256": "99551b3452adc73321f5342f7d983dd670b96a3202b61cb706f60386bf97c4d9"
+          }
+        }
+      ],
+      "medians": {
+        "baseline": {
+          "elapsed_ms": 14545.993292005733,
+          "peak_rss_bytes": 2263580672,
+          "measured_count": 3,
+          "elapsed_ms_range": [
+            14506.55258295592,
+            14588.607458979823
+          ],
+          "peak_rss_bytes_range": [
+            2262155264,
+            2265268224
+          ]
+        },
+        "adaptive": {
+          "elapsed_ms": 14060.882291989401,
+          "peak_rss_bytes": 2234548224,
+          "measured_count": 3,
+          "elapsed_ms_range": [
+            14000.757374917157,
+            14109.266499988735
+          ],
+          "peak_rss_bytes_range": [
+            2233417728,
+            2237251584
+          ]
+        }
+      },
+      "elapsed_improvement_percent": 3.335014600088826,
+      "raw_summary": {
+        "path": "samples/private/perf2j-features-20260921/cli20-final-300-summary.json",
+        "sha256": "3fcb312413c88f4074651dac10b42d2ea0d3ff946702221cb707eb2111de74b8"
+      }
+    },
+    "cli4-final-300-summary": {
+      "mode": "cli4-final",
+      "dpi": 300,
+      "records": [
+        {
+          "name": "cli4-final-300-baseline-0",
+          "variant": "baseline",
+          "warmup": true,
+          "cpu_count_override": null,
+          "elapsed_ms": 3421.0137920454144,
+          "peak_rss_bytes": 2059304960,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 696,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli4-final-300-baseline-0.run.json",
+            "sha256": "f243a0b07ada6d6581637d7b1bb3029a931dc2052c92ee667b6d7c027fb4f6e2"
+          }
+        },
+        {
+          "name": "cli4-final-300-adaptive-0",
+          "variant": "adaptive",
+          "warmup": true,
+          "cpu_count_override": null,
+          "elapsed_ms": 3275.5756250116974,
+          "peak_rss_bytes": 2018394112,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 696,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli4-final-300-adaptive-0.run.json",
+            "sha256": "9bba719d49c01673a022a854473f49ca7194c5ba073ba2a4cbddc63f17b559f6"
+          }
+        },
+        {
+          "name": "cli4-final-300-adaptive-1",
+          "variant": "adaptive",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 3391.9634589692578,
+          "peak_rss_bytes": 2016444416,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 696,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli4-final-300-adaptive-1.run.json",
+            "sha256": "ffe742ac3e9fe5a7d77c7184b32126c1e38879bdd531822bd2170b364572104b"
+          }
+        },
+        {
+          "name": "cli4-final-300-baseline-1",
+          "variant": "baseline",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 3551.6552919289097,
+          "peak_rss_bytes": 2156511232,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 696,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli4-final-300-baseline-1.run.json",
+            "sha256": "670540f989fe83e5d3c881bf2115b1990c0ccbd0d9b6304bc465b12daf9ffe0c"
+          }
+        },
+        {
+          "name": "cli4-final-300-baseline-2",
+          "variant": "baseline",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 3499.435209087096,
+          "peak_rss_bytes": 2052849664,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 696,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli4-final-300-baseline-2.run.json",
+            "sha256": "ce6785b7efe8953bc1526ce0ac45a1973e44c953e5da68fd1e4614bd6f45c84c"
+          }
+        },
+        {
+          "name": "cli4-final-300-adaptive-2",
+          "variant": "adaptive",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 3357.146415975876,
+          "peak_rss_bytes": 2016395264,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 696,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli4-final-300-adaptive-2.run.json",
+            "sha256": "e07f6552a5806ac49c06ca24c1deac389f7f48e4038fc9ba3c86e1734ee5e3d9"
+          }
+        },
+        {
+          "name": "cli4-final-300-adaptive-3",
+          "variant": "adaptive",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 3329.8840419156477,
+          "peak_rss_bytes": 2112126976,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 696,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli4-final-300-adaptive-3.run.json",
+            "sha256": "176f5cff42e05fb1b802f39a790dc4a8936f7106fd312d8096ad4ac8075632aa"
+          }
+        },
+        {
+          "name": "cli4-final-300-baseline-3",
+          "variant": "baseline",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 3428.264499991201,
+          "peak_rss_bytes": 2056273920,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 696,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli4-final-300-baseline-3.run.json",
+            "sha256": "ebc960649cdd55c7f72180036a1b6676a1117220ed2948077684f4bc1bfb7afd"
+          }
+        },
+        {
+          "name": "cli4-final-300-baseline-4",
+          "variant": "baseline",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 3383.6833749664947,
+          "peak_rss_bytes": 2055946240,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 696,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli4-final-300-baseline-4.run.json",
+            "sha256": "07fb9e7270b712ab2401e340932f352c1e55ebf60495bf72c2408d692162f360"
+          }
+        },
+        {
+          "name": "cli4-final-300-adaptive-4",
+          "variant": "adaptive",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 3319.354332983494,
+          "peak_rss_bytes": 2015379456,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 696,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli4-final-300-adaptive-4.run.json",
+            "sha256": "057e9d68a1892b39eeee53c56c552e3371a6265c42b8a741f2680c6c481d4074"
+          }
+        },
+        {
+          "name": "cli4-final-300-adaptive-5",
+          "variant": "adaptive",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 3322.8992089862004,
+          "peak_rss_bytes": 2115862528,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 696,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli4-final-300-adaptive-5.run.json",
+            "sha256": "6d7801817a31322fc3fc465bc82c1cea4cd1d61680ee2e66ba6e5b1bb70b67f7"
+          }
+        },
+        {
+          "name": "cli4-final-300-baseline-5",
+          "variant": "baseline",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 3470.3809999627993,
+          "peak_rss_bytes": 2066628608,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 696,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/cli4-final-300-baseline-5.run.json",
+            "sha256": "9756e68019c8105f8f1537a9618026052a049f124fdf54a17e9121a16d0e5755"
+          }
+        }
+      ],
+      "medians": {
+        "baseline": {
+          "elapsed_ms": 3470.3809999627993,
+          "peak_rss_bytes": 2056273920,
+          "measured_count": 5,
+          "elapsed_ms_range": [
+            3383.6833749664947,
+            3551.6552919289097
+          ],
+          "peak_rss_bytes_range": [
+            2052849664,
+            2156511232
+          ]
+        },
+        "adaptive": {
+          "elapsed_ms": 3329.8840419156477,
+          "peak_rss_bytes": 2016444416,
+          "measured_count": 5,
+          "elapsed_ms_range": [
+            3319.354332983494,
+            3391.9634589692578
+          ],
+          "peak_rss_bytes_range": [
+            2015379456,
+            2115862528
+          ]
+        }
+      },
+      "elapsed_improvement_percent": 4.048459176345698,
+      "raw_summary": {
+        "path": "samples/private/perf2j-features-20260921/cli4-final-300-summary.json",
+        "sha256": "39b5ae64fce79a1035d1ede34783bc70d1fb6b47e8b1942dfad793e28a12d0c7"
+      }
+    },
+    "probe-final-300-summary": {
+      "mode": "probe-final",
+      "dpi": 300,
+      "records": [
+        {
+          "name": "probe-final-300-baseline-0",
+          "variant": "baseline",
+          "warmup": true,
+          "cpu_count_override": null,
+          "elapsed_ms": 2236.08395899646,
+          "peak_rss_bytes": 1975975936,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/probe-final-300-baseline-0.run.json",
+            "sha256": "d75fa0c771f5b4bdbe068a1702997e670737621573f1a194d763a34f3d08e9f5"
+          },
+          "stages_ms": {
+            "start": 0.0825,
+            "open": 554.5657,
+            "render-a": 562.6302999999999,
+            "render-b": 19.67730000000006,
+            "normalize": 5.9534000000001015,
+            "alignment": 2.7101000000000113,
+            "compare": 613.4616999999998,
+            "text-a": 186.03550000000018,
+            "text-b": 18.613599999999906,
+            "images": 188.19510000000014,
+            "fonts": 3.174199999999928,
+            "json": 24.83080000000018,
+            "html": 4.350999999999658
+          },
+          "comparison_timings": {
+            "PreparationMs": 201.1492,
+            "FeatureWorkers": 3,
+            "FeatureWorkerTemporaryBytes": 27954560,
+            "CandidatesMs": 12.1803,
+            "CandidateWorkers": 4,
+            "GroupingMs": 46.5106,
+            "ShiftsMs": 191.305,
+            "GroupIndexMs": 13.9055,
+            "SearchGroups": 139,
+            "SearchRuns": 51966,
+            "SearchWorkers": 4,
+            "UsedRectangleSearch": false,
+            "MovementMs": 67.7146,
+            "MovementManagedBytes": 2028840,
+            "ClassificationMs": 22.7623,
+            "ClassificationManagedBytes": 63556368,
+            "RetainedRemovalMaskBytes": 17399680,
+            "ClusteringMs": 70.38079999999998
+          }
+        },
+        {
+          "name": "probe-final-300-adaptive-0",
+          "variant": "adaptive",
+          "warmup": true,
+          "cpu_count_override": null,
+          "elapsed_ms": 1248.7746669212356,
+          "peak_rss_bytes": 1925906432,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/probe-final-300-adaptive-0.run.json",
+            "sha256": "a0be4a133a63614388503c35e0d4e325011f6394157636b23db363ab25c42ad4"
+          },
+          "stages_ms": {
+            "start": 0.0721,
+            "open": 170.57559999999998,
+            "render-a": 31.108000000000004,
+            "render-b": 12.838600000000014,
+            "normalize": 4.4868999999999915,
+            "alignment": 1.6787999999999954,
+            "compare": 562.5523000000001,
+            "text-a": 179.0267,
+            "text-b": 17.855099999999993,
+            "images": 186.64919999999995,
+            "fonts": 4.642000000000053,
+            "json": 20.705200000000104,
+            "html": 4.633899999999812
+          },
+          "comparison_timings": {
+            "PreparationMs": 163.0687,
+            "FeatureWorkers": 4,
+            "FeatureWorkerTemporaryBytes": 15713280,
+            "CandidatesMs": 11.8091,
+            "CandidateWorkers": 4,
+            "GroupingMs": 41.9904,
+            "ShiftsMs": 188.2672,
+            "GroupIndexMs": 14.4724,
+            "SearchGroups": 139,
+            "SearchRuns": 51966,
+            "SearchWorkers": 4,
+            "UsedRectangleSearch": false,
+            "MovementMs": 66.9182,
+            "MovementManagedBytes": 2028840,
+            "ClassificationMs": 22.0216,
+            "ClassificationManagedBytes": 63550176,
+            "RetainedRemovalMaskBytes": 17399680,
+            "ClusteringMs": 67.2677
+          }
+        },
+        {
+          "name": "probe-final-300-adaptive-1",
+          "variant": "adaptive",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 1244.3099999800324,
+          "peak_rss_bytes": 1925414912,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/probe-final-300-adaptive-1.run.json",
+            "sha256": "577d6d15aa97500c6a190dac6b8dd3e56265e4bd32c567483bae71d80fd898e0"
+          },
+          "stages_ms": {
+            "start": 0.0721,
+            "open": 169.611,
+            "render-a": 27.7577,
+            "render-b": 12.644900000000007,
+            "normalize": 4.323999999999984,
+            "alignment": 1.6025000000000205,
+            "compare": 575.5553,
+            "text-a": 175.99840000000006,
+            "text-b": 17.621799999999894,
+            "images": 183.10699999999997,
+            "fonts": 4.3595000000000255,
+            "json": 19.985599999999977,
+            "html": 4.5236999999999625
+          },
+          "comparison_timings": {
+            "PreparationMs": 166.1606,
+            "FeatureWorkers": 4,
+            "FeatureWorkerTemporaryBytes": 15713280,
+            "CandidatesMs": 12.3318,
+            "CandidateWorkers": 4,
+            "GroupingMs": 44.2099,
+            "ShiftsMs": 193.1821,
+            "GroupIndexMs": 14.0896,
+            "SearchGroups": 139,
+            "SearchRuns": 51966,
+            "SearchWorkers": 4,
+            "UsedRectangleSearch": false,
+            "MovementMs": 69.1695,
+            "MovementManagedBytes": 2028840,
+            "ClassificationMs": 21.7836,
+            "ClassificationManagedBytes": 63550176,
+            "RetainedRemovalMaskBytes": 17399680,
+            "ClusteringMs": 67.61939999999998
+          }
+        },
+        {
+          "name": "probe-final-300-baseline-1",
+          "variant": "baseline",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 1274.395624990575,
+          "peak_rss_bytes": 1967964160,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/probe-final-300-baseline-1.run.json",
+            "sha256": "c63640bce3690c38cd976915d577af9e2fbc6de710165b4b35ca57b181763d7c"
+          },
+          "stages_ms": {
+            "start": 0.0775,
+            "open": 169.8171,
+            "render-a": 28.111400000000003,
+            "render-b": 12.455700000000007,
+            "normalize": 4.322499999999991,
+            "alignment": 1.760799999999989,
+            "compare": 600.5125,
+            "text-a": 176.5851,
+            "text-b": 17.68859999999995,
+            "images": 185.12880000000007,
+            "fonts": 2.694099999999935,
+            "json": 21.76909999999998,
+            "html": 4.942499999999882
+          },
+          "comparison_timings": {
+            "PreparationMs": 194.2433,
+            "FeatureWorkers": 3,
+            "FeatureWorkerTemporaryBytes": 27954560,
+            "CandidatesMs": 12.9769,
+            "CandidateWorkers": 4,
+            "GroupingMs": 44.8912,
+            "ShiftsMs": 188.0521,
+            "GroupIndexMs": 14.7789,
+            "SearchGroups": 139,
+            "SearchRuns": 51966,
+            "SearchWorkers": 4,
+            "UsedRectangleSearch": false,
+            "MovementMs": 70.4663,
+            "MovementManagedBytes": 2028840,
+            "ClassificationMs": 21.7356,
+            "ClassificationManagedBytes": 63550176,
+            "RetainedRemovalMaskBytes": 17399680,
+            "ClusteringMs": 66.7925
+          }
+        },
+        {
+          "name": "probe-final-300-baseline-2",
+          "variant": "baseline",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 1274.176541948691,
+          "peak_rss_bytes": 1964736512,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/probe-final-300-baseline-2.run.json",
+            "sha256": "db2beedae56ca4c054c23df4de7b1e5742c57c6f65efd97308c7e1a760252a52"
+          },
+          "stages_ms": {
+            "start": 0.0777,
+            "open": 170.1463,
+            "render-a": 28.465400000000017,
+            "render-b": 13.1096,
+            "normalize": 4.455099999999987,
+            "alignment": 2.0648000000000195,
+            "compare": 598.7333,
+            "text-a": 172.93150000000003,
+            "text-b": 17.746600000000058,
+            "images": 187.32669999999996,
+            "fonts": 3.016399999999976,
+            "json": 22.21490000000017,
+            "html": 4.064899999999852
+          },
+          "comparison_timings": {
+            "PreparationMs": 192.5952,
+            "FeatureWorkers": 3,
+            "FeatureWorkerTemporaryBytes": 27954560,
+            "CandidatesMs": 11.7989,
+            "CandidateWorkers": 4,
+            "GroupingMs": 46.8125,
+            "ShiftsMs": 189.9398,
+            "GroupIndexMs": 14.6195,
+            "SearchGroups": 139,
+            "SearchRuns": 51966,
+            "SearchWorkers": 4,
+            "UsedRectangleSearch": false,
+            "MovementMs": 67.6638,
+            "MovementManagedBytes": 2028840,
+            "ClassificationMs": 21.6997,
+            "ClassificationManagedBytes": 63550176,
+            "RetainedRemovalMaskBytes": 17399680,
+            "ClusteringMs": 66.8987
+          }
+        },
+        {
+          "name": "probe-final-300-adaptive-2",
+          "variant": "adaptive",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 1248.8128750119358,
+          "peak_rss_bytes": 1921908736,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/probe-final-300-adaptive-2.run.json",
+            "sha256": "b6f037fada3a45d57485bc407f197fd8164cc6ff5250d9fa67d23ccb7cf6104d"
+          },
+          "stages_ms": {
+            "start": 0.0977,
+            "open": 173.5705,
+            "render-a": 27.116499999999974,
+            "render-b": 11.595500000000015,
+            "normalize": 3.954800000000006,
+            "alignment": 1.7314999999999827,
+            "compare": 569.5185,
+            "text-a": 177.22910000000002,
+            "text-b": 18.06269999999995,
+            "images": 186.4284,
+            "fonts": 4.167400000000043,
+            "json": 20.877700000000004,
+            "html": 4.533100000000104
+          },
+          "comparison_timings": {
+            "PreparationMs": 161.5519,
+            "FeatureWorkers": 4,
+            "FeatureWorkerTemporaryBytes": 15713280,
+            "CandidatesMs": 12.6435,
+            "CandidateWorkers": 4,
+            "GroupingMs": 43.1759,
+            "ShiftsMs": 189.5844,
+            "GroupIndexMs": 14.4525,
+            "SearchGroups": 139,
+            "SearchRuns": 51966,
+            "SearchWorkers": 4,
+            "UsedRectangleSearch": false,
+            "MovementMs": 70.1687,
+            "MovementManagedBytes": 2028840,
+            "ClassificationMs": 22.7265,
+            "ClassificationManagedBytes": 63550176,
+            "RetainedRemovalMaskBytes": 17399680,
+            "ClusteringMs": 68.48579999999998
+          }
+        },
+        {
+          "name": "probe-final-300-adaptive-3",
+          "variant": "adaptive",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 1250.0880000879988,
+          "peak_rss_bytes": 1930887168,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/probe-final-300-adaptive-3.run.json",
+            "sha256": "a374200690ca8e56aa1572ca3dfe6d4ab6259be861b50006ccb0f6fc1779a75a"
+          },
+          "stages_ms": {
+            "start": 0.0781,
+            "open": 170.5795,
+            "render-a": 27.88990000000001,
+            "render-b": 12.36839999999998,
+            "normalize": 4.350200000000001,
+            "alignment": 1.6201000000000079,
+            "compare": 568.9448,
+            "text-a": 174.79309999999998,
+            "text-b": 18.36620000000005,
+            "images": 191.88530000000003,
+            "fonts": 4.749000000000024,
+            "json": 22.236200000000053,
+            "html": 4.271499999999833
+          },
+          "comparison_timings": {
+            "PreparationMs": 164.7497,
+            "FeatureWorkers": 4,
+            "FeatureWorkerTemporaryBytes": 15713280,
+            "CandidatesMs": 12.1752,
+            "CandidateWorkers": 4,
+            "GroupingMs": 43.4208,
+            "ShiftsMs": 189.8975,
+            "GroupIndexMs": 14.7867,
+            "SearchGroups": 139,
+            "SearchRuns": 51966,
+            "SearchWorkers": 4,
+            "UsedRectangleSearch": false,
+            "MovementMs": 69.5454,
+            "MovementManagedBytes": 2028840,
+            "ClassificationMs": 22.0387,
+            "ClassificationManagedBytes": 63550176,
+            "RetainedRemovalMaskBytes": 17399680,
+            "ClusteringMs": 65.9882
+          }
+        },
+        {
+          "name": "probe-final-300-baseline-3",
+          "variant": "baseline",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 1278.9465830428526,
+          "peak_rss_bytes": 1972076544,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/probe-final-300-baseline-3.run.json",
+            "sha256": "f30438d8e964b98f6ada3beb2abfa0d3f5075a2ff794def1de11dc1d36f846e9"
+          },
+          "stages_ms": {
+            "start": 0.0696,
+            "open": 172.0906,
+            "render-a": 27.658199999999994,
+            "render-b": 12.951099999999997,
+            "normalize": 4.366500000000002,
+            "alignment": 1.765100000000018,
+            "compare": 601.8991,
+            "text-a": 176.52599999999995,
+            "text-b": 18.35590000000002,
+            "images": 186.37210000000005,
+            "fonts": 2.735500000000002,
+            "json": 21.67840000000001,
+            "html": 4.453300000000127
+          },
+          "comparison_timings": {
+            "PreparationMs": 190.6438,
+            "FeatureWorkers": 3,
+            "FeatureWorkerTemporaryBytes": 27954560,
+            "CandidatesMs": 13.0778,
+            "CandidateWorkers": 4,
+            "GroupingMs": 47.9476,
+            "ShiftsMs": 191.015,
+            "GroupIndexMs": 15.2265,
+            "SearchGroups": 139,
+            "SearchRuns": 51966,
+            "SearchWorkers": 4,
+            "UsedRectangleSearch": false,
+            "MovementMs": 68.4652,
+            "MovementManagedBytes": 2028840,
+            "ClassificationMs": 21.9861,
+            "ClassificationManagedBytes": 63550176,
+            "RetainedRemovalMaskBytes": 17399680,
+            "ClusteringMs": 67.47280000000002
+          }
+        }
+      ],
+      "medians": {
+        "baseline": {
+          "elapsed_ms": 1274.395624990575,
+          "peak_rss_bytes": 1967964160,
+          "measured_count": 3,
+          "elapsed_ms_range": [
+            1274.176541948691,
+            1278.9465830428526
+          ],
+          "peak_rss_bytes_range": [
+            1964736512,
+            1972076544
+          ],
+          "stages_ms": {
+            "start": 0.0775,
+            "open": 170.1463,
+            "render-a": 28.111400000000003,
+            "render-b": 12.951099999999997,
+            "normalize": 4.366500000000002,
+            "alignment": 1.765100000000018,
+            "compare": 600.5125,
+            "text-a": 176.52599999999995,
+            "text-b": 17.746600000000058,
+            "images": 186.37210000000005,
+            "fonts": 2.735500000000002,
+            "json": 21.76909999999998,
+            "html": 4.453300000000127
+          },
+          "comparison_ms": {
+            "PreparationMs": 192.5952,
+            "CandidatesMs": 12.9769,
+            "GroupingMs": 46.8125,
+            "ShiftsMs": 189.9398,
+            "GroupIndexMs": 14.7789,
+            "MovementMs": 68.4652,
+            "ClassificationMs": 21.7356,
+            "ClusteringMs": 66.8987
+          }
+        },
+        "adaptive": {
+          "elapsed_ms": 1248.8128750119358,
+          "peak_rss_bytes": 1925414912,
+          "measured_count": 3,
+          "elapsed_ms_range": [
+            1244.3099999800324,
+            1250.0880000879988
+          ],
+          "peak_rss_bytes_range": [
+            1921908736,
+            1930887168
+          ],
+          "stages_ms": {
+            "start": 0.0781,
+            "open": 170.5795,
+            "render-a": 27.7577,
+            "render-b": 12.36839999999998,
+            "normalize": 4.323999999999984,
+            "alignment": 1.6201000000000079,
+            "compare": 569.5185,
+            "text-a": 175.99840000000006,
+            "text-b": 18.06269999999995,
+            "images": 186.4284,
+            "fonts": 4.3595000000000255,
+            "json": 20.877700000000004,
+            "html": 4.5236999999999625
+          },
+          "comparison_ms": {
+            "PreparationMs": 164.7497,
+            "CandidatesMs": 12.3318,
+            "GroupingMs": 43.4208,
+            "ShiftsMs": 189.8975,
+            "GroupIndexMs": 14.4525,
+            "MovementMs": 69.5454,
+            "ClassificationMs": 22.0387,
+            "ClusteringMs": 67.61939999999998
+          }
+        }
+      },
+      "elapsed_improvement_percent": 2.007441761174311,
+      "raw_summary": {
+        "path": "samples/private/perf2j-features-20260921/probe-final-300-summary.json",
+        "sha256": "ed201195d11220a3b9b488449e06403e2c97dd38ed13d620c5ea2a2736bd8690"
+      }
+    },
+    "probe-final-400-summary": {
+      "mode": "probe-final",
+      "dpi": 400,
+      "records": [
+        {
+          "name": "probe-final-400-baseline-0",
+          "variant": "baseline",
+          "warmup": true,
+          "cpu_count_override": null,
+          "elapsed_ms": 1980.8550419984385,
+          "peak_rss_bytes": 3518627840,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/probe-final-400-baseline-0.run.json",
+            "sha256": "8606805e0997ef70bcd8f62d32275f815849dc83f7cdda35f9b22ba34eef8dea"
+          },
+          "stages_ms": {
+            "start": 0.0758,
+            "open": 170.3538,
+            "render-a": 36.6369,
+            "render-b": 19.842600000000004,
+            "normalize": 6.712999999999994,
+            "alignment": 1.769900000000007,
+            "compare": 1156.1025,
+            "text-a": 179.32580000000007,
+            "text-b": 18.323399999999992,
+            "images": 303.0212999999999,
+            "fonts": 2.6391000000000986,
+            "json": 22.289099999999962,
+            "html": 7.939799999999877
+          },
+          "comparison_timings": {
+            "PreparationMs": 416.7402,
+            "FeatureWorkers": 2,
+            "FeatureWorkerTemporaryBytes": 39260704,
+            "CandidatesMs": 24.7072,
+            "CandidateWorkers": 4,
+            "GroupingMs": 81.0336,
+            "ShiftsMs": 285.9957,
+            "GroupIndexMs": 25.9366,
+            "SearchGroups": 197,
+            "SearchRuns": 76677,
+            "SearchWorkers": 4,
+            "UsedRectangleSearch": false,
+            "MovementMs": 181.7883,
+            "MovementManagedBytes": 3413216,
+            "ClassificationMs": 41.8231,
+            "ClassificationManagedBytes": 112924992,
+            "RetainedRemovalMaskBytes": 30933678,
+            "ClusteringMs": 122.73090000000002
+          }
+        },
+        {
+          "name": "probe-final-400-adaptive-0",
+          "variant": "adaptive",
+          "warmup": true,
+          "cpu_count_override": null,
+          "elapsed_ms": 1837.2660409659147,
+          "peak_rss_bytes": 3510288384,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/probe-final-400-adaptive-0.run.json",
+            "sha256": "bc0cdbba1585957f6a2574b6e1b9d44f1a7b1d7b5e8230177361bed92ec50a42"
+          },
+          "stages_ms": {
+            "start": 0.0782,
+            "open": 170.6695,
+            "render-a": 36.771799999999985,
+            "render-b": 19.982100000000003,
+            "normalize": 6.651200000000017,
+            "alignment": 1.716799999999978,
+            "compare": 1011.1407999999999,
+            "text-a": 178.4172000000001,
+            "text-b": 17.735799999999927,
+            "images": 302.06550000000016,
+            "fonts": 3.009499999999889,
+            "json": 24.037199999999984,
+            "html": 4.481100000000197
+          },
+          "comparison_timings": {
+            "PreparationMs": 265.472,
+            "FeatureWorkers": 4,
+            "FeatureWorkerTemporaryBytes": 22857984,
+            "CandidatesMs": 26.9605,
+            "CandidateWorkers": 4,
+            "GroupingMs": 81.5069,
+            "ShiftsMs": 294.6179,
+            "GroupIndexMs": 26.0209,
+            "SearchGroups": 197,
+            "SearchRuns": 76677,
+            "SearchWorkers": 4,
+            "UsedRectangleSearch": false,
+            "MovementMs": 185.376,
+            "MovementManagedBytes": 3413216,
+            "ClassificationMs": 36.188,
+            "ClassificationManagedBytes": 112924992,
+            "RetainedRemovalMaskBytes": 30933678,
+            "ClusteringMs": 119.68519999999998
+          }
+        },
+        {
+          "name": "probe-final-400-adaptive-1",
+          "variant": "adaptive",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 1835.8462499454618,
+          "peak_rss_bytes": 3503374336,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/probe-final-400-adaptive-1.run.json",
+            "sha256": "b8db64c4efd0a39530d951de00cb4a892847138f732373943abacc7787b936c9"
+          },
+          "stages_ms": {
+            "start": 0.0941,
+            "open": 173.0211,
+            "render-a": 37.572,
+            "render-b": 19.463000000000022,
+            "normalize": 6.880899999999997,
+            "alignment": 1.7031999999999812,
+            "compare": 1002.5124999999999,
+            "text-a": 179.32460000000015,
+            "text-b": 17.97109999999998,
+            "images": 303.61760000000004,
+            "fonts": 3.0465999999998985,
+            "json": 21.230000000000018,
+            "html": 8.21550000000002
+          },
+          "comparison_timings": {
+            "PreparationMs": 265.3992,
+            "FeatureWorkers": 4,
+            "FeatureWorkerTemporaryBytes": 22857984,
+            "CandidatesMs": 25.5202,
+            "CandidateWorkers": 4,
+            "GroupingMs": 77.4055,
+            "ShiftsMs": 287.5985,
+            "GroupIndexMs": 25.2633,
+            "SearchGroups": 197,
+            "SearchRuns": 76677,
+            "SearchWorkers": 4,
+            "UsedRectangleSearch": false,
+            "MovementMs": 184.4142,
+            "MovementManagedBytes": 3413216,
+            "ClassificationMs": 37.1012,
+            "ClassificationManagedBytes": 112924992,
+            "RetainedRemovalMaskBytes": 30933678,
+            "ClusteringMs": 123.78390000000002
+          }
+        },
+        {
+          "name": "probe-final-400-baseline-1",
+          "variant": "baseline",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 2019.8531249770895,
+          "peak_rss_bytes": 3506487296,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/probe-final-400-baseline-1.run.json",
+            "sha256": "6e99e5648db5d32c672479d16386cb9dc50ec7665a76841006e04fe30f13184e"
+          },
+          "stages_ms": {
+            "start": 0.0657,
+            "open": 172.7382,
+            "render-a": 38.8347,
+            "render-b": 20.457400000000007,
+            "normalize": 6.850999999999999,
+            "alignment": 1.725999999999999,
+            "compare": 1173.923,
+            "text-a": 185.9124999999999,
+            "text-b": 18.8121000000001,
+            "images": 307.9103,
+            "fonts": 2.7212999999999283,
+            "json": 21.237600000000157,
+            "html": 8.199599999999919
+          },
+          "comparison_timings": {
+            "PreparationMs": 423.0452,
+            "FeatureWorkers": 2,
+            "FeatureWorkerTemporaryBytes": 39260704,
+            "CandidatesMs": 26.2805,
+            "CandidateWorkers": 4,
+            "GroupingMs": 79.6952,
+            "ShiftsMs": 291.1921,
+            "GroupIndexMs": 25.1457,
+            "SearchGroups": 197,
+            "SearchRuns": 76677,
+            "SearchWorkers": 4,
+            "UsedRectangleSearch": false,
+            "MovementMs": 191.1761,
+            "MovementManagedBytes": 3413216,
+            "ClassificationMs": 37.2958,
+            "ClassificationManagedBytes": 112924992,
+            "RetainedRemovalMaskBytes": 30933678,
+            "ClusteringMs": 123.86200000000005
+          }
+        },
+        {
+          "name": "probe-final-400-baseline-2",
+          "variant": "baseline",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 2009.3176669906825,
+          "peak_rss_bytes": 3505569792,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/probe-final-400-baseline-2.run.json",
+            "sha256": "df8ef888c5644ce9a04e31ce3386ad17485512990ccb7c18144f49b8db39ed8e"
+          },
+          "stages_ms": {
+            "start": 0.0788,
+            "open": 171.6144,
+            "render-a": 38.73830000000001,
+            "render-b": 19.631699999999995,
+            "normalize": 6.719500000000011,
+            "alignment": 1.7084999999999866,
+            "compare": 1183.5702,
+            "text-a": 179.26459999999997,
+            "text-b": 18.20010000000002,
+            "images": 301.00620000000004,
+            "fonts": 2.7450999999998658,
+            "json": 19.68269999999984,
+            "html": 7.638900000000149
+          },
+          "comparison_timings": {
+            "PreparationMs": 427.6039,
+            "FeatureWorkers": 2,
+            "FeatureWorkerTemporaryBytes": 39260704,
+            "CandidatesMs": 26.314,
+            "CandidateWorkers": 4,
+            "GroupingMs": 81.3615,
+            "ShiftsMs": 301.6243,
+            "GroupIndexMs": 25.8376,
+            "SearchGroups": 197,
+            "SearchRuns": 76677,
+            "SearchWorkers": 4,
+            "UsedRectangleSearch": false,
+            "MovementMs": 184.5827,
+            "MovementManagedBytes": 3413216,
+            "ClassificationMs": 37.1659,
+            "ClassificationManagedBytes": 112924992,
+            "RetainedRemovalMaskBytes": 30933678,
+            "ClusteringMs": 123.58690000000001
+          }
+        },
+        {
+          "name": "probe-final-400-adaptive-2",
+          "variant": "adaptive",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 1858.2846659701318,
+          "peak_rss_bytes": 3514007552,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/probe-final-400-adaptive-2.run.json",
+            "sha256": "50b13ffb53980142d40c2dc149a2e400af05e0a754c7231f74ebf00ba55ca0fe"
+          },
+          "stages_ms": {
+            "start": 0.0844,
+            "open": 173.752,
+            "render-a": 39.27719999999999,
+            "render-b": 19.74260000000001,
+            "normalize": 6.836999999999989,
+            "alignment": 1.7035000000000196,
+            "compare": 1024.7915,
+            "text-a": 179.08079999999995,
+            "text-b": 18.27890000000002,
+            "images": 302.6866,
+            "fonts": 2.710399999999936,
+            "json": 21.25520000000006,
+            "html": 8.15300000000002
+          },
+          "comparison_timings": {
+            "PreparationMs": 266.046,
+            "FeatureWorkers": 4,
+            "FeatureWorkerTemporaryBytes": 22857984,
+            "CandidatesMs": 25.4975,
+            "CandidateWorkers": 4,
+            "GroupingMs": 80.6461,
+            "ShiftsMs": 303.9466,
+            "GroupIndexMs": 25.9955,
+            "SearchGroups": 197,
+            "SearchRuns": 76677,
+            "SearchWorkers": 4,
+            "UsedRectangleSearch": false,
+            "MovementMs": 186.6211,
+            "MovementManagedBytes": 3413216,
+            "ClassificationMs": 37.0832,
+            "ClassificationManagedBytes": 112924992,
+            "RetainedRemovalMaskBytes": 30933678,
+            "ClusteringMs": 123.59610000000004
+          }
+        },
+        {
+          "name": "probe-final-400-adaptive-3",
+          "variant": "adaptive",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 1901.9237499451265,
+          "peak_rss_bytes": 3505618944,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/probe-final-400-adaptive-3.run.json",
+            "sha256": "3d471a08d73c660bf9533777095541293b2e648371435a0421002e372d4a08f2"
+          },
+          "stages_ms": {
+            "start": 0.0842,
+            "open": 177.63459999999998,
+            "render-a": 38.0129,
+            "render-b": 19.461300000000023,
+            "normalize": 7.377499999999998,
+            "alignment": 1.7975999999999885,
+            "compare": 1033.5264000000002,
+            "text-a": 182.93599999999992,
+            "text-b": 19.20979999999986,
+            "images": 328.4964000000002,
+            "fonts": 2.9842999999998483,
+            "json": 21.69529999999986,
+            "html": 7.766000000000076
+          },
+          "comparison_timings": {
+            "PreparationMs": 259.2705,
+            "FeatureWorkers": 4,
+            "FeatureWorkerTemporaryBytes": 22857984,
+            "CandidatesMs": 24.7959,
+            "CandidateWorkers": 4,
+            "GroupingMs": 81.498,
+            "ShiftsMs": 294.766,
+            "GroupIndexMs": 25.9625,
+            "SearchGroups": 197,
+            "SearchRuns": 76677,
+            "SearchWorkers": 4,
+            "UsedRectangleSearch": false,
+            "MovementMs": 213.5005,
+            "MovementManagedBytes": 3413216,
+            "ClassificationMs": 35.6298,
+            "ClassificationManagedBytes": 112924992,
+            "RetainedRemovalMaskBytes": 30933678,
+            "ClusteringMs": 122.6343
+          }
+        },
+        {
+          "name": "probe-final-400-baseline-3",
+          "variant": "baseline",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 2030.4515830939636,
+          "peak_rss_bytes": 3505061888,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/probe-final-400-baseline-3.run.json",
+            "sha256": "21bef35b3793dd20bc28db3bd770a9ded20b89af5bc0476e6a455c9a2a45f533"
+          },
+          "stages_ms": {
+            "start": 0.081,
+            "open": 176.02210000000002,
+            "render-a": 39.80109999999999,
+            "render-b": 20.7551,
+            "normalize": 7.26230000000001,
+            "alignment": 1.7908999999999935,
+            "compare": 1189.4622,
+            "text-a": 181.19270000000006,
+            "text-b": 18.713799999999992,
+            "images": 304.73879999999986,
+            "fonts": 2.554700000000139,
+            "json": 21.751600000000053,
+            "html": 7.751899999999978
+          },
+          "comparison_timings": {
+            "PreparationMs": 429.5701,
+            "FeatureWorkers": 2,
+            "FeatureWorkerTemporaryBytes": 39260704,
+            "CandidatesMs": 25.2525,
+            "CandidateWorkers": 4,
+            "GroupingMs": 76.6231,
+            "ShiftsMs": 304.9692,
+            "GroupIndexMs": 25.6168,
+            "SearchGroups": 197,
+            "SearchRuns": 76677,
+            "SearchWorkers": 4,
+            "UsedRectangleSearch": false,
+            "MovementMs": 188.2282,
+            "MovementManagedBytes": 3413216,
+            "ClassificationMs": 38.536,
+            "ClassificationManagedBytes": 112924992,
+            "RetainedRemovalMaskBytes": 30933678,
+            "ClusteringMs": 124.88640000000001
+          }
+        }
+      ],
+      "medians": {
+        "baseline": {
+          "elapsed_ms": 2019.8531249770895,
+          "peak_rss_bytes": 3505569792,
+          "measured_count": 3,
+          "elapsed_ms_range": [
+            2009.3176669906825,
+            2030.4515830939636
+          ],
+          "peak_rss_bytes_range": [
+            3505061888,
+            3506487296
+          ],
+          "stages_ms": {
+            "start": 0.0788,
+            "open": 172.7382,
+            "render-a": 38.8347,
+            "render-b": 20.457400000000007,
+            "normalize": 6.850999999999999,
+            "alignment": 1.725999999999999,
+            "compare": 1183.5702,
+            "text-a": 181.19270000000006,
+            "text-b": 18.713799999999992,
+            "images": 304.73879999999986,
+            "fonts": 2.7212999999999283,
+            "json": 21.237600000000157,
+            "html": 7.751899999999978
+          },
+          "comparison_ms": {
+            "PreparationMs": 427.6039,
+            "CandidatesMs": 26.2805,
+            "GroupingMs": 79.6952,
+            "ShiftsMs": 301.6243,
+            "GroupIndexMs": 25.6168,
+            "MovementMs": 188.2282,
+            "ClassificationMs": 37.2958,
+            "ClusteringMs": 123.86200000000005
+          }
+        },
+        "adaptive": {
+          "elapsed_ms": 1858.2846659701318,
+          "peak_rss_bytes": 3505618944,
+          "measured_count": 3,
+          "elapsed_ms_range": [
+            1835.8462499454618,
+            1901.9237499451265
+          ],
+          "peak_rss_bytes_range": [
+            3503374336,
+            3514007552
+          ],
+          "stages_ms": {
+            "start": 0.0844,
+            "open": 173.752,
+            "render-a": 38.0129,
+            "render-b": 19.463000000000022,
+            "normalize": 6.880899999999997,
+            "alignment": 1.7035000000000196,
+            "compare": 1024.7915,
+            "text-a": 179.32460000000015,
+            "text-b": 18.27890000000002,
+            "images": 303.61760000000004,
+            "fonts": 2.9842999999998483,
+            "json": 21.25520000000006,
+            "html": 8.15300000000002
+          },
+          "comparison_ms": {
+            "PreparationMs": 265.3992,
+            "CandidatesMs": 25.4975,
+            "GroupingMs": 80.6461,
+            "ShiftsMs": 294.766,
+            "GroupIndexMs": 25.9625,
+            "MovementMs": 186.6211,
+            "ClassificationMs": 37.0832,
+            "ClusteringMs": 123.59610000000004
+          }
+        }
+      },
+      "elapsed_improvement_percent": 7.999020176716575,
+      "raw_summary": {
+        "path": "samples/private/perf2j-features-20260921/probe-final-400-summary.json",
+        "sha256": "7ed8f91ee55bd6a7ea1c355982251eb2168b85c855951cb997292ff88b39ec54"
+      }
+    },
+    "small-final-300-summary": {
+      "mode": "small-final",
+      "dpi": 300,
+      "records": [
+        {
+          "name": "small-final-300-baseline-0",
+          "variant": "baseline",
+          "warmup": true,
+          "cpu_count_override": null,
+          "elapsed_ms": 370.0356250628829,
+          "peak_rss_bytes": 90193920,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 6,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/small-final-300-baseline-0.run.json",
+            "sha256": "04d83c63a84ae99a1543b69bdc47ca1c3f3dbac916682001d74d223b540995da"
+          }
+        },
+        {
+          "name": "small-final-300-adaptive-0",
+          "variant": "adaptive",
+          "warmup": true,
+          "cpu_count_override": null,
+          "elapsed_ms": 355.1110828993842,
+          "peak_rss_bytes": 90537984,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 6,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/small-final-300-adaptive-0.run.json",
+            "sha256": "d23f600d197436181c5d4b4e623d427cf504932ff33395f058432309e8d0541b"
+          }
+        },
+        {
+          "name": "small-final-300-adaptive-1",
+          "variant": "adaptive",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 358.9606659952551,
+          "peak_rss_bytes": 91357184,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 6,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/small-final-300-adaptive-1.run.json",
+            "sha256": "a432c965482389880b4081fec543875dd9b0b91e8fbc59ecdfd7085672974046"
+          }
+        },
+        {
+          "name": "small-final-300-baseline-1",
+          "variant": "baseline",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 364.53745793551207,
+          "peak_rss_bytes": 90537984,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 6,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/small-final-300-baseline-1.run.json",
+            "sha256": "d20ad00d92fc2b171c1313dc1890b3bd626cf72c91dabcc38b706af9766b891b"
+          }
+        },
+        {
+          "name": "small-final-300-baseline-2",
+          "variant": "baseline",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 368.81024995818734,
+          "peak_rss_bytes": 89915392,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 6,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/small-final-300-baseline-2.run.json",
+            "sha256": "7305fcabc21025b1ba85b9d14a05708861d6bb7f01767ff00a6a2af7ea067600"
+          }
+        },
+        {
+          "name": "small-final-300-adaptive-2",
+          "variant": "adaptive",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 356.24729096889496,
+          "peak_rss_bytes": 89915392,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 6,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/small-final-300-adaptive-2.run.json",
+            "sha256": "444afa5c2572115508dabf1856f1d61e0b6be95f83bb2f0e91b7abb8e8cbee12"
+          }
+        },
+        {
+          "name": "small-final-300-adaptive-3",
+          "variant": "adaptive",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 353.4707090584561,
+          "peak_rss_bytes": 90210304,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 6,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/small-final-300-adaptive-3.run.json",
+            "sha256": "c2596b915265579924dab8942ea86a06e1161c3b940228a4d1cc297dee219c96"
+          }
+        },
+        {
+          "name": "small-final-300-baseline-3",
+          "variant": "baseline",
+          "warmup": false,
+          "cpu_count_override": null,
+          "elapsed_ms": 363.87504101730883,
+          "peak_rss_bytes": 90783744,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 6,
+          "png_sha256_equal": true,
+          "raw_record": {
+            "path": "samples/private/perf2j-features-20260921/small-final-300-baseline-3.run.json",
+            "sha256": "d3702057c82554a65a5f21c3a61ad340860e83be3ee88704932b2c39081cf3f2"
+          }
+        }
+      ],
+      "medians": {
+        "baseline": {
+          "elapsed_ms": 364.53745793551207,
+          "peak_rss_bytes": 90537984,
+          "measured_count": 3,
+          "elapsed_ms_range": [
+            363.87504101730883,
+            368.81024995818734
+          ],
+          "peak_rss_bytes_range": [
+            89915392,
+            90783744
+          ]
+        },
+        "adaptive": {
+          "elapsed_ms": 356.24729096889496,
+          "peak_rss_bytes": 90210304,
+          "measured_count": 3,
+          "elapsed_ms_range": [
+            353.4707090584561,
+            358.9606659952551
+          ],
+          "peak_rss_bytes_range": [
+            89915392,
+            91357184
+          ]
+        }
+      },
+      "elapsed_improvement_percent": 2.2741605248379315,
+      "raw_summary": {
+        "path": "samples/private/perf2j-features-20260921/small-final-300-summary.json",
+        "sha256": "8ce12bdd6dd4561afc085d18e4a5296a514bdeaf307cd6b51368a239ce0cd2a3"
+      }
+    }
+  },
+  "features": {
+    "iterations": 160,
+    "summaries": {
+      "normal300": {
+        "baseline": {
+          "median_ms": 51.0697,
+          "workers": 3,
+          "stripe_rows": 128,
+          "temporary_bytes": 27954560,
+          "sha256": "EA3757B5AA96B11F5D204E14C14CB7F98B09C42CBFA062450454213787570BE7",
+          "cpu_count_override": null,
+          "range_ms": [
+            50.1837,
+            53.0446
+          ],
+          "total_temporary_mib": 79.9786376953125
+        },
+        "adaptive": {
+          "median_ms": 40.2458,
+          "workers": 4,
+          "stripe_rows": 64,
+          "temporary_bytes": 15713280,
+          "sha256": "EA3757B5AA96B11F5D204E14C14CB7F98B09C42CBFA062450454213787570BE7",
+          "cpu_count_override": null,
+          "range_ms": [
+            38.8602,
+            41.6243
+          ],
+          "total_temporary_mib": 59.94140625
+        }
+      },
+      "normal400": {
+        "adaptive": {
+          "median_ms": 81.2466,
+          "workers": 4,
+          "stripe_rows": 64,
+          "temporary_bytes": 22857984,
+          "sha256": "EB0EA0CF3860912569B44652B7D8C9ED3020BF7195CCE2AA861E27786D9CB2B7",
+          "cpu_count_override": null,
+          "range_ms": [
+            78.6737,
+            82.7031
+          ],
+          "total_temporary_mib": 87.1962890625
+        },
+        "baseline": {
+          "median_ms": 151.0142,
+          "workers": 2,
+          "stripe_rows": 128,
+          "temporary_bytes": 39260704,
+          "sha256": "EB0EA0CF3860912569B44652B7D8C9ED3020BF7195CCE2AA861E27786D9CB2B7",
+          "cpu_count_override": null,
+          "range_ms": [
+            148.4855,
+            153.9468
+          ],
+          "total_temporary_mib": 74.88385009765625
+        }
+      },
+      "cpu1-300": {
+        "baseline": {
+          "median_ms": 140.7148,
+          "workers": 1,
+          "stripe_rows": 128,
+          "temporary_bytes": 27954560,
+          "sha256": "EA3757B5AA96B11F5D204E14C14CB7F98B09C42CBFA062450454213787570BE7",
+          "cpu_count_override": "1",
+          "range_ms": [
+            138.6177,
+            147.8818
+          ],
+          "total_temporary_mib": 26.6595458984375
+        },
+        "adaptive": {
+          "median_ms": 138.3548,
+          "workers": 1,
+          "stripe_rows": 128,
+          "temporary_bytes": 27954560,
+          "sha256": "EA3757B5AA96B11F5D204E14C14CB7F98B09C42CBFA062450454213787570BE7",
+          "cpu_count_override": "1",
+          "range_ms": [
+            135.4585,
+            144.0869
+          ],
+          "total_temporary_mib": 26.6595458984375
+        }
+      },
+      "cpu1-400": {
+        "adaptive": {
+          "median_ms": 290.7485,
+          "workers": 1,
+          "stripe_rows": 128,
+          "temporary_bytes": 39260704,
+          "sha256": "EB0EA0CF3860912569B44652B7D8C9ED3020BF7195CCE2AA861E27786D9CB2B7",
+          "cpu_count_override": "1",
+          "range_ms": [
+            283.5808,
+            298.8835
+          ],
+          "total_temporary_mib": 37.441925048828125
+        },
+        "baseline": {
+          "median_ms": 298.4779,
+          "workers": 1,
+          "stripe_rows": 128,
+          "temporary_bytes": 39260704,
+          "sha256": "EB0EA0CF3860912569B44652B7D8C9ED3020BF7195CCE2AA861E27786D9CB2B7",
+          "cpu_count_override": "1",
+          "range_ms": [
+            290.1489,
+            304.1412
+          ],
+          "total_temporary_mib": 37.441925048828125
+        }
+      },
+      "strict300": {
+        "baseline": {
+          "median_ms": 26.991,
+          "workers": 4,
+          "stripe_rows": 128,
+          "temporary_bytes": 20336000,
+          "sha256": "7E346D76647A9CED058671C63638507C6268225F862ADA35A673DFD6E8ECACD4",
+          "cpu_count_override": null,
+          "range_ms": [
+            25.0523,
+            27.1568
+          ],
+          "total_temporary_mib": 77.57568359375
+        },
+        "adaptive": {
+          "median_ms": 27.4087,
+          "workers": 4,
+          "stripe_rows": 128,
+          "temporary_bytes": 20336000,
+          "sha256": "7E346D76647A9CED058671C63638507C6268225F862ADA35A673DFD6E8ECACD4",
+          "cpu_count_override": null,
+          "range_ms": [
+            25.2109,
+            27.8483
+          ],
+          "total_temporary_mib": 77.57568359375
+        }
+      },
+      "strict400": {
+        "adaptive": {
+          "median_ms": 52.667,
+          "workers": 4,
+          "stripe_rows": 64,
+          "temporary_bytes": 17778432,
+          "sha256": "3D6DBF2EAA6B8A029CA12C6F130A2FD84E5AC7A75940E76B64F53167AB6E2805",
+          "cpu_count_override": null,
+          "range_ms": [
+            50.694,
+            54.4415
+          ],
+          "total_temporary_mib": 67.8193359375
+        },
+        "baseline": {
+          "median_ms": 64.0441,
+          "workers": 3,
+          "stripe_rows": 128,
+          "temporary_bytes": 29101600,
+          "sha256": "3D6DBF2EAA6B8A029CA12C6F130A2FD84E5AC7A75940E76B64F53167AB6E2805",
+          "cpu_count_override": null,
+          "range_ms": [
+            60.4395,
+            67.3983
+          ],
+          "total_temporary_mib": 83.26034545898438
+        }
+      },
+      "noink300": {
+        "baseline": {
+          "median_ms": 28.2211,
+          "workers": 4,
+          "stripe_rows": 128,
+          "temporary_bytes": 23331840,
+          "sha256": "6189C947E52CC149F399F5EC09771066761D1CBE78C2FC36713814E955D82BE4",
+          "cpu_count_override": null,
+          "range_ms": [
+            25.0263,
+            29.9147
+          ],
+          "total_temporary_mib": 89.00390625
+        },
+        "adaptive": {
+          "median_ms": 29.608,
+          "workers": 4,
+          "stripe_rows": 128,
+          "temporary_bytes": 23331840,
+          "sha256": "6189C947E52CC149F399F5EC09771066761D1CBE78C2FC36713814E955D82BE4",
+          "cpu_count_override": null,
+          "range_ms": [
+            26.402,
+            31.4021
+          ],
+          "total_temporary_mib": 89.00390625
+        }
+      },
+      "radius20-300": {
+        "adaptive": {
+          "median_ms": 2853.5885,
+          "workers": 1,
+          "stripe_rows": 128,
+          "temporary_bytes": 82018560,
+          "sha256": "EA3757B5AA96B11F5D204E14C14CB7F98B09C42CBFA062450454213787570BE7",
+          "cpu_count_override": null,
+          "range_ms": [
+            2672.0786,
+            2911.4097
+          ],
+          "total_temporary_mib": 78.218994140625
+        },
+        "baseline": {
+          "median_ms": 2800.9028,
+          "workers": 1,
+          "stripe_rows": 128,
+          "temporary_bytes": 82018560,
+          "sha256": "EA3757B5AA96B11F5D204E14C14CB7F98B09C42CBFA062450454213787570BE7",
+          "cpu_count_override": null,
+          "range_ms": [
+            2756.6203,
+            2847.8679
+          ],
+          "total_temporary_mib": 78.218994140625
+        }
+      }
+    },
+    "raw_records": {
+      "normal300-baseline": {
+        "path": "samples/private/perf2j-features-20260921/feature-normal300-baseline.json",
+        "sha256": "aed87fee0606ad6a8b8eb6ad2d751571d52a97cf22d1b79fdaf6948f65cfda8e"
+      },
+      "normal300-adaptive": {
+        "path": "samples/private/perf2j-features-20260921/feature-normal300-adaptive.json",
+        "sha256": "9d038e2da349641050126e63677a20d6f07d51ed63390d9f65b931913db7a815"
+      },
+      "normal400-adaptive": {
+        "path": "samples/private/perf2j-features-20260921/feature-normal400-adaptive.json",
+        "sha256": "3ba5317ea018b9a84908b90029e0b377ea8c57a7e6131cae6428775066529ca0"
+      },
+      "normal400-baseline": {
+        "path": "samples/private/perf2j-features-20260921/feature-normal400-baseline.json",
+        "sha256": "74fe4ef22416e2ebfbb9f3c836b2e85bd40e3187a87394ef73b62395e5c86fd1"
+      },
+      "cpu1-300-baseline": {
+        "path": "samples/private/perf2j-features-20260921/feature-cpu1-300-baseline.json",
+        "sha256": "fd690d6587809d534f714797a0f8bff3ce5ff2a98f63be1777b39dd6fc3785f1"
+      },
+      "cpu1-300-adaptive": {
+        "path": "samples/private/perf2j-features-20260921/feature-cpu1-300-adaptive.json",
+        "sha256": "7590e21fe06f9436edd1c890673149b0ff2e9c793e6e9bde096748b6b5e6dc80"
+      },
+      "cpu1-400-adaptive": {
+        "path": "samples/private/perf2j-features-20260921/feature-cpu1-400-adaptive.json",
+        "sha256": "2b5e1a6982ab7c01700d302c10fcdc579ce527f1513e4d5feed6eb886235b803"
+      },
+      "cpu1-400-baseline": {
+        "path": "samples/private/perf2j-features-20260921/feature-cpu1-400-baseline.json",
+        "sha256": "6e6d9a90ce39c1135a826f9501e26a31c132251f7022040c06e56023470cd983"
+      },
+      "strict300-baseline": {
+        "path": "samples/private/perf2j-features-20260921/feature-strict300-baseline.json",
+        "sha256": "f64b5c7e485b75f1fd88b18e9a71a3218c80288b9ddfc0d36c3085a41737da17"
+      },
+      "strict300-adaptive": {
+        "path": "samples/private/perf2j-features-20260921/feature-strict300-adaptive.json",
+        "sha256": "dada67b8501d7da32716514721dce0874cd7d2a3df36d814e181fd231ddf9fa5"
+      },
+      "strict400-adaptive": {
+        "path": "samples/private/perf2j-features-20260921/feature-strict400-adaptive.json",
+        "sha256": "aa732e956eeaa49eff7530cffe2b56a025975c74eb7366692d5b6894f6fe04e4"
+      },
+      "strict400-baseline": {
+        "path": "samples/private/perf2j-features-20260921/feature-strict400-baseline.json",
+        "sha256": "8e841cb42462897e819ab5ddbd495d319d0eca6f33099fbfd4581844fab155b3"
+      },
+      "noink300-baseline": {
+        "path": "samples/private/perf2j-features-20260921/feature-noink300-baseline.json",
+        "sha256": "1836d997fcaebbce39588b4716411ff58d8d5e126716a32efdfdaafbdcec20e1"
+      },
+      "noink300-adaptive": {
+        "path": "samples/private/perf2j-features-20260921/feature-noink300-adaptive.json",
+        "sha256": "7ed170dc50f2f1ee375461358c68667469a1c858c2dc1181b01c2abd5b1bef8e"
+      },
+      "radius20-300-adaptive": {
+        "path": "samples/private/perf2j-features-20260921/feature-radius20-300-adaptive.json",
+        "sha256": "f51d41f32df3a57b82f8a404ef1dcad155cf5bd4639cd2cc65eea251595c2649"
+      },
+      "radius20-300-baseline": {
+        "path": "samples/private/perf2j-features-20260921/feature-radius20-300-baseline.json",
+        "sha256": "270b782a8da3f5d40315af56046d729be9972d8e9f747f7bb9b1a126f1f1f95b"
+      }
+    }
+  },
+  "noink_repeat": {
+    "condition": "noink300",
+    "iterations": 60,
+    "measured_per_variant": 21,
+    "records": [
+      {
+        "name": "fallback-repeat-0-adaptive",
+        "variant": "adaptive",
+        "process": 0,
+        "median_ms": 29.8294,
+        "measured_ms": [
+          29.0444,
+          31.6917,
+          28.1735,
+          30.5883,
+          27.6948,
+          30.9907,
+          29.8294
+        ],
+        "sha256": "6189C947E52CC149F399F5EC09771066761D1CBE78C2FC36713814E955D82BE4",
+        "raw_record": {
+          "path": "samples/private/perf2j-features-20260921/fallback-repeat-0-adaptive.json",
+          "sha256": "60ece64cfd8c63a8cdda3876cd8dd0f5a9f3233a198c3cf8ee6a2510cb7df45f"
+        }
+      },
+      {
+        "name": "fallback-repeat-0-baseline",
+        "variant": "baseline",
+        "process": 0,
+        "median_ms": 28.0048,
+        "measured_ms": [
+          29.7083,
+          28.232,
+          26.1109,
+          28.501,
+          27.7695,
+          28.0048,
+          27.8456
+        ],
+        "sha256": "6189C947E52CC149F399F5EC09771066761D1CBE78C2FC36713814E955D82BE4",
+        "raw_record": {
+          "path": "samples/private/perf2j-features-20260921/fallback-repeat-0-baseline.json",
+          "sha256": "c947878e88f8172f0adb9d42420513cf06d64b645a2ce27fe0e2fda4eab8cf04"
+        }
+      },
+      {
+        "name": "fallback-repeat-1-baseline",
+        "variant": "baseline",
+        "process": 1,
+        "median_ms": 29.7706,
+        "measured_ms": [
+          30.8561,
+          30.0676,
+          29.7168,
+          27.9621,
+          29.7706,
+          29.8892,
+          29.3699
+        ],
+        "sha256": "6189C947E52CC149F399F5EC09771066761D1CBE78C2FC36713814E955D82BE4",
+        "raw_record": {
+          "path": "samples/private/perf2j-features-20260921/fallback-repeat-1-baseline.json",
+          "sha256": "39f6ac6d0bdd7ab37d539f5ffbae4dbbb53e82d6da3eb9adc311d6aea57fb765"
+        }
+      },
+      {
+        "name": "fallback-repeat-1-adaptive",
+        "variant": "adaptive",
+        "process": 1,
+        "median_ms": 27.6319,
+        "measured_ms": [
+          26.5895,
+          24.7631,
+          27.4575,
+          28.4889,
+          28.0825,
+          27.6319,
+          29.2732
+        ],
+        "sha256": "6189C947E52CC149F399F5EC09771066761D1CBE78C2FC36713814E955D82BE4",
+        "raw_record": {
+          "path": "samples/private/perf2j-features-20260921/fallback-repeat-1-adaptive.json",
+          "sha256": "f57fac5d305667de2070c6eb0c0055d6e5ab402099c8e47cae05c557d4fd0509"
+        }
+      },
+      {
+        "name": "fallback-repeat-2-adaptive",
+        "variant": "adaptive",
+        "process": 2,
+        "median_ms": 27.128,
+        "measured_ms": [
+          29.3526,
+          26.687,
+          27.128,
+          26.5048,
+          26.6394,
+          29.7861,
+          31.2377
+        ],
+        "sha256": "6189C947E52CC149F399F5EC09771066761D1CBE78C2FC36713814E955D82BE4",
+        "raw_record": {
+          "path": "samples/private/perf2j-features-20260921/fallback-repeat-2-adaptive.json",
+          "sha256": "ddf0521e7591c5454481b2b0527faec0d18727696fa1aed81231aacf299654b3"
+        }
+      },
+      {
+        "name": "fallback-repeat-2-baseline",
+        "variant": "baseline",
+        "process": 2,
+        "median_ms": 29.5657,
+        "measured_ms": [
+          29.8382,
+          29.6245,
+          27.0386,
+          26.0127,
+          28.1066,
+          29.5657,
+          30.6742
+        ],
+        "sha256": "6189C947E52CC149F399F5EC09771066761D1CBE78C2FC36713814E955D82BE4",
+        "raw_record": {
+          "path": "samples/private/perf2j-features-20260921/fallback-repeat-2-baseline.json",
+          "sha256": "5bd4c6d2d0d5001780f2e60531ed37a901af450d0c29d37035510ce626b0d2c6"
+        }
+      }
+    ],
+    "summary": {
+      "baseline": {
+        "median_ms": 29.3699,
+        "process_medians": [
+          28.0048,
+          29.7706,
+          29.5657
+        ]
+      },
+      "adaptive": {
+        "median_ms": 28.1735,
+        "process_medians": [
+          29.8294,
+          27.6319,
+          27.128
+        ]
+      }
+    }
+  },
+  "input_sha256": {
+    "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf": "b9b5bfd1683043e9bcbf0b9b39fe7af9440aa64c1da6cbb651bb6566f03b32e4",
+    "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf": "d074b01368f32f80a439f04fce706d708ee5cb05beee14f18c91c580fd617dcd",
+    "samples/private/perf2c-memory-20260921/inputs/twenty-pages-original.pdf": "01ee30049efabf2e09d8bea65b464dc5fc1fd28bf64ba244d5632a0809c2887b",
+    "samples/private/perf2c-memory-20260921/inputs/twenty-pages-revised.pdf": "74748f24939cb9346d02e485ec2ab442b054226947a5d66c68a0a860bd027583",
+    "samples/private/perf2h-png-20260921/cli-300-baseline-0/pages/p001_a.png": "9542ca42b713e3ce26935bc295e292ea67b088085b3bdca33a4de84fce8ea1f3",
+    "samples/private/perf2h-png-20260921/cli-400-baseline-0/pages/p001_a.png": "7fd01bfb1cb8da839baba02f476428a5cca2921a8a20dc62a10ad55a41d5da7c",
+    "samples/private/perf2j-features-20260921/inputs/small-original.png": "43864f2dc6653812653c84dec054ed811403977df8779d9a5ac4fd7111ad1e41",
+    "samples/private/perf2j-features-20260921/inputs/small-revised.png": "6232cd2b74f7de4e94177f93edee13183c801e6af1064ae558a41081f18e987c",
+    "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf": "0b30618efa2b809b7b3c483ca69d594f3e6ba2b5d54589a17489a3cfbe5c5e57",
+    "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf": "5585ad8ef072fc57cd63293ef0c1d9bbd4a5c9d41a8d7e84829aba0fdf408425"
+  },
+  "source_sha256": {
+    "src/ReportDiff.Core/ComparisonFeatures.cs": "b8c53bfdede76a9623d26c6f3ef48e28e5f690f875a4f4defbc38d6930211fda",
+    "src/ReportDiff.Core/FeatureStripeSchedule.cs": "c9a602a01dc32d731af4bef1b7ef1923254a27e60a6b1bd3a81c7e14bf14549d",
+    "src/ReportDiff.Core/LabStripeCache.cs": "f68aff9007a05c249158ffe1ce6079eb685fab9e638bd81469dc4e26606609ff",
+    "tests/ReportDiff.Tests/FeatureAdaptiveTests.cs": "c667d7e1d394bf91a9d012b7724fdba58382eab5718ffab40737817ada923a08",
+    "docs/SPEC.md": "c5058c9cff20789d66a05ad1ec456e148a365cc0fa00f2a0842e6c5217b42955",
+    "tools/ReportDiff.FeatureBenchmark/ReportDiff.FeatureBenchmark.csproj": "c6cc9ce7f7cf3d12378b9cb8e44b7974ef591ff269203fffbcf1d46436a40b0a",
+    "tools/ReportDiff.FeatureBenchmark/README.md": "fc12c88d2233a716905560dcbe257818cc31387e34f95c00145bd8f69fd78e8d",
+    "tools/ReportDiff.FeatureBenchmark/experiments.py": "1ff7b82173acd97b872383eea027be3ab5c74d5f4311e8954f4f2d178e533605",
+    "tools/ReportDiff.FeatureBenchmark/LabStripeCache.cs.txt": "7f1b8c0c6df2686dd1bd3544cac099f3dcb2b11a630bdc0e1bf1eed47c8390a6",
+    "tools/ReportDiff.FeatureBenchmark/Program.cs": "9d250fcbd4a48130472122275ce1fa0b45d71d2d9b4a346076548491ea20b74c"
+  },
+  "binary_sha256": {
+    "baseline_pipeline": {
+      "ReportDiff.Core.dll": "ade00f07dd787b691947048f2132ce3151a6e8c6ecb6df2c19ff6999c38b38c3",
+      "ReportDiff.Pdf.dll": "2afe60145ebb4e16711f5cea739d4aaaf5c676cb88f70c44e34995143375c8f0",
+      "ReportDiff.Report.dll": "56d81578952878c7eddd12cf223c662cba0706365dad80b1e5131e2d831f2ad7",
+      "ReportDiff.Tests.dll": "807b35a79c268d0d9e8d15d9c901a0792988a639b16687c1296dc2c33669a513",
+      "reportdiff.dll": "e40fb7965e602f47163aeeb19aecbdd0fa8fc58936fdfb7e9566beb6f34cc599"
+    },
+    "baseline_features": {
+      "ReportDiff.Core.dll": "ade00f07dd787b691947048f2132ce3151a6e8c6ecb6df2c19ff6999c38b38c3",
+      "ReportDiff.Tests.dll": "158ec62bd2216042bbb75dc9aaf784da100e79c5f683e8d523acf325abaf9a93"
+    },
+    "adaptive_pipeline": {
+      "ReportDiff.Core.dll": "dba99667a25bf4ec8f51db581cc213476ee5dff095e43e41556a0a9f2ea9ab76",
+      "ReportDiff.Pdf.dll": "5b3fd975b7c9e8629fc53218afe7ffd947f07c0ddd204c955194aa5ac2d8e7b2",
+      "ReportDiff.Report.dll": "877a85eba223ef881afdbe8630a4b5c1aa9dc0b1e765816e6f5392b11e5ac1b0",
+      "ReportDiff.Tests.dll": "f6147324d118a97f2bfccbe3caac14946b5976cb5ee0ce6b7f5a95d9f67e55b2",
+      "reportdiff.dll": "adc4d0e2802769d473a32382cdb35e56c99c1ca6f5d6d924d239388f0142d582"
+    },
+    "adaptive_features": {
+      "ReportDiff.Core.dll": "dba99667a25bf4ec8f51db581cc213476ee5dff095e43e41556a0a9f2ea9ab76",
+      "ReportDiff.Tests.dll": "c43afcd03b2b9be2ed876b3c59f0c9d3d1fb36900284fab772ac954e3ba8d24d"
+    }
+  },
+  "raw_validation": {
+    "feature-verification.json": {
+      "path": "samples/private/perf2j-features-20260921/feature-verification.json",
+      "sha256": "fe777436670c60c47d11864215297079acc18d92a13518fd833ecb332cb8896f"
+    },
+    "snapshot-adaptive.json": {
+      "path": "samples/private/perf2j-features-20260921/snapshot-adaptive.json",
+      "sha256": "4dfc9796ac29731b614efa9b9f1599e00dd14442fd19cec5d475fb9e5dc7d9cf"
+    },
+    "snapshot-baseline.json": {
+      "path": "samples/private/perf2j-features-20260921/snapshot-baseline.json",
+      "sha256": "4dfc9796ac29731b614efa9b9f1599e00dd14442fd19cec5d475fb9e5dc7d9cf"
+    },
+    "snapshot-validation.json": {
+      "path": "samples/private/perf2j-features-20260921/snapshot-validation.json",
+      "sha256": "40fe2d864f4d7ae04005729ae62fed9ca839c171d51f058cf6948bd11a62ce17"
+    }
+  },
+  "logs_sha256": {
+    "out/perf2j-features/build-feature-tool.log": "19d3cdbc5476c3ba99b05fc5fb393cef33835e8569e0df341ba84538df8bd8cc",
+    "out/perf2j-features/build-first.log": "89c3e54f852b39095f170c89b2944852b201e372bd30a105bb15b5f666fba204",
+    "out/perf2j-features/build-probe.log": "1641d667626d62876728bb1a7247bfbcb37df52d9aa63dfaa435cd68b8514400",
+    "out/perf2j-features/build-tests.log": "59f3221bcbc0132448b4a9d40af1f3aa127a5b0c3dc8298aa1af2659a195b10d",
+    "out/perf2j-features/cli-300.log": "d4352ae39447e134c3a011081edfd38c5d5d0c529ed68577b01ec5f9755f0fc4",
+    "out/perf2j-features/cli-400.log": "bed99287251e4f6de980a9223dee00f12f190177e7e910cf13510cf17bd941ad",
+    "out/perf2j-features/cli20.log": "e4835c9c369851e9a11b9e6f557d894bc797570fb76c00f3cca3e9968b04e7cd",
+    "out/perf2j-features/cli4.log": "1c67544037eb3dd920f883d624aba05c57f0e7f3c79abe046b4b0e19525f395e",
+    "out/perf2j-features/cpu1-300.log": "b68573872dae34364b8b1c6d188e0b8cf17ceb1971e372782c5e3e03cf8bb79a",
+    "out/perf2j-features/cpu1-400.log": "14e3f552d44f2a3f90929d3ee2438ad4b2a84258f1b9b3ea2771c1d73840b9da",
+    "out/perf2j-features/fallback-repeat.log": "f11e630d0a7f30146a3467f52cf7c378b9b647918d81b7706b8a1d5aeaa3c9ee",
+    "out/perf2j-features/features.log": "2b7f0683e1067eeb38a5775a8caca307374a0f83debceca22ab923ad3be3a99d",
+    "out/perf2j-features/probe-300.log": "92d1014bb239a9cf8541304766dcaaa16f363f6dc3a07f4cf46faad78a586462",
+    "out/perf2j-features/probe-400.log": "2340b72c37ede74b185488cc98a17d34c35c2063468c49c724dde5af5e8b1bed",
+    "out/perf2j-features/small.log": "a12d94d4f74884a1b6ec78afc5f3a5fb2e35adff26fd93d3edbe843f484a6973",
+    "out/perf2j-features/snapshots.log": "c2518fa0dc0daca434a30ecdd2fe28bcff5d8e46ee0f909109d5923d8abc9def",
+    "out/perf2j-features/tests-all.log": "831e7a12d4c9e6f37e6ee6066c0e0355d53a581126b0a2ce0d5b917694685670",
+    "out/perf2j-features/tests-features.log": "fabd1b0da9de4a7e95db7849e2a6f2cf4be50088c1b2fd2929b9bced3670e932",
+    "out/perf2j-features/tests-first.log": "9e76237d2df46c379b5b3298095b7c0d58046dfe52b01674330e391f740e001d"
+  },
+  "local_scripts_sha256": {
+    "out/perf2j-features/check.py": "856b3124196896f1b780cc03cf122591b0dccd25bd2f171b42e6a524a479ffaa",
+    "out/perf2j-features/evidence.py": "798e9a8939aae45e6f2da5597ccff4f7f39cda51fb8504fc5066bc18ecfc2cc2",
+    "out/perf2j-features/fallback-repeat.py": "e2f0445e7a9219b4e73d1fdebef3cf011f06934af9821eff179f34aaa3353071",
+    "out/perf2j-features/features.py": "cc8a64af716a6410c0315e834cd2ffb4a503d4f179ff2e391a4de60d5ab5f981",
+    "out/perf2j-features/measure.py": "5b7bf0d997ee1246105373f175d38d9f5b2d97d4a20d873fe67601b6ccc37e2d"
+  }
+}

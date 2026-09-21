@@ -21,15 +21,15 @@ if (args[0] == "verify")
             Ink = new() { BackgroundRadiusMm = p.GetProperty("ink_background_radius_mm").GetDouble(),
                 ContrastThreshold = p.GetProperty("ink_contrast_threshold").GetDouble() } }, true, [new()]);
     }
-    foreach (var height in new[] { 1, 63, 64, 65, 127, 128, 129, 255, 256, 257, 513, 17 * FeatureStripeSchedule.StripeRows + 1 })
+    foreach (var height in new[] { 1, 63, 64, 65, 127, 128, 129, 255, 256, 257, 513, 17 * FeatureStripeSchedule.DefaultStripeRows + 1 })
     foreach (var width in new[] { 1, 37 })
         RandomCase(width, height, 300, 0.3, 1.5, true);
     foreach (var dpi in new[] { 300, 400 })
     foreach (var edge in new[] { 0.0, 0.3 })
     foreach (var radius in new[] { 0.001, 1.5, 20.0 })
     foreach (var ink in new[] { false, true })
-        RandomCase(73, 17 * FeatureStripeSchedule.StripeRows + 1, dpi, edge, radius, ink);
-    Console.WriteLine(JsonSerializer.Serialize(new { checks, exact = true, stripe_rows = FeatureStripeSchedule.StripeRows }));
+        RandomCase(73, 17 * FeatureStripeSchedule.DefaultStripeRows + 1, dpi, edge, radius, ink);
+    Console.WriteLine(JsonSerializer.Serialize(new { checks, exact = true, default_stripe_rows = FeatureStripeSchedule.DefaultStripeRows }));
 }
 else if (args[0] == "measure")
 {
@@ -51,9 +51,9 @@ else if (args[0] == "measure")
         var digest = Convert.ToHexString(hash.GetHashAndReset());
         expectedHash ??= digest;
         if (digest != expectedHash) throw new InvalidOperationException("反復中に特徴量が変化しました。");
-        records.Add(new { repeat, warmup = repeat < 3, milliseconds, features.WorkerCount, features.WorkerTemporaryBytes, sha256 = digest });
+        records.Add(new { repeat, warmup = repeat < 3, milliseconds, features.WorkerCount, features.StripeRows, features.WorkerTemporaryBytes, sha256 = digest });
     }
-    Console.WriteLine(JsonSerializer.Serialize(new { stripe_rows = FeatureStripeSchedule.StripeRows, width = image.Width,
+    Console.WriteLine(JsonSerializer.Serialize(new { default_stripe_rows = FeatureStripeSchedule.DefaultStripeRows, width = image.Width,
         height = image.Height, dpi = p.Dpi, edge = p.Diff.EdgeTolerance, radius = p.Ink.BackgroundRadiusMm, ink, records }));
 }
 else throw new ArgumentException("verify または measure を指定してください。");

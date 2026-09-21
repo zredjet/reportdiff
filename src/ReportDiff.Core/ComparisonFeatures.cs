@@ -12,6 +12,7 @@ internal sealed class ComparisonFeatures : IDisposable
     public Mat Ink { get; } = new();
     internal int WorkerCount { get; private set; }
     internal long WorkerTemporaryBytes { get; private set; }
+    internal int StripeRows { get; private set; }
 
     private ComparisonFeatures() { }
 
@@ -26,18 +27,21 @@ internal sealed class ComparisonFeatures : IDisposable
     public static ComparisonFeatures Create(Mat image, ComparisonParameters parameters, bool includeInk) =>
         Create(image, parameters, includeInk, new());
 
-    internal static ComparisonFeatures Create(Mat image, ComparisonParameters parameters, bool includeInk, FeatureExecution execution)
+    // beforeStripeは所有関係・失敗時の終了待ちを検証するための内部フック。通常の生成では指定しない。
+    internal static ComparisonFeatures Create(Mat image, ComparisonParameters parameters, bool includeInk, FeatureExecution execution,
+        Action<ComparisonFeatures, int, Mat>? beforeStripe = null)
     {
         var features = new ComparisonFeatures();
         try
         {
-            features.Fill(image, parameters, includeInk, execution);
+            features.Fill(image, parameters, includeInk, execution, beforeStripe);
             return features;
         }
         catch { features.Dispose(); throw; }
     }
 
-    private void Fill(Mat image, ComparisonParameters parameters, bool includeInk, FeatureExecution execution)
+    private void Fill(Mat image, ComparisonParameters parameters, bool includeInk, FeatureExecution execution,
+        Action<ComparisonFeatures, int, Mat>? beforeStripe)
     {
         var rows = image.Rows;
         var cols = image.Cols;
@@ -54,28 +58,33 @@ internal sealed class ComparisonFeatures : IDisposable
         var schedule = FeatureStripeSchedule.Create(cols, rows, margin, tolerant, includeInk, execution);
         WorkerCount = schedule.Degree;
         WorkerTemporaryBytes = schedule.WorkerTemporaryBytes;
+        StripeRows = schedule.StripeRows;
         schedule.Run((firstStripe, lastStripe) =>
-            FillStripes(image, parameters, includeInk, tolerant, margin, firstStripe, lastStripe));
+            FillStripes(image, parameters, includeInk, tolerant, margin, schedule, firstStripe, lastStripe, beforeStripe));
     }
 
     private void FillStripes(Mat image, ComparisonParameters parameters, bool includeInk, bool tolerant, int margin,
-        int firstStripe, int lastStripe)
+        FeatureStripeSchedule schedule, int firstStripe, int lastStripe, Action<ComparisonFeatures, int, Mat>? beforeStripe)
     {
         var rows = image.Rows;
         var cols = image.Cols;
         // カーネルと再利用する一時Matはworker専用。全ページの出力Matは事前確保済み。
         using var kernel = Cv2.GetStructuringElement(MorphShapes.Rect, new Size(5, 5));
         using var minimum = new Mat();
+        using var cache = schedule.ReuseLab ? new LabStripeCache(cols, (int)Math.Min(rows, schedule.StripeRows + 2L * margin)) : null;
+        var radius = includeInk && schedule.ReuseLab
+            ? Math.Max(1, Units.RoundPixels(parameters.Ink.BackgroundRadiusMm, parameters.Dpi)) : 0;
+        using var inkKernel = radius > 0 ? Cv2.GetStructuringElement(MorphShapes.Rect, new Size(2 * radius + 1, 2 * radius + 1)) : null;
         for (var stripe = firstStripe; stripe < lastStripe; stripe++)
         {
-            var y = stripe * FeatureStripeSchedule.StripeRows;
-            var end = Math.Min(rows, y + FeatureStripeSchedule.StripeRows);
+            var y = stripe * schedule.StripeRows;
+            var end = (int)Math.Min(rows, (long)y + schedule.StripeRows);
             var top = Math.Max(0, y - margin);
             var bottom = (int)Math.Min(rows, (long)end + margin);
             // 必要な近傍を含めてから Lab にする。帯の内部に偽の画像端を作らず、
             // 元画像の端だけに OpenCV 既定の境界処理を適用する。呼び出し元の ROI の外側は Lab に含めない。
-            using var source = new Mat(image, new Rect(0, top, cols, bottom - top));
-            using var lab = ImageInk.ToLab(source);
+            using var lab = cache is null ? CreateLab(image, top, bottom) : cache.Get(image, top, bottom);
+            beforeStripe?.Invoke(this, stripe, lab);
             if (tolerant)
             {
                 // 親Labに必要な余白を保持し、中央ROIの外側もフィルターの近傍として参照する。
@@ -93,10 +102,31 @@ internal sealed class ComparisonFeatures : IDisposable
 
             if (includeInk)
             {
-                using var ink = ImageInk.FromLab(lab, parameters.Dpi, parameters.Ink);
-                CopyRows(ink, Ink, y - top, y, end - y);
+                if (inkKernel is null)
+                {
+                    using var ink = ImageInk.FromLab(lab, parameters.Dpi, parameters.Ink);
+                    CopyRows(ink, Ink, y - top, y, end - y);
+                }
+                else
+                {
+                    // 中央ROIの外側も局所背景の近傍として使う。L・背景は次の帯まで保持しない。
+                    using var lightness = new Mat();
+                    using var background = new Mat();
+                    Cv2.ExtractChannel(lab, lightness, 0);
+                    using var center = new Mat(lightness, new Rect(0, y - top, cols, end - y));
+                    using var output = new Mat(Ink, new Rect(0, y, cols, end - y));
+                    Cv2.Dilate(center, background, inkKernel);
+                    Cv2.Subtract(background, center, background);
+                    Cv2.Compare(background, parameters.Ink.ContrastThreshold, output, CmpTypes.GT);
+                }
             }
         }
+    }
+
+    private static Mat CreateLab(Mat image, int top, int bottom)
+    {
+        using var source = new Mat(image, new Rect(0, top, image.Cols, bottom - top));
+        return ImageInk.ToLab(source);
     }
 
     private static void CopyRows(Mat source, Mat destination, int sourceTop, int destinationTop, int count)
