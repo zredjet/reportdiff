@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>ReportDiff.Tests</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup><ProjectReference Include="../../src/ReportDiff.Cli/ReportDiff.Cli.csproj" /></ItemGroup>
+</Project>

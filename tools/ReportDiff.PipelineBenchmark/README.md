@@ -49,3 +49,5 @@ dotnet out/pipeline-experiments/png2/Probe/bin/Release/net10.0/reportdiff.dll \
 | `combined` | 上の2変更を組み合わせる |
 
 これは採否を判断する試作であり、製品実装の完了を意味しない。`priority` はPERF-2gの測定で遅くなったため不採用。`png2` の小画像・CPU数による逐次復帰、例外注入、出力置換、Windows等の受け入れは次の実装タスクに残す。製品のCLI・既定値・出力形式はこのツールでは変更しない。
+
+PERF-2hで製品へPNG並列化を導入したため、PERF-2g当時の試作を再生成する場合は `34d9ec9` のチェックアウトを使う。後続の製品ソースに `experiments.py` を無理に適用せず、一意性チェックの拒否を維持する。現在のPNG保存の逐次／並列比較には [PngBenchmark](../ReportDiff.PngBenchmark/README.md) を使う。

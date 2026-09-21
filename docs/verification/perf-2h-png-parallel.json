@@ -1,0 +1,3042 @@
+{
+  "task": "PERF-2h",
+  "date": "2026-09-21",
+  "base_commit": "34d9ec92434e2ef361e56d46dfd09fd91c16c79d",
+  "environment": {
+    "cpu": "Apple M4 Max",
+    "logical_processors": 16,
+    "ram_gib": 128,
+    "os": "macOS 26.5.1",
+    "runtime": ".NET 10.0.12",
+    "sdk": "10.0.401",
+    "configuration": "Release"
+  },
+  "execution": {
+    "max_png_workers": 2,
+    "minimum_parallel_pixels": 1000000,
+    "new_input_mat_copies": 0,
+    "nested_parallelism": false,
+    "png_settings_changed": false
+  },
+  "validation": {
+    "build_warnings": 0,
+    "build_errors": 0,
+    "tests_passed": 1023,
+    "tests_failed": 0,
+    "tests_skipped": 0,
+    "added_tests": 27,
+    "cli_runs": 64,
+    "stage_runs": 16,
+    "all_80_runs_json_and_png_equal": true,
+    "micro_runs": 972,
+    "all_micro_json_html_png_equal": true,
+    "measured_report_dll_equals_final_build": true,
+    "core_pdf_cli_source_unchanged": true,
+    "windows": false,
+    "low_memory_pc": false,
+    "real_disk_full": false,
+    "single_cpu_hardware": false
+  },
+  "measurements": {
+    "cli-300-summary": {
+      "mode": "cli",
+      "dpi": 300,
+      "records": [
+        {
+          "name": "cli-300-baseline-0",
+          "variant": "baseline",
+          "warmup": true,
+          "elapsed_ms": 2426.9349169917405,
+          "peak_rss_bytes": 1979645952,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli-300-baseline-0.run.json",
+          "raw_record_sha256": "edfd91cf5923d7e976be63f2c2d50afed1b7f78488ceabf971d1af7de158ef83"
+        },
+        {
+          "name": "cli-300-parallel-0",
+          "variant": "parallel",
+          "warmup": true,
+          "elapsed_ms": 1235.806250013411,
+          "peak_rss_bytes": 1978220544,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli-300-parallel-0.run.json",
+          "raw_record_sha256": "947699fdd27feb745385037a7725d9610e0e53d6345d72bdb4479707e8b2930c"
+        },
+        {
+          "name": "cli-300-parallel-1",
+          "variant": "parallel",
+          "warmup": false,
+          "elapsed_ms": 1226.1828749906272,
+          "peak_rss_bytes": 1966194688,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli-300-parallel-1.run.json",
+          "raw_record_sha256": "b3fde8a1db0ea6f6e9657e01b6d55c428a2dd1f970d26a9fe0dae1204c741d4e"
+        },
+        {
+          "name": "cli-300-baseline-1",
+          "variant": "baseline",
+          "warmup": false,
+          "elapsed_ms": 1272.1335000824183,
+          "peak_rss_bytes": 1967652864,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli-300-baseline-1.run.json",
+          "raw_record_sha256": "34c5fb5f9d22a6fcf65a94558b57ec71e4b8159e53271bf6588822c92625c09e"
+        },
+        {
+          "name": "cli-300-baseline-2",
+          "variant": "baseline",
+          "warmup": false,
+          "elapsed_ms": 1266.9074579607695,
+          "peak_rss_bytes": 1966669824,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli-300-baseline-2.run.json",
+          "raw_record_sha256": "323544d81ae388b331273989a269184eddb2d03a0b3fad4f2f7cf927a7cc3b83"
+        },
+        {
+          "name": "cli-300-parallel-2",
+          "variant": "parallel",
+          "warmup": false,
+          "elapsed_ms": 1229.2249170131981,
+          "peak_rss_bytes": 1967800320,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli-300-parallel-2.run.json",
+          "raw_record_sha256": "0ec0ba35bcdfa1e77b53a5451c14e1ce45d7d26cb109870a27247c8156935ad1"
+        },
+        {
+          "name": "cli-300-parallel-3",
+          "variant": "parallel",
+          "warmup": false,
+          "elapsed_ms": 1230.876624933444,
+          "peak_rss_bytes": 1968291840,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli-300-parallel-3.run.json",
+          "raw_record_sha256": "56abd07eceabd4e6e0e81f0f556379aeac131907a82057a0bd64a8950a1ea2bc"
+        },
+        {
+          "name": "cli-300-baseline-3",
+          "variant": "baseline",
+          "warmup": false,
+          "elapsed_ms": 1279.0184170007706,
+          "peak_rss_bytes": 1968275456,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli-300-baseline-3.run.json",
+          "raw_record_sha256": "9fab67933af468508dbaaba1bfff5d45cae5d7282871fe25ac91c87a98d505d1"
+        },
+        {
+          "name": "cli-300-baseline-4",
+          "variant": "baseline",
+          "warmup": false,
+          "elapsed_ms": 1272.4579580826685,
+          "peak_rss_bytes": 1969422336,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli-300-baseline-4.run.json",
+          "raw_record_sha256": "da239cd62dbc49ae3c333b1c40041e2d33e48324277b9329b8771f4d8dfdca02"
+        },
+        {
+          "name": "cli-300-parallel-4",
+          "variant": "parallel",
+          "warmup": false,
+          "elapsed_ms": 1247.929250006564,
+          "peak_rss_bytes": 1966555136,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli-300-parallel-4.run.json",
+          "raw_record_sha256": "b94ad955a202beee565fb4aceff7458b5218c8beff23fb21e225bd5db64631bf"
+        },
+        {
+          "name": "cli-300-parallel-5",
+          "variant": "parallel",
+          "warmup": false,
+          "elapsed_ms": 1249.6221250621602,
+          "peak_rss_bytes": 1970257920,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli-300-parallel-5.run.json",
+          "raw_record_sha256": "26c12fb73b0afd445f0700afd446954b36cdcdfb590746a8e3d64fd9879c596d"
+        },
+        {
+          "name": "cli-300-baseline-5",
+          "variant": "baseline",
+          "warmup": false,
+          "elapsed_ms": 1297.6491251029074,
+          "peak_rss_bytes": 1966309376,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli-300-baseline-5.run.json",
+          "raw_record_sha256": "89fe792e14eb2d0548a451c03a01e6fd2355016f518e937160296a4b156e4572"
+        }
+      ],
+      "medians": {
+        "baseline": {
+          "elapsed_ms": 1272.4579580826685,
+          "peak_rss_bytes": 1967652864,
+          "measured_count": 5,
+          "elapsed_ms_range": [
+            1266.9074579607695,
+            1297.6491251029074
+          ],
+          "peak_rss_bytes_range": [
+            1966309376,
+            1969422336
+          ]
+        },
+        "parallel": {
+          "elapsed_ms": 1230.876624933444,
+          "peak_rss_bytes": 1967800320,
+          "measured_count": 5,
+          "elapsed_ms_range": [
+            1226.1828749906272,
+            1249.6221250621602
+          ],
+          "peak_rss_bytes_range": [
+            1966194688,
+            1970257920
+          ]
+        }
+      },
+      "elapsed_improvement_percent": 3.267796227380193
+    },
+    "cli-400-summary": {
+      "mode": "cli",
+      "dpi": 400,
+      "records": [
+        {
+          "name": "cli-400-baseline-0",
+          "variant": "baseline",
+          "warmup": true,
+          "elapsed_ms": 1996.3700830703601,
+          "peak_rss_bytes": 3507470336,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli-400-baseline-0.run.json",
+          "raw_record_sha256": "f1c07e2c23830857ddc003c01f13c79ee7884188244fca6a9f976cd55e9749ac"
+        },
+        {
+          "name": "cli-400-parallel-0",
+          "variant": "parallel",
+          "warmup": true,
+          "elapsed_ms": 1921.8700409401208,
+          "peak_rss_bytes": 3507240960,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli-400-parallel-0.run.json",
+          "raw_record_sha256": "34bcfa02f4f6ddfebc1743caddccced20e6ae5a590c2555550450cfbc4b7c8f8"
+        },
+        {
+          "name": "cli-400-parallel-1",
+          "variant": "parallel",
+          "warmup": false,
+          "elapsed_ms": 1906.735375057906,
+          "peak_rss_bytes": 3508748288,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli-400-parallel-1.run.json",
+          "raw_record_sha256": "8f72c5c88245a272e9ddf59f2e4d86ee268ff6b81685e0c1f027ad3e12e14920"
+        },
+        {
+          "name": "cli-400-baseline-1",
+          "variant": "baseline",
+          "warmup": false,
+          "elapsed_ms": 1961.5218749968335,
+          "peak_rss_bytes": 3505750016,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli-400-baseline-1.run.json",
+          "raw_record_sha256": "33bf0bc19d5ce2eb28460dc840ffa9c2dbb6d9d3ce3816fcc9b74f720c1feaba"
+        },
+        {
+          "name": "cli-400-baseline-2",
+          "variant": "baseline",
+          "warmup": false,
+          "elapsed_ms": 1979.536792030558,
+          "peak_rss_bytes": 3503931392,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli-400-baseline-2.run.json",
+          "raw_record_sha256": "7aaa9710e05cc1b74a225357bd64bbad1eca924e34d278497c28f6fa545426e6"
+        },
+        {
+          "name": "cli-400-parallel-2",
+          "variant": "parallel",
+          "warmup": false,
+          "elapsed_ms": 1927.3798340000212,
+          "peak_rss_bytes": 3506552832,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli-400-parallel-2.run.json",
+          "raw_record_sha256": "e14943aa10a5ae99cfd75879cb560a17f5d7f76ece905f5009b997a42876aa9e"
+        },
+        {
+          "name": "cli-400-parallel-3",
+          "variant": "parallel",
+          "warmup": false,
+          "elapsed_ms": 1933.1513749202713,
+          "peak_rss_bytes": 3508764672,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli-400-parallel-3.run.json",
+          "raw_record_sha256": "7166cafedae2753f831ebf2900d48107caf641ab659ea279dd3f510071dd5afe"
+        },
+        {
+          "name": "cli-400-baseline-3",
+          "variant": "baseline",
+          "warmup": false,
+          "elapsed_ms": 2020.0093330349773,
+          "peak_rss_bytes": 3507142656,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli-400-baseline-3.run.json",
+          "raw_record_sha256": "1ac17c035e076f477cb2d0a2c1aa85fa2692fb77dbb8f32496fb08e8e68122b3"
+        },
+        {
+          "name": "cli-400-baseline-4",
+          "variant": "baseline",
+          "warmup": false,
+          "elapsed_ms": 1994.793749996461,
+          "peak_rss_bytes": 3507961856,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli-400-baseline-4.run.json",
+          "raw_record_sha256": "0bb984c7ff4deb01e34419ac1d2d64f0e17d5b93f1dcc632c19dc0f8426b7d34"
+        },
+        {
+          "name": "cli-400-parallel-4",
+          "variant": "parallel",
+          "warmup": false,
+          "elapsed_ms": 1930.2067910321057,
+          "peak_rss_bytes": 3519234048,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli-400-parallel-4.run.json",
+          "raw_record_sha256": "562a47ea97e759ad93aee0b4164b41cd4aeabe008cea44b00f2f6110757cf43a"
+        },
+        {
+          "name": "cli-400-parallel-5",
+          "variant": "parallel",
+          "warmup": false,
+          "elapsed_ms": 1926.5880410093814,
+          "peak_rss_bytes": 3507142656,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli-400-parallel-5.run.json",
+          "raw_record_sha256": "3a3486e931275669c839cc13f442f32a4bc77e3985e5c128cb88383b84cde876"
+        },
+        {
+          "name": "cli-400-baseline-5",
+          "variant": "baseline",
+          "warmup": false,
+          "elapsed_ms": 2005.9585840208456,
+          "peak_rss_bytes": 3509125120,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli-400-baseline-5.run.json",
+          "raw_record_sha256": "b0ba8ad64b5e802b71b9650cc6f3300bfe28c6d5ae382f854190a3b4ee8a860b"
+        }
+      ],
+      "medians": {
+        "baseline": {
+          "elapsed_ms": 1994.793749996461,
+          "peak_rss_bytes": 3507142656,
+          "measured_count": 5,
+          "elapsed_ms_range": [
+            1961.5218749968335,
+            2020.0093330349773
+          ],
+          "peak_rss_bytes_range": [
+            3503931392,
+            3509125120
+          ]
+        },
+        "parallel": {
+          "elapsed_ms": 1927.3798340000212,
+          "peak_rss_bytes": 3508748288,
+          "measured_count": 5,
+          "elapsed_ms_range": [
+            1906.735375057906,
+            1933.1513749202713
+          ],
+          "peak_rss_bytes_range": [
+            3506552832,
+            3519234048
+          ]
+        }
+      },
+      "elapsed_improvement_percent": 3.3794930426546244
+    },
+    "cli20-300-summary": {
+      "mode": "cli20",
+      "dpi": 300,
+      "records": [
+        {
+          "name": "cli20-300-baseline-0",
+          "variant": "baseline",
+          "warmup": true,
+          "elapsed_ms": 14789.42895901855,
+          "peak_rss_bytes": 2266103808,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 3480,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli20-300-baseline-0.run.json",
+          "raw_record_sha256": "0084e69bd83d1454ae151383a5ecc39ef70417fab08a345c3ca363d15ec185f9"
+        },
+        {
+          "name": "cli20-300-parallel-0",
+          "variant": "parallel",
+          "warmup": true,
+          "elapsed_ms": 13949.70612495672,
+          "peak_rss_bytes": 2263138304,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 3480,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli20-300-parallel-0.run.json",
+          "raw_record_sha256": "261c822efd9ed63da2a055cb8eb02b982f1ca5a89538b8b4fed9f43ec624633a"
+        },
+        {
+          "name": "cli20-300-parallel-1",
+          "variant": "parallel",
+          "warmup": false,
+          "elapsed_ms": 13854.339833022095,
+          "peak_rss_bytes": 2257174528,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 3480,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli20-300-parallel-1.run.json",
+          "raw_record_sha256": "d9f0dcd2a6cf3f555b657458f0d0a49d402c7f25931dbd995e76c6baa7d903d3"
+        },
+        {
+          "name": "cli20-300-baseline-1",
+          "variant": "baseline",
+          "warmup": false,
+          "elapsed_ms": 14899.167874944396,
+          "peak_rss_bytes": 2270642176,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 3480,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli20-300-baseline-1.run.json",
+          "raw_record_sha256": "9758addda8ae0b405826d81912675e5e6ff7ce835b4c5dc039abff2ceb8abe79"
+        },
+        {
+          "name": "cli20-300-baseline-2",
+          "variant": "baseline",
+          "warmup": false,
+          "elapsed_ms": 14913.396292016841,
+          "peak_rss_bytes": 2265923584,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 3480,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli20-300-baseline-2.run.json",
+          "raw_record_sha256": "28a6e38d0369744f623870a2abe85ff9d170fdec8cde9de4cea6121697d21d8a"
+        },
+        {
+          "name": "cli20-300-parallel-2",
+          "variant": "parallel",
+          "warmup": false,
+          "elapsed_ms": 14218.838916975074,
+          "peak_rss_bytes": 2271657984,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 3480,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli20-300-parallel-2.run.json",
+          "raw_record_sha256": "a0f233773000ecac4d0038e33682ada4cd4fcc829396f0b9c2a5751ff4a1ea7e"
+        },
+        {
+          "name": "cli20-300-parallel-3",
+          "variant": "parallel",
+          "warmup": false,
+          "elapsed_ms": 14038.900875020772,
+          "peak_rss_bytes": 2265939968,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 3480,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli20-300-parallel-3.run.json",
+          "raw_record_sha256": "1a3a2ba95c282a9b8ffbabdec091d9bff158f4b2d49c9e18de7dce7ceea0d783"
+        },
+        {
+          "name": "cli20-300-baseline-3",
+          "variant": "baseline",
+          "warmup": false,
+          "elapsed_ms": 14916.073541040532,
+          "peak_rss_bytes": 2261680128,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 3480,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli20-300-baseline-3.run.json",
+          "raw_record_sha256": "cfc037103c121827de19b2d07d39ecaf365a7be5d36c75f9f070acbdedfaf102"
+        }
+      ],
+      "medians": {
+        "baseline": {
+          "elapsed_ms": 14913.396292016841,
+          "peak_rss_bytes": 2265923584,
+          "measured_count": 3,
+          "elapsed_ms_range": [
+            14899.167874944396,
+            14916.073541040532
+          ],
+          "peak_rss_bytes_range": [
+            2261680128,
+            2270642176
+          ]
+        },
+        "parallel": {
+          "elapsed_ms": 14038.900875020772,
+          "peak_rss_bytes": 2265939968,
+          "measured_count": 3,
+          "elapsed_ms_range": [
+            13854.339833022095,
+            14218.838916975074
+          ],
+          "peak_rss_bytes_range": [
+            2257174528,
+            2271657984
+          ]
+        }
+      },
+      "elapsed_improvement_percent": 5.86382471083523
+    },
+    "cli4-300-summary": {
+      "mode": "cli4",
+      "dpi": 300,
+      "records": [
+        {
+          "name": "cli4-300-baseline-0",
+          "variant": "baseline",
+          "warmup": true,
+          "elapsed_ms": 3370.270957937464,
+          "peak_rss_bytes": 2050555904,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 696,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli4-300-baseline-0.run.json",
+          "raw_record_sha256": "cdd04faacb9121b84aa25a3250c14c1daa35762a3eb2c20270c193b8d3e14d62"
+        },
+        {
+          "name": "cli4-300-parallel-0",
+          "variant": "parallel",
+          "warmup": true,
+          "elapsed_ms": 3241.4879170246422,
+          "peak_rss_bytes": 2145386496,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 696,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli4-300-parallel-0.run.json",
+          "raw_record_sha256": "4a816db65249c25322711c50d43f1a04ad55e321ab412c255494a2bd325cae24"
+        },
+        {
+          "name": "cli4-300-parallel-1",
+          "variant": "parallel",
+          "warmup": false,
+          "elapsed_ms": 3232.8578339656815,
+          "peak_rss_bytes": 2155724800,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 696,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli4-300-parallel-1.run.json",
+          "raw_record_sha256": "b5c43047c518bbbcbcbf541bcba3112a41e013f1a0fd1bef8f0ebabbace49912"
+        },
+        {
+          "name": "cli4-300-baseline-1",
+          "variant": "baseline",
+          "warmup": false,
+          "elapsed_ms": 3425.3998750355095,
+          "peak_rss_bytes": 2151563264,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 696,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli4-300-baseline-1.run.json",
+          "raw_record_sha256": "d601f84b7b78c425109e92addb55ba91501b18d027c67d680a6fb21ef954d1b4"
+        },
+        {
+          "name": "cli4-300-baseline-2",
+          "variant": "baseline",
+          "warmup": false,
+          "elapsed_ms": 3453.536667046137,
+          "peak_rss_bytes": 2052866048,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 696,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli4-300-baseline-2.run.json",
+          "raw_record_sha256": "d3cbd1e396f16553475177084dfb1655a1d27bae0a72b18d34911545acc1090b"
+        },
+        {
+          "name": "cli4-300-parallel-2",
+          "variant": "parallel",
+          "warmup": false,
+          "elapsed_ms": 3302.8857079334557,
+          "peak_rss_bytes": 2049163264,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 696,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli4-300-parallel-2.run.json",
+          "raw_record_sha256": "717019788803a242f879e69ff61799e9b19dff2e5bd0a0a301a7fe78b37341f6"
+        },
+        {
+          "name": "cli4-300-parallel-3",
+          "variant": "parallel",
+          "warmup": false,
+          "elapsed_ms": 3294.9442910030484,
+          "peak_rss_bytes": 2052653056,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 696,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli4-300-parallel-3.run.json",
+          "raw_record_sha256": "e024502ca36d0823759d37e097a6b5ee76a091557bcb9e3db05d2bd24c785f71"
+        },
+        {
+          "name": "cli4-300-baseline-3",
+          "variant": "baseline",
+          "warmup": false,
+          "elapsed_ms": 3461.3343749661,
+          "peak_rss_bytes": 2050555904,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 696,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli4-300-baseline-3.run.json",
+          "raw_record_sha256": "c9bc7388bb42d781d776d8dec8951295d8ee4d64a0d4cac9843bc59f08e5bf83"
+        },
+        {
+          "name": "cli4-300-baseline-4",
+          "variant": "baseline",
+          "warmup": false,
+          "elapsed_ms": 3438.9979999978095,
+          "peak_rss_bytes": 2151366656,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 696,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli4-300-baseline-4.run.json",
+          "raw_record_sha256": "174ac756160744f5a7900d26f705c881b6c606f6497305933574ff25ba22bb41"
+        },
+        {
+          "name": "cli4-300-parallel-4",
+          "variant": "parallel",
+          "warmup": false,
+          "elapsed_ms": 3305.080874939449,
+          "peak_rss_bytes": 2155216896,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 696,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli4-300-parallel-4.run.json",
+          "raw_record_sha256": "d83bf4ac476b54f0c79bea556c904db8663e4af821bfccd2b23302b7668be65a"
+        },
+        {
+          "name": "cli4-300-parallel-5",
+          "variant": "parallel",
+          "warmup": false,
+          "elapsed_ms": 3318.780209054239,
+          "peak_rss_bytes": 2049753088,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 696,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli4-300-parallel-5.run.json",
+          "raw_record_sha256": "85560ca71abbdd3e8b6a6ae5e4094db7561dc4c2e9ef7e6bc7b7a67c39df3949"
+        },
+        {
+          "name": "cli4-300-baseline-5",
+          "variant": "baseline",
+          "warmup": false,
+          "elapsed_ms": 3442.4252080498263,
+          "peak_rss_bytes": 2056110080,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 696,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/cli4-300-baseline-5.run.json",
+          "raw_record_sha256": "4e89363022fb386faf8f170db6ca1a2d00db3d765a4f317e8fd95b0eac00447a"
+        }
+      ],
+      "medians": {
+        "baseline": {
+          "elapsed_ms": 3442.4252080498263,
+          "peak_rss_bytes": 2056110080,
+          "measured_count": 5,
+          "elapsed_ms_range": [
+            3425.3998750355095,
+            3461.3343749661
+          ],
+          "peak_rss_bytes_range": [
+            2050555904,
+            2151563264
+          ]
+        },
+        "parallel": {
+          "elapsed_ms": 3302.8857079334557,
+          "peak_rss_bytes": 2052653056,
+          "measured_count": 5,
+          "elapsed_ms_range": [
+            3232.8578339656815,
+            3318.780209054239
+          ],
+          "peak_rss_bytes_range": [
+            2049163264,
+            2155724800
+          ]
+        }
+      },
+      "elapsed_improvement_percent": 4.05352307408362
+    },
+    "probe-300-summary": {
+      "mode": "probe",
+      "dpi": 300,
+      "records": [
+        {
+          "name": "probe-300-baseline-0",
+          "variant": "baseline",
+          "warmup": true,
+          "elapsed_ms": 1340.8516250783578,
+          "peak_rss_bytes": 1966800896,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/probe-300-baseline-0.run.json",
+          "raw_record_sha256": "1209e1b7c077e33dee0136872923eba703de04e827e788a54edbc0e461ea93c2",
+          "stages_ms": {
+            "start": 0.0756,
+            "open": 176.3662,
+            "render-a": 28.2808,
+            "render-b": 12.816900000000004,
+            "normalize": 4.398499999999984,
+            "alignment": 1.7136000000000138,
+            "compare": 616.4612,
+            "text-a": 175.71820000000002,
+            "text-b": 17.767999999999915,
+            "images": 229.29010000000017,
+            "fonts": 2.8901999999998225,
+            "json": 22.532799999999952,
+            "html": 4.440399999999954
+          }
+        },
+        {
+          "name": "probe-300-parallel-0",
+          "variant": "parallel",
+          "warmup": true,
+          "elapsed_ms": 1290.98416690249,
+          "peak_rss_bytes": 1966948352,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/probe-300-parallel-0.run.json",
+          "raw_record_sha256": "36dab2d8b5844f0b152c234458a48d3532b89854137a8d791b89ce5dcc06e879",
+          "stages_ms": {
+            "start": 0.0802,
+            "open": 177.293,
+            "render-a": 29.057000000000016,
+            "render-b": 12.735099999999989,
+            "normalize": 4.100400000000008,
+            "alignment": 1.693899999999985,
+            "compare": 611.4535,
+            "text-a": 173.41999999999996,
+            "text-b": 17.48230000000001,
+            "images": 187.9344000000001,
+            "fonts": 2.529199999999946,
+            "json": 23.42670000000021,
+            "html": 4.20049999999992
+          }
+        },
+        {
+          "name": "probe-300-parallel-1",
+          "variant": "parallel",
+          "warmup": false,
+          "elapsed_ms": 1280.3738330258057,
+          "peak_rss_bytes": 1960591360,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/probe-300-parallel-1.run.json",
+          "raw_record_sha256": "6be591ff1b338c4e65e00dad4d22b4b6faadb407468396188b5b7efb3ef9db67",
+          "stages_ms": {
+            "start": 0.0781,
+            "open": 174.4313,
+            "render-a": 27.871499999999997,
+            "render-b": 13.133100000000013,
+            "normalize": 4.141199999999998,
+            "alignment": 1.6837999999999909,
+            "compare": 604.9072000000001,
+            "text-a": 172.52609999999993,
+            "text-b": 18.658300000000054,
+            "images": 186.96320000000003,
+            "fonts": 2.8495000000000346,
+            "json": 21.60660000000007,
+            "html": 4.499299999999948
+          }
+        },
+        {
+          "name": "probe-300-baseline-1",
+          "variant": "baseline",
+          "warmup": false,
+          "elapsed_ms": 1328.9344999939203,
+          "peak_rss_bytes": 1966686208,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/probe-300-baseline-1.run.json",
+          "raw_record_sha256": "bb473d8589a2cd3f27f129d5cb60c14645114b89a8d4133b509a2c21c705d47f",
+          "stages_ms": {
+            "start": 0.0821,
+            "open": 176.42680000000001,
+            "render-a": 27.468099999999993,
+            "render-b": 12.842600000000004,
+            "normalize": 4.324899999999985,
+            "alignment": 1.794700000000006,
+            "compare": 609.6408,
+            "text-a": 176.78819999999996,
+            "text-b": 18.62320000000011,
+            "images": 226.96579999999994,
+            "fonts": 2.7591999999999643,
+            "json": 21.404899999999998,
+            "html": 4.405099999999948
+          }
+        },
+        {
+          "name": "probe-300-baseline-2",
+          "variant": "baseline",
+          "warmup": false,
+          "elapsed_ms": 1350.352083100006,
+          "peak_rss_bytes": 1973633024,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/probe-300-baseline-2.run.json",
+          "raw_record_sha256": "4f7ade45b00fd76b1f16a8dbb6c950995a012511d54e3d0df7276eaaa342bad1",
+          "stages_ms": {
+            "start": 0.0697,
+            "open": 175.7826,
+            "render-a": 27.44059999999999,
+            "render-b": 12.54310000000001,
+            "normalize": 4.671099999999996,
+            "alignment": 1.9124999999999943,
+            "compare": 617.9117000000001,
+            "text-a": 179.1022999999999,
+            "text-b": 18.35710000000006,
+            "images": 233.34660000000008,
+            "fonts": 3.345399999999927,
+            "json": 22.490499999999884,
+            "html": 4.5516999999999825
+          }
+        },
+        {
+          "name": "probe-300-parallel-2",
+          "variant": "parallel",
+          "warmup": false,
+          "elapsed_ms": 1289.7855410119519,
+          "peak_rss_bytes": 1963425792,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/probe-300-parallel-2.run.json",
+          "raw_record_sha256": "10155fcc27688dcc5195615bb27fff9252fffd25be832dd632da6c203b6bc124",
+          "stages_ms": {
+            "start": 0.112,
+            "open": 176.2567,
+            "render-a": 27.96460000000002,
+            "render-b": 12.721900000000005,
+            "normalize": 4.324599999999975,
+            "alignment": 1.7509000000000015,
+            "compare": 601.9450999999999,
+            "text-a": 169.19370000000004,
+            "text-b": 17.494500000000016,
+            "images": 201.14659999999992,
+            "fonts": 2.965800000000172,
+            "json": 20.61590000000001,
+            "html": 5.165199999999913
+          }
+        },
+        {
+          "name": "probe-300-parallel-3",
+          "variant": "parallel",
+          "warmup": false,
+          "elapsed_ms": 1315.7129579922184,
+          "peak_rss_bytes": 1961705472,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/probe-300-parallel-3.run.json",
+          "raw_record_sha256": "990766fa513856b5506ff0e96a1ec07ed892336b1d199a2359ad8447eb9a16ab",
+          "stages_ms": {
+            "start": 0.0745,
+            "open": 176.1593,
+            "render-a": 28.810699999999997,
+            "render-b": 13.070999999999998,
+            "normalize": 4.703900000000004,
+            "alignment": 1.7186000000000092,
+            "compare": 618.4058,
+            "text-a": 180.20359999999994,
+            "text-b": 19.00750000000005,
+            "images": 194.73720000000003,
+            "fonts": 2.641599999999926,
+            "json": 23.574299999999994,
+            "html": 4.757899999999836
+          }
+        },
+        {
+          "name": "probe-300-baseline-3",
+          "variant": "baseline",
+          "warmup": false,
+          "elapsed_ms": 1362.8180000232533,
+          "peak_rss_bytes": 1968504832,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 174,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/probe-300-baseline-3.run.json",
+          "raw_record_sha256": "b8543683fa117ad7c122c9270892e2d281744e777a6db82efaf829cf80f0e7b3",
+          "stages_ms": {
+            "start": 0.0875,
+            "open": 181.6547,
+            "render-a": 29.76339999999999,
+            "render-b": 13.411400000000015,
+            "normalize": 4.613399999999984,
+            "alignment": 1.7276000000000238,
+            "compare": 619.8371,
+            "text-a": 179.9613999999999,
+            "text-b": 18.958900000000085,
+            "images": 231.2342000000001,
+            "fonts": 3.0006999999998243,
+            "json": 24.468199999999797,
+            "html": 4.620499999999993
+          }
+        }
+      ],
+      "medians": {
+        "baseline": {
+          "elapsed_ms": 1350.352083100006,
+          "peak_rss_bytes": 1968504832,
+          "measured_count": 3,
+          "elapsed_ms_range": [
+            1328.9344999939203,
+            1362.8180000232533
+          ],
+          "peak_rss_bytes_range": [
+            1966686208,
+            1973633024
+          ],
+          "stages_ms": {
+            "start": 0.0821,
+            "open": 176.42680000000001,
+            "render-a": 27.468099999999993,
+            "render-b": 12.842600000000004,
+            "normalize": 4.613399999999984,
+            "alignment": 1.794700000000006,
+            "compare": 617.9117000000001,
+            "text-a": 179.1022999999999,
+            "text-b": 18.62320000000011,
+            "images": 231.2342000000001,
+            "fonts": 3.0006999999998243,
+            "json": 22.490499999999884,
+            "html": 4.5516999999999825
+          }
+        },
+        "parallel": {
+          "elapsed_ms": 1289.7855410119519,
+          "peak_rss_bytes": 1961705472,
+          "measured_count": 3,
+          "elapsed_ms_range": [
+            1280.3738330258057,
+            1315.7129579922184
+          ],
+          "peak_rss_bytes_range": [
+            1960591360,
+            1963425792
+          ],
+          "stages_ms": {
+            "start": 0.0781,
+            "open": 176.1593,
+            "render-a": 27.96460000000002,
+            "render-b": 13.070999999999998,
+            "normalize": 4.324599999999975,
+            "alignment": 1.7186000000000092,
+            "compare": 604.9072000000001,
+            "text-a": 172.52609999999993,
+            "text-b": 18.658300000000054,
+            "images": 194.73720000000003,
+            "fonts": 2.8495000000000346,
+            "json": 21.60660000000007,
+            "html": 4.757899999999836
+          }
+        }
+      },
+      "elapsed_improvement_percent": 4.485240763950349
+    },
+    "probe-400-summary": {
+      "mode": "probe",
+      "dpi": 400,
+      "records": [
+        {
+          "name": "probe-400-baseline-0",
+          "variant": "baseline",
+          "warmup": true,
+          "elapsed_ms": 2104.8883750336245,
+          "peak_rss_bytes": 3519496192,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/probe-400-baseline-0.run.json",
+          "raw_record_sha256": "0ba9117d10a0df6ad2a94cb541eb3696ea746fcb3f9eb465406e92e4a37b0bf4",
+          "stages_ms": {
+            "start": 0.0835,
+            "open": 177.43210000000002,
+            "render-a": 37.1189,
+            "render-b": 19.45660000000001,
+            "normalize": 7.034899999999993,
+            "alignment": 1.7638000000000034,
+            "compare": 1187.5728000000001,
+            "text-a": 189.56449999999995,
+            "text-b": 18.26240000000007,
+            "images": 380.71849999999995,
+            "fonts": 2.583499999999958,
+            "json": 20.553499999999985,
+            "html": 4.192599999999857
+          }
+        },
+        {
+          "name": "probe-400-parallel-0",
+          "variant": "parallel",
+          "warmup": true,
+          "elapsed_ms": 2020.7950840704143,
+          "peak_rss_bytes": 3508011008,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/probe-400-parallel-0.run.json",
+          "raw_record_sha256": "738c5064eaa031bae3806ab5cf256ab7f486334b1a63744308f6a278144f0e06",
+          "stages_ms": {
+            "start": 0.085,
+            "open": 175.6525,
+            "render-a": 38.031499999999994,
+            "render-b": 20.42439999999999,
+            "normalize": 7.412800000000004,
+            "alignment": 1.7857999999999947,
+            "compare": 1180.7060999999999,
+            "text-a": 182.29809999999998,
+            "text-b": 18.156600000000026,
+            "images": 308.7427,
+            "fonts": 2.5982000000001335,
+            "json": 22.374000000000024,
+            "html": 8.141700000000128
+          }
+        },
+        {
+          "name": "probe-400-parallel-1",
+          "variant": "parallel",
+          "warmup": false,
+          "elapsed_ms": 2014.9270409019664,
+          "peak_rss_bytes": 3507552256,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/probe-400-parallel-1.run.json",
+          "raw_record_sha256": "946cde51d1745ee8fb8e70c329ba9e5da2cecdc0f0515f300a9936d10f3e9710",
+          "stages_ms": {
+            "start": 0.0799,
+            "open": 177.9238,
+            "render-a": 37.74859999999998,
+            "render-b": 19.982400000000013,
+            "normalize": 6.734499999999997,
+            "alignment": 1.913000000000011,
+            "compare": 1178.2331,
+            "text-a": 178.81830000000014,
+            "text-b": 18.95439999999985,
+            "images": 307.1581000000001,
+            "fonts": 3.043999999999869,
+            "json": 21.147300000000087,
+            "html": 7.32569999999987
+          }
+        },
+        {
+          "name": "probe-400-baseline-1",
+          "variant": "baseline",
+          "warmup": false,
+          "elapsed_ms": 2086.415041005239,
+          "peak_rss_bytes": 3500261376,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/probe-400-baseline-1.run.json",
+          "raw_record_sha256": "7ad777cf5cc6696a0f8dc488a712ea4a00823201818fc220a382454bbb4a1071",
+          "stages_ms": {
+            "start": 0.0782,
+            "open": 177.6948,
+            "render-a": 38.39189999999999,
+            "render-b": 19.65990000000002,
+            "normalize": 7.1363999999999805,
+            "alignment": 1.7948000000000093,
+            "compare": 1168.1625,
+            "text-a": 182.9831999999999,
+            "text-b": 18.11500000000001,
+            "images": 385.8818000000001,
+            "fonts": 3.0715999999999894,
+            "json": 21.140499999999975,
+            "html": 4.372600000000148
+          }
+        },
+        {
+          "name": "probe-400-baseline-2",
+          "variant": "baseline",
+          "warmup": false,
+          "elapsed_ms": 2056.464833091013,
+          "peak_rss_bytes": 3524050944,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/probe-400-baseline-2.run.json",
+          "raw_record_sha256": "e7395d5f69369b0ff3b12fcc0e3ee7c68d344c55a6237d80bb304cd8bdf03aef",
+          "stages_ms": {
+            "start": 0.0788,
+            "open": 178.4635,
+            "render-a": 36.02339999999998,
+            "render-b": 19.991600000000005,
+            "normalize": 7.135999999999996,
+            "alignment": 1.9072999999999922,
+            "compare": 1166.3862,
+            "text-a": 177.8913,
+            "text-b": 17.778400000000147,
+            "images": 365.1232,
+            "fonts": 2.7900999999999385,
+            "json": 20.735500000000002,
+            "html": 7.675700000000006
+          }
+        },
+        {
+          "name": "probe-400-parallel-2",
+          "variant": "parallel",
+          "warmup": false,
+          "elapsed_ms": 1993.2335830526426,
+          "peak_rss_bytes": 3526737920,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/probe-400-parallel-2.run.json",
+          "raw_record_sha256": "df5d8c2d80825517ddbea17a127bf7764efa1ea33b3cffb22e33b062e8a461c6",
+          "stages_ms": {
+            "start": 0.081,
+            "open": 176.28810000000001,
+            "render-a": 37.40459999999999,
+            "render-b": 20.575700000000012,
+            "normalize": 6.939699999999988,
+            "alignment": 1.7823000000000206,
+            "compare": 1168.5584,
+            "text-a": 178.19119999999998,
+            "text-b": 18.139900000000125,
+            "images": 301.87660000000005,
+            "fonts": 2.772299999999859,
+            "json": 20.357899999999972,
+            "html": 7.623299999999972
+          }
+        },
+        {
+          "name": "probe-400-parallel-3",
+          "variant": "parallel",
+          "warmup": false,
+          "elapsed_ms": 2006.9417089689523,
+          "peak_rss_bytes": 3506110464,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/probe-400-parallel-3.run.json",
+          "raw_record_sha256": "51cdef0491f39ecabc02dd76391169bd9d6d4b25930c9e1dceaf8fd520efa13d",
+          "stages_ms": {
+            "start": 0.0908,
+            "open": 174.6219,
+            "render-a": 36.30869999999999,
+            "render-b": 19.008199999999988,
+            "normalize": 7.019400000000019,
+            "alignment": 1.7872999999999877,
+            "compare": 1179.5175000000002,
+            "text-a": 183.80399999999986,
+            "text-b": 17.79020000000014,
+            "images": 301.67779999999993,
+            "fonts": 2.634700000000066,
+            "json": 21.65150000000017,
+            "html": 7.9672999999997955
+          }
+        },
+        {
+          "name": "probe-400-baseline-3",
+          "variant": "baseline",
+          "warmup": false,
+          "elapsed_ms": 2060.5495830532163,
+          "peak_rss_bytes": 3521871872,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 171,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/probe-400-baseline-3.run.json",
+          "raw_record_sha256": "2d7ce35d32394018d2606bf2fc8cf48982e0dd7e976205affd7b331fdc784a4e",
+          "stages_ms": {
+            "start": 0.0735,
+            "open": 175.6522,
+            "render-a": 38.495600000000024,
+            "render-b": 20.569199999999995,
+            "normalize": 7.051500000000004,
+            "alignment": 1.7734999999999843,
+            "compare": 1171.9654999999998,
+            "text-a": 175.02150000000006,
+            "text-b": 18.25070000000005,
+            "images": 366.79150000000004,
+            "fonts": 2.689300000000003,
+            "json": 20.27189999999996,
+            "html": 5.158500000000004
+          }
+        }
+      ],
+      "medians": {
+        "baseline": {
+          "elapsed_ms": 2060.5495830532163,
+          "peak_rss_bytes": 3521871872,
+          "measured_count": 3,
+          "elapsed_ms_range": [
+            2056.464833091013,
+            2086.415041005239
+          ],
+          "peak_rss_bytes_range": [
+            3500261376,
+            3524050944
+          ],
+          "stages_ms": {
+            "start": 0.0782,
+            "open": 177.6948,
+            "render-a": 38.39189999999999,
+            "render-b": 19.991600000000005,
+            "normalize": 7.135999999999996,
+            "alignment": 1.7948000000000093,
+            "compare": 1168.1625,
+            "text-a": 177.8913,
+            "text-b": 18.11500000000001,
+            "images": 366.79150000000004,
+            "fonts": 2.7900999999999385,
+            "json": 20.735500000000002,
+            "html": 5.158500000000004
+          }
+        },
+        "parallel": {
+          "elapsed_ms": 2006.9417089689523,
+          "peak_rss_bytes": 3507552256,
+          "measured_count": 3,
+          "elapsed_ms_range": [
+            1993.2335830526426,
+            2014.9270409019664
+          ],
+          "peak_rss_bytes_range": [
+            3506110464,
+            3526737920
+          ],
+          "stages_ms": {
+            "start": 0.081,
+            "open": 176.28810000000001,
+            "render-a": 37.40459999999999,
+            "render-b": 19.982400000000013,
+            "normalize": 6.939699999999988,
+            "alignment": 1.7872999999999877,
+            "compare": 1178.2331,
+            "text-a": 178.81830000000014,
+            "text-b": 18.139900000000125,
+            "images": 301.87660000000005,
+            "fonts": 2.772299999999859,
+            "json": 21.147300000000087,
+            "html": 7.623299999999972
+          }
+        }
+      },
+      "elapsed_improvement_percent": 2.6016299013213118
+    },
+    "same-300-summary": {
+      "mode": "same",
+      "dpi": 300,
+      "records": [
+        {
+          "name": "same-300-baseline-0",
+          "variant": "baseline",
+          "warmup": true,
+          "elapsed_ms": 632.6218330068514,
+          "peak_rss_bytes": 496418816,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 3,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/same-300-baseline-0.run.json",
+          "raw_record_sha256": "7bc72d9b1aa66d4fe5f35b790c7775552b39e0818b6646a51d1216e47be93650"
+        },
+        {
+          "name": "same-300-parallel-0",
+          "variant": "parallel",
+          "warmup": true,
+          "elapsed_ms": 589.2886669607833,
+          "peak_rss_bytes": 496713728,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 3,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/same-300-parallel-0.run.json",
+          "raw_record_sha256": "a719ba77e716b3489f40a0a127fc680a5f27d97eb714a5fda222e170e4732173"
+        },
+        {
+          "name": "same-300-parallel-1",
+          "variant": "parallel",
+          "warmup": false,
+          "elapsed_ms": 592.7546670427546,
+          "peak_rss_bytes": 496844800,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 3,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/same-300-parallel-1.run.json",
+          "raw_record_sha256": "4965cc3043592603976ee20c57e557127debe5cdc403be01980928a54b922dd8"
+        },
+        {
+          "name": "same-300-baseline-1",
+          "variant": "baseline",
+          "warmup": false,
+          "elapsed_ms": 632.2627919726074,
+          "peak_rss_bytes": 497467392,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 3,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/same-300-baseline-1.run.json",
+          "raw_record_sha256": "e46ca38b983b38061f3677aa057b97cd8d369bd2ff1c01ca476a9f45fb4ae591"
+        },
+        {
+          "name": "same-300-baseline-2",
+          "variant": "baseline",
+          "warmup": false,
+          "elapsed_ms": 632.3792919283733,
+          "peak_rss_bytes": 496173056,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 3,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/same-300-baseline-2.run.json",
+          "raw_record_sha256": "c06d36a7fa3525ba621c777e00a60ae7d6aaedb38d74b14f066dece716b09310"
+        },
+        {
+          "name": "same-300-parallel-2",
+          "variant": "parallel",
+          "warmup": false,
+          "elapsed_ms": 589.1857909737155,
+          "peak_rss_bytes": 497582080,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 3,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/same-300-parallel-2.run.json",
+          "raw_record_sha256": "890d554277db95108178f946cbdd37b520627e8ddb7ac1d403c8b43618b57be9"
+        },
+        {
+          "name": "same-300-parallel-3",
+          "variant": "parallel",
+          "warmup": false,
+          "elapsed_ms": 596.7409590957686,
+          "peak_rss_bytes": 497238016,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 3,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/same-300-parallel-3.run.json",
+          "raw_record_sha256": "ab090b090591ad996d7af3ba98e3d6952f12363fb41f2c28a72ccb6b36af08a8"
+        },
+        {
+          "name": "same-300-baseline-3",
+          "variant": "baseline",
+          "warmup": false,
+          "elapsed_ms": 627.2559580393136,
+          "peak_rss_bytes": 497238016,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 3,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/same-300-baseline-3.run.json",
+          "raw_record_sha256": "2e6ca34e54019f7b68f282e8f4622722ddca6e2c942d224f9e0875ada9a4c09d"
+        }
+      ],
+      "medians": {
+        "baseline": {
+          "elapsed_ms": 632.2627919726074,
+          "peak_rss_bytes": 497238016,
+          "measured_count": 3,
+          "elapsed_ms_range": [
+            627.2559580393136,
+            632.3792919283733
+          ],
+          "peak_rss_bytes_range": [
+            496173056,
+            497467392
+          ]
+        },
+        "parallel": {
+          "elapsed_ms": 592.7546670427546,
+          "peak_rss_bytes": 497238016,
+          "measured_count": 3,
+          "elapsed_ms_range": [
+            589.1857909737155,
+            596.7409590957686
+          ],
+          "peak_rss_bytes_range": [
+            496844800,
+            497582080
+          ]
+        }
+      },
+      "elapsed_improvement_percent": 6.248687322970681
+    },
+    "small-300-summary": {
+      "mode": "small",
+      "dpi": 300,
+      "records": [
+        {
+          "name": "small-300-baseline-0",
+          "variant": "baseline",
+          "warmup": true,
+          "elapsed_ms": 337.9494169494137,
+          "peak_rss_bytes": 89964544,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 6,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/small-300-baseline-0.run.json",
+          "raw_record_sha256": "847e78eba93ba06ceab059ca056730759624121920c45a5eff954dc499e37c2b"
+        },
+        {
+          "name": "small-300-parallel-0",
+          "variant": "parallel",
+          "warmup": true,
+          "elapsed_ms": 342.3971669981256,
+          "peak_rss_bytes": 90734592,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 6,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/small-300-parallel-0.run.json",
+          "raw_record_sha256": "f609f55899088e44b40da4983f94f5478252335140162c386dbca215ca5b9d3f"
+        },
+        {
+          "name": "small-300-parallel-1",
+          "variant": "parallel",
+          "warmup": false,
+          "elapsed_ms": 343.81708304863423,
+          "peak_rss_bytes": 92258304,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 6,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/small-300-parallel-1.run.json",
+          "raw_record_sha256": "00f99de5c2af68ed9c0b92e61d4f1c699d7089b68bcbd4c527ddd5c51f0f675a"
+        },
+        {
+          "name": "small-300-baseline-1",
+          "variant": "baseline",
+          "warmup": false,
+          "elapsed_ms": 346.5863330056891,
+          "peak_rss_bytes": 90750976,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 6,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/small-300-baseline-1.run.json",
+          "raw_record_sha256": "ad31491052866cdcc8f3add2b3c2dbe8b40d354a5055bb31a7b942e1239b6aba"
+        },
+        {
+          "name": "small-300-baseline-2",
+          "variant": "baseline",
+          "warmup": false,
+          "elapsed_ms": 347.8845419595018,
+          "peak_rss_bytes": 91537408,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 6,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/small-300-baseline-2.run.json",
+          "raw_record_sha256": "640846499731e6d60984b732a755acdac0816d41c2140d90ee9d189b84c4d9c1"
+        },
+        {
+          "name": "small-300-parallel-2",
+          "variant": "parallel",
+          "warmup": false,
+          "elapsed_ms": 351.13570804242045,
+          "peak_rss_bytes": 92422144,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 6,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/small-300-parallel-2.run.json",
+          "raw_record_sha256": "0bcb15cbaa97ec9883ad227d65a2ab7d946dee9350481e1a20516cd27fd1b8c0"
+        },
+        {
+          "name": "small-300-parallel-3",
+          "variant": "parallel",
+          "warmup": false,
+          "elapsed_ms": 349.56695791333914,
+          "peak_rss_bytes": 90423296,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 6,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/small-300-parallel-3.run.json",
+          "raw_record_sha256": "31bd7527239a59b82c0eb6997c1d0fc2d6afe7d2a4136a5a317bc28e0be01010"
+        },
+        {
+          "name": "small-300-baseline-3",
+          "variant": "baseline",
+          "warmup": false,
+          "elapsed_ms": 347.14374993927777,
+          "peak_rss_bytes": 90652672,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 6,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/small-300-baseline-3.run.json",
+          "raw_record_sha256": "ded90d4a1c63634dd896dce7f9f4511b14d190173e4262a21b9c2051e7a3d49a"
+        },
+        {
+          "name": "small-300-baseline-4",
+          "variant": "baseline",
+          "warmup": false,
+          "elapsed_ms": 342.448916984722,
+          "peak_rss_bytes": 91963392,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 6,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/small-300-baseline-4.run.json",
+          "raw_record_sha256": "03d050ca76ad2409090840ad3fc8c9ec03ad21ac3bb4e19bee335784e54f872b"
+        },
+        {
+          "name": "small-300-parallel-4",
+          "variant": "parallel",
+          "warmup": false,
+          "elapsed_ms": 340.5446250690147,
+          "peak_rss_bytes": 90587136,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 6,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/small-300-parallel-4.run.json",
+          "raw_record_sha256": "7626db1595771a1e29420a95dbdbdec57596f86fe22d09b30f1d2eda10ef7751"
+        },
+        {
+          "name": "small-300-parallel-5",
+          "variant": "parallel",
+          "warmup": false,
+          "elapsed_ms": 344.86391593236476,
+          "peak_rss_bytes": 90832896,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 6,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/small-300-parallel-5.run.json",
+          "raw_record_sha256": "5b1374b5e69c84ff1f51d6fb77f920b6a686eed9e186761fab6e12634c6ea0b4"
+        },
+        {
+          "name": "small-300-baseline-5",
+          "variant": "baseline",
+          "warmup": false,
+          "elapsed_ms": 342.1269999817014,
+          "peak_rss_bytes": 92192768,
+          "json_equal": {
+            "schema_version": true,
+            "tool": true,
+            "inputs": true,
+            "config": true,
+            "summary": true,
+            "warnings": true,
+            "pages": true
+          },
+          "png_count": 6,
+          "png_sha256_equal": true,
+          "raw_record": "samples/private/perf2h-png-20260921/small-300-baseline-5.run.json",
+          "raw_record_sha256": "59e4dddd15b00a3c291e0b8eb4f2f6d18f2f5412046639264e1836c197044199"
+        }
+      ],
+      "medians": {
+        "baseline": {
+          "elapsed_ms": 346.5863330056891,
+          "peak_rss_bytes": 91537408,
+          "measured_count": 5,
+          "elapsed_ms_range": [
+            342.1269999817014,
+            347.8845419595018
+          ],
+          "peak_rss_bytes_range": [
+            90652672,
+            92192768
+          ]
+        },
+        "parallel": {
+          "elapsed_ms": 344.86391593236476,
+          "peak_rss_bytes": 90832896,
+          "measured_count": 5,
+          "elapsed_ms_range": [
+            340.5446250690147,
+            351.13570804242045
+          ],
+          "peak_rss_bytes_range": [
+            90423296,
+            92422144
+          ]
+        }
+      },
+      "elapsed_improvement_percent": 0.49696624168271697
+    }
+  },
+  "micro": {
+    "record_path": "samples/private/perf2h-png-20260921/micro.json",
+    "sha256": "76d1eeccdd1a4ef38dd82e5c1573696f64dc350e110a5183b42c26fb305ac0b5",
+    "runs": 972,
+    "summaries": [
+      {
+        "Key": {
+          "Width": 32,
+          "Height": 32,
+          "Pattern": "blank",
+          "Mode": "auto",
+          "Workers": 1
+        },
+        "median_ms": 0.2583,
+        "min_ms": 0.1752,
+        "max_ms": 0.3473,
+        "median_managed_bytes": 20592,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 32,
+          "Height": 32,
+          "Pattern": "blank",
+          "Mode": "parallel",
+          "Workers": 2
+        },
+        "median_ms": 0.1992,
+        "min_ms": 0.1681,
+        "max_ms": 0.3453,
+        "median_managed_bytes": 16800,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 32,
+          "Height": 32,
+          "Pattern": "blank",
+          "Mode": "serial",
+          "Workers": 1
+        },
+        "median_ms": 0.2075,
+        "min_ms": 0.1706,
+        "max_ms": 0.2827,
+        "median_managed_bytes": 20544,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 32,
+          "Height": 32,
+          "Pattern": "form",
+          "Mode": "auto",
+          "Workers": 1
+        },
+        "median_ms": 0.2299,
+        "min_ms": 0.1881,
+        "max_ms": 0.284,
+        "median_managed_bytes": 21552,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 32,
+          "Height": 32,
+          "Pattern": "form",
+          "Mode": "parallel",
+          "Workers": 2
+        },
+        "median_ms": 0.2065,
+        "min_ms": 0.1583,
+        "max_ms": 0.3796,
+        "median_managed_bytes": 19632,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 32,
+          "Height": 32,
+          "Pattern": "form",
+          "Mode": "serial",
+          "Workers": 1
+        },
+        "median_ms": 0.2101,
+        "min_ms": 0.1734,
+        "max_ms": 0.4285,
+        "median_managed_bytes": 21552,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 32,
+          "Height": 32,
+          "Pattern": "noise",
+          "Mode": "auto",
+          "Workers": 1
+        },
+        "median_ms": 0.268,
+        "min_ms": 0.2284,
+        "max_ms": 0.3288,
+        "median_managed_bytes": 20520,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 32,
+          "Height": 32,
+          "Pattern": "noise",
+          "Mode": "parallel",
+          "Workers": 2
+        },
+        "median_ms": 0.2694,
+        "min_ms": 0.2025,
+        "max_ms": 0.4297,
+        "median_managed_bytes": 29328,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 32,
+          "Height": 32,
+          "Pattern": "noise",
+          "Mode": "serial",
+          "Workers": 1
+        },
+        "median_ms": 0.2559,
+        "min_ms": 0.2282,
+        "max_ms": 0.2934,
+        "median_managed_bytes": 20520,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 128,
+          "Height": 128,
+          "Pattern": "blank",
+          "Mode": "auto",
+          "Workers": 1
+        },
+        "median_ms": 0.2831,
+        "min_ms": 0.2473,
+        "max_ms": 0.3463,
+        "median_managed_bytes": 22272,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 128,
+          "Height": 128,
+          "Pattern": "blank",
+          "Mode": "parallel",
+          "Workers": 2
+        },
+        "median_ms": 0.2573,
+        "min_ms": 0.2275,
+        "max_ms": 0.3402,
+        "median_managed_bytes": 14976,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 128,
+          "Height": 128,
+          "Pattern": "blank",
+          "Mode": "serial",
+          "Workers": 1
+        },
+        "median_ms": 0.2825,
+        "min_ms": 0.2548,
+        "max_ms": 0.4065,
+        "median_managed_bytes": 22224,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 128,
+          "Height": 128,
+          "Pattern": "form",
+          "Mode": "auto",
+          "Workers": 1
+        },
+        "median_ms": 0.3207,
+        "min_ms": 0.2894,
+        "max_ms": 0.3856,
+        "median_managed_bytes": 24600,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 128,
+          "Height": 128,
+          "Pattern": "form",
+          "Mode": "parallel",
+          "Workers": 2
+        },
+        "median_ms": 0.2949,
+        "min_ms": 0.2363,
+        "max_ms": 0.3661,
+        "median_managed_bytes": 23424,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 128,
+          "Height": 128,
+          "Pattern": "form",
+          "Mode": "serial",
+          "Workers": 1
+        },
+        "median_ms": 0.3331,
+        "min_ms": 0.2691,
+        "max_ms": 0.4669,
+        "median_managed_bytes": 24600,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 128,
+          "Height": 128,
+          "Pattern": "noise",
+          "Mode": "auto",
+          "Workers": 1
+        },
+        "median_ms": 1.0872,
+        "min_ms": 0.9945,
+        "max_ms": 1.2877,
+        "median_managed_bytes": 148392,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 128,
+          "Height": 128,
+          "Pattern": "noise",
+          "Mode": "parallel",
+          "Workers": 2
+        },
+        "median_ms": 0.8352,
+        "min_ms": 0.7989,
+        "max_ms": 1.0525,
+        "median_managed_bytes": 156632,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 128,
+          "Height": 128,
+          "Pattern": "noise",
+          "Mode": "serial",
+          "Workers": 1
+        },
+        "median_ms": 1.092,
+        "min_ms": 1.0172,
+        "max_ms": 1.3585,
+        "median_managed_bytes": 148392,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 512,
+          "Height": 512,
+          "Pattern": "blank",
+          "Mode": "auto",
+          "Workers": 1
+        },
+        "median_ms": 1.6903,
+        "min_ms": 1.561,
+        "max_ms": 1.7615,
+        "median_managed_bytes": 17384,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 512,
+          "Height": 512,
+          "Pattern": "blank",
+          "Mode": "parallel",
+          "Workers": 2
+        },
+        "median_ms": 1.259,
+        "min_ms": 1.1875,
+        "max_ms": 1.4237,
+        "median_managed_bytes": 26928,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 512,
+          "Height": 512,
+          "Pattern": "blank",
+          "Mode": "serial",
+          "Workers": 1
+        },
+        "median_ms": 1.6885,
+        "min_ms": 1.5617,
+        "max_ms": 1.7699,
+        "median_managed_bytes": 17336,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 512,
+          "Height": 512,
+          "Pattern": "form",
+          "Mode": "auto",
+          "Workers": 1
+        },
+        "median_ms": 2.0637,
+        "min_ms": 1.8737,
+        "max_ms": 2.3266,
+        "median_managed_bytes": 50184,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 512,
+          "Height": 512,
+          "Pattern": "form",
+          "Mode": "parallel",
+          "Workers": 2
+        },
+        "median_ms": 1.6713,
+        "min_ms": 1.4425,
+        "max_ms": 1.9786,
+        "median_managed_bytes": 58424,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 512,
+          "Height": 512,
+          "Pattern": "form",
+          "Mode": "serial",
+          "Workers": 1
+        },
+        "median_ms": 2.1594,
+        "min_ms": 1.8152,
+        "max_ms": 2.3983,
+        "median_managed_bytes": 50184,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 512,
+          "Height": 512,
+          "Pattern": "noise",
+          "Mode": "auto",
+          "Workers": 1
+        },
+        "median_ms": 14.1535,
+        "min_ms": 13.5047,
+        "max_ms": 15.335,
+        "median_managed_bytes": 2365296,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 512,
+          "Height": 512,
+          "Pattern": "noise",
+          "Mode": "parallel",
+          "Workers": 2
+        },
+        "median_ms": 10.3952,
+        "min_ms": 9.3974,
+        "max_ms": 11.1387,
+        "median_managed_bytes": 2373496,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 512,
+          "Height": 512,
+          "Pattern": "noise",
+          "Mode": "serial",
+          "Workers": 1
+        },
+        "median_ms": 13.9882,
+        "min_ms": 13.0212,
+        "max_ms": 15.8666,
+        "median_managed_bytes": 2371568,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 999,
+          "Height": 1000,
+          "Pattern": "blank",
+          "Mode": "auto",
+          "Workers": 1
+        },
+        "median_ms": 5.6811,
+        "min_ms": 5.3289,
+        "max_ms": 6.0049,
+        "median_managed_bytes": 24600,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 999,
+          "Height": 1000,
+          "Pattern": "blank",
+          "Mode": "parallel",
+          "Workers": 2
+        },
+        "median_ms": 4.1114,
+        "min_ms": 3.8858,
+        "max_ms": 4.2964,
+        "median_managed_bytes": 21200,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 999,
+          "Height": 1000,
+          "Pattern": "blank",
+          "Mode": "serial",
+          "Workers": 1
+        },
+        "median_ms": 5.6378,
+        "min_ms": 5.273,
+        "max_ms": 5.9686,
+        "median_managed_bytes": 24600,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 999,
+          "Height": 1000,
+          "Pattern": "form",
+          "Mode": "auto",
+          "Workers": 1
+        },
+        "median_ms": 6.6384,
+        "min_ms": 6.3786,
+        "max_ms": 7.1082,
+        "median_managed_bytes": 160248,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 999,
+          "Height": 1000,
+          "Pattern": "form",
+          "Mode": "parallel",
+          "Workers": 2
+        },
+        "median_ms": 4.7135,
+        "min_ms": 4.5052,
+        "max_ms": 4.9834,
+        "median_managed_bytes": 168488,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 999,
+          "Height": 1000,
+          "Pattern": "form",
+          "Mode": "serial",
+          "Workers": 1
+        },
+        "median_ms": 6.738,
+        "min_ms": 6.5073,
+        "max_ms": 7.0795,
+        "median_managed_bytes": 160248,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 999,
+          "Height": 1000,
+          "Pattern": "noise",
+          "Mode": "auto",
+          "Workers": 1
+        },
+        "median_ms": 52.0077,
+        "min_ms": 50.3044,
+        "max_ms": 53.7467,
+        "median_managed_bytes": 9014048,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 999,
+          "Height": 1000,
+          "Pattern": "noise",
+          "Mode": "parallel",
+          "Workers": 2
+        },
+        "median_ms": 35.7073,
+        "min_ms": 34.7358,
+        "max_ms": 37.2827,
+        "median_managed_bytes": 9015408,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 999,
+          "Height": 1000,
+          "Pattern": "noise",
+          "Mode": "serial",
+          "Workers": 1
+        },
+        "median_ms": 51.4335,
+        "min_ms": 50.1492,
+        "max_ms": 53.2117,
+        "median_managed_bytes": 9017208,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 1000,
+          "Height": 1000,
+          "Pattern": "blank",
+          "Mode": "auto",
+          "Workers": 2
+        },
+        "median_ms": 4.1008,
+        "min_ms": 3.8624,
+        "max_ms": 4.4937,
+        "median_managed_bytes": 20872,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 1000,
+          "Height": 1000,
+          "Pattern": "blank",
+          "Mode": "parallel",
+          "Workers": 2
+        },
+        "median_ms": 4.1356,
+        "min_ms": 4.0787,
+        "max_ms": 4.3558,
+        "median_managed_bytes": 20872,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 1000,
+          "Height": 1000,
+          "Pattern": "blank",
+          "Mode": "serial",
+          "Workers": 1
+        },
+        "median_ms": 5.8067,
+        "min_ms": 5.3222,
+        "max_ms": 6.0419,
+        "median_managed_bytes": 24600,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 1000,
+          "Height": 1000,
+          "Pattern": "form",
+          "Mode": "auto",
+          "Workers": 2
+        },
+        "median_ms": 4.743,
+        "min_ms": 4.5509,
+        "max_ms": 5.0577,
+        "median_managed_bytes": 168144,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 1000,
+          "Height": 1000,
+          "Pattern": "form",
+          "Mode": "parallel",
+          "Workers": 2
+        },
+        "median_ms": 4.7174,
+        "min_ms": 4.6237,
+        "max_ms": 4.9319,
+        "median_managed_bytes": 168160,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 1000,
+          "Height": 1000,
+          "Pattern": "form",
+          "Mode": "serial",
+          "Workers": 1
+        },
+        "median_ms": 6.7719,
+        "min_ms": 6.3262,
+        "max_ms": 6.9545,
+        "median_managed_bytes": 160248,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 1000,
+          "Height": 1000,
+          "Pattern": "noise",
+          "Mode": "auto",
+          "Workers": 2
+        },
+        "median_ms": 34.8055,
+        "min_ms": 34.0015,
+        "max_ms": 36.4615,
+        "median_managed_bytes": 9019936,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 1000,
+          "Height": 1000,
+          "Pattern": "noise",
+          "Mode": "parallel",
+          "Workers": 2
+        },
+        "median_ms": 34.6065,
+        "min_ms": 33.9958,
+        "max_ms": 35.119,
+        "median_managed_bytes": 9019944,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 1000,
+          "Height": 1000,
+          "Pattern": "noise",
+          "Mode": "serial",
+          "Workers": 1
+        },
+        "median_ms": 51.1601,
+        "min_ms": 50.0754,
+        "max_ms": 52.3014,
+        "median_managed_bytes": 9018040,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 1024,
+          "Height": 1024,
+          "Pattern": "blank",
+          "Mode": "auto",
+          "Workers": 2
+        },
+        "median_ms": 4.3114,
+        "min_ms": 4.0362,
+        "max_ms": 4.5082,
+        "median_managed_bytes": 21600,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 1024,
+          "Height": 1024,
+          "Pattern": "blank",
+          "Mode": "parallel",
+          "Workers": 2
+        },
+        "median_ms": 4.2648,
+        "min_ms": 3.9989,
+        "max_ms": 4.5679,
+        "median_managed_bytes": 21552,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 1024,
+          "Height": 1024,
+          "Pattern": "blank",
+          "Mode": "serial",
+          "Workers": 1
+        },
+        "median_ms": 5.805,
+        "min_ms": 5.5674,
+        "max_ms": 6.4587,
+        "median_managed_bytes": 24600,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 1024,
+          "Height": 1024,
+          "Pattern": "form",
+          "Mode": "auto",
+          "Workers": 2
+        },
+        "median_ms": 5.1095,
+        "min_ms": 4.949,
+        "max_ms": 5.2432,
+        "median_managed_bytes": 183592,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 1024,
+          "Height": 1024,
+          "Pattern": "form",
+          "Mode": "parallel",
+          "Workers": 2
+        },
+        "median_ms": 5.1535,
+        "min_ms": 4.8923,
+        "max_ms": 5.4654,
+        "median_managed_bytes": 183592,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 1024,
+          "Height": 1024,
+          "Pattern": "form",
+          "Mode": "serial",
+          "Workers": 1
+        },
+        "median_ms": 7.3473,
+        "min_ms": 6.9548,
+        "max_ms": 7.6621,
+        "median_managed_bytes": 175680,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 1024,
+          "Height": 1024,
+          "Pattern": "noise",
+          "Mode": "auto",
+          "Workers": 2
+        },
+        "median_ms": 37.254,
+        "min_ms": 35.7848,
+        "max_ms": 39.8572,
+        "median_managed_bytes": 9465176,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 1024,
+          "Height": 1024,
+          "Pattern": "noise",
+          "Mode": "parallel",
+          "Workers": 2
+        },
+        "median_ms": 37.0072,
+        "min_ms": 36.4095,
+        "max_ms": 37.8165,
+        "median_managed_bytes": 9464864,
+        "count": 15
+      },
+      {
+        "Key": {
+          "Width": 1024,
+          "Height": 1024,
+          "Pattern": "noise",
+          "Mode": "serial",
+          "Workers": 1
+        },
+        "median_ms": 54.7732,
+        "min_ms": 53.4702,
+        "max_ms": 55.8045,
+        "median_managed_bytes": 9472368,
+        "count": 15
+      }
+    ]
+  },
+  "input_sha256": {
+    "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf": "b9b5bfd1683043e9bcbf0b9b39fe7af9440aa64c1da6cbb651bb6566f03b32e4",
+    "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf": "d074b01368f32f80a439f04fce706d708ee5cb05beee14f18c91c580fd617dcd",
+    "samples/private/perf2c-memory-20260921/inputs/twenty-pages-original.pdf": "01ee30049efabf2e09d8bea65b464dc5fc1fd28bf64ba244d5632a0809c2887b",
+    "samples/private/perf2c-memory-20260921/inputs/twenty-pages-revised.pdf": "74748f24939cb9346d02e485ec2ab442b054226947a5d66c68a0a860bd027583",
+    "samples/private/perf2h-png-20260921/inputs/small-original.png": "43864f2dc6653812653c84dec054ed811403977df8779d9a5ac4fd7111ad1e41",
+    "samples/private/perf2h-png-20260921/inputs/small-revised.png": "6232cd2b74f7de4e94177f93edee13183c801e6af1064ae558a41081f18e987c",
+    "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf": "0b30618efa2b809b7b3c483ca69d594f3e6ba2b5d54589a17489a3cfbe5c5e57",
+    "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf": "5585ad8ef072fc57cd63293ef0c1d9bbd4a5c9d41a8d7e84829aba0fdf408425"
+  },
+  "source_sha256": {
+    "src/ReportDiff.Report/ReportWriter.cs": "09c93768637f21a9e66b12b35cf3af5630eeb6ef68664f7f440751a3539a964e",
+    "src/ReportDiff.Report/PageImageWriteSchedule.cs": "5bf20dce01198ed377d7c41807830a5fa0c991c26d45c84982911d234289b24a",
+    "src/ReportDiff.Report/AssemblyInfo.cs": "502510d8fadecad038256039d5f9b86967f68a15afc8678f06377713652881d3",
+    "tests/ReportDiff.Tests/PageImageParallelTests.cs": "d8c92ff196e8dbc1b9f838b2c85220f83b0931be27bf84aad363c39bf37c3b5c",
+    "tools/ReportDiff.PngBenchmark/ReportDiff.PngBenchmark.csproj": "5fd16be2ee71bbea0d68ca4dbd97f7fbe3fe57c3649cf11813a810daa9fd79ce",
+    "tools/ReportDiff.PngBenchmark/README.md": "072f04210ea657f172b828131b347bc6b33d1c86a98a3a4d233a07a83f48f58d",
+    "tools/ReportDiff.PngBenchmark/Program.cs": "c298466b41751b9c5517393601d28b95a8e2128f0df4c04130fe87ba71b73a35"
+  },
+  "binary_sha256": {
+    "baseline": {
+      "ReportDiff.Pdf.dll": "9fd21af0ab474914093d762c4d32698879245d2d2e303edc0f0660628753a944",
+      "ReportDiff.Core.dll": "8e030c7c1a2f5cfc5ae58c476da0dd974f8c77a4ef261cbbd6eee01a536699bf",
+      "reportdiff.dll": "e8211eb47088b6917e424838c1c75ec98ff9ed37e070929e4754476d0ac40249",
+      "ReportDiff.Report.dll": "93fcaf27f18fa57b480e84fe51b6026b92e657209970703f5548293417397f41",
+      "ReportDiff.Tests.dll": "7d8a2bc9c622eaa48893383640d3b862c14f05d502f8f7b43c812e40aaa1bf5c"
+    },
+    "parallel": {
+      "ReportDiff.Pdf.dll": "d4c9126e9d05f3e2b9717a4008adf5b51b008c7eaf18192e16d5de7a1bb91554",
+      "ReportDiff.Core.dll": "06430f5fd72236992a5ac7b7129b3b3e0edea6eed1215dbac5471b7e22197cee",
+      "reportdiff.dll": "f5f421ea217544bb117b7be027a0ef5a8fb02d47592cd35b47ef1013266c6a3b",
+      "ReportDiff.Report.dll": "dd55d642e467ddeff83087ec1377173cd9f54ef19bcfdd53a91612caab3b9760",
+      "ReportDiff.Tests.dll": "8fc61e44140f0882a954f28eedbb8a7bb0d37293f65718f5e28172274b0129fe"
+    }
+  },
+  "logs_sha256": {
+    "out/perf2h-png/build-tests.log": "1ca1b0d2fc5d6648ff08c3f2b568e8f66c3dde34b5c396f5d0af1ee66ba72918",
+    "out/perf2h-png/tests-target.log": "b58a99b97ff4e6530a40a2ce209f126761fa2327684f192f78bc5fea34509abb",
+    "out/perf2h-png/measure-probe400.log": "02bb87f96feb10f31ef794641e7841e1ced71394abb0c225289309df1068894b",
+    "out/perf2h-png/measure-small.log": "3aa44cc9863fc8110ad13c964c97a46983fbfd2a91e738feec7bb7f36d22b161",
+    "out/perf2h-png/micro.log": "91c936e9e6f97e1d648aa4f093be02d7ca6edf314ea6cbc491b05063228a6025",
+    "out/perf2h-png/build-final.log": "ff499b5eba36a61d77bad58723eb181e11757de7f47e6e509ce5c3c2e46aad6c",
+    "out/perf2h-png/measure-probe300.log": "7f94a4cc3a121687b2ac47cc0338cef71614123accc319b99a0a8956f8eda992",
+    "out/perf2h-png/measure-cli400.log": "d2c6a94d64f87c2e5fcf8d570bf91c8326cb5f4df30f1ea1bba31cea4cb9c25b",
+    "out/perf2h-png/measure-cli4.log": "c6f4bbbfa61b46cb07f87cb4a84b8388959b58f6222385a60f4aadad3997bf9c",
+    "out/perf2h-png/tests-final.log": "2f05b0118e910a550bd651a085779aabc4e49ee8d4ffb649652420354904045a",
+    "out/perf2h-png/measure-same.log": "d5512a39f6e18c7d3e8ca700749e5fb4d5095dd8aead4b60b02c03750f065166",
+    "out/perf2h-png/build-probe.log": "da15f748eef209a0d5f8e4894f48ffb0f6f03adcc08bf5075fb9e7080f6c4120",
+    "out/perf2h-png/measure-cli300.log": "5fab3e007dd3553602ae6751394c38d058ef84304a9cc0937e7d9fd39e0468f8",
+    "out/perf2h-png/build-micro.log": "816905773002dc22671873a22faf3e00c41da52152a3934bae88ad58573f4281",
+    "out/perf2h-png/measure-cli20.log": "c4568e595a6a22c523baac736bb61a79071f20c8e8f7c0006549327d7c3809ce",
+    "out/perf2h-png/build-dev.log": "9b1319a6d98fb726f85d72e7b450748af643b6acd4876771858f349110d96f5a"
+  },
+  "local_scripts_sha256": {
+    "out/perf2h-png/measure.py": "e64da9cae8ae54e1612cca8a07bfe37599e4ceb8f2671fe885a6dc4bd29e5afe",
+    "out/perf2h-png/evidence.py": "5bc115b09adcd25ecf705d06de00c67dd92d8ff2848d5134de8afc3d0d900a18"
+  }
+}

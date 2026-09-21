@@ -14,6 +14,7 @@ public sealed class ReportWriter
     private readonly ReportConfiguration config;
     private readonly bool saveAllPages;
     private readonly DateTimeOffset generatedAt;
+    private readonly PageImageExecution imageExecution;
     private readonly List<ReportPage> pages = [];
     private readonly List<ReportWarning> warnings = [];
     private bool completed;
@@ -21,6 +22,10 @@ public sealed class ReportWriter
 
     public ReportWriter(string outputDirectory, ReportInputs inputs, ReportConfiguration config,
         bool saveAllPages = false, DateTimeOffset? generatedAt = null)
+        : this(outputDirectory, inputs, config, saveAllPages, generatedAt, new()) { }
+
+    internal ReportWriter(string outputDirectory, ReportInputs inputs, ReportConfiguration config,
+        bool saveAllPages, DateTimeOffset? generatedAt, PageImageExecution imageExecution)
     {
         if (inputs.A.Pages < 1 || inputs.B.Pages < 1) throw new ArgumentException("入力のページ数は 1 以上にしてください。");
         if (!double.IsFinite(config.Report.CropMarginMm) || config.Report.CropMarginMm < 0)
@@ -30,6 +35,7 @@ public sealed class ReportWriter
         this.config = config with { Exclude = Array.AsReadOnly(config.Exclude.ToArray()) };
         this.saveAllPages = saveAllPages;
         this.generatedAt = generatedAt ?? DateTimeOffset.Now;
+        this.imageExecution = imageExecution;
         ExecuteWrite(() =>
         {
             if (Directory.Exists(this.outputDirectory) && Directory.EnumerateFileSystemEntries(this.outputDirectory).Any())
@@ -74,7 +80,8 @@ public sealed class ReportWriter
             {
                 var prefix = "pages/" + PageStem(page);
                 paths = new(prefix + "_a.png", prefix + "_b.png", prefix + "_overlay.png");
-                WritePng(paths.A!, images.A); WritePng(paths.B!, comparisonB);
+                PageImageWriteSchedule.Create(size.Width, size.Height, imageExecution).Run(side =>
+                    WritePng(side == 0 ? paths.A! : paths.B!, side == 0 ? images.A : comparisonB));
                 if (shift is not null)
                 {
                     paths = paths with { BOriginal = prefix + "_b_original.png" };
