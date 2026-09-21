@@ -16,6 +16,42 @@ namespace ReportDiff.Tests;
 public sealed class HtmlReportTests
 {
     [Fact]
+    public void AlignmentShowsBothDirectionsStatisticsAndOriginalImage()
+    {
+        var report = Example();
+        var page = report.Pages[0] with { GlobalShiftPx = new(-6, 4),
+            Alignment = new("applied", "applied", new(-6, 4), .2, .99, .1, .2, 8),
+            Images = report.Pages[0].Images with { BOriginal = "pages/p001_b_original.png" } };
+        report = report with { Config = report.Config with { Align = new() { Enabled = true } }, Pages = [page] };
+        var html = HtmlReportWriter.Render(report);
+        Assert.Contains("左 6 px、下 4 px", html); Assert.Contains("0.9900", html);
+        Assert.Contains("全体補正あり", html); Assert.Contains("B · 補正前", html);
+        Assert.Contains("B · 補正後", html); Assert.Contains("補正後に残った A→B", html);
+        Assert.Contains("data-src=\"pages/p001_b_original.png\"", html);
+        Assert.Contains("全体補正の改善量の下限", html); AssertEmbeddedReport(report, html);
+    }
+
+    [Fact]
+    public void AlignmentSkipsExplainReasonWithoutImplyingCandidateWasApplied()
+    {
+        var report = Example();
+        report = report with { Pages = [report.Pages[0] with { Alignment = new("not_applied", "edge_content", new(6, -4), .2, 1, .1, .2, 9) }] };
+        var html = HtmlReportWriter.Render(report);
+        Assert.Contains("ページ端の内容が切れる", html); Assert.Contains("推定候補（B→A）", html);
+        Assert.Contains("適用した補正（B→A）</dt><dd>なし", html);
+        Assert.DoesNotContain("全体補正あり", html); Assert.DoesNotContain("B · 補正前", html);
+        AssertEmbeddedReport(report, html);
+    }
+
+    [Fact]
+    public void OriginalImagePathMustAlsoRemainLocal()
+    {
+        var report = Example();
+        report = report with { Pages = [report.Pages[0] with { Images = report.Pages[0].Images with { BOriginal = "https://example.invalid/image.png" } }] };
+        Assert.Throws<ReportWriteException>(() => HtmlReportWriter.Render(report));
+    }
+
+    [Fact]
     public void OfflineHtmlContainsSummaryMetricsWarningsSettingsAndAllCrops()
     {
         var report = Example();

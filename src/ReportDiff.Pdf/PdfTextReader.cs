@@ -22,7 +22,7 @@ public sealed class PdfTextReader(string path) : IDisposable
     private bool disposed;
 
     public PageTextAnnotations Annotate(int pageNumber, Size originalSize, int dpi,
-        IReadOnlyList<DifferenceCluster> clusters, IReadOnlyList<RectMm> exclusions)
+        IReadOnlyList<DifferenceCluster> clusters, IReadOnlyList<RectMm> exclusions, GlobalShift? shift = null)
     {
         ObjectDisposedException.ThrowIf(disposed, this);
         if (clusters.Count == 0) return new(new Dictionary<int, string>(), []);
@@ -69,6 +69,12 @@ public sealed class PdfTextReader(string path) : IDisposable
                 if (!double.IsFinite(left) || !double.IsFinite(right) || !double.IsFinite(top) || !double.IsFinite(bottom))
                     return Skipped("単語の座標が不正なため注釈を省略しました。");
                 // 切り抜き境界の外にある文字を白埋め部分へ対応付けない。
+                left = Math.Max(0, left); top = Math.Max(0, top);
+                right = Math.Min(originalSize.Width, right); bottom = Math.Min(originalSize.Height, bottom);
+                if (right <= left || bottom <= top) continue;
+                // 元ページで切り抜いた後、比較に使った B と同じ座標へ移す。
+                left += shift?.Dx ?? 0; right += shift?.Dx ?? 0;
+                top += shift?.Dy ?? 0; bottom += shift?.Dy ?? 0;
                 left = Math.Max(0, left); top = Math.Max(0, top);
                 right = Math.Min(originalSize.Width, right); bottom = Math.Min(originalSize.Height, bottom);
                 if (right > left && bottom > top) mapped.Add(new(word.Text, new(left, top, right - left, bottom - top)));

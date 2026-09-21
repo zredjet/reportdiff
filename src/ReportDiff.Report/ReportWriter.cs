@@ -43,14 +43,20 @@ public sealed class ReportWriter
     }
 
     public ReportPage AddComparedPage(int page, NormalizedPagePair images, PageComparison comparison, int dpi,
-        PageTextAnnotations? textA = null, PageTextAnnotations? textB = null)
+        PageTextAnnotations? textA = null, PageTextAnnotations? textB = null, AlignmentResult? alignment = null, Mat? correctedB = null)
     {
         CheckPage(page);
         if (page > Math.Min(inputs.A.Pages, inputs.B.Pages)) throw new ArgumentException("両方の入力にあるページを指定してください。");
         if (dpi is < 72 or > 1200) throw new ArgumentException("DPI は 72〜1200 にしてください。");
         ValidateImage(images.A); ValidateImage(images.B);
+        alignment ??= AlignmentResult.Disabled;
+        var shift = alignment.Status == "applied" ? alignment.EstimatedShiftPx : null;
+        if ((shift is not null) != (correctedB is not null) || (alignment.Status == "applied" && shift is null))
+            throw new ArgumentException("補正画像と適用した補正量を一緒に指定してください。");
+        var comparisonB = correctedB ?? images.B;
+        ValidateImage(comparisonB);
         var size = images.A.Size();
-        if (images.B.Size() != size || comparison.RawMask.Size() != size || comparison.LabelMask.Size() != size
+        if (images.B.Size() != size || comparisonB.Size() != size || comparison.RawMask.Size() != size || comparison.LabelMask.Size() != size
             || (comparison.RemovalMask is { } removal && (removal.Size() != size || removal.Type() != MatType.CV_8UC1))
             || comparison.RawMask.Type() != MatType.CV_8UC1 || comparison.LabelMask.Type() != MatType.CV_8UC1)
             throw new ArgumentException("画像と差分マスクのサイズ・画素形式が一致していません。");
@@ -64,12 +70,17 @@ public sealed class ReportWriter
         var clusters = new List<ReportCluster>();
         ExecuteWrite(() =>
         {
-            if (comparison.Status != "same" || saveAllPages)
+            if (comparison.Status != "same" || saveAllPages || shift is not null)
             {
                 var prefix = "pages/" + PageStem(page);
                 paths = new(prefix + "_a.png", prefix + "_b.png", prefix + "_overlay.png");
-                WritePng(paths.A!, images.A); WritePng(paths.B!, images.B);
-                using var overlay = ReportImages.Overlay(images.B, comparison, config.Exclude.Where(e => e.Page is null || e.Page == page), dpi);
+                WritePng(paths.A!, images.A); WritePng(paths.B!, comparisonB);
+                if (shift is not null)
+                {
+                    paths = paths with { BOriginal = prefix + "_b_original.png" };
+                    WritePng(paths.BOriginal, images.B);
+                }
+                using var overlay = ReportImages.Overlay(comparisonB, comparison, config.Exclude.Where(e => e.Page is null || e.Page == page), dpi);
                 WritePng(paths.Overlay!, overlay);
             }
             foreach (var cluster in comparison.Clusters)
@@ -79,22 +90,25 @@ public sealed class ReportWriter
                 var prefix = "crops/" + PageStem(page) + "_c" + cluster.Id.ToString("D3", CultureInfo.InvariantCulture);
                 var crops = new ClusterCrops(prefix + "_a.png", prefix + "_b.png", prefix + "_diff.png");
                 using var a = new Mat(images.A, crop);
-                using var b = new Mat(images.B, crop);
-                using var diff = ReportImages.DifferenceCrop(images.B, comparison.RawMask, crop, comparison.RemovalMask);
+                using var b = new Mat(comparisonB, crop);
+                using var diff = ReportImages.DifferenceCrop(comparisonB, comparison.RawMask, crop, comparison.RemovalMask);
                 WritePng(crops.A, a); WritePng(crops.B, b); WritePng(crops.Diff, diff);
                 clusters.Add(new(cluster.Id, new(bounds.X, bounds.Y, bounds.Width, bounds.Height),
                     new(Units.PixelsToMm(bounds.X, dpi), Units.PixelsToMm(bounds.Y, dpi),
                         Units.PixelsToMm(bounds.Width, dpi), Units.PixelsToMm(bounds.Height, dpi)),
                     cluster.Pixels, cluster.FillRatio, cluster.Kind,
-                    cluster.ShiftPx is { } shift ? new PixelShift(shift.Dx, shift.Dy) : null,
+                    cluster.ShiftPx is { } movement ? new PixelShift(movement.Dx, movement.Dy) : null,
                     textA?.TextByCluster.GetValueOrDefault(cluster.Id), textB?.TextByCluster.GetValueOrDefault(cluster.Id), crops)
                     { RelatedClusterIds = Array.AsReadOnly(cluster.RelatedClusterIds.ToArray()) });
             }
         });
         var result = new ReportPage(page, comparison.Status, new(size.Width, size.Height), images.SizeMismatch,
             comparison.RawPixels, comparison.NoiseDropped, comparison.AbsorbedGroups, comparison.MaxShiftPx,
-            paths, Array.AsReadOnly(clusters.ToArray()));
+            paths, Array.AsReadOnly(clusters.ToArray()))
+            { Alignment = alignment, GlobalShiftPx = shift is null ? null : new(shift.Dx, shift.Dy) };
         pages.Add(result);
+        if (shift is not null)
+            warnings.Add(new("GLOBAL_SHIFT_APPLIED", $"{page} ページ: B 全体を A に合わせて補正しました（B→A: 横 {shift.Dx}px、縦 {shift.Dy}px。右・下が正）。補正前 B も保存しています。"));
         foreach (var (side, annotations) in new[] { ("A", textA), ("B", textB) })
             if (annotations is not null)
                 foreach (var warning in annotations.Warnings)
@@ -123,7 +137,8 @@ public sealed class ReportWriter
         var path = "pages/" + PageStem(page) + (onlyA ? "_a.png" : "_b.png");
         ExecuteWrite(() => WritePng(path, image));
         var result = new ReportPage(page, onlyA ? "only_in_a" : "only_in_b", new(image.Width, image.Height),
-            false, 0, 0, 0, 0, new(onlyA ? path : null, onlyA ? null : path, null), []);
+            false, 0, 0, 0, 0, new(onlyA ? path : null, onlyA ? null : path, null), [])
+            { Alignment = config.Align.Enabled ? AlignmentResult.Skipped("unpaired_page") : AlignmentResult.Disabled };
         pages.Add(result);
         return result;
     }

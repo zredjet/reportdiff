@@ -44,7 +44,8 @@ public sealed class ReportWriterTests
         Assert.Equal(new ReportTool("reportdiff", "0.1.0"), loaded.Tool);
         Assert.Equal(timestamp, loaded.GeneratedAt);
         Assert.Equal(result.Inputs, loaded.Inputs);
-        Keys(root.GetProperty("config"), "dpi", "image_dpi", "diff", "cluster", "move", "exclude", "report");
+        Keys(root.GetProperty("config"), "dpi", "image_dpi", "diff", "cluster", "move", "align", "exclude", "report");
+        Keys(root.GetProperty("config").GetProperty("align"), "enabled", "max_shift_mm", "min_score", "min_score_gap", "min_improvement");
         var clusterConfig = root.GetProperty("config").GetProperty("cluster");
         Keys(clusterConfig, "merge_x_mm", "merge_y_mm", "min_pixels", "max_clusters_per_page", "max_diff_ratio");
         Assert.Equal(settings.Diff, loaded.Config.Diff);
@@ -57,7 +58,11 @@ public sealed class ReportWriterTests
         Assert.Equal(2, loaded.Config.Exclude[1].Page);
         Assert.Equal(new ReportSummary("different", 1, 1, 1, 0), loaded.Summary);
         var page = Assert.Single(loaded.Pages);
-        Keys(root.GetProperty("pages")[0], "page", "status", "size_px", "size_mismatch", "raw_pixels", "noise_dropped", "absorbed_groups", "max_shift_px", "images", "clusters");
+        Keys(root.GetProperty("pages")[0], "page", "status", "size_px", "size_mismatch", "raw_pixels", "noise_dropped", "absorbed_groups", "max_shift_px", "global_shift_px", "alignment", "images", "clusters");
+        Keys(root.GetProperty("pages")[0].GetProperty("alignment"), "status", "reason", "estimated_shift_px", "score_before", "score_after", "score_gap", "coarse_score_gap", "support_cells");
+        Keys(root.GetProperty("pages")[0].GetProperty("images"), "a", "b", "overlay", "b_original");
+        Assert.Null(page.GlobalShiftPx); Assert.Null(page.Images.BOriginal);
+        Assert.Equal(AlignmentResult.Disabled, page.Alignment); Assert.Equal(settings.Align, loaded.Config.Align);
         Assert.Equal(new PixelSize(80, 60), page.SizePx);
         Assert.Equal(81, page.RawPixels); Assert.Equal(1, page.NoiseDropped);
         var cluster = Assert.Single(page.Clusters);

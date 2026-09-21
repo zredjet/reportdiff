@@ -17,6 +17,7 @@ public sealed class ConfigurationTests
         Assert.Equal(4, p.Cluster.MinPixels); Assert.Equal(500, p.Cluster.MaxClustersPerPage);
         Assert.Equal(0.30, p.Cluster.MaxDiffRatio);
         Assert.Equal(new MoveOptions(), p.Move);
+        Assert.Equal(new AlignOptions(), p.Align);
         Assert.Equal(2, p.Report.CropMarginMm); Assert.Empty(p.Exclude);
     }
 
@@ -111,5 +112,32 @@ public sealed class ConfigurationTests
         Assert.Equal(2, Units.RoundPixels(0.15, 300));
         Assert.Throws<ConfigurationException>(() => ConfigurationLoader.Load(profile: "unknown"));
         Assert.Throws<ConfigurationException>(() => ConfigurationLoader.Load(dpi: 0));
+    }
+
+    [Theory]
+    [InlineData("enabled: yes", "enabled")]
+    [InlineData("max_shift_mm: -1", "max_shift_mm")]
+    [InlineData("max_shift_mm: 20.1", "max_shift_mm")]
+    [InlineData("max_shift_mm: NaN", "max_shift_mm")]
+    [InlineData("min_score: 0", "min_score")]
+    [InlineData("min_score: 1.1", "min_score")]
+    [InlineData("min_score_gap: 0", "min_score_gap")]
+    [InlineData("min_score_gap: .inf", "min_score_gap")]
+    [InlineData("min_improvement: -1", "min_improvement")]
+    [InlineData("min_improvement: 1.1", "min_improvement")]
+    [InlineData("search_px: 10", "search_px")]
+    public void InvalidAlignmentSettingsNameTheKey(string value, string key) =>
+        Assert.Contains("align." + key, Assert.Throws<ConfigurationException>(() => ConfigurationLoader.Load("align: {" + value + "}")).Message);
+
+    [Theory]
+    [InlineData("strict")] [InlineData("normal")] [InlineData("loose")]
+    public void CommentedAlignmentYamlOverridesDefaultsWithoutProfileOrDpiInterference(string profile)
+    {
+        var settings = ConfigurationLoader.Load("# 全体補正\nalign:\n  enabled: true # 明示的に有効化\n  max_shift_mm: 2.5\n  min_score: 0.99\n  min_score_gap: 0.04\n  min_improvement: 0.1\n", profile, 400);
+        Assert.Equal(new AlignOptions { Enabled = true, MaxShiftMm = 2.5, MinScore = .99, MinScoreGap = .04, MinImprovement = .1 }, settings.Align);
+        Assert.Equal(settings.Align, settings.ToReportConfiguration().Align);
+        Assert.Equal(400, settings.Dpi); Assert.Equal(400, settings.ImageDpi);
+        Assert.False(ConfigurationLoader.Load("align: {max_shift_mm: 0}").Align.Enabled);
+        Assert.Throws<ConfigurationException>(() => ConfigurationLoader.Load("align: {enabled: true, enabled: false}"));
     }
 }

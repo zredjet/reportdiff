@@ -71,10 +71,13 @@ public static class CliApplication
                 using var imageB = b.ReadPage(page.PageNumber);
                 using var normalized = PageNormalizer.Normalize(imageA.Pixels, imageB.Pixels);
                 var parameters = settings.ForPage(page.PageNumber, a.Dpi);
-                using var comparison = PageComparer.Compare(normalized.A, normalized.B, parameters);
+                var alignment = GlobalAligner.Estimate(normalized.A, normalized.B, parameters, settings.Align, normalized.SizeMismatch);
+                var appliedShift = alignment.Status == "applied" ? alignment.EstimatedShiftPx : null;
+                using var correctedB = appliedShift is null ? null : GlobalAligner.TranslateB(normalized.B, appliedShift);
+                using var comparison = PageComparer.Compare(normalized.A, correctedB ?? normalized.B, parameters);
                 var textA = a.Annotate(page.PageNumber, normalized.OriginalSizeA, comparison.Clusters, parameters.Exclude);
-                var textB = b.Annotate(page.PageNumber, normalized.OriginalSizeB, comparison.Clusters, parameters.Exclude);
-                writer.AddComparedPage(page.PageNumber, normalized, comparison, a.Dpi, textA, textB);
+                var textB = b.Annotate(page.PageNumber, normalized.OriginalSizeB, comparison.Clusters, parameters.Exclude, appliedShift);
+                writer.AddComparedPage(page.PageNumber, normalized, comparison, a.Dpi, textA, textB, alignment, correctedB);
             }
             else
             {

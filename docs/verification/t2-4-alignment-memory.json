@@ -1,0 +1,10 @@
+{
+  "generated_at": "2026-09-21T09:51:32.745566+09:00",
+  "measurement": "macOS /usr/bin/time -l",
+  "iterations": 3,
+  "scope": "合成 A4 300dpi の 4 シナリオ。入力生成・予熱・比較コアも含む 1 プロセスのピーク。補正単体や実 CLI の最大メモリではない。",
+  "values_bytes": {
+    "maximum_resident_set_size": 1741914112,
+    "peak_memory_footprint": 1712162952
+  }
+}

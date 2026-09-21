@@ -1,0 +1,273 @@
+{
+  "generated_at": "2026-09-21T09:51:32.745566+09:00",
+  "os": "macOS 26.5.1",
+  "architecture": "Arm64",
+  "runtime": "10.0.12",
+  "iterations": 3,
+  "width": 2480,
+  "height": 3508,
+  "dpi": 300,
+  "glyphs": 600,
+  "process_peak_working_set_bytes": null,
+  "note": "align_ms は探索と補正画像の作成。total_ms は既存コアの比較も含む。PDF 描画・テキスト・レポートは含まない。マネージド割当量はネイティブ Mat を含まない。",
+  "results": [
+    {
+      "scenario": "無効・内容変更のみ",
+      "median_total_ms": 221.3191,
+      "samples": [
+        {
+          "align_ms": 0.0076,
+          "total_ms": 224.815,
+          "managed_allocated_bytes": 574285536,
+          "alignment": {
+            "Status": "disabled",
+            "Reason": "disabled",
+            "EstimatedShiftPx": null,
+            "ScoreBefore": null,
+            "ScoreAfter": null,
+            "ScoreGap": null,
+            "CoarseScoreGap": null,
+            "SupportCells": null
+          },
+          "status": "different",
+          "clusters": 1,
+          "raw_pixels": 351
+        },
+        {
+          "align_ms": 0.0044,
+          "total_ms": 215.0032,
+          "managed_allocated_bytes": 574285480,
+          "alignment": {
+            "Status": "disabled",
+            "Reason": "disabled",
+            "EstimatedShiftPx": null,
+            "ScoreBefore": null,
+            "ScoreAfter": null,
+            "ScoreGap": null,
+            "CoarseScoreGap": null,
+            "SupportCells": null
+          },
+          "status": "different",
+          "clusters": 1,
+          "raw_pixels": 351
+        },
+        {
+          "align_ms": 0.0048,
+          "total_ms": 221.3191,
+          "managed_allocated_bytes": 574285480,
+          "alignment": {
+            "Status": "disabled",
+            "Reason": "disabled",
+            "EstimatedShiftPx": null,
+            "ScoreBefore": null,
+            "ScoreAfter": null,
+            "ScoreGap": null,
+            "CoarseScoreGap": null,
+            "SupportCells": null
+          },
+          "status": "different",
+          "clusters": 1,
+          "raw_pixels": 351
+        }
+      ]
+    },
+    {
+      "scenario": "有効・全体移動のみ",
+      "median_total_ms": 344.6405,
+      "samples": [
+        {
+          "align_ms": 329.8297,
+          "total_ms": 335.8078,
+          "managed_allocated_bytes": 17859688,
+          "alignment": {
+            "Status": "applied",
+            "Reason": "applied",
+            "EstimatedShiftPx": {
+              "Dx": -29,
+              "Dy": -19
+            },
+            "ScoreBefore": 0,
+            "ScoreAfter": 1,
+            "ScoreGap": 0.16927636577810345,
+            "CoarseScoreGap": 0.31306890290052347,
+            "SupportCells": 9
+          },
+          "status": "same",
+          "clusters": 0,
+          "raw_pixels": 0
+        },
+        {
+          "align_ms": 338.2694,
+          "total_ms": 344.6405,
+          "managed_allocated_bytes": 17859632,
+          "alignment": {
+            "Status": "applied",
+            "Reason": "applied",
+            "EstimatedShiftPx": {
+              "Dx": -29,
+              "Dy": -19
+            },
+            "ScoreBefore": 0,
+            "ScoreAfter": 1,
+            "ScoreGap": 0.16927636577810345,
+            "CoarseScoreGap": 0.31306890290052347,
+            "SupportCells": 9
+          },
+          "status": "same",
+          "clusters": 0,
+          "raw_pixels": 0
+        },
+        {
+          "align_ms": 341.0116,
+          "total_ms": 346.357,
+          "managed_allocated_bytes": 17859632,
+          "alignment": {
+            "Status": "applied",
+            "Reason": "applied",
+            "EstimatedShiftPx": {
+              "Dx": -29,
+              "Dy": -19
+            },
+            "ScoreBefore": 0,
+            "ScoreAfter": 1,
+            "ScoreGap": 0.16927636577810345,
+            "CoarseScoreGap": 0.31306890290052347,
+            "SupportCells": 9
+          },
+          "status": "same",
+          "clusters": 0,
+          "raw_pixels": 0
+        }
+      ]
+    },
+    {
+      "scenario": "有効・全体移動と内容変更",
+      "median_total_ms": 550.8897,
+      "samples": [
+        {
+          "align_ms": 326.8977,
+          "total_ms": 542.2404,
+          "managed_allocated_bytes": 574744168,
+          "alignment": {
+            "Status": "applied",
+            "Reason": "applied",
+            "EstimatedShiftPx": {
+              "Dx": -29,
+              "Dy": -19
+            },
+            "ScoreBefore": 0,
+            "ScoreAfter": 0.9988229934317201,
+            "ScoreGap": 0.16894227017824037,
+            "CoarseScoreGap": 0.31266879992014696,
+            "SupportCells": 9
+          },
+          "status": "different",
+          "clusters": 1,
+          "raw_pixels": 351
+        },
+        {
+          "align_ms": 345.5199,
+          "total_ms": 562.0847,
+          "managed_allocated_bytes": 574744112,
+          "alignment": {
+            "Status": "applied",
+            "Reason": "applied",
+            "EstimatedShiftPx": {
+              "Dx": -29,
+              "Dy": -19
+            },
+            "ScoreBefore": 0,
+            "ScoreAfter": 0.9988229934317201,
+            "ScoreGap": 0.16894227017824037,
+            "CoarseScoreGap": 0.31266879992014696,
+            "SupportCells": 9
+          },
+          "status": "different",
+          "clusters": 1,
+          "raw_pixels": 351
+        },
+        {
+          "align_ms": 329.5968,
+          "total_ms": 550.8897,
+          "managed_allocated_bytes": 574744112,
+          "alignment": {
+            "Status": "applied",
+            "Reason": "applied",
+            "EstimatedShiftPx": {
+              "Dx": -29,
+              "Dy": -19
+            },
+            "ScoreBefore": 0,
+            "ScoreAfter": 0.9988229934317201,
+            "ScoreGap": 0.16894227017824037,
+            "CoarseScoreGap": 0.31266879992014696,
+            "SupportCells": 9
+          },
+          "status": "different",
+          "clusters": 1,
+          "raw_pixels": 351
+        }
+      ]
+    },
+    {
+      "scenario": "有効・白紙",
+      "median_total_ms": 15.1927,
+      "samples": [
+        {
+          "align_ms": 9.6287,
+          "total_ms": 15.1927,
+          "managed_allocated_bytes": 17404920,
+          "alignment": {
+            "Status": "not_applied",
+            "Reason": "insufficient_information",
+            "EstimatedShiftPx": null,
+            "ScoreBefore": null,
+            "ScoreAfter": null,
+            "ScoreGap": null,
+            "CoarseScoreGap": null,
+            "SupportCells": null
+          },
+          "status": "same",
+          "clusters": 0,
+          "raw_pixels": 0
+        },
+        {
+          "align_ms": 9.7102,
+          "total_ms": 15.3047,
+          "managed_allocated_bytes": 17404864,
+          "alignment": {
+            "Status": "not_applied",
+            "Reason": "insufficient_information",
+            "EstimatedShiftPx": null,
+            "ScoreBefore": null,
+            "ScoreAfter": null,
+            "ScoreGap": null,
+            "CoarseScoreGap": null,
+            "SupportCells": null
+          },
+          "status": "same",
+          "clusters": 0,
+          "raw_pixels": 0
+        },
+        {
+          "align_ms": 8.5682,
+          "total_ms": 14.1905,
+          "managed_allocated_bytes": 17404864,
+          "alignment": {
+            "Status": "not_applied",
+            "Reason": "insufficient_information",
+            "EstimatedShiftPx": null,
+            "ScoreBefore": null,
+            "ScoreAfter": null,
+            "ScoreGap": null,
+            "CoarseScoreGap": null,
+            "SupportCells": null
+          },
+          "status": "same",
+          "clusters": 0,
+          "raw_pixels": 0
+        }
+      ]
+    }
+  ]
+}

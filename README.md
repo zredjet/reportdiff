@@ -2,7 +2,7 @@
 
 業務帳票の PDF・画像を比較し、相違を「箇所」単位で報告する CLI ツール。細かな描画差や許容範囲内の位置ずれを吸収し、変更部分の画像と JSON・オフライン HTML を出力する。
 
-実行対象は Windows x64。開発・検証環境は macOS Apple Silicon。Intel Mac は対象外。Phase 1 と T2-1〜T2-3（分類・移動・PDF テキスト注釈）を実装済み。macOS では全 538 テストが成功している。T2-3 の Windows 向け publish・ZIP の静的検証も完了。完成版の Windows CI・実機確認は [確認リスト](docs/TASKS.md#windows-確認リスト人が実機で行う)に残る。
+実行対象は Windows x64。開発・検証環境は macOS Apple Silicon。Intel Mac は対象外。Phase 1 と T2-1〜T2-4（分類・移動・PDF テキスト注釈・任意の全体補正）を実装済み。macOS では全 589 テストが成功している。T2-4 の Windows 向け publish とバンドルの静的検証も完了。完成版の Windows CI・実機確認は [確認リスト](docs/TASKS.md#windows-確認リスト人が実機で行う)に残る。
 
 ## Windows で使う
 
@@ -41,7 +41,7 @@ cmd でも `reportdiff.exe compare "帳票 旧.pdf" "帳票 新.pdf" --out "比�
   crops/p002_c001_diff.png
 ```
 
-HTML では A / B / 重ね描きを切り替え、変更位置（mm）・分類・切り出しを確認できる。レポートを移動するときは出力フォルダごとコピーする。相違のないページの PNG は既定で保存しない。
+HTML では A / B / 重ね描きを切り替え、変更位置（mm）・分類・切り出しを確認できる。レポートを移動するときは出力フォルダごとコピーする。相違のないページの PNG は既定で保存しない。ただし全体補正を適用したページは、補正前後の証拠画像を保存する。
 
 分類は A→B のインクの有無に基づく「追加（推定）」「削除（推定）」「色変更（推定）」「変更」。切り出しの緑は A だけのインク、赤はその他の差分を示す。背景や塗り、形状が明確でない差は「変更」に残すため、業務上の意味や文字の内容を断定する分類ではない。JSON の `kind` にも記録する。[分類の仕様](docs/SPEC.md#111-追加削除変更の分類t2-1)を参照。
 
@@ -59,6 +59,21 @@ JSON では `kind: moved`、`shift_px: {dx, dy}`（右・下が正）、`related
 PDF 入力には、差分矩形に重なる単語全文を A/B 別の「PDF テキスト」として添える。JSON の `text_a` / `text_b` にも記録する。OCR ではなく元 PDF の文字情報なので、不可視の文字や変更されていない部分を含むことがある。画像と併せて確認する。
 
 除外領域に触れる単語は省き、本文は片側 2,000 文字まで。回転ページ・未対応の座標・抽出失敗は警告とともにその側の注釈だけを省略し、画像比較を続ける。「該当テキストなし」は抽出成功で対象の単語がない場合、「テキスト注釈なし」は画像入力・省略・失敗の場合を示す。詳しくは [テキスト注釈の仕様](docs/SPEC.md#113-pdf-テキスト層の注釈t2-3)を参照。
+
+### 全体の位置補正
+
+帳票全体の位置ずれを許容する場合は、次の YAML で全体補正を明示的に有効にする。既定では無効。候補が曖昧、情報が少ない、ページサイズが違う、補正で端の内容が切れる場合は元の画像で比較し、理由をレポートに示す。
+
+```yaml
+align:
+  enabled: true         # 全体移動を許容する場合だけ有効化
+  max_shift_mm: 5.0     # 上下左右それぞれの探索上限（0〜20mm）
+  min_score: 0.98       # 一致度の下限
+  min_score_gap: 0.02   # 次点候補との差の下限
+  min_improvement: 0.05 # 補正なしからの改善量の下限
+```
+
+補正は B→A の方向で `global_shift_px` と `GLOBAL_SHIFT_APPLIED` に記録する。補正で相違なしになった場合も、HTML で「B · 補正前」と「B · 補正後」を切り替えられる。差分・除外・PDF テキストの座標は A／補正後 B にそろい、クラスタの移動量は補正後に残った A→B の移動となる。意図的な帳票全体の移動と出力環境のずれは画像から区別できず、有効化により判定や終了コードが変わる。[全体補正の仕様](docs/SPEC.md#114-全体のずれの推定補正t2-4)を参照。
 
 ### オプション
 
@@ -85,6 +100,8 @@ PDF 入力には、差分矩形に重なる単語全文を A/B 別の「PDF テ�
 
 まずは設定なしの `normal`・300dpi で比較する。コピーして編集できる [設定例](examples/settings.yaml)は既定値と同じで、除外領域は空になっている。
 
+外部定義には `#` のコメントを記載できる UTF-8 の YAML を使う。承認済みの調整パラメータを網羅し、残る固定値の設定化と説明付き設定例を整える作業は [T2-4a](docs/planning/t2-4a-configuration.md) として管理している。
+
 日時などを除外する例：
 
 ```yaml
@@ -97,7 +114,7 @@ report:
 
 長さはすべて mm、座標はページ左上が原点。`page` は `all` または 1 始まりの番号。未知のキーや範囲外の値はエラーになる。実際に使った設定と除外領域は JSON・HTML で確認できる。
 
-設定の優先順位は **既定値 → YAML → 明示した `--profile` → `--dpi`**。プロファイルが上書きするのは `max_shift_mm` と `edge_tolerance`。`image_dpi` を省略すると最終的な `dpi` に追従する。画像入力では埋め込み DPI を使わず `image_dpi` で mm 換算するため、画像を作った解像度に合わせる。PDF と画像を混在させる場合は `dpi` と `image_dpi` をそろえる。不一致はエラーになる。
+設定の優先順位は **既定値 → YAML → 明示した `--profile` → `--dpi`**。プロファイルが上書きするのは `diff.max_shift_mm` と `diff.edge_tolerance` で、`move`・`align` は変えない。`image_dpi` を省略すると最終的な `dpi` に追従する。画像入力では埋め込み DPI を使わず `image_dpi` で mm 換算するため、画像を作った解像度に合わせる。PDF と画像を混在させる場合は `dpi` と `image_dpi` をそろえる。不一致はエラーになる。
 
 | プロファイル | 位置ずれの許容 | エッジの許容係数 | 選ぶ場面 |
 |---|---:|---:|---|
@@ -111,7 +128,7 @@ report:
 
 小さい文字が多い帳票は 400dpi を検討する。200dpi 以下では「未／末」「ば／ぱ」などを安定して検出できない。細い線の微妙な濃淡差や 1px 以内の長さの変化は通常設定で吸収される場合がある。行の挿入で下がずれると、それ以降がまとめて差分になる。[既知の限界の一覧](docs/SPEC.md#56-既知の限界仕様)を確認する。
 
-フォントを埋め込んでいない PDF は OS の代替フォントにより描画が変わる。A と B は同じマシンの同じ実行で比較する。PDF のパスワード指定、文字認識、全体の位置補正、フォルダ一括比較は現在の対象外。[入力仕様](docs/SPEC.md#4-入力の正規化)と [今後の範囲](docs/SPEC.md#11-phase-2-以降の仕様の概要)を参照。
+フォントを埋め込んでいない PDF は OS の代替フォントにより描画が変わる。A と B は同じマシンの同じ実行で比較する。PDF のパスワード指定、文字認識、フォルダ一括比較は現在の対象外。[入力仕様](docs/SPEC.md#4-入力の正規化)と [今後の範囲](docs/SPEC.md#11-phase-2-以降の仕様の概要)を参照。
 
 ## ソースから実行・ビルドする
 
@@ -134,6 +151,8 @@ Windows では macOS ランタイムの生成は不要。復元前にローカ�
 
 - [SPEC](docs/SPEC.md)：アルゴリズム・設定・入出力の正本
 - [TASKS](docs/TASKS.md)：完了範囲と Windows 実機確認リスト
+- [T2-4 の検証記録](docs/verification/t2-4-alignment.md)：全体補正・元画像の保存・PDF 座標・性能・Windows 配布物
+- [T2-4a の計画](docs/planning/t2-4a-configuration.md)：コメント付き YAML による承認済みパラメータの外部設定整備
 - [T2-3 の検証記録](docs/verification/t2-3-text.md)：PDF テキスト・座標・失敗時の継続・長文表示・性能・Windows 配布物
 - [T2-2 の検証記録](docs/verification/t2-2-movement.md)：移動量・関連 ID・誤判定防止・PDF 結合・多数候補の計測
 - [T2-1 の検証記録](docs/verification/t2-1-classification.md)：分類・切り出し・PDF 結合・ブラウザ・時間とメモリ
@@ -141,6 +160,6 @@ Windows では macOS ランタイムの生成は不要。復元前にローカ�
 - `CLAUDE.md`：開発ルール。`reference/prototype.py` と `reference/golden/`：比較結果の参照実装と 37 ケース
 - [サードパーティ通知](THIRD_PARTY_NOTICES.md)：依存一覧と同梱ライセンス。配布時は `licenses/` を含めて保持する
 
-[GitHub Actions](https://github.com/zredjet/reportdiff/actions/workflows/ci.yml) は Windows x64 / macOS Apple Silicon でビルドとテストを実行する。リモートで確認済みなのは [T0-3](docs/verification/t0-3-ci.md) 時点の疎通 2 件。T2-3 までの全 538 件はローカル macOS で検証済みで、Windows の追加テスト・完成版 exe の実行・Edge / Chrome 表示は未確認。
+[GitHub Actions](https://github.com/zredjet/reportdiff/actions/workflows/ci.yml) は Windows x64 / macOS Apple Silicon でビルドとテストを実行する。リモートで確認済みなのは [T0-3](docs/verification/t0-3-ci.md) 時点の疎通 2 件。T2-4 までの全 589 件はローカル macOS で検証済みで、Windows の追加テスト・完成版 exe の実行・Edge / Chrome 表示は未確認。
 
 実帳票は `samples/private/` に置き、Git に含めない。テストには合成データだけを使う。

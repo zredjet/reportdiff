@@ -16,12 +16,13 @@ public sealed record AppSettings
     public DiffOptions Diff { get; init; } = new();
     public ClusterOptions Cluster { get; init; } = new();
     public MoveOptions Move { get; init; } = new();
+    public AlignOptions Align { get; init; } = new();
     public IReadOnlyList<ExclusionSetting> Exclude { get; init; } = [];
     public ReportOptions Report { get; init; } = new();
 
     public ReportConfiguration ToReportConfiguration() => new(Dpi, ImageDpi, Diff, Cluster,
         Exclude.Select(e => new ReportExclusion(e.Page, e.X, e.Y, e.W, e.H, e.Note)).ToArray(),
-        new ReportOutputOptions(Report.CropMarginMm)) { Move = Move };
+        new ReportOutputOptions(Report.CropMarginMm)) { Move = Move, Align = Align };
 
     public ComparisonParameters ForPage(int page, int dpi) => new()
     {

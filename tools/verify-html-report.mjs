@@ -99,6 +99,18 @@ try {
       assert.deepEqual(await page.locator('.page-image').evaluateAll(items => items.map(item => item.getAttribute('src'))), initialSources);
     }
     for (const item of result.pages) {
+      const section = page.locator(`#page-${item.page}`);
+      if (item.global_shift_px) {
+        assert.ok((await section.locator('summary').innerText()).includes('全体補正あり'));
+        assert.equal(await section.locator(`button[data-src="${item.images.b_original}"]`).count(), 1);
+        const originalButton = section.getByRole('button', { name: 'B · 補正前', exact: true });
+        await originalButton.focus();
+        await page.keyboard.press('Enter');
+        assert.equal(await originalButton.getAttribute('aria-pressed'), 'true');
+        assert.equal(await section.locator('.page-image').getAttribute('src'), item.images.b_original);
+        await section.getByRole('button', { name: '重ね描き', exact: true }).click();
+        assert.ok((await section.locator('.alignment').innerText()).includes('B→A'));
+      }
       for (const cluster of item.clusters.filter(cluster => cluster.kind === 'moved')) {
         const row = page.locator(`#page-${item.page}-cluster-${cluster.id}`);
         const { dx, dy } = cluster.shift_px;
@@ -123,7 +135,7 @@ try {
       return item.getClientRects().length !== 1 || rect.left < cell.left || rect.right > cell.right;
     }).map(item => item.textContent)), [], '分類名が折り返されたり、セルの外へはみ出しています。');
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, `${width}px の画面が横にはみ出しています。`);
-    assert.deepEqual(await page.locator('button, .input-path, .metrics dt, .metrics dd').evaluateAll(items => items.filter(item => {
+    assert.deepEqual(await page.locator('button, .input-path, .metrics dt, .metrics dd, .alignment dt, .alignment dd').evaluateAll(items => items.filter(item => {
       const rect = item.getBoundingClientRect();
       return rect.width > 0 && (rect.left < 0 || rect.right > innerWidth);
     }).map(item => item.textContent)), []);
@@ -136,6 +148,10 @@ try {
       await page.waitForFunction(() => [...document.querySelectorAll('.table-scroll')].some(element => element.scrollLeft > 0));
     }
     assert.deepEqual(await page.evaluate(() => window.reportCspViolations), []);
+    if (result.pages.some(item => item.global_shift_px)) {
+      await page.locator('.alignment').first().scrollIntoViewIfNeeded();
+      await page.screenshot({ path: path.join(screenshotDirectory, `${path.basename(reportPath, '.html')}-alignment-${width}.png`) });
+    }
     await page.locator('details.page').evaluateAll((items, states) => items.forEach((item, i) => { item.open = states[i]; }), originalOpen);
     await page.locator('.settings > summary').click();
     // キーによるスクロールのアニメーションが撮影直前の復帰を上書きしないようにする。

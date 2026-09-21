@@ -19,7 +19,7 @@ public static class ConfigurationLoader
                 stream.Load(new StringReader(yaml));
                 if (stream.Documents.Count != 1)
                     throw Error("設定ファイル", "YAML ドキュメントは 1 個にしてください");
-                var root = Mapping(stream.Documents[0].RootNode, "", "dpi", "image_dpi", "diff", "cluster", "move", "exclude", "report");
+                var root = Mapping(stream.Documents[0].RootNode, "", "dpi", "image_dpi", "diff", "cluster", "move", "align", "exclude", "report");
                 if (root.TryGetValue("dpi", out var node)) settings = settings with { Dpi = Integer(node, "dpi") };
                 if (root.TryGetValue("image_dpi", out node)) imageDpi = Integer(node, "image_dpi");
                 if (root.TryGetValue("diff", out node))
@@ -52,6 +52,18 @@ public static class ConfigurationLoader
                         SearchMm = Number(values, "search_mm", "move", 5),
                         MinScore = Number(values, "min_score", "move", 0.98),
                         MinScoreGap = Number(values, "min_score_gap", "move", 0.02)
+                    }};
+                }
+                if (root.TryGetValue("align", out node))
+                {
+                    var values = Mapping(node, "align", "enabled", "max_shift_mm", "min_score", "min_score_gap", "min_improvement");
+                    settings = settings with { Align = new AlignOptions
+                    {
+                        Enabled = values.TryGetValue("enabled", out var enabled) && Boolean(enabled, "align.enabled"),
+                        MaxShiftMm = Number(values, "max_shift_mm", "align", 5),
+                        MinScore = Number(values, "min_score", "align", 0.98),
+                        MinScoreGap = Number(values, "min_score_gap", "align", 0.02),
+                        MinImprovement = Number(values, "min_improvement", "align", 0.05)
                     }};
                 }
                 if (root.TryGetValue("report", out node))
@@ -123,6 +135,12 @@ public static class ConfigurationLoader
         int.TryParse(Scalar(node, path), NumberStyles.Integer, CultureInfo.InvariantCulture, out var value)
             ? value : throw Error(path, "整数を指定してください");
 
+    private static bool Boolean(YamlNode node, string path) => Scalar(node, path) switch
+    {
+        "true" => true, "false" => false,
+        _ => throw Error(path, "true または false を指定してください")
+    };
+
     private static double Number(Dictionary<string, YamlNode> values, string key, string path, double fallback)
     {
         if (!values.TryGetValue(key, out var node)) return fallback;
@@ -150,6 +168,12 @@ public static class ConfigurationLoader
         if (!double.IsFinite(settings.Move.MinScoreGap) || settings.Move.MinScoreGap is <= 0 or > 1)
             throw Error("move.min_score_gap", "0 より大きく 1 以下にしてください");
         Nonnegative(settings.Report.CropMarginMm, "report.crop_margin_mm");
+        if (!double.IsFinite(settings.Align.MaxShiftMm) || settings.Align.MaxShiftMm is < 0 or > 20)
+            throw Error("align.max_shift_mm", "0〜20mm にしてください（0 は全体補正の探索を省略）");
+        foreach (var (value, key) in new[] { (settings.Align.MinScore, "min_score"),
+            (settings.Align.MinScoreGap, "min_score_gap"), (settings.Align.MinImprovement, "min_improvement") })
+            if (!double.IsFinite(value) || value is <= 0 or > 1)
+                throw Error("align." + key, "0 より大きく 1 以下にしてください");
         foreach (var e in settings.Exclude)
         {
             Nonnegative(e.X, "exclude.x"); Nonnegative(e.Y, "exclude.y");

@@ -16,6 +16,12 @@ move:
   search_mm: 5.0       # 各軸の探索距離。0 で移動の注釈を無効化
   min_score: 0.98
   min_score_gap: 0.02
+align:
+  enabled: false        # true のときだけ、比較前に B 全体を A に合わせる
+  max_shift_mm: 5.0     # 上下左右それぞれの上限。0〜20mm、0 は探索しない
+  min_score: 0.98       # 補正後の一致度の下限（0 より大きく 1 以下）
+  min_score_gap: 0.02   # 次点候補との差。曖昧な対応の補正を防ぐ
+  min_improvement: 0.05 # 補正なしからの一致度の改善量の下限
 exclude: []
 # 除外する場合は上の exclude: [] を次のように置き換える。
 # exclude:

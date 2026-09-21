@@ -76,6 +76,8 @@ public static partial class HtmlReportWriter
         AppendSettings(html, report.Config);
         html.Append("<section id=\"pages\" aria-labelledby=\"pages-title\"><h2 id=\"pages-title\">ページ別の結果</h2><p class=\"muted\">重ね描きの赤は差分・輪郭・番号、黄色は除外領域です。画像を選ぶと元の大きさで開きます。</p><p class=\"muted\">追加・削除などの分類は A→B のインクの有無からの推定です。背景・塗りや判定が明確でない差は「変更」とします。「移動（推定）」は位置を変えると内容が一致し、対応が一意と判断できた箇所です。移動の向きは A→B です。移動も相違として数えます。切り出しの緑は A だけのインク、赤は B だけ・両方のインクやその他の差分です。</p>");
         html.Append("<p class=\"muted\">PDF テキストは元ファイルの文字情報を添えた補足です。画像の文字認識結果ではなく、不可視の文字や変更されていない部分を含むことがあります。複雑な段組みや縦書きの読み順は再現しません。画像と併せて確認してください。</p>");
+        if (report.Config.Align.Enabled)
+            html.Append("<p class=\"muted\">全体補正の向きは B→A（B に加えた補正量）です。補正したページの差分・切り出し・除外領域・PDF テキストは A／補正後 B の座標で表示します。クラスタの移動量は補正後に残った A→B の移動です。補正前 B はページ画像の切り替えで確認できます。</p>");
         foreach (var page in report.Pages) AppendPage(html, page);
         html.Append("</section><footer>ReportDiff · オフライン比較レポート</footer></main>");
         // HTML の終了タグとして解釈されない既定エンコーダを使用する。スラッシュも符号化し、URL のリテラルを残さない。
@@ -104,6 +106,11 @@ public static partial class HtmlReportWriter
         html.Append(Metric("移動の探索距離（各軸）", $"{N(config.Move.SearchMm)} mm"));
         html.Append(Metric("移動の一致度の下限", N(config.Move.MinScore)));
         html.Append(Metric("移動候補の次点との差", N(config.Move.MinScoreGap)));
+        html.Append(Metric("全体補正", config.Align.Enabled ? "有効" : "無効"));
+        html.Append(Metric("全体補正の探索距離（各軸）", $"{N(config.Align.MaxShiftMm)} mm"));
+        html.Append(Metric("全体補正の一致度の下限", N(config.Align.MinScore)));
+        html.Append(Metric("全体補正の次点との差", N(config.Align.MinScoreGap)));
+        html.Append(Metric("全体補正の改善量の下限", N(config.Align.MinImprovement)));
         html.Append(Metric("切り出し画像の余白", $"{N(config.Report.CropMarginMm)} mm"));
         html.Append("</dl><h3>除外領域</h3>");
         if (config.Exclude.Count == 0) html.Append("<p>除外領域はありません。</p>");
@@ -120,7 +127,7 @@ public static partial class HtmlReportWriter
     private static void AppendPage(StringBuilder html, ReportPage page)
     {
         var same = page.Status == "same";
-        html.Append($"<details class=\"card page\" id=\"page-{page.Page}\"{(same ? "" : " open")}><summary><span>{page.Page} ページ</span> <span class=\"status {(same ? "same" : "different")}\">{Status(page.Status)}</span></summary>");
+        html.Append($"<details class=\"card page\" id=\"page-{page.Page}\"{(same ? "" : " open")}><summary><span>{page.Page} ページ</span> <span class=\"status {(same ? "same" : "different")}\">{Status(page.Status)}</span>{(page.GlobalShiftPx is null ? "" : " <span>全体補正あり</span>")}</summary>");
         html.Append("<dl class=\"metrics page-metrics\">");
         html.Append(Metric("画像サイズ", $"{page.SizePx.W} × {page.SizePx.H} px"));
         html.Append(Metric("生の差分の画素数", page.RawPixels));
@@ -129,6 +136,7 @@ public static partial class HtmlReportWriter
         html.Append(Metric("吸収に使った最大ずれ", $"{page.MaxShiftPx} px"));
         html.Append("</dl>");
         if (page.SizeMismatch) html.Append("<p class=\"notice\">画像サイズが異なるため、右と下を白で埋めて比較しました。</p>");
+        AppendAlignment(html, page);
         AppendViewer(html, page);
         if (page.Clusters.Count > 0)
         {
@@ -155,7 +163,10 @@ public static partial class HtmlReportWriter
 
     private static void AppendViewer(StringBuilder html, ReportPage page)
     {
-        (string Label, string? Path)[] views = [("A · 基準", page.Images.A), ("B · 比較", page.Images.B), ("重ね描き", page.Images.Overlay)];
+        var views = new List<(string Label, string? Path)> { ("A · 基準", page.Images.A),
+            (page.GlobalShiftPx is null ? "B · 比較" : "B · 補正後", page.Images.B) };
+        if (page.Images.BOriginal is not null) views.Add(("B · 補正前", page.Images.BOriginal));
+        views.Add(("重ね描き", page.Images.Overlay));
         foreach (var view in views) if (view.Path is not null) ValidateImagePath(view.Path);
         var initial = views.LastOrDefault(v => v.Path is not null);
         if (initial.Path is null)
@@ -183,6 +194,40 @@ public static partial class HtmlReportWriter
         }
         html.Append("</td>");
     }
+
+    private static void AppendAlignment(StringBuilder html, ReportPage page)
+    {
+        var alignment = page.Alignment;
+        if (alignment.Status == "disabled") return;
+        var reason = alignment.Reason switch
+        {
+            "applied" => "全体補正を適用しました。",
+            "size_mismatch" => "元のページサイズが異なるため、全体補正は行っていません。",
+            "unpaired_page" => "対応するページがないため、全体補正は行っていません。",
+            "zero_range" => "探索距離が整数 px 未満のため、全体補正は行っていません。",
+            "insufficient_area" => "評価できる領域が不足するため、全体補正は行っていません。",
+            "insufficient_information" => "画像の情報が不足するため、全体補正は行っていません。",
+            "no_shift" => "全体補正が必要なずれは推定されませんでした。",
+            "low_score" => "補正候補の一致度が不足するため、全体補正は行っていません。",
+            "low_improvement" => "補正による改善が不足するため、全体補正は行っていません。",
+            "ambiguous" => "補正候補が曖昧なため、全体補正は行っていません。",
+            "insufficient_support" => "複数箇所の一致を確認できないため、全体補正は行っていません。",
+            "edge_content" => "ページ端の内容が切れるため、全体補正は行っていません。",
+            _ => "全体補正は行っていません。"
+        };
+        html.Append($"<section class=\"alignment\" aria-label=\"{page.Page} ページの全体補正\"><h3>全体補正</h3><p class=\"notice\">{reason}</p><dl class=\"settings-grid\">");
+        html.Append(Metric("適用した補正（B→A）", page.GlobalShiftPx is { } applied ? Direction(applied.Dx, applied.Dy) : "なし"));
+        html.Append(Metric("推定候補（B→A）", alignment.EstimatedShiftPx is { } estimated ? Direction(estimated.Dx, estimated.Dy) : "未計算"));
+        html.Append(Metric("補正前の一致度", ScoreValue(alignment.ScoreBefore)));
+        html.Append(Metric("候補で補正した場合の一致度", ScoreValue(alignment.ScoreAfter)));
+        html.Append(Metric("元解像度の次点との差", ScoreValue(alignment.ScoreGap)));
+        html.Append(Metric("縮小画像の別ピークとの差", ScoreValue(alignment.CoarseScoreGap)));
+        html.Append(Metric("補正を支持する区画数", alignment.SupportCells?.ToString(CultureInfo.InvariantCulture) ?? "未計算"));
+        html.Append("</dl></section>");
+    }
+
+    private static string ScoreValue(double? value) => value?.ToString("F4", CultureInfo.InvariantCulture) ?? "未計算";
+    private static string Direction(int dx, int dy) => $"{(dx < 0 ? "左" : "右")} {Math.Abs((long)dx)} px、{(dy < 0 ? "上" : "下")} {Math.Abs((long)dy)} px";
 
     private static string Movement(ReportPage page, ReportCluster cluster)
     {
