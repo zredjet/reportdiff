@@ -1,0 +1,126 @@
+{
+  "environment": "Darwin arm64",
+  "method": "separate CLI process; warmup 1, samples 3; macOS /usr/bin/time -l peak RSS bytes; 64x64 PNG; small includes 216pt PDF at 144dpi",
+  "measurements": [
+    {
+      "name": "small",
+      "summary": {
+        "status": "error",
+        "total": 7,
+        "compared": 3,
+        "same": 1,
+        "different": 2,
+        "only_in_a": 1,
+        "only_in_b": 1,
+        "error": 2,
+        "ignored": 2
+      },
+      "samples": [
+        {
+          "elapsed_ms": 543.429,
+          "peak_rss_bytes": 131629056
+        },
+        {
+          "elapsed_ms": 547.603,
+          "peak_rss_bytes": 131596288
+        },
+        {
+          "elapsed_ms": 548.906,
+          "peak_rss_bytes": 131514368
+        }
+      ],
+      "median_elapsed_ms": 547.603,
+      "median_peak_rss_bytes": 131596288
+    },
+    {
+      "name": "many-10",
+      "summary": {
+        "status": "same",
+        "total": 10,
+        "compared": 10,
+        "same": 10,
+        "different": 0,
+        "only_in_a": 0,
+        "only_in_b": 0,
+        "error": 0,
+        "ignored": 0
+      },
+      "samples": [
+        {
+          "elapsed_ms": 247.461,
+          "peak_rss_bytes": 77496320
+        },
+        {
+          "elapsed_ms": 247.059,
+          "peak_rss_bytes": 76709888
+        },
+        {
+          "elapsed_ms": 245.214,
+          "peak_rss_bytes": 76791808
+        }
+      ],
+      "median_elapsed_ms": 247.059,
+      "median_peak_rss_bytes": 76791808
+    },
+    {
+      "name": "many-100",
+      "summary": {
+        "status": "same",
+        "total": 100,
+        "compared": 100,
+        "same": 100,
+        "different": 0,
+        "only_in_a": 0,
+        "only_in_b": 0,
+        "error": 0,
+        "ignored": 0
+      },
+      "samples": [
+        {
+          "elapsed_ms": 279.068,
+          "peak_rss_bytes": 79691776
+        },
+        {
+          "elapsed_ms": 285.494,
+          "peak_rss_bytes": 80936960
+        },
+        {
+          "elapsed_ms": 276.095,
+          "peak_rss_bytes": 79757312
+        }
+      ],
+      "median_elapsed_ms": 279.068,
+      "median_peak_rss_bytes": 79757312
+    },
+    {
+      "name": "many-300",
+      "summary": {
+        "status": "same",
+        "total": 300,
+        "compared": 300,
+        "same": 300,
+        "different": 0,
+        "only_in_a": 0,
+        "only_in_b": 0,
+        "error": 0,
+        "ignored": 0
+      },
+      "samples": [
+        {
+          "elapsed_ms": 378.012,
+          "peak_rss_bytes": 83279872
+        },
+        {
+          "elapsed_ms": 355.47,
+          "peak_rss_bytes": 83410944
+        },
+        {
+          "elapsed_ms": 356.461,
+          "peak_rss_bytes": 83378176
+        }
+      ],
+      "median_elapsed_ms": 356.461,
+      "median_peak_rss_bytes": 83378176
+    }
+  ]
+}

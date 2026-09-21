@@ -3,15 +3,19 @@ using System.Globalization;
 namespace ReportDiff.Cli;
 
 internal sealed record CompareCommand(string InputA, string InputB, string Output, string? Config,
-    string? Profile, int? Dpi, string? Pages, bool SaveAllPages, bool NoHtml, bool Force, bool Quiet);
+    string? Profile, int? Dpi, string? Pages, bool SaveAllPages, bool NoHtml, bool Force, bool Quiet)
+{
+    public bool IsDirectory { get; init; }
+    public string? Rules { get; init; }
+}
 
 internal static class CommandLine
 {
-    public const string Usage = "使い方: reportdiff compare <A> <B> --out <dir> [--config <file.yaml>] [--profile normal|strict|loose] [--dpi <n>] [--pages <1-3,5>] [--save-all-pages] [--no-html] [--force] [--quiet] / reportdiff --version";
+    public const string Usage = "使い方: reportdiff compare <A> <B> --out <dir> [--config <file.yaml>] [--profile normal|strict|loose] [--dpi <n>] [--pages <1-3,5>] [--save-all-pages] [--no-html] [--force] [--quiet] / reportdiff compare-dir <dirA> <dirB> --out <dir> [--rules <rules.yaml>] [compare と同じオプション] / reportdiff --version";
 
     public static CompareCommand Parse(string[] args)
     {
-        if (args.Length == 0 || args[0] != "compare") throw new CommandLineException(Usage);
+        if (args.Length == 0 || args[0] is not ("compare" or "compare-dir")) throw new CommandLineException(Usage);
         var inputs = new List<string>();
         var values = new Dictionary<string, string>(StringComparer.Ordinal);
         var flags = new HashSet<string>(StringComparer.Ordinal);
@@ -26,7 +30,7 @@ internal static class CommandLine
                 {
                     if (!flags.Add(arg)) throw new CommandLineException($"オプションが重複しています: {arg}");
                 }
-                else if (arg is "--out" or "--config" or "--profile" or "--dpi" or "--pages")
+                else if (arg is "--out" or "--config" or "--profile" or "--dpi" or "--pages" || (args[0] == "compare-dir" && arg == "--rules"))
                 {
                     if (values.ContainsKey(arg)) throw new CommandLineException($"オプションが重複しています: {arg}");
                     if (++i >= args.Length || string.IsNullOrWhiteSpace(args[i]) || args[i].StartsWith("--", StringComparison.Ordinal))
@@ -52,7 +56,8 @@ internal static class CommandLine
         }
         return new(inputs[0], inputs[1], output, values.GetValueOrDefault("--config"), values.GetValueOrDefault("--profile"),
             dpi, values.GetValueOrDefault("--pages"), flags.Contains("--save-all-pages"), flags.Contains("--no-html"),
-            flags.Contains("--force"), flags.Contains("--quiet"));
+            flags.Contains("--force"), flags.Contains("--quiet"))
+        { IsDirectory = args[0] == "compare-dir", Rules = values.GetValueOrDefault("--rules") };
     }
 }
 

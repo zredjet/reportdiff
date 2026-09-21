@@ -94,7 +94,21 @@ align:
 | `--force` | 指定した出力フォルダ全体を置き換える |
 | `--version` | バージョンを表示 |
 
-`--force` は出力フォルダ内の他のファイルも置き換えるため、結果専用のフォルダを指定する。処理中の失敗では旧結果を保持するが、電源断やプロセスの強制終了からの自動復旧機能はない。入力・設定ファイル、作業ディレクトリ、実行ファイルの保存先を含む出力先は指定できない。
+`--force` は出力フォルダ内の他のファイルも置き換えるため、結果専用のフォルダを指定する。単一ファイル比較の処理中の失敗では旧結果を保持するが、電源断やプロセスの強制終了からの自動復旧機能はない。入力・設定ファイル、作業ディレクトリ、実行ファイルの保存先を含む出力先は指定できない。
+
+## フォルダを一括比較する
+
+```powershell
+.\reportdiff.exe compare-dir old new --out batch-result --config examples/settings.yaml --rules examples/batch/rules.yaml
+```
+
+サブフォルダ・隠しフォルダも探索し、PDF / PNG / JPEG / BMP / TIFF を、NFC 正規化・大小文字を区別しない相対パスで対応させる。片側だけのファイルは存在の差分として一覧に表示し、内容は検査しない。その他の拡張子は対象外一覧へ記録する。名前の衝突、リンク・ジャンクション、入力どうしの包含、入力と出力の重なりは開始前エラーになる。
+
+`batch-result/index.html` が全体の一覧、`index.json` が機械処理用の集計。成功したファイル対は `files/f000001/` 等に従来と同じ個別レポートを保存する。`--no-html` は一覧・個別の両方に適用する。`--pages` も各ファイル対へ適用し、範囲外はその対のエラーとなる。
+
+`--rules` は `compare-dir` 専用。[コメント付きの例](examples/batch/rules.yaml)から、帳票の相対パスの正規表現と設定 YAML を指定する。優先順位は **既定値 → 共通 --config → 一致した設定の指定キー → 明示 --profile → CLI**。複数規則に一致した対はエラーにし、ほかの対は続ける。[設定の重ね方](docs/CONFIGURATION.md#フォルダ比較の帳票別設定)を参照。
+
+終了コードは、全一致が **0**、相違または片側のみが **1**、個別エラーまたは対象 0 件が **2**。破損入力等の個別エラーは一覧を保存して終了する。この場合、**`--force` はエラーを含む新しい一覧で旧結果全体を置き換える**。設定不正・列挙不能・出力障害では旧結果を保持する。共通設定・選択定義・すべての参照設定を含む出力先は指定できない。処理中は入力を更新しない。詳細は [フォルダ比較仕様](docs/SPEC.md#116-フォルダ一括比較t2-6)を参照。
 
 ## 設定とプロファイル
 
@@ -130,7 +144,7 @@ report:
 
 小さい文字が多い帳票は 400dpi を検討する。200dpi 以下では「未／末」「ば／ぱ」などを安定して検出できない。細い線の微妙な濃淡差や 1px 以内の長さの変化は通常設定で吸収される場合がある。行の挿入で下がずれると、それ以降がまとめて差分になる。[既知の限界の一覧](docs/SPEC.md#56-既知の限界仕様)を確認する。
 
-フォントを埋め込んでいない PDF は OS の代替フォントにより描画が変わる。使用フォントの非埋め込みは `NON_EMBEDDED_FONT`、解析失敗・注釈や入力フォームの外観などの検査未完了は `FONT_INSPECTION_INCOMPLETE` として JSON / HTML に理由を表示する。警告だけでは比較結果と終了コードは変わらない。A と B は同じマシンの同じ実行で比較する。詳細は [フォント検査](docs/SPEC.md#115-フォント非埋め込みの警告t2-5)を参照。PDF のパスワード指定、文字認識、フォルダ一括比較は現在の対象外。[入力仕様](docs/SPEC.md#4-入力の正規化)と [今後の範囲](docs/SPEC.md#11-phase-2-以降の仕様の概要)を参照。
+フォントを埋め込んでいない PDF は OS の代替フォントにより描画が変わる。使用フォントの非埋め込みは `NON_EMBEDDED_FONT`、解析失敗・注釈や入力フォームの外観などの検査未完了は `FONT_INSPECTION_INCOMPLETE` として JSON / HTML に理由を表示する。警告だけでは比較結果と終了コードは変わらない。A と B は同じマシンの同じ実行で比較する。詳細は [フォント検査](docs/SPEC.md#115-フォント非埋め込みの警告t2-5)を参照。PDF のパスワード指定、文字認識は現在の対象外。[入力仕様](docs/SPEC.md#4-入力の正規化)と [今後の範囲](docs/SPEC.md#11-phase-2-以降の仕様の概要)を参照。
 
 ## ソースから実行・ビルドする
 
@@ -151,6 +165,7 @@ Windows では macOS ランタイムの生成は不要。復元前にローカ�
 
 ## 開発資料と確認状況
 
+- [T2-6 の検証記録](docs/verification/t2-6-directory.md)：フォルダ比較・設定選択・一覧・時間とメモリ・Windows 配布物
 - [SPEC](docs/SPEC.md)：アルゴリズム・設定・入出力の正本
 - [TASKS](docs/TASKS.md)：完了範囲と Windows 実機確認リスト
 - [T2-4 の検証記録](docs/verification/t2-4-alignment.md)：全体補正・元画像の保存・PDF 座標・性能・Windows 配布物
@@ -162,6 +177,6 @@ Windows では macOS ランタイムの生成は不要。復元前にローカ�
 - `CLAUDE.md`：開発ルール。`reference/prototype.py` と `reference/golden/`：比較結果の参照実装と 37 ケース
 - [サードパーティ通知](THIRD_PARTY_NOTICES.md)：依存一覧と同梱ライセンス。配布時は `licenses/` を含めて保持する
 
-[GitHub Actions](https://github.com/zredjet/reportdiff/actions/workflows/ci.yml) は Windows x64 / macOS Apple Silicon でビルドとテストを実行する。リモートで確認済みなのは [T0-3](docs/verification/t0-3-ci.md) 時点の疎通 2 件。T2-4 までの全 589 件はローカル macOS で検証済みで、Windows の追加テスト・完成版 exe の実行・Edge / Chrome 表示は未確認。
+[GitHub Actions](https://github.com/zredjet/reportdiff/actions/workflows/ci.yml) は Windows x64 / macOS Apple Silicon でビルドとテストを実行する。リモートで確認済みなのは [T0-3](docs/verification/t0-3-ci.md) 時点の疎通 2 件。T2-6 までの全 772 件はローカル macOS で検証済みで、Windows の追加テスト・完成版 exe の実行・Edge / Chrome 表示は未確認。
 
 実帳票は `samples/private/` に置き、Git に含めない。テストには合成データだけを使う。

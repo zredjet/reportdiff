@@ -42,7 +42,7 @@ def package(exe, output):
         raise ValueError("検査後に exe が変更されました。再実行してください。")
     for name in ["README.md", "THIRD_PARTY_NOTICES.md", "examples/settings.yaml"]:
         files[name] = (ROOT / name).read_bytes()
-    for path in sorted((ROOT / "examples").glob("*.yaml")):
+    for path in sorted((ROOT / "examples").rglob("*.yaml")):
         files[path.relative_to(ROOT).as_posix()] = path.read_bytes()
     # README と文書間の相対リンクを保つため、docs は一式を同梱する。
     for directory in ["docs", "licenses"]:

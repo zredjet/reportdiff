@@ -1,0 +1,11 @@
+# compare-dir 用の選択定義。通常設定用の --config ではなく --rules で指定する。
+# config の相対パスは、この YAML ファイルのフォルダが基準。
+# 共通 --config → 一致した config の指定キー → 明示 --profile → CLI の順。
+schema_version: 1
+rules:
+  # 大小文字を区別せず、NFC の相対パス（区切りは /）を調べる。
+  # A/B いずれかで複数の規則に一致したファイル対はエラー。
+  - pattern: '\A請求/[^/]+\.pdf\z'
+    config: ../strict.yaml
+  - pattern: '\Aスキャン/[^/]+\.(png|jpg|jpeg)\z'
+    config: ../scan.yaml

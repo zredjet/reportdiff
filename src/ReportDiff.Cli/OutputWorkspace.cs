@@ -70,7 +70,7 @@ internal sealed class OutputWorkspace : IDisposable
             throw new CommandLineException("出力先が空ではありません。別の出力先を指定するか、--force で上書きしてください。");
     }
 
-    private static bool ContainsPath(string directory, string path)
+    internal static bool ContainsPath(string directory, string path)
     {
         var comparison = OperatingSystem.IsLinux() ? StringComparison.Ordinal : StringComparison.OrdinalIgnoreCase;
         directory = Path.TrimEndingDirectorySeparator(directory);
@@ -86,7 +86,7 @@ internal sealed class OutputWorkspace : IDisposable
     }
 
     // 親にリンクがある入力も、実際の保存先をたどって出力先との包含関係を調べる。
-    private static string ResolvePath(string path, int depth = 0)
+    internal static string ResolvePath(string path, int depth = 0)
     {
         if (depth > 40) throw new CommandLineException("パスのリンクが多すぎます。実際の保存先を指定してください。");
         var full = Path.GetFullPath(path);

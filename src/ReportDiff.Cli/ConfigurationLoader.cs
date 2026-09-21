@@ -9,6 +9,41 @@ namespace ReportDiff.Cli;
 
 public static class ConfigurationLoader
 {
+    // 省略の有無（特に image_dpi）を保つため、実効設定ではなく YAML の指定キーを重ねる。
+    public static AppSettings LoadLayered(string? common, string? selected, string? profile = null, int? dpi = null)
+    {
+        Load(common); Load(selected); // 上書きによって隠れる不正な値も拒否する。
+        var root = Parse(common);
+        Merge(root, Parse(selected));
+        var writer = new StringWriter(CultureInfo.InvariantCulture);
+        new YamlStream(new YamlDocument(root)).Save(writer, assignAnchors: false);
+        return Load(writer.ToString(), profile, dpi);
+
+        static YamlMappingNode Parse(string? yaml)
+        {
+            if (string.IsNullOrWhiteSpace(yaml)) return new YamlMappingNode();
+            var stream = new YamlStream(); stream.Load(new StringReader(yaml));
+            // 別ファイルの同名アンカーを合成後の YAML で取り違えないよう、
+            // 検証済みの参照先を値として複製し、アンカー名を持ち越さない。
+            return (YamlMappingNode)CopyValue(stream.Documents[0].RootNode);
+        }
+        static YamlNode CopyValue(YamlNode node) => node switch
+        {
+            YamlScalarNode scalar => new YamlScalarNode(scalar.Value) { Style = scalar.Style, Tag = scalar.Tag },
+            YamlMappingNode mapping => new YamlMappingNode(mapping.Children.Select(x =>
+                new KeyValuePair<YamlNode, YamlNode>(CopyValue(x.Key), CopyValue(x.Value)))),
+            YamlSequenceNode sequence => new YamlSequenceNode(sequence.Children.Select(CopyValue)),
+            _ => throw new ConfigurationException("設定 YAML の値を読み込めません。")
+        };
+        static void Merge(YamlMappingNode target, YamlMappingNode overlay)
+        {
+            foreach (var (key, value) in overlay.Children)
+                if (value is YamlMappingNode mapping && target.Children.TryGetValue(key, out var old) && old is YamlMappingNode previous)
+                    Merge(previous, mapping);
+                else target.Children[key] = value;
+        }
+    }
+
     public static AppSettings Load(string? yaml = null, string? profile = null, int? dpi = null)
     {
         var settings = new AppSettings();
@@ -148,7 +183,7 @@ public static class ConfigurationLoader
     }
 
     // YamlStream は重複を拒否するがキーのパスを残さないため、イベント段階で先に確認する。
-    private static void RejectDuplicateKeys(string yaml)
+    internal static void RejectDuplicateKeys(string yaml)
     {
         var parser = new Parser(new StringReader(yaml));
         parser.Consume<StreamStart>();
@@ -186,7 +221,7 @@ public static class ConfigurationLoader
         }
     }
 
-    private static Dictionary<string, YamlNode> Mapping(YamlNode node, string path, params string[] keys)
+    internal static Dictionary<string, YamlNode> Mapping(YamlNode node, string path, params string[] keys)
     {
         if (node is not YamlMappingNode mapping) throw Error(path, "キーと値の組にしてください");
         var result = new Dictionary<string, YamlNode>(StringComparer.Ordinal);
@@ -200,7 +235,7 @@ public static class ConfigurationLoader
         return result;
     }
 
-    private static string Scalar(YamlNode node, string path) =>
+    internal static string Scalar(YamlNode node, string path) =>
         node is YamlScalarNode { Value: not null } scalar ? scalar.Value : throw Error(path, "値を指定してください");
 
     private static int Integer(YamlNode node, string path) =>

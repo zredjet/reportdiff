@@ -1,6 +1,4 @@
-using System.Runtime.Versioning;
 using System.Text;
-using ReportDiff.Core;
 using ReportDiff.Pdf;
 using ReportDiff.Report;
 
@@ -19,10 +17,17 @@ public static class CliApplication
                 return 0;
             }
             var command = CommandLine.Parse(args);
+            if (command.IsDirectory) return DirectoryComparison.Run(command, output, error);
             var settings = ConfigurationLoader.Load(ReadConfiguration(command.Config), command.Profile, command.Dpi);
             ReportDocument result;
             if (OperatingSystem.IsWindows() || OperatingSystem.IsMacOS() || OperatingSystem.IsLinux())
-                result = Compare(command, settings);
+            {
+                var protectedFiles = command.Config is null ? new[] { command.InputA, command.InputB }
+                    : [command.InputA, command.InputB, command.Config];
+                using var workspace = new OutputWorkspace(command.Output, command.Force, protectedFiles);
+                result = ComparisonRunner.Compare(command, settings, workspace.StagingPath);
+                workspace.Commit();
+            }
             else throw new CommandLineException("この実行環境では比較処理に対応していません。");
             if (!command.Quiet)
             {
@@ -34,66 +39,23 @@ public static class CliApplication
         }
         catch (Exception ex)
         {
-            var message = ex switch
-            {
-                CommandLineException or ConfigurationException or ImageReadException or PdfReadException
-                    or PageSelectionException or ReportWriteException => ex.Message,
-                IOException or UnauthorizedAccessException => "ファイルを読み書きできません。パス・アクセス権・空き容量を確認してください。",
-                ArgumentException or NotSupportedException => "引数またはパスが不正です。入力・設定・出力先を確認してください。",
-                _ when HasNativeLoadFailure(ex) => "画像・PDF の実行ライブラリを読み込めません。実行環境とネイティブランタイムの配置を確認してください。",
-                _ => "比較処理を完了できません。画像サイズ・DPI・設定値と実行環境を確認してください。"
-            };
+            var message = ErrorMessage(ex);
             error.WriteLine("エラー: " + OneLine(message));
             return 2;
         }
     }
 
-    [SupportedOSPlatform("windows")]
-    [SupportedOSPlatform("linux")]
-    [SupportedOSPlatform("macOS")]
-    private static ReportDocument Compare(CompareCommand command, AppSettings settings)
+    internal static string ErrorMessage(Exception ex) => ex switch
     {
-        using var a = new ComparisonInput(command.InputA, settings);
-        using var b = new ComparisonInput(command.InputB, settings);
-        if (a.Dpi != b.Dpi)
-            throw new CommandLineException("PDF と画像を混在させる場合は、設定の dpi と image_dpi を同じ値にしてください。");
-        var plan = PagePairing.Create(a.PageCount, b.PageCount, command.Pages);
-        var inputs = new ReportInputs(a.Describe(), b.Describe());
-        var protectedFiles = command.Config is null ? new[] { command.InputA, command.InputB }
-            : [command.InputA, command.InputB, command.Config];
-        using var workspace = new OutputWorkspace(command.Output, command.Force, protectedFiles);
-        var writer = new ReportWriter(workspace.StagingPath, inputs, settings.ToReportConfiguration(), command.SaveAllPages);
-        foreach (var page in plan.Pages)
-        {
-            if (page.CanCompare)
-            {
-                using var imageA = a.ReadPage(page.PageNumber);
-                using var imageB = b.ReadPage(page.PageNumber);
-                using var normalized = PageNormalizer.Normalize(imageA.Pixels, imageB.Pixels);
-                var parameters = settings.ForPage(page.PageNumber, a.Dpi);
-                var alignment = GlobalAligner.Estimate(normalized.A, normalized.B, parameters, settings.Align, normalized.SizeMismatch);
-                var appliedShift = alignment.Status == "applied" ? alignment.EstimatedShiftPx : null;
-                using var correctedB = appliedShift is null ? null : GlobalAligner.TranslateB(normalized.B, appliedShift);
-                using var comparison = PageComparer.Compare(normalized.A, correctedB ?? normalized.B, parameters);
-                var textA = a.Annotate(page.PageNumber, normalized.OriginalSizeA, comparison.Clusters, parameters.Exclude);
-                var textB = b.Annotate(page.PageNumber, normalized.OriginalSizeB, comparison.Clusters, parameters.Exclude, appliedShift);
-                writer.AddComparedPage(page.PageNumber, normalized, comparison, a.Dpi, textA, textB, alignment, correctedB);
-            }
-            else
-            {
-                using var image = (page.HasA ? a : b).ReadPage(page.PageNumber);
-                writer.AddUnpairedPage(page.PageNumber, image.Pixels);
-            }
-            if (page.HasA) writer.AddFontWarnings(page.PageNumber, "A", a.InspectFonts(page.PageNumber));
-            if (page.HasB) writer.AddFontWarnings(page.PageNumber, "B", b.InspectFonts(page.PageNumber));
-        }
-        var report = writer.Complete();
-        if (!command.NoHtml) HtmlReportWriter.Write(workspace.StagingPath, report);
-        workspace.Commit();
-        return report;
-    }
+        CommandLineException or ConfigurationException or ImageReadException or PdfReadException
+            or PageSelectionException or ReportWriteException => ex.Message,
+        IOException or UnauthorizedAccessException => "ファイルを読み書きできません。パス・アクセス権・空き容量を確認してください。",
+        ArgumentException or NotSupportedException => "引数またはパスが不正です。入力・設定・出力先を確認してください。",
+        _ when HasNativeLoadFailure(ex) => "画像・PDF の実行ライブラリを読み込めません。実行環境とネイティブランタイムの配置を確認してください。",
+        _ => "比較処理を完了できません。画像サイズ・DPI・設定値と実行環境を確認してください。"
+    };
 
-    private static string? ReadConfiguration(string? path)
+    internal static string? ReadConfiguration(string? path)
     {
         if (path is null) return null;
         try { return File.ReadAllText(path, new UTF8Encoding(false, true)); }
@@ -103,7 +65,7 @@ public static class CliApplication
         }
     }
 
-    private static string OneLine(string text) => string.Concat(text.Select(c => char.IsControl(c) ? ' ' : c));
+    internal static string OneLine(string text) => string.Concat(text.Select(c => char.IsControl(c) ? ' ' : c));
     private static bool HasNativeLoadFailure(Exception ex) => ex is DllNotFoundException or EntryPointNotFoundException or BadImageFormatException
         || (ex.InnerException is not null && HasNativeLoadFailure(ex.InnerException));
 }
