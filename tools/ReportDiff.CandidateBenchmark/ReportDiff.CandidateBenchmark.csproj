@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <!-- 比較コアの内部APIを計測する既存のfriend assembly名。製品から参照しない。 -->
+    <AssemblyName>ReportDiff.Benchmark</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../src/ReportDiff.Core/ReportDiff.Core.csproj" />
+  </ItemGroup>
+</Project>
