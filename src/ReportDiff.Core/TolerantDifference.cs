@@ -38,20 +38,20 @@ public static class TolerantDifference
             }
         }
 
-        using var labA = ImageInk.ToLab(a);
-        using var labB = ImageInk.ToLab(b);
-        var featuresA = Features.Create(labA, parameters.Diff.EdgeTolerance);
-        var featuresB = Features.Create(labB, parameters.Diff.EdgeTolerance);
+        var shift = Units.RoundPixels(parameters.Diff.MaxShiftMm, parameters.Dpi);
+        using var ownedA = ComparisonFeatures.Create(a, parameters, shift > 0);
+        using var ownedB = ComparisonFeatures.Create(b, parameters, shift > 0);
+        var featuresA = ownedA.Read();
+        var featuresB = ownedB.Read();
         if (timings is not null) timings.PreparationMs = Stopwatch.GetElapsedTime(started).TotalMilliseconds;
         started = Stopwatch.GetTimestamp();
         var candidates = Candidates(featuresA, featuresB, width, height, parameters.Diff, 0, 0);
         if (timings is not null) timings.CandidatesMs = Stopwatch.GetElapsedTime(started).TotalMilliseconds;
-        var shift = Units.RoundPixels(parameters.Diff.MaxShiftMm, parameters.Dpi);
         if (shift <= 0 || !candidates.Contains((byte)255))
             return new(MatBuffers.Mask(candidates, width, height), 0, 0);
 
         started = Stopwatch.GetTimestamp();
-        var labels = Groups(labA, labB, candidates, parameters, shift, out var count);
+        var labels = Groups(ownedA.Ink, ownedB.Ink, candidates, shift, out var count);
         if (timings is not null) timings.GroupingMs = Stopwatch.GetElapsedTime(started).TotalMilliseconds;
         started = Stopwatch.GetTimestamp();
         var shifts = (from dx in Enumerable.Range(-shift, checked(2 * shift + 1))
@@ -65,7 +65,7 @@ public static class TolerantDifference
         return result;
     }
 
-    private static RawDifference EvaluateFullPage(Features featuresA, Features featuresB, int width, int height,
+    private static RawDifference EvaluateFullPage(ComparisonFeatureData featuresA, ComparisonFeatureData featuresB, int width, int height,
         DiffOptions options, byte[] candidates, int[] labels, int count, (int dx, int dy)[] shifts)
     {
         var masks = new List<byte[]>();
@@ -108,7 +108,7 @@ public static class TolerantDifference
         return new(MatBuffers.Mask(raw, width, height), absorbed, maxShift);
     }
 
-    private static RawDifference EvaluateBounds(Features a, Features b, int width, int height, DiffOptions options,
+    private static RawDifference EvaluateBounds(ComparisonFeatureData a, ComparisonFeatureData b, int width, int height, DiffOptions options,
         byte[] candidates, int[] labels, int count, (int dx, int dy)[] shifts, int shift)
     {
         var left = Enumerable.Repeat(width, count).ToArray();
@@ -174,7 +174,7 @@ public static class TolerantDifference
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static bool IsCandidate(Features a, Features b, int pixel, int source, float threshold, float tolerance)
+    private static bool IsCandidate(ComparisonFeatureData a, ComparisonFeatureData b, int pixel, int source, float threshold, float tolerance)
     {
         for (var channel = 0; channel < 3; channel++)
         {
@@ -185,25 +185,7 @@ public static class TolerantDifference
         return false;
     }
 
-    private sealed record Features(float[] Values, float[] Contrast)
-    {
-        public static Features Create(Mat lab, double tolerance)
-        {
-            if (tolerance == 0) return new(MatBuffers.Floats(lab), []);
-            using var blur = new Mat();
-            using var maximum = new Mat();
-            using var minimum = new Mat();
-            using var contrast = new Mat();
-            using var kernel = Cv2.GetStructuringElement(MorphShapes.Rect, new Size(5, 5));
-            Cv2.Blur(lab, blur, new Size(3, 3));
-            Cv2.Dilate(lab, maximum, kernel);
-            Cv2.Erode(lab, minimum, kernel);
-            Cv2.Subtract(maximum, minimum, contrast);
-            return new(MatBuffers.Floats(blur), MatBuffers.Floats(contrast));
-        }
-    }
-
-    private static byte[] Candidates(Features a, Features b, int width, int height, DiffOptions options, int dx, int dy)
+    private static byte[] Candidates(ComparisonFeatureData a, ComparisonFeatureData b, int width, int height, DiffOptions options, int dx, int dy)
     {
         var mask = new byte[width * height];
         var threshold = (float)options.ColorThreshold;
@@ -231,10 +213,8 @@ public static class TolerantDifference
         return mask;
     }
 
-    private static int[] Groups(Mat labA, Mat labB, byte[] candidates, ComparisonParameters parameters, int shift, out int count)
+    private static int[] Groups(Mat inkA, Mat inkB, byte[] candidates, int shift, out int count)
     {
-        using var inkA = ImageInk.FromLab(labA, parameters.Dpi, parameters.Ink);
-        using var inkB = ImageInk.FromLab(labB, parameters.Dpi, parameters.Ink);
         using var ink = new Mat();
         Cv2.BitwiseOr(inkA, inkB, ink);
         using var inkLabels = new Mat();
@@ -244,14 +224,14 @@ public static class TolerantDifference
         for (var i = 0; i < candidates.Length; i++)
             if (candidates[i] != 0) touched[inkData[i]] = true;
         touched[0] = false;
-        using var original = MatBuffers.Mask(candidates, labA.Cols, labA.Rows);
+        using var original = MatBuffers.Mask(candidates, inkA.Cols, inkA.Rows);
         using var region = new Mat();
         using var kernel = Cv2.GetStructuringElement(MorphShapes.Rect, new Size(5, 5));
         Cv2.Dilate(original, region, kernel);
         var regionData = MatBuffers.Bytes(region);
         for (var i = 0; i < regionData.Length; i++)
             if (touched[inkData[i]]) regionData[i] = 255;
-        using var united = MatBuffers.Mask(regionData, labA.Cols, labA.Rows);
+        using var united = MatBuffers.Mask(regionData, inkA.Cols, inkA.Rows);
         using var dilated = new Mat();
         using var expansion = Cv2.GetStructuringElement(MorphShapes.Rect, new Size(checked(2 * shift + 1), checked(2 * shift + 1)));
         Cv2.Dilate(united, dilated, expansion);

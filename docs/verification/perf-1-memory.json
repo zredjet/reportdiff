@@ -1,0 +1,359 @@
+{
+  "date": "2026-09-21",
+  "baseline_commit": "2e106435580f00a7f961ff19f935fea2dbf414b6",
+  "platform": "macOS 26.5.1 / arm64 / .NET 10.0.12 / Release",
+  "unit": "GB = 1000000000 bytes",
+  "method": "通常CLIを各案1回ウォームアップ後、別プロセスで各3回、変更前後を交互に実行。起動から全画像・JSON・HTML保存と終了まで。最大RSSはmacOS /usr/bin/time -l。",
+  "tests": {
+    "total": 823,
+    "passed": 823,
+    "failed": 0,
+    "skipped": 0,
+    "added": 51
+  },
+  "golden": {
+    "cases": 37,
+    "all_masks_statistics_clusters_and_annotations_equal": true,
+    "before_core_sha256": "62449407a5ee8fc9d754dad6a709197309f9a2934ac9216716c21287a7e8d6af",
+    "after_core_sha256": "7e1bb897549069916f9b2340fabd1be5f800552d3af5ff7bb77b52cdcf46c9ca"
+  },
+  "private_evidence": "samples/private/memory-reduction-20260921/",
+  "scenarios": [
+    {
+      "name": "a3-300",
+      "dpi": 300,
+      "medians": {
+        "before": {
+          "elapsed_ms": 1889.2632920760661,
+          "peak_rss_bytes": 3164520448
+        },
+        "after": {
+          "elapsed_ms": 1881.5206250874326,
+          "peak_rss_bytes": 2082226176
+        }
+      },
+      "memory_reduction_percent": 34.20089361988538,
+      "elapsed_change_percent": -0.4098246666363492,
+      "runs": [
+        {
+          "name": "a3-300-before-0",
+          "variant": "before",
+          "warmup": true,
+          "elapsed_ms": 1858.5531670833007,
+          "peak_rss_bytes": 3165290496,
+          "exit_code": 1,
+          "png_count": 174,
+          "json_equal": true,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "a3-300-after-0",
+          "variant": "after",
+          "warmup": true,
+          "elapsed_ms": 1851.353041944094,
+          "peak_rss_bytes": 2079735808,
+          "exit_code": 1,
+          "png_count": 174,
+          "json_equal": true,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "a3-300-before-1",
+          "variant": "before",
+          "warmup": false,
+          "elapsed_ms": 1827.1173329558223,
+          "peak_rss_bytes": 3164520448,
+          "exit_code": 1,
+          "png_count": 174,
+          "json_equal": true,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "a3-300-after-1",
+          "variant": "after",
+          "warmup": false,
+          "elapsed_ms": 1881.5206250874326,
+          "peak_rss_bytes": 2080948224,
+          "exit_code": 1,
+          "png_count": 174,
+          "json_equal": true,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "a3-300-before-2",
+          "variant": "before",
+          "warmup": false,
+          "elapsed_ms": 1895.9254170767963,
+          "peak_rss_bytes": 3166273536,
+          "exit_code": 1,
+          "png_count": 174,
+          "json_equal": true,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "a3-300-after-2",
+          "variant": "after",
+          "warmup": false,
+          "elapsed_ms": 1883.297958993353,
+          "peak_rss_bytes": 2082422784,
+          "exit_code": 1,
+          "png_count": 174,
+          "json_equal": true,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "a3-300-before-3",
+          "variant": "before",
+          "warmup": false,
+          "elapsed_ms": 1889.2632920760661,
+          "peak_rss_bytes": 3163602944,
+          "exit_code": 1,
+          "png_count": 174,
+          "json_equal": true,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "a3-300-after-3",
+          "variant": "after",
+          "warmup": false,
+          "elapsed_ms": 1868.806374957785,
+          "peak_rss_bytes": 2082226176,
+          "exit_code": 1,
+          "png_count": 174,
+          "json_equal": true,
+          "png_sha256_equal": true
+        }
+      ]
+    },
+    {
+      "name": "a3-400",
+      "dpi": 400,
+      "medians": {
+        "before": {
+          "elapsed_ms": 2951.7023329390213,
+          "peak_rss_bytes": 5600968704
+        },
+        "after": {
+          "elapsed_ms": 3042.6319169346243,
+          "peak_rss_bytes": 3694411776
+        }
+      },
+      "memory_reduction_percent": 34.039771131704576,
+      "elapsed_change_percent": 3.0805810931844313,
+      "runs": [
+        {
+          "name": "a3-400-before-0",
+          "variant": "before",
+          "warmup": true,
+          "elapsed_ms": 2863.0472499644384,
+          "peak_rss_bytes": 5601345536,
+          "exit_code": 1,
+          "png_count": 171,
+          "json_equal": true,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "a3-400-after-0",
+          "variant": "after",
+          "warmup": true,
+          "elapsed_ms": 2964.109957916662,
+          "peak_rss_bytes": 3695443968,
+          "exit_code": 1,
+          "png_count": 171,
+          "json_equal": true,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "a3-400-before-1",
+          "variant": "before",
+          "warmup": false,
+          "elapsed_ms": 2911.705999984406,
+          "peak_rss_bytes": 5601443840,
+          "exit_code": 1,
+          "png_count": 171,
+          "json_equal": true,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "a3-400-after-1",
+          "variant": "after",
+          "warmup": false,
+          "elapsed_ms": 2987.3326249653473,
+          "peak_rss_bytes": 3694411776,
+          "exit_code": 1,
+          "png_count": 171,
+          "json_equal": true,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "a3-400-before-2",
+          "variant": "before",
+          "warmup": false,
+          "elapsed_ms": 2951.7023329390213,
+          "peak_rss_bytes": 5600968704,
+          "exit_code": 1,
+          "png_count": 171,
+          "json_equal": true,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "a3-400-after-2",
+          "variant": "after",
+          "warmup": false,
+          "elapsed_ms": 3049.4544999673963,
+          "peak_rss_bytes": 3693412352,
+          "exit_code": 1,
+          "png_count": 171,
+          "json_equal": true,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "a3-400-before-3",
+          "variant": "before",
+          "warmup": false,
+          "elapsed_ms": 2955.1866659894586,
+          "peak_rss_bytes": 5597331456,
+          "exit_code": 1,
+          "png_count": 171,
+          "json_equal": true,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "a3-400-after-3",
+          "variant": "after",
+          "warmup": false,
+          "elapsed_ms": 3042.6319169346243,
+          "peak_rss_bytes": 3697836032,
+          "exit_code": 1,
+          "png_count": 171,
+          "json_equal": true,
+          "png_sha256_equal": true
+        }
+      ]
+    },
+    {
+      "name": "four-pages",
+      "dpi": 300,
+      "medians": {
+        "before": {
+          "elapsed_ms": 5549.9582920456305,
+          "peak_rss_bytes": 5990809600
+        },
+        "after": {
+          "elapsed_ms": 5604.223667061888,
+          "peak_rss_bytes": 2170208256
+        }
+      },
+      "memory_reduction_percent": 63.77437440175031,
+      "elapsed_change_percent": 0.9777618526256582,
+      "runs": [
+        {
+          "name": "four-pages-before-0",
+          "variant": "before",
+          "warmup": true,
+          "elapsed_ms": 5477.737249922939,
+          "peak_rss_bytes": 5987827712,
+          "exit_code": 1,
+          "png_count": 696,
+          "json_equal": true,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "four-pages-after-0",
+          "variant": "after",
+          "warmup": true,
+          "elapsed_ms": 5542.2276250319555,
+          "peak_rss_bytes": 2166128640,
+          "exit_code": 1,
+          "png_count": 696,
+          "json_equal": true,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "four-pages-before-1",
+          "variant": "before",
+          "warmup": false,
+          "elapsed_ms": 5605.892625055276,
+          "peak_rss_bytes": 5990809600,
+          "exit_code": 1,
+          "png_count": 696,
+          "json_equal": true,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "four-pages-after-1",
+          "variant": "after",
+          "warmup": false,
+          "elapsed_ms": 5560.544540989213,
+          "peak_rss_bytes": 2170208256,
+          "exit_code": 1,
+          "png_count": 696,
+          "json_equal": true,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "four-pages-before-2",
+          "variant": "before",
+          "warmup": false,
+          "elapsed_ms": 5546.170292072929,
+          "peak_rss_bytes": 5989482496,
+          "exit_code": 1,
+          "png_count": 696,
+          "json_equal": true,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "four-pages-after-2",
+          "variant": "after",
+          "warmup": false,
+          "elapsed_ms": 5604.223667061888,
+          "peak_rss_bytes": 2169389056,
+          "exit_code": 1,
+          "png_count": 696,
+          "json_equal": true,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "four-pages-before-3",
+          "variant": "before",
+          "warmup": false,
+          "elapsed_ms": 5549.9582920456305,
+          "peak_rss_bytes": 5991645184,
+          "exit_code": 1,
+          "png_count": 696,
+          "json_equal": true,
+          "png_sha256_equal": true
+        },
+        {
+          "name": "four-pages-after-3",
+          "variant": "after",
+          "warmup": false,
+          "elapsed_ms": 5639.65124997776,
+          "peak_rss_bytes": 2171256832,
+          "exit_code": 1,
+          "png_count": 696,
+          "json_equal": true,
+          "png_sha256_equal": true
+        }
+      ]
+    }
+  ],
+  "inputs": {
+    "ise-schedule-original.pdf": {
+      "bytes": 78723,
+      "sha256": "0b30618efa2b809b7b3c483ca69d594f3e6ba2b5d54589a17489a3cfbe5c5e57"
+    },
+    "ise-schedule-revised.pdf": {
+      "bytes": 80919,
+      "sha256": "5585ad8ef072fc57cd63293ef0c1d9bbd4a5c9d41a8d7e84829aba0fdf408425"
+    },
+    "four-pages-original.pdf": {
+      "bytes": 80086,
+      "sha256": "b9b5bfd1683043e9bcbf0b9b39fe7af9440aa64c1da6cbb651bb6566f03b32e4"
+    },
+    "four-pages-revised.pdf": {
+      "bytes": 82298,
+      "sha256": "d074b01368f32f80a439f04fce706d708ee5cb05beee14f18c91c580fd617dcd"
+    }
+  }
+}
