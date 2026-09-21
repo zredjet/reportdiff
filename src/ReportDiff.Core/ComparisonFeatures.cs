@@ -6,11 +6,12 @@ namespace ReportDiff.Core;
 /// <summary>比較中だけ保持する特徴量。ページ全体の Lab やマネージド配列を重複して持たない。</summary>
 internal sealed class ComparisonFeatures : IDisposable
 {
-    private const int StripeRows = 128;
     private readonly Mat values = new();
     private readonly Mat contrast = new();
     private bool disposed;
     public Mat Ink { get; } = new();
+    internal int WorkerCount { get; private set; }
+    internal long WorkerTemporaryBytes { get; private set; }
 
     private ComparisonFeatures() { }
 
@@ -22,18 +23,21 @@ internal sealed class ComparisonFeatures : IDisposable
             MemoryMarshal.Cast<Vec3f, float>(contrast.AsSpan<Vec3f>()));
     }
 
-    public static ComparisonFeatures Create(Mat image, ComparisonParameters parameters, bool includeInk)
+    public static ComparisonFeatures Create(Mat image, ComparisonParameters parameters, bool includeInk) =>
+        Create(image, parameters, includeInk, new());
+
+    internal static ComparisonFeatures Create(Mat image, ComparisonParameters parameters, bool includeInk, FeatureExecution execution)
     {
         var features = new ComparisonFeatures();
         try
         {
-            features.Fill(image, parameters, includeInk);
+            features.Fill(image, parameters, includeInk, execution);
             return features;
         }
         catch { features.Dispose(); throw; }
     }
 
-    private void Fill(Mat image, ComparisonParameters parameters, bool includeInk)
+    private void Fill(Mat image, ComparisonParameters parameters, bool includeInk, FeatureExecution execution)
     {
         var rows = image.Rows;
         var cols = image.Cols;
@@ -47,32 +51,42 @@ internal sealed class ComparisonFeatures : IDisposable
         var margin = tolerant ? 2 : 0;
         if (includeInk)
             margin = Math.Max(margin, Math.Max(1, Units.RoundPixels(parameters.Ink.BackgroundRadiusMm, parameters.Dpi)));
+        var schedule = FeatureStripeSchedule.Create(cols, rows, margin, tolerant, includeInk, execution);
+        WorkerCount = schedule.Degree;
+        WorkerTemporaryBytes = schedule.WorkerTemporaryBytes;
+        schedule.Run((firstStripe, lastStripe) =>
+            FillStripes(image, parameters, includeInk, tolerant, margin, firstStripe, lastStripe));
+    }
+
+    private void FillStripes(Mat image, ComparisonParameters parameters, bool includeInk, bool tolerant, int margin,
+        int firstStripe, int lastStripe)
+    {
+        var rows = image.Rows;
+        var cols = image.Cols;
+        // カーネルと再利用する一時Matはworker専用。全ページの出力Matは事前確保済み。
         using var kernel = Cv2.GetStructuringElement(MorphShapes.Rect, new Size(5, 5));
-        using var blur = new Mat();
-        using var maximum = new Mat();
         using var minimum = new Mat();
-        for (var y = 0; y < rows; y += StripeRows)
+        for (var stripe = firstStripe; stripe < lastStripe; stripe++)
         {
-            var end = Math.Min(rows, y + StripeRows);
+            var y = stripe * FeatureStripeSchedule.StripeRows;
+            var end = Math.Min(rows, y + FeatureStripeSchedule.StripeRows);
             var top = Math.Max(0, y - margin);
             var bottom = (int)Math.Min(rows, (long)end + margin);
             // 必要な近傍を含めてから Lab にする。帯の内部に偽の画像端を作らず、
-            // 元画像の端だけに OpenCV 既定の境界処理を適用する。ROI の親画像も混ぜない。
+            // 元画像の端だけに OpenCV 既定の境界処理を適用する。呼び出し元の ROI の外側は Lab に含めない。
             using var source = new Mat(image, new Rect(0, top, cols, bottom - top));
             using var lab = ImageInk.ToLab(source);
             if (tolerant)
             {
-                // インクの局所背景に必要な広い余白では、特徴量フィルターを繰り返さない。
-                // 5×5 の半径 2px を残せば、保存する帯の画素値は全ページ演算と一致する。
-                var featureTop = Math.Max(0, y - 2);
-                var featureBottom = (int)Math.Min(rows, (long)end + 2);
-                using var featureLab = new Mat(lab, new Rect(0, featureTop - top, cols, featureBottom - featureTop));
-                Cv2.Blur(featureLab, blur, new Size(3, 3));
-                Cv2.Dilate(featureLab, maximum, kernel);
-                Cv2.Erode(featureLab, minimum, kernel);
-                Cv2.Subtract(maximum, minimum, maximum);
-                CopyRows(blur, values, y - featureTop, y, end - y);
-                CopyRows(maximum, contrast, y - featureTop, y, end - y);
+                // 親Labに必要な余白を保持し、中央ROIの外側もフィルターの近傍として参照する。
+                // 出力は担当行だけ。コントラスト出力をdilateの一時結果にも使う。
+                using var center = new Mat(lab, new Rect(0, y - top, cols, end - y));
+                using var outputValues = new Mat(values, new Rect(0, y, cols, end - y));
+                using var outputContrast = new Mat(contrast, new Rect(0, y, cols, end - y));
+                Cv2.Blur(center, outputValues, new Size(3, 3));
+                Cv2.Dilate(center, outputContrast, kernel);
+                Cv2.Erode(center, minimum, kernel);
+                Cv2.Subtract(outputContrast, minimum, outputContrast);
             }
             else
                 CopyRows(lab, values, y - top, y, end - y);

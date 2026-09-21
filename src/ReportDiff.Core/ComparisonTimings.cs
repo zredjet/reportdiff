@@ -3,6 +3,8 @@ namespace ReportDiff.Core;
 internal sealed class ComparisonTimings
 {
     public double PreparationMs { get; set; }
+    public int FeatureWorkers { get; set; }
+    public long FeatureWorkerTemporaryBytes { get; set; }
     public double CandidatesMs { get; set; }
     public double GroupingMs { get; set; }
     public double ShiftsMs { get; set; }

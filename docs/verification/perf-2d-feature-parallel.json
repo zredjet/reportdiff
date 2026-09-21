@@ -1,0 +1,3843 @@
+{
+  "date": "2026-09-21",
+  "baseline_commit": "4dbbb1a",
+  "scope": [
+    "bounded_feature_stripe_parallelism",
+    "direct_feature_output"
+  ],
+  "environment": {
+    "cpu": "Apple M4 Max",
+    "cpu_count": 16,
+    "memory_bytes": 137438953472,
+    "os": "macOS 26.5.1",
+    "dotnet": "10.0.12",
+    "configuration": "Release"
+  },
+  "policy": {
+    "max_workers": 4,
+    "stripe_rows": 128,
+    "minimum_parallel_pixels": 1000000,
+    "minimum_stripes_per_worker": 2,
+    "temporary_mat_budget_bytes": 100663296
+  },
+  "tests": {
+    "total": 939,
+    "passed": 939,
+    "failed": 0,
+    "skipped": 0,
+    "added": 16,
+    "build_warnings": 0
+  },
+  "validation": {
+    "snapshot_count": 100,
+    "snapshots_exact": true,
+    "core_sha256": {
+      "baseline": "ba3b8144ad741638a98c91f029398a6a88ca25cfbcbf3f3d046368bec96052de",
+      "serial-final": "3e09cdea80ea2d9e3ca15800f8976f1fa6aab9668af78eaf9b45a40a0a4c8c4e",
+      "optimized": "04a8910afc3ff207301b8fd200d00a4ab5ae39d376be871ea91760b90fec2247"
+    },
+    "a4_exact": true,
+    "small_features_exact": true
+  },
+  "metrics": [
+    {
+      "condition": "A3・300dpi・1ページ",
+      "medians": {
+        "baseline": {
+          "elapsed_ms": 1566.1642079940066,
+          "peak_rss_bytes": 1924087808
+        },
+        "optimized": {
+          "elapsed_ms": 1357.0372080430388,
+          "peak_rss_bytes": 1966292992
+        }
+      },
+      "ranges": {
+        "baseline": {
+          "peak_rss_bytes": [
+            1923055616,
+            1926250496
+          ],
+          "elapsed_ms": [
+            1558.809750014916,
+            1567.919958033599
+          ]
+        },
+        "optimized": {
+          "peak_rss_bytes": [
+            1965719552,
+            1969930240
+          ],
+          "elapsed_ms": [
+            1356.9082079920918,
+            1358.286292059347
+          ]
+        }
+      },
+      "reduction_percent": 13.352814403722347
+    },
+    {
+      "condition": "A3・400dpi・1ページ",
+      "medians": {
+        "baseline": {
+          "elapsed_ms": 2412.313707987778,
+          "peak_rss_bytes": 3497967616
+        },
+        "optimized": {
+          "elapsed_ms": 2085.3433340089396,
+          "peak_rss_bytes": 3507109888
+        }
+      },
+      "ranges": {
+        "baseline": {
+          "peak_rss_bytes": [
+            3496738816,
+            3499835392
+          ],
+          "elapsed_ms": [
+            2394.8073339415714,
+            2415.2648330200464
+          ]
+        },
+        "optimized": {
+          "peak_rss_bytes": [
+            3506831360,
+            3507535872
+          ],
+          "elapsed_ms": [
+            2085.16499993857,
+            2085.5177079793066
+          ]
+        }
+      },
+      "reduction_percent": 13.554222773603497
+    },
+    {
+      "condition": "A3・300dpi・4ページ",
+      "medians": {
+        "baseline": {
+          "elapsed_ms": 4367.690916988067,
+          "peak_rss_bytes": 2107932672
+        },
+        "optimized": {
+          "elapsed_ms": 3606.3753330381587,
+          "peak_rss_bytes": 2151186432
+        }
+      },
+      "ranges": {
+        "baseline": {
+          "peak_rss_bytes": [
+            2013806592,
+            2110947328
+          ],
+          "elapsed_ms": [
+            4340.6584589974955,
+            4444.760042009875
+          ]
+        },
+        "optimized": {
+          "peak_rss_bytes": [
+            2047098880,
+            2157740032
+          ],
+          "elapsed_ms": [
+            3574.482165975496,
+            3645.8834579680115
+          ]
+        }
+      },
+      "reduction_percent": 17.430619483370112
+    },
+    {
+      "condition": "A3・300dpi・20ページ",
+      "medians": {
+        "baseline": {
+          "elapsed_ms": 19193.749084020965,
+          "peak_rss_bytes": 2217295872
+        },
+        "optimized": {
+          "elapsed_ms": 15544.83720799908,
+          "peak_rss_bytes": 2267545600
+        }
+      },
+      "ranges": {
+        "baseline": {
+          "peak_rss_bytes": [
+            2217197568,
+            2217295872
+          ],
+          "elapsed_ms": [
+            19189.58379200194,
+            19258.016792009585
+          ]
+        },
+        "optimized": {
+          "peak_rss_bytes": [
+            2261942272,
+            2267987968
+          ],
+          "elapsed_ms": [
+            15532.001166953705,
+            15554.315292043611
+          ]
+        }
+      },
+      "reduction_percent": 19.010938717853975
+    }
+  ],
+  "probe": {
+    "probe-final-300": {
+      "baseline": {
+        "elapsed_ms": 1542.8367499262094,
+        "peak_rss_bytes": 1920090112,
+        "timings": {
+          "PreparationMs": 386.318,
+          "CandidatesMs": 50.5431,
+          "GroupingMs": 47.6316,
+          "ShiftsMs": 190.3096,
+          "GroupIndexMs": 14.5229,
+          "SearchGroups": 139,
+          "SearchRuns": 51966,
+          "SearchWorkers": 4,
+          "UsedRectangleSearch": false,
+          "MovementMs": 68.3762,
+          "MovementManagedBytes": 2028840,
+          "ClassificationMs": 22.1466,
+          "ClassificationManagedBytes": 63550176,
+          "RetainedRemovalMaskBytes": 17399680,
+          "ClusteringMs": 68.7693
+        },
+        "stages_ms": {
+          "start": 0.5131,
+          "open": 173.30270000000002,
+          "render-a": 27.896899999999988,
+          "render-b": 12.842000000000013,
+          "normalize": 4.235500000000002,
+          "compare": 835.4761000000001,
+          "text": 192.92290000000003,
+          "images": 221.73890000000006,
+          "fonts": 4.373199999999997,
+          "json": 19.34629999999993,
+          "html": 4.49330000000009
+        }
+      },
+      "serial-final": {
+        "elapsed_ms": 1536.674041999504,
+        "peak_rss_bytes": 1908768768,
+        "timings": {
+          "PreparationMs": 375.7135,
+          "FeatureWorkers": 1,
+          "FeatureWorkerTemporaryBytes": 27954560,
+          "CandidatesMs": 48.0104,
+          "GroupingMs": 46.5747,
+          "ShiftsMs": 190.9641,
+          "GroupIndexMs": 14.371,
+          "SearchGroups": 139,
+          "SearchRuns": 51966,
+          "SearchWorkers": 4,
+          "UsedRectangleSearch": false,
+          "MovementMs": 68.1459,
+          "MovementManagedBytes": 2028840,
+          "ClassificationMs": 22.0943,
+          "ClassificationManagedBytes": 63550176,
+          "RetainedRemovalMaskBytes": 17399680,
+          "ClusteringMs": 68.4936
+        },
+        "stages_ms": {
+          "start": 0.4949,
+          "open": 171.7708,
+          "render-a": 28.0522,
+          "render-b": 13.1353,
+          "normalize": 4.383399999999995,
+          "compare": 825.9964,
+          "text": 194.67510000000016,
+          "images": 223.3037999999999,
+          "fonts": 4.529600000000073,
+          "json": 19.735799999999927,
+          "html": 4.535000000000082
+        }
+      },
+      "optimized": {
+        "elapsed_ms": 1344.9313340242952,
+        "peak_rss_bytes": 1966571520,
+        "timings": {
+          "PreparationMs": 193.1457,
+          "FeatureWorkers": 3,
+          "FeatureWorkerTemporaryBytes": 27954560,
+          "CandidatesMs": 49.3085,
+          "GroupingMs": 44.056,
+          "ShiftsMs": 187.6092,
+          "GroupIndexMs": 14.4905,
+          "SearchGroups": 139,
+          "SearchRuns": 51966,
+          "SearchWorkers": 4,
+          "UsedRectangleSearch": false,
+          "MovementMs": 67.282,
+          "MovementManagedBytes": 2028840,
+          "ClassificationMs": 20.6258,
+          "ClassificationManagedBytes": 63550176,
+          "RetainedRemovalMaskBytes": 17399680,
+          "ClusteringMs": 66.72130000000003
+        },
+        "stages_ms": {
+          "start": 0.4364,
+          "open": 171.9271,
+          "render-a": 27.442300000000017,
+          "render-b": 12.529599999999988,
+          "normalize": 4.2309999999999945,
+          "compare": 634.2412999999999,
+          "text": 189.9588,
+          "images": 223.1522,
+          "fonts": 4.471900000000005,
+          "json": 19.55880000000002,
+          "html": 4.213399999999865
+        }
+      }
+    },
+    "probe-final-400": {
+      "baseline": {
+        "elapsed_ms": 2413.774542044848,
+        "peak_rss_bytes": 3501015040,
+        "timings": {
+          "PreparationMs": 730.9815,
+          "CandidatesMs": 88.0463,
+          "GroupingMs": 82.2293,
+          "ShiftsMs": 290.6361,
+          "GroupIndexMs": 24.3545,
+          "SearchGroups": 197,
+          "SearchRuns": 76677,
+          "SearchWorkers": 4,
+          "UsedRectangleSearch": false,
+          "MovementMs": 178.7785,
+          "MovementManagedBytes": 3413216,
+          "ClassificationMs": 33.2734,
+          "ClassificationManagedBytes": 112924992,
+          "RetainedRemovalMaskBytes": 30933678,
+          "ClusteringMs": 113.33090000000004
+        },
+        "stages_ms": {
+          "start": 0.457,
+          "open": 176.572,
+          "render-a": 38.25370000000001,
+          "render-b": 19.7817,
+          "normalize": 7.214500000000015,
+          "compare": 1519.0684,
+          "text": 198.058,
+          "images": 367.8431000000003,
+          "fonts": 2.70699999999988,
+          "json": 20.961399999999685,
+          "html": 7.518900000000031
+        }
+      },
+      "serial-final": {
+        "elapsed_ms": 2382.2889589937404,
+        "peak_rss_bytes": 3469688832,
+        "timings": {
+          "PreparationMs": 713.4916,
+          "FeatureWorkers": 1,
+          "FeatureWorkerTemporaryBytes": 39260704,
+          "CandidatesMs": 86.2221,
+          "GroupingMs": 79.0707,
+          "ShiftsMs": 285.536,
+          "GroupIndexMs": 23.8219,
+          "SearchGroups": 197,
+          "SearchRuns": 76677,
+          "SearchWorkers": 4,
+          "UsedRectangleSearch": false,
+          "MovementMs": 178.3018,
+          "MovementManagedBytes": 3413216,
+          "ClassificationMs": 33.4447,
+          "ClassificationManagedBytes": 112924992,
+          "RetainedRemovalMaskBytes": 30933678,
+          "ClusteringMs": 116.70410000000004
+        },
+        "stages_ms": {
+          "start": 0.4451,
+          "open": 174.5424,
+          "render-a": 36.72970000000001,
+          "render-b": 19.010699999999986,
+          "normalize": 6.994,
+          "compare": 1499.1827,
+          "text": 199.05830000000014,
+          "images": 361.5474999999999,
+          "fonts": 2.723500000000058,
+          "json": 19.984600000000228,
+          "html": 7.446599999999762
+        }
+      },
+      "optimized": {
+        "elapsed_ms": 2094.1856659483165,
+        "peak_rss_bytes": 3507093504,
+        "timings": {
+          "PreparationMs": 411.9396,
+          "FeatureWorkers": 2,
+          "FeatureWorkerTemporaryBytes": 39260704,
+          "CandidatesMs": 86.4638,
+          "GroupingMs": 71.4504,
+          "ShiftsMs": 290.2324,
+          "GroupIndexMs": 24.3463,
+          "SearchGroups": 197,
+          "SearchRuns": 76677,
+          "SearchWorkers": 4,
+          "UsedRectangleSearch": false,
+          "MovementMs": 179.9147,
+          "MovementManagedBytes": 3413216,
+          "ClassificationMs": 35.3476,
+          "ClassificationManagedBytes": 112924992,
+          "RetainedRemovalMaskBytes": 30933678,
+          "ClusteringMs": 117.0284
+        },
+        "stages_ms": {
+          "start": 0.4587,
+          "open": 174.97949999999997,
+          "render-a": 36.93950000000001,
+          "render-b": 19.337999999999994,
+          "normalize": 7.079499999999996,
+          "compare": 1204.4819,
+          "text": 196.58850000000007,
+          "images": 363.4227999999998,
+          "fonts": 2.684300000000121,
+          "json": 19.75149999999985,
+          "html": 7.387400000000071
+        }
+      }
+    }
+  },
+  "a4": {
+    "baseline": {
+      "generated_at": "2026-09-21T17:32:45.607046+09:00",
+      "os": "macOS 26.5.1",
+      "architecture": "Arm64",
+      "dotnet_runtime": "10.0.12",
+      "cpu_count": 16,
+      "width": 2480,
+      "height": 3508,
+      "dpi": 300,
+      "glyphs": 600,
+      "validation_runs_per_scenario": 2,
+      "memory_note": "ClassificationManagedBytes / MovementManagedBytes は分類／移動注釈のスレッド別マネージド割当量。RetainedRemovalMaskBytes は保持するネイティブ削除マスクのみで、一時 Mat やプロセスのピークを含まない。",
+      "results_equal": true,
+      "measurements": [
+        {
+          "scenario": "完全一致",
+          "strategy": "group_bounds",
+          "classification": true,
+          "movement": true,
+          "iterations": 5,
+          "total_ms": [
+            6.4875,
+            7.1202,
+            5.142,
+            5.2358,
+            4.9233
+          ],
+          "median_ms": 5.2358,
+          "stages_at_median_ms": {
+            "PreparationMs": 1.2462,
+            "CandidatesMs": 0,
+            "GroupingMs": 0,
+            "ShiftsMs": 0,
+            "ClusteringMs": 3.9495,
+            "ClassificationMs": 0,
+            "MovementMs": 0
+          },
+          "classification_managed_bytes": 0,
+          "movement_managed_bytes": 0,
+          "retained_removal_mask_bytes": 0,
+          "status": "same",
+          "clusters": 0,
+          "moved_clusters": 0,
+          "raw_pixels": 0,
+          "absorbed_groups": 0,
+          "max_shift_px": 0
+        },
+        {
+          "scenario": "1 か所変更",
+          "strategy": "group_bounds",
+          "classification": true,
+          "movement": true,
+          "iterations": 5,
+          "total_ms": [
+            204.5267,
+            204.0617,
+            208.1591,
+            207.8104,
+            203.0349
+          ],
+          "median_ms": 204.5267,
+          "stages_at_median_ms": {
+            "PreparationMs": 141.0042,
+            "CandidatesMs": 23.1624,
+            "GroupingMs": 15.3041,
+            "ShiftsMs": 3.7116,
+            "ClusteringMs": 18.9973,
+            "ClassificationMs": 0.9256,
+            "MovementMs": 0.971
+          },
+          "classification_managed_bytes": 8711336,
+          "movement_managed_bytes": 61536,
+          "retained_removal_mask_bytes": 8699840,
+          "status": "different",
+          "clusters": 1,
+          "moved_clusters": 0,
+          "raw_pixels": 204,
+          "absorbed_groups": 0,
+          "max_shift_px": 0
+        },
+        {
+          "scenario": "1 か所変更＋全体 1px ずれ",
+          "strategy": "group_bounds",
+          "classification": true,
+          "movement": true,
+          "iterations": 5,
+          "total_ms": [
+            212.4207,
+            212.2861,
+            210.7802,
+            208.409,
+            211.2741
+          ],
+          "median_ms": 211.2741,
+          "stages_at_median_ms": {
+            "PreparationMs": 140.215,
+            "CandidatesMs": 23.8229,
+            "GroupingMs": 16.7611,
+            "ShiftsMs": 9.6585,
+            "ClusteringMs": 19.1476,
+            "ClassificationMs": 0.7051,
+            "MovementMs": 0.9442
+          },
+          "classification_managed_bytes": 8711336,
+          "movement_managed_bytes": 61536,
+          "retained_removal_mask_bytes": 8699840,
+          "status": "different",
+          "clusters": 1,
+          "moved_clusters": 0,
+          "raw_pixels": 204,
+          "absorbed_groups": 599,
+          "max_shift_px": 1
+        }
+      ]
+    },
+    "serial-final": {
+      "generated_at": "2026-09-21T17:32:49.73627+09:00",
+      "os": "macOS 26.5.1",
+      "architecture": "Arm64",
+      "dotnet_runtime": "10.0.12",
+      "cpu_count": 16,
+      "width": 2480,
+      "height": 3508,
+      "dpi": 300,
+      "glyphs": 600,
+      "validation_runs_per_scenario": 2,
+      "memory_note": "ClassificationManagedBytes / MovementManagedBytes は分類／移動注釈のスレッド別マネージド割当量。RetainedRemovalMaskBytes は保持するネイティブ削除マスクのみで、一時 Mat やプロセスのピークを含まない。",
+      "results_equal": true,
+      "measurements": [
+        {
+          "scenario": "完全一致",
+          "strategy": "group_bounds",
+          "classification": true,
+          "movement": true,
+          "iterations": 5,
+          "total_ms": [
+            6.2944,
+            5.8587,
+            5.4223,
+            4.9942,
+            5.0332
+          ],
+          "median_ms": 5.4223,
+          "stages_at_median_ms": {
+            "PreparationMs": 1.309,
+            "CandidatesMs": 0,
+            "GroupingMs": 0,
+            "ShiftsMs": 0,
+            "ClusteringMs": 4.0657,
+            "ClassificationMs": 0,
+            "MovementMs": 0
+          },
+          "classification_managed_bytes": 0,
+          "movement_managed_bytes": 0,
+          "retained_removal_mask_bytes": 0,
+          "status": "same",
+          "clusters": 0,
+          "moved_clusters": 0,
+          "raw_pixels": 0,
+          "absorbed_groups": 0,
+          "max_shift_px": 0
+        },
+        {
+          "scenario": "1 か所変更",
+          "strategy": "group_bounds",
+          "classification": true,
+          "movement": true,
+          "iterations": 5,
+          "total_ms": [
+            200.6402,
+            198.5749,
+            199.0478,
+            201.9915,
+            198.7257
+          ],
+          "median_ms": 199.0478,
+          "stages_at_median_ms": {
+            "PreparationMs": 133.4435,
+            "CandidatesMs": 25.2622,
+            "GroupingMs": 15.2013,
+            "ShiftsMs": 3.8637,
+            "ClusteringMs": 19.2795,
+            "ClassificationMs": 0.7517,
+            "MovementMs": 0.9582
+          },
+          "classification_managed_bytes": 8711336,
+          "movement_managed_bytes": 61536,
+          "retained_removal_mask_bytes": 8699840,
+          "status": "different",
+          "clusters": 1,
+          "moved_clusters": 0,
+          "raw_pixels": 204,
+          "absorbed_groups": 0,
+          "max_shift_px": 0
+        },
+        {
+          "scenario": "1 か所変更＋全体 1px ずれ",
+          "strategy": "group_bounds",
+          "classification": true,
+          "movement": true,
+          "iterations": 5,
+          "total_ms": [
+            203.1364,
+            203.3081,
+            204.6932,
+            205.1865,
+            203.4171
+          ],
+          "median_ms": 203.4171,
+          "stages_at_median_ms": {
+            "PreparationMs": 133.1265,
+            "CandidatesMs": 23.5629,
+            "GroupingMs": 16.5045,
+            "ShiftsMs": 9.1427,
+            "ClusteringMs": 19.395799999999998,
+            "ClassificationMs": 0.7242,
+            "MovementMs": 0.9444
+          },
+          "classification_managed_bytes": 8711336,
+          "movement_managed_bytes": 61536,
+          "retained_removal_mask_bytes": 8699840,
+          "status": "different",
+          "clusters": 1,
+          "moved_clusters": 0,
+          "raw_pixels": 204,
+          "absorbed_groups": 599,
+          "max_shift_px": 1
+        }
+      ]
+    },
+    "optimized": {
+      "generated_at": "2026-09-21T17:32:52.515815+09:00",
+      "os": "macOS 26.5.1",
+      "architecture": "Arm64",
+      "dotnet_runtime": "10.0.12",
+      "cpu_count": 16,
+      "width": 2480,
+      "height": 3508,
+      "dpi": 300,
+      "glyphs": 600,
+      "validation_runs_per_scenario": 2,
+      "memory_note": "ClassificationManagedBytes / MovementManagedBytes は分類／移動注釈のスレッド別マネージド割当量。RetainedRemovalMaskBytes は保持するネイティブ削除マスクのみで、一時 Mat やプロセスのピークを含まない。",
+      "results_equal": true,
+      "measurements": [
+        {
+          "scenario": "完全一致",
+          "strategy": "group_bounds",
+          "classification": true,
+          "movement": true,
+          "iterations": 5,
+          "total_ms": [
+            6.457,
+            5.938,
+            5.1248,
+            5.1394,
+            4.9345
+          ],
+          "median_ms": 5.1394,
+          "stages_at_median_ms": {
+            "PreparationMs": 1.3071,
+            "CandidatesMs": 0,
+            "GroupingMs": 0,
+            "ShiftsMs": 0,
+            "ClusteringMs": 3.792,
+            "ClassificationMs": 0,
+            "MovementMs": 0
+          },
+          "classification_managed_bytes": 0,
+          "movement_managed_bytes": 0,
+          "retained_removal_mask_bytes": 0,
+          "status": "same",
+          "clusters": 0,
+          "moved_clusters": 0,
+          "raw_pixels": 0,
+          "absorbed_groups": 0,
+          "max_shift_px": 0
+        },
+        {
+          "scenario": "1 か所変更",
+          "strategy": "group_bounds",
+          "classification": true,
+          "movement": true,
+          "iterations": 5,
+          "total_ms": [
+            109.2554,
+            106.655,
+            111.2171,
+            108.3335,
+            111.6004
+          ],
+          "median_ms": 109.2554,
+          "stages_at_median_ms": {
+            "PreparationMs": 44.1184,
+            "CandidatesMs": 23.0031,
+            "GroupingMs": 16.5392,
+            "ShiftsMs": 4.091,
+            "ClusteringMs": 18.9927,
+            "ClassificationMs": 1.0961,
+            "MovementMs": 0.9585
+          },
+          "classification_managed_bytes": 8711336,
+          "movement_managed_bytes": 61536,
+          "retained_removal_mask_bytes": 8699840,
+          "status": "different",
+          "clusters": 1,
+          "moved_clusters": 0,
+          "raw_pixels": 204,
+          "absorbed_groups": 0,
+          "max_shift_px": 0
+        },
+        {
+          "scenario": "1 か所変更＋全体 1px ずれ",
+          "strategy": "group_bounds",
+          "classification": true,
+          "movement": true,
+          "iterations": 5,
+          "total_ms": [
+            115.6811,
+            114.9679,
+            119.5795,
+            114.0871,
+            112.2246
+          ],
+          "median_ms": 114.9679,
+          "stages_at_median_ms": {
+            "PreparationMs": 43.2986,
+            "CandidatesMs": 23.4896,
+            "GroupingMs": 16.4812,
+            "ShiftsMs": 11.0045,
+            "ClusteringMs": 18.983199999999997,
+            "ClassificationMs": 0.7192,
+            "MovementMs": 0.9689
+          },
+          "classification_managed_bytes": 8711336,
+          "movement_managed_bytes": 61536,
+          "retained_removal_mask_bytes": 8699840,
+          "status": "different",
+          "clusters": 1,
+          "moved_clusters": 0,
+          "raw_pixels": 204,
+          "absorbed_groups": 599,
+          "max_shift_px": 1
+        }
+      ]
+    }
+  },
+  "small_features": {
+    "baseline": [
+      {
+        "width": 32,
+        "height": 32,
+        "median_ms": 0.022,
+        "samples_ms": [
+          0.0305,
+          0.0262,
+          0.0257,
+          0.022,
+          0.0207,
+          0.0231,
+          0.0213,
+          0.0206,
+          0.0225,
+          0.022,
+          0.0208,
+          0.023,
+          0.021,
+          0.0202,
+          0.0218
+        ],
+        "valueHash": "026725F905899595E9E63A98C0AF7490A76FE78AF2790BAF71B1A2E2D235CD0C",
+        "contrastHash": "B360E67F019DCE2D22DD562D51D0FDA6812B7C5CC4AE0EC42B0C4A5575A2627F",
+        "inkHash": "7E8AEE4D693897E4FC10A5EB7A023F6A8F9FBC52BFA3D7BB5A1B70B2E29A9BF4"
+      },
+      {
+        "width": 512,
+        "height": 512,
+        "median_ms": 2.5755,
+        "samples_ms": [
+          2.3792,
+          2.4769,
+          2.5905,
+          2.5371,
+          2.6767,
+          2.5751,
+          2.5366,
+          2.5057,
+          2.6794,
+          2.6096,
+          2.4997,
+          2.619,
+          2.5925,
+          2.6252,
+          2.5755
+        ],
+        "valueHash": "F14AEDBE7F10A1A49A857D7B3211A6E424D7F0A438A738C4F9651789CA0E226A",
+        "contrastHash": "BE26EEF6995BC3DECA837A2ACBA3C25992C5954B549BAD79B10546DBC4594638",
+        "inkHash": "744E31E4AED1626CAF0EF7E1DC9C5CD9F450D6CC6B4447102FD6AAE68F153E63"
+      },
+      {
+        "width": 8000,
+        "height": 129,
+        "median_ms": 8.2392,
+        "samples_ms": [
+          7.847,
+          8.1484,
+          8.1714,
+          8.2392,
+          8.2497,
+          8.0496,
+          8.1655,
+          8.2676,
+          8.3445,
+          8.1934,
+          8.3624,
+          8.2669,
+          8.2609,
+          8.1855,
+          8.2418
+        ],
+        "valueHash": "6B9A2EBD51C9331734CC836ADA615D67B39A0B5B863A09FB433B8C8AAEC10A8B",
+        "contrastHash": "2BD8C1D2B471C0F7075C452D4E65374D806AAD535D8639EC648A1EA20E15E40D",
+        "inkHash": "FEB1079A9E78211C7C3FC53CEDA1A479CEA27BCFA7DD61F9A52DDF5AD2177D79"
+      }
+    ],
+    "serial-final": [
+      {
+        "width": 32,
+        "height": 32,
+        "median_ms": 0.0204,
+        "samples_ms": [
+          0.0274,
+          0.023,
+          0.0272,
+          0.0202,
+          0.0198,
+          0.0221,
+          0.0197,
+          0.0195,
+          0.0207,
+          0.0198,
+          0.0262,
+          0.0199,
+          0.021,
+          0.0204,
+          0.019
+        ],
+        "valueHash": "026725F905899595E9E63A98C0AF7490A76FE78AF2790BAF71B1A2E2D235CD0C",
+        "contrastHash": "B360E67F019DCE2D22DD562D51D0FDA6812B7C5CC4AE0EC42B0C4A5575A2627F",
+        "inkHash": "7E8AEE4D693897E4FC10A5EB7A023F6A8F9FBC52BFA3D7BB5A1B70B2E29A9BF4"
+      },
+      {
+        "width": 512,
+        "height": 512,
+        "median_ms": 2.4932,
+        "samples_ms": [
+          2.5048,
+          2.506,
+          2.4459,
+          2.4178,
+          2.4932,
+          2.4914,
+          2.4977,
+          2.5603,
+          2.4839,
+          2.4222,
+          2.4362,
+          2.5975,
+          2.4447,
+          2.4971,
+          2.5051
+        ],
+        "valueHash": "F14AEDBE7F10A1A49A857D7B3211A6E424D7F0A438A738C4F9651789CA0E226A",
+        "contrastHash": "BE26EEF6995BC3DECA837A2ACBA3C25992C5954B549BAD79B10546DBC4594638",
+        "inkHash": "744E31E4AED1626CAF0EF7E1DC9C5CD9F450D6CC6B4447102FD6AAE68F153E63"
+      },
+      {
+        "width": 8000,
+        "height": 129,
+        "median_ms": 7.848,
+        "samples_ms": [
+          7.5972,
+          7.9332,
+          7.5356,
+          7.8396,
+          7.941,
+          7.8164,
+          7.9475,
+          7.92,
+          7.7964,
+          7.9187,
+          7.848,
+          7.718,
+          7.883,
+          7.6202,
+          7.8738
+        ],
+        "valueHash": "6B9A2EBD51C9331734CC836ADA615D67B39A0B5B863A09FB433B8C8AAEC10A8B",
+        "contrastHash": "2BD8C1D2B471C0F7075C452D4E65374D806AAD535D8639EC648A1EA20E15E40D",
+        "inkHash": "FEB1079A9E78211C7C3FC53CEDA1A479CEA27BCFA7DD61F9A52DDF5AD2177D79"
+      }
+    ],
+    "optimized": [
+      {
+        "width": 32,
+        "height": 32,
+        "median_ms": 0.0224,
+        "samples_ms": [
+          0.0311,
+          0.0231,
+          0.0236,
+          0.0197,
+          0.0202,
+          0.0241,
+          0.0194,
+          0.0224,
+          0.0207,
+          0.0196,
+          0.0222,
+          0.0192,
+          0.0289,
+          0.0227,
+          0.0241
+        ],
+        "valueHash": "026725F905899595E9E63A98C0AF7490A76FE78AF2790BAF71B1A2E2D235CD0C",
+        "contrastHash": "B360E67F019DCE2D22DD562D51D0FDA6812B7C5CC4AE0EC42B0C4A5575A2627F",
+        "inkHash": "7E8AEE4D693897E4FC10A5EB7A023F6A8F9FBC52BFA3D7BB5A1B70B2E29A9BF4"
+      },
+      {
+        "width": 512,
+        "height": 512,
+        "median_ms": 2.4701,
+        "samples_ms": [
+          2.3815,
+          2.4097,
+          2.4918,
+          2.427,
+          2.4262,
+          2.4747,
+          2.4701,
+          2.3585,
+          2.4731,
+          2.4391,
+          2.5363,
+          2.5457,
+          2.4981,
+          2.4987,
+          2.4352
+        ],
+        "valueHash": "F14AEDBE7F10A1A49A857D7B3211A6E424D7F0A438A738C4F9651789CA0E226A",
+        "contrastHash": "BE26EEF6995BC3DECA837A2ACBA3C25992C5954B549BAD79B10546DBC4594638",
+        "inkHash": "744E31E4AED1626CAF0EF7E1DC9C5CD9F450D6CC6B4447102FD6AAE68F153E63"
+      },
+      {
+        "width": 8000,
+        "height": 129,
+        "median_ms": 7.7947,
+        "samples_ms": [
+          7.8574,
+          7.6145,
+          7.7365,
+          7.916,
+          8.0081,
+          7.8861,
+          7.887,
+          7.7672,
+          7.8936,
+          7.596,
+          7.628,
+          7.6593,
+          7.7341,
+          8.0293,
+          7.7947
+        ],
+        "valueHash": "6B9A2EBD51C9331734CC836ADA615D67B39A0B5B863A09FB433B8C8AAEC10A8B",
+        "contrastHash": "2BD8C1D2B471C0F7075C452D4E65374D806AAD535D8639EC648A1EA20E15E40D",
+        "inkHash": "FEB1079A9E78211C7C3FC53CEDA1A479CEA27BCFA7DD61F9A52DDF5AD2177D79"
+      }
+    ]
+  },
+  "runs": [
+    {
+      "name": "cli-final-300-baseline-0",
+      "variant": "baseline",
+      "warmup": true,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2d-features-20260921/cli-final-300-baseline-0",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 1559.102833038196,
+      "peak_rss_bytes": 1924513792,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-300-optimized-0",
+      "variant": "optimized",
+      "warmup": true,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2d-features-20260921/cli-final-300-optimized-0",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 1384.6607089508325,
+      "peak_rss_bytes": 1966391296,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-300-optimized-1",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2d-features-20260921/cli-final-300-optimized-1",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 1357.0372080430388,
+      "peak_rss_bytes": 1966292992,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-300-baseline-1",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2d-features-20260921/cli-final-300-baseline-1",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 1566.1642079940066,
+      "peak_rss_bytes": 1924087808,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-300-baseline-2",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2d-features-20260921/cli-final-300-baseline-2",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 1558.809750014916,
+      "peak_rss_bytes": 1923055616,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-300-optimized-2",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2d-features-20260921/cli-final-300-optimized-2",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 1358.286292059347,
+      "peak_rss_bytes": 1965719552,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-300-optimized-3",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2d-features-20260921/cli-final-300-optimized-3",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 1356.9082079920918,
+      "peak_rss_bytes": 1969930240,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-300-baseline-3",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2d-features-20260921/cli-final-300-baseline-3",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 1567.919958033599,
+      "peak_rss_bytes": 1926250496,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-400-baseline-0",
+      "variant": "baseline",
+      "warmup": true,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2d-features-20260921/cli-final-400-baseline-0",
+        "--dpi",
+        "400",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 2401.03349997662,
+      "peak_rss_bytes": 3502931968,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-400-optimized-0",
+      "variant": "optimized",
+      "warmup": true,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2d-features-20260921/cli-final-400-optimized-0",
+        "--dpi",
+        "400",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 2080.277750035748,
+      "peak_rss_bytes": 3506356224,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-400-optimized-1",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2d-features-20260921/cli-final-400-optimized-1",
+        "--dpi",
+        "400",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 2085.5177079793066,
+      "peak_rss_bytes": 3507109888,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-400-baseline-1",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2d-features-20260921/cli-final-400-baseline-1",
+        "--dpi",
+        "400",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 2415.2648330200464,
+      "peak_rss_bytes": 3499835392,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-400-baseline-2",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2d-features-20260921/cli-final-400-baseline-2",
+        "--dpi",
+        "400",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 2412.313707987778,
+      "peak_rss_bytes": 3497967616,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-400-optimized-2",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2d-features-20260921/cli-final-400-optimized-2",
+        "--dpi",
+        "400",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 2085.16499993857,
+      "peak_rss_bytes": 3506831360,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-400-optimized-3",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2d-features-20260921/cli-final-400-optimized-3",
+        "--dpi",
+        "400",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 2085.3433340089396,
+      "peak_rss_bytes": 3507535872,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli-final-400-baseline-3",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "--out",
+        "samples/private/perf2d-features-20260921/cli-final-400-baseline-3",
+        "--dpi",
+        "400",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 2394.8073339415714,
+      "peak_rss_bytes": 3496738816,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-baseline-0",
+      "variant": "baseline",
+      "warmup": true,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2d-features-20260921/cli4-final-300-baseline-0",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 4382.406834047288,
+      "peak_rss_bytes": 2110799872,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-optimized-0",
+      "variant": "optimized",
+      "warmup": true,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2d-features-20260921/cli4-final-300-optimized-0",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 3587.0676670456305,
+      "peak_rss_bytes": 2156347392,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-optimized-1",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2d-features-20260921/cli4-final-300-optimized-1",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 3600.2393750241026,
+      "peak_rss_bytes": 2050424832,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-baseline-1",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2d-features-20260921/cli4-final-300-baseline-1",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 4340.6584589974955,
+      "peak_rss_bytes": 2106900480,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-baseline-2",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2d-features-20260921/cli4-final-300-baseline-2",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 4341.755916946568,
+      "peak_rss_bytes": 2107932672,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-optimized-2",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2d-features-20260921/cli4-final-300-optimized-2",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 3574.482165975496,
+      "peak_rss_bytes": 2047098880,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-optimized-3",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2d-features-20260921/cli4-final-300-optimized-3",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 3606.3753330381587,
+      "peak_rss_bytes": 2153480192,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-baseline-3",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2d-features-20260921/cli4-final-300-baseline-3",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 4369.100749958307,
+      "peak_rss_bytes": 2109177856,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-baseline-4",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2d-features-20260921/cli4-final-300-baseline-4",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 4367.690916988067,
+      "peak_rss_bytes": 2013806592,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-optimized-4",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2d-features-20260921/cli4-final-300-optimized-4",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 3645.8834579680115,
+      "peak_rss_bytes": 2154741760,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-optimized-5",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2d-features-20260921/cli4-final-300-optimized-5",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 3627.433041925542,
+      "peak_rss_bytes": 2062647296,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-baseline-5",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2d-features-20260921/cli4-final-300-baseline-5",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 4444.760042009875,
+      "peak_rss_bytes": 2110947328,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-baseline-6",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2d-features-20260921/cli4-final-300-baseline-6",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 4365.362208918668,
+      "peak_rss_bytes": 2107736064,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-optimized-6",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2d-features-20260921/cli4-final-300-optimized-6",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 3605.9385830303654,
+      "peak_rss_bytes": 2151186432,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-optimized-7",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2d-features-20260921/cli4-final-300-optimized-7",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 3621.4497910114005,
+      "peak_rss_bytes": 2157740032,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli4-final-300-baseline-7",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf",
+        "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2d-features-20260921/cli4-final-300-baseline-7",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 4402.269000071101,
+      "peak_rss_bytes": 2109702144,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 696,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli20-final-300-baseline-0",
+      "variant": "baseline",
+      "warmup": true,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-original.pdf",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2d-features-20260921/cli20-final-300-baseline-0",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 19165.88025004603,
+      "peak_rss_bytes": 2219802624,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 3480,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli20-final-300-optimized-0",
+      "variant": "optimized",
+      "warmup": true,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-original.pdf",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2d-features-20260921/cli20-final-300-optimized-0",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 15505.213125026785,
+      "peak_rss_bytes": 2264924160,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 3480,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli20-final-300-optimized-1",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-original.pdf",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2d-features-20260921/cli20-final-300-optimized-1",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 15532.001166953705,
+      "peak_rss_bytes": 2267987968,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 3480,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli20-final-300-baseline-1",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-original.pdf",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2d-features-20260921/cli20-final-300-baseline-1",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 19189.58379200194,
+      "peak_rss_bytes": 2217197568,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 3480,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli20-final-300-baseline-2",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-original.pdf",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2d-features-20260921/cli20-final-300-baseline-2",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 19258.016792009585,
+      "peak_rss_bytes": 2217295872,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 3480,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli20-final-300-optimized-2",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-original.pdf",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2d-features-20260921/cli20-final-300-optimized-2",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 15554.315292043611,
+      "peak_rss_bytes": 2267545600,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 3480,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli20-final-300-optimized-3",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/optimized/reportdiff.dll",
+        "compare",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-original.pdf",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2d-features-20260921/cli20-final-300-optimized-3",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 15544.83720799908,
+      "peak_rss_bytes": 2261942272,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 3480,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "cli20-final-300-baseline-3",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/baseline/reportdiff.dll",
+        "compare",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-original.pdf",
+        "samples/private/perf2c-memory-20260921/inputs/twenty-pages-revised.pdf",
+        "--out",
+        "samples/private/perf2d-features-20260921/cli20-final-300-baseline-3",
+        "--dpi",
+        "300",
+        "--save-all-pages"
+      ],
+      "elapsed_ms": 19193.749084020965,
+      "peak_rss_bytes": 2217295872,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 3480,
+      "png_sha256_equal": true
+    },
+    {
+      "name": "probe-final-300-baseline-0",
+      "variant": "baseline",
+      "warmup": true,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/baseline/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2d-features-20260921/probe-final-300-baseline-0",
+        "normal",
+        "300"
+      ],
+      "elapsed_ms": 1546.5802910039201,
+      "peak_rss_bytes": 1923645440,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 386.1067,
+        "CandidatesMs": 48.3066,
+        "GroupingMs": 46.8484,
+        "ShiftsMs": 188.5022,
+        "GroupIndexMs": 14.3735,
+        "SearchGroups": 139,
+        "SearchRuns": 51966,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 67.8016,
+        "MovementManagedBytes": 2028840,
+        "ClassificationMs": 22.1987,
+        "ClassificationManagedBytes": 63550176,
+        "RetainedRemovalMaskBytes": 17399680,
+        "ClusteringMs": 69.8059
+      }
+    },
+    {
+      "name": "probe-final-300-serial-final-0",
+      "variant": "serial-final",
+      "warmup": true,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/serial-final/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2d-features-20260921/probe-final-300-serial-final-0",
+        "normal",
+        "300"
+      ],
+      "elapsed_ms": 2534.5618330175057,
+      "peak_rss_bytes": 1910669312,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 386.0491,
+        "FeatureWorkers": 1,
+        "FeatureWorkerTemporaryBytes": 27954560,
+        "CandidatesMs": 48.2722,
+        "GroupingMs": 42.636,
+        "ShiftsMs": 189.18,
+        "GroupIndexMs": 13.3601,
+        "SearchGroups": 139,
+        "SearchRuns": 51966,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 68.2945,
+        "MovementManagedBytes": 2028840,
+        "ClassificationMs": 20.3275,
+        "ClassificationManagedBytes": 63550176,
+        "RetainedRemovalMaskBytes": 17399680,
+        "ClusteringMs": 68.75609999999998
+      }
+    },
+    {
+      "name": "probe-final-300-optimized-0",
+      "variant": "optimized",
+      "warmup": true,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/optimized/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2d-features-20260921/probe-final-300-optimized-0",
+        "normal",
+        "300"
+      ],
+      "elapsed_ms": 2132.0487910415977,
+      "peak_rss_bytes": 1969848320,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 199.2375,
+        "FeatureWorkers": 3,
+        "FeatureWorkerTemporaryBytes": 27954560,
+        "CandidatesMs": 48.3244,
+        "GroupingMs": 45.0492,
+        "ShiftsMs": 189.9815,
+        "GroupIndexMs": 13.8456,
+        "SearchGroups": 139,
+        "SearchRuns": 51966,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 68.6349,
+        "MovementManagedBytes": 2028840,
+        "ClassificationMs": 22.2821,
+        "ClassificationManagedBytes": 63550176,
+        "RetainedRemovalMaskBytes": 17399680,
+        "ClusteringMs": 68.4181
+      }
+    },
+    {
+      "name": "probe-final-300-optimized-1",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/optimized/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2d-features-20260921/probe-final-300-optimized-1",
+        "normal",
+        "300"
+      ],
+      "elapsed_ms": 1344.9313340242952,
+      "peak_rss_bytes": 1970192384,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 195.1887,
+        "FeatureWorkers": 3,
+        "FeatureWorkerTemporaryBytes": 27954560,
+        "CandidatesMs": 49.3085,
+        "GroupingMs": 45.0327,
+        "ShiftsMs": 187.9845,
+        "GroupIndexMs": 14.6065,
+        "SearchGroups": 139,
+        "SearchRuns": 51966,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 67.9319,
+        "MovementManagedBytes": 2028840,
+        "ClassificationMs": 20.5433,
+        "ClassificationManagedBytes": 63550176,
+        "RetainedRemovalMaskBytes": 17399680,
+        "ClusteringMs": 67.9568
+      }
+    },
+    {
+      "name": "probe-final-300-serial-final-1",
+      "variant": "serial-final",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/serial-final/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2d-features-20260921/probe-final-300-serial-final-1",
+        "normal",
+        "300"
+      ],
+      "elapsed_ms": 1531.2764589907601,
+      "peak_rss_bytes": 1908768768,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 373.1617,
+        "FeatureWorkers": 1,
+        "FeatureWorkerTemporaryBytes": 27954560,
+        "CandidatesMs": 53.0752,
+        "GroupingMs": 46.405,
+        "ShiftsMs": 189.271,
+        "GroupIndexMs": 14.371,
+        "SearchGroups": 139,
+        "SearchRuns": 51966,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 68.1459,
+        "MovementManagedBytes": 2028840,
+        "ClassificationMs": 21.9846,
+        "ClassificationManagedBytes": 63550176,
+        "RetainedRemovalMaskBytes": 17399680,
+        "ClusteringMs": 68.19969999999999
+      }
+    },
+    {
+      "name": "probe-final-300-baseline-1",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/baseline/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2d-features-20260921/probe-final-300-baseline-1",
+        "normal",
+        "300"
+      ],
+      "elapsed_ms": 1542.8367499262094,
+      "peak_rss_bytes": 1924366336,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 384.6654,
+        "CandidatesMs": 51.1317,
+        "GroupingMs": 47.6316,
+        "ShiftsMs": 190.3096,
+        "GroupIndexMs": 14.5229,
+        "SearchGroups": 139,
+        "SearchRuns": 51966,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 68.3762,
+        "MovementManagedBytes": 2028840,
+        "ClassificationMs": 22.1827,
+        "ClassificationManagedBytes": 63550176,
+        "RetainedRemovalMaskBytes": 17399680,
+        "ClusteringMs": 68.7693
+      }
+    },
+    {
+      "name": "probe-final-300-baseline-2",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/baseline/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2d-features-20260921/probe-final-300-baseline-2",
+        "normal",
+        "300"
+      ],
+      "elapsed_ms": 1540.6625419855118,
+      "peak_rss_bytes": 1919959040,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 386.7511,
+        "CandidatesMs": 50.5431,
+        "GroupingMs": 44.5716,
+        "ShiftsMs": 187.9412,
+        "GroupIndexMs": 14.622,
+        "SearchGroups": 139,
+        "SearchRuns": 51966,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 68.5074,
+        "MovementManagedBytes": 2028840,
+        "ClassificationMs": 21.8885,
+        "ClassificationManagedBytes": 63550176,
+        "RetainedRemovalMaskBytes": 17399680,
+        "ClusteringMs": 68.9525
+      }
+    },
+    {
+      "name": "probe-final-300-serial-final-2",
+      "variant": "serial-final",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/serial-final/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2d-features-20260921/probe-final-300-serial-final-2",
+        "normal",
+        "300"
+      ],
+      "elapsed_ms": 1536.674041999504,
+      "peak_rss_bytes": 1908981760,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 377.1069,
+        "FeatureWorkers": 1,
+        "FeatureWorkerTemporaryBytes": 27954560,
+        "CandidatesMs": 48.0104,
+        "GroupingMs": 48.4693,
+        "ShiftsMs": 190.9641,
+        "GroupIndexMs": 14.4421,
+        "SearchGroups": 139,
+        "SearchRuns": 51966,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 68.0656,
+        "MovementManagedBytes": 2028840,
+        "ClassificationMs": 22.0943,
+        "ClassificationManagedBytes": 63550176,
+        "RetainedRemovalMaskBytes": 17399680,
+        "ClusteringMs": 68.4936
+      }
+    },
+    {
+      "name": "probe-final-300-optimized-2",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/optimized/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2d-features-20260921/probe-final-300-optimized-2",
+        "normal",
+        "300"
+      ],
+      "elapsed_ms": 1350.8592919679359,
+      "peak_rss_bytes": 1962950656,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 193.1457,
+        "FeatureWorkers": 3,
+        "FeatureWorkerTemporaryBytes": 27954560,
+        "CandidatesMs": 57.049,
+        "GroupingMs": 41.0413,
+        "ShiftsMs": 187.0112,
+        "GroupIndexMs": 13.6968,
+        "SearchGroups": 139,
+        "SearchRuns": 51966,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 67.282,
+        "MovementManagedBytes": 2028840,
+        "ClassificationMs": 20.6258,
+        "ClassificationManagedBytes": 63550176,
+        "RetainedRemovalMaskBytes": 17399680,
+        "ClusteringMs": 65.18599999999999
+      }
+    },
+    {
+      "name": "probe-final-300-optimized-3",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/optimized/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2d-features-20260921/probe-final-300-optimized-3",
+        "normal",
+        "300"
+      ],
+      "elapsed_ms": 1332.3700829641894,
+      "peak_rss_bytes": 1966571520,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 190.526,
+        "FeatureWorkers": 3,
+        "FeatureWorkerTemporaryBytes": 27954560,
+        "CandidatesMs": 48.8642,
+        "GroupingMs": 44.056,
+        "ShiftsMs": 187.6092,
+        "GroupIndexMs": 14.4905,
+        "SearchGroups": 139,
+        "SearchRuns": 51966,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 67.1964,
+        "MovementManagedBytes": 2028840,
+        "ClassificationMs": 20.8935,
+        "ClassificationManagedBytes": 63556368,
+        "RetainedRemovalMaskBytes": 17399680,
+        "ClusteringMs": 66.72130000000003
+      }
+    },
+    {
+      "name": "probe-final-300-serial-final-3",
+      "variant": "serial-final",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/serial-final/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2d-features-20260921/probe-final-300-serial-final-3",
+        "normal",
+        "300"
+      ],
+      "elapsed_ms": 1541.859208024107,
+      "peak_rss_bytes": 1904459776,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 375.7135,
+        "FeatureWorkers": 1,
+        "FeatureWorkerTemporaryBytes": 27954560,
+        "CandidatesMs": 47.858,
+        "GroupingMs": 46.5747,
+        "ShiftsMs": 191.4347,
+        "GroupIndexMs": 13.8312,
+        "SearchGroups": 139,
+        "SearchRuns": 51966,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 68.8463,
+        "MovementManagedBytes": 2028840,
+        "ClassificationMs": 22.6832,
+        "ClassificationManagedBytes": 63550176,
+        "RetainedRemovalMaskBytes": 17399680,
+        "ClusteringMs": 71.2325
+      }
+    },
+    {
+      "name": "probe-final-300-baseline-3",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/baseline/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2d-features-20260921/probe-final-300-baseline-3",
+        "normal",
+        "300"
+      ],
+      "elapsed_ms": 1544.4864169694483,
+      "peak_rss_bytes": 1920090112,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 174,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 386.318,
+        "CandidatesMs": 47.6501,
+        "GroupingMs": 48.3889,
+        "ShiftsMs": 191.657,
+        "GroupIndexMs": 13.5,
+        "SearchGroups": 139,
+        "SearchRuns": 51966,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 67.839,
+        "MovementManagedBytes": 2028840,
+        "ClassificationMs": 22.1466,
+        "ClassificationManagedBytes": 63550176,
+        "RetainedRemovalMaskBytes": 17399680,
+        "ClusteringMs": 68.4385
+      }
+    },
+    {
+      "name": "probe-final-400-baseline-0",
+      "variant": "baseline",
+      "warmup": true,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/baseline/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2d-features-20260921/probe-final-400-baseline-0",
+        "normal",
+        "400"
+      ],
+      "elapsed_ms": 2406.420916086063,
+      "peak_rss_bytes": 3498917888,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 721.8322,
+        "CandidatesMs": 89.6114,
+        "GroupingMs": 78.8463,
+        "ShiftsMs": 287.0128,
+        "GroupIndexMs": 24.41,
+        "SearchGroups": 197,
+        "SearchRuns": 76677,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 176.4641,
+        "MovementManagedBytes": 3413216,
+        "ClassificationMs": 33.3092,
+        "ClassificationManagedBytes": 112924992,
+        "RetainedRemovalMaskBytes": 30933678,
+        "ClusteringMs": 117.61280000000002
+      }
+    },
+    {
+      "name": "probe-final-400-serial-final-0",
+      "variant": "serial-final",
+      "warmup": true,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/serial-final/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2d-features-20260921/probe-final-400-serial-final-0",
+        "normal",
+        "400"
+      ],
+      "elapsed_ms": 2385.9757910249755,
+      "peak_rss_bytes": 3470770176,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 708.3297,
+        "FeatureWorkers": 1,
+        "FeatureWorkerTemporaryBytes": 39260704,
+        "CandidatesMs": 98.2005,
+        "GroupingMs": 76.1798,
+        "ShiftsMs": 288.8694,
+        "GroupIndexMs": 24.865,
+        "SearchGroups": 197,
+        "SearchRuns": 76677,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 177.1193,
+        "MovementManagedBytes": 3413216,
+        "ClassificationMs": 33.8692,
+        "ClassificationManagedBytes": 112924992,
+        "RetainedRemovalMaskBytes": 30933678,
+        "ClusteringMs": 113.9289
+      }
+    },
+    {
+      "name": "probe-final-400-optimized-0",
+      "variant": "optimized",
+      "warmup": true,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/optimized/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2d-features-20260921/probe-final-400-optimized-0",
+        "normal",
+        "400"
+      ],
+      "elapsed_ms": 2067.967375041917,
+      "peak_rss_bytes": 3505553408,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 410.1856,
+        "FeatureWorkers": 2,
+        "FeatureWorkerTemporaryBytes": 39260704,
+        "CandidatesMs": 86.24,
+        "GroupingMs": 71.0361,
+        "ShiftsMs": 289.3698,
+        "GroupIndexMs": 24.7049,
+        "SearchGroups": 197,
+        "SearchRuns": 76677,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 179.305,
+        "MovementManagedBytes": 3413216,
+        "ClassificationMs": 35.3733,
+        "ClassificationManagedBytes": 112924992,
+        "RetainedRemovalMaskBytes": 30933678,
+        "ClusteringMs": 115.23160000000001
+      }
+    },
+    {
+      "name": "probe-final-400-optimized-1",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/optimized/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2d-features-20260921/probe-final-400-optimized-1",
+        "normal",
+        "400"
+      ],
+      "elapsed_ms": 2074.535666964948,
+      "peak_rss_bytes": 3507093504,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 410.2835,
+        "FeatureWorkers": 2,
+        "FeatureWorkerTemporaryBytes": 39260704,
+        "CandidatesMs": 84.5962,
+        "GroupingMs": 71.4504,
+        "ShiftsMs": 285.0057,
+        "GroupIndexMs": 24.1871,
+        "SearchGroups": 197,
+        "SearchRuns": 76677,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 178.9491,
+        "MovementManagedBytes": 3413216,
+        "ClassificationMs": 34.7115,
+        "ClassificationManagedBytes": 112924992,
+        "RetainedRemovalMaskBytes": 30933678,
+        "ClusteringMs": 116.6533
+      }
+    },
+    {
+      "name": "probe-final-400-serial-final-1",
+      "variant": "serial-final",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/serial-final/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2d-features-20260921/probe-final-400-serial-final-1",
+        "normal",
+        "400"
+      ],
+      "elapsed_ms": 2379.546415992081,
+      "peak_rss_bytes": 3469197312,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 713.4916,
+        "FeatureWorkers": 1,
+        "FeatureWorkerTemporaryBytes": 39260704,
+        "CandidatesMs": 86.2112,
+        "GroupingMs": 79.0707,
+        "ShiftsMs": 284.1455,
+        "GroupIndexMs": 23.6738,
+        "SearchGroups": 197,
+        "SearchRuns": 76677,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 178.3018,
+        "MovementManagedBytes": 3413216,
+        "ClassificationMs": 33.4204,
+        "ClassificationManagedBytes": 112924992,
+        "RetainedRemovalMaskBytes": 30933678,
+        "ClusteringMs": 117.7698
+      }
+    },
+    {
+      "name": "probe-final-400-baseline-1",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/baseline/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2d-features-20260921/probe-final-400-baseline-1",
+        "normal",
+        "400"
+      ],
+      "elapsed_ms": 2427.1743340650573,
+      "peak_rss_bytes": 3501015040,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 730.9815,
+        "CandidatesMs": 85.1715,
+        "GroupingMs": 80.8053,
+        "ShiftsMs": 291.027,
+        "GroupIndexMs": 24.5708,
+        "SearchGroups": 197,
+        "SearchRuns": 76677,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 178.7785,
+        "MovementManagedBytes": 3413216,
+        "ClassificationMs": 33.1503,
+        "ClassificationManagedBytes": 112924992,
+        "RetainedRemovalMaskBytes": 30933678,
+        "ClusteringMs": 116.08959999999996
+      }
+    },
+    {
+      "name": "probe-final-400-baseline-2",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/baseline/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2d-features-20260921/probe-final-400-baseline-2",
+        "normal",
+        "400"
+      ],
+      "elapsed_ms": 2413.2672919658944,
+      "peak_rss_bytes": 3494543360,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 733.4134,
+        "CandidatesMs": 88.0463,
+        "GroupingMs": 82.316,
+        "ShiftsMs": 290.6361,
+        "GroupIndexMs": 24.3545,
+        "SearchGroups": 197,
+        "SearchRuns": 76677,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 177.2122,
+        "MovementManagedBytes": 3413216,
+        "ClassificationMs": 33.2734,
+        "ClassificationManagedBytes": 112924992,
+        "RetainedRemovalMaskBytes": 30933678,
+        "ClusteringMs": 113.33090000000004
+      }
+    },
+    {
+      "name": "probe-final-400-serial-final-2",
+      "variant": "serial-final",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/serial-final/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2d-features-20260921/probe-final-400-serial-final-2",
+        "normal",
+        "400"
+      ],
+      "elapsed_ms": 2398.61904096324,
+      "peak_rss_bytes": 3470311424,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 715.3185,
+        "FeatureWorkers": 1,
+        "FeatureWorkerTemporaryBytes": 39260704,
+        "CandidatesMs": 87.3788,
+        "GroupingMs": 82.0732,
+        "ShiftsMs": 285.536,
+        "GroupIndexMs": 23.8219,
+        "SearchGroups": 197,
+        "SearchRuns": 76677,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 179.5582,
+        "MovementManagedBytes": 3413216,
+        "ClassificationMs": 33.4447,
+        "ClassificationManagedBytes": 112924992,
+        "RetainedRemovalMaskBytes": 30933678,
+        "ClusteringMs": 114.30079999999998
+      }
+    },
+    {
+      "name": "probe-final-400-optimized-2",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/optimized/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2d-features-20260921/probe-final-400-optimized-2",
+        "normal",
+        "400"
+      ],
+      "elapsed_ms": 2094.7659589583054,
+      "peak_rss_bytes": 3506569216,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 411.9396,
+        "FeatureWorkers": 2,
+        "FeatureWorkerTemporaryBytes": 39260704,
+        "CandidatesMs": 94.349,
+        "GroupingMs": 69.3765,
+        "ShiftsMs": 291.8905,
+        "GroupIndexMs": 24.7564,
+        "SearchGroups": 197,
+        "SearchRuns": 76677,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 187.5461,
+        "MovementManagedBytes": 3413216,
+        "ClassificationMs": 35.3476,
+        "ClassificationManagedBytes": 112924992,
+        "RetainedRemovalMaskBytes": 30933678,
+        "ClusteringMs": 117.0284
+      }
+    },
+    {
+      "name": "probe-final-400-optimized-3",
+      "variant": "optimized",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/optimized/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2d-features-20260921/probe-final-400-optimized-3",
+        "normal",
+        "400"
+      ],
+      "elapsed_ms": 2094.1856659483165,
+      "peak_rss_bytes": 3507519488,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 413.7037,
+        "FeatureWorkers": 2,
+        "FeatureWorkerTemporaryBytes": 39260704,
+        "CandidatesMs": 86.4638,
+        "GroupingMs": 73.612,
+        "ShiftsMs": 290.2324,
+        "GroupIndexMs": 24.3463,
+        "SearchGroups": 197,
+        "SearchRuns": 76677,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 179.9147,
+        "MovementManagedBytes": 3413216,
+        "ClassificationMs": 35.9547,
+        "ClassificationManagedBytes": 112931184,
+        "RetainedRemovalMaskBytes": 30933678,
+        "ClusteringMs": 121.47040000000001
+      }
+    },
+    {
+      "name": "probe-final-400-serial-final-3",
+      "variant": "serial-final",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/serial-final/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2d-features-20260921/probe-final-400-serial-final-3",
+        "normal",
+        "400"
+      ],
+      "elapsed_ms": 2382.2889589937404,
+      "peak_rss_bytes": 3469688832,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 713.475,
+        "FeatureWorkers": 1,
+        "FeatureWorkerTemporaryBytes": 39260704,
+        "CandidatesMs": 86.2221,
+        "GroupingMs": 78.312,
+        "ShiftsMs": 289.334,
+        "GroupIndexMs": 24.7089,
+        "SearchGroups": 197,
+        "SearchRuns": 76677,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 178.2652,
+        "MovementManagedBytes": 3413216,
+        "ClassificationMs": 33.6219,
+        "ClassificationManagedBytes": 112924992,
+        "RetainedRemovalMaskBytes": 30933678,
+        "ClusteringMs": 116.70410000000004
+      }
+    },
+    {
+      "name": "probe-final-400-baseline-3",
+      "variant": "baseline",
+      "warmup": false,
+      "command": [
+        "dotnet",
+        "out/perf2d-features/binaries/baseline/ReportDiff.Tests.dll",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf",
+        "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf",
+        "samples/private/perf2d-features-20260921/probe-final-400-baseline-3",
+        "normal",
+        "400"
+      ],
+      "elapsed_ms": 2413.774542044848,
+      "peak_rss_bytes": 3502342144,
+      "json_equal": {
+        "schema_version": true,
+        "tool": true,
+        "inputs": true,
+        "config": true,
+        "summary": true,
+        "warnings": true,
+        "pages": true
+      },
+      "png_count": 171,
+      "png_sha256_equal": true,
+      "timings": {
+        "PreparationMs": 729.769,
+        "CandidatesMs": 88.8895,
+        "GroupingMs": 82.2293,
+        "ShiftsMs": 288.4116,
+        "GroupIndexMs": 23.4105,
+        "SearchGroups": 197,
+        "SearchRuns": 76677,
+        "SearchWorkers": 4,
+        "UsedRectangleSearch": false,
+        "MovementMs": 179.2597,
+        "MovementManagedBytes": 3413216,
+        "ClassificationMs": 34.0666,
+        "ClassificationManagedBytes": 112924992,
+        "RetainedRemovalMaskBytes": 30933678,
+        "ClusteringMs": 113.12619999999998
+      }
+    }
+  ],
+  "exploratory_trials": {
+    "probe-trial-300": {
+      "baseline": {
+        "elapsed_ms": 1591.8045215657912,
+        "peak_rss_bytes": 1924464640.0,
+        "timings": {
+          "PreparationMs": 398.86789999999996,
+          "CandidatesMs": 50.34155,
+          "GroupingMs": 46.5456,
+          "ShiftsMs": 195.68425,
+          "GroupIndexMs": 14.15385,
+          "SearchGroups": 139.0,
+          "SearchRuns": 51966.0,
+          "SearchWorkers": 4.0,
+          "UsedRectangleSearch": 0.0,
+          "MovementMs": 70.5824,
+          "MovementManagedBytes": 2028840.0,
+          "ClassificationMs": 22.1601,
+          "ClassificationManagedBytes": 63550176.0,
+          "RetainedRemovalMaskBytes": 17399680.0,
+          "ClusteringMs": 68.87200000000001
+        },
+        "stages_ms": {
+          "start": 0.4839,
+          "open": 177.09235,
+          "render-a": 29.512749999999997,
+          "render-b": 13.017650000000003,
+          "normalize": 4.566649999999996,
+          "compare": 855.9439500000001,
+          "text": 199.3356,
+          "images": 232.31955000000005,
+          "fonts": 4.355449999999905,
+          "json": 21.523000000000025,
+          "html": 4.539850000000001
+        }
+      },
+      "serial": {
+        "elapsed_ms": 1591.570604534354,
+        "peak_rss_bytes": 1924210688.0,
+        "timings": {
+          "PreparationMs": 400.2158,
+          "FeatureWorkers": 1.0,
+          "FeatureWorkerTemporaryBytes": 43905920.0,
+          "CandidatesMs": 50.289699999999996,
+          "GroupingMs": 45.88035,
+          "ShiftsMs": 198.67419999999998,
+          "GroupIndexMs": 14.10685,
+          "SearchGroups": 139.0,
+          "SearchRuns": 51966.0,
+          "SearchWorkers": 4.0,
+          "UsedRectangleSearch": 0.0,
+          "MovementMs": 70.05930000000001,
+          "MovementManagedBytes": 2028840.0,
+          "ClassificationMs": 21.1958,
+          "ClassificationManagedBytes": 63553272.0,
+          "RetainedRemovalMaskBytes": 17399680.0,
+          "ClusteringMs": 68.61710000000002
+        },
+        "stages_ms": {
+          "start": 0.48960000000000004,
+          "open": 179.87525,
+          "render-a": 29.23684999999999,
+          "render-b": 13.034150000000011,
+          "normalize": 4.618049999999997,
+          "compare": 857.8682999999999,
+          "text": 197.89145000000008,
+          "images": 227.57640000000004,
+          "fonts": 4.548149999999964,
+          "json": 21.71785,
+          "html": 4.7047000000000025
+        }
+      },
+      "two": {
+        "elapsed_ms": 1422.334270493593,
+        "peak_rss_bytes": 1970954240.0,
+        "timings": {
+          "PreparationMs": 245.89475,
+          "FeatureWorkers": 2.0,
+          "FeatureWorkerTemporaryBytes": 43905920.0,
+          "CandidatesMs": 49.52345,
+          "GroupingMs": 45.32115,
+          "ShiftsMs": 189.97995,
+          "GroupIndexMs": 14.2096,
+          "SearchGroups": 139.0,
+          "SearchRuns": 51966.0,
+          "SearchWorkers": 4.0,
+          "UsedRectangleSearch": 0.0,
+          "MovementMs": 70.1774,
+          "MovementManagedBytes": 2028840.0,
+          "ClassificationMs": 20.5222,
+          "ClassificationManagedBytes": 63550176.0,
+          "RetainedRemovalMaskBytes": 17399680.0,
+          "ClusteringMs": 67.5481
+        },
+        "stages_ms": {
+          "start": 0.4949,
+          "open": 175.26254999999998,
+          "render-a": 29.4936,
+          "render-b": 12.841300000000018,
+          "normalize": 4.807999999999993,
+          "compare": 692.0791,
+          "text": 198.57115,
+          "images": 228.12919999999997,
+          "fonts": 4.400949999999966,
+          "json": 21.107650000000035,
+          "html": 4.863350000000082
+        }
+      },
+      "auto": {
+        "elapsed_ms": 1380.3247915348038,
+        "peak_rss_bytes": 2012422144.0,
+        "timings": {
+          "PreparationMs": 198.6148,
+          "FeatureWorkers": 3.0,
+          "FeatureWorkerTemporaryBytes": 43905920.0,
+          "CandidatesMs": 50.843900000000005,
+          "GroupingMs": 44.48675,
+          "ShiftsMs": 194.58935,
+          "GroupIndexMs": 14.1158,
+          "SearchGroups": 139.0,
+          "SearchRuns": 51966.0,
+          "SearchWorkers": 4.0,
+          "UsedRectangleSearch": 0.0,
+          "MovementMs": 70.96074999999999,
+          "MovementManagedBytes": 2028840.0,
+          "ClassificationMs": 20.90245,
+          "ClassificationManagedBytes": 63550176.0,
+          "RetainedRemovalMaskBytes": 17399680.0,
+          "ClusteringMs": 68.27904999999998
+        },
+        "stages_ms": {
+          "start": 0.49385,
+          "open": 175.24200000000002,
+          "render-a": 29.405350000000013,
+          "render-b": 13.192549999999983,
+          "normalize": 4.557950000000005,
+          "compare": 651.83215,
+          "text": 198.69509999999997,
+          "images": 226.61145,
+          "fonts": 4.39224999999999,
+          "json": 21.13995,
+          "html": 4.734350000000063
+        }
+      },
+      "four": {
+        "elapsed_ms": 1357.619458460249,
+        "peak_rss_bytes": 2069168128.0,
+        "timings": {
+          "PreparationMs": 176.3537,
+          "FeatureWorkers": 4.0,
+          "FeatureWorkerTemporaryBytes": 43905920.0,
+          "CandidatesMs": 49.90265,
+          "GroupingMs": 44.18715,
+          "ShiftsMs": 194.73945,
+          "GroupIndexMs": 14.0764,
+          "SearchGroups": 139.0,
+          "SearchRuns": 51966.0,
+          "SearchWorkers": 4.0,
+          "UsedRectangleSearch": 0.0,
+          "MovementMs": 70.70660000000001,
+          "MovementManagedBytes": 2028840.0,
+          "ClassificationMs": 21.11965,
+          "ClassificationManagedBytes": 63550176.0,
+          "RetainedRemovalMaskBytes": 17399680.0,
+          "ClusteringMs": 68.44990000000001
+        },
+        "stages_ms": {
+          "start": 0.45765,
+          "open": 174.49185,
+          "render-a": 29.0629,
+          "render-b": 13.249300000000005,
+          "normalize": 4.396100000000004,
+          "compare": 628.5046,
+          "text": 195.44394999999992,
+          "images": 229.7301000000001,
+          "fonts": 4.531549999999925,
+          "json": 21.372250000000122,
+          "html": 4.972899999999868
+        }
+      }
+    },
+    "cli4-trial-300": {
+      "baseline": {
+        "elapsed_ms": 4411.396583018359,
+        "peak_rss_bytes": 2058108928.0
+      },
+      "two": {
+        "elapsed_ms": 3829.1525000240654,
+        "peak_rss_bytes": 2112110592.0
+      },
+      "auto": {
+        "elapsed_ms": 3673.0112290242687,
+        "peak_rss_bytes": 2202451968.0
+      },
+      "four": {
+        "elapsed_ms": 3594.096583488863,
+        "peak_rss_bytes": 2248531968.0
+      }
+    },
+    "probe-direct-300": {
+      "baseline": {
+        "elapsed_ms": 1560.3051244979724,
+        "peak_rss_bytes": 1924980736.0,
+        "timings": {
+          "PreparationMs": 387.0045,
+          "CandidatesMs": 53.84865,
+          "GroupingMs": 46.4814,
+          "ShiftsMs": 189.5869,
+          "GroupIndexMs": 14.28185,
+          "SearchGroups": 139.0,
+          "SearchRuns": 51966.0,
+          "SearchWorkers": 4.0,
+          "UsedRectangleSearch": 0.0,
+          "MovementMs": 69.0972,
+          "MovementManagedBytes": 2028840.0,
+          "ClassificationMs": 22.615000000000002,
+          "ClassificationManagedBytes": 63550176.0,
+          "RetainedRemovalMaskBytes": 17399680.0,
+          "ClusteringMs": 69.58715000000001
+        },
+        "stages_ms": {
+          "start": 0.49244999999999994,
+          "open": 171.58159999999998,
+          "render-a": 28.765200000000007,
+          "render-b": 12.477799999999988,
+          "normalize": 4.526500000000013,
+          "compare": 841.1503500000001,
+          "text": 199.3155999999999,
+          "images": 222.5743500000001,
+          "fonts": 4.4705000000000155,
+          "json": 21.245499999999993,
+          "html": 4.755149999999958
+        }
+      },
+      "auto": {
+        "elapsed_ms": 1354.115187539719,
+        "peak_rss_bytes": 2013282304.0,
+        "timings": {
+          "PreparationMs": 200.4904,
+          "FeatureWorkers": 3.0,
+          "FeatureWorkerTemporaryBytes": 43905920.0,
+          "CandidatesMs": 49.47345,
+          "GroupingMs": 43.69635,
+          "ShiftsMs": 189.85465,
+          "GroupIndexMs": 13.9487,
+          "SearchGroups": 139.0,
+          "SearchRuns": 51966.0,
+          "SearchWorkers": 4.0,
+          "UsedRectangleSearch": 0.0,
+          "MovementMs": 68.3115,
+          "MovementManagedBytes": 2028840.0,
+          "ClassificationMs": 20.83615,
+          "ClassificationManagedBytes": 63550176.0,
+          "RetainedRemovalMaskBytes": 17399680.0,
+          "ClusteringMs": 69.2149
+        },
+        "stages_ms": {
+          "start": 0.4585,
+          "open": 169.83025,
+          "render-a": 28.270399999999995,
+          "render-b": 12.925049999999999,
+          "normalize": 4.5769499999999965,
+          "compare": 644.97695,
+          "text": 191.48125000000005,
+          "images": 222.80174999999997,
+          "fonts": 4.5131999999999834,
+          "json": 20.77374999999995,
+          "html": 4.616200000000049
+        }
+      },
+      "direct": {
+        "elapsed_ms": 1347.9670204687864,
+        "peak_rss_bytes": 1980661760.0,
+        "timings": {
+          "PreparationMs": 193.96105,
+          "FeatureWorkers": 3.0,
+          "FeatureWorkerTemporaryBytes": 35573120.0,
+          "CandidatesMs": 51.8506,
+          "GroupingMs": 43.2247,
+          "ShiftsMs": 187.65789999999998,
+          "GroupIndexMs": 13.8951,
+          "SearchGroups": 139.0,
+          "SearchRuns": 51966.0,
+          "SearchWorkers": 4.0,
+          "UsedRectangleSearch": 0.0,
+          "MovementMs": 68.4915,
+          "MovementManagedBytes": 2031936.0,
+          "ClassificationMs": 20.7393,
+          "ClassificationManagedBytes": 63553272.0,
+          "RetainedRemovalMaskBytes": 17399680.0,
+          "ClusteringMs": 66.2207
+        },
+        "stages_ms": {
+          "start": 0.5002,
+          "open": 171.95749999999998,
+          "render-a": 28.652950000000004,
+          "render-b": 12.912099999999995,
+          "normalize": 4.186799999999991,
+          "compare": 635.10185,
+          "text": 194.09165000000002,
+          "images": 222.18129999999996,
+          "fonts": 4.187400000000025,
+          "json": 19.66770000000008,
+          "html": 4.675499999999943
+        }
+      }
+    },
+    "cli4-direct-300": {
+      "baseline": {
+        "elapsed_ms": 4289.597354014404,
+        "peak_rss_bytes": 2060042240.0
+      },
+      "auto": {
+        "elapsed_ms": 3601.989896502346,
+        "peak_rss_bytes": 2097315840.0
+      },
+      "direct": {
+        "elapsed_ms": 3577.929020510055,
+        "peak_rss_bytes": 2168709120.0
+      }
+    },
+    "probe-compact-300": {
+      "baseline": {
+        "elapsed_ms": 1537.8908334532753,
+        "peak_rss_bytes": 1921884160.0,
+        "timings": {
+          "PreparationMs": 383.3194,
+          "CandidatesMs": 49.034099999999995,
+          "GroupingMs": 48.162000000000006,
+          "ShiftsMs": 188.0505,
+          "GroupIndexMs": 13.778949999999998,
+          "SearchGroups": 139.0,
+          "SearchRuns": 51966.0,
+          "SearchWorkers": 4.0,
+          "UsedRectangleSearch": 0.0,
+          "MovementMs": 67.9893,
+          "MovementManagedBytes": 2028840.0,
+          "ClassificationMs": 21.9178,
+          "ClassificationManagedBytes": 63550176.0,
+          "RetainedRemovalMaskBytes": 17399680.0,
+          "ClusteringMs": 68.16615
+        },
+        "stages_ms": {
+          "start": 0.52155,
+          "open": 169.6356,
+          "render-a": 27.59984999999999,
+          "render-b": 12.991800000000012,
+          "normalize": 4.323899999999995,
+          "compare": 829.4490499999999,
+          "text": 193.50649999999996,
+          "images": 221.23384999999996,
+          "fonts": 4.1161500000000615,
+          "json": 20.819149999999922,
+          "html": 4.619350000000168
+        }
+      },
+      "compact96": {
+        "elapsed_ms": 1339.6029580035247,
+        "peak_rss_bytes": 1968807936.0,
+        "timings": {
+          "PreparationMs": 191.24145,
+          "FeatureWorkers": 3.0,
+          "FeatureWorkerTemporaryBytes": 27954560.0,
+          "CandidatesMs": 49.8321,
+          "GroupingMs": 42.86705,
+          "ShiftsMs": 186.41154999999998,
+          "GroupIndexMs": 13.85225,
+          "SearchGroups": 139.0,
+          "SearchRuns": 51966.0,
+          "SearchWorkers": 4.0,
+          "UsedRectangleSearch": 0.0,
+          "MovementMs": 68.2236,
+          "MovementManagedBytes": 2028840.0,
+          "ClassificationMs": 20.9465,
+          "ClassificationManagedBytes": 63553272.0,
+          "RetainedRemovalMaskBytes": 17399680.0,
+          "ClusteringMs": 66.81015
+        },
+        "stages_ms": {
+          "start": 0.5579999999999999,
+          "open": 169.66335,
+          "render-a": 30.2209,
+          "render-b": 13.528249999999986,
+          "normalize": 4.4620000000000175,
+          "compare": 629.3289,
+          "text": 191.09119999999996,
+          "images": 222.2486,
+          "fonts": 4.085900000000038,
+          "json": 20.446600000000103,
+          "html": 4.48359999999991
+        }
+      },
+      "compact": {
+        "elapsed_ms": 1308.4237709990703,
+        "peak_rss_bytes": 2012225536.0,
+        "timings": {
+          "PreparationMs": 170.90605,
+          "FeatureWorkers": 4.0,
+          "FeatureWorkerTemporaryBytes": 27954560.0,
+          "CandidatesMs": 48.8353,
+          "GroupingMs": 42.9798,
+          "ShiftsMs": 185.31385,
+          "GroupIndexMs": 14.126249999999999,
+          "SearchGroups": 139.0,
+          "SearchRuns": 51966.0,
+          "SearchWorkers": 4.0,
+          "UsedRectangleSearch": 0.0,
+          "MovementMs": 67.2371,
+          "MovementManagedBytes": 2028840.0,
+          "ClassificationMs": 20.80755,
+          "ClassificationManagedBytes": 63550176.0,
+          "RetainedRemovalMaskBytes": 17399680.0,
+          "ClusteringMs": 65.09844999999999
+        },
+        "stages_ms": {
+          "start": 0.49670000000000003,
+          "open": 169.37575,
+          "render-a": 28.343250000000012,
+          "render-b": 12.743249999999989,
+          "normalize": 4.4166000000000025,
+          "compare": 604.1855,
+          "text": 190.23555,
+          "images": 220.65249999999992,
+          "fonts": 4.237650000000144,
+          "json": 19.805549999999926,
+          "html": 4.43464999999992
+        }
+      }
+    },
+    "probe-compact-400": {
+      "baseline": {
+        "elapsed_ms": 2374.4739795220084,
+        "peak_rss_bytes": 3496919040.0,
+        "timings": {
+          "PreparationMs": 727.8987500000001,
+          "CandidatesMs": 84.02305000000001,
+          "GroupingMs": 78.03174999999999,
+          "ShiftsMs": 283.50825,
+          "GroupIndexMs": 23.42585,
+          "SearchGroups": 197.0,
+          "SearchRuns": 76677.0,
+          "SearchWorkers": 4.0,
+          "UsedRectangleSearch": 0.0,
+          "MovementMs": 176.5315,
+          "MovementManagedBytes": 3413216.0,
+          "ClassificationMs": 33.3982,
+          "ClassificationManagedBytes": 112924992.0,
+          "RetainedRemovalMaskBytes": 30933678.0,
+          "ClusteringMs": 114.13495
+        },
+        "stages_ms": {
+          "start": 0.52915,
+          "open": 171.58960000000002,
+          "render-a": 36.669499999999985,
+          "render-b": 19.000800000000012,
+          "normalize": 7.038249999999991,
+          "compare": 1500.53845,
+          "text": 193.18945000000008,
+          "images": 359.7363,
+          "fonts": 2.7196500000000015,
+          "json": 19.75624999999991,
+          "html": 5.813800000000128
+        }
+      },
+      "compact96": {
+        "elapsed_ms": 2061.9287915178575,
+        "peak_rss_bytes": 3509084160.0,
+        "timings": {
+          "PreparationMs": 409.1622,
+          "FeatureWorkers": 2.0,
+          "FeatureWorkerTemporaryBytes": 39260704.0,
+          "CandidatesMs": 88.69810000000001,
+          "GroupingMs": 71.5043,
+          "ShiftsMs": 285.469,
+          "GroupIndexMs": 23.7287,
+          "SearchGroups": 197.0,
+          "SearchRuns": 76677.0,
+          "SearchWorkers": 4.0,
+          "UsedRectangleSearch": 0.0,
+          "MovementMs": 178.8834,
+          "MovementManagedBytes": 3413216.0,
+          "ClassificationMs": 35.2628,
+          "ClassificationManagedBytes": 112924992.0,
+          "RetainedRemovalMaskBytes": 30933678.0,
+          "ClusteringMs": 117.9423
+        },
+        "stages_ms": {
+          "start": 0.4575,
+          "open": 171.8564,
+          "render-a": 35.98334999999999,
+          "render-b": 19.043850000000006,
+          "normalize": 7.065749999999994,
+          "compare": 1190.0047,
+          "text": 192.55665,
+          "images": 358.9463999999999,
+          "fonts": 2.518000000000029,
+          "json": 19.930200000000013,
+          "html": 7.282800000000066
+        }
+      },
+      "compact": {
+        "elapsed_ms": 1964.518062013667,
+        "peak_rss_bytes": 3553075200.0,
+        "timings": {
+          "PreparationMs": 311.2595,
+          "FeatureWorkers": 3.0,
+          "FeatureWorkerTemporaryBytes": 39260704.0,
+          "CandidatesMs": 84.5084,
+          "GroupingMs": 72.33105,
+          "ShiftsMs": 282.40335,
+          "GroupIndexMs": 23.454549999999998,
+          "SearchGroups": 197.0,
+          "SearchRuns": 76677.0,
+          "SearchWorkers": 4.0,
+          "UsedRectangleSearch": 0.0,
+          "MovementMs": 177.5293,
+          "MovementManagedBytes": 3416312.0,
+          "ClassificationMs": 33.82315,
+          "ClassificationManagedBytes": 112924992.0,
+          "RetainedRemovalMaskBytes": 30933678.0,
+          "ClusteringMs": 114.86814999999999
+        },
+        "stages_ms": {
+          "start": 0.44495,
+          "open": 172.62515,
+          "render-a": 37.36580000000001,
+          "render-b": 19.830849999999998,
+          "normalize": 7.124949999999998,
+          "compare": 1079.77,
+          "text": 194.85969999999998,
+          "images": 364.95495000000005,
+          "fonts": 2.526299999999992,
+          "json": 20.15650000000005,
+          "html": 7.3128999999999
+        }
+      }
+    },
+    "cli4-compact-300": {
+      "baseline": {
+        "elapsed_ms": 4385.629374999553,
+        "peak_rss_bytes": 2110488576.0
+      },
+      "compact96": {
+        "elapsed_ms": 3637.9955205484293,
+        "peak_rss_bytes": 2154512384.0
+      },
+      "compact": {
+        "elapsed_ms": 3524.7560625430197,
+        "peak_rss_bytes": 2194579456.0
+      }
+    }
+  },
+  "source_sha256": {
+    "src/ReportDiff.Core/ComparisonFeatures.cs": "da5f2334fabdbe1f5769320f916eeeff8ee4a5ba3989961a474a5c882626c20a",
+    "src/ReportDiff.Core/FeatureStripeSchedule.cs": "0a1ab72ff650eac917756296a5b4848dc30e66cb7326f32c60d4407cc85d8594",
+    "src/ReportDiff.Core/ComparisonTimings.cs": "f9cc34ccd336658870826f2090c858b57ba6dc955c74f578b5b6836441a618d1",
+    "src/ReportDiff.Core/TolerantDifference.cs": "6139523e734618559dbcb32ae0eb8246fcbe5198e2b1b3cd71a515d600fa3b6b",
+    "tests/ReportDiff.Tests/FeatureParallelTests.cs": "3766aca4a44c1ea6a2b11cc63fc48f9793144f6186c46fc19010ec9bbccb38ef"
+  },
+  "input_sha256": {
+    "samples/private/public-evaluation-20260921/inputs/ise-schedule-original.pdf": "0b30618efa2b809b7b3c483ca69d594f3e6ba2b5d54589a17489a3cfbe5c5e57",
+    "samples/private/public-evaluation-20260921/inputs/ise-schedule-revised.pdf": "5585ad8ef072fc57cd63293ef0c1d9bbd4a5c9d41a8d7e84829aba0fdf408425",
+    "samples/private/memory-reduction-20260921/inputs/four-pages-original.pdf": "b9b5bfd1683043e9bcbf0b9b39fe7af9440aa64c1da6cbb651bb6566f03b32e4",
+    "samples/private/memory-reduction-20260921/inputs/four-pages-revised.pdf": "d074b01368f32f80a439f04fce706d708ee5cb05beee14f18c91c580fd617dcd",
+    "samples/private/perf2c-memory-20260921/inputs/twenty-pages-original.pdf": "01ee30049efabf2e09d8bea65b464dc5fc1fd28bf64ba244d5632a0809c2887b",
+    "samples/private/perf2c-memory-20260921/inputs/twenty-pages-revised.pdf": "74748f24939cb9346d02e485ec2ab442b054226947a5d66c68a0a860bd027583"
+  }
+}

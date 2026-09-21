@@ -45,6 +45,11 @@ public static class TolerantDifference
         var shift = Units.RoundPixels(parameters.Diff.MaxShiftMm, parameters.Dpi);
         using var ownedA = ComparisonFeatures.Create(a, parameters, shift > 0);
         using var ownedB = ComparisonFeatures.Create(b, parameters, shift > 0);
+        if (timings is not null)
+        {
+            timings.FeatureWorkers = Math.Max(ownedA.WorkerCount, ownedB.WorkerCount);
+            timings.FeatureWorkerTemporaryBytes = Math.Max(ownedA.WorkerTemporaryBytes, ownedB.WorkerTemporaryBytes);
+        }
         var featuresA = ownedA.Read();
         var featuresB = ownedB.Read();
         if (timings is not null) timings.PreparationMs = Stopwatch.GetElapsedTime(started).TotalMilliseconds;
