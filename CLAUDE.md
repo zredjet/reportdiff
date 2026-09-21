@@ -49,7 +49,7 @@ tests/ReportDiff.Tests  ゴールデンテスト、参照実装との一致テ�
 4. 長さの設定値はすべて mm。px への換算は `Units` の 1 か所だけで行う
 5. ファイルのパスをネイティブライブラリに渡さない。.NET で読み書きし、バイト列かストリームで受け渡す（`Cv2.ImRead` / `Cv2.ImWrite` は使わず `ImDecode` / `ImEncode`）。Windows の日本語パス対策
 6. `Mat` など `IDisposable` は必ず `using` で解放する
-7. PDFium はスレッドセーフではない。ラスタライズは逐次。並列化してよいのは比較コアのページ単位だけ
+7. PDFium はスレッドセーフではない。ラスタライズは逐次。比較コアはページ単位または独立したグループ単位で並列化できる。入力は読み取り専用、出力領域は分離し、例外時も全 worker の終了後に Mat を解放する。ページとグループの入れ子で並列数を増やさない
 8. レポート HTML は外部 CDN・ネットワーク参照を一切使わない（オフライン環境で開く）
 9. 吸収・除外したもの（位置ずれの吸収数、除外領域、捨てたノイズ数、サイズ差の余白埋め）は必ず `result.json` とレポートに出す
 10. 依存の追加は MIT / Apache-2.0 / BSD のみ。AGPL・GPL（MuPDF、PyMuPDF、iText、Ghostscript）と ImageSharp（Six Labors Split License）は不可。追加したら `THIRD_PARTY_NOTICES.md` を更新する

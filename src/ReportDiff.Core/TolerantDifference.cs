@@ -19,7 +19,11 @@ public static class TolerantDifference
         Calculate(a, b, parameters, true);
 
     internal static RawDifference Calculate(Mat a, Mat b, ComparisonParameters parameters,
-        bool useGroupBounds, ComparisonTimings? timings = null, ComparisonInk? classificationInk = null)
+        bool useGroupBounds, ComparisonTimings? timings = null, ComparisonInk? classificationInk = null) =>
+        Calculate(a, b, parameters, useGroupBounds, timings, classificationInk, new());
+
+    internal static RawDifference Calculate(Mat a, Mat b, ComparisonParameters parameters,
+        bool useGroupBounds, ComparisonTimings? timings, ComparisonInk? classificationInk, GroupSearchExecution execution)
     {
         var started = Stopwatch.GetTimestamp();
         ArgumentNullException.ThrowIfNull(parameters);
@@ -60,7 +64,7 @@ public static class TolerantDifference
                       orderby Math.Abs(dx) + Math.Abs(dy), dx, dy
                       select (dx, dy)).ToArray();
         var result = useGroupBounds
-            ? EvaluateBounds(featuresA, featuresB, width, height, parameters.Diff, candidates, labels, count, shifts, shift)
+            ? EvaluateBounds(ownedA, ownedB, width, height, parameters.Diff, candidates, labels, count, shifts, shift, execution, timings)
             : EvaluateFullPage(featuresA, featuresB, width, height, parameters.Diff, candidates, labels, count, shifts);
         if (timings is not null) timings.ShiftsMs = Stopwatch.GetElapsedTime(started).TotalMilliseconds;
         return result;
@@ -109,7 +113,42 @@ public static class TolerantDifference
         return new(MatBuffers.Mask(raw, width, height), absorbed, maxShift);
     }
 
-    private static RawDifference EvaluateBounds(ComparisonFeatureData a, ComparisonFeatureData b, int width, int height, DiffOptions options,
+    private static RawDifference EvaluateBounds(ComparisonFeatures ownedA, ComparisonFeatures ownedB, int width, int height, DiffOptions options,
+        byte[] candidates, int[] labels, int count, (int dx, int dy)[] shifts, int shift,
+        GroupSearchExecution execution, ComparisonTimings? timings)
+    {
+        var started = Stopwatch.GetTimestamp();
+        var index = GroupRunIndex.TryCreate(labels, candidates, width, height, count, execution.RunMemoryBudget);
+        if (timings is not null)
+        {
+            timings.GroupIndexMs = Stopwatch.GetElapsedTime(started).TotalMilliseconds;
+            timings.SearchRuns = index?.RunCount ?? 0;
+            timings.UsedRectangleSearch = index is null;
+            timings.SearchWorkers = 1;
+        }
+        if (index is null) return EvaluateRectangles(ownedA.Read(), ownedB.Read(), width, height, options, candidates, labels, count, shifts, shift);
+        var schedule = GroupSearchSchedule.Create(index, shifts.Length, execution);
+        if (timings is not null) { timings.SearchGroups = schedule.Count; timings.SearchWorkers = schedule.Degree; }
+        var raw = new byte[candidates.Length];
+        var results = new GroupShiftResult[count];
+        schedule.Run(group =>
+        {
+            // ref structのビューをlambdaへ捕捉せず、その実行スレッド内で取得する。
+            results[group] = GroupShiftSearch.Evaluate(ownedA.Read(), ownedB.Read(), width, height,
+                options, index.Runs(group), index.InitialCount(group), shifts, raw);
+        });
+        var absorbed = 0; var maxShift = 0;
+        for (var group = 1; group < count; group++)
+        {
+            if (index.InitialCount(group) == 0 || results[group].Remaining != 0) continue;
+            absorbed++;
+            var (dx, dy) = shifts[results[group].ShiftIndex];
+            maxShift = Math.Max(maxShift, Math.Max(Math.Abs(dx), Math.Abs(dy)));
+        }
+        return new(MatBuffers.Mask(raw, width, height), absorbed, maxShift);
+    }
+
+    private static RawDifference EvaluateRectangles(ComparisonFeatureData a, ComparisonFeatureData b, int width, int height, DiffOptions options,
         byte[] candidates, int[] labels, int count, (int dx, int dy)[] shifts, int shift)
     {
         var left = Enumerable.Repeat(width, count).ToArray();
