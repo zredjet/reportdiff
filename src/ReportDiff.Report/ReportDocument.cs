@@ -51,8 +51,10 @@ public sealed record ReportPage(int Page, string Status, PixelSize SizePx, bool 
 public sealed record ReportConfiguration(int Dpi, int ImageDpi, DiffOptions Diff, ClusterOptions Cluster,
     IReadOnlyList<ReportExclusion> Exclude, ReportOutputOptions Report)
 {
+    public InkOptions Ink { get; init; } = new();
     public MoveOptions Move { get; init; } = new();
     public AlignOptions Align { get; init; } = new();
+    public TextOptions Text { get; init; } = new();
 }
 public sealed record ReportOutputOptions(double CropMarginMm);
 public sealed record ReportExclusion(

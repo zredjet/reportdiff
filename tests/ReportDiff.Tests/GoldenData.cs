@@ -25,10 +25,16 @@ internal static class GoldenData
                 ColorThreshold = p.GetProperty("color_threshold").GetDouble(),
                 EdgeTolerance = p.GetProperty("edge_tolerance").GetDouble()
             },
+            Ink = new()
+            {
+                BackgroundRadiusMm = p.GetProperty("ink_background_radius_mm").GetDouble(),
+                ContrastThreshold = p.GetProperty("ink_contrast_threshold").GetDouble()
+            },
             Cluster = new()
             {
                 MergeXMm = p.GetProperty("merge_x_mm").GetDouble(), MergeYMm = p.GetProperty("merge_y_mm").GetDouble(),
-                MinPixels = p.GetProperty("min_pixels").GetInt32(), MaxDiffRatio = p.GetProperty("max_diff_ratio").GetDouble()
+                MinPixels = p.GetProperty("min_pixels").GetInt32(), MaxDiffRatio = p.GetProperty("max_diff_ratio").GetDouble(),
+                ReadingBandMm = p.GetProperty("reading_band_mm").GetDouble()
             },
             Exclude = p.GetProperty("exclude_mm").EnumerateArray()
                 .Select(e => new RectMm(e[0].GetDouble(), e[1].GetDouble(), e[2].GetDouble(), e[3].GetDouble())).ToArray()

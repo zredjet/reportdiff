@@ -65,14 +65,14 @@ internal static class DifferenceClassifier
     {
         var edge = parameters.Diff.EdgeTolerance > 0;
         // 局所最大値と 1px 膨張に必要な余白を付け、ROI の端に偽の背景を作らない。
-        var margin = Math.Max(1, Units.RoundPixels(1.5, parameters.Dpi)) + (edge ? 1 : 0);
+        var margin = Math.Max(1, Units.RoundPixels(parameters.Ink.BackgroundRadiusMm, parameters.Dpi)) + (edge ? 1 : 0);
         var left = Math.Max(0, region.Left - margin);
         var top = Math.Max(0, region.Top - margin);
         var right = Math.Min(image.Width, region.Right + margin);
         var bottom = Math.Min(image.Height, region.Bottom + margin);
         using var source = new Mat(image, new Rect(left, top, right - left, bottom - top));
         using var lab = ImageInk.ToLab(source);
-        using var ink = ImageInk.FromLab(lab, parameters.Dpi);
+        using var ink = ImageInk.FromLab(lab, parameters.Dpi, parameters.Ink);
         var local = new Rect(region.Left - left, region.Top - top, region.Width, region.Height);
         using var original = new Mat(ink, local);
         var data = MatBuffers.Bytes(original);

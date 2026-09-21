@@ -64,6 +64,14 @@ try {
     await page.locator('.settings > summary').click();
     assert.equal(await page.locator('.settings').getAttribute('open'), '');
     assert.ok((await page.locator('.settings').innerText()).includes('除外領域'));
+    const settingCount = Object.entries(result.config).filter(([key]) => key !== 'exclude')
+      .reduce((sum, [, value]) => sum + (typeof value === 'object' ? Object.keys(value).length : 1), 0);
+    assert.equal(await page.locator('.settings .settings-grid dd').count(), settingCount, '実効設定の表示に不足があります。');
+    assert.deepEqual(await page.locator('.settings .settings-grid dt, .settings .settings-grid dd').evaluateAll(items => items.filter(item => {
+      const rect = item.getBoundingClientRect();
+      return item.scrollWidth > item.clientWidth || rect.left < 0 || rect.right > innerWidth;
+    }).map(item => item.textContent)), [], '設定の項目名・値が横にはみ出しています。');
+    await page.locator('.settings').screenshot({ path: path.join(screenshotDirectory, `${path.basename(reportPath, '.html')}-settings-${width}.png`) });
     assert.equal(await page.evaluate(() => globalThis.injected), undefined);
     // 遅延読み込みも実際にスクロールして確認する。
     for (const image of await page.locator('img').all()) {

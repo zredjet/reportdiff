@@ -120,7 +120,7 @@ public sealed class DifferenceClassificationTests
         var p = Strict() with { Diff = new() { MaxShiftMm = 0, EdgeTolerance = edge } };
         using var result = PageComparer.Compare(a, b, p);
         using var labA = ImageInk.ToLab(a); using var labB = ImageInk.ToLab(b);
-        using var inkA = ImageInk.FromLab(labA, p.Dpi); using var inkB = ImageInk.FromLab(labB, p.Dpi);
+        using var inkA = ImageInk.FromLab(labA, p.Dpi, p.Ink); using var inkB = ImageInk.FromLab(labB, p.Dpi, p.Ink);
         if (edge > 0)
         {
             using var kernel = Cv2.GetStructuringElement(MorphShapes.Rect, new Size(3, 3));

@@ -57,4 +57,4 @@ manifest.json             # manifest 自身を除く全ファイルのサイズ�
 
 依存を更新するときは、許諾文の再取得・版とネイティブ DLL の対応確認を行ってから `sources.json` と `dependencies.json` を更新する。単に検証を通すために期待値を差し替えない。SDK が更新されてもランタイムは固定のため、ランタイム更新時には発行プロファイルと通知を一緒に更新する。
 
-この検証は Windows での実行確認ではない。作成した ZIP を実機に展開し、[README の比較例](../README.md#windows-で使う)、日本語パス・終了コード・HTML 表示等を確認する。現在の結果は [T2-4 検証記録](verification/t2-4-alignment.md)、配布の初期確認は [T1-12 検証記録](verification/t1-12-distribution.md)を参照。
+この検証は Windows での実行確認ではない。作成した ZIP を実機に展開し、[README の比較例](../README.md#windows-で使う)、日本語パス・終了コード・HTML 表示等を確認する。現在の結果は [T2-4a 検証記録](verification/t2-4a-configuration.md)、配布の初期確認は [T1-12 検証記録](verification/t1-12-distribution.md)を参照。

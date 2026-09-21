@@ -73,7 +73,7 @@ public static class PageComparer
             var bounds = new Rect(xMin[label], yMin[label], xMax[label] - xMin[label] + 1, yMax[label] - yMin[label] + 1);
             accepted.Add((label, new(0, bounds, counts[label])));
         }
-        var band = Math.Max(1, Units.RoundPixels(5, parameters.Dpi));
+        var band = Math.Max(1, Units.RoundPixels(parameters.Cluster.ReadingBandMm, parameters.Dpi));
         accepted = accepted.OrderBy(item => item.Cluster.Bounds.Y / band).ThenBy(item => item.Cluster.Bounds.X).ToList();
         var limited = accepted.Count > parameters.Cluster.MaxClustersPerPage;
         if (limited)

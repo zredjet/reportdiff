@@ -13,7 +13,7 @@ internal static class MovementAnnotator
         var width = a.Width; var height = a.Height;
         var radius = (int)Math.Floor(Units.MmToPixels(parameters.Move.SearchMm, parameters.Dpi));
         if (radius < 1) return clusters;
-        var margin = Math.Max(1, (int)Math.Ceiling(Units.MmToPixels(1, parameters.Dpi)));
+        var margin = Math.Max(1, (int)Math.Ceiling(Units.MmToPixels(parameters.Move.TemplateMarginMm, parameters.Dpi)));
         var kept = acceptedLabels.ToHashSet();
         var exclusions = parameters.Exclude.Select(e =>
         {
@@ -34,7 +34,7 @@ internal static class MovementAnnotator
             var window = windows[source];
             if (!Safe(window)) continue;
             using var template = new Mat(a, window);
-            if (!CompleteTemplate(template, parameters.Dpi)) continue;
+            if (!CompleteTemplate(template, parameters)) continue;
             var shift = FindUnique(template, b, window, radius, parameters.Move);
             if (shift is null || shift is { Dx: 0, Dy: 0 }) continue;
             var destination = Translate(window, shift);
@@ -110,12 +110,12 @@ internal static class MovementAnnotator
         }
     }
 
-    private static bool CompleteTemplate(Mat template, int dpi)
+    private static bool CompleteTemplate(Mat template, ComparisonParameters parameters)
     {
         Cv2.MeanStdDev(template, out _, out var deviation);
         if (deviation.Val0 == 0 && deviation.Val1 == 0 && deviation.Val2 == 0) return false;
         using var lab = ImageInk.ToLab(template);
-        using var ink = ImageInk.FromLab(lab, dpi);
+        using var ink = ImageInk.FromLab(lab, parameters.Dpi, parameters.Ink);
         if (Cv2.CountNonZero(ink) == 0) return false;
         var width = ink.Width; var height = ink.Height;
         using var top = ink.Row(0); using var bottom = ink.Row(height - 1);

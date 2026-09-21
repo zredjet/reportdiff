@@ -1,0 +1,3 @@
+# 最小例。全項目を省略し、製品の既定値を使う。
+# reportdiff compare old.pdf new.pdf --out result --config examples/minimal.yaml
+{}

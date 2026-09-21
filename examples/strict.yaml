@@ -1,0 +1,6 @@
+# 同じ出力エンジン・同じ環境で、局所ずれと輪郭の許容を無効化する例。
+# reportdiff compare old.pdf new.pdf --out result --config examples/strict.yaml
+# --profile normal/loose を明示すると下の2項目が上書きされる。
+diff:
+  max_shift_mm: 0.0
+  edge_tolerance: 0.0

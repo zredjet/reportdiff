@@ -25,7 +25,11 @@ public static class GlobalAligner
         ValidateImage(a); ValidateImage(b);
         if (parameters.Dpi is < 72 or > 1200) throw new ArgumentException("DPI は 72〜1200 にしてください。");
         if (!double.IsFinite(options.MaxShiftMm) || options.MaxShiftMm is < 0 or > 20
-            || !Probability(options.MinScore) || !Probability(options.MinScoreGap) || !Probability(options.MinImprovement))
+            || !Probability(options.MinScore) || !Probability(options.MinScoreGap) || !Probability(options.MinImprovement)
+            || options.CoarseMaxSideSamples is < 64 or > 4096 || options.RefineRadiusSamples is < 1 or > 8
+            || options.MinSupportCells is < 1 or > 9 || options.MinSupportRows is < 1 or > 3
+            || options.MinSupportColumns is < 1 or > 3
+            || !double.IsFinite(options.MinInkAreaMm2) || options.MinInkAreaMm2 is <= 0 or > 10000)
             throw new ArgumentException("全体補正の探索距離・しきい値が不正です。");
         if (!options.Enabled) return AlignmentResult.Disabled;
         if (sizeMismatch || a.Size() != b.Size()) return AlignmentResult.Skipped("size_mismatch");
@@ -34,7 +38,7 @@ public static class GlobalAligner
         var width = a.Width; var height = a.Height;
         if (width <= 2 * radius || height <= 2 * radius) return AlignmentResult.Skipped("insufficient_area");
         var factor = 1;
-        while (Math.Max(width, height) / (double)factor > 800) factor *= 2;
+        while (Math.Max(width, height) / (double)factor > options.CoarseMaxSideSamples) factor *= 2;
         using var darkA = Dark(a, factor); using var darkB = Dark(b, factor);
         using var fullMask = EvaluationMask(new(width, height), darkA.Size(), radius, 1, parameters);
         var fullRegion = new Rect(radius, radius, width - radius * 2, height - radius * 2);
@@ -57,10 +61,10 @@ public static class GlobalAligner
             using var mask = EvaluationMask(new(width, height), darkA.Size(), r * scale, scale, parameters);
             if (Cv2.CountNonZero(mask) == 0) return AlignmentResult.Skipped("insufficient_area");
             var region = new Rect(r, r, size.Width - 2 * r, size.Height - 2 * r);
-            var minX = scale == factor ? -r : Math.Max(-r, best.X * 2 - 2);
-            var maxX = scale == factor ? r : Math.Min(r, best.X * 2 + 2);
-            var minY = scale == factor ? -r : Math.Max(-r, best.Y * 2 - 2);
-            var maxY = scale == factor ? r : Math.Min(r, best.Y * 2 + 2);
+            var minX = scale == factor ? -r : Math.Max(-r, best.X * 2 - options.RefineRadiusSamples);
+            var maxX = scale == factor ? r : Math.Min(r, best.X * 2 + options.RefineRadiusSamples);
+            var minY = scale == factor ? -r : Math.Max(-r, best.Y * 2 - options.RefineRadiusSamples);
+            var maxY = scale == factor ? r : Math.Min(r, best.Y * 2 + options.RefineRadiusSamples);
             var candidates = new List<Candidate>();
             for (var dy = minY; dy <= maxY; dy++)
             for (var dx = minX; dx <= maxX; dx++)
@@ -77,7 +81,7 @@ public static class GlobalAligner
         }
 
         var support = new List<(int Row, int Column)>();
-        var minimumMass = Math.Pow(Units.MmToPixels(1, parameters.Dpi), 2) * 255;
+        var minimumMass = Units.SquareMmToPixels(options.MinInkAreaMm2, parameters.Dpi) * 255;
         for (var row = 0; row < 3; row++)
         for (var column = 0; column < 3; column++)
         {
@@ -93,8 +97,8 @@ public static class GlobalAligner
             : best.Score < options.MinScore ? "low_score"
             : best.Score - before.Score < options.MinImprovement ? "low_improvement"
             : coarseGap < options.MinScoreGap || gap < options.MinScoreGap ? "ambiguous"
-            : support.Count < 3 || support.Select(c => c.Row).Distinct().Count() < 2
-                || support.Select(c => c.Column).Distinct().Count() < 2 ? "insufficient_support"
+            : support.Count < options.MinSupportCells || support.Select(c => c.Row).Distinct().Count() < options.MinSupportRows
+                || support.Select(c => c.Column).Distinct().Count() < options.MinSupportColumns ? "insufficient_support"
             : WouldCropContent(b, best.X, best.Y) ? "edge_content" : "applied";
         return new(reason == "applied" ? "applied" : "not_applied", reason, new(best.X, best.Y),
             before.Score, best.Score, gap, coarseGap, support.Count);

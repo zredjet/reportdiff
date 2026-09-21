@@ -33,7 +33,7 @@ internal sealed class ComparisonInput : IDisposable
             throw new CommandLineException($"入力ファイルを読み込めません: {path}");
         }
         if (Format == InputFormat.Unknown) throw new CommandLineException($"入力は PDF・PNG・JPEG・BMP・TIFF のいずれかにしてください: {path}");
-        if (Format == InputFormat.Pdf) { pdf = PdfReader.Open(path); text = new PdfTextReader(path); }
+        if (Format == InputFormat.Pdf) { pdf = PdfReader.Open(path); text = new PdfTextReader(path, settings.Text); }
         Dpi = Format == InputFormat.Pdf ? settings.Dpi : settings.ImageDpi;
     }
 

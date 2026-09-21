@@ -44,10 +44,10 @@ public sealed class ReportWriterTests
         Assert.Equal(new ReportTool("reportdiff", "0.1.0"), loaded.Tool);
         Assert.Equal(timestamp, loaded.GeneratedAt);
         Assert.Equal(result.Inputs, loaded.Inputs);
-        Keys(root.GetProperty("config"), "dpi", "image_dpi", "diff", "cluster", "move", "align", "exclude", "report");
-        Keys(root.GetProperty("config").GetProperty("align"), "enabled", "max_shift_mm", "min_score", "min_score_gap", "min_improvement");
+        Keys(root.GetProperty("config"), "dpi", "image_dpi", "diff", "ink", "cluster", "move", "align", "text", "exclude", "report");
+        Keys(root.GetProperty("config").GetProperty("align"), "enabled", "max_shift_mm", "min_score", "min_score_gap", "min_improvement", "coarse_max_side_samples", "refine_radius_samples", "min_support_cells", "min_support_rows", "min_support_columns", "min_ink_area_mm2");
         var clusterConfig = root.GetProperty("config").GetProperty("cluster");
-        Keys(clusterConfig, "merge_x_mm", "merge_y_mm", "min_pixels", "max_clusters_per_page", "max_diff_ratio");
+        Keys(clusterConfig, "merge_x_mm", "merge_y_mm", "min_pixels", "max_clusters_per_page", "max_diff_ratio", "reading_band_mm");
         Assert.Equal(settings.Diff, loaded.Config.Diff);
         Assert.Equal(settings.Cluster, loaded.Config.Cluster);
         Assert.Equal(144, loaded.Config.Dpi); Assert.Equal(200, loaded.Config.ImageDpi);

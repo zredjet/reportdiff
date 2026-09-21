@@ -1,4 +1,5 @@
 using ReportDiff.Core;
+using ReportDiff.Pdf;
 using ReportDiff.Report;
 
 namespace ReportDiff.Cli;
@@ -14,19 +15,21 @@ public sealed record AppSettings
     public int Dpi { get; init; } = 300;
     public int ImageDpi { get; init; } = 300;
     public DiffOptions Diff { get; init; } = new();
+    public InkOptions Ink { get; init; } = new();
     public ClusterOptions Cluster { get; init; } = new();
     public MoveOptions Move { get; init; } = new();
     public AlignOptions Align { get; init; } = new();
+    public TextOptions Text { get; init; } = new();
     public IReadOnlyList<ExclusionSetting> Exclude { get; init; } = [];
     public ReportOptions Report { get; init; } = new();
 
     public ReportConfiguration ToReportConfiguration() => new(Dpi, ImageDpi, Diff, Cluster,
         Exclude.Select(e => new ReportExclusion(e.Page, e.X, e.Y, e.W, e.H, e.Note)).ToArray(),
-        new ReportOutputOptions(Report.CropMarginMm)) { Move = Move, Align = Align };
+        new ReportOutputOptions(Report.CropMarginMm)) { Ink = Ink, Move = Move, Align = Align, Text = Text };
 
     public ComparisonParameters ForPage(int page, int dpi) => new()
     {
-        Dpi = dpi, Diff = Diff, Cluster = Cluster, Move = Move,
+        Dpi = dpi, Diff = Diff, Ink = Ink, Cluster = Cluster, Move = Move,
         Exclude = Exclude.Where(e => e.Page is null || e.Page == page)
             .Select(e => new RectMm(e.X, e.Y, e.W, e.H)).ToArray()
     };

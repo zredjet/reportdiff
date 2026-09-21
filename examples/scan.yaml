@@ -1,0 +1,6 @@
+# JPEGやスキャン画像の小さい色差を許容する例。しきい値は元画像で確認して調整する。
+# reportdiff compare old.jpg new.jpg --out result --config examples/scan.yaml
+# dpi は実際の画像解像度に合わせる。省略した image_dpi もこの値を使う。
+dpi: 300
+diff:
+  color_threshold: 10.0

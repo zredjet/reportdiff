@@ -70,8 +70,8 @@ public sealed class PdfTextTests
     public void PageSizeLimitsSkipRatherThanReturnPartialText(bool words)
     {
         var runs = words
-            ? Enumerable.Range(0, PdfTextReader.MaximumWords + 1).Select(i => new TextRun("A", i % 100 * 2, 290 - i / 100, 1)).ToArray()
-            : new[] { new TextRun(new string('A', PdfTextReader.MaximumLetters + 1), 0, 0, 1) };
+            ? Enumerable.Range(0, new TextOptions().MaxWordsPerPage + 1).Select(i => new TextRun("A", i % 100 * 2, 290 - i / 100, 1)).ToArray()
+            : new[] { new TextRun(new string('A', new TextOptions().MaxLettersPerPage + 1), 0, 0, 1) };
         using var file = new TextFile(PdfFixture.CreateTextPage(runs));
         using var reader = new PdfTextReader(file.Path);
         var result = reader.Annotate(1, new(240, 300), 72, [new(1, new(0, 0, 240, 300), 1)], []);

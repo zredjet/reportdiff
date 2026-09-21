@@ -1,0 +1,5 @@
+# 帳票全体の整数移動を許容する例。意図した全体移動との区別はできない。
+# reportdiff compare old.pdf new.pdf --out result --config examples/align.yaml
+# 比較結果・終了コードが変わり得る。レポートの補正前B・補正後Bを確認する。
+align:
+  enabled: true

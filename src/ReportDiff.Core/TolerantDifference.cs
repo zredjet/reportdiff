@@ -51,7 +51,7 @@ public static class TolerantDifference
             return new(MatBuffers.Mask(candidates, width, height), 0, 0);
 
         started = Stopwatch.GetTimestamp();
-        var labels = Groups(labA, labB, candidates, parameters.Dpi, shift, out var count);
+        var labels = Groups(labA, labB, candidates, parameters, shift, out var count);
         if (timings is not null) timings.GroupingMs = Stopwatch.GetElapsedTime(started).TotalMilliseconds;
         started = Stopwatch.GetTimestamp();
         var shifts = (from dx in Enumerable.Range(-shift, checked(2 * shift + 1))
@@ -231,10 +231,10 @@ public static class TolerantDifference
         return mask;
     }
 
-    private static int[] Groups(Mat labA, Mat labB, byte[] candidates, int dpi, int shift, out int count)
+    private static int[] Groups(Mat labA, Mat labB, byte[] candidates, ComparisonParameters parameters, int shift, out int count)
     {
-        using var inkA = ImageInk.FromLab(labA, dpi);
-        using var inkB = ImageInk.FromLab(labB, dpi);
+        using var inkA = ImageInk.FromLab(labA, parameters.Dpi, parameters.Ink);
+        using var inkB = ImageInk.FromLab(labB, parameters.Dpi, parameters.Ink);
         using var ink = new Mat();
         Cv2.BitwiseOr(inkA, inkB, ink);
         using var inkLabels = new Mat();

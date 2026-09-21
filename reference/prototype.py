@@ -38,6 +38,9 @@ class Params:
     max_shift_mm: float = 0.15     # 「位置ずれ」として吸収する最大量 -> s px (SPEC 5.3)
     color_threshold: float = 3.0   # 平坦部の色差しきい値 (Lab 各チャンネルの差)
     edge_tolerance: float = 0.3    # 局所コントラストに比例して許容を広げる係数 k。0 で厳密比較
+    ink_background_radius_mm: float = 1.5  # 局所背景の半径（YAML: ink.background_radius_mm）
+    ink_contrast_threshold: float = 25.0   # インクとする Lab L 差（YAML: ink.contrast_threshold）
+    reading_band_mm: float = 5.0           # クラスタの読み順（YAML: cluster.reading_band_mm）
     merge_x_mm: float = 3.0        # この間隔以下の差分画素は横方向に結合
     merge_y_mm: float = 1.0        # 同、縦方向
     min_pixels: int = 4            # 生の差分画素数がこれ未満のクラスタは捨てる
@@ -76,11 +79,11 @@ def _shift(img: np.ndarray, dx: int, dy: int) -> np.ndarray:
     return cv2.warpAffine(img, m, (w, h), flags=cv2.INTER_NEAREST, borderMode=cv2.BORDER_REPLICATE)
 
 
-def _ink(lab: np.ndarray, dpi: int) -> np.ndarray:
-    """周囲 (約 1.5mm) の最も明るい所より L が 25 以上暗い画素 = 文字や線。塗りつぶしの地は含めない。"""
-    m = max(1, int(round(1.5 / 25.4 * dpi)))
+def _ink(lab: np.ndarray, p: Params) -> np.ndarray:
+    """局所背景より L がしきい値を超えて暗い画素。既定は半径 1.5mm、差 25。"""
+    m = max(1, int(round(p.px(p.ink_background_radius_mm))))
     bg = cv2.dilate(lab[:, :, 0], np.ones((2 * m + 1, 2 * m + 1), np.uint8))
-    return (bg - lab[:, :, 0]) > 25.0
+    return (bg - lab[:, :, 0]) > p.ink_contrast_threshold
 
 
 def tolerant_diff(a_bgr: np.ndarray, b_bgr: np.ndarray, p: Params, stats: dict | None = None) -> np.ndarray:
@@ -125,7 +128,7 @@ def tolerant_diff(a_bgr: np.ndarray, b_bgr: np.ndarray, p: Params, stats: dict |
 
     # グループ = 候補の近傍 (5x5) ∪ 候補に触れているインク連結成分
     region = cv2.dilate(cand0.astype(np.uint8), np.ones((5, 5), np.uint8)) > 0
-    ink = (_ink(la, p.dpi) | _ink(lb, p.dpi)).astype(np.uint8)
+    ink = (_ink(la, p) | _ink(lb, p)).astype(np.uint8)
     n_ink, ink_labels = cv2.connectedComponents(ink, connectivity=8)
     touched = np.zeros(n_ink, dtype=bool)
     touched[np.unique(ink_labels[cand0])] = True
@@ -221,8 +224,8 @@ def compare_page(a_bgr: np.ndarray, b_bgr: np.ndarray, p: Params) -> PageResult:
         bw, bh = int(x1 - x0 + 1), int(y1 - y0 + 1)
         clusters.append(Cluster(0, int(x0), int(y0), bw, bh, int(counts[i]), counts[i] / float(bw * bh)))
 
-    # 読み順 (5mm の帯で上から、帯の中は左から) に並べて採番
-    band = max(1, int(round(p.px(5.0))))
+    # 読み順 (既定5mmの帯で上から、帯の中は左から) に並べて採番
+    band = max(1, int(round(p.px(p.reading_band_mm))))
     clusters.sort(key=lambda c: (c.y // band, c.x))
     for idx, c in enumerate(clusters, 1):
         c.id = idx

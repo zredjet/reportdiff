@@ -14,9 +14,9 @@ internal static class ImageInk
         catch { lab.Dispose(); throw; }
     }
 
-    public static Mat FromLab(Mat lab, int dpi)
+    public static Mat FromLab(Mat lab, int dpi, InkOptions options)
     {
-        var radius = Math.Max(1, Units.RoundPixels(1.5, dpi));
+        var radius = Math.Max(1, Units.RoundPixels(options.BackgroundRadiusMm, dpi));
         using var lightness = new Mat();
         using var background = new Mat();
         using var difference = new Mat();
@@ -25,7 +25,7 @@ internal static class ImageInk
         Cv2.Dilate(lightness, background, kernel);
         Cv2.Subtract(background, lightness, difference);
         var mask = new Mat();
-        try { Cv2.Compare(difference, 25, mask, CmpTypes.GT); return mask; }
+        try { Cv2.Compare(difference, options.ContrastThreshold, mask, CmpTypes.GT); return mask; }
         catch { mask.Dispose(); throw; }
     }
 }

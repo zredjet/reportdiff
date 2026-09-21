@@ -11,10 +11,9 @@ public sealed record PageTextAnnotations(IReadOnlyDictionary<int, string> TextBy
     IReadOnlyList<TextAnnotationWarning> Warnings);
 
 /// <summary>必要なページのテキストだけを抽出する。描画用とは独立したストリームを所有する。</summary>
-public sealed class PdfTextReader(string path) : IDisposable
+public sealed class PdfTextReader(string path, TextOptions? textOptions = null) : IDisposable
 {
-    public const int MaximumLetters = 100_000;
-    public const int MaximumWords = 20_000;
+    private readonly TextOptions options = (textOptions ?? new()).Validated();
     private static readonly NearestNeighbourWordExtractor WordExtractor = new(new() { MaxDegreeOfParallelism = 1 });
     private FileStream? stream;
     private PdfDocument? document;
@@ -52,9 +51,9 @@ public sealed class PdfTextReader(string path) : IDisposable
                 || Math.Abs(Units.PointsToPixels(page.Width, dpi) - originalSize.Width) > 1
                 || Math.Abs(Units.PointsToPixels(page.Height, dpi) - originalSize.Height) > 1)
                 return Skipped("テキスト座標と描画サイズの対応を確認できないため注釈を省略しました。");
-            if (page.Letters.Count > MaximumLetters) return Skipped($"文字要素が {MaximumLetters} 件を超えたため注釈を省略しました。");
-            var words = page.GetWords(WordExtractor).Where(w => !string.IsNullOrWhiteSpace(w.Text)).Take(MaximumWords + 1).ToArray();
-            if (words.Length > MaximumWords) return Skipped($"単語が {MaximumWords} 件を超えたため注釈を省略しました。");
+            if (page.Letters.Count > options.MaxLettersPerPage) return Skipped($"文字要素が {options.MaxLettersPerPage} 件を超えたため注釈を省略しました。");
+            var words = page.GetWords(WordExtractor).Where(w => !string.IsNullOrWhiteSpace(w.Text)).Take(options.MaxWordsPerPage + 1).ToArray();
+            if (words.Length > options.MaxWordsPerPage) return Skipped($"単語が {options.MaxWordsPerPage} 件を超えたため注釈を省略しました。");
             // PdfPig 0.1.16 は MediaBox と交差した CropBox の原点を補正済み。
             // 実際の描画寸法への比率で端数を合わせ、右・下の白埋めには拡大しない。
             var sx = originalSize.Width / page.Width; var sy = originalSize.Height / page.Height;
@@ -79,7 +78,7 @@ public sealed class PdfTextReader(string path) : IDisposable
                 right = Math.Min(originalSize.Width, right); bottom = Math.Min(originalSize.Height, bottom);
                 if (right > left && bottom > top) mapped.Add(new(word.Text, new(left, top, right - left, bottom - top)));
             }
-            return TextAnnotations.Create(mapped, clusters, exclusions, dpi);
+            return TextAnnotations.Create(mapped, clusters, exclusions, dpi, options);
         }
         catch (Exception ex) when (ex is not OutOfMemoryException)
         {

@@ -14,7 +14,10 @@
     "merge_y_mm": 1.0,
     "min_pixels": 4,
     "max_diff_ratio": 0.3,
-    "exclude_mm": []
+    "exclude_mm": [],
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0
    },
    "status": "same",
    "raw_pixels": 0,
@@ -36,7 +39,10 @@
     "merge_y_mm": 1.0,
     "min_pixels": 4,
     "max_diff_ratio": 0.3,
-    "exclude_mm": []
+    "exclude_mm": [],
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0
    },
    "status": "same",
    "raw_pixels": 0,
@@ -58,7 +64,10 @@
     "merge_y_mm": 1.0,
     "min_pixels": 4,
     "max_diff_ratio": 0.3,
-    "exclude_mm": []
+    "exclude_mm": [],
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0
    },
    "status": "same",
    "raw_pixels": 0,
@@ -80,7 +89,10 @@
     "merge_y_mm": 1.0,
     "min_pixels": 4,
     "max_diff_ratio": 0.3,
-    "exclude_mm": []
+    "exclude_mm": [],
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0
    },
    "status": "same",
    "raw_pixels": 0,
@@ -102,7 +114,10 @@
     "merge_y_mm": 1.0,
     "min_pixels": 4,
     "max_diff_ratio": 0.3,
-    "exclude_mm": []
+    "exclude_mm": [],
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0
    },
    "status": "same",
    "raw_pixels": 0,
@@ -124,7 +139,10 @@
     "merge_y_mm": 1.0,
     "min_pixels": 4,
     "max_diff_ratio": 0.3,
-    "exclude_mm": []
+    "exclude_mm": [],
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0
    },
    "status": "same",
    "raw_pixels": 0,
@@ -146,7 +164,10 @@
     "merge_y_mm": 1.0,
     "min_pixels": 4,
     "max_diff_ratio": 0.3,
-    "exclude_mm": []
+    "exclude_mm": [],
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0
    },
    "status": "same",
    "raw_pixels": 0,
@@ -168,7 +189,10 @@
     "merge_y_mm": 1.0,
     "min_pixels": 4,
     "max_diff_ratio": 0.3,
-    "exclude_mm": []
+    "exclude_mm": [],
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0
    },
    "status": "same",
    "raw_pixels": 0,
@@ -190,7 +214,10 @@
     "merge_y_mm": 1.0,
     "min_pixels": 4,
     "max_diff_ratio": 0.3,
-    "exclude_mm": []
+    "exclude_mm": [],
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0
    },
    "status": "same",
    "raw_pixels": 0,
@@ -212,7 +239,10 @@
     "merge_y_mm": 1.0,
     "min_pixels": 4,
     "max_diff_ratio": 0.3,
-    "exclude_mm": []
+    "exclude_mm": [],
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0
    },
    "status": "same",
    "raw_pixels": 0,
@@ -234,7 +264,10 @@
     "merge_y_mm": 1.0,
     "min_pixels": 4,
     "max_diff_ratio": 0.3,
-    "exclude_mm": []
+    "exclude_mm": [],
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0
    },
    "status": "same",
    "raw_pixels": 0,
@@ -256,7 +289,10 @@
     "merge_y_mm": 1.0,
     "min_pixels": 4,
     "max_diff_ratio": 0.3,
-    "exclude_mm": []
+    "exclude_mm": [],
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0
    },
    "status": "different",
    "raw_pixels": 6525,
@@ -351,7 +387,10 @@
     "merge_y_mm": 1.0,
     "min_pixels": 4,
     "max_diff_ratio": 0.3,
-    "exclude_mm": []
+    "exclude_mm": [],
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0
    },
    "status": "same",
    "raw_pixels": 0,
@@ -380,7 +419,10 @@
       31.0,
       7.0
      ]
-    ]
+    ],
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0
    },
    "status": "same",
    "raw_pixels": 0,
@@ -402,7 +444,10 @@
     "merge_y_mm": 1.0,
     "min_pixels": 4,
     "max_diff_ratio": 0.3,
-    "exclude_mm": []
+    "exclude_mm": [],
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0
    },
    "status": "different",
    "raw_pixels": 22,
@@ -434,7 +479,10 @@
     "merge_y_mm": 1.0,
     "min_pixels": 4,
     "max_diff_ratio": 0.3,
-    "exclude_mm": []
+    "exclude_mm": [],
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0
    },
    "status": "different",
    "raw_pixels": 55,
@@ -466,7 +514,10 @@
     "merge_y_mm": 1.0,
     "min_pixels": 4,
     "max_diff_ratio": 0.3,
-    "exclude_mm": []
+    "exclude_mm": [],
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0
    },
    "status": "different",
    "raw_pixels": 315,
@@ -498,7 +549,10 @@
     "merge_y_mm": 1.0,
     "min_pixels": 4,
     "max_diff_ratio": 0.3,
-    "exclude_mm": []
+    "exclude_mm": [],
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0
    },
    "status": "different",
    "raw_pixels": 44,
@@ -530,7 +584,10 @@
     "merge_y_mm": 1.0,
     "min_pixels": 4,
     "max_diff_ratio": 0.3,
-    "exclude_mm": []
+    "exclude_mm": [],
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0
    },
    "status": "different",
    "raw_pixels": 1418,
@@ -562,7 +619,10 @@
     "merge_y_mm": 1.0,
     "min_pixels": 4,
     "max_diff_ratio": 0.3,
-    "exclude_mm": []
+    "exclude_mm": [],
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0
    },
    "status": "different",
    "raw_pixels": 266,
@@ -594,7 +654,10 @@
     "merge_y_mm": 1.0,
     "min_pixels": 4,
     "max_diff_ratio": 0.3,
-    "exclude_mm": []
+    "exclude_mm": [],
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0
    },
    "status": "different",
    "raw_pixels": 24219,
@@ -626,7 +689,10 @@
     "merge_y_mm": 1.0,
     "min_pixels": 4,
     "max_diff_ratio": 0.3,
-    "exclude_mm": []
+    "exclude_mm": [],
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0
    },
    "status": "different",
    "raw_pixels": 320,
@@ -658,7 +724,10 @@
     "merge_y_mm": 1.0,
     "min_pixels": 4,
     "max_diff_ratio": 0.3,
-    "exclude_mm": []
+    "exclude_mm": [],
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0
    },
    "status": "different",
    "raw_pixels": 18972,
@@ -699,7 +768,10 @@
     "merge_y_mm": 1.0,
     "min_pixels": 4,
     "max_diff_ratio": 0.3,
-    "exclude_mm": []
+    "exclude_mm": [],
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0
    },
    "status": "different",
    "raw_pixels": 723,
@@ -740,7 +812,10 @@
     "merge_y_mm": 1.0,
     "min_pixels": 4,
     "max_diff_ratio": 0.3,
-    "exclude_mm": []
+    "exclude_mm": [],
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0
    },
    "status": "different",
    "raw_pixels": 1172,
@@ -772,7 +847,10 @@
     "merge_y_mm": 1.0,
     "min_pixels": 4,
     "max_diff_ratio": 0.3,
-    "exclude_mm": []
+    "exclude_mm": [],
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0
    },
    "status": "different",
    "raw_pixels": 316,
@@ -804,7 +882,10 @@
     "merge_y_mm": 1.0,
     "min_pixels": 4,
     "max_diff_ratio": 0.3,
-    "exclude_mm": []
+    "exclude_mm": [],
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0
    },
    "status": "different",
    "raw_pixels": 1418,
@@ -836,7 +917,10 @@
     "merge_y_mm": 1.0,
     "min_pixels": 4,
     "max_diff_ratio": 0.3,
-    "exclude_mm": []
+    "exclude_mm": [],
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0
    },
    "status": "different",
    "raw_pixels": 9617,
@@ -868,7 +952,10 @@
     "merge_y_mm": 1.0,
     "min_pixels": 4,
     "max_diff_ratio": 0.3,
-    "exclude_mm": []
+    "exclude_mm": [],
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0
    },
    "status": "same",
    "raw_pixels": 0,
@@ -890,7 +977,10 @@
     "merge_y_mm": 1.0,
     "min_pixels": 4,
     "max_diff_ratio": 0.3,
-    "exclude_mm": []
+    "exclude_mm": [],
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0
    },
    "status": "different",
    "raw_pixels": 11818,
@@ -922,7 +1012,10 @@
     "merge_y_mm": 1.0,
     "min_pixels": 4,
     "max_diff_ratio": 0.3,
-    "exclude_mm": []
+    "exclude_mm": [],
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0
    },
    "status": "same",
    "raw_pixels": 0,
@@ -944,7 +1037,10 @@
     "merge_y_mm": 1.0,
     "min_pixels": 4,
     "max_diff_ratio": 0.3,
-    "exclude_mm": []
+    "exclude_mm": [],
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0
    },
    "status": "different",
    "raw_pixels": 12,
@@ -976,7 +1072,10 @@
     "merge_y_mm": 1.0,
     "min_pixels": 4,
     "max_diff_ratio": 0.3,
-    "exclude_mm": []
+    "exclude_mm": [],
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0
    },
    "status": "different",
    "raw_pixels": 14,
@@ -1008,7 +1107,10 @@
     "merge_y_mm": 1.0,
     "min_pixels": 4,
     "max_diff_ratio": 0.3,
-    "exclude_mm": []
+    "exclude_mm": [],
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0
    },
    "status": "different",
    "raw_pixels": 31,
@@ -1040,7 +1142,10 @@
     "merge_y_mm": 1.0,
     "min_pixels": 4,
     "max_diff_ratio": 0.3,
-    "exclude_mm": []
+    "exclude_mm": [],
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0
    },
    "status": "different",
    "raw_pixels": 1622,
@@ -1072,7 +1177,10 @@
     "merge_y_mm": 1.0,
     "min_pixels": 4,
     "max_diff_ratio": 0.3,
-    "exclude_mm": []
+    "exclude_mm": [],
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0
    },
    "status": "same",
    "raw_pixels": 0,
@@ -1094,7 +1202,10 @@
     "merge_y_mm": 1.0,
     "min_pixels": 4,
     "max_diff_ratio": 0.3,
-    "exclude_mm": []
+    "exclude_mm": [],
+    "ink_background_radius_mm": 1.5,
+    "ink_contrast_threshold": 25.0,
+    "reading_band_mm": 5.0
    },
    "status": "same",
    "raw_pixels": 0,
