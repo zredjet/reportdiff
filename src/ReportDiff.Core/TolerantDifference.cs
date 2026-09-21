@@ -140,14 +140,42 @@ public static class TolerantDifference
         {
             timings.GroupIndexMs = Stopwatch.GetElapsedTime(started).TotalMilliseconds;
             timings.SearchRuns = index?.RunCount ?? 0;
+            timings.SearchIndexBytes = index?.BudgetedBytes ?? 0;
             timings.UsedRectangleSearch = index is null;
             timings.SearchWorkers = 1;
         }
         if (index is null) return EvaluateRectangles(ownedA.Read(), ownedB.Read(), width, height, options, candidates, labels, count, shifts, shift);
-        var schedule = GroupSearchSchedule.Create(index, shifts.Length, execution);
-        if (timings is not null) { timings.SearchGroups = schedule.Count; timings.SearchWorkers = schedule.Degree; }
         var raw = new byte[candidates.Length];
         var results = new GroupShiftResult[count];
+        // 印の配列と、同時に1グループだけ保持するブロック境界を合わせて予算化する。
+        var available = Math.Min(execution.CandidateMemoryBudget,
+            Math.Min(execution.RunMemoryBudget, labels.LongLength * sizeof(int)) - index.BudgetedBytes);
+        bool[]? completed = null;
+        var innerGroups = 0; var innerWorkers = 1;
+        if (available > count && execution.MaxDegreeOfParallelism > 1 && Environment.ProcessorCount > 1)
+        {
+            for (var group = 1; group < count; group++)
+            {
+                var candidateSchedule = GroupCandidateSchedule.TryCreate(index, group, shifts.Length, execution, available - count);
+                if (candidateSchedule is null) continue;
+                completed ??= new bool[count];
+                results[group] = GroupCandidateSearch.Evaluate(ownedA, ownedB, width, height, options,
+                    index, group, shifts, raw, candidateSchedule, execution.BeforeCandidateWorker);
+                completed[group] = true; innerGroups++;
+                innerWorkers = Math.Max(innerWorkers, candidateSchedule.Degree);
+                if (timings is not null)
+                    timings.CandidateSearchPlanBytes = Math.Max(timings.CandidateSearchPlanBytes, count + candidateSchedule.MemoryBytes);
+            }
+        }
+        // 候補内の全workerが終了してから、残りのグループを分担する。入れ子にしない。
+        var schedule = GroupSearchSchedule.Create(index, shifts.Length, execution, completed);
+        if (timings is not null)
+        {
+            timings.SearchGroups = schedule.Count + innerGroups;
+            timings.SearchWorkers = Math.Max(schedule.Degree, innerWorkers);
+            timings.CandidateSearchGroups = innerGroups;
+            timings.CandidateSearchWorkers = innerWorkers;
+        }
         schedule.Run(group =>
         {
             // ref structのビューをlambdaへ捕捉せず、その実行スレッド内で取得する。

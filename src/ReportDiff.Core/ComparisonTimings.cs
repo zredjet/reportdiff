@@ -13,7 +13,11 @@ internal sealed class ComparisonTimings
     public double GroupIndexMs { get; set; }
     public int SearchGroups { get; set; }
     public int SearchRuns { get; set; }
+    public long SearchIndexBytes { get; set; }
     public int SearchWorkers { get; set; }
+    public int CandidateSearchGroups { get; set; }
+    public int CandidateSearchWorkers { get; set; }
+    public long CandidateSearchPlanBytes { get; set; }
     public bool UsedRectangleSearch { get; set; }
     public double MovementMs { get; set; }
     public long MovementManagedBytes { get; set; }

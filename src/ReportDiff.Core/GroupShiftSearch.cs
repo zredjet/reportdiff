@@ -48,7 +48,7 @@ internal static class GroupShiftSearch
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static bool IsCandidate(ComparisonFeatureData a, ComparisonFeatureData b, int pixel, int source, float threshold, float tolerance)
+    internal static bool IsCandidate(ComparisonFeatureData a, ComparisonFeatureData b, int pixel, int source, float threshold, float tolerance)
     {
         for (var channel = 0; channel < 3; channel++)
         {

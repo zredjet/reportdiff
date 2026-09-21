@@ -8,6 +8,9 @@ internal sealed class GroupRunIndex(GroupRun[] runs, int[] offsets, int[] initia
     internal const long DefaultMemoryBudget = 64L * 1024 * 1024;
     public int GroupCount => initialCounts.Length;
     public int RunCount => runs.Length;
+    // 構築時のカーソル配列も含む保守的な要素サイズ。候補内分担の予算からも差し引く。
+    public long BudgetedBytes => runs.LongLength * 3 * sizeof(int)
+        + (offsets.LongLength + initialCounts.LongLength * 2 + pixelCounts.LongLength) * sizeof(int);
     public int InitialCount(int group) => initialCounts[group];
     public int PixelCount(int group) => pixelCounts[group];
     public ReadOnlySpan<GroupRun> Runs(int group) => runs.AsSpan(offsets[group], offsets[group + 1] - offsets[group]);
