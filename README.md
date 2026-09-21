@@ -2,11 +2,11 @@
 
 業務帳票の PDF・画像を比較し、相違を「箇所」単位で報告する CLI ツール。細かな描画差や許容範囲内の位置ずれを吸収し、変更部分の画像と JSON・オフライン HTML を出力する。
 
-実行対象は Windows x64。開発・検証環境は macOS Apple Silicon。Intel Mac は対象外。Phase 1 と T2-1〜T2-6（分類・移動・PDF テキスト注釈・任意の全体補正・YAML 設定・フォント警告・フォルダ比較）を実装済み。配布物は [GitHub Releases](https://github.com/zredjet/reportdiff/releases) から取得できる。実帳票による評価（T2-7）はサンプル未準備のためスキップしている。ユーザー実機での条件は [確認リスト](docs/TASKS.md#windows-確認リスト人が実機で行う)で管理する。
+実行対象は Windows x64。開発・検証環境は macOS Apple Silicon。Intel Mac は対象外。分類・移動・PDF テキスト注釈・任意の全体補正・YAML 設定・フォント警告・フォルダ比較に加え、確認用の赤青オーバーレイ・領域別設定・HTMLからの除外YAML出力を実装済み。配布物は [GitHub Releases](https://github.com/zredjet/reportdiff/releases) から取得できる。実帳票による評価（T2-7）はサンプル未準備のためスキップしている。ユーザー実機での条件は [確認リスト](docs/TASKS.md#windows-確認リスト人が実機で行う)で管理する。
 
 ## 差異のサンプル画面
 
-自作の架空の検査記録を、既定設定（normal・300dpi）で比較した例。**数値を80→85へ変更、`DRAFT COPY`を削除、`CHECKED`を追加**し、3箇所の相違を検出している。画面はv0.1.2が出力したHTMLレポートをChromeで表示したもの。
+自作の架空の検査記録を、既定設定（normal・300dpi）で比較した例。**数値を80→85へ変更、`DRAFT COPY`を削除、`CHECKED`を追加**し、3箇所の相違を検出している。画面はv0.1.3が出力したHTMLレポートをChromeで表示したもの。
 
 重ね描きでは、差分・輪郭・番号を赤で表示する。A／Bの切り替えで変更前後も確認できる。
 
@@ -19,7 +19,7 @@
 [入力A](docs/samples/readme/inspection-a.png)・[入力B](docs/samples/readme/inspection-b.png)・[生成済みレポート](docs/samples/readme/result/report.html)を配布ZIPにも同梱している。ZIPを展開してレポートを開くか、次のコマンドで再現できる。
 
 ```powershell
-.\reportdiff.exe compare docs/samples/readme/inspection-a.png docs/samples/readme/inspection-b.png --out sample-result
+.\reportdiff.exe compare docs/samples/readme/inspection-a.png docs/samples/readme/inspection-b.png --out sample-result --raw-overlay
 Start-Process .\sample-result\report.html
 ```
 
@@ -127,6 +127,10 @@ align:
 
 「確認用オーバーレイ（補正前）」は A のみを赤、B のみを青、共通部分を黒／グレーで表示する。位置補正・除外・差分判定を反映せず、元画像を左上で重ねるため、判定で吸収・除外された違いも確認できる。元カラー A/B にも切り替えられる。濃淡への変換で同じグレー値になる色相差は表示できないので、色は元画像で確認する。
 
+同じ自作サンプルの確認用表示。削除した `DRAFT COPY` は赤、追加した `CHECKED` は青、共通の文字や罫線は黒／グレーになる。差分の輪郭・番号・除外色は加えない。
+
+![確認用オーバーレイ。削除したDRAFT COPYは赤、追加したCHECKEDは青、共通部分は黒とグレー](docs/images/sample-raw-overlay.png)
+
 相違なしのページも保存し、`--save-all-pages` は不要。`pages/p001_raw_overlay.png` は単体で開ける。`--no-html` でも PNG と元サイズ・DPI・白埋め量などの JSON を保存する。`report.raw_overlay: true` でも有効化でき、`compare-dir` の帳票別設定にも対応する。既定は無効。詳細は [出力仕様](docs/SPEC.md#84-確認用オーバーレイ補正前)。
 
 ## フォルダを一括比較する
@@ -214,9 +218,12 @@ Windows では macOS ランタイムの生成は不要。復元前にローカ�
 
 ## 開発資料と確認状況
 
+- [v0.1.3 の配布準備](docs/verification/v0.1.3-release.md)：赤青オーバーレイの実画面・サンプル・検証・配布範囲
+- [T3-1a の検証記録](docs/verification/t3-1a-pagemap.md)：座標写像の集約、全1,330テストと95ケースの出力一致
+
 - [PERF-2n の調査記録](docs/verification/perf-2n-continuous.md)：100ページ反復・300/400dpiのメモリ、GC、処理時間と単ページ結果との一致
 - [PERF-2m の調査記録](docs/verification/perf-2m-pdf-text.md)：PDFテキスト解析の初回負荷とA/B分担の評価。追加の並列化は導入見送り
-- [PERF-2l の検証記録](docs/verification/perf-2l-group-inner.md)：大グループの候補内並列化、メモリ予算と逐次復帰、出力一致、時間とメモリ。v0.1.2以降の開発版の変更
+- [PERF-2l の検証記録](docs/verification/perf-2l-group-inner.md)：大グループの候補内並列化、メモリ予算と逐次復帰、出力一致、時間とメモリ。v0.1.3に含まれる改善
 - [PERF-2j の検証記録](docs/verification/perf-2j-adaptive-features.md)：特徴量の条件付き帯分担・Lab再利用、出力一致、時間とメモリ。v0.1.2はここまでの性能改善を含む
 - [v0.1.2 の配布準備](docs/verification/v0.1.2-release.md)：自作サンプル・README画面・ローカル検証・配布確認の範囲
 - [T2-6 の検証記録](docs/verification/t2-6-directory.md)：フォルダ比較・設定選択・一覧・時間とメモリ・Windows 配布物
@@ -228,7 +235,7 @@ Windows では macOS ランタイムの生成は不要。復元前にローカ�
 - [T2-2 の検証記録](docs/verification/t2-2-movement.md)：移動量・関連 ID・誤判定防止・PDF 結合・多数候補の計測
 - [T2-1 の検証記録](docs/verification/t2-1-classification.md)：分類・切り出し・PDF 結合・ブラウザ・時間とメモリ
 - [T1-12 の検証記録](docs/verification/t1-12-distribution.md)：publish・バンドル・配布 ZIP の確認結果
-- `CLAUDE.md`：開発ルール。`reference/prototype.py` と `reference/golden/`：比較結果の参照実装と 37 ケース
+- `CLAUDE.md`：開発ルール。`reference/prototype.py` と `reference/golden/`：比較結果の参照実装と 42 ケース
 - [サードパーティ通知](THIRD_PARTY_NOTICES.md)：依存一覧と同梱ライセンス。配布時は `licenses/` を含めて保持する
 
 [GitHub Actions](https://github.com/zredjet/reportdiff/actions/workflows/ci.yml) は Windows x64 / macOS Apple Silicon でビルドとテストを実行する。v0.1.0 の [CI](https://github.com/zredjet/reportdiff/actions/runs/35558470655) は Windows 766 件成功・6 件スキップ、macOS 772 件成功。各リリースの検証結果はリリースページに記載する。完成版 exe のユーザー実機での実行・Edge / Chrome 表示は未確認。

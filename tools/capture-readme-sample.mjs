@@ -19,10 +19,14 @@ try {
   for (const image of await page.locator('img').all()) {
     await image.scrollIntoViewIfNeeded(); await image.evaluate(element => element.decode());
   }
-  await page.locator('.viewer').screenshot({ path: path.join(output, 'sample-overlay.png') });
+  await page.locator('.viewer').first().screenshot({ path: path.join(output, 'sample-overlay.png') });
   await page.locator('.table-scroll').filter({ has: page.locator('.clusters') }).screenshot({ path: path.join(output, 'sample-differences.png') });
+  await page.locator('.raw-evidence').getByRole('button', { name: '確認用オーバーレイ（補正前）', exact: true }).click();
+  await page.locator('.raw-evidence .page-image').evaluate(element => element.decode());
+  await page.locator('.raw-evidence .viewer').screenshot({ path: path.join(output, 'sample-raw-overlay.png') });
   const result = JSON.parse(await readFile(path.join(path.dirname(input), 'result.json'), 'utf8'));
   assert.equal(result.summary.clusters, 3);
+  assert.equal(result.pages[0].raw_evidence.coordinate_system, 'original_top_left');
   assert.deepEqual(result.pages[0].clusters.map(cluster => cluster.kind), ['changed', 'removed', 'added']);
   assert.deepEqual(errors, []); assert.deepEqual(external, []);
   console.log(JSON.stringify({ browser: browser.version(), source: input, viewport: [1280, 960], pageErrors: errors, externalRequests: external, result: '成功' }, null, 2));

@@ -20,7 +20,7 @@ var inputA = Path.Combine(output, "inspection-a.png");
 var inputB = Path.Combine(output, "inspection-b.png");
 File.WriteAllBytes(inputA, a.ImEncode(".png"));
 File.WriteAllBytes(inputB, b.ImEncode(".png"));
-var settings = new AppSettings();
+var settings = new AppSettings { Report = new() { RawOverlay = true } };
 using var normalized = PageNormalizer.Normalize(a, b);
 using var comparison = PageComparer.Compare(normalized.A, normalized.B, settings.ForPage(1, settings.Dpi));
 var reportDirectory = Path.Combine(output, "result");

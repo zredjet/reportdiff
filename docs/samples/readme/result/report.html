@@ -35,6 +35,12 @@ details[open] > summary { margin-bottom: 20px; }
 .page-metrics { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
 .notice { padding: 10px 14px; background: #fff6da; border-radius: 5px; font-size: .875rem; }
 .viewer { margin: 20px 0 24px; border: 1px solid #dce2eb; border-radius: 8px; overflow: hidden; background: #f3f5f8; }
+.raw-evidence { margin: 24px 0; padding-top: 20px; border-top: 1px solid #dce2eb; }
+.raw-legend { font-weight: 600; }
+.raw-a { color: #b00000; }
+.raw-b { color: #0000b0; }
+.raw-links { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: .875rem; }
+.raw-links a { padding: 6px 0; overflow-wrap: anywhere; }
 .viewer-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 12px 16px; }
 figcaption { font-size: .875rem; color: #536176; }
 .image-switch { display: flex; flex-wrap: wrap; gap: 4px; }
@@ -55,6 +61,10 @@ th, td { padding: 12px; border-top: 1px solid #e2e7ee; vertical-align: middle; }
 thead th { background: #f3f5f8; white-space: nowrap; }
 td { overflow-wrap: anywhere; }
 .clusters { min-width: 960px; table-layout: fixed; }
+.region-settings, .region-results { min-width: 900px; table-layout: fixed; }
+.region-settings th:first-child, .region-results th:first-child { width: 190px; overflow-wrap: anywhere; }
+.page-regions { margin: 16px 0 24px; }
+.region-audit li { overflow-wrap: anywhere; }
 .clusters th:nth-child(1) { width: 148px; }
 .kind { white-space: nowrap; font-weight: 500; }
 .movement { display: block; font-weight: 400; font-size: .8rem; overflow-wrap: anywhere; }
@@ -62,6 +72,10 @@ td { overflow-wrap: anywhere; }
 .clusters th:nth-child(2) { width: 230px; }
 .clusters th:nth-child(3) { width: 80px; }
 .bounds { font-variant-numeric: tabular-nums; }
+.exclusion-snippet { margin-top: 10px; }
+.exclusion-snippet[open] > summary { margin-bottom: 8px; }
+.exclusion-snippet label { display: block; font-size: .8rem; color: #536176; }
+.exclusion-snippet textarea { display: block; width: 100%; max-width: 100%; margin: 4px 0 8px; padding: 8px; border: 1px solid #9caabd; border-radius: 4px; background: #f8fafc; color: #203047; font: .8rem/1.5 ui-monospace, monospace; resize: vertical; }
 .crop { display: block; max-width: 100%; max-height: 160px; width: auto; height: auto; margin: auto; border: 1px solid #b5c0ce; }
 .pdf-text { margin-top: 10px; font-size: .8rem; }
 .text-value { white-space: pre-wrap; overflow-wrap: anywhere; max-height: 12rem; overflow-y: auto; }
@@ -86,6 +100,7 @@ footer { color: #536176; font-size: .8rem; text-align: center; margin-top: 36px;
   .card { border-radius: 0; }
   .table-scroll { overflow: visible; }
   .clusters { min-width: 0; table-layout: auto; }
+  .region-settings, .region-results { min-width: 0; table-layout: auto; }
 }
 </style>
 </head>
@@ -95,7 +110,7 @@ footer { color: #536176; font-size: .8rem; text-align: center; margin-top: 36px;
 <header>
 <p class="eyebrow">ReportDiff · 比較レポート</p>
 <h1>帳票の比較結果 <span class="status different">相違あり</span></h1>
-<p class="muted">2026-09-21 12:00:00 +09:00 · reportdiff 0.1.2</p>
+<p class="muted">2026-09-21 12:00:00 +09:00 · reportdiff 0.1.3</p>
 </header>
 <section aria-label="要約" class="card">
 <div class="inputs">
@@ -109,11 +124,11 @@ footer { color: #536176; font-size: .8rem; text-align: center; margin-top: 36px;
 <div><dt>位置ずれを吸収した数</dt><dd>0</dd></div>
 </dl>
 <p class="muted">比較・相違のページ数は今回の出力対象分です。片側だけのページも相違に含みます。吸収数は位置ずれとして相違から除いたグループ数です。</p>
-</section><section class="card warnings" aria-labelledby="warnings-title"><h2 id="warnings-title">警告</h2><p>警告はありません。</p></section><details class="card settings"><summary>使った設定・除外領域</summary><dl class="settings-grid"><div><dt>PDF の描画解像度</dt><dd>300 dpi</dd></div><div><dt>画像の換算解像度</dt><dd>300 dpi</dd></div><div><dt>位置ずれの許容幅</dt><dd>0.15 mm</dd></div><div><dt>色の差のしきい値</dt><dd>3</dd></div><div><dt>コントラスト比例の許容係数</dt><dd>0.3</dd></div><div><dt>インクの局所背景半径</dt><dd>1.5 mm</dd></div><div><dt>インクの明度差のしきい値</dt><dd>25</dd></div><div><dt>クラスタの結合距離・横</dt><dd>3 mm</dd></div><div><dt>クラスタの結合距離・縦</dt><dd>1 mm</dd></div><div><dt>クラスタの最小画素数</dt><dd>4</dd></div><div><dt>ページのクラスタ数上限</dt><dd>500</dd></div><div><dt>差分の割合の上限</dt><dd>0.3</dd></div><div><dt>クラスタの読み順の帯幅</dt><dd>5 mm</dd></div><div><dt>移動の探索距離（各軸）</dt><dd>5 mm</dd></div><div><dt>移動の一致度の下限</dt><dd>0.98</dd></div><div><dt>移動候補の次点との差</dt><dd>0.02</dd></div><div><dt>移動テンプレートの余白</dt><dd>1 mm</dd></div><div><dt>全体補正</dt><dd>無効</dd></div><div><dt>全体補正の探索距離（各軸）</dt><dd>5 mm</dd></div><div><dt>全体補正の一致度の下限</dt><dd>0.98</dd></div><div><dt>全体補正の次点との差</dt><dd>0.02</dd></div><div><dt>全体補正の改善量の下限</dt><dd>0.05</dd></div><div><dt>全体補正の粗い格子の長辺上限</dt><dd>800 要素</dd></div><div><dt>全体補正の復元段階の探索半径</dt><dd>2 要素</dd></div><div><dt>全体補正の支持区画数の下限</dt><dd>3</dd></div><div><dt>全体補正の支持行数の下限</dt><dd>2</dd></div><div><dt>全体補正の支持列数の下限</dt><dd>2</dd></div><div><dt>全体補正の区画内の黒換算面積</dt><dd>1 mm&#178;</dd></div><div><dt>PDF 注釈の文字要素数上限（ページ・片側）</dt><dd>100000</dd></div><div><dt>PDF 注釈の単語数上限（ページ・片側）</dt><dd>20000</dd></div><div><dt>PDF 注釈の本文上限（クラスタ・片側）</dt><dd>2000 Unicode 文字</dd></div><div><dt>PDF 注釈の行の重なり率の下限</dt><dd>0.5</dd></div><div><dt>切り出し画像の余白</dt><dd>2 mm</dd></div></dl><h3>除外領域</h3><p>除外領域はありません。</p></details><section id="pages" aria-labelledby="pages-title"><h2 id="pages-title">ページ別の結果</h2><p class="muted">重ね描きの赤は差分・輪郭・番号、黄色は除外領域です。画像を選ぶと元の大きさで開きます。</p><p class="muted">追加・削除などの分類は A→B のインクの有無からの推定です。背景・塗りや判定が明確でない差は「変更」とします。「移動（推定）」は位置を変えると内容が一致し、対応が一意と判断できた箇所です。移動の向きは A→B です。移動も相違として数えます。切り出しの緑は A だけのインク、赤は B だけ・両方のインクやその他の差分です。</p><p class="muted">PDF テキストは元ファイルの文字情報を添えた補足です。画像の文字認識結果ではなく、不可視の文字や変更されていない部分を含むことがあります。複雑な段組みや縦書きの読み順は再現しません。画像と併せて確認してください。</p><details class="card page" id="page-1" open><summary><span>1 ページ</span> <span class="status different">相違あり</span></summary><dl class="metrics page-metrics"><div><dt>画像サイズ</dt><dd>1100 &#215; 650 px</dd></div><div><dt>生の差分の画素数</dt><dd>3699</dd></div><div><dt>除外したノイズの数</dt><dd>0</dd></div><div><dt>位置ずれを吸収した数</dt><dd>0</dd></div><div><dt>吸収に使った最大ずれ</dt><dd>0 px</dd></div></dl><figure class="viewer"><figcaption class="viewer-toolbar"><div class="image-switch" role="group" aria-label="1 ページの表示画像" hidden><button type="button" aria-pressed="false" data-src="pages/p001_a.png" data-label="1 ページ・A &#183; 基準">A · 基準</button><button type="button" aria-pressed="false" data-src="pages/p001_b.png" data-label="1 ページ・B &#183; 比較">B · 比較</button><button type="button" aria-pressed="true" data-src="pages/p001_overlay.png" data-label="1 ページ・重ね描き">重ね描き</button></div><span class="viewer-label" aria-live="polite">1 ページ・重ね描き</span></figcaption><a class="page-image-link" href="pages/p001_overlay.png"><img class="page-image" src="pages/p001_overlay.png" alt="1 ページ・重ね描き" loading="lazy" width="1100" height="650"></a></figure><h3>相違箇所 <span class="muted">3 件</span></h3><p class="muted table-hint">一覧は横にスクロールできます。</p><div class="table-scroll" role="region" aria-label="1 ページの相違箇所" tabindex="0"><table class="clusters"><caption>位置は左上が原点です。位置と大きさは mm（小数第 2 位まで）、画素数は差分に属する画素数です。</caption><thead><tr><th scope="col">番号・分類</th><th scope="col">位置・大きさ（mm）</th><th scope="col">画素数</th><th scope="col">A · 基準</th><th scope="col">B · 比較</th><th scope="col">差分</th></tr></thead><tbody><tr id="page-1-cluster-1"><th scope="row">1<br><span class="kind">変更</span></th><td class="bounds">X 53.09 · Y 24.64<br>幅 1.44 × 高さ 1.61</td><td>87</td><td><a href="crops/p001_c001_a.png"><img class="crop" src="crops/p001_c001_a.png" alt="1 ページ・相違 1・A の切り出し" loading="lazy"></a><div class="pdf-text"><span class="muted">PDF テキスト</span><div class="text-value" tabindex="0" role="region" aria-label="1 ページ・相違 1・A の切り出しの PDF テキスト">テキスト注釈なし</div></div></td><td><a href="crops/p001_c001_b.png"><img class="crop" src="crops/p001_c001_b.png" alt="1 ページ・相違 1・B の切り出し" loading="lazy"></a><div class="pdf-text"><span class="muted">PDF テキスト</span><div class="text-value" tabindex="0" role="region" aria-label="1 ページ・相違 1・B の切り出しの PDF テキスト">テキスト注釈なし</div></div></td><td><a href="crops/p001_c001_diff.png"><img class="crop" src="crops/p001_c001_diff.png" alt="1 ページ・相違 1・差分の切り出し" loading="lazy"></a></td></tr><tr id="page-1-cluster-2"><th scope="row">2<br><span class="kind">削除（推定）</span></th><td class="bounds">X 6.27 · Y 42.42<br>幅 14.05 × 高さ 1.95</td><td>1945</td><td><a href="crops/p001_c002_a.png"><img class="crop" src="crops/p001_c002_a.png" alt="1 ページ・相違 2・A の切り出し" loading="lazy"></a><div class="pdf-text"><span class="muted">PDF テキスト</span><div class="text-value" tabindex="0" role="region" aria-label="1 ページ・相違 2・A の切り出しの PDF テキスト">テキスト注釈なし</div></div></td><td><a href="crops/p001_c002_b.png"><img class="crop" src="crops/p001_c002_b.png" alt="1 ページ・相違 2・B の切り出し" loading="lazy"></a><div class="pdf-text"><span class="muted">PDF テキスト</span><div class="text-value" tabindex="0" role="region" aria-label="1 ページ・相違 2・B の切り出しの PDF テキスト">テキスト注釈なし</div></div></td><td><a href="crops/p001_c002_diff.png"><img class="crop" src="crops/p001_c002_diff.png" alt="1 ページ・相違 2・差分の切り出し" loading="lazy"></a></td></tr><tr id="page-1-cluster-3"><th scope="row">3<br><span class="kind">追加（推定）</span></th><td class="bounds">X 67.14 · Y 42.42<br>幅 10.41 × 高さ 1.95</td><td>1667</td><td><a href="crops/p001_c003_a.png"><img class="crop" src="crops/p001_c003_a.png" alt="1 ページ・相違 3・A の切り出し" loading="lazy"></a><div class="pdf-text"><span class="muted">PDF テキスト</span><div class="text-value" tabindex="0" role="region" aria-label="1 ページ・相違 3・A の切り出しの PDF テキスト">テキスト注釈なし</div></div></td><td><a href="crops/p001_c003_b.png"><img class="crop" src="crops/p001_c003_b.png" alt="1 ページ・相違 3・B の切り出し" loading="lazy"></a><div class="pdf-text"><span class="muted">PDF テキスト</span><div class="text-value" tabindex="0" role="region" aria-label="1 ページ・相違 3・B の切り出しの PDF テキスト">テキスト注釈なし</div></div></td><td><a href="crops/p001_c003_diff.png"><img class="crop" src="crops/p001_c003_diff.png" alt="1 ページ・相違 3・差分の切り出し" loading="lazy"></a></td></tr></tbody></table></div></details></section><footer>ReportDiff · オフライン比較レポート</footer></main><script type="application/json" id="result">{
+</section><section class="card warnings" aria-labelledby="warnings-title"><h2 id="warnings-title">警告</h2><p>警告はありません。</p></section><details class="card settings"><summary>使った設定・除外領域</summary><dl class="settings-grid"><div><dt>PDF の描画解像度</dt><dd>300 dpi</dd></div><div><dt>画像の換算解像度</dt><dd>300 dpi</dd></div><div><dt>位置ずれの許容幅</dt><dd>0.15 mm</dd></div><div><dt>色の差のしきい値</dt><dd>3</dd></div><div><dt>コントラスト比例の許容係数</dt><dd>0.3</dd></div><div><dt>インクの局所背景半径</dt><dd>1.5 mm</dd></div><div><dt>インクの明度差のしきい値</dt><dd>25</dd></div><div><dt>クラスタの結合距離・横</dt><dd>3 mm</dd></div><div><dt>クラスタの結合距離・縦</dt><dd>1 mm</dd></div><div><dt>クラスタの最小画素数</dt><dd>4</dd></div><div><dt>ページのクラスタ数上限</dt><dd>500</dd></div><div><dt>差分の割合の上限</dt><dd>0.3</dd></div><div><dt>クラスタの読み順の帯幅</dt><dd>5 mm</dd></div><div><dt>移動の探索距離（各軸）</dt><dd>5 mm</dd></div><div><dt>移動の一致度の下限</dt><dd>0.98</dd></div><div><dt>移動候補の次点との差</dt><dd>0.02</dd></div><div><dt>移動テンプレートの余白</dt><dd>1 mm</dd></div><div><dt>全体補正</dt><dd>無効</dd></div><div><dt>全体補正の探索距離（各軸）</dt><dd>5 mm</dd></div><div><dt>全体補正の一致度の下限</dt><dd>0.98</dd></div><div><dt>全体補正の次点との差</dt><dd>0.02</dd></div><div><dt>全体補正の改善量の下限</dt><dd>0.05</dd></div><div><dt>全体補正の粗い格子の長辺上限</dt><dd>800 要素</dd></div><div><dt>全体補正の復元段階の探索半径</dt><dd>2 要素</dd></div><div><dt>全体補正の支持区画数の下限</dt><dd>3</dd></div><div><dt>全体補正の支持行数の下限</dt><dd>2</dd></div><div><dt>全体補正の支持列数の下限</dt><dd>2</dd></div><div><dt>全体補正の区画内の黒換算面積</dt><dd>1 mm&#178;</dd></div><div><dt>PDF 注釈の文字要素数上限（ページ・片側）</dt><dd>100000</dd></div><div><dt>PDF 注釈の単語数上限（ページ・片側）</dt><dd>20000</dd></div><div><dt>PDF 注釈の本文上限（クラスタ・片側）</dt><dd>2000 Unicode 文字</dd></div><div><dt>PDF 注釈の行の重なり率の下限</dt><dd>0.5</dd></div><div><dt>切り出し画像の余白</dt><dd>2 mm</dd></div><div><dt>除外 YAML の余白</dt><dd>1 mm</dd></div><div><dt>確認用オーバーレイ（補正前）</dt><dd>有効</dd></div></dl><h3>除外領域</h3><p>除外領域はありません。</p></details><section id="pages" aria-labelledby="pages-title"><h2 id="pages-title">ページ別の結果</h2><p class="muted">重ね描きの赤は差分・輪郭・番号、黄色は除外領域です。画像を選ぶと元の大きさで開きます。</p><p class="muted">追加・削除などの分類は A→B のインクの有無からの推定です。背景・塗りや判定が明確でない差は「変更」とします。「移動（推定）」は位置を変えると内容が一致し、対応が一意と判断できた箇所です。移動の向きは A→B です。移動も相違として数えます。切り出しの緑は A だけのインク、赤は B だけ・両方のインクやその他の差分です。</p><p class="muted">PDF テキストは元ファイルの文字情報を添えた補足です。画像の文字認識結果ではなく、不可視の文字や変更されていない部分を含むことがあります。複雑な段組みや縦書きの読み順は再現しません。画像と併せて確認してください。</p><details class="card page" id="page-1" open><summary><span>1 ページ</span> <span class="status different">相違あり</span></summary><dl class="metrics page-metrics"><div><dt>画像サイズ</dt><dd>1100 &#215; 650 px</dd></div><div><dt>生の差分の画素数</dt><dd>3699</dd></div><div><dt>除外したノイズの数</dt><dd>0</dd></div><div><dt>位置ずれを吸収した数</dt><dd>0</dd></div><div><dt>吸収に使った最大ずれ</dt><dd>0 px</dd></div></dl><h3>判定表示</h3><figure class="viewer"><figcaption class="viewer-toolbar"><div class="image-switch" role="group" aria-label="1 ページの表示画像" hidden><button type="button" aria-pressed="false" data-src="pages/p001_a.png" data-label="1 ページ・A &#183; 基準">A · 基準</button><button type="button" aria-pressed="false" data-src="pages/p001_b.png" data-label="1 ページ・B &#183; 比較">B · 比較</button><button type="button" aria-pressed="true" data-src="pages/p001_overlay.png" data-label="1 ページ・重ね描き">重ね描き</button></div><span class="viewer-label" aria-live="polite">1 ページ・重ね描き</span></figcaption><a class="page-image-link" href="pages/p001_overlay.png"><img class="page-image" src="pages/p001_overlay.png" alt="1 ページ・重ね描き" loading="lazy" width="1100" height="650"></a></figure><section class="raw-evidence"><h3>確認用オーバーレイ（補正前）</h3><p class="muted">判定から独立した元画像の重ね合わせです。左上を合わせ、右・下だけ白で埋めています。位置補正・除外・差分判定は反映しません。判定表示や相違箇所の座標と異なる場合があります。</p><p class="raw-legend"><span class="raw-a">赤：A のみ</span> · <span class="raw-b">青：B のみ</span> · <span>黒／グレー：共通</span></p><p class="muted">濃淡をグレーに変換して重ねています。同じグレー値になる色相の違いは見えません。色は元 A/B で確認してください。</p><p class="muted">300 dpi · 白埋め後 1100 × 650 px<br>A 元サイズ 1100 × 650 px · 白埋め 右 0 / 下 0 px<br>B 元サイズ 1100 × 650 px · 白埋め 右 0 / 下 0 px</p><figure class="viewer"><figcaption class="viewer-toolbar"><div class="image-switch" role="group" aria-label="1 ページの確認用画像" hidden><button type="button" aria-pressed="true" data-src="pages/p001_raw_overlay.png" data-label="1 ページ・確認用オーバーレイ（補正前）">確認用オーバーレイ（補正前）</button><button type="button" aria-pressed="false" data-src="pages/p001_a.png" data-label="1 ページ・元 A（補正前）">元 A（補正前）</button><button type="button" aria-pressed="false" data-src="pages/p001_b.png" data-label="1 ページ・元 B（補正前）">元 B（補正前）</button></div><span class="viewer-label" aria-live="polite">1 ページ・確認用オーバーレイ（補正前）</span></figcaption><a class="page-image-link" href="pages/p001_raw_overlay.png"><img class="page-image" src="pages/p001_raw_overlay.png" alt="1 ページ・確認用オーバーレイ（補正前）" loading="lazy" width="1100" height="650"></a></figure><nav class="raw-links" aria-label="1 ページの確認用 PNG"><a href="pages/p001_raw_overlay.png">確認用オーバーレイ（補正前） PNG</a><a href="pages/p001_a.png">元 A（補正前） PNG</a><a href="pages/p001_b.png">元 B（補正前） PNG</a></nav></section><p class="muted">相違を次回から除外する場合は、各行の「除外 YAML」を開いて設定の <code>exclude:</code> の下へ貼り付けてください。行頭に半角スペース 2 個を付けます。対象はこのページだけです。座標は A／補正後 B が基準です。</p><h3>相違箇所 <span class="muted">3 件</span></h3><p class="muted table-hint">一覧は横にスクロールできます。</p><div class="table-scroll" role="region" aria-label="1 ページの相違箇所" tabindex="0"><table class="clusters"><caption>位置は左上が原点です。位置と大きさは mm（小数第 2 位まで）、画素数は差分に属する画素数です。</caption><thead><tr><th scope="col">番号・分類</th><th scope="col">位置・大きさ（mm）</th><th scope="col">画素数</th><th scope="col">A · 基準</th><th scope="col">B · 比較</th><th scope="col">差分</th></tr></thead><tbody><tr id="page-1-cluster-1"><th scope="row">1<br><span class="kind">変更</span></th><td class="bounds">X 53.09 · Y 24.64<br>幅 1.44 × 高さ 1.61<details class="exclusion-snippet"><summary>除外 YAML</summary><label for="exclusion-1-1">1 ページ・相違 1</label><textarea id="exclusion-1-1" readonly rows="4" spellcheck="false" aria-label="1 ページ・相違 1の除外 YAML">- {page: 1, x: 52, y: 23.5, w: 4, h: 4, note: &quot;&quot;}</textarea><button type="button" class="select-yaml" hidden>YAML を選択</button></details></td><td>87</td><td><a href="crops/p001_c001_a.png"><img class="crop" src="crops/p001_c001_a.png" alt="1 ページ・相違 1・A の切り出し" loading="lazy"></a><div class="pdf-text"><span class="muted">PDF テキスト</span><div class="text-value" tabindex="0" role="region" aria-label="1 ページ・相違 1・A の切り出しの PDF テキスト">テキスト注釈なし</div></div></td><td><a href="crops/p001_c001_b.png"><img class="crop" src="crops/p001_c001_b.png" alt="1 ページ・相違 1・B の切り出し" loading="lazy"></a><div class="pdf-text"><span class="muted">PDF テキスト</span><div class="text-value" tabindex="0" role="region" aria-label="1 ページ・相違 1・B の切り出しの PDF テキスト">テキスト注釈なし</div></div></td><td><a href="crops/p001_c001_diff.png"><img class="crop" src="crops/p001_c001_diff.png" alt="1 ページ・相違 1・差分の切り出し" loading="lazy"></a></td></tr><tr id="page-1-cluster-2"><th scope="row">2<br><span class="kind">削除（推定）</span></th><td class="bounds">X 6.27 · Y 42.42<br>幅 14.05 × 高さ 1.95<details class="exclusion-snippet"><summary>除外 YAML</summary><label for="exclusion-1-2">1 ページ・相違 2</label><textarea id="exclusion-1-2" readonly rows="4" spellcheck="false" aria-label="1 ページ・相違 2の除外 YAML">- {page: 1, x: 5, y: 41, w: 16.5, h: 4.5, note: &quot;&quot;}</textarea><button type="button" class="select-yaml" hidden>YAML を選択</button></details></td><td>1945</td><td><a href="crops/p001_c002_a.png"><img class="crop" src="crops/p001_c002_a.png" alt="1 ページ・相違 2・A の切り出し" loading="lazy"></a><div class="pdf-text"><span class="muted">PDF テキスト</span><div class="text-value" tabindex="0" role="region" aria-label="1 ページ・相違 2・A の切り出しの PDF テキスト">テキスト注釈なし</div></div></td><td><a href="crops/p001_c002_b.png"><img class="crop" src="crops/p001_c002_b.png" alt="1 ページ・相違 2・B の切り出し" loading="lazy"></a><div class="pdf-text"><span class="muted">PDF テキスト</span><div class="text-value" tabindex="0" role="region" aria-label="1 ページ・相違 2・B の切り出しの PDF テキスト">テキスト注釈なし</div></div></td><td><a href="crops/p001_c002_diff.png"><img class="crop" src="crops/p001_c002_diff.png" alt="1 ページ・相違 2・差分の切り出し" loading="lazy"></a></td></tr><tr id="page-1-cluster-3"><th scope="row">3<br><span class="kind">追加（推定）</span></th><td class="bounds">X 67.14 · Y 42.42<br>幅 10.41 × 高さ 1.95<details class="exclusion-snippet"><summary>除外 YAML</summary><label for="exclusion-1-3">1 ページ・相違 3</label><textarea id="exclusion-1-3" readonly rows="4" spellcheck="false" aria-label="1 ページ・相違 3の除外 YAML">- {page: 1, x: 66, y: 41, w: 13, h: 4.5, note: &quot;&quot;}</textarea><button type="button" class="select-yaml" hidden>YAML を選択</button></details></td><td>1667</td><td><a href="crops/p001_c003_a.png"><img class="crop" src="crops/p001_c003_a.png" alt="1 ページ・相違 3・A の切り出し" loading="lazy"></a><div class="pdf-text"><span class="muted">PDF テキスト</span><div class="text-value" tabindex="0" role="region" aria-label="1 ページ・相違 3・A の切り出しの PDF テキスト">テキスト注釈なし</div></div></td><td><a href="crops/p001_c003_b.png"><img class="crop" src="crops/p001_c003_b.png" alt="1 ページ・相違 3・B の切り出し" loading="lazy"></a><div class="pdf-text"><span class="muted">PDF テキスト</span><div class="text-value" tabindex="0" role="region" aria-label="1 ページ・相違 3・B の切り出しの PDF テキスト">テキスト注釈なし</div></div></td><td><a href="crops/p001_c003_diff.png"><img class="crop" src="crops/p001_c003_diff.png" alt="1 ページ・相違 3・差分の切り出し" loading="lazy"></a></td></tr></tbody></table></div></details></section><footer>ReportDiff · オフライン比較レポート</footer></main><script type="application/json" id="result">{
   "schema_version": 1,
   "tool": {
     "name": "reportdiff",
-    "version": "0.1.2"
+    "version": "0.1.3"
   },
   "generated_at": "2026-09-21T12:00:00+09:00",
   "inputs": {
@@ -148,7 +163,9 @@ footer { color: #536176; font-size: .8rem; text-align: center; margin-top: 36px;
     },
     "exclude": [],
     "report": {
-      "crop_margin_mm": 2
+      "crop_margin_mm": 2,
+      "snippet_margin_mm": 1,
+      "raw_overlay": true
     },
     "ink": {
       "background_radius_mm": 1.5,
@@ -300,6 +317,40 @@ footer { color: #536176; font-size: .8rem; text-align: center; margin-top: 36px;
         "score_gap": null,
         "coarse_score_gap": null,
         "support_cells": null
+      },
+      "raw_evidence": {
+        "method": "grayscale_red_blue_v1",
+        "coordinate_system": "original_top_left",
+        "dpi": 300,
+        "canvas_size_px": {
+          "w": 1100,
+          "h": 650
+        },
+        "a": {
+          "missing": false,
+          "original_size_px": {
+            "w": 1100,
+            "h": 650
+          },
+          "padding_px": {
+            "right": 0,
+            "bottom": 0
+          },
+          "image": "pages\u002Fp001_a.png"
+        },
+        "b": {
+          "missing": false,
+          "original_size_px": {
+            "w": 1100,
+            "h": 650
+          },
+          "padding_px": {
+            "right": 0,
+            "bottom": 0
+          },
+          "image": "pages\u002Fp001_b.png"
+        },
+        "overlay": "pages\u002Fp001_raw_overlay.png"
       }
     }
   ]
@@ -316,6 +367,16 @@ footer { color: #536176; font-size: .8rem; text-align: center; margin-top: 36px;
         item.setAttribute('aria-pressed', String(item === button));
       });
     });
+  });
+});
+
+document.querySelectorAll('.exclusion-snippet').forEach(snippet => {
+  const button = snippet.querySelector('.select-yaml');
+  button.hidden = false;
+  button.addEventListener('click', () => {
+    const field = snippet.querySelector('textarea');
+    field.focus();
+    field.select();
   });
 });
 </script></body></html>
