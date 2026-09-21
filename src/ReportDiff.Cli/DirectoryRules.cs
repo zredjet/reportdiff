@@ -82,7 +82,7 @@ internal sealed class DirectoryRules
         Rules = loaded;
         Description = new(common?.Source, rules?.Source, referenced,
             new(command.Profile, command.Dpi, command.Pages, command.SaveAllPages, command.NoHtml, command.Force, command.Quiet)
-                { RawOverlay = command.RawOverlay });
+                { RawOverlay = command.RawOverlay, NoRegions = command.NoRegions });
     }
 
     public IReadOnlyList<Rule> Match(string a, string b) => Rules.Where(rule =>

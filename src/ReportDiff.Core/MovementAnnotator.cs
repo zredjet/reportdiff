@@ -8,7 +8,7 @@ internal static class MovementAnnotator
     private sealed record Candidate(MovementShift Shift, int[] Indices);
 
     public static DifferenceCluster[] Annotate(Mat a, Mat b, ComparisonParameters parameters,
-        byte[] raw, int[] labels, int[] acceptedLabels, DifferenceCluster[] clusters)
+        byte[] raw, int[] labels, int[] acceptedLabels, DifferenceCluster[] clusters, RegionMap? regions = null)
     {
         var width = a.Width; var height = a.Height;
         var radius = (int)Math.Floor(Units.MmToPixels(parameters.Move.SearchMm, parameters.Dpi));
@@ -38,7 +38,7 @@ internal static class MovementAnnotator
             var shift = FindUnique(template, b, window, radius, parameters.Move);
             if (shift is null || shift is { Dx: 0, Dy: 0 }) continue;
             var destination = Translate(window, shift);
-            if (!Safe(destination) || !EqualAt(a, window, b, destination, validation)) continue;
+            if (!Safe(destination) || !EqualAt(a, window, b, destination, validation, regions)) continue;
             using var target = new Mat(b, destination);
             var inverse = FindUnique(target, a, destination, radius, parameters.Move);
             if (inverse is null || inverse.Dx != -shift.Dx || inverse.Dy != -shift.Dy) continue;
@@ -70,8 +70,8 @@ internal static class MovementAnnotator
                 var forward = Translate(area, shift);
                 var backward = Translate(area, new(-shift.Dx, -shift.Dy));
                 if (!Safe(area) || !Safe(forward) || !Safe(backward)
-                    || !EqualAt(a, area, b, forward, validation)
-                    || !EqualAt(a, backward, b, area, validation))
+                    || !EqualAt(a, area, b, forward, validation, regions)
+                    || !EqualAt(a, backward, b, area, validation, regions))
                 { explainsAll = false; break; }
             }
             if (!explainsAll) continue;
@@ -147,9 +147,30 @@ internal static class MovementAnnotator
         return new(left + bestX - origin.Left, top + bestY - origin.Top);
     }
 
-    private static bool EqualAt(Mat a, Rect areaA, Mat b, Rect areaB, ComparisonParameters parameters)
+    private static bool EqualAt(Mat a, Rect areaA, Mat b, Rect areaB, ComparisonParameters parameters, RegionMap? regions)
     {
         using var cropA = new Mat(a, areaA); using var cropB = new Mat(b, areaB);
+        if (regions is not null)
+        {
+            var settings = new HashSet<DiffOptions>();
+            for (var y = 0; y < areaA.Height; y++)
+            for (var x = 0; x < areaA.Width; x++)
+            {
+                settings.Add(regions.ValidationDiffAt(areaA.X + x, areaA.Y + y));
+                settings.Add(regions.ValidationDiffAt(areaB.X + x, areaB.Y + y));
+            }
+            foreach (var diff in settings)
+            {
+                using var variant = TolerantDifference.Calculate(cropA, cropB, parameters with { Diff = diff });
+                var raw = MatBuffers.Bytes(variant.RawMask);
+                for (var y = 0; y < areaA.Height; y++)
+                for (var x = 0; x < areaA.Width; x++)
+                    if (raw[y * areaA.Width + x] != 0 &&
+                        ((regions.ValidationDiffAt(areaA.X + x, areaA.Y + y)) == diff
+                        || (regions.ValidationDiffAt(areaB.X + x, areaB.Y + y)) == diff)) return false;
+            }
+            return true;
+        }
         using var difference = TolerantDifference.Calculate(cropA, cropB, parameters);
         return Cv2.CountNonZero(difference.RawMask) == 0;
     }

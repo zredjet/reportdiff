@@ -12,6 +12,8 @@ public sealed record DirectoryCliOptions(string? Profile, int? Dpi, string? Page
     bool Force, bool Quiet)
 {
     public bool RawOverlay { get; init; }
+    [System.Text.Json.Serialization.JsonIgnore(Condition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingDefault)]
+    public bool NoRegions { get; init; }
 }
 public sealed record DirectorySummary(string Status, int Total, int Compared, int Same, int Different,
     int OnlyInA, int OnlyInB, int Error, int Ignored);

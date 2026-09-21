@@ -7,7 +7,7 @@ using YamlDotNet.RepresentationModel;
 
 namespace ReportDiff.Cli;
 
-public static class ConfigurationLoader
+public static partial class ConfigurationLoader
 {
     // 省略の有無（特に image_dpi）を保つため、実効設定ではなく YAML の指定キーを重ねる。
     public static AppSettings LoadLayered(string? common, string? selected, string? profile = null, int? dpi = null)
@@ -57,7 +57,7 @@ public static class ConfigurationLoader
                 stream.Load(new StringReader(yaml));
                 if (stream.Documents.Count != 1)
                     throw Error("設定ファイル", "YAML ドキュメントは 1 個にしてください");
-                var root = Mapping(stream.Documents[0].RootNode, "", "dpi", "image_dpi", "diff", "ink", "cluster", "move", "align", "text", "exclude", "report");
+                var root = Mapping(stream.Documents[0].RootNode, "", "dpi", "image_dpi", "diff", "ink", "cluster", "move", "align", "text", "exclude", "report", "regions");
                 if (root.TryGetValue("dpi", out var node)) settings = settings with { Dpi = Integer(node, "dpi") };
                 if (root.TryGetValue("image_dpi", out node)) imageDpi = Integer(node, "image_dpi");
                 if (root.TryGetValue("diff", out node))
@@ -143,6 +143,7 @@ public static class ConfigurationLoader
                         RawOverlay = values.TryGetValue("raw_overlay", out var rawOverlay) ? Boolean(rawOverlay, "report.raw_overlay") : settings.Report.RawOverlay
                     }};
                 }
+                if (root.TryGetValue("regions", out node)) settings = settings with { Regions = ReadRegions(node) };
                 if (root.TryGetValue("exclude", out node))
                 {
                     if (node is not YamlSequenceNode sequence) throw Error("exclude", "配列にしてください");
@@ -170,17 +171,7 @@ public static class ConfigurationLoader
         }
         settings = settings with { ImageDpi = imageDpi ?? settings.Dpi };
         Validate(settings);
-        if (profile is not null)
-        {
-            var (shift, edge) = profile switch
-            {
-                "normal" => (new DiffOptions().MaxShiftMm, new DiffOptions().EdgeTolerance),
-                "strict" => (0.0, 0.0),
-                "loose" => (0.30, new DiffOptions().EdgeTolerance),
-                _ => throw Error("profile", "normal / strict / loose のいずれかにしてください")
-            };
-            settings = settings with { Diff = settings.Diff with { MaxShiftMm = shift, EdgeTolerance = edge } };
-        }
+        settings = settings with { Diff = ApplyProfile(settings.Diff, profile) };
         settings = settings with { Dpi = dpi ?? settings.Dpi, ImageDpi = imageDpi ?? dpi ?? settings.Dpi };
         Validate(settings);
         ValidatePixelConversions(settings);
@@ -266,6 +257,7 @@ public static class ConfigurationLoader
 
     private static void Validate(AppSettings settings)
     {
+        ValidateRegions(settings, pixels: false);
         if (settings.Dpi is < 72 or > 1200) throw Error("dpi", "72〜1200 にしてください");
         if (settings.ImageDpi is < 72 or > 1200) throw Error("image_dpi", "72〜1200 にしてください");
         Nonnegative(settings.Diff.MaxShiftMm, "diff.max_shift_mm");
@@ -324,6 +316,7 @@ public static class ConfigurationLoader
 
     private static void ValidatePixelConversions(AppSettings settings)
     {
+        ValidateRegions(settings, pixels: true);
         // mm の上限を新設せず、実際に用いる整数・カーネル・探索配列の表現限界を確認する。
         foreach (var dpi in new[] { settings.Dpi, settings.ImageDpi }.Distinct())
         {

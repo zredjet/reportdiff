@@ -1,0 +1,205 @@
+{
+  "platform": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+  "opencv": "4.13.0",
+  "width": 2480,
+  "height": 3508,
+  "dpi": 300,
+  "glyphs": 600,
+  "iterations": 3,
+  "warmups": 1,
+  "scope": "独立 CLI プロセスの起動・PNG 読み込み・比較・PNG/JSON 保存。HTML・PDF 描画・raw evidence は含まない。領域枠の描画は含む。設定で結果も変わる。RSS は macOS time -l。",
+  "measurements": [
+    {
+      "scenario": "changed",
+      "settings": 1,
+      "runs": [
+        {
+          "elapsed_ms": 546.9809169881046,
+          "peak_rss_bytes": 1001586688,
+          "raw_pixels": 204,
+          "clusters": 1,
+          "suppressed_pixels": 0,
+          "output_bytes": 2131151
+        },
+        {
+          "elapsed_ms": 556.6884999861941,
+          "peak_rss_bytes": 1001734144,
+          "raw_pixels": 204,
+          "clusters": 1,
+          "suppressed_pixels": 0,
+          "output_bytes": 2131152
+        },
+        {
+          "elapsed_ms": 544.6813749149442,
+          "peak_rss_bytes": 998686720,
+          "raw_pixels": 204,
+          "clusters": 1,
+          "suppressed_pixels": 0,
+          "output_bytes": 2131152
+        }
+      ],
+      "median_ms": 546.9809169881046,
+      "maximum_rss_bytes": 1001734144
+    },
+    {
+      "scenario": "changed",
+      "settings": 2,
+      "runs": [
+        {
+          "elapsed_ms": 659.4933749875054,
+          "peak_rss_bytes": 982007808,
+          "raw_pixels": 204,
+          "clusters": 1,
+          "suppressed_pixels": 0,
+          "output_bytes": 2163410
+        },
+        {
+          "elapsed_ms": 663.1439999910071,
+          "peak_rss_bytes": 982597632,
+          "raw_pixels": 204,
+          "clusters": 1,
+          "suppressed_pixels": 0,
+          "output_bytes": 2163410
+        },
+        {
+          "elapsed_ms": 654.4617499457672,
+          "peak_rss_bytes": 976371712,
+          "raw_pixels": 204,
+          "clusters": 1,
+          "suppressed_pixels": 0,
+          "output_bytes": 2163410
+        }
+      ],
+      "median_ms": 659.4933749875054,
+      "maximum_rss_bytes": 982597632
+    },
+    {
+      "scenario": "changed",
+      "settings": 3,
+      "runs": [
+        {
+          "elapsed_ms": 759.7297499887645,
+          "peak_rss_bytes": 1113735168,
+          "raw_pixels": 204,
+          "clusters": 1,
+          "suppressed_pixels": 0,
+          "output_bytes": 2189054
+        },
+        {
+          "elapsed_ms": 740.294334013015,
+          "peak_rss_bytes": 1108033536,
+          "raw_pixels": 204,
+          "clusters": 1,
+          "suppressed_pixels": 0,
+          "output_bytes": 2189054
+        },
+        {
+          "elapsed_ms": 750.2254160353914,
+          "peak_rss_bytes": 1107968000,
+          "raw_pixels": 204,
+          "clusters": 1,
+          "suppressed_pixels": 0,
+          "output_bytes": 2189054
+        }
+      ],
+      "median_ms": 750.2254160353914,
+      "maximum_rss_bytes": 1113735168
+    },
+    {
+      "scenario": "shifted",
+      "settings": 1,
+      "runs": [
+        {
+          "elapsed_ms": 571.8909580027685,
+          "peak_rss_bytes": 1000767488,
+          "raw_pixels": 204,
+          "clusters": 1,
+          "suppressed_pixels": 0,
+          "output_bytes": 2131609
+        },
+        {
+          "elapsed_ms": 566.3081670645624,
+          "peak_rss_bytes": 1001897984,
+          "raw_pixels": 204,
+          "clusters": 1,
+          "suppressed_pixels": 0,
+          "output_bytes": 2131609
+        },
+        {
+          "elapsed_ms": 568.7375420238823,
+          "peak_rss_bytes": 1000128512,
+          "raw_pixels": 204,
+          "clusters": 1,
+          "suppressed_pixels": 0,
+          "output_bytes": 2131609
+        }
+      ],
+      "median_ms": 568.7375420238823,
+      "maximum_rss_bytes": 1001897984
+    },
+    {
+      "scenario": "shifted",
+      "settings": 2,
+      "runs": [
+        {
+          "elapsed_ms": 1473.933874978684,
+          "peak_rss_bytes": 1003814912,
+          "raw_pixels": 95004,
+          "clusters": 301,
+          "suppressed_pixels": 0,
+          "output_bytes": 3729789
+        },
+        {
+          "elapsed_ms": 1514.2124999547377,
+          "peak_rss_bytes": 1002782720,
+          "raw_pixels": 95004,
+          "clusters": 301,
+          "suppressed_pixels": 0,
+          "output_bytes": 3729789
+        },
+        {
+          "elapsed_ms": 1500.6102909101173,
+          "peak_rss_bytes": 1007648768,
+          "raw_pixels": 95004,
+          "clusters": 301,
+          "suppressed_pixels": 0,
+          "output_bytes": 3729789
+        }
+      ],
+      "median_ms": 1500.6102909101173,
+      "maximum_rss_bytes": 1007648768
+    },
+    {
+      "scenario": "shifted",
+      "settings": 3,
+      "runs": [
+        {
+          "elapsed_ms": 1597.8372500976548,
+          "peak_rss_bytes": 1133838336,
+          "raw_pixels": 95004,
+          "clusters": 301,
+          "suppressed_pixels": 0,
+          "output_bytes": 3757307
+        },
+        {
+          "elapsed_ms": 1584.7557090455666,
+          "peak_rss_bytes": 1134755840,
+          "raw_pixels": 95004,
+          "clusters": 301,
+          "suppressed_pixels": 0,
+          "output_bytes": 3757307
+        },
+        {
+          "elapsed_ms": 1587.8274999558926,
+          "peak_rss_bytes": 1132232704,
+          "raw_pixels": 95004,
+          "clusters": 301,
+          "suppressed_pixels": 0,
+          "output_bytes": 3757307
+        }
+      ],
+      "median_ms": 1587.8274999558926,
+      "maximum_rss_bytes": 1134755840
+    }
+  ]
+}

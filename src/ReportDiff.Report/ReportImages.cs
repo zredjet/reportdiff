@@ -23,6 +23,11 @@ internal static class ReportImages
                 if (right > left && bottom > top) Cv2.Rectangle(excluded, new Rect(left, top, right - left, bottom - top), Scalar.All(255), -1);
             }
             Tint(output, excluded, new Scalar(0, 255, 255));
+            if (comparison.Regional is { } regional)
+            {
+                Tint(output, regional.SuppressedMask, new Scalar(170, 210, 255));
+                RegionDrawing.Draw(output, regional, dpi);
+            }
             output.SetTo(Red, comparison.RawMask);
             Cv2.FindContours(comparison.LabelMask, out Point[][] contours, out _, RetrievalModes.List, ContourApproximationModes.ApproxSimple);
             Cv2.DrawContours(output, contours, -1, Red, 1, LineTypes.Link8);

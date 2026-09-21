@@ -34,7 +34,8 @@ public sealed class ReportWriter
             throw new ArgumentException("除外 YAML の余白は 0〜20 の有限の mm 値にしてください。");
         this.outputDirectory = Path.GetFullPath(outputDirectory);
         this.inputs = inputs;
-        this.config = config with { Exclude = Array.AsReadOnly(config.Exclude.ToArray()) };
+        this.config = config with { Exclude = Array.AsReadOnly(config.Exclude.ToArray()),
+            Regions = config.Regions is null ? null : Array.AsReadOnly(config.Regions.ToArray()) };
         this.saveAllPages = saveAllPages;
         this.generatedAt = generatedAt ?? DateTimeOffset.Now;
         this.imageExecution = imageExecution;
@@ -79,7 +80,7 @@ public sealed class ReportWriter
         var clusters = new List<ReportCluster>();
         ExecuteWrite(() =>
         {
-            if (comparison.Status != "same" || saveAllPages || shift is not null)
+            if (comparison.Status != "same" || saveAllPages || shift is not null || comparison.Regional is not null)
             {
                 var prefix = "pages/" + PageStem(page);
                 paths = new(prefix + "_a.png", prefix + "_b.png", prefix + "_overlay.png");
@@ -90,7 +91,9 @@ public sealed class ReportWriter
                     paths = paths with { BOriginal = prefix + "_b_original.png" };
                     WritePng(paths.BOriginal, images.B);
                 }
-                using var overlay = ReportImages.Overlay(comparisonB, comparison, config.Exclude.Where(e => e.Page is null || e.Page == page), dpi);
+                using var overlay = ReportImages.Overlay(comparisonB, comparison, config.Exclude.Concat((config.Regions ?? []).Where(r => r.Mode == "exclude")
+                    .Select(r => new ReportExclusion(r.Page, r.X, r.Y, r.W, r.H, r.Name)))
+                    .Where(e => e.Page is null || e.Page == page), dpi);
                 WritePng(paths.Overlay!, overlay);
             }
             if (config.Report.RawOverlay)
@@ -118,7 +121,8 @@ public sealed class ReportWriter
         var result = new ReportPage(page, comparison.Status, new(size.Width, size.Height), images.SizeMismatch,
             comparison.RawPixels, comparison.NoiseDropped, comparison.AbsorbedGroups, comparison.MaxShiftPx,
             paths, Array.AsReadOnly(clusters.ToArray()))
-            { Alignment = alignment, GlobalShiftPx = shift is null ? null : new(shift.Dx, shift.Dy), RawEvidence = rawEvidence };
+            { Alignment = alignment, GlobalShiftPx = shift is null ? null : new(shift.Dx, shift.Dy), RawEvidence = rawEvidence,
+                Regions = PageRegions.Create(config.Regions, page, dpi, new(size.Width, size.Height), comparison.Regional) };
         pages.Add(result);
         if (shift is not null)
             warnings.Add(new("GLOBAL_SHIFT_APPLIED", $"{page} ページ: B 全体を A に合わせて補正しました（B→A: 横 {shift.Dx}px、縦 {shift.Dy}px。右・下が正）。補正前 B も保存しています。"));
@@ -164,7 +168,8 @@ public sealed class ReportWriter
         var result = new ReportPage(page, onlyA ? "only_in_a" : "only_in_b", new(image.Width, image.Height),
             false, 0, 0, 0, 0, new(onlyA ? path : null, onlyA ? null : path, null), [])
             { Alignment = config.Align.Enabled ? AlignmentResult.Skipped("unpaired_page") : AlignmentResult.Disabled,
-                RawEvidence = rawEvidence };
+                RawEvidence = rawEvidence, Regions = PageRegions.Create(config.Regions, page,
+                    (onlyA ? inputs.A.Type : inputs.B.Type) == "pdf" ? config.Dpi : config.ImageDpi, new(image.Width, image.Height), null) };
         pages.Add(result);
         return result;
     }

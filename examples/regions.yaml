@@ -1,0 +1,10 @@
+# 領域別設定。位置と大きさは A／補正後 B の左上原点、mm。
+# ページ設定 → 各領域の profile → 各領域の diff の順。親領域からは継承しない。
+# 領域同士は非交差か完全内包だけ。同一矩形・部分交差はエラー。
+regions:
+  - {name: 明細欄, page: all, x: 10, y: 60, w: 190, h: 180, profile: strict}
+  - {name: 小計欄, page: all, x: 150, y: 200, w: 40, h: 20, profile: strict, diff: {color_threshold: 1}}
+  - {name: フッター, page: all, x: 0, y: 280, w: 210, h: 17, profile: loose, diff: {color_threshold: 8}}
+  - {name: ロゴ, page: all, x: 10, y: 8, w: 40, h: 12, mode: exclude}
+# 判定とは独立した、補正前の元画像の赤青表示も保存する。
+report: {raw_overlay: true}

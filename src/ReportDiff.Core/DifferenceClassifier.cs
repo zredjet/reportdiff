@@ -6,13 +6,13 @@ namespace ReportDiff.Core;
 internal static class DifferenceClassifier
 {
     public static string?[] Classify(Mat a, Mat b, ComparisonParameters parameters, byte[] raw,
-        int[] labels, bool[] keep, Rect region, out Mat? removalMask, ComparisonInk? prepared = null)
+        int[] labels, bool[] keep, Rect region, out Mat? removalMask, ComparisonInk? prepared = null, RegionMap? regions = null)
     {
         var width = a.Width;
         var height = a.Height;
         var (preparedA, preparedB) = prepared?.ReadFor(a, b, parameters) ?? (null, null);
-        var (originalA, inkA) = ReadInk(a, region, parameters, preparedA);
-        var (originalB, inkB) = ReadInk(b, region, parameters, preparedB);
+        var (originalA, inkA) = ReadInk(a, region, parameters, preparedA, regions is null ? null : true);
+        var (originalB, inkB) = ReadInk(b, region, parameters, preparedB, regions is null ? null : true);
         var kinds = new string?[keep.Length];
         // 各種の有無だけで分類できるため、割合や多数決のしきい値を持たない。
         var states = new byte[keep.Length];
@@ -36,7 +36,10 @@ internal static class DifferenceClassifier
             if (originalA[local] != originalB[local] && !IsExcluded(exclusions, x, y))
                 shapeMismatch[label] = true;
             if (raw[pixel] == 0) continue;
-            var state = inkA[local] != 0 ? (inkB[local] != 0 ? 4 : 1) : (inkB[local] != 0 ? 2 : 8);
+            var strict = regions is not null && regions.DiffAt(pixel).EdgeTolerance == 0;
+            var hasA = (strict ? originalA : inkA)[local] != 0;
+            var hasB = (strict ? originalB : inkB)[local] != 0;
+            var state = hasA ? (hasB ? 4 : 1) : (hasB ? 2 : 8);
             states[label] |= (byte)state;
             if (state == 1)
             {
@@ -62,9 +65,9 @@ internal static class DifferenceClassifier
         return false;
     }
 
-    private static (byte[] Original, byte[] Ink) ReadInk(Mat image, Rect region, ComparisonParameters parameters, Mat? prepared)
+    private static (byte[] Original, byte[] Ink) ReadInk(Mat image, Rect region, ComparisonParameters parameters, Mat? prepared, bool? expand = null)
     {
-        var edge = parameters.Diff.EdgeTolerance > 0;
+        var edge = expand ?? parameters.Diff.EdgeTolerance > 0;
         // 生成済みインクには局所背景の余白は不要。分類用の 1px 膨張の余白だけを残す。
         // 未生成の場合は従来どおり背景半径も含め、ROI の端に偽の背景を作らない。
         var margin = (prepared is null ? Math.Max(1, Units.RoundPixels(parameters.Ink.BackgroundRadiusMm, parameters.Dpi)) : 0)

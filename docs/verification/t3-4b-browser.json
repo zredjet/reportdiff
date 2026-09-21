@@ -1,0 +1,71 @@
+{
+  "browser": "153.0.8010.52",
+  "errors": [],
+  "external_requests": [],
+  "records": [
+    {
+      "mode": "regions",
+      "width": 1280,
+      "javaScriptEnabled": true,
+      "scrollable_tables": 0,
+      "root_overflow": false,
+      "counts_match": true
+    },
+    {
+      "mode": "regions",
+      "width": 1280,
+      "javaScriptEnabled": false,
+      "scrollable_tables": 0,
+      "root_overflow": false,
+      "counts_match": true
+    },
+    {
+      "mode": "regions",
+      "width": 390,
+      "javaScriptEnabled": true,
+      "scrollable_tables": 2,
+      "root_overflow": false,
+      "counts_match": true
+    },
+    {
+      "mode": "regions",
+      "width": 390,
+      "javaScriptEnabled": false,
+      "scrollable_tables": 2,
+      "root_overflow": false,
+      "counts_match": true
+    },
+    {
+      "mode": "audit",
+      "width": 1280,
+      "javaScriptEnabled": true,
+      "scrollable_tables": 0,
+      "root_overflow": false,
+      "counts_match": true
+    },
+    {
+      "mode": "audit",
+      "width": 1280,
+      "javaScriptEnabled": false,
+      "scrollable_tables": 0,
+      "root_overflow": false,
+      "counts_match": true
+    },
+    {
+      "mode": "audit",
+      "width": 390,
+      "javaScriptEnabled": true,
+      "scrollable_tables": 1,
+      "root_overflow": false,
+      "counts_match": true
+    },
+    {
+      "mode": "audit",
+      "width": 390,
+      "javaScriptEnabled": false,
+      "scrollable_tables": 1,
+      "root_overflow": false,
+      "counts_match": true
+    }
+  ]
+}

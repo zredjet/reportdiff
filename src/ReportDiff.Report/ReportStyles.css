@@ -54,6 +54,10 @@ th, td { padding: 12px; border-top: 1px solid #e2e7ee; vertical-align: middle; }
 thead th { background: #f3f5f8; white-space: nowrap; }
 td { overflow-wrap: anywhere; }
 .clusters { min-width: 960px; table-layout: fixed; }
+.region-settings, .region-results { min-width: 900px; table-layout: fixed; }
+.region-settings th:first-child, .region-results th:first-child { width: 190px; overflow-wrap: anywhere; }
+.page-regions { margin: 16px 0 24px; }
+.region-audit li { overflow-wrap: anywhere; }
 .clusters th:nth-child(1) { width: 148px; }
 .kind { white-space: nowrap; font-weight: 500; }
 .movement { display: block; font-weight: 400; font-size: .8rem; overflow-wrap: anywhere; }
@@ -89,4 +93,5 @@ footer { color: #536176; font-size: .8rem; text-align: center; margin-top: 36px;
   .card { border-radius: 0; }
   .table-scroll { overflow: visible; }
   .clusters { min-width: 0; table-layout: auto; }
+  .region-settings, .region-results { min-width: 0; table-layout: auto; }
 }

@@ -28,5 +28,6 @@ public sealed class PageComparison(
     /// <summary>採用した差分のうち A だけにインクがある画素。該当なしの場合は null。</summary>
     public Mat? RemovalMask { get; } = removalMask;
     public IReadOnlyList<string> Warnings { get; } = warnings;
-    public void Dispose() { RawMask.Dispose(); LabelMask.Dispose(); RemovalMask?.Dispose(); }
+    public RegionalComparison? Regional { get; internal set; }
+    public void Dispose() { RawMask.Dispose(); LabelMask.Dispose(); RemovalMask?.Dispose(); Regional?.Dispose(); }
 }

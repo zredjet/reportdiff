@@ -85,6 +85,9 @@ text:
   min_line_overlap: 0.5
 # 除外矩形の配列（既定は空）。比較・移動・全体補正・PDF注釈に適用する。
 exclude: []
+# 領域ごとの profile / diff 上書き。構文例: examples/regions.yaml
+# --no-regions は regions と上記 exclude を両方無効にし、元の宣言を記録する。
+regions: []
 # 除外する場合は上の exclude: [] を置き換える。
 # page: all または1以上の整数（必須）。対象ページを選ぶ。
 # x/y: 左上位置、w/h: 幅・高さ（mm、0以上、必須）。0の幅・高さは空領域。

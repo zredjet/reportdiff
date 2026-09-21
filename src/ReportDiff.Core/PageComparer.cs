@@ -5,7 +5,22 @@ namespace ReportDiff.Core;
 
 public static class PageComparer
 {
-    public static PageComparison Compare(Mat a, Mat b, ComparisonParameters parameters) => Compare(a, b, parameters, true);
+    public static PageComparison Compare(Mat a, Mat b, ComparisonParameters parameters) => parameters.Regions.Count == 0
+        ? Compare(a, b, parameters, true) : RegionalComparer.Compare(a, b, parameters);
+
+    /// <summary>合成済み生差分を一度だけクラスタ化・注釈する。抑制集計を含む比較には Compare を使う。入力マスクの所有権は移さない。</summary>
+    public static PageComparison FromRawDifference(RawDifference difference, ComparisonParameters parameters, Mat? a = null, Mat? b = null)
+    {
+        if (difference.RawMask.Empty() || difference.RawMask.Type() != MatType.CV_8UC1
+            || (a is null) != (b is null) || (a is not null && (a.Type() != MatType.CV_8UC3 || b!.Type() != MatType.CV_8UC3
+                || a.Size() != difference.RawMask.Size() || b.Size() != a.Size())))
+            throw new ArgumentException("生差分は空でない 8bit マスク、注釈用 A/B は同じ大きさの BGR 8bit 画像を一組指定してください。");
+        if (parameters.Regions.Count == 0) return Cluster(difference, parameters, a, b);
+        var effective = parameters with { Exclude = parameters.Exclude.Concat(parameters.Regions
+            .Where(r => r.Mode == "exclude").Select(r => r.Bounds)).Distinct().ToArray() };
+        return Cluster(difference, effective, a, b,
+            regions: new RegionMap(difference.RawMask.Width, difference.RawMask.Height, effective));
+    }
 
     internal static PageComparison Compare(Mat a, Mat b, ComparisonParameters parameters,
         bool useGroupBounds, ComparisonTimings? timings = null, bool classify = true)
@@ -19,7 +34,7 @@ public static class PageComparer
     }
 
     internal static PageComparison Cluster(RawDifference difference, ComparisonParameters parameters,
-        Mat? a = null, Mat? b = null, ComparisonTimings? timings = null, ComparisonInk? classificationInk = null)
+        Mat? a = null, Mat? b = null, ComparisonTimings? timings = null, ComparisonInk? classificationInk = null, RegionMap? regions = null)
     {
         var width = difference.RawMask.Cols;
         var height = difference.RawMask.Rows;
@@ -95,7 +110,7 @@ public static class PageComparer
             var right = Math.Min(width, accepted.Max(item => item.Cluster.Bounds.Right) + hx);
             var bottom = Math.Min(height, accepted.Max(item => item.Cluster.Bounds.Bottom) + hy);
             kinds = DifferenceClassifier.Classify(a, b, parameters, raw, labels, keep,
-                new Rect(left, top, right - left, bottom - top), out removalMask, classificationInk);
+                new Rect(left, top, right - left, bottom - top), out removalMask, classificationInk, regions);
             if (timings is not null)
             {
                 timings.ClassificationMs = Stopwatch.GetElapsedTime(started).TotalMilliseconds;
@@ -112,7 +127,7 @@ public static class PageComparer
                 var started = Stopwatch.GetTimestamp();
                 var allocated = GC.GetAllocatedBytesForCurrentThread();
                 clusters = MovementAnnotator.Annotate(a, b, parameters, raw, labels,
-                    accepted.Select(item => item.Label).ToArray(), clusters);
+                    accepted.Select(item => item.Label).ToArray(), clusters, regions);
                 if (timings is not null)
                 {
                     timings.MovementMs = Stopwatch.GetElapsedTime(started).TotalMilliseconds;

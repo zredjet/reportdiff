@@ -138,13 +138,14 @@ public static partial class HtmlReportWriter
                 html.Append($"<tr><td>{(exclusion.Page is null ? "すべて" : N(exclusion.Page.Value))}</td><td>{N(exclusion.X)}</td><td>{N(exclusion.Y)}</td><td>{N(exclusion.W)}</td><td>{N(exclusion.H)}</td><td>{H(exclusion.Note)}</td></tr>");
             html.Append("</tbody></table></div>");
         }
+        AppendRegionSettings(html, config);
         html.Append("</details>");
     }
 
     private static void AppendPage(StringBuilder html, ReportPage page, int dpi, double snippetMarginMm)
     {
         var same = page.Status == "same";
-        html.Append($"<details class=\"card page\" id=\"page-{page.Page}\"{(same ? "" : " open")}><summary><span>{page.Page} ページ</span> <span class=\"status {(same ? "same" : "different")}\">{Status(page.Status)}</span>{(page.GlobalShiftPx is null ? "" : " <span>全体補正あり</span>")}</summary>");
+        html.Append($"<details class=\"card page\" id=\"page-{page.Page}\"{(same ? "" : " open")}><summary><span>{page.Page} ページ</span> <span class=\"status {(same ? "same" : "different")}\">{Status(page.Status)}</span>{(page.GlobalShiftPx is null ? "" : " <span>全体補正あり</span>")}{(page.Regions is { SuppressedPixels: > 0 } regions ? $" <span>領域で抑制: {regions.SuppressedPixels} 画素</span>" : "")}</summary>");
         html.Append("<dl class=\"metrics page-metrics\">");
         html.Append(Metric("画像サイズ", $"{page.SizePx.W} × {page.SizePx.H} px"));
         html.Append(Metric("生の差分の画素数", page.RawPixels));
@@ -154,6 +155,7 @@ public static partial class HtmlReportWriter
         html.Append("</dl>");
         if (page.SizeMismatch) html.Append("<p class=\"notice\">画像サイズが異なるため、右と下を白で埋めて比較しました。</p>");
         AppendAlignment(html, page);
+        AppendPageRegions(html, page);
         if (page.RawEvidence is not null) html.Append("<h3>判定表示</h3>");
         AppendViewer(html, page);
         if (page.RawEvidence is { } evidence) AppendRawEvidence(html, page.Page, evidence);

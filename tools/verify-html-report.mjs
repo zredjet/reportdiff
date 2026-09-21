@@ -71,7 +71,7 @@ try {
     await page.locator('.settings > summary').click();
     assert.equal(await page.locator('.settings').getAttribute('open'), '');
     assert.ok((await page.locator('.settings').innerText()).includes('除外領域'));
-    const settingCount = Object.entries(result.config).filter(([key]) => key !== 'exclude')
+    const settingCount = Object.entries(result.config).filter(([key]) => !['exclude', 'regions', 'region_audit'].includes(key))
       .reduce((sum, [, value]) => sum + (typeof value === 'object' ? Object.keys(value).length : 1), 0);
     assert.equal(await page.locator('.settings .settings-grid dd').count(), settingCount, '実効設定の表示に不足があります。');
     assert.deepEqual(await page.locator('.settings .settings-grid dt, .settings .settings-grid dd').evaluateAll(items => items.filter(item => {

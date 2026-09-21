@@ -56,4 +56,5 @@ public sealed record ComparisonParameters
     public ClusterOptions Cluster { get; init; } = new();
     public MoveOptions Move { get; init; } = new();
     public IReadOnlyList<RectMm> Exclude { get; init; } = [];
+    public IReadOnlyList<ComparisonRegion> Regions { get; init; } = [];
 }

@@ -193,7 +193,7 @@ OpenCV の既定の境界処理（`blur` は `BORDER_REFLECT_101`、`erode` / `d
 ```
 reportdiff compare <A> <B> --out <dir>
     [--config <file.yaml>] [--profile normal|strict|loose]
-    [--dpi <n>] [--pages <1-3,5>] [--save-all-pages] [--raw-overlay] [--no-html] [--force] [--quiet]
+    [--dpi <n>] [--pages <1-3,5>] [--save-all-pages] [--raw-overlay] [--no-regions] [--no-html] [--force] [--quiet]
 reportdiff --version
 ```
 
@@ -205,6 +205,7 @@ reportdiff --version
 - `--dpi`：設定ファイルと `--profile` より優先
 - `--pages`：比較するページ（1 始まり）。省略時は全ページ
 - `--save-all-pages`：差分のないページの画像も保存する（既定は差分のあるページだけ）
+- `--no-regions`：regions と exclude を無効化して比較する監査用指定。入力検証は維持し、元の宣言と無効化した旨を JSON / HTML に残す（7.4 節）。
 - `--raw-overlay`：補正前の元 A/B による赤青の確認用画像を選択全ページへ追加する。YAML の `report.raw_overlay` に優先。判定・終了コードは変更しない（8.4 節）
 - 標準出力：1 行の要約（例 `相違あり: 20 ページ中 3 ページ、7 箇所 → out/report.html`）。`--quiet` で抑止
 - `--no-html`：HTML を作らず、要約には `result.json` の保存先を表示する
@@ -295,6 +296,20 @@ JPEG やスキャン画像を入力にするときは、`color_threshold` を 8�
 ### 7.3 単位の換算
 
 `px = mm / 25.4 * dpi`。換算は `Units` クラスの 1 か所で行い、丸め方は用途ごとに 5 章の記述に従う。面積は `px² = mm² × (dpi / 25.4)²` を `Units.SquareMmToPixels` で換算する。`align.*_samples` は物理的な長さではなく縮小計算の格子要素数であり、DPI で換算しない。
+
+### 7.4 領域別設定（T3-4b）
+
+スキーマ・範囲・優先順位は [設定リファレンスの領域別設定](CONFIGURATION.md#領域別の設定)を正とする。`regions: []` が既定。詳細な承認済み契約と確認ケースは [T3-4b 仕様](planning/t3-4b-regions.md)。比較式・既定値・既存ゴールデンの期待は変更しない。
+
+1. CLI 適用後のページ diff で 5.2〜5.3 を全ページへ一度実行する（実行 0）。領域の実効 diff はページ値 → 領域 profile → 領域 diff。親領域の設定は継承しない。
+2. 有効画素を持つ compare 領域の異なる diff ごとに、同じ全ページへ 5.2〜5.3 を逐次実行する。生差分を各画素の所有領域から選び、領域外は実行 0 を使う。特徴量を設定数ぶん保持しない。
+3. 完全内包は内側を優先、exclude は常に比較より優先。部分交差と同一矩形はエラー。mm と最終 DPI の px 格子で検査し、非交差の矩形が丸めで共有する画素もエラーにする。除外の和集合を最後に 0 にする。
+4. 合成した生差分を 5.5 で一度だけクラスタ化する。Core の `TolerantDifference.Calculate` と `PageComparer.FromRawDifference` で生成・クラスタ化を別々に呼べる。後者は合成済みの生差分を受けてクラスタ化・注釈する入口で、領域の抑制量を含む通常の比較は `PageComparer.Compare` で行う。
+5. 分類の各画素では、その座標の edge_tolerance=0 なら元インク、それ以外は 3×3 膨張インクを使う。形状一致は元インク、クラスタの状態集計は 11.1 のまま。膨張近傍を領域境界で切らない。削除色も同じ規則。
+6. 移動の画素検証では、同じテンプレート窓を各 diff（max_shift_mm=0）で比較し、対応画素が元座標・先座標の両方の条件に合うことを要求する。候補と関連クラスタの前向き・逆向きの全検証へ適用する。探索・一意性・残差説明・競合の条件は 11.2 のまま。満たさなければ通常分類と差分を残す。
+7. mode: exclude と既存 exclude は、比較・全体補正・PDF 注釈・判定画像で共用する。compare 領域は全体補正の推定条件を変えない。`--no-regions` は両宣言を無効化し、profile と align の有効／無効は維持する。raw evidence は影響を受けない。
+
+ページ全体を同じ diff の領域で覆った場合、生差分・クラスタ・番号・種類・移動量・関連 ID・削除マスクは、その diff をページ全体に適用した結果と一致する。ページ／要約の吸収数と最大ずれは実行 0 の値を維持し、領域実行の値を足さない。
 
 ## 8. 出力
 
@@ -424,6 +439,23 @@ A のみ赤、B のみ青、同じ濃淡は黒／グレー、白同士は白。�
 追加画像はページごとに逐次生成・保存・破棄する。グレー化の作業領域は行単位。PNG の失敗は既存の出力エラーとし、途中結果を確定せず、`--force` の旧結果も保持する。
 
 HTML には判定表示と別の「確認用オーバーレイ（補正前）」ビュー、赤 A／青 B／黒・グレー共通の凡例、元カラー A/B への切り替えを追加する。元座標・白埋め量・DPI と、判定・除外座標とは異なり得ることを説明する。全 PNG に通常のリンクも置き、JavaScript なしでも開ける。表示切り替えは比較状態・件数に影響しない。
+
+### 8.5 領域の適用・抑制の報告
+
+schema_version=1 の追加項目とする。領域がない場合は追加項目を省略し、既存 JSON・PNG を維持する。`--no-regions` では config.regions / exclude を空配列、region_audit に disabled=true、reason=--no-regions、元の regions / exclude を保存する。
+
+| JSON の位置 | 内容 |
+|---|---|
+| `config.regions[]` | name / page / x / y / w / h / mode / profile / diff の宣言と effective_diff |
+| `pages[].regions` | coordinate_system=comparison_top_left、suppression_method=baseline_raw_minus_composed_raw_8_connected、抑制画素／箇所・除外画素の合計、runs / items |
+| `regions.runs[]` | id / diff / absorbed_groups / max_shift_px。基準実行は 0。全ページの値で、領域内の値ではない |
+| `regions.items[]` | 宣言の 0 始まり index、name / mode、status、bounds_px、effective_pixels / raw_pixels / suppressed_pixels / suppressed_components / excluded_pixels、run_id |
+
+status は applied / outside_page / shadowed / not_applicable / not_compared。run_id は有効な compare 領域だけに付く。片側ページは未比較、対象外ページは非適用で、比較した値を作らない。矩形は元宣言を config に残し、ページ別にはクリップした px を記録する。
+
+抑制マスクは compare 領域の所有画素に限った「実行 0 の生差分 AND NOT 合成生差分」。すべての除外画素を取り除く。抑制箇所はマスクの 8 近傍連結成分数で、結合・ノイズ除去・件数上限を適用せず summary.clusters に加えない。除外画素数は実行 0 の差分と除外の和集合の共通画素。領域の除外が既存 exclude と重なっても重複加算しない。
+
+HTML に設定とページ別の適用結果、全ページ実行値を表示する。PNG は薄い橙色の抑制画素、青破線・R 番号・日本語の領域名を描き、その後に従来の赤い差分・輪郭・番号を描く。長い名前は画像幅で省略し、全文は HTML に残す。相違がすべて抑制されても確認できるよう、領域処理したページの判定画像を保存する。元 A/B・raw evidence は無加工のまま。
 
 ## 9. ゴールデンセット
 
@@ -616,7 +648,7 @@ FontFile は Type1 / MMType1、FontFile2 は TrueType / CIDFontType2 に対応�
 reportdiff compare-dir <dirA> <dirB> --out <result>
   [--config common.yaml] [--rules rules.yaml]
   [--profile normal|strict|loose] [--dpi n] [--pages 1-3,5]
-  [--save-all-pages] [--raw-overlay] [--no-html] [--force] [--quiet]
+  [--save-all-pages] [--raw-overlay] [--no-regions] [--no-html] [--force] [--quiet]
 ```
 
 既存の `compare` と個別 schema_version、比較式・既定値・注釈の定義を共用する。ファイルも PDF 描画も逐次処理する。`--rules` は `compare-dir` 専用。
@@ -645,7 +677,7 @@ reportdiff compare-dir <dirA> <dirB> --out <result>
 
 候補が 0 件なら共通設定、1 件なら該当 YAML、複数ならその対を `CONFIG_RULE_AMBIGUOUS` エラーとする。同じ config への複数一致もエラーにし、一致した 1 始まりの番号・パターン・設定パスを記録する。
 
-優先順位は **既定値 → 共通 YAML → 該当 YAML → 明示 profile → CLI**。ネストしたキーを部分上書きし、空マッピングは元を保つ。exclude は指定時に配列全体を置換し、空配列で解除、省略で継承する。image_dpi は両レイヤーで未指定なら最終 dpi に追従し、明示値は保持する。PDF/画像混在の DPI 不一致は個別エラー。
+優先順位は **既定値 → 共通 YAML → 該当 YAML → 明示 profile → CLI**。ネストしたキーを部分上書きし、空マッピングは元を保つ。exclude / regions は指定時に配列全体を置換し、空配列で解除、省略で継承する。image_dpi は両レイヤーで未指定なら最終 dpi に追従し、明示値は保持する。PDF/画像混在の DPI 不一致は個別エラー。
 
 後から上書きする値を含む各設定、未使用の参照設定、合成した設定を開始前に検証する。同じパスの内容を一度読み込み、途中で読み直さず、元 YAML を変更しない。設定のパス・読み込んだバイト列の SHA-256 と CLI 値を一覧に記録する。[設定リファレンス](CONFIGURATION.md#フォルダ比較の帳票別設定)に例と説明を示す。
 

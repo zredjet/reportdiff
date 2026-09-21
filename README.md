@@ -110,6 +110,7 @@ align:
 | `--dpi n` | PDF の描画 DPI（72〜1200）を指定 |
 | `--pages "1-2,5"` | 1 始まりのページ番号を選択。省略時は全ページ |
 | `--save-all-pages` | 相違なしのページ画像も保存 |
+| `--no-regions` | 領域・除外の設定を外して監査比較し、元の宣言を記録する |
 | `--raw-overlay` | 判定から独立した赤青の確認用画像を、選択した全ページに追加 |
 | `--no-html` | JSON と画像だけを保存 |
 | `--quiet` | 標準出力の要約を抑止。エラーは表示 |
@@ -176,6 +177,18 @@ report:
 
 `strict` でも色のしきい値や小さなノイズの除去は残るため、ファイルのバイト単位の一致検査ではない。JPEG・スキャン画像では `diff.color_threshold` を 8〜12 に上げる設定を試せるが、小さな色差を見逃しやすくなる。設定の全項目は [SPEC 7 章](docs/SPEC.md#7-設定ファイル)を参照。
 
+## 領域ごとに比較の厳しさを変える
+
+[examples/regions.yaml](examples/regions.yaml) の `regions` で、明細だけ strict、フッターだけ loose、ロゴは除外、といった設定ができます。領域の境界でも相違箇所は分割されません。
+
+```powershell
+.\reportdiff.exe compare old.pdf new.pdf --out result --config examples/regions.yaml
+# 領域と除外を外した結果も確認する
+.\reportdiff.exe compare old.pdf new.pdf --out audit --config examples/regions.yaml --no-regions
+```
+
+レポートには領域の実効設定と、ページ既定値では検出されていた差分の抑制量を表示します。青の破線が領域、薄い橙色が抑制した画素です。抑制した箇所数は通常の相違件数とは別に数えます。`--raw-overlay` の確認用画像は領域設定に依存しません。座標・内包・優先順位は [設定リファレンス](docs/CONFIGURATION.md#領域別の設定)を参照してください。
+
 ## 既知の限界
 
 小さい文字が多い帳票は 400dpi を検討する。200dpi 以下では「未／末」「ば／ぱ」などを安定して検出できない。細い線の微妙な濃淡差や 1px 以内の長さの変化は通常設定で吸収される場合がある。行の挿入で下がずれると、それ以降がまとめて差分になる。[既知の限界の一覧](docs/SPEC.md#56-既知の限界仕様)を確認する。
@@ -221,6 +234,8 @@ Windows では macOS ランタイムの生成は不要。復元前にローカ�
 [GitHub Actions](https://github.com/zredjet/reportdiff/actions/workflows/ci.yml) は Windows x64 / macOS Apple Silicon でビルドとテストを実行する。v0.1.0 の [CI](https://github.com/zredjet/reportdiff/actions/runs/35558470655) は Windows 766 件成功・6 件スキップ、macOS 772 件成功。各リリースの検証結果はリリースページに記載する。完成版 exe のユーザー実機での実行・Edge / Chrome 表示は未確認。
 
 実帳票は `samples/private/` に置き、Git に含めない。テストには合成データだけを使う。
+
+領域別設定の確認結果・A4 測定・Windows の残確認は [T3-4b 検証記録](docs/verification/t3-4b-regions.md)にまとめています。
 
 ## ライセンス
 

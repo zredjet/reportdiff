@@ -51,6 +51,8 @@ public sealed record ReportPage(int Page, string Status, PixelSize SizePx, bool 
     public AlignmentResult Alignment { get; init; } = AlignmentResult.Disabled;
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public RawEvidence? RawEvidence { get; init; }
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    public PageRegions? Regions { get; init; }
 }
 
 // CLI への逆参照を作らず、設定の実効値を出力用の型で受け取る。
@@ -61,6 +63,10 @@ public sealed record ReportConfiguration(int Dpi, int ImageDpi, DiffOptions Diff
     public MoveOptions Move { get; init; } = new();
     public AlignOptions Align { get; init; } = new();
     public TextOptions Text { get; init; } = new();
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    public IReadOnlyList<ReportRegion>? Regions { get; init; }
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    public RegionAudit? RegionAudit { get; init; }
 }
 public sealed record ReportOutputOptions(double CropMarginMm)
 {
