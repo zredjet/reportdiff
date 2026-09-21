@@ -43,6 +43,8 @@ THIRD_PARTY_NOTICES.md
 examples/*.yaml           # 通常設定
 examples/batch/rules.yaml  # compare-dir の選択定義。参照先も同梱
 docs/                     # 仕様・手順・確認記録。文書間のリンクも保持
+  images/                 # READMEの実画面
+  samples/readme/         # 自作入力A/Bと生成済みHTML・JSON・PNG
 licenses/                 # 原文・出典・確認した依存バージョン
 bundle-inspection.json    # exe・必須 DLL のハッシュ、依存・ランタイム情報
 manifest.json             # manifest 自身を除く全ファイルのサイズ・SHA-256

@@ -1,0 +1,195 @@
+{
+  "schema_version": 1,
+  "tool": {
+    "name": "reportdiff",
+    "version": "0.1.2"
+  },
+  "generated_at": "2026-09-21T12:00:00+09:00",
+  "inputs": {
+    "a": {
+      "path": "inspection-a.png",
+      "type": "png",
+      "pages": 1,
+      "sha256": "ddcbe8ec0e23213ef944d790e6c8e556622b6140b4bc0de449758bfe2d44668b"
+    },
+    "b": {
+      "path": "inspection-b.png",
+      "type": "png",
+      "pages": 1,
+      "sha256": "f913fbc1c1ce670dae8fcd7e44341efbe3f2312fc1e22281f79ca0d774df82df"
+    }
+  },
+  "config": {
+    "dpi": 300,
+    "image_dpi": 300,
+    "diff": {
+      "max_shift_mm": 0.15,
+      "color_threshold": 3,
+      "edge_tolerance": 0.3
+    },
+    "cluster": {
+      "merge_x_mm": 3,
+      "merge_y_mm": 1,
+      "min_pixels": 4,
+      "max_clusters_per_page": 500,
+      "max_diff_ratio": 0.3,
+      "reading_band_mm": 5
+    },
+    "exclude": [],
+    "report": {
+      "crop_margin_mm": 2
+    },
+    "ink": {
+      "background_radius_mm": 1.5,
+      "contrast_threshold": 25
+    },
+    "move": {
+      "search_mm": 5,
+      "min_score": 0.98,
+      "min_score_gap": 0.02,
+      "template_margin_mm": 1
+    },
+    "align": {
+      "enabled": false,
+      "max_shift_mm": 5,
+      "min_score": 0.98,
+      "min_score_gap": 0.02,
+      "min_improvement": 0.05,
+      "coarse_max_side_samples": 800,
+      "refine_radius_samples": 2,
+      "min_support_cells": 3,
+      "min_support_rows": 2,
+      "min_support_columns": 2,
+      "min_ink_area_mm2": 1
+    },
+    "text": {
+      "max_letters_per_page": 100000,
+      "max_words_per_page": 20000,
+      "max_runes_per_cluster": 2000,
+      "min_line_overlap": 0.5
+    }
+  },
+  "summary": {
+    "status": "different",
+    "pages_compared": 1,
+    "pages_different": 1,
+    "clusters": 3,
+    "absorbed_groups": 0
+  },
+  "warnings": [],
+  "pages": [
+    {
+      "page": 1,
+      "status": "different",
+      "size_px": {
+        "w": 1100,
+        "h": 650
+      },
+      "size_mismatch": false,
+      "raw_pixels": 3699,
+      "noise_dropped": 0,
+      "absorbed_groups": 0,
+      "max_shift_px": 0,
+      "images": {
+        "a": "pages/p001_a.png",
+        "b": "pages/p001_b.png",
+        "overlay": "pages/p001_overlay.png",
+        "b_original": null
+      },
+      "clusters": [
+        {
+          "id": 1,
+          "bbox_px": {
+            "x": 627,
+            "y": 291,
+            "w": 17,
+            "h": 19
+          },
+          "bbox_mm": {
+            "x": 53.08599999999999,
+            "y": 24.637999999999998,
+            "w": 1.4393333333333331,
+            "h": 1.6086666666666667
+          },
+          "pixels": 87,
+          "fill_ratio": 0.2693498452012384,
+          "kind": "changed",
+          "shift_px": null,
+          "text_a": null,
+          "text_b": null,
+          "crops": {
+            "a": "crops/p001_c001_a.png",
+            "b": "crops/p001_c001_b.png",
+            "diff": "crops/p001_c001_diff.png"
+          },
+          "related_cluster_ids": []
+        },
+        {
+          "id": 2,
+          "bbox_px": {
+            "x": 74,
+            "y": 501,
+            "w": 166,
+            "h": 23
+          },
+          "bbox_mm": {
+            "x": 6.265333333333333,
+            "y": 42.418,
+            "w": 14.054666666666666,
+            "h": 1.9473333333333331
+          },
+          "pixels": 1945,
+          "fill_ratio": 0.5094290204295443,
+          "kind": "removed",
+          "shift_px": null,
+          "text_a": null,
+          "text_b": null,
+          "crops": {
+            "a": "crops/p001_c002_a.png",
+            "b": "crops/p001_c002_b.png",
+            "diff": "crops/p001_c002_diff.png"
+          },
+          "related_cluster_ids": []
+        },
+        {
+          "id": 3,
+          "bbox_px": {
+            "x": 793,
+            "y": 501,
+            "w": 123,
+            "h": 23
+          },
+          "bbox_mm": {
+            "x": 67.14066666666666,
+            "y": 42.418,
+            "w": 10.413999999999998,
+            "h": 1.9473333333333331
+          },
+          "pixels": 1667,
+          "fill_ratio": 0.5892541534110993,
+          "kind": "added",
+          "shift_px": null,
+          "text_a": null,
+          "text_b": null,
+          "crops": {
+            "a": "crops/p001_c003_a.png",
+            "b": "crops/p001_c003_b.png",
+            "diff": "crops/p001_c003_diff.png"
+          },
+          "related_cluster_ids": []
+        }
+      ],
+      "global_shift_px": null,
+      "alignment": {
+        "status": "disabled",
+        "reason": "disabled",
+        "estimated_shift_px": null,
+        "score_before": null,
+        "score_after": null,
+        "score_gap": null,
+        "coarse_score_gap": null,
+        "support_cells": null
+      }
+    }
+  ]
+}

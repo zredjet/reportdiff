@@ -4,6 +4,27 @@
 
 実行対象は Windows x64。開発・検証環境は macOS Apple Silicon。Intel Mac は対象外。Phase 1 と T2-1〜T2-6（分類・移動・PDF テキスト注釈・任意の全体補正・YAML 設定・フォント警告・フォルダ比較）を実装済み。配布物は [GitHub Releases](https://github.com/zredjet/reportdiff/releases) から取得できる。実帳票による評価（T2-7）はサンプル未準備のためスキップしている。ユーザー実機での条件は [確認リスト](docs/TASKS.md#windows-確認リスト人が実機で行う)で管理する。
 
+## 差異のサンプル画面
+
+自作の架空の検査記録を、既定設定（normal・300dpi）で比較した例。**数値を80→85へ変更、`DRAFT COPY`を削除、`CHECKED`を追加**し、3箇所の相違を検出している。画面はv0.1.2が出力したHTMLレポートをChromeで表示したもの。
+
+重ね描きでは、差分・輪郭・番号を赤で表示する。A／Bの切り替えで変更前後も確認できる。
+
+![自作帳票の重ね描き。数値の変更、注記の削除、確認印の追加を赤枠と番号で表示](docs/images/sample-overlay.png)
+
+一覧には変更前（A）・変更後（B）・差分の切り出しを並べる。この例の分類は「変更」「削除（推定）」「追加（推定）」。差分画像の緑はAだけのインク、赤はその他の差分。
+
+![3箇所の変更・削除・追加を、変更前後の切り出し画像で比較する一覧](docs/images/sample-differences.png)
+
+[入力A](docs/samples/readme/inspection-a.png)・[入力B](docs/samples/readme/inspection-b.png)・[生成済みレポート](docs/samples/readme/result/report.html)を配布ZIPにも同梱している。ZIPを展開してレポートを開くか、次のコマンドで再現できる。
+
+```powershell
+.\reportdiff.exe compare docs/samples/readme/inspection-a.png docs/samples/readme/inspection-b.png --out sample-result
+Start-Process .\sample-result\report.html
+```
+
+帳票のレイアウト・数値・文言はこのプロジェクトで作成したデモデータで、外部帳票・ロゴ・個人情報は使用していない。自作データと生成コードは本リポジトリのMIT Licenseで提供する。[出自・ライセンス・再生成方法](docs/samples/readme/README.md)を参照。
+
 ## Windows で使う
 
 配布 ZIP を展開し、そのフォルダで PowerShell を開く。自己完結の `reportdiff.exe` に .NET ランタイムを含めているため、.NET を別途インストールする構成ではない。初回起動時はネイティブ DLL を一時領域に展開する。[動作条件と配布手順](docs/DISTRIBUTION.md)も参照。
@@ -165,6 +186,8 @@ Windows では macOS ランタイムの生成は不要。復元前にローカ�
 
 ## 開発資料と確認状況
 
+- [PERF-2j の検証記録](docs/verification/perf-2j-adaptive-features.md)：特徴量の条件付き帯分担・Lab再利用、出力一致、時間とメモリ。v0.1.2はここまでの性能改善を含む
+- [v0.1.2 の配布準備](docs/verification/v0.1.2-release.md)：自作サンプル・README画面・ローカル検証・配布確認の範囲
 - [T2-6 の検証記録](docs/verification/t2-6-directory.md)：フォルダ比較・設定選択・一覧・時間とメモリ・Windows 配布物
 - [SPEC](docs/SPEC.md)：アルゴリズム・設定・入出力の正本
 - [TASKS](docs/TASKS.md)：完了範囲と Windows 実機確認リスト
