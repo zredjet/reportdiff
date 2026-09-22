@@ -8,6 +8,7 @@ internal static class DirectoryComparison
         Func<CompareCommand, AppSettings, string, ReportDocument>? compare = null,
         Func<string, IEnumerable<DirectoryEntry>>? enumerate = null)
     {
+        using var progress = ConsoleProgress.Create(output, command.Quiet);
         var rules = new DirectoryRules(command);
         var plan = DirectoryPlan.Create(command.InputA, command.InputB, command.Output, enumerate);
         using var workspace = new OutputWorkspace(command.Output, command.Force,
@@ -33,6 +34,7 @@ internal static class DirectoryComparison
             var child = Path.Combine(workspace.StagingPath, "files", pair.Id);
             try
             {
+                progress.File(pair.RelativePath);
                 // 一覧用の / 区切りを、単一比較へ渡すときは OS 標準の絶対パスに戻す。
                 var single = command with
                 {
@@ -44,7 +46,7 @@ internal static class DirectoryComparison
                 ReportDocument report;
                 if (compare is not null) report = compare(single, rule?.Settings ?? rules.Common, child);
                 else if (OperatingSystem.IsWindows() || OperatingSystem.IsMacOS() || OperatingSystem.IsLinux())
-                    report = ComparisonRunner.Compare(single, rule?.Settings ?? rules.Common, child);
+                    report = ComparisonRunner.Compare(single, rule?.Settings ?? rules.Common, child, progress);
                 else throw new CommandLineException("この実行環境では比較処理に対応していません。");
                 files.Add(Result(report.Summary.Status) with
                 {
@@ -65,6 +67,7 @@ internal static class DirectoryComparison
             DirectoryFileResult Result(string status) => new(pair.Id, pair.RelativePath, pair.A, pair.B, status, null, null, null, null, null, null);
             void RecordError(DirectoryFileError failure, DirectorySelectedRule? selected = null)
             {
+                progress.EndLine();
                 files.Add(Result("error") with { Error = failure, SelectedRule = selected });
                 error.WriteLine($"エラー: {CliApplication.OneLine(pair.RelativePath)}: {CliApplication.OneLine(failure.Message)}");
             }
@@ -81,8 +84,10 @@ internal static class DirectoryComparison
         var summary = new DirectorySummary(state, files.Count, same + different, same, different, onlyA, onlyB, errors, plan.Ignored.Count);
         var document = new DirectoryReportDocument(1, "directory_comparison", ReportTool.Current, DateTimeOffset.UtcNow,
             new(plan.RootA, plan.RootB), rules.Description, summary, files, plan.Ignored, warnings);
+        progress.Report(directory: true);
         DirectoryReportWriter.Write(workspace.StagingPath, document, command.NoHtml);
         workspace.Commit();
+        progress.EndLine();
         if (!command.Quiet)
             output.WriteLine($"{(state == "error" ? "エラーあり" : state == "same" ? "相違なし" : "相違あり")}: {files.Count} 件中 比較成功 {summary.Compared} 件、相違 {different} 件、A のみ {onlyA} 件、B のみ {onlyB} 件、エラー {errors} 件 → {CliApplication.OneLine(Path.Combine(command.Output, command.NoHtml ? "index.json" : "index.html"))}");
         return state == "error" ? 2 : state == "different" ? 1 : 0;

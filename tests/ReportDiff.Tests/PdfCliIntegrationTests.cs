@@ -22,7 +22,7 @@ public sealed class PdfCliIntegrationTests
         var inputB = reverse ? files.OldPdf : files.NewPdf;
         var result = await CliProcess.Run("compare", inputA, inputB, "--out", files.Output, "--config", files.Config);
         Assert.Equal(1, result.Code); Assert.Empty(result.Error);
-        Assert.Equal($"相違あり: 2 ページ中 1 ページ、1 箇所 → {Path.Combine(files.Output, "report.html")}{Environment.NewLine}", result.Output);
+        Assert.Equal($"処理中 1 / 2 ページ{Environment.NewLine}処理中 2 / 2 ページ{Environment.NewLine}レポート出力中{Environment.NewLine}相違あり: 2 ページ中 1 ページ、1 箇所 → {Path.Combine(files.Output, "report.html")}{Environment.NewLine}", result.Output);
         var report = files.ReadReport();
         AssertInputs(report, inputA, inputB);
         Assert.Equal("different", report.Summary.Status);
@@ -60,7 +60,7 @@ public sealed class PdfCliIntegrationTests
         var input = revised ? files.NewPdf : files.OldPdf;
         var result = await CliProcess.Run("compare", input, input, "--out", files.Output, "--config", files.Config);
         Assert.Equal(0, result.Code); Assert.Empty(result.Error);
-        Assert.StartsWith("相違なし: 2 ページ中 0 ページ、0 箇所", result.Output);
+        Assert.Contains("相違なし: 2 ページ中 0 ページ、0 箇所", result.Output);
         var report = files.ReadReport();
         AssertInputs(report, input, input);
         Assert.Equal(new ReportSummary("same", 2, 0, 0, 0), report.Summary);

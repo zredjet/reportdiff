@@ -19,7 +19,9 @@ public sealed class DirectoryCliTests
         files.Text("A/壊れた.png", "broken"); files.Image("B/壊れた.png");
         files.Text("A/readme.txt", "ignored"); files.Text("B/readme.txt", "ignored");
         var process = await files.Run("--profile", "strict");
-        Assert.Equal(2, process.Code); Assert.Single(process.Output.Split('\n', StringSplitOptions.RemoveEmptyEntries));
+        Assert.Equal(2, process.Code);
+        Assert.Equal(3, process.Output.Split('\n').Count(line => line.StartsWith("対象: ", StringComparison.Ordinal)));
+        Assert.Single(process.Output.Split('\n'), line => line.StartsWith("エラーあり:", StringComparison.Ordinal));
         Assert.Contains("壊れた.png", process.Error);
         var result = files.Read();
         Assert.Equal(new DirectorySummary("error", 5, 2, 1, 1, 1, 1, 1, 2), result.Summary);

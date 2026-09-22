@@ -22,8 +22,9 @@ public sealed class CliTests
         var result = await ProcessRun("compare", a, b, "--out", files.Output, "--profile", "strict");
         Assert.Equal(different ? 1 : 0, result.Code);
         Assert.Equal("", result.Error);
-        Assert.StartsWith(different ? "相違あり:" : "相違なし:", result.Output);
-        Assert.Single(result.Output.Split('\n', StringSplitOptions.RemoveEmptyEntries));
+        Assert.StartsWith("処理中 1 / 1 ページ" + Environment.NewLine + "レポート出力中" + Environment.NewLine
+            + (different ? "相違あり:" : "相違なし:"), result.Output);
+        Assert.Equal(3, result.Output.Split('\n', StringSplitOptions.RemoveEmptyEntries).Length);
         Assert.Contains(Path.Combine(files.Output, "report.html"), result.Output);
         var report = files.ReadReport();
         Assert.Equal(different ? "different" : "same", report.Summary.Status);
@@ -267,7 +268,9 @@ public sealed class CliTests
         using var files = new CliFiles();
         var input = files.Bytes("巨大ページ.pdf", PdfFixture.CreatePages((72, 72), (17000, 72)));
         if (previous) { Directory.CreateDirectory(files.Output); File.WriteAllText(Path.Combine(files.Output, "旧.txt"), "残す"); }
-        AssertError(Run("compare", input, input, "--out", files.Output, "--dpi", "72", "--force", "--save-all-pages"), "dpi を下げて");
+        var result = Run("compare", input, input, "--out", files.Output, "--dpi", "72", "--force", "--save-all-pages");
+        Assert.Equal(2, result.Code); Assert.Contains("dpi を下げて", result.Error);
+        Assert.Equal($"処理中 1 / 2 ページ{Environment.NewLine}処理中 2 / 2 ページ{Environment.NewLine}", result.Output);
         Assert.False(File.Exists(Path.Combine(files.Output, "result.json")));
         Assert.Equal(previous, Directory.Exists(files.Output));
         if (previous) Assert.Equal("残す", File.ReadAllText(Path.Combine(files.Output, "旧.txt")));

@@ -18,6 +18,7 @@ public static class CliApplication
             }
             var command = CommandLine.Parse(args);
             if (command.IsDirectory) return DirectoryComparison.Run(command, output, error);
+            using var progress = ConsoleProgress.Create(output, command.Quiet);
             var settings = command.ApplyReportOptions(ConfigurationLoader.Load(ReadConfiguration(command.Config), command.Profile, command.Dpi));
             ReportDocument result;
             if (OperatingSystem.IsWindows() || OperatingSystem.IsMacOS() || OperatingSystem.IsLinux())
@@ -25,7 +26,7 @@ public static class CliApplication
                 var protectedFiles = command.Config is null ? new[] { command.InputA, command.InputB }
                     : [command.InputA, command.InputB, command.Config];
                 using var workspace = new OutputWorkspace(command.Output, command.Force, protectedFiles);
-                result = ComparisonRunner.Compare(command, settings, workspace.StagingPath);
+                result = ComparisonRunner.Compare(command, settings, workspace.StagingPath, progress);
                 workspace.Commit();
             }
             else throw new CommandLineException("この実行環境では比較処理に対応していません。");

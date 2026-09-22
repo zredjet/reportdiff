@@ -10,7 +10,7 @@ internal static class ComparisonRunner
     [SupportedOSPlatform("windows")]
     [SupportedOSPlatform("linux")]
     [SupportedOSPlatform("macOS")]
-    public static ReportDocument Compare(CompareCommand command, AppSettings settings, string output)
+    public static ReportDocument Compare(CompareCommand command, AppSettings settings, string output, ConsoleProgress? progress = null)
     {
         using var a = new ComparisonInput(command.InputA, settings);
         using var b = new ComparisonInput(command.InputB, settings);
@@ -19,8 +19,10 @@ internal static class ComparisonRunner
         var plan = PagePairing.Create(a.PageCount, b.PageCount, command.Pages);
         var inputs = new ReportInputs(a.Describe(), b.Describe());
         var writer = new ReportWriter(output, inputs, settings.ToReportConfiguration(), command.SaveAllPages);
+        var index = 0;
         foreach (var page in plan.Pages)
         {
+            progress?.Page(++index, plan.Pages.Count, page.PageNumber, command.Pages is not null);
             if (page.CanCompare)
             {
                 using var imageA = a.ReadPage(page.PageNumber);
@@ -44,8 +46,10 @@ internal static class ComparisonRunner
             if (page.HasA) writer.AddFontWarnings(page.PageNumber, "A", a.InspectFonts(page.PageNumber));
             if (page.HasB) writer.AddFontWarnings(page.PageNumber, "B", b.InspectFonts(page.PageNumber));
         }
+        progress?.Report();
         var report = writer.Complete();
         if (!command.NoHtml) HtmlReportWriter.Write(output, report);
+        progress?.EndLine();
         return report;
     }
 
