@@ -135,12 +135,14 @@ public static partial class ConfigurationLoader
                 }
                 if (root.TryGetValue("report", out node))
                 {
-                    var values = Mapping(node, "report", "crop_margin_mm", "snippet_margin_mm", "raw_overlay");
+                    var values = Mapping(node, "report", "crop_margin_mm", "snippet_margin_mm", "raw_overlay", "raw_overlay_common_color");
                     settings = settings with { Report = new ReportOptions
                     {
                         CropMarginMm = Number(values, "crop_margin_mm", "report", settings.Report.CropMarginMm),
                         SnippetMarginMm = Number(values, "snippet_margin_mm", "report", settings.Report.SnippetMarginMm),
-                        RawOverlay = values.TryGetValue("raw_overlay", out var rawOverlay) ? Boolean(rawOverlay, "report.raw_overlay") : settings.Report.RawOverlay
+                        RawOverlay = values.TryGetValue("raw_overlay", out var rawOverlay) ? Boolean(rawOverlay, "report.raw_overlay") : settings.Report.RawOverlay,
+                        RawOverlayCommonColor = values.TryGetValue("raw_overlay_common_color", out var color)
+                            ? Color(color, "report.raw_overlay_common_color") : settings.Report.RawOverlayCommonColor
                     }};
                 }
                 if (root.TryGetValue("regions", out node)) settings = settings with { Regions = ReadRegions(node) };
@@ -246,6 +248,12 @@ public static partial class ConfigurationLoader
         "true" => true, "false" => false,
         _ => throw Error(path, "true または false を指定してください")
     };
+
+    private static string Color(YamlNode node, string path)
+    {
+        try { return ReportDiff.Report.ReportColor.Normalize(Scalar(node, path)); }
+        catch (ArgumentException) { throw Error(path, "引用符で囲んだ #RRGGBB 形式の 6 桁の十六進数を指定してください"); }
+    }
 
     private static double Number(Dictionary<string, YamlNode> values, string key, string path, double fallback)
     {

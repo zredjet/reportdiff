@@ -26,7 +26,7 @@ public sealed class RawOverlayTests
     {
         using var a = new Mat(1, 1, MatType.CV_8UC3, new Scalar(ab, ag, ar));
         using var inputB = new Mat(1, 1, MatType.CV_8UC3, new Scalar(bb, bg, br));
-        using var overlay = RawOverlay.Create(a, inputB);
+        using var overlay = RawOverlay.Create(a, inputB, "#000000");
         Assert.Equal(new Vec3b((byte)b, (byte)g, (byte)r), overlay.At<Vec3b>(0, 0));
     }
 
@@ -45,7 +45,7 @@ public sealed class RawOverlayTests
             b.Set(y, x, new Vec3b((byte)x, (byte)x, (byte)x));
         }
         using var originalA = parentA.Clone(); using var originalB = parentB.Clone();
-        using var overlay = RawOverlay.Create(a, b); using var reverse = RawOverlay.Create(b, a);
+        using var overlay = RawOverlay.Create(a, b, "#000000"); using var reverse = RawOverlay.Create(b, a, "#000000");
         for (var y = 0; y < 256; y++)
         for (var x = 0; x < 256; x++)
         {
@@ -68,7 +68,7 @@ public sealed class RawOverlayTests
             a.Set(1, x, new Vec3b((byte)gray, (byte)gray, (byte)gray));
             b.Set(1, x + 1, new Vec3b((byte)gray, (byte)gray, (byte)gray));
         }
-        using var overlay = RawOverlay.Create(a, b);
+        using var overlay = RawOverlay.Create(a, b, "#000000");
         Assert.Equal(new Vec3b(128, 128, 255), overlay.At<Vec3b>(1, 1));
         Assert.Equal(new Vec3b(0, 0, 128), overlay.At<Vec3b>(1, 2));
         Assert.Equal(new Vec3b(0, 0, 0), overlay.At<Vec3b>(1, 3));

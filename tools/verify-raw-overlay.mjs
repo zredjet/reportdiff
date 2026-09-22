@@ -38,7 +38,7 @@ try {
         assert.equal(await evidence.count(), 1);
         assert.match(await evidence.innerText(), /判定から独立/);
         assert.match(await evidence.innerText(), /色相/);
-        assert.equal(await evidence.locator('.raw-legend').innerText(), '赤：A のみ · 青：B のみ · 黒／グレー：共通');
+        assert.equal(await evidence.locator('.raw-legend').innerText(), `赤：A のみ · 青：B のみ ·  共通：${item.raw_evidence.common_color}`);
         const image = evidence.locator('.page-image');
         assert.equal(await image.getAttribute('src'), item.raw_evidence.overlay);
         await image.scrollIntoViewIfNeeded(); await image.evaluate(element => element.decode());

@@ -11,7 +11,7 @@
 | [result/report.html](result/report.html) | v0.1.3の標準HTMLレポート。ダウンロード・ZIP展開後にブラウザで開く |
 | [result/result.json](result/result.json) | 3箇所の相違と実効設定・入力ハッシュ |
 | `result/pages/`・`result/crops/` | 標準のページ画像・差分・切り出し |
-| [result/pages/p001_raw_overlay.png](result/pages/p001_raw_overlay.png) | 補正前の確認用画像。Aのみ赤、Bのみ青、共通は黒／グレー |
+| [result/pages/p001_raw_overlay.png](result/pages/p001_raw_overlay.png) | 補正前の確認用画像。Aのみ赤、Bのみ青、共通は既定の薄いグレー（#CCCCCC） |
 
 入力は1100×650pxのPNG。既定のnormal・300dpi（画像DPIも300）で比較し、変更1・削除（推定）1・追加（推定）1を検出する。削除の差分は緑、その他の差分は赤。番号は業務上の変更件数を保証するものではない。この例は画像入力なのでPDFテキスト注釈はない。
 

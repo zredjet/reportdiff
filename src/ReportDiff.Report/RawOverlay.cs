@@ -3,16 +3,17 @@ using OpenCvSharp;
 
 namespace ReportDiff.Report;
 
-/// <summary>補正前の BGR 入力だけから生成する。判定結果や設定には依存しない。</summary>
+/// <summary>補正前の BGR 入力と表示色だけから生成する。判定結果や判定設定には依存しない。</summary>
 internal static class RawOverlay
 {
-    internal const string Method = "grayscale_red_blue_v1";
+    internal const string Method = "grayscale_red_blue_common_color_v2";
 
-    internal static Mat Create(Mat a, Mat b)
+    internal static Mat Create(Mat a, Mat b, string commonColor = ReportColor.DefaultCommonColor)
     {
         if (a.Empty() || b.Empty() || a.Dims != 2 || b.Dims != 2 || a.Type() != MatType.CV_8UC3
             || b.Type() != MatType.CV_8UC3 || a.Size() != b.Size())
             throw new ArgumentException("確認用オーバーレイには同じサイズの空でない BGR 8bit 画像を指定してください。");
+        var rgb = Convert.FromHexString(ReportColor.Normalize(commonColor)[1..]);
         var output = new Mat(a.Size(), MatType.CV_8UC3);
         try
         {
@@ -27,7 +28,10 @@ internal static class RawOverlay
                 for (var x = 0; x < length; x += 3)
                 {
                     var ga = Gray(rowA, x); var gb = Gray(rowB, x);
-                    rowOut[x] = ga; rowOut[x + 1] = Math.Min(ga, gb); rowOut[x + 2] = gb;
+                    var common = 255 - Math.Max(ga, gb);
+                    rowOut[x] = (byte)(ga + (common * rgb[2] + 127) / 255);
+                    rowOut[x + 1] = (byte)(Math.Min(ga, gb) + (common * rgb[1] + 127) / 255);
+                    rowOut[x + 2] = (byte)(gb + (common * rgb[0] + 127) / 255);
                 }
                 Marshal.Copy(rowOut, 0, output.Ptr(y), length);
             }

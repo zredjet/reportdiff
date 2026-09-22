@@ -1,0 +1,51 @@
+{
+  "input": "合成 A4 595x842pt、300dpi、同一3ページ、raw-overlay有効、CLI起動・全出力を含む。初回除外、3回ずつ交互実行。",
+  "runs": {
+    "v013": [
+      {
+        "seconds": 0.5973191249649972,
+        "max_rss_bytes": 320749568,
+        "output_bytes": 373541
+      },
+      {
+        "seconds": 0.5970098340185359,
+        "max_rss_bytes": 320339968,
+        "output_bytes": 373541
+      },
+      {
+        "seconds": 0.6076727079926059,
+        "max_rss_bytes": 320126976,
+        "output_bytes": 373541
+      }
+    ],
+    "v014": [
+      {
+        "seconds": 0.6385499169118702,
+        "max_rss_bytes": 320258048,
+        "output_bytes": 375935
+      },
+      {
+        "seconds": 0.6356774170417339,
+        "max_rss_bytes": 319930368,
+        "output_bytes": 375935
+      },
+      {
+        "seconds": 0.6415756670758128,
+        "max_rss_bytes": 320159744,
+        "output_bytes": 375935
+      }
+    ]
+  },
+  "summary": {
+    "v013": {
+      "median_seconds": 0.5973191249649972,
+      "max_rss_bytes": 320749568,
+      "output_bytes": 373541
+    },
+    "v014": {
+      "median_seconds": 0.6385499169118702,
+      "max_rss_bytes": 320258048,
+      "output_bytes": 375935
+    }
+  }
+}

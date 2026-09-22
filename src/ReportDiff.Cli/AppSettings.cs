@@ -10,6 +10,7 @@ public sealed record ReportOptions
     public double CropMarginMm { get; init; } = 2.0;
     public double SnippetMarginMm { get; init; } = 1.0;
     public bool RawOverlay { get; init; }
+    public string RawOverlayCommonColor { get; init; } = ReportColor.DefaultCommonColor;
 }
 
 public sealed record AppSettings
@@ -29,7 +30,8 @@ public sealed record AppSettings
 
     public ReportConfiguration ToReportConfiguration() => new(Dpi, ImageDpi, Diff, Cluster,
         Exclude.Select(e => new ReportExclusion(e.Page, e.X, e.Y, e.W, e.H, e.Note)).ToArray(),
-        new ReportOutputOptions(Report.CropMarginMm) { SnippetMarginMm = Report.SnippetMarginMm, RawOverlay = Report.RawOverlay })
+        new ReportOutputOptions(Report.CropMarginMm) { SnippetMarginMm = Report.SnippetMarginMm, RawOverlay = Report.RawOverlay,
+            RawOverlayCommonColor = Report.RawOverlayCommonColor })
         { Ink = Ink, Move = Move, Align = Align, Text = Text,
             Regions = Regions.Count > 0 || RegionAudit is not null ? Regions.Select(r => r.ToReport(Diff)).ToArray() : null,
             RegionAudit = RegionAudit };

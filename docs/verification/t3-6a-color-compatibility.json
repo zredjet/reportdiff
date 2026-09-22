@@ -1,0 +1,14 @@
+{
+  "baseline": "f77ac1c",
+  "conditions": 168,
+  "excluded_json": [
+    "generated_at",
+    "config.report.raw_overlay_common_color",
+    "pages[].raw_evidence.common_color",
+    "pages[].raw_evidence.method"
+  ],
+  "unchanged_png_count": 924,
+  "black_conditions": 84,
+  "black_all_png_count": 504,
+  "default_conditions": 84
+}

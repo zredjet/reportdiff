@@ -38,7 +38,12 @@ public sealed record ClusterCrops(string A, string B, string Diff);
 public sealed record RawEvidencePadding(int Right, int Bottom);
 public sealed record RawEvidenceSource(bool Missing, PixelSize? OriginalSizePx, RawEvidencePadding? PaddingPx, string Image);
 public sealed record RawEvidence(string Method, string CoordinateSystem, int Dpi, PixelSize CanvasSizePx,
-    RawEvidenceSource A, RawEvidenceSource B, string Overlay);
+    RawEvidenceSource A, RawEvidenceSource B, string Overlay)
+{
+    // v1 の結果にはこの項目がなく、従来の共通色は黒。
+    private string commonColor = "#000000";
+    public string CommonColor { get => commonColor; init => commonColor = ReportColor.Normalize(value); }
+}
 public sealed record ReportCluster(int Id, PixelBox BboxPx, MillimeterBox BboxMm, int Pixels, double FillRatio,
     string? Kind, PixelShift? ShiftPx, string? TextA, string? TextB, ClusterCrops Crops)
 {
@@ -72,6 +77,8 @@ public sealed record ReportOutputOptions(double CropMarginMm)
 {
     public double SnippetMarginMm { get; init; } = 1.0;
     public bool RawOverlay { get; init; }
+    private string rawOverlayCommonColor = ReportColor.DefaultCommonColor;
+    public string RawOverlayCommonColor { get => rawOverlayCommonColor; init => rawOverlayCommonColor = ReportColor.Normalize(value); }
 }
 public sealed record ReportExclusion(
     [property: JsonConverter(typeof(ExclusionPageConverter))] int? Page,

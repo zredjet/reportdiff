@@ -1,0 +1,43 @@
+{
+  "browser": "153.0.8010.53",
+  "records": [
+    {
+      "width": 1280,
+      "javaScriptEnabled": true,
+      "pages": 1,
+      "keyboard": true,
+      "standalonePng": true,
+      "countsUnchanged": true,
+      "noHorizontalOverflow": true
+    },
+    {
+      "width": 1280,
+      "javaScriptEnabled": false,
+      "pages": 1,
+      "keyboard": false,
+      "standalonePng": true,
+      "countsUnchanged": true,
+      "noHorizontalOverflow": true
+    },
+    {
+      "width": 390,
+      "javaScriptEnabled": true,
+      "pages": 1,
+      "keyboard": true,
+      "standalonePng": true,
+      "countsUnchanged": true,
+      "noHorizontalOverflow": true
+    },
+    {
+      "width": 390,
+      "javaScriptEnabled": false,
+      "pages": 1,
+      "keyboard": false,
+      "standalonePng": true,
+      "countsUnchanged": true,
+      "noHorizontalOverflow": true
+    }
+  ],
+  "pageErrors": [],
+  "externalRequests": []
+}

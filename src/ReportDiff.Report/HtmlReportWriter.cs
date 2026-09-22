@@ -129,6 +129,7 @@ public static partial class HtmlReportWriter
         html.Append(Metric("切り出し画像の余白", $"{N(config.Report.CropMarginMm)} mm"));
         html.Append(Metric("除外 YAML の余白", $"{N(config.Report.SnippetMarginMm)} mm"));
         html.Append(Metric("確認用オーバーレイ（補正前）", config.Report.RawOverlay ? "有効" : "無効"));
+        html.Append(Metric("確認用オーバーレイの共通色", config.Report.RawOverlayCommonColor));
         html.Append("</dl><h3>除外領域</h3>");
         if (config.Exclude.Count == 0) html.Append("<p>除外領域はありません。</p>");
         else
@@ -214,7 +215,7 @@ public static partial class HtmlReportWriter
             (Label: evidence.B.Missing ? "元 B（欠落・白）" : "元 B（補正前）", Path: evidence.B.Image) };
         foreach (var view in views) ValidateImagePath(view.Path);
         html.Append("<section class=\"raw-evidence\"><h3>確認用オーバーレイ（補正前）</h3><p class=\"muted\">判定から独立した元画像の重ね合わせです。左上を合わせ、右・下だけ白で埋めています。位置補正・除外・差分判定は反映しません。判定表示や相違箇所の座標と異なる場合があります。</p>");
-        html.Append("<p class=\"raw-legend\"><span class=\"raw-a\">赤：A のみ</span> · <span class=\"raw-b\">青：B のみ</span> · <span>黒／グレー：共通</span></p><p class=\"muted\">濃淡をグレーに変換して重ねています。同じグレー値になる色相の違いは見えません。色は元 A/B で確認してください。</p>");
+        html.Append($"<p class=\"raw-legend\"><span class=\"raw-a\">赤：A のみ</span> · <span class=\"raw-b\">青：B のみ</span> · <span><span aria-hidden=\"true\" style=\"display:inline-block;width:.8em;height:.8em;border:1px solid #888;background:{evidence.CommonColor}\"></span> 共通：{evidence.CommonColor}</span></p><p class=\"muted\">濃淡をグレーに変換して重ねています。同じグレー値になる色相の違いは見えません。色は元 A/B で確認してください。</p>");
         html.Append($"<p class=\"muted\">{evidence.Dpi} dpi · 白埋め後 {evidence.CanvasSizePx.W} × {evidence.CanvasSizePx.H} px<br>{Source("A", evidence.A)}<br>{Source("B", evidence.B)}</p>");
         var initial = views[0];
         html.Append($"<figure class=\"viewer\"><figcaption class=\"viewer-toolbar\"><div class=\"image-switch\" role=\"group\" aria-label=\"{page} ページの確認用画像\" hidden>");

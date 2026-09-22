@@ -54,7 +54,8 @@ public sealed class RawOverlayCliTests
         }
         AssertExistingOutputsEqual(off, on);
         var page = Assert.Single(Read(on).Pages); var evidence = Assert.IsType<RawEvidence>(page.RawEvidence);
-        Assert.Equal("original_top_left", evidence.CoordinateSystem); Assert.Equal("grayscale_red_blue_v1", evidence.Method);
+        Assert.Equal("original_top_left", evidence.CoordinateSystem); Assert.Equal("grayscale_red_blue_common_color_v2", evidence.Method);
+        Assert.Equal("#CCCCCC", evidence.CommonColor);
         Assert.Equal(144, evidence.Dpi); Assert.Equal(page.SizePx, evidence.CanvasSizePx);
         Assert.False(evidence.A.Missing); Assert.False(evidence.B.Missing);
         Assert.Equal(page.Images.A ?? "pages/p001_raw_a.png", evidence.A.Image);

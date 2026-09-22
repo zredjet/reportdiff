@@ -181,9 +181,10 @@ public sealed class ReportWriter
         var sourceA = Source(a, originalA, pathA, prefix + "_a.png");
         var sourceB = Source(b, originalB, pathB, prefix + "_b.png");
         var overlayPath = prefix + "_overlay.png";
-        using var overlay = RawOverlay.Create(a, b);
+        using var overlay = RawOverlay.Create(a, b, config.Report.RawOverlayCommonColor);
         WritePng(overlayPath, overlay);
-        return new(RawOverlay.Method, "original_top_left", dpi, new(a.Width, a.Height), sourceA, sourceB, overlayPath);
+        return new(RawOverlay.Method, "original_top_left", dpi, new(a.Width, a.Height), sourceA, sourceB, overlayPath)
+            { CommonColor = config.Report.RawOverlayCommonColor };
 
         RawEvidenceSource Source(Mat image, Size? original, string? sharedPath, string newPath)
         {

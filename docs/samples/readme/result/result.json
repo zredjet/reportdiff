@@ -39,7 +39,8 @@
     "report": {
       "crop_margin_mm": 2,
       "snippet_margin_mm": 1,
-      "raw_overlay": true
+      "raw_overlay": true,
+      "raw_overlay_common_color": "#CCCCCC"
     },
     "ink": {
       "background_radius_mm": 1.5,
@@ -193,7 +194,7 @@
         "support_cells": null
       },
       "raw_evidence": {
-        "method": "grayscale_red_blue_v1",
+        "method": "grayscale_red_blue_common_color_v2",
         "coordinate_system": "original_top_left",
         "dpi": 300,
         "canvas_size_px": {
@@ -224,7 +225,8 @@
           },
           "image": "pages/p001_b.png"
         },
-        "overlay": "pages/p001_raw_overlay.png"
+        "overlay": "pages/p001_raw_overlay.png",
+        "common_color": "#CCCCCC"
       }
     }
   ]
