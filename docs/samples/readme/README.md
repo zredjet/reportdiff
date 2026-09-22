@@ -8,7 +8,7 @@
 |---|---|
 | [inspection-a.png](inspection-a.png) | 基準画像。DocumentsのCOUNTは80、左下にDRAFT COPY |
 | [inspection-b.png](inspection-b.png) | COUNTを85へ変更、DRAFT COPYを削除、右下にCHECKEDを追加 |
-| [result/report.html](result/report.html) | v0.1.3の標準HTMLレポート。ダウンロード・ZIP展開後にブラウザで開く |
+| [result/report.html](result/report.html) | v0.1.4の標準HTMLレポート。ダウンロード・ZIP展開後にブラウザで開く |
 | [result/result.json](result/result.json) | 3箇所の相違と実効設定・入力ハッシュ |
 | `result/pages/`・`result/crops/` | 標準のページ画像・差分・切り出し |
 | [result/pages/p001_raw_overlay.png](result/pages/p001_raw_overlay.png) | 補正前の確認用画像。Aのみ赤、Bのみ青、共通は既定の薄いグレー（#CCCCCC） |
@@ -23,7 +23,7 @@
 dotnet run --project tools/ReportDiff.SampleGenerator -c Release -- out/readme-sample
 ```
 
-[生成コード](https://github.com/zredjet/reportdiff/blob/v0.1.3/tools/ReportDiff.SampleGenerator/Program.cs)は実際の比較コアとReportWriter／HtmlReportWriterを呼ぶ。比較設定は既定のまま、`report.raw_overlay: true` で確認用画像も出力する。掲載用に生成日時を2026-09-21 12:00 JSTへ固定し、入力パスはファイル名だけにする。それ以外の比較結果・画像・HTMLは製品の出力。元データは毎回コードから描き、実帳票を参照しない。
+[生成コード](https://github.com/zredjet/reportdiff/blob/v0.1.4/tools/ReportDiff.SampleGenerator/Program.cs)は実際の比較コアとReportWriter／HtmlReportWriterを呼ぶ。比較設定は既定のまま、`report.raw_overlay: true` で確認用画像も出力する。掲載用に生成日時を2026-09-21 12:00 JSTへ固定し、入力パスはファイル名だけにする。それ以外の比較結果・画像・HTMLは製品の出力。元データは毎回コードから描き、実帳票を参照しない。
 
 CLIでも、入力画像を指定すれば同じ比較結果・PNGを生成できる。CLIの日時・入力パスは実際の実行値になる。
 
