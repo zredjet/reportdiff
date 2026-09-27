@@ -7,15 +7,19 @@ public sealed class LoadedImage : IDisposable
 {
     internal LoadedImage(Mat pixels, InputFormat format, int dpi)
     {
-        Pixels = pixels;
+        this.pixels = pixels;
         Format = format;
         Dpi = dpi;
     }
 
-    public Mat Pixels { get; }
+    private Mat? pixels;
+    public Mat Pixels => pixels ?? throw new ObjectDisposedException(nameof(LoadedImage));
+    /// <summary>画像の所有権を呼出側へ移す。返却されたMatは呼出側がDisposeする。</summary>
+    public Mat TakePixels()
+    { var result = Pixels; pixels = null; return result; }
     public InputFormat Format { get; }
     public int Dpi { get; }
-    public void Dispose() => Pixels.Dispose();
+    public void Dispose() { pixels?.Dispose(); pixels = null; }
 }
 
 public sealed class ImageReadException(string message, Exception? inner = null) : Exception(message, inner);

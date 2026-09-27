@@ -54,6 +54,27 @@ internal static class ReportImages
         catch { output.Dispose(); throw; }
     }
 
+    public static Mat AnchoredOverlay(Mat b, AnchoredDisplayResult display, int dpi)
+    {
+        var output = b.Clone();
+        try
+        {
+            output.SetTo(Red, display.RawMask);
+            Cv2.FindContours(display.LabelMask, out Point[][] contours, out _, RetrievalModes.List, ContourApproximationModes.ApproxSimple);
+            Cv2.DrawContours(output, contours, -1, Red, 1, LineTypes.Link8);
+            foreach (var part in display.Parts)
+                DrawNumber(output, $"P{part.Content.Surface.OwnerPage}-C{part.Content.ClusterId}", part.DisplayBounds, dpi, Red);
+            foreach (var s in display.Structures)
+            {
+                var color = new Scalar(190, 0, 190);
+                Cv2.Rectangle(output, s.DisplayBounds, color, 1, LineTypes.Link8);
+                DrawNumber(output, $"S{s.Structure.Reference.StructuralChangeId}", s.DisplayBounds, dpi, color);
+            }
+            return output;
+        }
+        catch { output.Dispose(); throw; }
+    }
+
     public static Mat DifferenceCrop(Mat b, Mat raw, Rect bounds, Mat? removal = null)
     {
         using var source = new Mat(b, bounds);

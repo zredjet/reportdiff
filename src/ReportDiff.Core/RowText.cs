@@ -50,6 +50,7 @@ public static class TextLineLayout
 public sealed record RowOptions
 {
     public bool Enabled { get; init; }
+    public bool CarryEnabled { get; init; }
     public double MaxShiftMm { get; init; } = 20;
     public double MinWordMatch { get; init; } = 0.60;
     public double RefineMm { get; init; } = 0.3;
@@ -61,6 +62,7 @@ public sealed record RowOptions
 
     public RowOptions Validated(int dpi)
     {
+        if (CarryEnabled && !Enabled) throw new ArgumentException("rows.carry_enabled: true には rows.enabled: true が必要です。");
         Range(MaxShiftMm, "max_shift_mm", 0, 100, true);
         Range(MinWordMatch, "min_word_match", 0, 1, true);
         Range(RefineMm, "refine_mm", 0, 2, false);

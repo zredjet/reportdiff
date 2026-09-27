@@ -1,0 +1,4176 @@
+{
+  "date": "2026-09-22",
+  "status": "limited_skia_inputs_and_document_range_gate_verified",
+  "task_complete": false,
+  "product_implementation_started": false,
+  "automatic_product_adoptions": 0,
+  "causal_aggregation_implemented": false,
+  "committed": false,
+  "released": false,
+  "inputs": {
+    "total_pdf_files": 62,
+    "total_pdf_pages": 142,
+    "previous_pdf_files": 32,
+    "new_skia_pdf_files": 30,
+    "new_skia_pages": 72,
+    "embedded_truetype_and_unicode_on_all_skia_pages": true,
+    "all_skia_text_checked_with_pypdf": true,
+    "all_skia_pages_rendered_and_visually_checked": true,
+    "os_fonts_used": false,
+    "new_dependencies": false,
+    "original_skia_failing_inputs_preserved": true
+  },
+  "execution": {
+    "total_runs": 70,
+    "previous_runs_unchanged_except_gate": 36,
+    "skia_absolute_runs": 28,
+    "skia_local_runs": 6,
+    "ready_runs": 20,
+    "fallback_runs": 50,
+    "selected_links": 32,
+    "selected_candidate_pages": 44,
+    "selected_baseline_pages": 102,
+    "selected_mask_bytes_match_choice": true
+  },
+  "comparisons": {
+    "total": 878,
+    "exact_band_endpoints": 456,
+    "content_surfaces": 150,
+    "baseline_pages": 146,
+    "nonidentical_skia_diagnostics": 126,
+    "all_csharp_python_raw_masks_equal": true,
+    "python_opencv": "4.13.0"
+  },
+  "gate_audit": {
+    "order_permutations": 210,
+    "missing_range_checks": 64,
+    "failed_page_checks": 44,
+    "rejected_candidate_checks": 32,
+    "failed_layout_checks": 20
+  },
+  "witnesses": {
+    "absolute_skia_rule": {
+      "source_height_pt": ".47999573",
+      "target_height_pt": ".48000336",
+      "nonidentical_pixels": 794,
+      "relative_y": 85,
+      "x_inclusive": [
+        106,
+        899
+      ],
+      "maximum_channel_delta": 255,
+      "normal_raw": 2376,
+      "strict_raw": 794,
+      "loose_raw": 2376
+    },
+    "local_skia": {
+      "verified_links_both_directions": 10,
+      "content_surfaces": 14,
+      "all_profiles_raw": 0
+    },
+    "partial_type3": {
+      "documents": 4,
+      "paired_pages_reverted": 10,
+      "successful_surfaces_not_selected": 6,
+      "image_verified_links_not_selected": 6,
+      "links_with_both_endpoints_but_still_not_selected": 2
+    }
+  },
+  "release_build": {
+    "warnings": 0,
+    "errors": 0
+  },
+  "product_sources_unchanged": 81,
+  "existing_test_suite_rerun": false,
+  "limitations": [
+    "Uniform row pitch and exact full-width band pixels only",
+    "Ordinary typography and arbitrary variable-layout PDFs are not accepted",
+    "Absolute-coordinate Skia raster differences remain detected",
+    "Repeated body versus fixed parts remains semantically ambiguous in general",
+    "The gate does not prove causal grouping or counts",
+    "No product configuration, CLI, HTML, performance or Windows acceptance"
+  ],
+  "source_sha256": {
+    "tools/ReportDiff.PageFlowProbe/AssemblyInfo.cs": "bf9aa0c787333ea06850d35935ec5231ebd02d1d2997d90adc70195388a8762f",
+    "tools/ReportDiff.PageFlowProbe/CandidateFixtures.cs": "57cefb5a360fe73f6111f7ca4f69e0f2050d6c57be58d8e25804c6f0c34a6811",
+    "tools/ReportDiff.PageFlowProbe/CandidateInference.cs": "356a6659fde6ae2fe48614036f5332c5688d06dd3d6be448eb56600881420634",
+    "tools/ReportDiff.PageFlowProbe/CandidateProbe.cs": "3b485b6056fc36bbbcc14211363cde9fe5639d2a7da4f5efc0eccc31ca2dabe4",
+    "tools/ReportDiff.PageFlowProbe/CandidateSurface.cs": "580a38fe9db6d14136e74db3c87ccb445f159f725ffe688a27abf74265ec4cff",
+    "tools/ReportDiff.PageFlowProbe/ContextProbe.cs": "5b245c8314f74201d615e32a14dc5b18c2a1b3e457644bc137a751c690ae8f24",
+    "tools/ReportDiff.PageFlowProbe/DocumentGate.cs": "cf054e81010259e6aec48e5b0fbe2047480c90f5e13e5e0de728b7dbe027eba4",
+    "tools/ReportDiff.PageFlowProbe/FlowFixture.cs": "f8e9b7a60f2d1e19b07b6071b4f625c40b144d8a5a488ccae44e619c100d77ee",
+    "tools/ReportDiff.PageFlowProbe/GateAudit.cs": "571b5c6491afa63b878759bbaae0a28664a8934a1a1a5cf4552faf4c63061b7e",
+    "tools/ReportDiff.PageFlowProbe/ProbeTrueType.cs": "925f86f53e2892067d1fbe4e121a1947b1717e9e4f51f63987905fa4e5a7f599",
+    "tools/ReportDiff.PageFlowProbe/Program.cs": "05f19bc29bb3d6e581a933bb7222c54a5f912fa68ce22ce8df00d91f841fa50e",
+    "tools/ReportDiff.PageFlowProbe/ReportDiff.PageFlowProbe.csproj": "b6ee5a97f245625708463f1f0199896be7443331ec996637936697c90fa2e491",
+    "tools/ReportDiff.PageFlowProbe/SkiaBandProbe.cs": "466251ccaf6420d6dad492873b6b7b8e23f5b8ef3dde1e6cafdbfdf7742eaed4",
+    "tools/ReportDiff.PageFlowProbe/SkiaFlowFixture.cs": "c85734884f0346b8751d8cc809888d66e91c54df0b83b314c1165d651614de75",
+    "tools/ReportDiff.PageFlowProbe/SurfaceProbe.cs": "815a79a64883faa52f7cc172a42ec9280d4c5edb0fdb16fa8fb74943150c6ac7",
+    "tools/ReportDiff.PageFlowProbe/check-candidates.py": "8090a5d435c808e06e210149a1217285f29609cdf200bf71ad6de2e10da6c0e7",
+    "tools/ReportDiff.PageFlowProbe/check-cli.py": "053d9573d3949a9ce5524f06eb320a583941cd7d21ab2f778d7fffcc0a4a42fe",
+    "tools/ReportDiff.PageFlowProbe/check-context.py": "271ae42c1ac61a8175a144fdcfcd44b773a572ac91114cc0c976686bc27293be",
+    "tools/ReportDiff.PageFlowProbe/check-reference.py": "29c36d15613bb46fba5e3b7036d5bf4925c61d4e0d23c03ae72b32a6628a48f4",
+    "tools/ReportDiff.PageFlowProbe/check-skia-diagnostics.py": "b4597305fb218e574eacb5dec43d1cd281245e355532aa288d3a3ef9d58eda71"
+  },
+  "input_pdf_sha256": {
+    "out/t3-1c-probe/type3-final/R10/a.pdf": "3d0356ca32f9b11c798a1c9dc5a1c38c9125ba9ba3281ee804256bbec804a895",
+    "out/t3-1c-probe/type3-final/R10/b.pdf": "210d0371db8c2d799e5a0446f6fc15ed631b9142ead74e3af581418946387269",
+    "out/t3-1c-probe/type3-final/R11/a.pdf": "33c2b74453d44c6c9a1d757310a3f7afbe14f1d46bf6a88feaba30df90b4c6c9",
+    "out/t3-1c-probe/type3-final/R11/b.pdf": "79055faf3572a74b52452319ce4a4237ec00bf92a786ebb5e64ff93b08127864",
+    "out/t3-1c-probe/type3-final/band-edge-tone/a.pdf": "3d0356ca32f9b11c798a1c9dc5a1c38c9125ba9ba3281ee804256bbec804a895",
+    "out/t3-1c-probe/type3-final/band-edge-tone/b.pdf": "c0011fffc6e36c88efdb1cf0bab9ac1df64605c8ecb92855cc5cbf8f35c25ffc",
+    "out/t3-1c-probe/type3-final/chain3/a.pdf": "e942b92d8e5e95be48260a21f32fa8131d9bae9b82d03976ad0d5fa8d4043c0f",
+    "out/t3-1c-probe/type3-final/chain3/b.pdf": "49692df465c9f1e9b5232ae54aeadf7975578ec277d292efccb719e424a67058",
+    "out/t3-1c-probe/type3-final/neighbor-tone/a.pdf": "3d0356ca32f9b11c798a1c9dc5a1c38c9125ba9ba3281ee804256bbec804a895",
+    "out/t3-1c-probe/type3-final/neighbor-tone/b.pdf": "d54725fe9e8f35c2e214fb3dc49ec018c93183871254f99da6b1c4c98a718f30",
+    "out/t3-1c-probe/type3-final/new-page-extra/a.pdf": "33c2b74453d44c6c9a1d757310a3f7afbe14f1d46bf6a88feaba30df90b4c6c9",
+    "out/t3-1c-probe/type3-final/new-page-extra/b.pdf": "b882ffc6e964327edab5571fd69312d192b464a4b5e5bd6c9fa6be631dfe1a14",
+    "out/t3-1c-probe/type3-final/no-footer/a.pdf": "0caef3f1ba1f28d13fca7f8371050cb523ea781a31372491c0756eca320ae542",
+    "out/t3-1c-probe/type3-final/no-footer/b.pdf": "c7c224ca5861a9747b7e0e02158f156a13aaadf563772c919fd2a182e0b5e82d",
+    "out/t3-1c-probe/type3-final/repeated/a.pdf": "46621e4f4f4f1c33cd6da9851bce1e8829bf2a63138a884e3355d906ecc6d898",
+    "out/t3-1c-probe/type3-final/repeated/b.pdf": "0825bcd3826b55e9fcc4fe85d23c524a482a302ec9224619a32d5bfa63c75075",
+    "out/t3-1c-probe/type3-final/same-text-pixels/a.pdf": "3d0356ca32f9b11c798a1c9dc5a1c38c9125ba9ba3281ee804256bbec804a895",
+    "out/t3-1c-probe/type3-final/same-text-pixels/b.pdf": "9feab96f41bcbd98566c283fda499733d8eaf4bfad2173148896f2f5ffd12d9e",
+    "out/t3-1c-probe/type3-final/text-change/a.pdf": "3d0356ca32f9b11c798a1c9dc5a1c38c9125ba9ba3281ee804256bbec804a895",
+    "out/t3-1c-probe/type3-final/text-change/b.pdf": "16c33b946bc86a22b380d2a3b81f9815153357ba9d196ce5a0a6e7db3372a57c",
+    "out/t3-1c-probe/candidate-fixtures-final/paired-boundary-tone/a.pdf": "3d0356ca32f9b11c798a1c9dc5a1c38c9125ba9ba3281ee804256bbec804a895",
+    "out/t3-1c-probe/candidate-fixtures-final/paired-boundary-tone/b.pdf": "5c351f9d2ca6e69a827590dcdfe676f5d6d19ed9ed11b8bbd7ecb8e16c1722d8",
+    "out/t3-1c-probe/candidate-fixtures-final/paired-content-tone/a.pdf": "3d0356ca32f9b11c798a1c9dc5a1c38c9125ba9ba3281ee804256bbec804a895",
+    "out/t3-1c-probe/candidate-fixtures-final/paired-content-tone/b.pdf": "ea5edda4ffa942153117639a9d218666a8bcedb6d92dd8f2992dece83bd44943",
+    "out/t3-1c-probe/candidate-fixtures-final/shifted-R10/a.pdf": "5012d0ce6d77daf354d94c40368a0da46aee3e8a3883d7be5607298b1463d255",
+    "out/t3-1c-probe/candidate-fixtures-final/shifted-R10/b.pdf": "b61957f23db5218e5e2d8f6ba3ba070aba32ad6735e1dd1310d7edf4f833b884",
+    "out/t3-1c-probe/candidate-fixtures-final/shifted-R11/a.pdf": "81dd7fa7afc44abb807b080395b1446d1a3ee2ae13439b903e53f472524894d7",
+    "out/t3-1c-probe/candidate-fixtures-final/shifted-R11/b.pdf": "ca5c1b19305854a55e213616150867dd567dbeddbc1a298b0170acaa800bce4f",
+    "out/t3-1c-probe/candidate-fixtures-final/shifted-chain3/a.pdf": "937c0a89fa61e9d64b7c8194599c4b2b35554386e44b6fa5707dc9e87a9547f5",
+    "out/t3-1c-probe/candidate-fixtures-final/shifted-chain3/b.pdf": "b01788c54180a44c6c20f5093c40b68fbefaf76138afd7ded3c0e52a9044cc4d",
+    "out/t3-1c-probe/candidate-fixtures-final/single-support/a.pdf": "f4ca98e4b44c6bec7bf3081e9aca550ac3bc5135b206512fae0ebdee4801da38",
+    "out/t3-1c-probe/candidate-fixtures-final/single-support/b.pdf": "f3cb216c7fc5154a5e412f0d6b86dee62f23ca8ec44769e3ecafcbb49ced6e1b",
+    "out/t3-1c-probe/skia-fixtures/skia-R10/a.pdf": "374ff81b879ebc938ce3ceb952b444158c5f5c3240e77d0ea9561c0199800c56",
+    "out/t3-1c-probe/skia-fixtures/skia-R10/b.pdf": "998c2be17cb866dc5255702c92b25aebbab5a5bbde41d7eb52bd57e6334824fd",
+    "out/t3-1c-probe/skia-fixtures/skia-R11/a.pdf": "1b8964100257b6a08d743a213f0ca80801be5b34261296f2ce18b3f012176bdd",
+    "out/t3-1c-probe/skia-fixtures/skia-R11/b.pdf": "f83e23b1cd5d8eed7c26dd72d29416f25c488f1917ea7d8e99b8a30b02b71b8a",
+    "out/t3-1c-probe/skia-fixtures/skia-band-tone/a.pdf": "0c1faff9be8f8a93c1a54c3ea47560584fe4f5cf92be2f15f6989458fc07b8f7",
+    "out/t3-1c-probe/skia-fixtures/skia-band-tone/b.pdf": "c17ce1a6399d7e1d27b948525dc63ca8433cab24be68526491ff9d6aed1702cb",
+    "out/t3-1c-probe/skia-fixtures/skia-boundary-tone/a.pdf": "228f343b1cd041c5c7e1d297bff963ec5dd8274973ac0d2fd42e8d05364b2bfd",
+    "out/t3-1c-probe/skia-fixtures/skia-boundary-tone/b.pdf": "c3b77392bd0e50f4b582ae962d90f3e324906227f57397f8c304d5f1311d4602",
+    "out/t3-1c-probe/skia-fixtures/skia-chain3/a.pdf": "997752526e82989f7a3a5d46d48779d23e7d9b7e18ca962a7cc04f44328d7c85",
+    "out/t3-1c-probe/skia-fixtures/skia-chain3/b.pdf": "ce35999845519763a70101c9389ea4403f7bad5e12bb32d2221c99dcd108b287",
+    "out/t3-1c-probe/skia-fixtures/skia-edge-repeat/a.pdf": "14a1282ba372e8e62a06cf39d63ba301c3bb3e56fd1956b565b1f673db5ea9a2",
+    "out/t3-1c-probe/skia-fixtures/skia-edge-repeat/b.pdf": "7da0aceee4967e1bc32bef6c95e9f5f216286d0b635322c3232df74d22253768",
+    "out/t3-1c-probe/skia-fixtures/skia-extra/a.pdf": "ad5cdbc7163812cf9071534b986becd7853ad2d1aec6972685e9dbe7de7dd296",
+    "out/t3-1c-probe/skia-fixtures/skia-extra/b.pdf": "4ada0b6fec4290ab6c669bd19ee7931f53c88820c3c652cba4cb6a1621dea5ed",
+    "out/t3-1c-probe/skia-fixtures/skia-fractional/a.pdf": "a9acd53a662fddf7d19a8b271f52ef270da3a7084c9535399b680fbd1eca0d93",
+    "out/t3-1c-probe/skia-fixtures/skia-fractional/b.pdf": "3384e097b6ac0e3c8725a8d52f415db8069cafacb5cbeeb9a8e582793ccc48b6",
+    "out/t3-1c-probe/skia-fixtures/skia-paired-tone/a.pdf": "787f38dd27a3a88705bde27d35f731ea6940b5adf3421cadc3de046ff378aa19",
+    "out/t3-1c-probe/skia-fixtures/skia-paired-tone/b.pdf": "c3d4bce483c7d6b242ea92df4eb44b14ed9d42a85188fcc0b1739b9793e274a6",
+    "out/t3-1c-probe/skia-fixtures/skia-partial-chain/a.pdf": "16f33cbc93a701bacc8c77d1954a9142caab620c4329a68961ee26d7e52a0610",
+    "out/t3-1c-probe/skia-fixtures/skia-partial-chain/b.pdf": "f3309cd1f7e7141a0c415b8acb1a7e61bca475259c8449dfeb719c76e11c657d",
+    "out/t3-1c-probe/skia-fixtures/skia-repeated/a.pdf": "0eeef47d055e446ed806bca0034f3114c8ef8724424304f040c95efe128cc5cc",
+    "out/t3-1c-probe/skia-fixtures/skia-repeated/b.pdf": "e6c51516f2952c2d5bd49e2a43d43ac367a1a51ce7c8928598945ba94e409242",
+    "out/t3-1c-probe/skia-fixtures/skia-text-change/a.pdf": "a07142560aa84b7ded7c66f346644f3d6126ee5b06ffe3c9bb06943bdc807c01",
+    "out/t3-1c-probe/skia-fixtures/skia-text-change/b.pdf": "cba6f185e4697d31b3c0d952a4eda1c72bbf26886850ef080c96a61546c7ea4d",
+    "out/t3-1c-probe/skia-local-fixtures/skia-local-R10/a.pdf": "08cee495832ff0a59dd8cb7bfb72d750aeed17a22cf6434af19f1ec71c696e4e",
+    "out/t3-1c-probe/skia-local-fixtures/skia-local-R10/b.pdf": "a381e87f70aa6f334f384b61e6b3ebea1fe7c02a0d5c1d2f6678cd66cd27f6dd",
+    "out/t3-1c-probe/skia-local-fixtures/skia-local-R11/a.pdf": "c7e7c3e61d09650a328192f78535d3a6f34a07e481957592b2ed5f58eb27d2ef",
+    "out/t3-1c-probe/skia-local-fixtures/skia-local-R11/b.pdf": "3e2ab19ed664001b1c8690cde352fb053ee739a930bb001e0aee550e4074924f",
+    "out/t3-1c-probe/skia-local-fixtures/skia-local-chain3/a.pdf": "31c407a279bd2c1496b906fcd9a54d668efea619409a12d5985419d3c5b4e659",
+    "out/t3-1c-probe/skia-local-fixtures/skia-local-chain3/b.pdf": "3a0cf283f792129ace7ce59eb1b41e8bec47667bf3c663f713875b21dbfb43bc"
+  },
+  "evidence_sha256": {
+    "out/t3-1c-probe/gate-fixed/candidates.json": "2dc922a1ca4314aecbc128cd24302da6c3ea217bf6ad7e730e4355335971b734",
+    "out/t3-1c-probe/gate-fixed/candidate-reference.json": "cf92db65ec9f94af66e0f386380384fc10f0c0cc04bc9877aae5880ae1e31a7e",
+    "out/t3-1c-probe/gate-fixed/gate-audit.json": "1f74ee4dfa130068b392c4075be1daab93d6a7eec7eb1ee355af0257c402f58a",
+    "out/t3-1c-probe/gate-additional/candidates.json": "cf94d9a0591c8d4deca86916f1c38869f954ce574f9098526a4b29c4e22e1406",
+    "out/t3-1c-probe/gate-additional/candidate-reference.json": "383fb0220c672482dd9bcccb1bc82cf20fa27e50b9cf69d66cce80220906ffd0",
+    "out/t3-1c-probe/gate-additional/gate-audit.json": "7a2a3ff49da2fa986a3548611e5476c128cc2ef371fc459d51ca5914ab6ac890",
+    "out/t3-1c-probe/skia-candidates/candidates.json": "e5dcaf4dd2c3710e12f43b9667c759618ddbbf7c5dfaebcf1b6238995302a431",
+    "out/t3-1c-probe/skia-candidates/candidate-reference.json": "c9f0122c49265f0c5fe501bcd694fd7d376710d0a64b1dfe71deb43e0c16e263",
+    "out/t3-1c-probe/skia-candidates/gate-audit.json": "11207b2ae07464044b198a683f2f0d544427c972d4d9e669e96b7611a8f0d7d1",
+    "out/t3-1c-probe/skia-local-candidates/candidates.json": "131191efdd77bd222a99c5f522df3d7415469f9f861a20b47f1d5befce21a663",
+    "out/t3-1c-probe/skia-local-candidates/candidate-reference.json": "caa9449a73ef19396cdf8a9e466cdcac2876dcd03925ce6c51471f22413a8aa1",
+    "out/t3-1c-probe/skia-local-candidates/gate-audit.json": "36a29da0a8d8b7665043f9068577c9c9fbc76c65c69b4c1a0551baf547a27795",
+    "out/t3-1c-probe/skia-diagnostics/context.json": "ca7c465737f7feb6c94aa41133789a0b05d1dea7db0b5e64286d023e0bc81f9b",
+    "out/t3-1c-probe/skia-diagnostics/skia-reference.json": "02cdf2899bf2a01611688185169d69fd9971bb32c9350577e428551065c99873",
+    "out/t3-1c-probe/skia-visual-qa/inspection.json": "8c3220eea3b48b99f6808d2f8294f8e90e0924b520c6884dc2c2d927d5b7bcaa",
+    "out/t3-1c-probe/skia-fixtures/probe.ttf": "fc8e6d9521abf879ffccc5d195e9774572da22eeec0c600c628511a50238cea6",
+    "out/t3-1c-probe/skia-local-fixtures/probe.ttf": "fc8e6d9521abf879ffccc5d195e9774572da22eeec0c600c628511a50238cea6"
+  },
+  "cases": [
+    {
+      "folder": "R10-ab",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": true,
+        "reasons": [],
+        "selected_links": [
+          {
+            "source": {
+              "side": "a",
+              "page": 1,
+              "start": 800,
+              "length": 100
+            },
+            "target": {
+              "side": "b",
+              "page": 2,
+              "start": 300,
+              "length": 100
+            },
+            "text": [
+              "ITEM FFFF"
+            ],
+            "support": 3,
+            "status": "band_verified",
+            "reason": null
+          }
+        ],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "candidate"
+          },
+          {
+            "page": 2,
+            "choice": "candidate"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 1393,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 9207,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "R10-ba",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": true,
+        "reasons": [],
+        "selected_links": [
+          {
+            "source": {
+              "side": "b",
+              "page": 1,
+              "start": 800,
+              "length": 100
+            },
+            "target": {
+              "side": "a",
+              "page": 2,
+              "start": 300,
+              "length": 100
+            },
+            "text": [
+              "ITEM FFFF"
+            ],
+            "support": 3,
+            "status": "band_verified",
+            "reason": null
+          }
+        ],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "candidate"
+          },
+          {
+            "page": 2,
+            "choice": "candidate"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 1393,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 9207,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "R11-ab",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": true,
+        "reasons": [],
+        "selected_links": [
+          {
+            "source": {
+              "side": "a",
+              "page": 1,
+              "start": 800,
+              "length": 100
+            },
+            "target": {
+              "side": "b",
+              "page": 2,
+              "start": 300,
+              "length": 100
+            },
+            "text": [
+              "ITEM FFFF"
+            ],
+            "support": 3,
+            "status": "band_verified",
+            "reason": null
+          },
+          {
+            "source": {
+              "side": "a",
+              "page": 2,
+              "start": 800,
+              "length": 100
+            },
+            "target": {
+              "side": "b",
+              "page": 3,
+              "start": 300,
+              "length": 100
+            },
+            "text": [
+              "SUM TOTAL 555"
+            ],
+            "support": 5,
+            "status": "band_verified",
+            "reason": null
+          }
+        ],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "candidate"
+          },
+          {
+            "page": 2,
+            "choice": "candidate"
+          },
+          {
+            "page": 3,
+            "choice": "unpaired"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 1393,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 2485,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        },
+        {
+          "page": 3,
+          "status": "only_in_b",
+          "reason": null,
+          "baseline_raw": null,
+          "candidate_raw": {},
+          "unpaired_complete": false
+        }
+      ]
+    },
+    {
+      "folder": "R11-ba",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": true,
+        "reasons": [],
+        "selected_links": [
+          {
+            "source": {
+              "side": "b",
+              "page": 1,
+              "start": 800,
+              "length": 100
+            },
+            "target": {
+              "side": "a",
+              "page": 2,
+              "start": 300,
+              "length": 100
+            },
+            "text": [
+              "ITEM FFFF"
+            ],
+            "support": 3,
+            "status": "band_verified",
+            "reason": null
+          },
+          {
+            "source": {
+              "side": "b",
+              "page": 2,
+              "start": 800,
+              "length": 100
+            },
+            "target": {
+              "side": "a",
+              "page": 3,
+              "start": 300,
+              "length": 100
+            },
+            "text": [
+              "SUM TOTAL 555"
+            ],
+            "support": 5,
+            "status": "band_verified",
+            "reason": null
+          }
+        ],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "candidate"
+          },
+          {
+            "page": 2,
+            "choice": "candidate"
+          },
+          {
+            "page": 3,
+            "choice": "unpaired"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 1393,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 2485,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        },
+        {
+          "page": 3,
+          "status": "only_in_a",
+          "reason": null,
+          "baseline_raw": null,
+          "candidate_raw": {},
+          "unpaired_complete": false
+        }
+      ]
+    },
+    {
+      "folder": "chain3-ab",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": true,
+        "reasons": [],
+        "selected_links": [
+          {
+            "source": {
+              "side": "a",
+              "page": 1,
+              "start": 800,
+              "length": 100
+            },
+            "target": {
+              "side": "b",
+              "page": 2,
+              "start": 300,
+              "length": 100
+            },
+            "text": [
+              "ITEM FFFF"
+            ],
+            "support": 3,
+            "status": "band_verified",
+            "reason": null
+          },
+          {
+            "source": {
+              "side": "a",
+              "page": 2,
+              "start": 800,
+              "length": 100
+            },
+            "target": {
+              "side": "b",
+              "page": 3,
+              "start": 300,
+              "length": 100
+            },
+            "text": [
+              "ITEM LLLL"
+            ],
+            "support": 5,
+            "status": "band_verified",
+            "reason": null
+          }
+        ],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "candidate"
+          },
+          {
+            "page": 2,
+            "choice": "candidate"
+          },
+          {
+            "page": 3,
+            "choice": "candidate"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 1393,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 996,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        },
+        {
+          "page": 3,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 9017,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "chain3-ab-pages-1-3",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 3,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "unverified_edge_band",
+          "baseline_raw": 1393,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 3,
+          "status": "skipped",
+          "reason": "unverified_structural_band",
+          "baseline_raw": 9017,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "chain3-ab-pages-1",
+      "status": "skipped",
+      "reason": "fixed_parts_support",
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "fixed_parts_support",
+          "no_verified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "fixed_parts_support",
+          "baseline_raw": 1393,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "chain3-ba",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": true,
+        "reasons": [],
+        "selected_links": [
+          {
+            "source": {
+              "side": "b",
+              "page": 1,
+              "start": 800,
+              "length": 100
+            },
+            "target": {
+              "side": "a",
+              "page": 2,
+              "start": 300,
+              "length": 100
+            },
+            "text": [
+              "ITEM FFFF"
+            ],
+            "support": 3,
+            "status": "band_verified",
+            "reason": null
+          },
+          {
+            "source": {
+              "side": "b",
+              "page": 2,
+              "start": 800,
+              "length": 100
+            },
+            "target": {
+              "side": "a",
+              "page": 3,
+              "start": 300,
+              "length": 100
+            },
+            "text": [
+              "ITEM LLLL"
+            ],
+            "support": 5,
+            "status": "band_verified",
+            "reason": null
+          }
+        ],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "candidate"
+          },
+          {
+            "page": 2,
+            "choice": "candidate"
+          },
+          {
+            "page": 3,
+            "choice": "candidate"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 1393,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 996,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        },
+        {
+          "page": 3,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 9017,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "chain3-ba-pages-1-3",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 3,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "unverified_edge_band",
+          "baseline_raw": 1393,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 3,
+          "status": "skipped",
+          "reason": "unverified_structural_band",
+          "baseline_raw": 9017,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "chain3-ba-pages-1",
+      "status": "skipped",
+      "reason": "fixed_parts_support",
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "fixed_parts_support",
+          "no_verified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "fixed_parts_support",
+          "baseline_raw": 1393,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "text-change-ab",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unverified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "unverified_edge_band",
+          "baseline_raw": 1393,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "skipped",
+          "reason": "unverified_structural_band",
+          "baseline_raw": 10492,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "text-change-ba",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unverified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "unverified_edge_band",
+          "baseline_raw": 1393,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "skipped",
+          "reason": "unverified_structural_band",
+          "baseline_raw": 10492,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "same-text-pixels-ab",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unverified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "unverified_edge_band",
+          "baseline_raw": 1393,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "skipped",
+          "reason": "unverified_structural_band",
+          "baseline_raw": 10597,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "same-text-pixels-ba",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unverified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "unverified_edge_band",
+          "baseline_raw": 1393,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "skipped",
+          "reason": "unverified_structural_band",
+          "baseline_raw": 10597,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "band-edge-tone-ab",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unverified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "unverified_edge_band",
+          "baseline_raw": 1393,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "skipped",
+          "reason": "unverified_structural_band",
+          "baseline_raw": 9267,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "band-edge-tone-ba",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unverified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "unverified_edge_band",
+          "baseline_raw": 1393,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "skipped",
+          "reason": "unverified_structural_band",
+          "baseline_raw": 9267,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "neighbor-tone-ab",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unverified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "unverified_edge_band",
+          "baseline_raw": 1393,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "skipped",
+          "reason": "unproven_regular_layout",
+          "baseline_raw": 9259,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "neighbor-tone-ba",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unverified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "unverified_edge_band",
+          "baseline_raw": 1393,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "skipped",
+          "reason": "unproven_regular_layout",
+          "baseline_raw": 9259,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "new-page-extra-ab",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": true,
+        "reasons": [],
+        "selected_links": [
+          {
+            "source": {
+              "side": "a",
+              "page": 1,
+              "start": 800,
+              "length": 100
+            },
+            "target": {
+              "side": "b",
+              "page": 2,
+              "start": 300,
+              "length": 100
+            },
+            "text": [
+              "ITEM FFFF"
+            ],
+            "support": 3,
+            "status": "band_verified",
+            "reason": null
+          },
+          {
+            "source": {
+              "side": "a",
+              "page": 2,
+              "start": 800,
+              "length": 100
+            },
+            "target": {
+              "side": "b",
+              "page": 3,
+              "start": 300,
+              "length": 100
+            },
+            "text": [
+              "SUM TOTAL 555"
+            ],
+            "support": 5,
+            "status": "band_verified",
+            "reason": null
+          }
+        ],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "candidate"
+          },
+          {
+            "page": 2,
+            "choice": "candidate"
+          },
+          {
+            "page": 3,
+            "choice": "unpaired"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 1393,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 2485,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        },
+        {
+          "page": 3,
+          "status": "only_in_b",
+          "reason": null,
+          "baseline_raw": null,
+          "candidate_raw": {},
+          "unpaired_complete": false
+        }
+      ]
+    },
+    {
+      "folder": "new-page-extra-ba",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": true,
+        "reasons": [],
+        "selected_links": [
+          {
+            "source": {
+              "side": "b",
+              "page": 1,
+              "start": 800,
+              "length": 100
+            },
+            "target": {
+              "side": "a",
+              "page": 2,
+              "start": 300,
+              "length": 100
+            },
+            "text": [
+              "ITEM FFFF"
+            ],
+            "support": 3,
+            "status": "band_verified",
+            "reason": null
+          },
+          {
+            "source": {
+              "side": "b",
+              "page": 2,
+              "start": 800,
+              "length": 100
+            },
+            "target": {
+              "side": "a",
+              "page": 3,
+              "start": 300,
+              "length": 100
+            },
+            "text": [
+              "SUM TOTAL 555"
+            ],
+            "support": 5,
+            "status": "band_verified",
+            "reason": null
+          }
+        ],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "candidate"
+          },
+          {
+            "page": 2,
+            "choice": "candidate"
+          },
+          {
+            "page": 3,
+            "choice": "unpaired"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 1393,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 2485,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        },
+        {
+          "page": 3,
+          "status": "only_in_a",
+          "reason": null,
+          "baseline_raw": null,
+          "candidate_raw": {},
+          "unpaired_complete": false
+        }
+      ]
+    },
+    {
+      "folder": "repeated-ab",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unverified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "ambiguous_page_text",
+          "baseline_raw": 1344,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "skipped",
+          "reason": "unverified_structural_band",
+          "baseline_raw": 9278,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "repeated-ba",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unverified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "ambiguous_page_text",
+          "baseline_raw": 1344,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "skipped",
+          "reason": "unverified_structural_band",
+          "baseline_raw": 9278,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "no-footer-ab",
+      "status": "skipped",
+      "reason": "fixed_parts_support",
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "fixed_parts_support",
+          "no_verified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "fixed_parts_support",
+          "baseline_raw": 1393,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "skipped",
+          "reason": "fixed_parts_support",
+          "baseline_raw": 9207,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "no-footer-ba",
+      "status": "skipped",
+      "reason": "fixed_parts_support",
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "fixed_parts_support",
+          "no_verified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "fixed_parts_support",
+          "baseline_raw": 1393,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "skipped",
+          "reason": "fixed_parts_support",
+          "baseline_raw": 9207,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "shifted-R10-ab",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "unproven_page_map",
+          "unproven_endpoint_range"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 1393,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "skipped",
+          "reason": "unproven_regular_layout",
+          "baseline_raw": 9399,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "shifted-R10-ba",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "unproven_page_map",
+          "unproven_endpoint_range"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 1393,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "skipped",
+          "reason": "unproven_regular_layout",
+          "baseline_raw": 9399,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "shifted-R11-ab",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": true,
+        "reasons": [],
+        "selected_links": [
+          {
+            "source": {
+              "side": "a",
+              "page": 1,
+              "start": 1150,
+              "length": 150
+            },
+            "target": {
+              "side": "b",
+              "page": 2,
+              "start": 400,
+              "length": 150
+            },
+            "text": [
+              "ITEM FFFF"
+            ],
+            "support": 3,
+            "status": "band_verified",
+            "reason": null
+          },
+          {
+            "source": {
+              "side": "a",
+              "page": 2,
+              "start": 1150,
+              "length": 150
+            },
+            "target": {
+              "side": "b",
+              "page": 3,
+              "start": 400,
+              "length": 150
+            },
+            "text": [
+              "SUM TOTAL 555"
+            ],
+            "support": 5,
+            "status": "band_verified",
+            "reason": null
+          }
+        ],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "candidate"
+          },
+          {
+            "page": 2,
+            "choice": "candidate"
+          },
+          {
+            "page": 3,
+            "choice": "unpaired"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 1393,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 2485,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        },
+        {
+          "page": 3,
+          "status": "only_in_b",
+          "reason": null,
+          "baseline_raw": null,
+          "candidate_raw": {},
+          "unpaired_complete": false
+        }
+      ]
+    },
+    {
+      "folder": "shifted-R11-ba",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": true,
+        "reasons": [],
+        "selected_links": [
+          {
+            "source": {
+              "side": "b",
+              "page": 1,
+              "start": 1150,
+              "length": 150
+            },
+            "target": {
+              "side": "a",
+              "page": 2,
+              "start": 400,
+              "length": 150
+            },
+            "text": [
+              "ITEM FFFF"
+            ],
+            "support": 3,
+            "status": "band_verified",
+            "reason": null
+          },
+          {
+            "source": {
+              "side": "b",
+              "page": 2,
+              "start": 1150,
+              "length": 150
+            },
+            "target": {
+              "side": "a",
+              "page": 3,
+              "start": 400,
+              "length": 150
+            },
+            "text": [
+              "SUM TOTAL 555"
+            ],
+            "support": 5,
+            "status": "band_verified",
+            "reason": null
+          }
+        ],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "candidate"
+          },
+          {
+            "page": 2,
+            "choice": "candidate"
+          },
+          {
+            "page": 3,
+            "choice": "unpaired"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 1393,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 2485,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        },
+        {
+          "page": 3,
+          "status": "only_in_a",
+          "reason": null,
+          "baseline_raw": null,
+          "candidate_raw": {},
+          "unpaired_complete": false
+        }
+      ]
+    },
+    {
+      "folder": "shifted-chain3-ab",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "unproven_page_map",
+          "unproven_endpoint_range"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          },
+          {
+            "page": 3,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 1393,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 996,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        },
+        {
+          "page": 3,
+          "status": "skipped",
+          "reason": "unproven_regular_layout",
+          "baseline_raw": 9209,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "shifted-chain3-ba",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "unproven_page_map",
+          "unproven_endpoint_range"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          },
+          {
+            "page": 3,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 1393,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 996,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        },
+        {
+          "page": 3,
+          "status": "skipped",
+          "reason": "unproven_regular_layout",
+          "baseline_raw": 9209,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "single-support-ab",
+      "status": "skipped",
+      "reason": "fixed_parts_support",
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "fixed_parts_support",
+          "no_verified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "unpaired"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "fixed_parts_support",
+          "baseline_raw": 2888,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "only_in_b",
+          "reason": null,
+          "baseline_raw": null,
+          "candidate_raw": {},
+          "unpaired_complete": false
+        }
+      ]
+    },
+    {
+      "folder": "single-support-ba",
+      "status": "skipped",
+      "reason": "fixed_parts_support",
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "fixed_parts_support",
+          "no_verified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "unpaired"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "fixed_parts_support",
+          "baseline_raw": 2888,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "only_in_a",
+          "reason": null,
+          "baseline_raw": null,
+          "candidate_raw": {},
+          "unpaired_complete": false
+        }
+      ]
+    },
+    {
+      "folder": "paired-content-tone-ab",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": true,
+        "reasons": [],
+        "selected_links": [
+          {
+            "source": {
+              "side": "a",
+              "page": 1,
+              "start": 800,
+              "length": 100
+            },
+            "target": {
+              "side": "b",
+              "page": 2,
+              "start": 300,
+              "length": 100
+            },
+            "text": [
+              "ITEM FFFF"
+            ],
+            "support": 3,
+            "status": "band_verified",
+            "reason": null
+          }
+        ],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "candidate"
+          },
+          {
+            "page": 2,
+            "choice": "candidate"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 2627,
+          "candidate_raw": {
+            "normal": 1390,
+            "strict": 2070,
+            "loose": 1390
+          },
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 9207,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "paired-content-tone-ba",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": true,
+        "reasons": [],
+        "selected_links": [
+          {
+            "source": {
+              "side": "b",
+              "page": 1,
+              "start": 800,
+              "length": 100
+            },
+            "target": {
+              "side": "a",
+              "page": 2,
+              "start": 300,
+              "length": 100
+            },
+            "text": [
+              "ITEM FFFF"
+            ],
+            "support": 3,
+            "status": "band_verified",
+            "reason": null
+          }
+        ],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "candidate"
+          },
+          {
+            "page": 2,
+            "choice": "candidate"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 2627,
+          "candidate_raw": {
+            "normal": 1390,
+            "strict": 2070,
+            "loose": 1390
+          },
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 9207,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "paired-boundary-tone-ab",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": true,
+        "reasons": [],
+        "selected_links": [
+          {
+            "source": {
+              "side": "a",
+              "page": 1,
+              "start": 800,
+              "length": 100
+            },
+            "target": {
+              "side": "b",
+              "page": 2,
+              "start": 300,
+              "length": 100
+            },
+            "text": [
+              "ITEM FFFF"
+            ],
+            "support": 3,
+            "status": "band_verified",
+            "reason": null
+          }
+        ],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "candidate"
+          },
+          {
+            "page": 2,
+            "choice": "candidate"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 1453,
+          "candidate_raw": {
+            "normal": 60,
+            "strict": 68,
+            "loose": 60
+          },
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 9207,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "paired-boundary-tone-ba",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": true,
+        "reasons": [],
+        "selected_links": [
+          {
+            "source": {
+              "side": "b",
+              "page": 1,
+              "start": 800,
+              "length": 100
+            },
+            "target": {
+              "side": "a",
+              "page": 2,
+              "start": 300,
+              "length": 100
+            },
+            "text": [
+              "ITEM FFFF"
+            ],
+            "support": 3,
+            "status": "band_verified",
+            "reason": null
+          }
+        ],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "candidate"
+          },
+          {
+            "page": 2,
+            "choice": "candidate"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 1453,
+          "candidate_raw": {
+            "normal": 60,
+            "strict": 68,
+            "loose": 60
+          },
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 9207,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "skia-R10-ab",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unverified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "unverified_edge_band",
+          "baseline_raw": 1605,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "skipped",
+          "reason": "unverified_structural_band",
+          "baseline_raw": 8584,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "skia-R10-ba",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unverified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "unverified_edge_band",
+          "baseline_raw": 1605,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "skipped",
+          "reason": "unverified_structural_band",
+          "baseline_raw": 8584,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "skia-R11-ab",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unverified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          },
+          {
+            "page": 3,
+            "choice": "unpaired"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "unverified_edge_band",
+          "baseline_raw": 1605,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "skipped",
+          "reason": "unverified_structural_band",
+          "baseline_raw": 2606,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 3,
+          "status": "only_in_b",
+          "reason": null,
+          "baseline_raw": null,
+          "candidate_raw": {},
+          "unpaired_complete": false
+        }
+      ]
+    },
+    {
+      "folder": "skia-R11-ba",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unverified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          },
+          {
+            "page": 3,
+            "choice": "unpaired"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "unverified_edge_band",
+          "baseline_raw": 1605,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "skipped",
+          "reason": "unverified_structural_band",
+          "baseline_raw": 2606,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 3,
+          "status": "only_in_a",
+          "reason": null,
+          "baseline_raw": null,
+          "candidate_raw": {},
+          "unpaired_complete": false
+        }
+      ]
+    },
+    {
+      "folder": "skia-chain3-ab",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unverified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          },
+          {
+            "page": 3,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "unverified_edge_band",
+          "baseline_raw": 1605,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "skipped",
+          "reason": "unverified_structural_band",
+          "baseline_raw": 1372,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 3,
+          "status": "skipped",
+          "reason": "unverified_structural_band",
+          "baseline_raw": 8362,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "skia-chain3-ab-pages-1-3",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 3,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "unverified_edge_band",
+          "baseline_raw": 1605,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 3,
+          "status": "skipped",
+          "reason": "unverified_structural_band",
+          "baseline_raw": 8362,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "skia-chain3-ab-pages-1",
+      "status": "skipped",
+      "reason": "fixed_parts_support",
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "fixed_parts_support",
+          "no_verified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "fixed_parts_support",
+          "baseline_raw": 1605,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "skia-chain3-ba",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unverified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          },
+          {
+            "page": 3,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "unverified_edge_band",
+          "baseline_raw": 1605,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "skipped",
+          "reason": "unverified_structural_band",
+          "baseline_raw": 1372,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 3,
+          "status": "skipped",
+          "reason": "unverified_structural_band",
+          "baseline_raw": 8362,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "skia-chain3-ba-pages-1-3",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 3,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "unverified_edge_band",
+          "baseline_raw": 1605,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 3,
+          "status": "skipped",
+          "reason": "unverified_structural_band",
+          "baseline_raw": 8362,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "skia-chain3-ba-pages-1",
+      "status": "skipped",
+      "reason": "fixed_parts_support",
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "fixed_parts_support",
+          "no_verified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "fixed_parts_support",
+          "baseline_raw": 1605,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "skia-text-change-ab",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unverified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "unverified_edge_band",
+          "baseline_raw": 1605,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "skipped",
+          "reason": "unverified_structural_band",
+          "baseline_raw": 9704,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "skia-text-change-ba",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unverified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "unverified_edge_band",
+          "baseline_raw": 1605,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "skipped",
+          "reason": "unverified_structural_band",
+          "baseline_raw": 9704,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "skia-band-tone-ab",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unverified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "unverified_edge_band",
+          "baseline_raw": 1605,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "skipped",
+          "reason": "unverified_structural_band",
+          "baseline_raw": 9729,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "skia-band-tone-ba",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unverified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "unverified_edge_band",
+          "baseline_raw": 1605,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "skipped",
+          "reason": "unverified_structural_band",
+          "baseline_raw": 9729,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "skia-paired-tone-ab",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unverified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "unverified_edge_band",
+          "baseline_raw": 2487,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "skipped",
+          "reason": "unverified_structural_band",
+          "baseline_raw": 8584,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "skia-paired-tone-ba",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unverified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "unverified_edge_band",
+          "baseline_raw": 2487,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "skipped",
+          "reason": "unverified_structural_band",
+          "baseline_raw": 8584,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "skia-boundary-tone-ab",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unverified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "unverified_edge_band",
+          "baseline_raw": 1665,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "skipped",
+          "reason": "unverified_structural_band",
+          "baseline_raw": 8584,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "skia-boundary-tone-ba",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unverified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "unverified_edge_band",
+          "baseline_raw": 1665,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "skipped",
+          "reason": "unverified_structural_band",
+          "baseline_raw": 8584,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "skia-extra-ab",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unverified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          },
+          {
+            "page": 3,
+            "choice": "unpaired"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "unverified_edge_band",
+          "baseline_raw": 1605,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "skipped",
+          "reason": "unverified_structural_band",
+          "baseline_raw": 2606,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 3,
+          "status": "only_in_b",
+          "reason": null,
+          "baseline_raw": null,
+          "candidate_raw": {},
+          "unpaired_complete": false
+        }
+      ]
+    },
+    {
+      "folder": "skia-extra-ba",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unverified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          },
+          {
+            "page": 3,
+            "choice": "unpaired"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "unverified_edge_band",
+          "baseline_raw": 1605,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "skipped",
+          "reason": "unverified_structural_band",
+          "baseline_raw": 2606,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 3,
+          "status": "only_in_a",
+          "reason": null,
+          "baseline_raw": null,
+          "candidate_raw": {},
+          "unpaired_complete": false
+        }
+      ]
+    },
+    {
+      "folder": "skia-repeated-ab",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unverified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "ambiguous_page_text",
+          "baseline_raw": 1514,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "skipped",
+          "reason": "unverified_structural_band",
+          "baseline_raw": 8661,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "skia-repeated-ba",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unverified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "ambiguous_page_text",
+          "baseline_raw": 1514,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "skipped",
+          "reason": "unverified_structural_band",
+          "baseline_raw": 8661,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "skia-partial-chain-ab",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unverified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          },
+          {
+            "page": 3,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "unverified_edge_band",
+          "baseline_raw": 1605,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "skipped",
+          "reason": "unverified_structural_band",
+          "baseline_raw": 1372,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 3,
+          "status": "skipped",
+          "reason": "unproven_regular_layout",
+          "baseline_raw": 11928,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "skia-partial-chain-ba",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unverified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          },
+          {
+            "page": 3,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "unverified_edge_band",
+          "baseline_raw": 1605,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "skipped",
+          "reason": "unverified_structural_band",
+          "baseline_raw": 1372,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 3,
+          "status": "skipped",
+          "reason": "unproven_regular_layout",
+          "baseline_raw": 11928,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "skia-edge-repeat-ab",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unverified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          },
+          {
+            "page": 3,
+            "choice": "baseline"
+          },
+          {
+            "page": 4,
+            "choice": "unpaired"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "unproven_regular_layout",
+          "baseline_raw": 1257,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "skipped",
+          "reason": "unproven_regular_layout",
+          "baseline_raw": 920,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 3,
+          "status": "skipped",
+          "reason": "unproven_regular_layout",
+          "baseline_raw": 2034,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 4,
+          "status": "only_in_b",
+          "reason": null,
+          "baseline_raw": null,
+          "candidate_raw": {},
+          "unpaired_complete": false
+        }
+      ]
+    },
+    {
+      "folder": "skia-edge-repeat-ba",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unverified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          },
+          {
+            "page": 3,
+            "choice": "baseline"
+          },
+          {
+            "page": 4,
+            "choice": "unpaired"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "unproven_regular_layout",
+          "baseline_raw": 1257,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "skipped",
+          "reason": "unproven_regular_layout",
+          "baseline_raw": 920,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 3,
+          "status": "skipped",
+          "reason": "unproven_regular_layout",
+          "baseline_raw": 2034,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 4,
+          "status": "only_in_a",
+          "reason": null,
+          "baseline_raw": null,
+          "candidate_raw": {},
+          "unpaired_complete": false
+        }
+      ]
+    },
+    {
+      "folder": "skia-fractional-ab",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unverified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "unverified_edge_band",
+          "baseline_raw": 1605,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "skipped",
+          "reason": "unverified_structural_band",
+          "baseline_raw": 8584,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "skia-fractional-ba",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unverified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "skipped",
+          "reason": "unverified_edge_band",
+          "baseline_raw": 1605,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "skipped",
+          "reason": "unverified_structural_band",
+          "baseline_raw": 8584,
+          "candidate_raw": {},
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "skia-local-R10-ab",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": true,
+        "reasons": [],
+        "selected_links": [
+          {
+            "source": {
+              "side": "a",
+              "page": 1,
+              "start": 800,
+              "length": 100
+            },
+            "target": {
+              "side": "b",
+              "page": 2,
+              "start": 300,
+              "length": 100
+            },
+            "text": [
+              "ITEM FFFF"
+            ],
+            "support": 3,
+            "status": "band_verified",
+            "reason": null
+          }
+        ],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "candidate"
+          },
+          {
+            "page": 2,
+            "choice": "candidate"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 1605,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 8584,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "skia-local-R10-ba",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": true,
+        "reasons": [],
+        "selected_links": [
+          {
+            "source": {
+              "side": "b",
+              "page": 1,
+              "start": 800,
+              "length": 100
+            },
+            "target": {
+              "side": "a",
+              "page": 2,
+              "start": 300,
+              "length": 100
+            },
+            "text": [
+              "ITEM FFFF"
+            ],
+            "support": 3,
+            "status": "band_verified",
+            "reason": null
+          }
+        ],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "candidate"
+          },
+          {
+            "page": 2,
+            "choice": "candidate"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 1605,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 8584,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "skia-local-R11-ab",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": true,
+        "reasons": [],
+        "selected_links": [
+          {
+            "source": {
+              "side": "a",
+              "page": 1,
+              "start": 800,
+              "length": 100
+            },
+            "target": {
+              "side": "b",
+              "page": 2,
+              "start": 300,
+              "length": 100
+            },
+            "text": [
+              "ITEM FFFF"
+            ],
+            "support": 3,
+            "status": "band_verified",
+            "reason": null
+          },
+          {
+            "source": {
+              "side": "a",
+              "page": 2,
+              "start": 800,
+              "length": 100
+            },
+            "target": {
+              "side": "b",
+              "page": 3,
+              "start": 300,
+              "length": 100
+            },
+            "text": [
+              "SUM TOTAL 555"
+            ],
+            "support": 5,
+            "status": "band_verified",
+            "reason": null
+          }
+        ],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "candidate"
+          },
+          {
+            "page": 2,
+            "choice": "candidate"
+          },
+          {
+            "page": 3,
+            "choice": "unpaired"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 1605,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 2606,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        },
+        {
+          "page": 3,
+          "status": "only_in_b",
+          "reason": null,
+          "baseline_raw": null,
+          "candidate_raw": {},
+          "unpaired_complete": false
+        }
+      ]
+    },
+    {
+      "folder": "skia-local-R11-ba",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": true,
+        "reasons": [],
+        "selected_links": [
+          {
+            "source": {
+              "side": "b",
+              "page": 1,
+              "start": 800,
+              "length": 100
+            },
+            "target": {
+              "side": "a",
+              "page": 2,
+              "start": 300,
+              "length": 100
+            },
+            "text": [
+              "ITEM FFFF"
+            ],
+            "support": 3,
+            "status": "band_verified",
+            "reason": null
+          },
+          {
+            "source": {
+              "side": "b",
+              "page": 2,
+              "start": 800,
+              "length": 100
+            },
+            "target": {
+              "side": "a",
+              "page": 3,
+              "start": 300,
+              "length": 100
+            },
+            "text": [
+              "SUM TOTAL 555"
+            ],
+            "support": 5,
+            "status": "band_verified",
+            "reason": null
+          }
+        ],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "candidate"
+          },
+          {
+            "page": 2,
+            "choice": "candidate"
+          },
+          {
+            "page": 3,
+            "choice": "unpaired"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 1605,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 2606,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        },
+        {
+          "page": 3,
+          "status": "only_in_a",
+          "reason": null,
+          "baseline_raw": null,
+          "candidate_raw": {},
+          "unpaired_complete": false
+        }
+      ]
+    },
+    {
+      "folder": "skia-local-chain3-ab",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": true,
+        "reasons": [],
+        "selected_links": [
+          {
+            "source": {
+              "side": "a",
+              "page": 1,
+              "start": 800,
+              "length": 100
+            },
+            "target": {
+              "side": "b",
+              "page": 2,
+              "start": 300,
+              "length": 100
+            },
+            "text": [
+              "ITEM FFFF"
+            ],
+            "support": 3,
+            "status": "band_verified",
+            "reason": null
+          },
+          {
+            "source": {
+              "side": "a",
+              "page": 2,
+              "start": 800,
+              "length": 100
+            },
+            "target": {
+              "side": "b",
+              "page": 3,
+              "start": 300,
+              "length": 100
+            },
+            "text": [
+              "ITEM LLLL"
+            ],
+            "support": 5,
+            "status": "band_verified",
+            "reason": null
+          }
+        ],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "candidate"
+          },
+          {
+            "page": 2,
+            "choice": "candidate"
+          },
+          {
+            "page": 3,
+            "choice": "candidate"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 1605,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 1372,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        },
+        {
+          "page": 3,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 8362,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        }
+      ]
+    },
+    {
+      "folder": "skia-local-chain3-ba",
+      "status": "prepared",
+      "reason": null,
+      "gate": {
+        "ready": true,
+        "reasons": [],
+        "selected_links": [
+          {
+            "source": {
+              "side": "b",
+              "page": 1,
+              "start": 800,
+              "length": 100
+            },
+            "target": {
+              "side": "a",
+              "page": 2,
+              "start": 300,
+              "length": 100
+            },
+            "text": [
+              "ITEM FFFF"
+            ],
+            "support": 3,
+            "status": "band_verified",
+            "reason": null
+          },
+          {
+            "source": {
+              "side": "b",
+              "page": 2,
+              "start": 800,
+              "length": 100
+            },
+            "target": {
+              "side": "a",
+              "page": 3,
+              "start": 300,
+              "length": 100
+            },
+            "text": [
+              "ITEM LLLL"
+            ],
+            "support": 5,
+            "status": "band_verified",
+            "reason": null
+          }
+        ],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "candidate"
+          },
+          {
+            "page": 2,
+            "choice": "candidate"
+          },
+          {
+            "page": 3,
+            "choice": "candidate"
+          }
+        ]
+      },
+      "pages": [
+        {
+          "page": 1,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 1605,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        },
+        {
+          "page": 2,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 1372,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        },
+        {
+          "page": 3,
+          "status": "built",
+          "reason": null,
+          "baseline_raw": 8362,
+          "candidate_raw": {
+            "normal": 0,
+            "strict": 0,
+            "loose": 0
+          },
+          "unpaired_complete": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+[
+  {
+    "id": "same-page-two",
+    "capacity": 6,
+    "first": 2,
+    "second": 4,
+    "mutation": "none",
+    "grouped": true,
+    "existing_unmet": true
+  },
+  {
+    "id": "capacity7",
+    "capacity": 7,
+    "first": 2,
+    "second": 4,
+    "mutation": "none",
+    "grouped": false,
+    "existing_unmet": false
+  },
+  {
+    "id": "capacity8",
+    "capacity": 8,
+    "first": 2,
+    "second": 4,
+    "mutation": "none",
+    "grouped": true,
+    "existing_unmet": false
+  },
+  {
+    "id": "capacity9",
+    "capacity": 9,
+    "first": 2,
+    "second": 4,
+    "mutation": "none",
+    "grouped": true,
+    "existing_unmet": false
+  },
+  {
+    "id": "capacity10",
+    "capacity": 10,
+    "first": 2,
+    "second": 4,
+    "mutation": "none",
+    "grouped": true,
+    "existing_unmet": false
+  },
+  {
+    "id": "later-short",
+    "capacity": 8,
+    "first": 2,
+    "second": 5,
+    "mutation": "none",
+    "grouped": false,
+    "existing_unmet": false
+  },
+  {
+    "id": "later-supported",
+    "capacity": 9,
+    "first": 2,
+    "second": 5,
+    "mutation": "none",
+    "grouped": true,
+    "existing_unmet": false
+  },
+  {
+    "id": "both-later",
+    "capacity": 9,
+    "first": 3,
+    "second": 5,
+    "mutation": "none",
+    "grouped": true,
+    "existing_unmet": false
+  },
+  {
+    "id": "before-short",
+    "capacity": 8,
+    "first": 1,
+    "second": 4,
+    "mutation": "none",
+    "grouped": false,
+    "existing_unmet": false
+  },
+  {
+    "id": "between-short",
+    "capacity": 8,
+    "first": 2,
+    "second": 3,
+    "mutation": "none",
+    "grouped": false,
+    "existing_unmet": false
+  },
+  {
+    "id": "content-tone",
+    "capacity": 8,
+    "first": 2,
+    "second": 4,
+    "mutation": "paired",
+    "grouped": true,
+    "existing_unmet": false
+  },
+  {
+    "id": "carry-tone",
+    "capacity": 8,
+    "first": 2,
+    "second": 4,
+    "mutation": "pixels",
+    "grouped": false,
+    "existing_unmet": false
+  },
+  {
+    "id": "repeated",
+    "capacity": 8,
+    "first": 2,
+    "second": 4,
+    "mutation": "repeated",
+    "grouped": false,
+    "existing_unmet": false
+  },
+  {
+    "id": "reordered",
+    "capacity": 8,
+    "first": 2,
+    "second": 4,
+    "mutation": "reordered",
+    "grouped": false,
+    "existing_unmet": false
+  },
+  {
+    "id": "faint-support",
+    "capacity": 8,
+    "first": 2,
+    "second": 4,
+    "mutation": "faint",
+    "grouped": false,
+    "existing_unmet": false
+  }
+]

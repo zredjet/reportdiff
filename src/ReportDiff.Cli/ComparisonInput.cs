@@ -15,6 +15,7 @@ internal sealed class ComparisonInput : IDisposable
     private readonly PdfReader? pdf;
     private readonly PdfTextReader? text;
     public InputFormat Format { get; }
+    internal string? InitialSha256 { get; }
     public int PageCount => pdf?.PageCount ?? 1;
     public int Dpi { get; }
 
@@ -27,6 +28,11 @@ internal sealed class ComparisonInput : IDisposable
             Span<byte> header = stackalloc byte[8];
             var length = stream.ReadAtLeast(header, header.Length, throwOnEndOfStream: false);
             Format = InputFormatDetector.Detect(header[..length]);
+            if (settings.Rows.CarryEnabled && Format == InputFormat.Pdf)
+            {
+                stream.Position = 0;
+                InitialSha256 = Convert.ToHexStringLower(System.Security.Cryptography.SHA256.HashData(stream));
+            }
         }
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
         {

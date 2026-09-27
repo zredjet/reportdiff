@@ -1,0 +1,14 @@
+{
+  "cluster-limit/a.pdf": "e4899c76863b37ebf3ceae170f429fb34fe0869544a99050d2bc22f219ab7263",
+  "cluster-limit/b.pdf": "7f62d2f40a7f3f76eb23977750d158c6f3e8f247f4df0f493ae9e83921e7ad03",
+  "context/a.pdf": "73f6053bd12ed493060bee2c6aaeed0b63fb8e7a0d0ab16001682ee52b2d65a3",
+  "context/b.pdf": "0bfb623de24a9f540c752eb87599dcf012f0cb1284197cdcb3e73ada66522c8e",
+  "second-cluster-limit/a.pdf": "e4899c76863b37ebf3ceae170f429fb34fe0869544a99050d2bc22f219ab7263",
+  "second-cluster-limit/b.pdf": "66233a44a903278e7c5358039bcfe60e340d299c9b0a582c1bf898815f0af331",
+  "second-too-different/a.pdf": "e4899c76863b37ebf3ceae170f429fb34fe0869544a99050d2bc22f219ab7263",
+  "second-too-different/b.pdf": "8a7cb4e298b55e5d2884b0de3d4f9d6325e7bcdc7ce6c34a6a9ec3741be0b02a",
+  "tone/a.pdf": "73f6053bd12ed493060bee2c6aaeed0b63fb8e7a0d0ab16001682ee52b2d65a3",
+  "tone/b.pdf": "1c72a6b306c61a6c64c151ec3663085d67838cb7943ebfca00fec187fd2c118b",
+  "too-different/a.pdf": "e4899c76863b37ebf3ceae170f429fb34fe0869544a99050d2bc22f219ab7263",
+  "too-different/b.pdf": "e03190ea18e28f94619e14f5b5f95955f022155a7e46951c158370c99f4e9d9a"
+}

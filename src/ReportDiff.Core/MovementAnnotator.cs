@@ -9,7 +9,7 @@ internal static class MovementAnnotator
 
     public static DifferenceCluster[] Annotate(Mat a, Mat b, ComparisonParameters parameters,
         byte[] raw, int[] labels, int[] acceptedLabels, DifferenceCluster[] clusters, RegionMap? regions = null,
-        IDictionary<int, MovementProjectionProof>? projection = null)
+        IDictionary<int, MovementProjectionProof>? projection = null, AnchoredReservations? projectionBudget = null)
     {
         var width = a.Width; var height = a.Height;
         var radius = (int)Math.Floor(Units.MmToPixels(parameters.Move.SearchMm, parameters.Dpi));
@@ -82,6 +82,8 @@ internal static class MovementAnnotator
             if (candidate.Indices.Any(index => uses[index] != 1)) continue;
             if (projection is not null)
             {
+                projectionBudget?.Add(AnchoredAllocation.MovementWindow, checked(1L + 2L * candidate.Indices.Length));
+                projectionBudget?.Add(AnchoredAllocation.Reference, checked((long)candidate.Indices.Length * candidate.Indices.Length));
                 var checks = candidate.Indices.SelectMany(i => new[]
                 {
                     new MovementWindowPair(windows[i], Translate(windows[i], candidate.Shift)),

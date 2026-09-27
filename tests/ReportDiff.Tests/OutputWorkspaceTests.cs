@@ -24,6 +24,35 @@ public sealed class OutputWorkspaceTests
     }
 
     [Fact]
+    public void Failed_restoration_reports_retained_backup()
+    {
+        using var files = new WorkspaceFiles(); var moves = 0;
+        using var workspace = new OutputWorkspace(files.Output, true, new OutputWorkspaceOperations
+        {
+            Move = (from, to) => { if (++moves >= 2) throw new IOException("置換・復元失敗"); Directory.Move(from, to); }
+        });
+        Directory.CreateDirectory(workspace.StagingPath); File.WriteAllText(Path.Combine(workspace.StagingPath, "new.txt"), "new");
+        var error = Assert.Throws<CommandLineException>(() => workspace.Commit());
+        var backup = Assert.Single(Directory.GetDirectories(files.Root, ".reportdiff-backup-*"));
+        Assert.Contains(backup, error.Message); Assert.False(Directory.Exists(files.Output));
+        Assert.Equal("旧結果", File.ReadAllText(Path.Combine(backup, Path.GetFileName(files.Sentinel))));
+    }
+
+    [Fact]
+    public void Failed_backup_cleanup_keeps_new_output_and_reports_old_location()
+    {
+        using var files = new WorkspaceFiles();
+        using var workspace = new OutputWorkspace(files.Output, true, new OutputWorkspaceOperations
+        { Delete = _ => throw new IOException("清掃失敗") });
+        Directory.CreateDirectory(workspace.StagingPath); File.WriteAllText(Path.Combine(workspace.StagingPath, "new.txt"), "new");
+        var error = Assert.Throws<CommandLineException>(() => workspace.Commit());
+        Assert.Contains("新しい結果は保存しました", error.Message);
+        Assert.Equal("new", File.ReadAllText(Path.Combine(files.Output, "new.txt")));
+        var backup = Assert.Single(Directory.GetDirectories(files.Root, ".reportdiff-backup-*"));
+        Assert.Contains(backup, error.Message); Assert.Equal("旧結果", File.ReadAllText(Path.Combine(backup, Path.GetFileName(files.Sentinel))));
+    }
+
+    [Fact]
     public void NewFilesInEmptyDestinationAreNotOverwrittenWithoutForce()
     {
         using var files = new WorkspaceFiles();

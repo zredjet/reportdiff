@@ -9,18 +9,22 @@ internal static class RowSupport
 {
     internal static IReadOnlyList<RowSupportScore>? Score(Mat a, Mat b, IReadOnlyList<RowLine> linesA, IReadOnlyList<RowLine> linesB,
         IReadOnlyList<CanonicalRowCandidate> candidates, ComparisonParameters parameters, RowOptions options, RowMatchingResult matching)
+        => ScoreMaps(a, b, linesA, linesB, candidates.Select(c => c.Layout.DisplayMap).ToArray(), parameters, options, matching);
+
+    internal static IReadOnlyList<RowSupportScore>? ScoreMaps(Mat a, Mat b, IReadOnlyList<RowLine> linesA, IReadOnlyList<RowLine> linesB,
+        IReadOnlyList<PageMap> candidates, ComparisonParameters parameters, RowOptions options, RowMatchingResult matching)
     {
         using var ga = new Mat(); using var gb = new Mat();
         Cv2.CvtColor(a, ga, ColorConversionCodes.BGR2GRAY); Cv2.CvtColor(b, gb, ColorConversionCodes.BGR2GRAY);
         var da = MatBuffers.Bytes(ga); var db = MatBuffers.Bytes(gb); var width = a.Width;
         var bgrA = MatBuffers.Bytes(a); var bgrB = MatBuffers.Bytes(b);
-        var pairings = candidates.Select(c => Pairs(c.Layout.DisplayMap, linesA, linesB, options, parameters.Dpi, matching)).ToArray();
+        var pairings = candidates.Select(c => Pairs(c, linesA, linesB, options, parameters.Dpi, matching)).ToArray();
         var commonA = Intersect(pairings.Select(ps => ps.Select(p => p.A)));
         var commonB = Intersect(pairings.Select(ps => ps.Select(p => p.B)));
         if (commonA.Count == 0 || commonB.Count == 0) return null;
         var ay = Rows(linesA, commonA, a.Height); var by = Rows(linesB, commonB, b.Height);
-        var mapsA = candidates.Select(c => Correspondence(c.Layout.DisplayMap, true)).ToArray();
-        var mapsB = candidates.Select(c => Correspondence(c.Layout.DisplayMap, false)).ToArray();
+        var mapsA = candidates.Select(c => Correspondence(c, true)).ToArray();
+        var mapsB = candidates.Select(c => Correspondence(c, false)).ToArray();
         // 対応が全仮説で同じ帯は、支持の検証には残すが順位の根拠にならない。
         // 共通の固定範囲から、いずれかの仮説で対応が異なる帯を両側対称に全て選ぶ。
         var scoreA = candidates.Count == 1 ? ay : DistinguishingRows(ay, mapsA);
@@ -44,7 +48,7 @@ internal static class RowSupport
             Accumulate(db, da, scoreB, excludedB, mapB);
             if (mass == 0 && candidates.Count == 1) return null;
             var supports = new List<int>();
-            foreach (var segment in candidate.Layout.DisplayMap.Segments.Where(s => s.AStart is not null && s.BStart is not null))
+            foreach (var segment in candidate.Segments.Where(s => s.AStart is not null && s.BStart is not null))
             {
                 var count = 0; var previousAEnd = -1.0; var previousBEnd = -1.0;
                 foreach (var pair in pairings[index].Where(p => commonA.Contains(p.A) && commonB.Contains(p.B)))

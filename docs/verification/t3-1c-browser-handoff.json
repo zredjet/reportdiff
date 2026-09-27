@@ -1,0 +1,472 @@
+{
+  "date": "2026-09-27",
+  "scope": "V-04_additional_HTML_user_proxy_acceptance",
+  "status": "complete_user_proxy_review_overall_ok_details_unspecified",
+  "browser_attempt": {
+    "tool": "mcp__cua_repl.js",
+    "browser": "Codex In-app Browser",
+    "requested_url": "file:///Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1c-unpaired-shared-integration/compat/page-flow-R10-ab-new/report.html",
+    "result": "rejected_before_page_load",
+    "reason": "The requested URL protocol is not allowed. Allowed protocols: http:, https:.",
+    "workarounds_prohibited": true,
+    "alternate_access_attempted": false
+  },
+  "V04_complete": true,
+  "user_deferred_V04": false,
+  "V01_deferred_conditions_unchanged": true,
+  "source_files_verified": 544,
+  "source_snapshot_sha256": "c37bf3dd9845b093e66fb2393e12ef6cb4499482e59df70bc132b6fa16c55453",
+  "original_output_trees_verified": {
+    "fixed": {
+      "files": 2503,
+      "sha256": "f0d7ecbd259905c14a53ed901dc82923fae9c475c4eda5e5c121531390d43fa8"
+    },
+    "compat": {
+      "files": 10065,
+      "sha256": "4f189dae83d3ba381207e494dee843456df116ae875dd9acd4fff25d59a40c09"
+    },
+    "directory": {
+      "files": 195,
+      "sha256": "472a41f8d02a4d3801e399d4dea093d0742198c4e0093d4ddfa0f0f327ce081e"
+    }
+  },
+  "static_audit": {
+    "html_documents": 14,
+    "local_references_checked": 1233,
+    "assets_verified": 409,
+    "missing_files": 0,
+    "broken_anchors": 0,
+    "duplicate_ids": 0,
+    "external_references": 0
+  },
+  "reports": [
+    {
+      "id": "V04-01",
+      "title": "基本の送り",
+      "path": "out/t3-1c-unpaired-shared-integration/compat/page-flow-R10-ab-new/report.html",
+      "sha256": "f58dca6f60c9ea266d203d45a100d6de0a693368b57ba215be6c03bf3f8e69ed",
+      "saved_summary": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 2,
+        "clusters": 0,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 1,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 5,
+        "structural_change_counts": {
+          "inserted": 2,
+          "deleted": 1,
+          "block_moved": 2
+        },
+        "difference_count": 5,
+        "difference_count_complete": true
+      },
+      "result_json_sha256": "9412994147727a9ff7bd935055c6783660153b3d9e6c74fe44d1ec4bc2dc1c6a",
+      "page_statuses": [
+        {
+          "page": 1,
+          "status": "different",
+          "content_references": 0,
+          "clusters": 0
+        },
+        {
+          "page": 2,
+          "status": "different",
+          "content_references": 0,
+          "clusters": 0
+        }
+      ],
+      "agent_browser_status": "not_run_browser_url_policy_blocked"
+    },
+    {
+      "id": "V04-02",
+      "title": "共有原因と独立原因",
+      "path": "out/t3-1c-unpaired-shared-integration/compat/page-flow-shared-shared-and-independent-ab-new/report.html",
+      "sha256": "70c1222e28ae8dddf702be25302f9d547521b2caefbbdb04e6a6d57c4e2cea74",
+      "saved_summary": {
+        "status": "different",
+        "pages_compared": 4,
+        "pages_different": 4,
+        "clusters": 0,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 3,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 12,
+        "structural_change_counts": {
+          "inserted": 5,
+          "deleted": 2,
+          "block_moved": 5
+        },
+        "difference_count": 12,
+        "difference_count_complete": true
+      },
+      "result_json_sha256": "daa0c8d289c65f42d3af0180a659a1590527ff8197958ea8bdb153ae99a2ebb0",
+      "page_statuses": [
+        {
+          "page": 1,
+          "status": "different",
+          "content_references": 0,
+          "clusters": 0
+        },
+        {
+          "page": 2,
+          "status": "different",
+          "content_references": 0,
+          "clusters": 0
+        },
+        {
+          "page": 3,
+          "status": "different",
+          "content_references": 0,
+          "clusters": 0
+        },
+        {
+          "page": 4,
+          "status": "different",
+          "content_references": 0,
+          "clusters": 0
+        }
+      ],
+      "agent_browser_status": "not_run_browser_url_policy_blocked"
+    },
+    {
+      "id": "V04-03",
+      "title": "末尾片側ページ B",
+      "path": "out/t3-1c-unpaired-shared-integration/fixed/before8-ab-on/report.html",
+      "sha256": "4d6ec8f2d4c744b7b8d513eac508a1c4d060818a6abc29cc20e4cd4603dccf72",
+      "saved_summary": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 3,
+        "clusters": 0,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 2,
+        "aggregated_difference_count_complete": false,
+        "structural_change_count": 8,
+        "structural_change_counts": {
+          "inserted": 3,
+          "deleted": 2,
+          "block_moved": 3
+        },
+        "difference_count": 8,
+        "difference_count_complete": false
+      },
+      "result_json_sha256": "bdfe82ce1b73e36c7c318bdf6eed1f9af8d2a6ea78023cd6debaa80b2bd66cec",
+      "page_statuses": [
+        {
+          "page": 1,
+          "status": "different",
+          "content_references": 0,
+          "clusters": 0
+        },
+        {
+          "page": 2,
+          "status": "different",
+          "content_references": 0,
+          "clusters": 0
+        },
+        {
+          "page": 3,
+          "status": "only_in_b",
+          "content_references": 0,
+          "clusters": 0
+        }
+      ],
+      "agent_browser_status": "not_run_browser_url_policy_blocked"
+    },
+    {
+      "id": "V04-04",
+      "title": "末尾片側ページ A",
+      "path": "out/t3-1c-unpaired-shared-integration/fixed/before8-ba-on/report.html",
+      "sha256": "76865c7e0100086da84a82ed689b60fc2b29d2d7b1e68bbe0825c7130504b50c",
+      "saved_summary": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 3,
+        "clusters": 0,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 2,
+        "aggregated_difference_count_complete": false,
+        "structural_change_count": 8,
+        "structural_change_counts": {
+          "inserted": 2,
+          "deleted": 3,
+          "block_moved": 3
+        },
+        "difference_count": 8,
+        "difference_count_complete": false
+      },
+      "result_json_sha256": "dac4159aa06fe72b060b42767419b227a121c72f8544ee0de82c1511e3324d1f",
+      "page_statuses": [
+        {
+          "page": 1,
+          "status": "different",
+          "content_references": 0,
+          "clusters": 0
+        },
+        {
+          "page": 2,
+          "status": "different",
+          "content_references": 0,
+          "clusters": 0
+        },
+        {
+          "page": 3,
+          "status": "only_in_a",
+          "content_references": 0,
+          "clusters": 0
+        }
+      ],
+      "agent_browser_status": "not_run_browser_url_policy_blocked"
+    },
+    {
+      "id": "V04-05",
+      "title": "共有原因と本文濃淡変更",
+      "path": "out/t3-1c-unpaired-shared-integration/fixed/tone-ab-on/report.html",
+      "sha256": "c74fe0ba3e919321511623b914615567838c4aad8a87627d6cb749ba45dbed37",
+      "saved_summary": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 3,
+        "clusters": 1,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 3,
+        "aggregated_difference_count_complete": false,
+        "structural_change_count": 8,
+        "structural_change_counts": {
+          "inserted": 3,
+          "deleted": 2,
+          "block_moved": 3
+        },
+        "difference_count": 9,
+        "difference_count_complete": false
+      },
+      "result_json_sha256": "cebefdf32ff80a0d75a982ef67815ab9a0799d9a7b017f3655a9141ffa9fc0d1",
+      "page_statuses": [
+        {
+          "page": 1,
+          "status": "different",
+          "content_references": 0,
+          "clusters": 1
+        },
+        {
+          "page": 2,
+          "status": "different",
+          "content_references": 0,
+          "clusters": 0
+        },
+        {
+          "page": 3,
+          "status": "only_in_b",
+          "content_references": 0,
+          "clusters": 0
+        }
+      ],
+      "agent_browser_status": "not_run_browser_url_policy_blocked"
+    },
+    {
+      "id": "V04-06",
+      "title": "内容所有とB側参照",
+      "path": "out/t3-1c-unpaired-shared-integration/compat/page-flow-anchored-acceptance-context-ab-new/report.html",
+      "sha256": "22f48a7f51570f7864e69a9409f471f466f36f780e07b473f904d1bf8f675398",
+      "saved_summary": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 2,
+        "clusters": 1,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 3,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 6,
+        "structural_change_counts": {
+          "inserted": 3,
+          "deleted": 1,
+          "block_moved": 2
+        },
+        "difference_count": 7,
+        "difference_count_complete": true
+      },
+      "result_json_sha256": "c8a1ed84fae4d7d58d4c84852a7d94f3d7e744190163f030ac7dfa3227d061a9",
+      "page_statuses": [
+        {
+          "page": 1,
+          "status": "different",
+          "content_references": 0,
+          "clusters": 1
+        },
+        {
+          "page": 2,
+          "status": "different",
+          "content_references": 1,
+          "clusters": 0
+        }
+      ],
+      "agent_browser_status": "not_run_browser_url_policy_blocked"
+    },
+    {
+      "id": "V04-07",
+      "title": "内容所有とA側参照",
+      "path": "out/t3-1c-unpaired-shared-integration/compat/page-flow-anchored-acceptance-context-ba-new/report.html",
+      "sha256": "cbb1ee1a36772013767e71913b3e8dcd3890d1d821d9c82a6a11c9ea38deef98",
+      "saved_summary": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 2,
+        "clusters": 1,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 3,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 6,
+        "structural_change_counts": {
+          "inserted": 1,
+          "deleted": 3,
+          "block_moved": 2
+        },
+        "difference_count": 7,
+        "difference_count_complete": true
+      },
+      "result_json_sha256": "87dd1c03a9d0fc6e0846615a98b850554ee26a4b748e30199b78e9d13bf64943",
+      "page_statuses": [
+        {
+          "page": 1,
+          "status": "different",
+          "content_references": 0,
+          "clusters": 1
+        },
+        {
+          "page": 2,
+          "status": "different",
+          "content_references": 1,
+          "clusters": 0
+        }
+      ],
+      "agent_browser_status": "not_run_browser_url_policy_blocked"
+    },
+    {
+      "id": "V04-08",
+      "title": "支持不足の見送り",
+      "path": "out/t3-1c-unpaired-shared-integration/fixed/original-ab-on/report.html",
+      "sha256": "108a1c716d8728f961d23c0928041ae544de6f6a6499748d9f6d50c1bb13923c",
+      "saved_summary": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 3,
+        "clusters": 10,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 10,
+        "aggregated_difference_count_complete": false,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 10,
+        "difference_count_complete": false
+      },
+      "result_json_sha256": "15278e416ebe921339c1acf4c61c4e1e4d8b1cc54194102dd16f44a7a5a878c9",
+      "page_statuses": [
+        {
+          "page": 1,
+          "status": "different",
+          "content_references": 0,
+          "clusters": 4
+        },
+        {
+          "page": 2,
+          "status": "different",
+          "content_references": 0,
+          "clusters": 6
+        },
+        {
+          "page": 3,
+          "status": "only_in_b",
+          "content_references": 0,
+          "clusters": 0
+        }
+      ],
+      "agent_browser_status": "not_run_browser_url_policy_blocked"
+    },
+    {
+      "id": "V04-09",
+      "title": "フォルダ一覧",
+      "path": "out/t3-1c-unpaired-shared-integration/directory/report/index.html",
+      "sha256": "8588bacc9bb9ee7aab0c68bdab2a10da978c83e0d66415881d1650e54821e86c",
+      "saved_summary": {
+        "status": "different",
+        "total": 5,
+        "compared": 5,
+        "same": 0,
+        "different": 5,
+        "only_in_a": 0,
+        "only_in_b": 0,
+        "error": 0,
+        "ignored": 0
+      },
+      "index_json_sha256": "8f46da00fa9e1b1c716861626cadc7471818025c54672875efdd2e0d3c1e98c2",
+      "agent_browser_status": "not_run_browser_url_policy_blocked"
+    }
+  ],
+  "product_changed": false,
+  "expected_values_changed": false,
+  "full_tests_reexecuted": false,
+  "build_reexecuted": false,
+  "committed": false,
+  "released": false,
+  "asset_manifest": {
+    "path": "out/t3-1c-browser-review/evidence.json",
+    "sha256": "a9f9d8e5cc65617af4b8f7618c58a435879909c6735070bcb1059b60910cdb1b"
+  },
+  "handoff": "docs/verification/t3-1c-browser-handoff.md",
+  "manual_results": {
+    "V04-01": "not_individually_reported",
+    "V04-02": "not_individually_reported",
+    "V04-03": "not_individually_reported",
+    "V04-04": "not_individually_reported",
+    "V04-05": "not_individually_reported",
+    "V04-06": "not_individually_reported",
+    "V04-07": "not_individually_reported",
+    "V04-08": "not_individually_reported",
+    "V04-09": "not_individually_reported"
+  },
+  "agent_browser_operations_passed": 0,
+  "agent_browser_render_verified": false,
+  "user_review": {
+    "report_date": "2026-09-27",
+    "quote": "V-04は確認したがOK。見間違いはあるかもしれないが、基本的には大丈夫と思う。",
+    "overall_result": "approximately_ok",
+    "accepted_for_V04": true,
+    "caveat": "user acknowledges possible oversight",
+    "itemized_results_available": false,
+    "itemized_pass_count": null,
+    "review_date": null,
+    "os": null,
+    "browser": null,
+    "browser_version": null,
+    "specific_defects_reported": [],
+    "agent_execution_claimed": false
+  },
+  "completion_basis": "user_reported_overall_review_not_itemized_automated_verification",
+  "unchanged_boundaries": [
+    "V-01_viewport_and_JavaScript_conditions_deferred",
+    "V-03_Windows_execution_and_target_commit_CI_pending",
+    "V-05_real_reports_and_performance_acceptance_criteria_pending",
+    "R-01_to_R-03_unresolved_deferred",
+    "T3-1b_and_T3-1c_parent_tasks_incomplete"
+  ],
+  "next_step": "D-01_commit_scope_and_completion_boundary_inventory",
+  "status_history": [
+    {
+      "date": "2026-09-27",
+      "status": "browser_blocked_static_handoff_ready",
+      "record": "out/t3-1c-browser-user-acceptance/before/docs/verification/t3-1c-browser-handoff.json",
+      "sha256": "c2d4f3e81992fbf0be57dbaaed8d3c8e00ea80ffc3920a8c40eacd6613303064"
+    },
+    {
+      "date": "2026-09-27",
+      "status": "complete_user_proxy_review_overall_ok_details_unspecified",
+      "basis": "user_review"
+    }
+  ]
+}

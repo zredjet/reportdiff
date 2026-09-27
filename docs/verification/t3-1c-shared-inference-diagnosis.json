@@ -1,0 +1,6043 @@
+{
+  "date": "2026-09-23",
+  "scope": "共有原因の未成立6方向の候補推定・支持・境界の独立診断",
+  "diagnosis_complete": true,
+  "product_integration": false,
+  "task_complete": false,
+  "committed": false,
+  "environment": {
+    "os": "macOS",
+    "architecture": "arm64",
+    "dotnet": "10.0.12",
+    "opencv": "4.13",
+    "dpi": 300
+  },
+  "limits": {
+    "max_shift_mm": 20,
+    "max_shift_px": 236,
+    "min_support_bands": 2,
+    "thresholds_changed": false,
+    "pixel_equality_relaxed": false,
+    "synthetic_correct_coordinates_supplied": false
+  },
+  "source_sha256": {
+    "src/ReportDiff.Report/DirectoryReportDocument.cs": "a39cd5125411dd8c33d8beeec0e3469d283a968a96d53e6331332001ced9e167",
+    "src/ReportDiff.Report/ReportRows.cs": "4b8c92decc7a6e4b419620aecb7a70f38571b9fd760f2c613ab1710a0ad5726f",
+    "src/ReportDiff.Report/ReportWriter.cs": "1f0194010b440043044a3da1126bbc72efc01b25999c938720bc239ff7b250fa",
+    "src/ReportDiff.Report/ExclusionSnippet.cs": "80ee4fd3b2da35ded4b023f9f6f6fa7a4b95fc6f3e6c3220dc6b7437a75f0385",
+    "src/ReportDiff.Report/AssemblyInfo.cs": "502510d8fadecad038256039d5f9b86967f68a15afc8678f06377713652881d3",
+    "src/ReportDiff.Report/ReportColor.cs": "6979a1d00188bf4dd353523ba5dc1ae41cae63b9e337c349d8e450f2ee15a2ef",
+    "src/ReportDiff.Report/HtmlRows.cs": "24527695d1a5c402e563253daf471606f883aa8295bda48f17b7a452f9eed0c2",
+    "src/ReportDiff.Report/ReportImages.cs": "5d6826c78c5623acec087fd995e2864d4913a19d2691039c70b0530bbe4f4a8d",
+    "src/ReportDiff.Report/RegionDrawing.cs": "7babd3024d1a5f76299d5be90f2ce7f50a34d5073093bc97326da491a5a69da5",
+    "src/ReportDiff.Report/HtmlRegions.cs": "e68cab2a4ca0ed73b0235883a373d99cb96bdb5585f1346256bc071ed6c7ac8b",
+    "src/ReportDiff.Report/PageImageWriteSchedule.cs": "5bf20dce01198ed377d7c41807830a5fa0c991c26d45c84982911d234289b24a",
+    "src/ReportDiff.Report/HtmlReportWriter.cs": "d4e3182ceddcdc8acaf52e0b6ae5248f06a400e2d89f23e4f3741f12fa491469",
+    "src/ReportDiff.Report/RawOverlay.cs": "73a821cc489464ec7f0990dd782e5012e7a5a7de20ce16b65a4cc18f9d828a07",
+    "src/ReportDiff.Report/ReportDocument.cs": "de9333c703cd1a98e47271a2bc32c1358620c9484a3ff81b7138f68de7e88b4d",
+    "src/ReportDiff.Report/ReportPageFlow.cs": "5f22ebd5084eee0edc2a8e17a7cc2469962a4ffeaa61662e25908825197d5895",
+    "src/ReportDiff.Report/DirectoryReportWriter.cs": "c31647a4040114dca7cfe607901e135a0fc50140dbf6c93bad543843d6b6d80a",
+    "src/ReportDiff.Report/ReportRegions.cs": "5b9a45eb31fd0bdb41d206b74cb89335358969eebf9cc017494e54f185724443",
+    "src/ReportDiff.Report/ReportDiff.Report.csproj": "0f123f1803380365177bc6d7239361dff00eaf910205896ac1e675cf1c92bcd8",
+    "src/ReportDiff.Report/HtmlPageFlow.cs": "9e2dc523b2d06b5f18f56e5869eb095b1bf9d04d136eabf23138eb0e8ac6aa7a",
+    "src/ReportDiff.Cli/ConfigurationLoader.cs": "03230e1db64a78de9c354ca7c07729025f37c25c02075b58e9c1e05f2795c1a2",
+    "src/ReportDiff.Cli/RegionSetting.cs": "996d86b96f8650d79a77c6865c037939a9d792550cbdde062a9738c05481f316",
+    "src/ReportDiff.Cli/AssemblyInfo.cs": "502510d8fadecad038256039d5f9b86967f68a15afc8678f06377713652881d3",
+    "src/ReportDiff.Cli/CommandLine.cs": "bc67f040e1ef7f8bfc4d516471426ff7aaa19126234d966e56848568723e4467",
+    "src/ReportDiff.Cli/OutputWorkspace.cs": "51acec7c80adca8d3e48921cb398737dcd989d5891ae414fd70b666927ce669e",
+    "src/ReportDiff.Cli/DirectoryComparison.cs": "c85858c3b976f57197c0229784914fb8f591f35493d0e5c525347242d0dbb354",
+    "src/ReportDiff.Cli/PageFlowRun.cs": "a4815c679e7cec77dcf5b7ef72e511dcf8af479d6e089c4f44791e37d584ebb6",
+    "src/ReportDiff.Cli/AppSettings.cs": "b2c292532fc4286929a10c817b458a6373f94de9c635a1a300f8526647289b95",
+    "src/ReportDiff.Cli/ConsoleProgress.cs": "6cd669d3cd61c5bc85fef7f1b7f00205c74f34222104c492e747fc38e87eb69c",
+    "src/ReportDiff.Cli/ComparisonInput.cs": "1d754daa49db5501b96670b7df72a2564a7c6c635646a4bce214aa34c3d39d5f",
+    "src/ReportDiff.Cli/CliApplication.cs": "54873694ca6511b77f5e34e7a42e9319337a7ecc470aa55e0f20e6eba397a92b",
+    "src/ReportDiff.Cli/DirectoryRules.cs": "787adc3a21ec140d80da80b092bd280917b346bfe64190f5cc40e56be6353191",
+    "src/ReportDiff.Cli/ReportDiff.Cli.csproj": "3e2795af95b113d59193c85dd18d57b33b6ea3b48194ed6bd4f286fcdd4ecca7",
+    "src/ReportDiff.Cli/DirectoryPlan.cs": "2ecb852089f07c15d4a9034207d81f83f58f2a3908580b4c0b08d63094ac9d28",
+    "src/ReportDiff.Cli/ComparisonRunner.cs": "35c0eb16fb8360d38b115cfe5501579e50cf003b6bb3ea732d082c5014689649",
+    "src/ReportDiff.Cli/Program.cs": "b7a3b4da069f34065cf8b42f618a5828c84090358479cc58fe84755c528448c6",
+    "src/ReportDiff.Core/PageFlowCollector.cs": "f279f37bc344e8c90d43039b6063b23e4cc9e36a7496fbdf280bfef91478055f",
+    "src/ReportDiff.Core/ComparisonFeatures.cs": "b8c53bfdede76a9623d26c6f3ef48e28e5f690f875a4f4defbc38d6930211fda",
+    "src/ReportDiff.Core/GroupShiftSearch.cs": "6e95c31ab2c87acddeb01a6b863d817542319d2362858553b27cc5b9dc8dafba",
+    "src/ReportDiff.Core/RowComparison.cs": "3aac86bdf5bae8d6de6eac16f7d00f557eeac68c4fa87f141b688658140f895a",
+    "src/ReportDiff.Core/PageFlowNonflow.cs": "09081510b99adc0dc6f9ce06d9bea7374b87f64b0321e2eaca07c76b0e7c8397",
+    "src/ReportDiff.Core/TolerantDifference.cs": "5a9082634252a07b14b0ea2adf16c54fa2ce536eb9fd47374224f3a254c70e45",
+    "src/ReportDiff.Core/RowCandidateBuilder.cs": "64234efb0aec8fbd18c8da0b7d4b28bb44894e74f73ee3223440407c54f9b1ad",
+    "src/ReportDiff.Core/MovementAnnotator.cs": "f6ceb5f6a84b2b08da0dc8daa5d71861462d308f6f9390594fdd3fafc599e9b8",
+    "src/ReportDiff.Core/DifferenceClassifier.cs": "dc43e65f285a86b9ce926e19ea5145904e6d516c39f5d01a4b742817c38f134c",
+    "src/ReportDiff.Core/RowGroupValidator.cs": "461144fadb941aa0b8d79fe5b99d76f830c10bfe817c1ecc72077a07afd327f4",
+    "src/ReportDiff.Core/PageFlowComparison.cs": "a25f1782ae13210025f66d3c1abe09b5ed553634cdad0c11faa9f159c1a5263a",
+    "src/ReportDiff.Core/AssemblyInfo.cs": "060494a4b480a2d869fb11948811c14bcc777dbd4aa419b50dff4dce085b180c",
+    "src/ReportDiff.Core/RegionMap.cs": "00e09dea774c79818e297f2e674ae079f5fbfe8592672080fa9d0ccbb126716e",
+    "src/ReportDiff.Core/InitialCandidates.cs": "74822751930b3401ca4145b7ec5e9e2cfe6f0569a234c8f189d580d8301136d2",
+    "src/ReportDiff.Core/PageFlowData.cs": "3b2105cac685e34357f7df01a8072a9d1f7c8d4661ffcbddf13bf3d4b2e00ac9",
+    "src/ReportDiff.Core/GroupCandidateSearch.cs": "ca903b3a82423f993043126dfa015c90a5f8adebf0a0ba296034bfcef431a698",
+    "src/ReportDiff.Core/PageMap.cs": "d037a4dc953cd2b6e4445055d05ebe1daf6e7872836909862150b147a9a75079",
+    "src/ReportDiff.Core/MatBuffers.cs": "d196bd1541bd385b89ab9fd78882498c0ead5b2239d89c0bb19b39f8d7af45f9",
+    "src/ReportDiff.Core/ComparisonInk.cs": "bb06f1b539af62988ece41b65d992c07c8c791ab41d3ee087e2ae6c4bfadcf03",
+    "src/ReportDiff.Core/RowSelector.cs": "5180d9fa814790519f8cd0c2d97f1165f2ee4318b5735da6907a1bc8813080d7",
+    "src/ReportDiff.Core/PageFlowAdoption.cs": "78cfa90921584b5bfcdb65b1b5df4db1e6b042c9bc822b86327a5fea41cdd8db",
+    "src/ReportDiff.Core/RowComparisonSurface.cs": "34fab9a23504973d274f75f69b23232924a737f291bb424eb6ecd81d5f888c5c",
+    "src/ReportDiff.Core/RowStructures.cs": "d9edbb5e189b6aa5c1336f6d81cb741b572491c20f178a8e81e2c5bdc187ce11",
+    "src/ReportDiff.Core/ClusterProjectionData.cs": "e66b6b052b86092d2038a4f8e6fd010a75a9575dc74991730b4137fdc5a16015",
+    "src/ReportDiff.Core/LabStripeCache.cs": "f68aff9007a05c249158ffe1ce6079eb685fab9e638bd81469dc4e26606609ff",
+    "src/ReportDiff.Core/ImageInk.cs": "3f3cefe9141fac6275b30d87a83d742e5330130d81294c21e67581cddf72be09",
+    "src/ReportDiff.Core/RowProjection.cs": "4715d629b2951837662c91d9d613a19a64ef4f77a6e50d545dffca720d90d7d1",
+    "src/ReportDiff.Core/GroupRunIndex.cs": "28ff0084042dc65d92ba6e1aa95f07b560801c056d54c320b6d302e6e2281f4e",
+    "src/ReportDiff.Core/PageFlowComponents.cs": "52ee4b714778ef49d6ba17a5aa41f453651e8b862de23f0ade6b02b6c02c8a30",
+    "src/ReportDiff.Core/Units.cs": "2664a41731483bc23aaccd4dc5a7c462a90e7042960404fe93453a92ef4ea5e9",
+    "src/ReportDiff.Core/CandidateRowSchedule.cs": "d3c3deb2467083a063e2f9d5a522760ca616ff74d3439c92830e1ddd91c329d9",
+    "src/ReportDiff.Core/GlobalAlignment.cs": "eaa3777e70ed94b4bf171c5414426138fde5fc7627410015af7511e625f9d034",
+    "src/ReportDiff.Core/PageFlowBandVerifier.cs": "63b0544ee9627cc73f65610eaf9c284048074478d86538e0b86562045e86b06b",
+    "src/ReportDiff.Core/ComparisonTimings.cs": "0f6b8bf17f527e6f20d0eeea01e87437d663bddc866ac84f91e527b665e4f981",
+    "src/ReportDiff.Core/RowMatching.cs": "a7015cafed9839a10db95b32de5705abd209fa571bbbede0d70e9c83e87ade72",
+    "src/ReportDiff.Core/PageComparer.cs": "d560b3f307a0f6c37539ac36dd1157f394ac9eb77fe2223d9cea24d7087434e8",
+    "src/ReportDiff.Core/RowSupport.cs": "db3a85cc3633a1fa4332ef5ff40c0f5724ea5e72d29ba8e6d43ce8b2a919c951",
+    "src/ReportDiff.Core/PageFlowNumericRows.cs": "9a6f7633aef96c49ded8a69391109c3b30e997688cca69d9836df2823f80c966",
+    "src/ReportDiff.Core/ReportDiff.Core.csproj": "4fd131e59a31e5fea36ac35ad2e1cf2eb7bd913a3d937d7f112d2e4f1a03ff21",
+    "src/ReportDiff.Core/RowText.cs": "9d14e5e607ba2983e74427cddb9905668e6625e71e69cd550d35b1a27eefec1a",
+    "src/ReportDiff.Core/ComparisonParameters.cs": "5d4f15ca53e464931a8458a6b1bbf78769c1f14e9ab4162df5a6a7caf3cccee4",
+    "src/ReportDiff.Core/PageComparison.cs": "310e74bb4ac5c520cc3d853bdcd2aa939cafb52a19c08e8569d64b04f0e3847b",
+    "src/ReportDiff.Core/PageFlowAggregation.cs": "162752c45709d9c610b00c8654f4ad07b484d2eddfef4da4bd15c4e176dc833b",
+    "src/ReportDiff.Core/PageFlowSurface.cs": "79b8512ca39c28fac9b13f58dd899fbe3729590fec0c681a2701ca610d41aa20",
+    "src/ReportDiff.Core/RowCanonicalizer.cs": "d1e66171499f03b5014afe846ba745e825707eb25b34d4d48334b345deaa4e81",
+    "src/ReportDiff.Core/PageFlowSharedCauses.cs": "c7466023676d713f7e586f2684862b024bc62e6a7189c680c31c62aa65906593",
+    "src/ReportDiff.Core/PageFlowPlan.cs": "ef226243ada7992e25d4b2ae7c539beaa8e4e8396a032dede21ec4d9d0550a8a",
+    "src/ReportDiff.Core/PageFlowInference.cs": "3eb15341443e8eacc2d6e9486b124a9f49955af44c5ed25d75c3a7f37cda2689",
+    "src/ReportDiff.Core/GroupSearchSchedule.cs": "b36fcd6ee1a9c7faa086e85fcd00dbb6c3a6f1bf86a268b82318f92890fa02cb",
+    "src/ReportDiff.Core/GroupCandidateSchedule.cs": "a8bb6419e82d6e1b932de721e83267ce5788e577b1da8441abbede8c5ffeda57",
+    "src/ReportDiff.Core/FeatureStripeSchedule.cs": "c9a602a01dc32d731af4bef1b7ef1923254a27e60a6b1bd3a81c7e14bf14549d",
+    "src/ReportDiff.Core/PageFlowRangeGate.cs": "e346a5d88de28d10437893385a5fcca61fbc784dd12c2218d328a5e4de705547",
+    "src/ReportDiff.Core/RegionalComparison.cs": "2629aa0fd34db7991067c87bae77efdc9a8815b0c287908961846b7b46985049",
+    "src/ReportDiff.Pdf/PdfReader.cs": "a521c0532b0e2cd061e8ce6cd68403cd8eac45d3453f8a37b79b4d79647c20f5",
+    "src/ReportDiff.Pdf/PageSelection.cs": "0cb8f84064f1d7263a2f30b06f20c77dd60688f877405103c57b3ab55ce999ab",
+    "src/ReportDiff.Pdf/AssemblyInfo.cs": "502510d8fadecad038256039d5f9b86967f68a15afc8678f06377713652881d3",
+    "src/ReportDiff.Pdf/ImageReader.cs": "dd65252e10e2046c5401cb9b0c490d10ceb2a51ca974192507dfe4e811cdd8dd",
+    "src/ReportDiff.Pdf/ReportDiff.Pdf.csproj": "669ad02db31c565c8bc3620410c9312301439c37ccf9b7ac0db9a70aad409c3a",
+    "src/ReportDiff.Pdf/TextAnnotations.cs": "e5fd667b6573f13fd91c697395d4a74efcf3be66dc9a89992b7b6395a866a5dc",
+    "src/ReportDiff.Pdf/PagePairing.cs": "abd54c801c2816fb19518c20bf49c88d3e0366491648374ea1aaabee3c22554a",
+    "src/ReportDiff.Pdf/InputFormat.cs": "a5ba93584766984432a613e038d249f49053a57bd8bd5ef433aecdeddb479fbc",
+    "src/ReportDiff.Pdf/PdfFontInspector.cs": "6ddcb863b79063e7594e5ad5779a62c9efd5a98fc80ebcc43be64636a5228997",
+    "src/ReportDiff.Pdf/PdfTextReader.cs": "dbc3cf40bd7e3c5a5c655a06507ff092db4b067d45e08abb4fab1bc102df4d30",
+    "src/ReportDiff.Pdf/LoadedImage.cs": "9a479a6e661bbfcdc3eb01e3d750914b6282b2fb5f19ee0fbb3a212b83e6ec44",
+    "src/ReportDiff.Pdf/TiffAlpha.cs": "e6bbb487b32ac0592ab01d5f1b0fd8f40ccb2c093f4c825e8d57aa3a70f98b79",
+    "src/ReportDiff.Pdf/RowTextAnnotations.cs": "446de90eff2def29253da9ef6e9be085266986c448b22e3210095ad44f4a9eb6",
+    "src/ReportDiff.Pdf/PageNormalizer.cs": "78a9ba69476d8cf0e68b40d15d84beec72c4c5b80908cad16bfc57d48b2a8c0a",
+    "src/ReportDiff.Pdf/TextOptions.cs": "c8cc766ededff6c993791593583a7e9ccbf559e2fc5335cc58fad132079be9fb"
+  },
+  "product_sources_unchanged": 103,
+  "diagnostic_tool_sha256": {
+    "tools/ReportDiff.PageFlowProbe/SharedInferenceDiagnosis.cs": "d0fbb30b8d24ece808a96fd6b96dabe25d219b53442b209a7f6e6fa9ad6a5fca",
+    "tools/ReportDiff.PageFlowProbe/check-shared-inference.py": "e61d1683f1c38171aaa0658ded634c4b013e957c7bd9b81f630629dc137b346f",
+    "tools/ReportDiff.PageFlowProbe/Program.cs": "8478b128bd194394efbba4ca6a4ba5d7104b96494fa2959885dac2e3b03de235",
+    "tools/ReportDiff.PageFlowProbe/shared_cause_model.py": "7ffcd2fe52bdbaf577c3836d401efdd21876b0c12dbc37f4732e8c5ff687837b",
+    "reference/prototype.py": "e2979617b2bd7d5554f07ff5039bd8702ef56f5ae9baa34b003f270b9297fa61",
+    "tools/verify-pagemap-compatibility.py": "19f792dcb8447e86dfbde2f884499f9a5ee97cd46c281830a015dc4326a853ed"
+  },
+  "fixtures": {
+    "pdfs": 26,
+    "physical_pages": 66,
+    "sha256": {
+      "shared-two/a.pdf": "73f6053bd12ed493060bee2c6aaeed0b63fb8e7a0d0ab16001682ee52b2d65a3",
+      "shared-two/b.pdf": "322a20e363a9d5d13eebc3fc599096aa664ab1fced336b221d9f9252a7a3b416",
+      "shared-tone/a.pdf": "73f6053bd12ed493060bee2c6aaeed0b63fb8e7a0d0ab16001682ee52b2d65a3",
+      "shared-tone/b.pdf": "be0e3f4072cc5eb732481370ae549e29da333a1b98aab451e5b6ba845ec21ee2",
+      "shared-chain/a.pdf": "132a10d0a23fc5fd13382cfb603d6f177c19a59ffffa437007076706b1fedadb",
+      "shared-chain/b.pdf": "bfee7bd09034cc966d7660a09fe0017c0359f69f797481d772cb09f80cae153e",
+      "same-page-two/a.pdf": "73f6053bd12ed493060bee2c6aaeed0b63fb8e7a0d0ab16001682ee52b2d65a3",
+      "same-page-two/b.pdf": "dee1bc3814ea2557cd5f0637e0934935059f7c3af4d116bec8972dafd7ce3153",
+      "shared-three-limit/a.pdf": "c3a5ca9a57737f4d75c2da81dae7248aa1f0c5be5dbe44b95cfac7a1eaf9c10c",
+      "shared-three-limit/b.pdf": "bb1fafd6b2ff738d39b24daca4eec2002959da5953b59c33c19ac7caabe38c2c",
+      "shared-block-limit/a.pdf": "c91717528eebd5cbe052cf22d60b3316752dc382e445c6439002d0b3c75a66b1",
+      "shared-block-limit/b.pdf": "3c692c3fc687460e3c46ae023e0b5b6082d063248047029b118e33cf3fd18c7c",
+      "adjacent-single/a.pdf": "73f6053bd12ed493060bee2c6aaeed0b63fb8e7a0d0ab16001682ee52b2d65a3",
+      "adjacent-single/b.pdf": "887c9edc961a2008077930b1a77025f73b056873f1fee6c65aac468e6b6fd01e",
+      "merged-endpoint/a.pdf": "73f6053bd12ed493060bee2c6aaeed0b63fb8e7a0d0ab16001682ee52b2d65a3",
+      "merged-endpoint/b.pdf": "bde05f1ef69d027c065d66f5af31adc7eb7c8454928e6bcf73926448a3087b03",
+      "shared-mixed/a.pdf": "73f6053bd12ed493060bee2c6aaeed0b63fb8e7a0d0ab16001682ee52b2d65a3",
+      "shared-mixed/b.pdf": "149cbf18028055d0238118d74125d9811dabf343d9920b676ca831bcb38dc49f",
+      "shared-repeated/a.pdf": "24842356618c8bd4f1855ef6b033db15a7ca809abc4cbeddde8032a9ce94d642",
+      "shared-repeated/b.pdf": "307910afad89adf8848ef1753e4d875b2fd20c8d67c8de6de60d21ddfd86388e",
+      "shared-band-change/a.pdf": "73f6053bd12ed493060bee2c6aaeed0b63fb8e7a0d0ab16001682ee52b2d65a3",
+      "shared-band-change/b.pdf": "6f5492afa0101cda4881c92c6a80242f2910a765192519388f67411ca1ae4e0c",
+      "shared-and-independent/a.pdf": "39dd58b5d267284b45973c239c6690c5a3d467349681c39f3c1125cbc09829e2",
+      "shared-and-independent/b.pdf": "f2a157e01a8ec46ae4aa0848957e5fed98b0e235ab62df58e542cf0d187c4467",
+      "independent-and-shared/a.pdf": "26c786819cd2998bf40467029a310dbbfdf0fcb65af19e6b4c9c2c73b9463636",
+      "independent-and-shared/b.pdf": "d2789063b86374b794a0acc01973056e98a54552483b60b887f7f257e26a24ef"
+    },
+    "created_or_modified": false
+  },
+  "metrics": {
+    "runs": 26,
+    "experimental_grouped": 12,
+    "new_experimental_grouped": 4,
+    "unmet_positive": 2,
+    "negative_rejections": 12,
+    "compatible_files": 1154,
+    "boundary_records": 76,
+    "crossing_candidates": 30,
+    "verified_bands": 28,
+    "original_comparisons": 336,
+    "reference_pages": 34,
+    "surface_images": 136,
+    "structures": 106,
+    "raw_images": 198,
+    "permutations": 100,
+    "duplicate_rejections": 566,
+    "crossing_rejections": 144,
+    "order_rejections": 240,
+    "nonflow_alternatives": 6,
+    "nonflow_row_pairs": 16
+  },
+  "records": [
+    {
+      "run": "shared-two-ab",
+      "product": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 2,
+        "clusters": 0,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 2,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 7,
+        "structural_change_counts": {
+          "inserted": 3,
+          "deleted": 1,
+          "block_moved": 3
+        },
+        "difference_count": 7,
+        "difference_count_complete": true
+      },
+      "diagnostic": {
+        "status": "grouped",
+        "count": 7,
+        "aggregate": 2
+      },
+      "new_experimental_grouped": false
+    },
+    {
+      "run": "shared-two-ba",
+      "product": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 2,
+        "clusters": 0,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 2,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 7,
+        "structural_change_counts": {
+          "inserted": 1,
+          "deleted": 3,
+          "block_moved": 3
+        },
+        "difference_count": 7,
+        "difference_count_complete": true
+      },
+      "diagnostic": {
+        "status": "grouped",
+        "count": 7,
+        "aggregate": 2
+      },
+      "new_experimental_grouped": false
+    },
+    {
+      "run": "shared-tone-ab",
+      "product": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 2,
+        "clusters": 1,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 3,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 7,
+        "structural_change_counts": {
+          "inserted": 3,
+          "deleted": 1,
+          "block_moved": 3
+        },
+        "difference_count": 8,
+        "difference_count_complete": true
+      },
+      "diagnostic": {
+        "status": "grouped",
+        "count": 8,
+        "aggregate": 3
+      },
+      "new_experimental_grouped": false
+    },
+    {
+      "run": "shared-tone-ba",
+      "product": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 2,
+        "clusters": 1,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 3,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 7,
+        "structural_change_counts": {
+          "inserted": 1,
+          "deleted": 3,
+          "block_moved": 3
+        },
+        "difference_count": 8,
+        "difference_count_complete": true
+      },
+      "diagnostic": {
+        "status": "grouped",
+        "count": 8,
+        "aggregate": 3
+      },
+      "new_experimental_grouped": false
+    },
+    {
+      "run": "shared-chain-ab",
+      "product": {
+        "status": "different",
+        "pages_compared": 3,
+        "pages_different": 3,
+        "clusters": 16,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 16,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 16,
+        "difference_count_complete": true
+      },
+      "diagnostic": {
+        "status": "grouped",
+        "count": 10,
+        "aggregate": 2
+      },
+      "new_experimental_grouped": true
+    },
+    {
+      "run": "shared-chain-ba",
+      "product": {
+        "status": "different",
+        "pages_compared": 3,
+        "pages_different": 3,
+        "clusters": 16,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 16,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 16,
+        "difference_count_complete": true
+      },
+      "diagnostic": {
+        "status": "grouped",
+        "count": 10,
+        "aggregate": 2
+      },
+      "new_experimental_grouped": true
+    },
+    {
+      "run": "same-page-two-ab",
+      "product": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 2,
+        "clusters": 10,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 10,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 10,
+        "difference_count_complete": true
+      },
+      "diagnostic": {
+        "status": "skipped",
+        "count": 10,
+        "aggregate": 10
+      },
+      "new_experimental_grouped": false
+    },
+    {
+      "run": "same-page-two-ba",
+      "product": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 2,
+        "clusters": 10,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 10,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 10,
+        "difference_count_complete": true
+      },
+      "diagnostic": {
+        "status": "skipped",
+        "count": 10,
+        "aggregate": 10
+      },
+      "new_experimental_grouped": false
+    },
+    {
+      "run": "shared-three-limit-ab",
+      "product": {
+        "status": "different",
+        "pages_compared": 3,
+        "pages_different": 3,
+        "clusters": 15,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 17,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 2,
+        "structural_change_counts": {
+          "inserted": 1,
+          "deleted": 0,
+          "block_moved": 1
+        },
+        "difference_count": 17,
+        "difference_count_complete": true
+      },
+      "diagnostic": {
+        "status": "skipped",
+        "count": 17,
+        "aggregate": 17
+      },
+      "new_experimental_grouped": false
+    },
+    {
+      "run": "shared-three-limit-ba",
+      "product": {
+        "status": "different",
+        "pages_compared": 3,
+        "pages_different": 3,
+        "clusters": 15,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 17,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 2,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 1,
+          "block_moved": 1
+        },
+        "difference_count": 17,
+        "difference_count_complete": true
+      },
+      "diagnostic": {
+        "status": "skipped",
+        "count": 17,
+        "aggregate": 17
+      },
+      "new_experimental_grouped": false
+    },
+    {
+      "run": "shared-block-limit-ab",
+      "product": {
+        "status": "different",
+        "pages_compared": 3,
+        "pages_different": 3,
+        "clusters": 14,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 14,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 14,
+        "difference_count_complete": true
+      },
+      "diagnostic": {
+        "status": "skipped",
+        "count": 14,
+        "aggregate": 14
+      },
+      "new_experimental_grouped": false
+    },
+    {
+      "run": "shared-block-limit-ba",
+      "product": {
+        "status": "different",
+        "pages_compared": 3,
+        "pages_different": 3,
+        "clusters": 14,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 14,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 14,
+        "difference_count_complete": true
+      },
+      "diagnostic": {
+        "status": "skipped",
+        "count": 14,
+        "aggregate": 14
+      },
+      "new_experimental_grouped": false
+    },
+    {
+      "run": "adjacent-single-ab",
+      "product": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 2,
+        "clusters": 0,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 1,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 5,
+        "structural_change_counts": {
+          "inserted": 2,
+          "deleted": 1,
+          "block_moved": 2
+        },
+        "difference_count": 5,
+        "difference_count_complete": true
+      },
+      "diagnostic": {
+        "status": "grouped",
+        "count": 5,
+        "aggregate": 1
+      },
+      "new_experimental_grouped": false
+    },
+    {
+      "run": "adjacent-single-ba",
+      "product": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 2,
+        "clusters": 0,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 1,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 5,
+        "structural_change_counts": {
+          "inserted": 1,
+          "deleted": 2,
+          "block_moved": 2
+        },
+        "difference_count": 5,
+        "difference_count_complete": true
+      },
+      "diagnostic": {
+        "status": "grouped",
+        "count": 5,
+        "aggregate": 1
+      },
+      "new_experimental_grouped": false
+    },
+    {
+      "run": "merged-endpoint-ab",
+      "product": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 2,
+        "clusters": 10,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 10,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 10,
+        "difference_count_complete": true
+      },
+      "diagnostic": {
+        "status": "skipped",
+        "count": 10,
+        "aggregate": 10
+      },
+      "new_experimental_grouped": false
+    },
+    {
+      "run": "merged-endpoint-ba",
+      "product": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 2,
+        "clusters": 10,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 10,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 10,
+        "difference_count_complete": true
+      },
+      "diagnostic": {
+        "status": "skipped",
+        "count": 10,
+        "aggregate": 10
+      },
+      "new_experimental_grouped": false
+    },
+    {
+      "run": "shared-mixed-ab",
+      "product": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 2,
+        "clusters": 8,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 8,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 8,
+        "difference_count_complete": true
+      },
+      "diagnostic": {
+        "status": "skipped",
+        "count": 8,
+        "aggregate": 8
+      },
+      "new_experimental_grouped": false
+    },
+    {
+      "run": "shared-mixed-ba",
+      "product": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 2,
+        "clusters": 8,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 8,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 8,
+        "difference_count_complete": true
+      },
+      "diagnostic": {
+        "status": "skipped",
+        "count": 8,
+        "aggregate": 8
+      },
+      "new_experimental_grouped": false
+    },
+    {
+      "run": "shared-repeated-ab",
+      "product": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 2,
+        "clusters": 9,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 9,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 9,
+        "difference_count_complete": true
+      },
+      "diagnostic": {
+        "status": "skipped",
+        "count": 9,
+        "aggregate": 9
+      },
+      "new_experimental_grouped": false
+    },
+    {
+      "run": "shared-repeated-ba",
+      "product": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 2,
+        "clusters": 9,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 9,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 9,
+        "difference_count_complete": true
+      },
+      "diagnostic": {
+        "status": "skipped",
+        "count": 9,
+        "aggregate": 9
+      },
+      "new_experimental_grouped": false
+    },
+    {
+      "run": "shared-band-change-ab",
+      "product": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 2,
+        "clusters": 10,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 10,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 10,
+        "difference_count_complete": true
+      },
+      "diagnostic": {
+        "status": "skipped",
+        "count": 10,
+        "aggregate": 10
+      },
+      "new_experimental_grouped": false
+    },
+    {
+      "run": "shared-band-change-ba",
+      "product": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 2,
+        "clusters": 10,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 10,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 10,
+        "difference_count_complete": true
+      },
+      "diagnostic": {
+        "status": "skipped",
+        "count": 10,
+        "aggregate": 10
+      },
+      "new_experimental_grouped": false
+    },
+    {
+      "run": "shared-and-independent-ab",
+      "product": {
+        "status": "different",
+        "pages_compared": 4,
+        "pages_different": 4,
+        "clusters": 20,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 20,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 20,
+        "difference_count_complete": true
+      },
+      "diagnostic": {
+        "status": "grouped",
+        "count": 12,
+        "aggregate": 3
+      },
+      "new_experimental_grouped": true
+    },
+    {
+      "run": "shared-and-independent-ba",
+      "product": {
+        "status": "different",
+        "pages_compared": 4,
+        "pages_different": 4,
+        "clusters": 20,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 20,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 20,
+        "difference_count_complete": true
+      },
+      "diagnostic": {
+        "status": "grouped",
+        "count": 12,
+        "aggregate": 3
+      },
+      "new_experimental_grouped": true
+    },
+    {
+      "run": "independent-and-shared-ab",
+      "product": {
+        "status": "different",
+        "pages_compared": 4,
+        "pages_different": 4,
+        "clusters": 0,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 3,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 12,
+        "structural_change_counts": {
+          "inserted": 5,
+          "deleted": 2,
+          "block_moved": 5
+        },
+        "difference_count": 12,
+        "difference_count_complete": true
+      },
+      "diagnostic": {
+        "status": "grouped",
+        "count": 12,
+        "aggregate": 3
+      },
+      "new_experimental_grouped": false
+    },
+    {
+      "run": "independent-and-shared-ba",
+      "product": {
+        "status": "different",
+        "pages_compared": 4,
+        "pages_different": 4,
+        "clusters": 0,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 3,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 12,
+        "structural_change_counts": {
+          "inserted": 2,
+          "deleted": 5,
+          "block_moved": 5
+        },
+        "difference_count": 12,
+        "difference_count_complete": true
+      },
+      "diagnostic": {
+        "status": "grouped",
+        "count": 12,
+        "aggregate": 3
+      },
+      "new_experimental_grouped": false
+    }
+  ],
+  "focus": [
+    {
+      "run": "shared-chain-ab",
+      "product": {
+        "proposals": [
+          {
+            "source": {
+              "page": {
+                "side": 0,
+                "page": 1
+              },
+              "top": 800,
+              "height": 100,
+              "bottom": 900
+            },
+            "target": {
+              "page": {
+                "side": 1,
+                "page": 2
+              },
+              "top": 300,
+              "height": 100,
+              "bottom": 400
+            },
+            "text": [
+              "ROW ITEM FF"
+            ],
+            "support": 3,
+            "status": "candidate",
+            "reason": null
+          },
+          {
+            "source": null,
+            "target": null,
+            "text": [],
+            "support": 0,
+            "status": "skipped",
+            "reason": "ambiguous_displacement"
+          }
+        ],
+        "links": [
+          {
+            "source": {
+              "page": {
+                "side": 0,
+                "page": 1
+              },
+              "top": 800,
+              "height": 100,
+              "bottom": 900
+            },
+            "target": {
+              "page": {
+                "side": 1,
+                "page": 2
+              },
+              "top": 300,
+              "height": 100,
+              "bottom": 400
+            },
+            "text": [
+              "ROW ITEM FF"
+            ],
+            "support": 3,
+            "status": "band_verified",
+            "reason": null
+          },
+          {
+            "source": null,
+            "target": null,
+            "text": [],
+            "support": 0,
+            "status": "skipped",
+            "reason": "ambiguous_displacement"
+          }
+        ],
+        "decision": {
+          "ready": false,
+          "reasons": [
+            "unproven_endpoint_range",
+            "unproven_page_map",
+            "unverified_candidates"
+          ],
+          "selected_links": [],
+          "selections": [
+            {
+              "page": 1,
+              "choice": "baseline"
+            },
+            {
+              "page": 2,
+              "choice": "baseline"
+            },
+            {
+              "page": 3,
+              "choice": "baseline"
+            }
+          ]
+        },
+        "summary": {
+          "status": "different",
+          "pages_compared": 3,
+          "pages_different": 3,
+          "clusters": 16,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 16,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 16,
+          "difference_count_complete": true
+        },
+        "status": "skipped"
+      },
+      "inferred": {
+        "status": "inferred",
+        "reason": null,
+        "boundaries": [
+          {
+            "page": 1,
+            "side": 0,
+            "shifts": [
+              {
+                "dy": 0,
+                "text": [
+                  "ROW ITEM AA",
+                  "ROW ITEM BB"
+                ],
+                "eligible": false
+              },
+              {
+                "dy": 100,
+                "text": [
+                  "ROW ITEM CC",
+                  "ROW ITEM DD",
+                  "ROW ITEM EE"
+                ],
+                "eligible": true
+              }
+            ],
+            "crossing": [
+              {
+                "page": {
+                  "side": 0,
+                  "page": 1
+                },
+                "index": 5,
+                "top": 800,
+                "height": 100,
+                "text": "ROW ITEM FF",
+                "baseline": 870,
+                "left": 166.5
+              }
+            ],
+            "counterparts": [
+              {
+                "page": {
+                  "side": 1,
+                  "page": 2
+                },
+                "index": 0,
+                "top": 300,
+                "height": 100,
+                "text": "ROW ITEM FF",
+                "baseline": 370.00000000000006,
+                "left": 166.5
+              }
+            ],
+            "no_common_crossing": false,
+            "candidate": {
+              "source": {
+                "page": {
+                  "side": 0,
+                  "page": 1
+                },
+                "top": 800,
+                "height": 100,
+                "bottom": 900
+              },
+              "target": {
+                "page": {
+                  "side": 1,
+                  "page": 2
+                },
+                "top": 300,
+                "height": 100,
+                "bottom": 400
+              },
+              "text": [
+                "ROW ITEM FF"
+              ],
+              "support": 3,
+              "status": "candidate",
+              "reason": null
+            },
+            "reason": null
+          },
+          {
+            "page": 1,
+            "side": 1,
+            "shifts": [
+              {
+                "dy": -100,
+                "text": [
+                  "ROW ITEM CC",
+                  "ROW ITEM DD",
+                  "ROW ITEM EE"
+                ],
+                "eligible": false
+              },
+              {
+                "dy": 0,
+                "text": [
+                  "ROW ITEM AA",
+                  "ROW ITEM BB"
+                ],
+                "eligible": false
+              }
+            ],
+            "crossing": [],
+            "counterparts": [],
+            "no_common_crossing": false,
+            "candidate": null,
+            "reason": null
+          },
+          {
+            "page": 2,
+            "side": 0,
+            "shifts": [
+              {
+                "dy": 100,
+                "text": [
+                  "ROW ITEM GG",
+                  "ROW ITEM HH"
+                ],
+                "eligible": true
+              },
+              {
+                "dy": 200,
+                "text": [
+                  "ROW ITEM II",
+                  "ROW ITEM JJ"
+                ],
+                "eligible": true
+              }
+            ],
+            "crossing": [
+              {
+                "page": {
+                  "side": 0,
+                  "page": 2
+                },
+                "index": 4,
+                "top": 700,
+                "height": 100,
+                "text": "ROW ITEM KK",
+                "baseline": 770,
+                "left": 166.5
+              },
+              {
+                "page": {
+                  "side": 0,
+                  "page": 2
+                },
+                "index": 5,
+                "top": 800,
+                "height": 100,
+                "text": "ROW ITEM LL",
+                "baseline": 870,
+                "left": 166.5
+              }
+            ],
+            "counterparts": [
+              {
+                "page": {
+                  "side": 1,
+                  "page": 3
+                },
+                "index": 0,
+                "top": 300,
+                "height": 100,
+                "text": "ROW ITEM KK",
+                "baseline": 370.00000000000006,
+                "left": 166.5
+              },
+              {
+                "page": {
+                  "side": 1,
+                  "page": 3
+                },
+                "index": 1,
+                "top": 400,
+                "height": 100,
+                "text": "ROW ITEM LL",
+                "baseline": 470,
+                "left": 166.5
+              }
+            ],
+            "no_common_crossing": false,
+            "candidate": {
+              "source": {
+                "page": {
+                  "side": 0,
+                  "page": 2
+                },
+                "top": 700,
+                "height": 200,
+                "bottom": 900
+              },
+              "target": {
+                "page": {
+                  "side": 1,
+                  "page": 3
+                },
+                "top": 300,
+                "height": 200,
+                "bottom": 500
+              },
+              "text": [
+                "ROW ITEM KK",
+                "ROW ITEM LL"
+              ],
+              "support": 2,
+              "status": "candidate",
+              "reason": null
+            },
+            "reason": null
+          },
+          {
+            "page": 2,
+            "side": 1,
+            "shifts": [
+              {
+                "dy": -200,
+                "text": [
+                  "ROW ITEM II",
+                  "ROW ITEM JJ"
+                ],
+                "eligible": false
+              },
+              {
+                "dy": -100,
+                "text": [
+                  "ROW ITEM GG",
+                  "ROW ITEM HH"
+                ],
+                "eligible": false
+              }
+            ],
+            "crossing": [],
+            "counterparts": [],
+            "no_common_crossing": false,
+            "candidate": null,
+            "reason": null
+          }
+        ],
+        "proposals": [
+          {
+            "source": {
+              "page": {
+                "side": 0,
+                "page": 1
+              },
+              "top": 800,
+              "height": 100,
+              "bottom": 900
+            },
+            "target": {
+              "page": {
+                "side": 1,
+                "page": 2
+              },
+              "top": 300,
+              "height": 100,
+              "bottom": 400
+            },
+            "text": [
+              "ROW ITEM FF"
+            ],
+            "support": 3,
+            "status": "candidate",
+            "reason": null
+          },
+          {
+            "source": {
+              "page": {
+                "side": 0,
+                "page": 2
+              },
+              "top": 700,
+              "height": 200,
+              "bottom": 900
+            },
+            "target": {
+              "page": {
+                "side": 1,
+                "page": 3
+              },
+              "top": 300,
+              "height": 200,
+              "bottom": 500
+            },
+            "text": [
+              "ROW ITEM KK",
+              "ROW ITEM LL"
+            ],
+            "support": 2,
+            "status": "candidate",
+            "reason": null
+          }
+        ],
+        "displacement_support": true
+      },
+      "nonflow_alternatives": [],
+      "nonflow": {
+        "proofs": [],
+        "descriptor_bytes": 0,
+        "failure_reason": null
+      },
+      "all_nonflow_proven": true,
+      "links": [
+        {
+          "source": {
+            "page": {
+              "side": 0,
+              "page": 1
+            },
+            "top": 800,
+            "height": 100,
+            "bottom": 900
+          },
+          "target": {
+            "page": {
+              "side": 1,
+              "page": 2
+            },
+            "top": 300,
+            "height": 100,
+            "bottom": 400
+          },
+          "text": [
+            "ROW ITEM FF"
+          ],
+          "support": 3,
+          "status": "band_verified",
+          "reason": null
+        },
+        {
+          "source": {
+            "page": {
+              "side": 0,
+              "page": 2
+            },
+            "top": 700,
+            "height": 200,
+            "bottom": 900
+          },
+          "target": {
+            "page": {
+              "side": 1,
+              "page": 3
+            },
+            "top": 300,
+            "height": 200,
+            "bottom": 500
+          },
+          "text": [
+            "ROW ITEM KK",
+            "ROW ITEM LL"
+          ],
+          "support": 2,
+          "status": "band_verified",
+          "reason": null
+        }
+      ],
+      "gate": {
+        "ready": true,
+        "reasons": [],
+        "selected_links": [
+          {
+            "source": {
+              "page": {
+                "side": 0,
+                "page": 1
+              },
+              "top": 800,
+              "height": 100,
+              "bottom": 900
+            },
+            "target": {
+              "page": {
+                "side": 1,
+                "page": 2
+              },
+              "top": 300,
+              "height": 100,
+              "bottom": 400
+            },
+            "verified": true,
+            "reason": null
+          },
+          {
+            "source": {
+              "page": {
+                "side": 0,
+                "page": 2
+              },
+              "top": 700,
+              "height": 200,
+              "bottom": 900
+            },
+            "target": {
+              "page": {
+                "side": 1,
+                "page": 3
+              },
+              "top": 300,
+              "height": 200,
+              "bottom": 500
+            },
+            "verified": true,
+            "reason": null
+          }
+        ],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "candidate"
+          },
+          {
+            "page": 2,
+            "choice": "candidate"
+          },
+          {
+            "page": 3,
+            "choice": "candidate"
+          }
+        ]
+      },
+      "adoptions": [
+        {
+          "accepted": true,
+          "reason": "applied",
+          "detail": null,
+          "score": 1,
+          "score_gap": 0.16210194168039083,
+          "support_bands": [
+            4,
+            3,
+            2
+          ],
+          "baseline_raw_pixels": 1071,
+          "candidate_raw_pixels": 0,
+          "improvement": 1
+        },
+        {
+          "accepted": true,
+          "reason": "applied",
+          "detail": null,
+          "score": 1,
+          "score_gap": 0.16276219046966878,
+          "support_bands": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "baseline_raw_pixels": 1246,
+          "candidate_raw_pixels": 0,
+          "improvement": 1
+        },
+        {
+          "accepted": true,
+          "reason": "applied",
+          "detail": null,
+          "score": 1,
+          "score_gap": 0.16422098543619723,
+          "support_bands": [
+            2,
+            4,
+            2
+          ],
+          "baseline_raw_pixels": 13246,
+          "candidate_raw_pixels": 0,
+          "improvement": 1
+        }
+      ],
+      "maps": [
+        {
+          "number": 1,
+          "status": "built",
+          "reason": null
+        },
+        {
+          "number": 2,
+          "status": "built",
+          "reason": null
+        },
+        {
+          "number": 3,
+          "status": "built",
+          "reason": null
+        }
+      ],
+      "unsupported_gaps": [],
+      "diagnostic_aggregate": {
+        "status": "grouped",
+        "reason": null,
+        "difference_count": 10,
+        "aggregated_difference_count": 2,
+        "difference_count_complete": true,
+        "aggregated_difference_count_complete": true,
+        "groups": [],
+        "shared_components": [
+          {
+            "pages": [
+              1,
+              2,
+              3
+            ],
+            "causes": [
+              {
+                "reference": {
+                  "page": 1,
+                  "structural_change_id": 1
+                },
+                "band": {
+                  "page": {
+                    "side": 1,
+                    "page": 1
+                  },
+                  "top": 500,
+                  "height": 100,
+                  "bottom": 600
+                },
+                "rows": 1,
+                "delta": 100
+              },
+              {
+                "reference": {
+                  "page": 2,
+                  "structural_change_id": 3
+                },
+                "band": {
+                  "page": {
+                    "side": 1,
+                    "page": 2
+                  },
+                  "top": 600,
+                  "height": 100,
+                  "bottom": 700
+                },
+                "rows": 1,
+                "delta": 100
+              }
+            ],
+            "structures": [
+              {
+                "page": 1,
+                "structural_change_id": 1
+              },
+              {
+                "page": 1,
+                "structural_change_id": 2
+              },
+              {
+                "page": 1,
+                "structural_change_id": 3
+              },
+              {
+                "page": 2,
+                "structural_change_id": 1
+              },
+              {
+                "page": 2,
+                "structural_change_id": 2
+              },
+              {
+                "page": 2,
+                "structural_change_id": 3
+              },
+              {
+                "page": 2,
+                "structural_change_id": 4
+              },
+              {
+                "page": 2,
+                "structural_change_id": 5
+              },
+              {
+                "page": 3,
+                "structural_change_id": 1
+              },
+              {
+                "page": 3,
+                "structural_change_id": 2
+              }
+            ],
+            "movements": [
+              {
+                "structure": {
+                  "page": 1,
+                  "structural_change_id": 2
+                },
+                "causes": [
+                  {
+                    "page": 1,
+                    "structural_change_id": 1
+                  }
+                ],
+                "dy": 100
+              },
+              {
+                "structure": {
+                  "page": 2,
+                  "structural_change_id": 2
+                },
+                "causes": [
+                  {
+                    "page": 1,
+                    "structural_change_id": 1
+                  }
+                ],
+                "dy": 100
+              },
+              {
+                "structure": {
+                  "page": 2,
+                  "structural_change_id": 4
+                },
+                "causes": [
+                  {
+                    "page": 1,
+                    "structural_change_id": 1
+                  },
+                  {
+                    "page": 2,
+                    "structural_change_id": 3
+                  }
+                ],
+                "dy": 200
+              },
+              {
+                "structure": {
+                  "page": 3,
+                  "structural_change_id": 2
+                },
+                "causes": [
+                  {
+                    "page": 1,
+                    "structural_change_id": 1
+                  },
+                  {
+                    "page": 2,
+                    "structural_change_id": 3
+                  }
+                ],
+                "dy": 200
+              }
+            ],
+            "links": [
+              {
+                "link": {
+                  "source": {
+                    "page": {
+                      "side": 0,
+                      "page": 1
+                    },
+                    "top": 800,
+                    "height": 100,
+                    "bottom": 900
+                  },
+                  "target": {
+                    "page": {
+                      "side": 1,
+                      "page": 2
+                    },
+                    "top": 300,
+                    "height": 100,
+                    "bottom": 400
+                  },
+                  "text": [
+                    "ROW ITEM FF"
+                  ],
+                  "support": 3,
+                  "status": "band_verified",
+                  "reason": null
+                },
+                "structures": [
+                  {
+                    "page": 1,
+                    "structural_change_id": 3
+                  },
+                  {
+                    "page": 2,
+                    "structural_change_id": 1
+                  }
+                ],
+                "causes": [
+                  {
+                    "page": 1,
+                    "structural_change_id": 1
+                  }
+                ],
+                "rows": 1
+              },
+              {
+                "link": {
+                  "source": {
+                    "page": {
+                      "side": 0,
+                      "page": 2
+                    },
+                    "top": 700,
+                    "height": 200,
+                    "bottom": 900
+                  },
+                  "target": {
+                    "page": {
+                      "side": 1,
+                      "page": 3
+                    },
+                    "top": 300,
+                    "height": 200,
+                    "bottom": 500
+                  },
+                  "text": [
+                    "ROW ITEM KK",
+                    "ROW ITEM LL"
+                  ],
+                  "support": 2,
+                  "status": "band_verified",
+                  "reason": null
+                },
+                "structures": [
+                  {
+                    "page": 2,
+                    "structural_change_id": 5
+                  },
+                  {
+                    "page": 3,
+                    "structural_change_id": 1
+                  }
+                ],
+                "causes": [
+                  {
+                    "page": 1,
+                    "structural_change_id": 1
+                  },
+                  {
+                    "page": 2,
+                    "structural_change_id": 3
+                  }
+                ],
+                "rows": 2
+              }
+            ],
+            "balance": [
+              {
+                "page": 1,
+                "rows_a": 6,
+                "rows_b": 6,
+                "cause_delta": 1,
+                "incoming": 0,
+                "outgoing": 1
+              },
+              {
+                "page": 2,
+                "rows_a": 6,
+                "rows_b": 6,
+                "cause_delta": 1,
+                "incoming": 1,
+                "outgoing": 2
+              },
+              {
+                "page": 3,
+                "rows_a": 4,
+                "rows_b": 6,
+                "cause_delta": 0,
+                "incoming": 2,
+                "outgoing": 0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "run": "shared-chain-ba",
+      "product": {
+        "proposals": [
+          {
+            "source": {
+              "page": {
+                "side": 1,
+                "page": 1
+              },
+              "top": 800,
+              "height": 100,
+              "bottom": 900
+            },
+            "target": {
+              "page": {
+                "side": 0,
+                "page": 2
+              },
+              "top": 300,
+              "height": 100,
+              "bottom": 400
+            },
+            "text": [
+              "ROW ITEM FF"
+            ],
+            "support": 3,
+            "status": "candidate",
+            "reason": null
+          },
+          {
+            "source": null,
+            "target": null,
+            "text": [],
+            "support": 0,
+            "status": "skipped",
+            "reason": "ambiguous_displacement"
+          }
+        ],
+        "links": [
+          {
+            "source": {
+              "page": {
+                "side": 1,
+                "page": 1
+              },
+              "top": 800,
+              "height": 100,
+              "bottom": 900
+            },
+            "target": {
+              "page": {
+                "side": 0,
+                "page": 2
+              },
+              "top": 300,
+              "height": 100,
+              "bottom": 400
+            },
+            "text": [
+              "ROW ITEM FF"
+            ],
+            "support": 3,
+            "status": "band_verified",
+            "reason": null
+          },
+          {
+            "source": null,
+            "target": null,
+            "text": [],
+            "support": 0,
+            "status": "skipped",
+            "reason": "ambiguous_displacement"
+          }
+        ],
+        "decision": {
+          "ready": false,
+          "reasons": [
+            "unproven_endpoint_range",
+            "unproven_page_map",
+            "unverified_candidates"
+          ],
+          "selected_links": [],
+          "selections": [
+            {
+              "page": 1,
+              "choice": "baseline"
+            },
+            {
+              "page": 2,
+              "choice": "baseline"
+            },
+            {
+              "page": 3,
+              "choice": "baseline"
+            }
+          ]
+        },
+        "summary": {
+          "status": "different",
+          "pages_compared": 3,
+          "pages_different": 3,
+          "clusters": 16,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 16,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 16,
+          "difference_count_complete": true
+        },
+        "status": "skipped"
+      },
+      "inferred": {
+        "status": "inferred",
+        "reason": null,
+        "boundaries": [
+          {
+            "page": 1,
+            "side": 0,
+            "shifts": [
+              {
+                "dy": -100,
+                "text": [
+                  "ROW ITEM CC",
+                  "ROW ITEM DD",
+                  "ROW ITEM EE"
+                ],
+                "eligible": false
+              },
+              {
+                "dy": 0,
+                "text": [
+                  "ROW ITEM AA",
+                  "ROW ITEM BB"
+                ],
+                "eligible": false
+              }
+            ],
+            "crossing": [],
+            "counterparts": [],
+            "no_common_crossing": false,
+            "candidate": null,
+            "reason": null
+          },
+          {
+            "page": 1,
+            "side": 1,
+            "shifts": [
+              {
+                "dy": 0,
+                "text": [
+                  "ROW ITEM AA",
+                  "ROW ITEM BB"
+                ],
+                "eligible": false
+              },
+              {
+                "dy": 100,
+                "text": [
+                  "ROW ITEM CC",
+                  "ROW ITEM DD",
+                  "ROW ITEM EE"
+                ],
+                "eligible": true
+              }
+            ],
+            "crossing": [
+              {
+                "page": {
+                  "side": 1,
+                  "page": 1
+                },
+                "index": 5,
+                "top": 800,
+                "height": 100,
+                "text": "ROW ITEM FF",
+                "baseline": 870,
+                "left": 166.5
+              }
+            ],
+            "counterparts": [
+              {
+                "page": {
+                  "side": 0,
+                  "page": 2
+                },
+                "index": 0,
+                "top": 300,
+                "height": 100,
+                "text": "ROW ITEM FF",
+                "baseline": 370.00000000000006,
+                "left": 166.5
+              }
+            ],
+            "no_common_crossing": false,
+            "candidate": {
+              "source": {
+                "page": {
+                  "side": 1,
+                  "page": 1
+                },
+                "top": 800,
+                "height": 100,
+                "bottom": 900
+              },
+              "target": {
+                "page": {
+                  "side": 0,
+                  "page": 2
+                },
+                "top": 300,
+                "height": 100,
+                "bottom": 400
+              },
+              "text": [
+                "ROW ITEM FF"
+              ],
+              "support": 3,
+              "status": "candidate",
+              "reason": null
+            },
+            "reason": null
+          },
+          {
+            "page": 2,
+            "side": 0,
+            "shifts": [
+              {
+                "dy": -200,
+                "text": [
+                  "ROW ITEM II",
+                  "ROW ITEM JJ"
+                ],
+                "eligible": false
+              },
+              {
+                "dy": -100,
+                "text": [
+                  "ROW ITEM GG",
+                  "ROW ITEM HH"
+                ],
+                "eligible": false
+              }
+            ],
+            "crossing": [],
+            "counterparts": [],
+            "no_common_crossing": false,
+            "candidate": null,
+            "reason": null
+          },
+          {
+            "page": 2,
+            "side": 1,
+            "shifts": [
+              {
+                "dy": 100,
+                "text": [
+                  "ROW ITEM GG",
+                  "ROW ITEM HH"
+                ],
+                "eligible": true
+              },
+              {
+                "dy": 200,
+                "text": [
+                  "ROW ITEM II",
+                  "ROW ITEM JJ"
+                ],
+                "eligible": true
+              }
+            ],
+            "crossing": [
+              {
+                "page": {
+                  "side": 1,
+                  "page": 2
+                },
+                "index": 4,
+                "top": 700,
+                "height": 100,
+                "text": "ROW ITEM KK",
+                "baseline": 770,
+                "left": 166.5
+              },
+              {
+                "page": {
+                  "side": 1,
+                  "page": 2
+                },
+                "index": 5,
+                "top": 800,
+                "height": 100,
+                "text": "ROW ITEM LL",
+                "baseline": 870,
+                "left": 166.5
+              }
+            ],
+            "counterparts": [
+              {
+                "page": {
+                  "side": 0,
+                  "page": 3
+                },
+                "index": 0,
+                "top": 300,
+                "height": 100,
+                "text": "ROW ITEM KK",
+                "baseline": 370.00000000000006,
+                "left": 166.5
+              },
+              {
+                "page": {
+                  "side": 0,
+                  "page": 3
+                },
+                "index": 1,
+                "top": 400,
+                "height": 100,
+                "text": "ROW ITEM LL",
+                "baseline": 470,
+                "left": 166.5
+              }
+            ],
+            "no_common_crossing": false,
+            "candidate": {
+              "source": {
+                "page": {
+                  "side": 1,
+                  "page": 2
+                },
+                "top": 700,
+                "height": 200,
+                "bottom": 900
+              },
+              "target": {
+                "page": {
+                  "side": 0,
+                  "page": 3
+                },
+                "top": 300,
+                "height": 200,
+                "bottom": 500
+              },
+              "text": [
+                "ROW ITEM KK",
+                "ROW ITEM LL"
+              ],
+              "support": 2,
+              "status": "candidate",
+              "reason": null
+            },
+            "reason": null
+          }
+        ],
+        "proposals": [
+          {
+            "source": {
+              "page": {
+                "side": 1,
+                "page": 1
+              },
+              "top": 800,
+              "height": 100,
+              "bottom": 900
+            },
+            "target": {
+              "page": {
+                "side": 0,
+                "page": 2
+              },
+              "top": 300,
+              "height": 100,
+              "bottom": 400
+            },
+            "text": [
+              "ROW ITEM FF"
+            ],
+            "support": 3,
+            "status": "candidate",
+            "reason": null
+          },
+          {
+            "source": {
+              "page": {
+                "side": 1,
+                "page": 2
+              },
+              "top": 700,
+              "height": 200,
+              "bottom": 900
+            },
+            "target": {
+              "page": {
+                "side": 0,
+                "page": 3
+              },
+              "top": 300,
+              "height": 200,
+              "bottom": 500
+            },
+            "text": [
+              "ROW ITEM KK",
+              "ROW ITEM LL"
+            ],
+            "support": 2,
+            "status": "candidate",
+            "reason": null
+          }
+        ],
+        "displacement_support": true
+      },
+      "nonflow_alternatives": [],
+      "nonflow": {
+        "proofs": [],
+        "descriptor_bytes": 0,
+        "failure_reason": null
+      },
+      "all_nonflow_proven": true,
+      "links": [
+        {
+          "source": {
+            "page": {
+              "side": 1,
+              "page": 1
+            },
+            "top": 800,
+            "height": 100,
+            "bottom": 900
+          },
+          "target": {
+            "page": {
+              "side": 0,
+              "page": 2
+            },
+            "top": 300,
+            "height": 100,
+            "bottom": 400
+          },
+          "text": [
+            "ROW ITEM FF"
+          ],
+          "support": 3,
+          "status": "band_verified",
+          "reason": null
+        },
+        {
+          "source": {
+            "page": {
+              "side": 1,
+              "page": 2
+            },
+            "top": 700,
+            "height": 200,
+            "bottom": 900
+          },
+          "target": {
+            "page": {
+              "side": 0,
+              "page": 3
+            },
+            "top": 300,
+            "height": 200,
+            "bottom": 500
+          },
+          "text": [
+            "ROW ITEM KK",
+            "ROW ITEM LL"
+          ],
+          "support": 2,
+          "status": "band_verified",
+          "reason": null
+        }
+      ],
+      "gate": {
+        "ready": true,
+        "reasons": [],
+        "selected_links": [
+          {
+            "source": {
+              "page": {
+                "side": 1,
+                "page": 1
+              },
+              "top": 800,
+              "height": 100,
+              "bottom": 900
+            },
+            "target": {
+              "page": {
+                "side": 0,
+                "page": 2
+              },
+              "top": 300,
+              "height": 100,
+              "bottom": 400
+            },
+            "verified": true,
+            "reason": null
+          },
+          {
+            "source": {
+              "page": {
+                "side": 1,
+                "page": 2
+              },
+              "top": 700,
+              "height": 200,
+              "bottom": 900
+            },
+            "target": {
+              "page": {
+                "side": 0,
+                "page": 3
+              },
+              "top": 300,
+              "height": 200,
+              "bottom": 500
+            },
+            "verified": true,
+            "reason": null
+          }
+        ],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "candidate"
+          },
+          {
+            "page": 2,
+            "choice": "candidate"
+          },
+          {
+            "page": 3,
+            "choice": "candidate"
+          }
+        ]
+      },
+      "adoptions": [
+        {
+          "accepted": true,
+          "reason": "applied",
+          "detail": null,
+          "score": 1,
+          "score_gap": 0.16210194168039083,
+          "support_bands": [
+            4,
+            3,
+            2
+          ],
+          "baseline_raw_pixels": 1071,
+          "candidate_raw_pixels": 0,
+          "improvement": 1
+        },
+        {
+          "accepted": true,
+          "reason": "applied",
+          "detail": null,
+          "score": 1,
+          "score_gap": 0.16276219046966878,
+          "support_bands": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "baseline_raw_pixels": 1246,
+          "candidate_raw_pixels": 0,
+          "improvement": 1
+        },
+        {
+          "accepted": true,
+          "reason": "applied",
+          "detail": null,
+          "score": 1,
+          "score_gap": 0.16422098543619723,
+          "support_bands": [
+            2,
+            4,
+            2
+          ],
+          "baseline_raw_pixels": 13246,
+          "candidate_raw_pixels": 0,
+          "improvement": 1
+        }
+      ],
+      "maps": [
+        {
+          "number": 1,
+          "status": "built",
+          "reason": null
+        },
+        {
+          "number": 2,
+          "status": "built",
+          "reason": null
+        },
+        {
+          "number": 3,
+          "status": "built",
+          "reason": null
+        }
+      ],
+      "unsupported_gaps": [],
+      "diagnostic_aggregate": {
+        "status": "grouped",
+        "reason": null,
+        "difference_count": 10,
+        "aggregated_difference_count": 2,
+        "difference_count_complete": true,
+        "aggregated_difference_count_complete": true,
+        "groups": [],
+        "shared_components": [
+          {
+            "pages": [
+              1,
+              2,
+              3
+            ],
+            "causes": [
+              {
+                "reference": {
+                  "page": 1,
+                  "structural_change_id": 1
+                },
+                "band": {
+                  "page": {
+                    "side": 0,
+                    "page": 1
+                  },
+                  "top": 500,
+                  "height": 100,
+                  "bottom": 600
+                },
+                "rows": 1,
+                "delta": -100
+              },
+              {
+                "reference": {
+                  "page": 2,
+                  "structural_change_id": 3
+                },
+                "band": {
+                  "page": {
+                    "side": 0,
+                    "page": 2
+                  },
+                  "top": 600,
+                  "height": 100,
+                  "bottom": 700
+                },
+                "rows": 1,
+                "delta": -100
+              }
+            ],
+            "structures": [
+              {
+                "page": 1,
+                "structural_change_id": 1
+              },
+              {
+                "page": 1,
+                "structural_change_id": 2
+              },
+              {
+                "page": 1,
+                "structural_change_id": 3
+              },
+              {
+                "page": 2,
+                "structural_change_id": 1
+              },
+              {
+                "page": 2,
+                "structural_change_id": 2
+              },
+              {
+                "page": 2,
+                "structural_change_id": 3
+              },
+              {
+                "page": 2,
+                "structural_change_id": 4
+              },
+              {
+                "page": 2,
+                "structural_change_id": 5
+              },
+              {
+                "page": 3,
+                "structural_change_id": 1
+              },
+              {
+                "page": 3,
+                "structural_change_id": 2
+              }
+            ],
+            "movements": [
+              {
+                "structure": {
+                  "page": 1,
+                  "structural_change_id": 2
+                },
+                "causes": [
+                  {
+                    "page": 1,
+                    "structural_change_id": 1
+                  }
+                ],
+                "dy": -100
+              },
+              {
+                "structure": {
+                  "page": 2,
+                  "structural_change_id": 2
+                },
+                "causes": [
+                  {
+                    "page": 1,
+                    "structural_change_id": 1
+                  }
+                ],
+                "dy": -100
+              },
+              {
+                "structure": {
+                  "page": 2,
+                  "structural_change_id": 4
+                },
+                "causes": [
+                  {
+                    "page": 1,
+                    "structural_change_id": 1
+                  },
+                  {
+                    "page": 2,
+                    "structural_change_id": 3
+                  }
+                ],
+                "dy": -200
+              },
+              {
+                "structure": {
+                  "page": 3,
+                  "structural_change_id": 2
+                },
+                "causes": [
+                  {
+                    "page": 1,
+                    "structural_change_id": 1
+                  },
+                  {
+                    "page": 2,
+                    "structural_change_id": 3
+                  }
+                ],
+                "dy": -200
+              }
+            ],
+            "links": [
+              {
+                "link": {
+                  "source": {
+                    "page": {
+                      "side": 1,
+                      "page": 1
+                    },
+                    "top": 800,
+                    "height": 100,
+                    "bottom": 900
+                  },
+                  "target": {
+                    "page": {
+                      "side": 0,
+                      "page": 2
+                    },
+                    "top": 300,
+                    "height": 100,
+                    "bottom": 400
+                  },
+                  "text": [
+                    "ROW ITEM FF"
+                  ],
+                  "support": 3,
+                  "status": "band_verified",
+                  "reason": null
+                },
+                "structures": [
+                  {
+                    "page": 1,
+                    "structural_change_id": 3
+                  },
+                  {
+                    "page": 2,
+                    "structural_change_id": 1
+                  }
+                ],
+                "causes": [
+                  {
+                    "page": 1,
+                    "structural_change_id": 1
+                  }
+                ],
+                "rows": 1
+              },
+              {
+                "link": {
+                  "source": {
+                    "page": {
+                      "side": 1,
+                      "page": 2
+                    },
+                    "top": 700,
+                    "height": 200,
+                    "bottom": 900
+                  },
+                  "target": {
+                    "page": {
+                      "side": 0,
+                      "page": 3
+                    },
+                    "top": 300,
+                    "height": 200,
+                    "bottom": 500
+                  },
+                  "text": [
+                    "ROW ITEM KK",
+                    "ROW ITEM LL"
+                  ],
+                  "support": 2,
+                  "status": "band_verified",
+                  "reason": null
+                },
+                "structures": [
+                  {
+                    "page": 2,
+                    "structural_change_id": 5
+                  },
+                  {
+                    "page": 3,
+                    "structural_change_id": 1
+                  }
+                ],
+                "causes": [
+                  {
+                    "page": 1,
+                    "structural_change_id": 1
+                  },
+                  {
+                    "page": 2,
+                    "structural_change_id": 3
+                  }
+                ],
+                "rows": 2
+              }
+            ],
+            "balance": [
+              {
+                "page": 1,
+                "rows_a": 6,
+                "rows_b": 6,
+                "cause_delta": -1,
+                "incoming": 0,
+                "outgoing": -1
+              },
+              {
+                "page": 2,
+                "rows_a": 6,
+                "rows_b": 6,
+                "cause_delta": -1,
+                "incoming": -1,
+                "outgoing": -2
+              },
+              {
+                "page": 3,
+                "rows_a": 6,
+                "rows_b": 4,
+                "cause_delta": 0,
+                "incoming": -2,
+                "outgoing": 0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "run": "same-page-two-ab",
+      "product": {
+        "proposals": [
+          {
+            "source": {
+              "page": {
+                "side": 0,
+                "page": 1
+              },
+              "top": 800,
+              "height": 100,
+              "bottom": 900
+            },
+            "target": {
+              "page": {
+                "side": 1,
+                "page": 2
+              },
+              "top": 300,
+              "height": 100,
+              "bottom": 400
+            },
+            "text": [
+              "ROW ITEM FF"
+            ],
+            "support": 2,
+            "status": "skipped",
+            "reason": "text_mismatch"
+          }
+        ],
+        "links": [
+          {
+            "source": {
+              "page": {
+                "side": 0,
+                "page": 1
+              },
+              "top": 800,
+              "height": 100,
+              "bottom": 900
+            },
+            "target": {
+              "page": {
+                "side": 1,
+                "page": 2
+              },
+              "top": 300,
+              "height": 100,
+              "bottom": 400
+            },
+            "text": [
+              "ROW ITEM FF"
+            ],
+            "support": 2,
+            "status": "skipped",
+            "reason": "text_mismatch"
+          }
+        ],
+        "decision": {
+          "ready": false,
+          "reasons": [
+            "no_verified_candidates",
+            "unproven_page_map",
+            "unverified_candidates"
+          ],
+          "selected_links": [],
+          "selections": [
+            {
+              "page": 1,
+              "choice": "baseline"
+            },
+            {
+              "page": 2,
+              "choice": "baseline"
+            }
+          ]
+        },
+        "summary": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 10,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 10,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 10,
+          "difference_count_complete": true
+        },
+        "status": "skipped"
+      },
+      "inferred": {
+        "status": "inferred",
+        "reason": null,
+        "boundaries": [
+          {
+            "page": 1,
+            "side": 0,
+            "shifts": [
+              {
+                "dy": 0,
+                "text": [
+                  "ROW ITEM AA",
+                  "ROW ITEM BB"
+                ],
+                "eligible": false
+              },
+              {
+                "dy": 100,
+                "text": [
+                  "ROW ITEM CC",
+                  "ROW ITEM DD"
+                ],
+                "eligible": true
+              }
+            ],
+            "crossing": [
+              {
+                "page": {
+                  "side": 0,
+                  "page": 1
+                },
+                "index": 4,
+                "top": 700,
+                "height": 100,
+                "text": "ROW ITEM EE",
+                "baseline": 770,
+                "left": 166.5
+              },
+              {
+                "page": {
+                  "side": 0,
+                  "page": 1
+                },
+                "index": 5,
+                "top": 800,
+                "height": 100,
+                "text": "ROW ITEM FF",
+                "baseline": 870,
+                "left": 166.5
+              }
+            ],
+            "counterparts": [
+              {
+                "page": {
+                  "side": 1,
+                  "page": 2
+                },
+                "index": 0,
+                "top": 300,
+                "height": 100,
+                "text": "ROW ITEM EE",
+                "baseline": 370.00000000000006,
+                "left": 166.5
+              },
+              {
+                "page": {
+                  "side": 1,
+                  "page": 2
+                },
+                "index": 1,
+                "top": 400,
+                "height": 100,
+                "text": "ROW ITEM FF",
+                "baseline": 470,
+                "left": 166.5
+              }
+            ],
+            "no_common_crossing": false,
+            "candidate": {
+              "source": {
+                "page": {
+                  "side": 0,
+                  "page": 1
+                },
+                "top": 700,
+                "height": 200,
+                "bottom": 900
+              },
+              "target": {
+                "page": {
+                  "side": 1,
+                  "page": 2
+                },
+                "top": 300,
+                "height": 200,
+                "bottom": 500
+              },
+              "text": [
+                "ROW ITEM EE",
+                "ROW ITEM FF"
+              ],
+              "support": 0,
+              "status": "candidate",
+              "reason": null
+            },
+            "reason": "insufficient_displacement_support"
+          },
+          {
+            "page": 1,
+            "side": 1,
+            "shifts": [
+              {
+                "dy": -100,
+                "text": [
+                  "ROW ITEM CC",
+                  "ROW ITEM DD"
+                ],
+                "eligible": false
+              },
+              {
+                "dy": 0,
+                "text": [
+                  "ROW ITEM AA",
+                  "ROW ITEM BB"
+                ],
+                "eligible": false
+              }
+            ],
+            "crossing": [],
+            "counterparts": [],
+            "no_common_crossing": false,
+            "candidate": null,
+            "reason": null
+          }
+        ],
+        "proposals": [
+          {
+            "source": {
+              "page": {
+                "side": 0,
+                "page": 1
+              },
+              "top": 700,
+              "height": 200,
+              "bottom": 900
+            },
+            "target": {
+              "page": {
+                "side": 1,
+                "page": 2
+              },
+              "top": 300,
+              "height": 200,
+              "bottom": 500
+            },
+            "text": [
+              "ROW ITEM EE",
+              "ROW ITEM FF"
+            ],
+            "support": 0,
+            "status": "candidate",
+            "reason": null
+          }
+        ],
+        "displacement_support": false
+      },
+      "nonflow_alternatives": [],
+      "nonflow": {
+        "proofs": [],
+        "descriptor_bytes": 0,
+        "failure_reason": null
+      },
+      "all_nonflow_proven": true,
+      "links": [
+        {
+          "source": {
+            "page": {
+              "side": 0,
+              "page": 1
+            },
+            "top": 700,
+            "height": 200,
+            "bottom": 900
+          },
+          "target": {
+            "page": {
+              "side": 1,
+              "page": 2
+            },
+            "top": 300,
+            "height": 200,
+            "bottom": 500
+          },
+          "text": [
+            "ROW ITEM EE",
+            "ROW ITEM FF"
+          ],
+          "support": 0,
+          "status": "band_verified",
+          "reason": null
+        }
+      ],
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "unproven_endpoint_range",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "adoptions": [],
+      "maps": [
+        {
+          "number": 1,
+          "status": "skipped",
+          "reason": "unverified_edge_band"
+        },
+        {
+          "number": 2,
+          "status": "built",
+          "reason": null
+        }
+      ],
+      "unsupported_gaps": [
+        {
+          "band": {
+            "page": {
+              "side": 1,
+              "page": 1
+            },
+            "top": 800,
+            "height": 100,
+            "bottom": 900
+          },
+          "text": [
+            "ROW ADDED E A"
+          ],
+          "before": 4,
+          "after": 0,
+          "local": false,
+          "verified_carry": false
+        }
+      ],
+      "diagnostic_aggregate": {
+        "status": "skipped",
+        "reason": "document_gate_not_ready",
+        "difference_count": 10,
+        "aggregated_difference_count": 10,
+        "difference_count_complete": true,
+        "aggregated_difference_count_complete": true,
+        "groups": []
+      }
+    },
+    {
+      "run": "same-page-two-ba",
+      "product": {
+        "proposals": [
+          {
+            "source": {
+              "page": {
+                "side": 1,
+                "page": 1
+              },
+              "top": 800,
+              "height": 100,
+              "bottom": 900
+            },
+            "target": {
+              "page": {
+                "side": 0,
+                "page": 2
+              },
+              "top": 300,
+              "height": 100,
+              "bottom": 400
+            },
+            "text": [
+              "ROW ITEM FF"
+            ],
+            "support": 2,
+            "status": "skipped",
+            "reason": "text_mismatch"
+          }
+        ],
+        "links": [
+          {
+            "source": {
+              "page": {
+                "side": 1,
+                "page": 1
+              },
+              "top": 800,
+              "height": 100,
+              "bottom": 900
+            },
+            "target": {
+              "page": {
+                "side": 0,
+                "page": 2
+              },
+              "top": 300,
+              "height": 100,
+              "bottom": 400
+            },
+            "text": [
+              "ROW ITEM FF"
+            ],
+            "support": 2,
+            "status": "skipped",
+            "reason": "text_mismatch"
+          }
+        ],
+        "decision": {
+          "ready": false,
+          "reasons": [
+            "no_verified_candidates",
+            "unproven_page_map",
+            "unverified_candidates"
+          ],
+          "selected_links": [],
+          "selections": [
+            {
+              "page": 1,
+              "choice": "baseline"
+            },
+            {
+              "page": 2,
+              "choice": "baseline"
+            }
+          ]
+        },
+        "summary": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 10,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 10,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 10,
+          "difference_count_complete": true
+        },
+        "status": "skipped"
+      },
+      "inferred": {
+        "status": "inferred",
+        "reason": null,
+        "boundaries": [
+          {
+            "page": 1,
+            "side": 0,
+            "shifts": [
+              {
+                "dy": -100,
+                "text": [
+                  "ROW ITEM CC",
+                  "ROW ITEM DD"
+                ],
+                "eligible": false
+              },
+              {
+                "dy": 0,
+                "text": [
+                  "ROW ITEM AA",
+                  "ROW ITEM BB"
+                ],
+                "eligible": false
+              }
+            ],
+            "crossing": [],
+            "counterparts": [],
+            "no_common_crossing": false,
+            "candidate": null,
+            "reason": null
+          },
+          {
+            "page": 1,
+            "side": 1,
+            "shifts": [
+              {
+                "dy": 0,
+                "text": [
+                  "ROW ITEM AA",
+                  "ROW ITEM BB"
+                ],
+                "eligible": false
+              },
+              {
+                "dy": 100,
+                "text": [
+                  "ROW ITEM CC",
+                  "ROW ITEM DD"
+                ],
+                "eligible": true
+              }
+            ],
+            "crossing": [
+              {
+                "page": {
+                  "side": 1,
+                  "page": 1
+                },
+                "index": 4,
+                "top": 700,
+                "height": 100,
+                "text": "ROW ITEM EE",
+                "baseline": 770,
+                "left": 166.5
+              },
+              {
+                "page": {
+                  "side": 1,
+                  "page": 1
+                },
+                "index": 5,
+                "top": 800,
+                "height": 100,
+                "text": "ROW ITEM FF",
+                "baseline": 870,
+                "left": 166.5
+              }
+            ],
+            "counterparts": [
+              {
+                "page": {
+                  "side": 0,
+                  "page": 2
+                },
+                "index": 0,
+                "top": 300,
+                "height": 100,
+                "text": "ROW ITEM EE",
+                "baseline": 370.00000000000006,
+                "left": 166.5
+              },
+              {
+                "page": {
+                  "side": 0,
+                  "page": 2
+                },
+                "index": 1,
+                "top": 400,
+                "height": 100,
+                "text": "ROW ITEM FF",
+                "baseline": 470,
+                "left": 166.5
+              }
+            ],
+            "no_common_crossing": false,
+            "candidate": {
+              "source": {
+                "page": {
+                  "side": 1,
+                  "page": 1
+                },
+                "top": 700,
+                "height": 200,
+                "bottom": 900
+              },
+              "target": {
+                "page": {
+                  "side": 0,
+                  "page": 2
+                },
+                "top": 300,
+                "height": 200,
+                "bottom": 500
+              },
+              "text": [
+                "ROW ITEM EE",
+                "ROW ITEM FF"
+              ],
+              "support": 0,
+              "status": "candidate",
+              "reason": null
+            },
+            "reason": "insufficient_displacement_support"
+          }
+        ],
+        "proposals": [
+          {
+            "source": {
+              "page": {
+                "side": 1,
+                "page": 1
+              },
+              "top": 700,
+              "height": 200,
+              "bottom": 900
+            },
+            "target": {
+              "page": {
+                "side": 0,
+                "page": 2
+              },
+              "top": 300,
+              "height": 200,
+              "bottom": 500
+            },
+            "text": [
+              "ROW ITEM EE",
+              "ROW ITEM FF"
+            ],
+            "support": 0,
+            "status": "candidate",
+            "reason": null
+          }
+        ],
+        "displacement_support": false
+      },
+      "nonflow_alternatives": [],
+      "nonflow": {
+        "proofs": [],
+        "descriptor_bytes": 0,
+        "failure_reason": null
+      },
+      "all_nonflow_proven": true,
+      "links": [
+        {
+          "source": {
+            "page": {
+              "side": 1,
+              "page": 1
+            },
+            "top": 700,
+            "height": 200,
+            "bottom": 900
+          },
+          "target": {
+            "page": {
+              "side": 0,
+              "page": 2
+            },
+            "top": 300,
+            "height": 200,
+            "bottom": 500
+          },
+          "text": [
+            "ROW ITEM EE",
+            "ROW ITEM FF"
+          ],
+          "support": 0,
+          "status": "band_verified",
+          "reason": null
+        }
+      ],
+      "gate": {
+        "ready": false,
+        "reasons": [
+          "unproven_endpoint_range",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "adoptions": [],
+      "maps": [
+        {
+          "number": 1,
+          "status": "skipped",
+          "reason": "unverified_edge_band"
+        },
+        {
+          "number": 2,
+          "status": "built",
+          "reason": null
+        }
+      ],
+      "unsupported_gaps": [
+        {
+          "band": {
+            "page": {
+              "side": 0,
+              "page": 1
+            },
+            "top": 800,
+            "height": 100,
+            "bottom": 900
+          },
+          "text": [
+            "ROW ADDED E A"
+          ],
+          "before": 4,
+          "after": 0,
+          "local": false,
+          "verified_carry": false
+        }
+      ],
+      "diagnostic_aggregate": {
+        "status": "skipped",
+        "reason": "document_gate_not_ready",
+        "difference_count": 10,
+        "aggregated_difference_count": 10,
+        "difference_count_complete": true,
+        "aggregated_difference_count_complete": true,
+        "groups": []
+      }
+    },
+    {
+      "run": "shared-and-independent-ab",
+      "product": {
+        "proposals": [
+          {
+            "source": {
+              "page": {
+                "side": 0,
+                "page": 1
+              },
+              "top": 800,
+              "height": 100,
+              "bottom": 900
+            },
+            "target": {
+              "page": {
+                "side": 1,
+                "page": 2
+              },
+              "top": 300,
+              "height": 100,
+              "bottom": 400
+            },
+            "text": [
+              "FIRST ITEM FF"
+            ],
+            "support": 3,
+            "status": "candidate",
+            "reason": null
+          },
+          {
+            "source": null,
+            "target": null,
+            "text": [],
+            "support": 0,
+            "status": "skipped",
+            "reason": "ambiguous_displacement"
+          },
+          {
+            "source": {
+              "page": {
+                "side": 0,
+                "page": 3
+              },
+              "top": 800,
+              "height": 100,
+              "bottom": 900
+            },
+            "target": {
+              "page": {
+                "side": 1,
+                "page": 4
+              },
+              "top": 300,
+              "height": 100,
+              "bottom": 400
+            },
+            "text": [
+              "SECOND ITEM FF"
+            ],
+            "support": 3,
+            "status": "candidate",
+            "reason": null
+          }
+        ],
+        "links": [
+          {
+            "source": {
+              "page": {
+                "side": 0,
+                "page": 1
+              },
+              "top": 800,
+              "height": 100,
+              "bottom": 900
+            },
+            "target": {
+              "page": {
+                "side": 1,
+                "page": 2
+              },
+              "top": 300,
+              "height": 100,
+              "bottom": 400
+            },
+            "text": [
+              "FIRST ITEM FF"
+            ],
+            "support": 3,
+            "status": "band_verified",
+            "reason": null
+          },
+          {
+            "source": null,
+            "target": null,
+            "text": [],
+            "support": 0,
+            "status": "skipped",
+            "reason": "ambiguous_displacement"
+          },
+          {
+            "source": {
+              "page": {
+                "side": 0,
+                "page": 3
+              },
+              "top": 800,
+              "height": 100,
+              "bottom": 900
+            },
+            "target": {
+              "page": {
+                "side": 1,
+                "page": 4
+              },
+              "top": 300,
+              "height": 100,
+              "bottom": 400
+            },
+            "text": [
+              "SECOND ITEM FF"
+            ],
+            "support": 3,
+            "status": "band_verified",
+            "reason": null
+          }
+        ],
+        "decision": {
+          "ready": false,
+          "reasons": [
+            "unverified_candidates"
+          ],
+          "selected_links": [],
+          "selections": [
+            {
+              "page": 1,
+              "choice": "baseline"
+            },
+            {
+              "page": 2,
+              "choice": "baseline"
+            },
+            {
+              "page": 3,
+              "choice": "baseline"
+            },
+            {
+              "page": 4,
+              "choice": "baseline"
+            }
+          ]
+        },
+        "summary": {
+          "status": "different",
+          "pages_compared": 4,
+          "pages_different": 4,
+          "clusters": 20,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 20,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 20,
+          "difference_count_complete": true
+        },
+        "status": "skipped"
+      },
+      "inferred": {
+        "status": "inferred",
+        "reason": null,
+        "boundaries": [
+          {
+            "page": 1,
+            "side": 0,
+            "shifts": [
+              {
+                "dy": 0,
+                "text": [
+                  "FIRST ITEM AA",
+                  "FIRST ITEM BB"
+                ],
+                "eligible": false
+              },
+              {
+                "dy": 100,
+                "text": [
+                  "FIRST ITEM CC",
+                  "FIRST ITEM DD",
+                  "FIRST ITEM EE"
+                ],
+                "eligible": true
+              }
+            ],
+            "crossing": [
+              {
+                "page": {
+                  "side": 0,
+                  "page": 1
+                },
+                "index": 5,
+                "top": 800,
+                "height": 100,
+                "text": "FIRST ITEM FF",
+                "baseline": 870,
+                "left": 166.5
+              }
+            ],
+            "counterparts": [
+              {
+                "page": {
+                  "side": 1,
+                  "page": 2
+                },
+                "index": 0,
+                "top": 300,
+                "height": 100,
+                "text": "FIRST ITEM FF",
+                "baseline": 370.00000000000006,
+                "left": 166.5
+              }
+            ],
+            "no_common_crossing": false,
+            "candidate": {
+              "source": {
+                "page": {
+                  "side": 0,
+                  "page": 1
+                },
+                "top": 800,
+                "height": 100,
+                "bottom": 900
+              },
+              "target": {
+                "page": {
+                  "side": 1,
+                  "page": 2
+                },
+                "top": 300,
+                "height": 100,
+                "bottom": 400
+              },
+              "text": [
+                "FIRST ITEM FF"
+              ],
+              "support": 3,
+              "status": "candidate",
+              "reason": null
+            },
+            "reason": null
+          },
+          {
+            "page": 1,
+            "side": 1,
+            "shifts": [
+              {
+                "dy": -100,
+                "text": [
+                  "FIRST ITEM CC",
+                  "FIRST ITEM DD",
+                  "FIRST ITEM EE"
+                ],
+                "eligible": false
+              },
+              {
+                "dy": 0,
+                "text": [
+                  "FIRST ITEM AA",
+                  "FIRST ITEM BB"
+                ],
+                "eligible": false
+              }
+            ],
+            "crossing": [],
+            "counterparts": [],
+            "no_common_crossing": false,
+            "candidate": null,
+            "reason": null
+          },
+          {
+            "page": 2,
+            "side": 0,
+            "shifts": [
+              {
+                "dy": 100,
+                "text": [
+                  "FIRST ITEM GG",
+                  "FIRST ITEM HH"
+                ],
+                "eligible": true
+              },
+              {
+                "dy": 200,
+                "text": [
+                  "FIRST ITEM II",
+                  "FIRST ITEM JJ"
+                ],
+                "eligible": true
+              }
+            ],
+            "crossing": [],
+            "counterparts": [],
+            "no_common_crossing": true,
+            "candidate": null,
+            "reason": null
+          },
+          {
+            "page": 2,
+            "side": 1,
+            "shifts": [
+              {
+                "dy": -200,
+                "text": [
+                  "FIRST ITEM II",
+                  "FIRST ITEM JJ"
+                ],
+                "eligible": false
+              },
+              {
+                "dy": -100,
+                "text": [
+                  "FIRST ITEM GG",
+                  "FIRST ITEM HH"
+                ],
+                "eligible": false
+              }
+            ],
+            "crossing": [],
+            "counterparts": [],
+            "no_common_crossing": true,
+            "candidate": null,
+            "reason": null
+          },
+          {
+            "page": 3,
+            "side": 0,
+            "shifts": [
+              {
+                "dy": 0,
+                "text": [
+                  "SECOND ITEM AA",
+                  "SECOND ITEM BB"
+                ],
+                "eligible": false
+              },
+              {
+                "dy": 100,
+                "text": [
+                  "SECOND ITEM CC",
+                  "SECOND ITEM DD",
+                  "SECOND ITEM EE"
+                ],
+                "eligible": true
+              }
+            ],
+            "crossing": [
+              {
+                "page": {
+                  "side": 0,
+                  "page": 3
+                },
+                "index": 5,
+                "top": 800,
+                "height": 100,
+                "text": "SECOND ITEM FF",
+                "baseline": 870,
+                "left": 166.5
+              }
+            ],
+            "counterparts": [
+              {
+                "page": {
+                  "side": 1,
+                  "page": 4
+                },
+                "index": 0,
+                "top": 300,
+                "height": 100,
+                "text": "SECOND ITEM FF",
+                "baseline": 370.00000000000006,
+                "left": 166.5
+              }
+            ],
+            "no_common_crossing": false,
+            "candidate": {
+              "source": {
+                "page": {
+                  "side": 0,
+                  "page": 3
+                },
+                "top": 800,
+                "height": 100,
+                "bottom": 900
+              },
+              "target": {
+                "page": {
+                  "side": 1,
+                  "page": 4
+                },
+                "top": 300,
+                "height": 100,
+                "bottom": 400
+              },
+              "text": [
+                "SECOND ITEM FF"
+              ],
+              "support": 3,
+              "status": "candidate",
+              "reason": null
+            },
+            "reason": null
+          },
+          {
+            "page": 3,
+            "side": 1,
+            "shifts": [
+              {
+                "dy": -100,
+                "text": [
+                  "SECOND ITEM CC",
+                  "SECOND ITEM DD",
+                  "SECOND ITEM EE"
+                ],
+                "eligible": false
+              },
+              {
+                "dy": 0,
+                "text": [
+                  "SECOND ITEM AA",
+                  "SECOND ITEM BB"
+                ],
+                "eligible": false
+              }
+            ],
+            "crossing": [],
+            "counterparts": [],
+            "no_common_crossing": false,
+            "candidate": null,
+            "reason": null
+          }
+        ],
+        "proposals": [
+          {
+            "source": {
+              "page": {
+                "side": 0,
+                "page": 1
+              },
+              "top": 800,
+              "height": 100,
+              "bottom": 900
+            },
+            "target": {
+              "page": {
+                "side": 1,
+                "page": 2
+              },
+              "top": 300,
+              "height": 100,
+              "bottom": 400
+            },
+            "text": [
+              "FIRST ITEM FF"
+            ],
+            "support": 3,
+            "status": "candidate",
+            "reason": null
+          },
+          {
+            "source": {
+              "page": {
+                "side": 0,
+                "page": 3
+              },
+              "top": 800,
+              "height": 100,
+              "bottom": 900
+            },
+            "target": {
+              "page": {
+                "side": 1,
+                "page": 4
+              },
+              "top": 300,
+              "height": 100,
+              "bottom": 400
+            },
+            "text": [
+              "SECOND ITEM FF"
+            ],
+            "support": 3,
+            "status": "candidate",
+            "reason": null
+          }
+        ],
+        "displacement_support": true
+      },
+      "nonflow_alternatives": [
+        {
+          "source": {
+            "page": {
+              "side": 0,
+              "page": 2
+            },
+            "top": 600,
+            "height": 100,
+            "bottom": 700
+          },
+          "target": {
+            "page": {
+              "side": 1,
+              "page": 3
+            },
+            "top": 300,
+            "height": 100,
+            "bottom": 400
+          },
+          "text": [
+            "FIRST ITEM JJ"
+          ],
+          "support": 2,
+          "status": "skipped",
+          "reason": "text_mismatch"
+        },
+        {
+          "source": {
+            "page": {
+              "side": 0,
+              "page": 2
+            },
+            "top": 500,
+            "height": 200,
+            "bottom": 700
+          },
+          "target": {
+            "page": {
+              "side": 1,
+              "page": 3
+            },
+            "top": 300,
+            "height": 200,
+            "bottom": 500
+          },
+          "text": [
+            "FIRST ITEM II",
+            "FIRST ITEM JJ"
+          ],
+          "support": 2,
+          "status": "skipped",
+          "reason": "text_mismatch"
+        }
+      ],
+      "nonflow": {
+        "proofs": [
+          {
+            "candidate_index": 0,
+            "source": {
+              "page": {
+                "side": 0,
+                "page": 2
+              },
+              "top": 600,
+              "height": 100,
+              "bottom": 700
+            },
+            "target": {
+              "page": {
+                "side": 1,
+                "page": 3
+              },
+              "top": 300,
+              "height": 100,
+              "bottom": 400
+            },
+            "source_rows": [
+              {
+                "row": {
+                  "page": {
+                    "side": 0,
+                    "page": 2
+                  },
+                  "top": 600,
+                  "height": 100,
+                  "bottom": 700
+                },
+                "counterpart": {
+                  "page": {
+                    "side": 1,
+                    "page": 2
+                  },
+                  "top": 800,
+                  "height": 100,
+                  "bottom": 900
+                },
+                "original_row": {
+                  "page": {
+                    "side": 0,
+                    "page": 2
+                  },
+                  "top": 600,
+                  "height": 100,
+                  "bottom": 700
+                },
+                "original_counterpart": {
+                  "page": {
+                    "side": 1,
+                    "page": 2
+                  },
+                  "top": 800,
+                  "height": 100,
+                  "bottom": 900
+                }
+              }
+            ],
+            "target_rows": [
+              {
+                "row": {
+                  "page": {
+                    "side": 1,
+                    "page": 3
+                  },
+                  "top": 300,
+                  "height": 100,
+                  "bottom": 400
+                },
+                "counterpart": {
+                  "page": {
+                    "side": 0,
+                    "page": 3
+                  },
+                  "top": 300,
+                  "height": 100,
+                  "bottom": 400
+                },
+                "original_row": {
+                  "page": {
+                    "side": 1,
+                    "page": 3
+                  },
+                  "top": 300,
+                  "height": 100,
+                  "bottom": 400
+                },
+                "original_counterpart": {
+                  "page": {
+                    "side": 0,
+                    "page": 3
+                  },
+                  "top": 300,
+                  "height": 100,
+                  "bottom": 400
+                }
+              }
+            ]
+          },
+          {
+            "candidate_index": 1,
+            "source": {
+              "page": {
+                "side": 0,
+                "page": 2
+              },
+              "top": 500,
+              "height": 200,
+              "bottom": 700
+            },
+            "target": {
+              "page": {
+                "side": 1,
+                "page": 3
+              },
+              "top": 300,
+              "height": 200,
+              "bottom": 500
+            },
+            "source_rows": [
+              {
+                "row": {
+                  "page": {
+                    "side": 0,
+                    "page": 2
+                  },
+                  "top": 500,
+                  "height": 100,
+                  "bottom": 600
+                },
+                "counterpart": {
+                  "page": {
+                    "side": 1,
+                    "page": 2
+                  },
+                  "top": 700,
+                  "height": 100,
+                  "bottom": 800
+                },
+                "original_row": {
+                  "page": {
+                    "side": 0,
+                    "page": 2
+                  },
+                  "top": 500,
+                  "height": 100,
+                  "bottom": 600
+                },
+                "original_counterpart": {
+                  "page": {
+                    "side": 1,
+                    "page": 2
+                  },
+                  "top": 700,
+                  "height": 100,
+                  "bottom": 800
+                }
+              },
+              {
+                "row": {
+                  "page": {
+                    "side": 0,
+                    "page": 2
+                  },
+                  "top": 600,
+                  "height": 100,
+                  "bottom": 700
+                },
+                "counterpart": {
+                  "page": {
+                    "side": 1,
+                    "page": 2
+                  },
+                  "top": 800,
+                  "height": 100,
+                  "bottom": 900
+                },
+                "original_row": {
+                  "page": {
+                    "side": 0,
+                    "page": 2
+                  },
+                  "top": 600,
+                  "height": 100,
+                  "bottom": 700
+                },
+                "original_counterpart": {
+                  "page": {
+                    "side": 1,
+                    "page": 2
+                  },
+                  "top": 800,
+                  "height": 100,
+                  "bottom": 900
+                }
+              }
+            ],
+            "target_rows": [
+              {
+                "row": {
+                  "page": {
+                    "side": 1,
+                    "page": 3
+                  },
+                  "top": 300,
+                  "height": 100,
+                  "bottom": 400
+                },
+                "counterpart": {
+                  "page": {
+                    "side": 0,
+                    "page": 3
+                  },
+                  "top": 300,
+                  "height": 100,
+                  "bottom": 400
+                },
+                "original_row": {
+                  "page": {
+                    "side": 1,
+                    "page": 3
+                  },
+                  "top": 300,
+                  "height": 100,
+                  "bottom": 400
+                },
+                "original_counterpart": {
+                  "page": {
+                    "side": 0,
+                    "page": 3
+                  },
+                  "top": 300,
+                  "height": 100,
+                  "bottom": 400
+                }
+              },
+              {
+                "row": {
+                  "page": {
+                    "side": 1,
+                    "page": 3
+                  },
+                  "top": 400,
+                  "height": 100,
+                  "bottom": 500
+                },
+                "counterpart": {
+                  "page": {
+                    "side": 0,
+                    "page": 3
+                  },
+                  "top": 400,
+                  "height": 100,
+                  "bottom": 500
+                },
+                "original_row": {
+                  "page": {
+                    "side": 1,
+                    "page": 3
+                  },
+                  "top": 400,
+                  "height": 100,
+                  "bottom": 500
+                },
+                "original_counterpart": {
+                  "page": {
+                    "side": 0,
+                    "page": 3
+                  },
+                  "top": 400,
+                  "height": 100,
+                  "bottom": 500
+                }
+              }
+            ]
+          }
+        ],
+        "descriptor_bytes": 3584,
+        "failure_reason": null
+      },
+      "all_nonflow_proven": true,
+      "links": [
+        {
+          "source": {
+            "page": {
+              "side": 0,
+              "page": 1
+            },
+            "top": 800,
+            "height": 100,
+            "bottom": 900
+          },
+          "target": {
+            "page": {
+              "side": 1,
+              "page": 2
+            },
+            "top": 300,
+            "height": 100,
+            "bottom": 400
+          },
+          "text": [
+            "FIRST ITEM FF"
+          ],
+          "support": 3,
+          "status": "band_verified",
+          "reason": null
+        },
+        {
+          "source": {
+            "page": {
+              "side": 0,
+              "page": 3
+            },
+            "top": 800,
+            "height": 100,
+            "bottom": 900
+          },
+          "target": {
+            "page": {
+              "side": 1,
+              "page": 4
+            },
+            "top": 300,
+            "height": 100,
+            "bottom": 400
+          },
+          "text": [
+            "SECOND ITEM FF"
+          ],
+          "support": 3,
+          "status": "band_verified",
+          "reason": null
+        }
+      ],
+      "gate": {
+        "ready": true,
+        "reasons": [],
+        "selected_links": [
+          {
+            "source": {
+              "page": {
+                "side": 0,
+                "page": 1
+              },
+              "top": 800,
+              "height": 100,
+              "bottom": 900
+            },
+            "target": {
+              "page": {
+                "side": 1,
+                "page": 2
+              },
+              "top": 300,
+              "height": 100,
+              "bottom": 400
+            },
+            "verified": true,
+            "reason": null
+          },
+          {
+            "source": {
+              "page": {
+                "side": 0,
+                "page": 3
+              },
+              "top": 800,
+              "height": 100,
+              "bottom": 900
+            },
+            "target": {
+              "page": {
+                "side": 1,
+                "page": 4
+              },
+              "top": 300,
+              "height": 100,
+              "bottom": 400
+            },
+            "verified": true,
+            "reason": null
+          }
+        ],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "candidate"
+          },
+          {
+            "page": 2,
+            "choice": "candidate"
+          },
+          {
+            "page": 3,
+            "choice": "candidate"
+          },
+          {
+            "page": 4,
+            "choice": "candidate"
+          }
+        ]
+      },
+      "adoptions": [
+        {
+          "accepted": true,
+          "reason": "applied",
+          "detail": null,
+          "score": 1,
+          "score_gap": 0.16139614817918702,
+          "support_bands": [
+            4,
+            3,
+            2
+          ],
+          "baseline_raw_pixels": 1071,
+          "candidate_raw_pixels": 0,
+          "improvement": 1
+        },
+        {
+          "accepted": true,
+          "reason": "applied",
+          "detail": null,
+          "score": 1,
+          "score_gap": 0.16196496335187405,
+          "support_bands": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "baseline_raw_pixels": 14896,
+          "candidate_raw_pixels": 0,
+          "improvement": 1
+        },
+        {
+          "accepted": true,
+          "reason": "applied",
+          "detail": null,
+          "score": 1,
+          "score_gap": 0.16385310690884292,
+          "support_bands": [
+            4,
+            3,
+            2
+          ],
+          "baseline_raw_pixels": 1071,
+          "candidate_raw_pixels": 0,
+          "improvement": 1
+        },
+        {
+          "accepted": true,
+          "reason": "applied",
+          "detail": null,
+          "score": 1,
+          "score_gap": 0.16436041224613518,
+          "support_bands": [
+            2,
+            4,
+            2
+          ],
+          "baseline_raw_pixels": 7525,
+          "candidate_raw_pixels": 0,
+          "improvement": 1
+        }
+      ],
+      "maps": [
+        {
+          "number": 1,
+          "status": "built",
+          "reason": null
+        },
+        {
+          "number": 2,
+          "status": "built",
+          "reason": null
+        },
+        {
+          "number": 3,
+          "status": "built",
+          "reason": null
+        },
+        {
+          "number": 4,
+          "status": "built",
+          "reason": null
+        }
+      ],
+      "unsupported_gaps": [],
+      "diagnostic_aggregate": {
+        "status": "grouped",
+        "reason": null,
+        "difference_count": 12,
+        "aggregated_difference_count": 3,
+        "difference_count_complete": true,
+        "aggregated_difference_count_complete": true,
+        "groups": [
+          {
+            "cause": {
+              "page": 3,
+              "structural_change_id": 1
+            },
+            "structures": [
+              {
+                "page": 3,
+                "structural_change_id": 1
+              },
+              {
+                "page": 3,
+                "structural_change_id": 2
+              },
+              {
+                "page": 3,
+                "structural_change_id": 3
+              },
+              {
+                "page": 4,
+                "structural_change_id": 1
+              },
+              {
+                "page": 4,
+                "structural_change_id": 2
+              }
+            ],
+            "auxiliary_bands": [],
+            "links": [
+              {
+                "source": {
+                  "page": {
+                    "side": 0,
+                    "page": 3
+                  },
+                  "top": 800,
+                  "height": 100,
+                  "bottom": 900
+                },
+                "target": {
+                  "page": {
+                    "side": 1,
+                    "page": 4
+                  },
+                  "top": 300,
+                  "height": 100,
+                  "bottom": 400
+                },
+                "text": [
+                  "SECOND ITEM FF"
+                ],
+                "support": 3,
+                "status": "band_verified",
+                "reason": null
+              }
+            ],
+            "balance": [
+              {
+                "page": 3,
+                "rows_a": 6,
+                "rows_b": 6,
+                "cause_delta": 1,
+                "incoming": 0,
+                "outgoing": 1
+              },
+              {
+                "page": 4,
+                "rows_a": 4,
+                "rows_b": 5,
+                "cause_delta": 0,
+                "incoming": 1,
+                "outgoing": 0
+              }
+            ]
+          }
+        ],
+        "shared_components": [
+          {
+            "pages": [
+              1,
+              2
+            ],
+            "causes": [
+              {
+                "reference": {
+                  "page": 1,
+                  "structural_change_id": 1
+                },
+                "band": {
+                  "page": {
+                    "side": 1,
+                    "page": 1
+                  },
+                  "top": 500,
+                  "height": 100,
+                  "bottom": 600
+                },
+                "rows": 1,
+                "delta": 100
+              },
+              {
+                "reference": {
+                  "page": 2,
+                  "structural_change_id": 3
+                },
+                "band": {
+                  "page": {
+                    "side": 1,
+                    "page": 2
+                  },
+                  "top": 600,
+                  "height": 100,
+                  "bottom": 700
+                },
+                "rows": 1,
+                "delta": 100
+              }
+            ],
+            "structures": [
+              {
+                "page": 1,
+                "structural_change_id": 1
+              },
+              {
+                "page": 1,
+                "structural_change_id": 2
+              },
+              {
+                "page": 1,
+                "structural_change_id": 3
+              },
+              {
+                "page": 2,
+                "structural_change_id": 1
+              },
+              {
+                "page": 2,
+                "structural_change_id": 2
+              },
+              {
+                "page": 2,
+                "structural_change_id": 3
+              },
+              {
+                "page": 2,
+                "structural_change_id": 4
+              }
+            ],
+            "movements": [
+              {
+                "structure": {
+                  "page": 1,
+                  "structural_change_id": 2
+                },
+                "causes": [
+                  {
+                    "page": 1,
+                    "structural_change_id": 1
+                  }
+                ],
+                "dy": 100
+              },
+              {
+                "structure": {
+                  "page": 2,
+                  "structural_change_id": 2
+                },
+                "causes": [
+                  {
+                    "page": 1,
+                    "structural_change_id": 1
+                  }
+                ],
+                "dy": 100
+              },
+              {
+                "structure": {
+                  "page": 2,
+                  "structural_change_id": 4
+                },
+                "causes": [
+                  {
+                    "page": 1,
+                    "structural_change_id": 1
+                  },
+                  {
+                    "page": 2,
+                    "structural_change_id": 3
+                  }
+                ],
+                "dy": 200
+              }
+            ],
+            "links": [
+              {
+                "link": {
+                  "source": {
+                    "page": {
+                      "side": 0,
+                      "page": 1
+                    },
+                    "top": 800,
+                    "height": 100,
+                    "bottom": 900
+                  },
+                  "target": {
+                    "page": {
+                      "side": 1,
+                      "page": 2
+                    },
+                    "top": 300,
+                    "height": 100,
+                    "bottom": 400
+                  },
+                  "text": [
+                    "FIRST ITEM FF"
+                  ],
+                  "support": 3,
+                  "status": "band_verified",
+                  "reason": null
+                },
+                "structures": [
+                  {
+                    "page": 1,
+                    "structural_change_id": 3
+                  },
+                  {
+                    "page": 2,
+                    "structural_change_id": 1
+                  }
+                ],
+                "causes": [
+                  {
+                    "page": 1,
+                    "structural_change_id": 1
+                  }
+                ],
+                "rows": 1
+              }
+            ],
+            "balance": [
+              {
+                "page": 1,
+                "rows_a": 6,
+                "rows_b": 6,
+                "cause_delta": 1,
+                "incoming": 0,
+                "outgoing": 1
+              },
+              {
+                "page": 2,
+                "rows_a": 4,
+                "rows_b": 6,
+                "cause_delta": 1,
+                "incoming": 1,
+                "outgoing": 0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "run": "shared-and-independent-ba",
+      "product": {
+        "proposals": [
+          {
+            "source": {
+              "page": {
+                "side": 1,
+                "page": 1
+              },
+              "top": 800,
+              "height": 100,
+              "bottom": 900
+            },
+            "target": {
+              "page": {
+                "side": 0,
+                "page": 2
+              },
+              "top": 300,
+              "height": 100,
+              "bottom": 400
+            },
+            "text": [
+              "FIRST ITEM FF"
+            ],
+            "support": 3,
+            "status": "candidate",
+            "reason": null
+          },
+          {
+            "source": null,
+            "target": null,
+            "text": [],
+            "support": 0,
+            "status": "skipped",
+            "reason": "ambiguous_displacement"
+          },
+          {
+            "source": {
+              "page": {
+                "side": 1,
+                "page": 3
+              },
+              "top": 800,
+              "height": 100,
+              "bottom": 900
+            },
+            "target": {
+              "page": {
+                "side": 0,
+                "page": 4
+              },
+              "top": 300,
+              "height": 100,
+              "bottom": 400
+            },
+            "text": [
+              "SECOND ITEM FF"
+            ],
+            "support": 3,
+            "status": "candidate",
+            "reason": null
+          }
+        ],
+        "links": [
+          {
+            "source": {
+              "page": {
+                "side": 1,
+                "page": 1
+              },
+              "top": 800,
+              "height": 100,
+              "bottom": 900
+            },
+            "target": {
+              "page": {
+                "side": 0,
+                "page": 2
+              },
+              "top": 300,
+              "height": 100,
+              "bottom": 400
+            },
+            "text": [
+              "FIRST ITEM FF"
+            ],
+            "support": 3,
+            "status": "band_verified",
+            "reason": null
+          },
+          {
+            "source": null,
+            "target": null,
+            "text": [],
+            "support": 0,
+            "status": "skipped",
+            "reason": "ambiguous_displacement"
+          },
+          {
+            "source": {
+              "page": {
+                "side": 1,
+                "page": 3
+              },
+              "top": 800,
+              "height": 100,
+              "bottom": 900
+            },
+            "target": {
+              "page": {
+                "side": 0,
+                "page": 4
+              },
+              "top": 300,
+              "height": 100,
+              "bottom": 400
+            },
+            "text": [
+              "SECOND ITEM FF"
+            ],
+            "support": 3,
+            "status": "band_verified",
+            "reason": null
+          }
+        ],
+        "decision": {
+          "ready": false,
+          "reasons": [
+            "unverified_candidates"
+          ],
+          "selected_links": [],
+          "selections": [
+            {
+              "page": 1,
+              "choice": "baseline"
+            },
+            {
+              "page": 2,
+              "choice": "baseline"
+            },
+            {
+              "page": 3,
+              "choice": "baseline"
+            },
+            {
+              "page": 4,
+              "choice": "baseline"
+            }
+          ]
+        },
+        "summary": {
+          "status": "different",
+          "pages_compared": 4,
+          "pages_different": 4,
+          "clusters": 20,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 20,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 20,
+          "difference_count_complete": true
+        },
+        "status": "skipped"
+      },
+      "inferred": {
+        "status": "inferred",
+        "reason": null,
+        "boundaries": [
+          {
+            "page": 1,
+            "side": 0,
+            "shifts": [
+              {
+                "dy": -100,
+                "text": [
+                  "FIRST ITEM CC",
+                  "FIRST ITEM DD",
+                  "FIRST ITEM EE"
+                ],
+                "eligible": false
+              },
+              {
+                "dy": 0,
+                "text": [
+                  "FIRST ITEM AA",
+                  "FIRST ITEM BB"
+                ],
+                "eligible": false
+              }
+            ],
+            "crossing": [],
+            "counterparts": [],
+            "no_common_crossing": false,
+            "candidate": null,
+            "reason": null
+          },
+          {
+            "page": 1,
+            "side": 1,
+            "shifts": [
+              {
+                "dy": 0,
+                "text": [
+                  "FIRST ITEM AA",
+                  "FIRST ITEM BB"
+                ],
+                "eligible": false
+              },
+              {
+                "dy": 100,
+                "text": [
+                  "FIRST ITEM CC",
+                  "FIRST ITEM DD",
+                  "FIRST ITEM EE"
+                ],
+                "eligible": true
+              }
+            ],
+            "crossing": [
+              {
+                "page": {
+                  "side": 1,
+                  "page": 1
+                },
+                "index": 5,
+                "top": 800,
+                "height": 100,
+                "text": "FIRST ITEM FF",
+                "baseline": 870,
+                "left": 166.5
+              }
+            ],
+            "counterparts": [
+              {
+                "page": {
+                  "side": 0,
+                  "page": 2
+                },
+                "index": 0,
+                "top": 300,
+                "height": 100,
+                "text": "FIRST ITEM FF",
+                "baseline": 370.00000000000006,
+                "left": 166.5
+              }
+            ],
+            "no_common_crossing": false,
+            "candidate": {
+              "source": {
+                "page": {
+                  "side": 1,
+                  "page": 1
+                },
+                "top": 800,
+                "height": 100,
+                "bottom": 900
+              },
+              "target": {
+                "page": {
+                  "side": 0,
+                  "page": 2
+                },
+                "top": 300,
+                "height": 100,
+                "bottom": 400
+              },
+              "text": [
+                "FIRST ITEM FF"
+              ],
+              "support": 3,
+              "status": "candidate",
+              "reason": null
+            },
+            "reason": null
+          },
+          {
+            "page": 2,
+            "side": 0,
+            "shifts": [
+              {
+                "dy": -200,
+                "text": [
+                  "FIRST ITEM II",
+                  "FIRST ITEM JJ"
+                ],
+                "eligible": false
+              },
+              {
+                "dy": -100,
+                "text": [
+                  "FIRST ITEM GG",
+                  "FIRST ITEM HH"
+                ],
+                "eligible": false
+              }
+            ],
+            "crossing": [],
+            "counterparts": [],
+            "no_common_crossing": true,
+            "candidate": null,
+            "reason": null
+          },
+          {
+            "page": 2,
+            "side": 1,
+            "shifts": [
+              {
+                "dy": 100,
+                "text": [
+                  "FIRST ITEM GG",
+                  "FIRST ITEM HH"
+                ],
+                "eligible": true
+              },
+              {
+                "dy": 200,
+                "text": [
+                  "FIRST ITEM II",
+                  "FIRST ITEM JJ"
+                ],
+                "eligible": true
+              }
+            ],
+            "crossing": [],
+            "counterparts": [],
+            "no_common_crossing": true,
+            "candidate": null,
+            "reason": null
+          },
+          {
+            "page": 3,
+            "side": 0,
+            "shifts": [
+              {
+                "dy": -100,
+                "text": [
+                  "SECOND ITEM CC",
+                  "SECOND ITEM DD",
+                  "SECOND ITEM EE"
+                ],
+                "eligible": false
+              },
+              {
+                "dy": 0,
+                "text": [
+                  "SECOND ITEM AA",
+                  "SECOND ITEM BB"
+                ],
+                "eligible": false
+              }
+            ],
+            "crossing": [],
+            "counterparts": [],
+            "no_common_crossing": false,
+            "candidate": null,
+            "reason": null
+          },
+          {
+            "page": 3,
+            "side": 1,
+            "shifts": [
+              {
+                "dy": 0,
+                "text": [
+                  "SECOND ITEM AA",
+                  "SECOND ITEM BB"
+                ],
+                "eligible": false
+              },
+              {
+                "dy": 100,
+                "text": [
+                  "SECOND ITEM CC",
+                  "SECOND ITEM DD",
+                  "SECOND ITEM EE"
+                ],
+                "eligible": true
+              }
+            ],
+            "crossing": [
+              {
+                "page": {
+                  "side": 1,
+                  "page": 3
+                },
+                "index": 5,
+                "top": 800,
+                "height": 100,
+                "text": "SECOND ITEM FF",
+                "baseline": 870,
+                "left": 166.5
+              }
+            ],
+            "counterparts": [
+              {
+                "page": {
+                  "side": 0,
+                  "page": 4
+                },
+                "index": 0,
+                "top": 300,
+                "height": 100,
+                "text": "SECOND ITEM FF",
+                "baseline": 370.00000000000006,
+                "left": 166.5
+              }
+            ],
+            "no_common_crossing": false,
+            "candidate": {
+              "source": {
+                "page": {
+                  "side": 1,
+                  "page": 3
+                },
+                "top": 800,
+                "height": 100,
+                "bottom": 900
+              },
+              "target": {
+                "page": {
+                  "side": 0,
+                  "page": 4
+                },
+                "top": 300,
+                "height": 100,
+                "bottom": 400
+              },
+              "text": [
+                "SECOND ITEM FF"
+              ],
+              "support": 3,
+              "status": "candidate",
+              "reason": null
+            },
+            "reason": null
+          }
+        ],
+        "proposals": [
+          {
+            "source": {
+              "page": {
+                "side": 1,
+                "page": 1
+              },
+              "top": 800,
+              "height": 100,
+              "bottom": 900
+            },
+            "target": {
+              "page": {
+                "side": 0,
+                "page": 2
+              },
+              "top": 300,
+              "height": 100,
+              "bottom": 400
+            },
+            "text": [
+              "FIRST ITEM FF"
+            ],
+            "support": 3,
+            "status": "candidate",
+            "reason": null
+          },
+          {
+            "source": {
+              "page": {
+                "side": 1,
+                "page": 3
+              },
+              "top": 800,
+              "height": 100,
+              "bottom": 900
+            },
+            "target": {
+              "page": {
+                "side": 0,
+                "page": 4
+              },
+              "top": 300,
+              "height": 100,
+              "bottom": 400
+            },
+            "text": [
+              "SECOND ITEM FF"
+            ],
+            "support": 3,
+            "status": "candidate",
+            "reason": null
+          }
+        ],
+        "displacement_support": true
+      },
+      "nonflow_alternatives": [
+        {
+          "source": {
+            "page": {
+              "side": 1,
+              "page": 2
+            },
+            "top": 600,
+            "height": 100,
+            "bottom": 700
+          },
+          "target": {
+            "page": {
+              "side": 0,
+              "page": 3
+            },
+            "top": 300,
+            "height": 100,
+            "bottom": 400
+          },
+          "text": [
+            "FIRST ITEM JJ"
+          ],
+          "support": 2,
+          "status": "skipped",
+          "reason": "text_mismatch"
+        },
+        {
+          "source": {
+            "page": {
+              "side": 1,
+              "page": 2
+            },
+            "top": 500,
+            "height": 200,
+            "bottom": 700
+          },
+          "target": {
+            "page": {
+              "side": 0,
+              "page": 3
+            },
+            "top": 300,
+            "height": 200,
+            "bottom": 500
+          },
+          "text": [
+            "FIRST ITEM II",
+            "FIRST ITEM JJ"
+          ],
+          "support": 2,
+          "status": "skipped",
+          "reason": "text_mismatch"
+        }
+      ],
+      "nonflow": {
+        "proofs": [
+          {
+            "candidate_index": 0,
+            "source": {
+              "page": {
+                "side": 1,
+                "page": 2
+              },
+              "top": 600,
+              "height": 100,
+              "bottom": 700
+            },
+            "target": {
+              "page": {
+                "side": 0,
+                "page": 3
+              },
+              "top": 300,
+              "height": 100,
+              "bottom": 400
+            },
+            "source_rows": [
+              {
+                "row": {
+                  "page": {
+                    "side": 1,
+                    "page": 2
+                  },
+                  "top": 600,
+                  "height": 100,
+                  "bottom": 700
+                },
+                "counterpart": {
+                  "page": {
+                    "side": 0,
+                    "page": 2
+                  },
+                  "top": 800,
+                  "height": 100,
+                  "bottom": 900
+                },
+                "original_row": {
+                  "page": {
+                    "side": 1,
+                    "page": 2
+                  },
+                  "top": 600,
+                  "height": 100,
+                  "bottom": 700
+                },
+                "original_counterpart": {
+                  "page": {
+                    "side": 0,
+                    "page": 2
+                  },
+                  "top": 800,
+                  "height": 100,
+                  "bottom": 900
+                }
+              }
+            ],
+            "target_rows": [
+              {
+                "row": {
+                  "page": {
+                    "side": 0,
+                    "page": 3
+                  },
+                  "top": 300,
+                  "height": 100,
+                  "bottom": 400
+                },
+                "counterpart": {
+                  "page": {
+                    "side": 1,
+                    "page": 3
+                  },
+                  "top": 300,
+                  "height": 100,
+                  "bottom": 400
+                },
+                "original_row": {
+                  "page": {
+                    "side": 0,
+                    "page": 3
+                  },
+                  "top": 300,
+                  "height": 100,
+                  "bottom": 400
+                },
+                "original_counterpart": {
+                  "page": {
+                    "side": 1,
+                    "page": 3
+                  },
+                  "top": 300,
+                  "height": 100,
+                  "bottom": 400
+                }
+              }
+            ]
+          },
+          {
+            "candidate_index": 1,
+            "source": {
+              "page": {
+                "side": 1,
+                "page": 2
+              },
+              "top": 500,
+              "height": 200,
+              "bottom": 700
+            },
+            "target": {
+              "page": {
+                "side": 0,
+                "page": 3
+              },
+              "top": 300,
+              "height": 200,
+              "bottom": 500
+            },
+            "source_rows": [
+              {
+                "row": {
+                  "page": {
+                    "side": 1,
+                    "page": 2
+                  },
+                  "top": 500,
+                  "height": 100,
+                  "bottom": 600
+                },
+                "counterpart": {
+                  "page": {
+                    "side": 0,
+                    "page": 2
+                  },
+                  "top": 700,
+                  "height": 100,
+                  "bottom": 800
+                },
+                "original_row": {
+                  "page": {
+                    "side": 1,
+                    "page": 2
+                  },
+                  "top": 500,
+                  "height": 100,
+                  "bottom": 600
+                },
+                "original_counterpart": {
+                  "page": {
+                    "side": 0,
+                    "page": 2
+                  },
+                  "top": 700,
+                  "height": 100,
+                  "bottom": 800
+                }
+              },
+              {
+                "row": {
+                  "page": {
+                    "side": 1,
+                    "page": 2
+                  },
+                  "top": 600,
+                  "height": 100,
+                  "bottom": 700
+                },
+                "counterpart": {
+                  "page": {
+                    "side": 0,
+                    "page": 2
+                  },
+                  "top": 800,
+                  "height": 100,
+                  "bottom": 900
+                },
+                "original_row": {
+                  "page": {
+                    "side": 1,
+                    "page": 2
+                  },
+                  "top": 600,
+                  "height": 100,
+                  "bottom": 700
+                },
+                "original_counterpart": {
+                  "page": {
+                    "side": 0,
+                    "page": 2
+                  },
+                  "top": 800,
+                  "height": 100,
+                  "bottom": 900
+                }
+              }
+            ],
+            "target_rows": [
+              {
+                "row": {
+                  "page": {
+                    "side": 0,
+                    "page": 3
+                  },
+                  "top": 300,
+                  "height": 100,
+                  "bottom": 400
+                },
+                "counterpart": {
+                  "page": {
+                    "side": 1,
+                    "page": 3
+                  },
+                  "top": 300,
+                  "height": 100,
+                  "bottom": 400
+                },
+                "original_row": {
+                  "page": {
+                    "side": 0,
+                    "page": 3
+                  },
+                  "top": 300,
+                  "height": 100,
+                  "bottom": 400
+                },
+                "original_counterpart": {
+                  "page": {
+                    "side": 1,
+                    "page": 3
+                  },
+                  "top": 300,
+                  "height": 100,
+                  "bottom": 400
+                }
+              },
+              {
+                "row": {
+                  "page": {
+                    "side": 0,
+                    "page": 3
+                  },
+                  "top": 400,
+                  "height": 100,
+                  "bottom": 500
+                },
+                "counterpart": {
+                  "page": {
+                    "side": 1,
+                    "page": 3
+                  },
+                  "top": 400,
+                  "height": 100,
+                  "bottom": 500
+                },
+                "original_row": {
+                  "page": {
+                    "side": 0,
+                    "page": 3
+                  },
+                  "top": 400,
+                  "height": 100,
+                  "bottom": 500
+                },
+                "original_counterpart": {
+                  "page": {
+                    "side": 1,
+                    "page": 3
+                  },
+                  "top": 400,
+                  "height": 100,
+                  "bottom": 500
+                }
+              }
+            ]
+          }
+        ],
+        "descriptor_bytes": 3584,
+        "failure_reason": null
+      },
+      "all_nonflow_proven": true,
+      "links": [
+        {
+          "source": {
+            "page": {
+              "side": 1,
+              "page": 1
+            },
+            "top": 800,
+            "height": 100,
+            "bottom": 900
+          },
+          "target": {
+            "page": {
+              "side": 0,
+              "page": 2
+            },
+            "top": 300,
+            "height": 100,
+            "bottom": 400
+          },
+          "text": [
+            "FIRST ITEM FF"
+          ],
+          "support": 3,
+          "status": "band_verified",
+          "reason": null
+        },
+        {
+          "source": {
+            "page": {
+              "side": 1,
+              "page": 3
+            },
+            "top": 800,
+            "height": 100,
+            "bottom": 900
+          },
+          "target": {
+            "page": {
+              "side": 0,
+              "page": 4
+            },
+            "top": 300,
+            "height": 100,
+            "bottom": 400
+          },
+          "text": [
+            "SECOND ITEM FF"
+          ],
+          "support": 3,
+          "status": "band_verified",
+          "reason": null
+        }
+      ],
+      "gate": {
+        "ready": true,
+        "reasons": [],
+        "selected_links": [
+          {
+            "source": {
+              "page": {
+                "side": 1,
+                "page": 1
+              },
+              "top": 800,
+              "height": 100,
+              "bottom": 900
+            },
+            "target": {
+              "page": {
+                "side": 0,
+                "page": 2
+              },
+              "top": 300,
+              "height": 100,
+              "bottom": 400
+            },
+            "verified": true,
+            "reason": null
+          },
+          {
+            "source": {
+              "page": {
+                "side": 1,
+                "page": 3
+              },
+              "top": 800,
+              "height": 100,
+              "bottom": 900
+            },
+            "target": {
+              "page": {
+                "side": 0,
+                "page": 4
+              },
+              "top": 300,
+              "height": 100,
+              "bottom": 400
+            },
+            "verified": true,
+            "reason": null
+          }
+        ],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "candidate"
+          },
+          {
+            "page": 2,
+            "choice": "candidate"
+          },
+          {
+            "page": 3,
+            "choice": "candidate"
+          },
+          {
+            "page": 4,
+            "choice": "candidate"
+          }
+        ]
+      },
+      "adoptions": [
+        {
+          "accepted": true,
+          "reason": "applied",
+          "detail": null,
+          "score": 1,
+          "score_gap": 0.16139614817918702,
+          "support_bands": [
+            4,
+            3,
+            2
+          ],
+          "baseline_raw_pixels": 1071,
+          "candidate_raw_pixels": 0,
+          "improvement": 1
+        },
+        {
+          "accepted": true,
+          "reason": "applied",
+          "detail": null,
+          "score": 1,
+          "score_gap": 0.16196496335187405,
+          "support_bands": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "baseline_raw_pixels": 14896,
+          "candidate_raw_pixels": 0,
+          "improvement": 1
+        },
+        {
+          "accepted": true,
+          "reason": "applied",
+          "detail": null,
+          "score": 1,
+          "score_gap": 0.16385310690884292,
+          "support_bands": [
+            4,
+            3,
+            2
+          ],
+          "baseline_raw_pixels": 1071,
+          "candidate_raw_pixels": 0,
+          "improvement": 1
+        },
+        {
+          "accepted": true,
+          "reason": "applied",
+          "detail": null,
+          "score": 1,
+          "score_gap": 0.16436041224613518,
+          "support_bands": [
+            2,
+            4,
+            2
+          ],
+          "baseline_raw_pixels": 7525,
+          "candidate_raw_pixels": 0,
+          "improvement": 1
+        }
+      ],
+      "maps": [
+        {
+          "number": 1,
+          "status": "built",
+          "reason": null
+        },
+        {
+          "number": 2,
+          "status": "built",
+          "reason": null
+        },
+        {
+          "number": 3,
+          "status": "built",
+          "reason": null
+        },
+        {
+          "number": 4,
+          "status": "built",
+          "reason": null
+        }
+      ],
+      "unsupported_gaps": [],
+      "diagnostic_aggregate": {
+        "status": "grouped",
+        "reason": null,
+        "difference_count": 12,
+        "aggregated_difference_count": 3,
+        "difference_count_complete": true,
+        "aggregated_difference_count_complete": true,
+        "groups": [
+          {
+            "cause": {
+              "page": 3,
+              "structural_change_id": 1
+            },
+            "structures": [
+              {
+                "page": 3,
+                "structural_change_id": 1
+              },
+              {
+                "page": 3,
+                "structural_change_id": 2
+              },
+              {
+                "page": 3,
+                "structural_change_id": 3
+              },
+              {
+                "page": 4,
+                "structural_change_id": 1
+              },
+              {
+                "page": 4,
+                "structural_change_id": 2
+              }
+            ],
+            "auxiliary_bands": [],
+            "links": [
+              {
+                "source": {
+                  "page": {
+                    "side": 1,
+                    "page": 3
+                  },
+                  "top": 800,
+                  "height": 100,
+                  "bottom": 900
+                },
+                "target": {
+                  "page": {
+                    "side": 0,
+                    "page": 4
+                  },
+                  "top": 300,
+                  "height": 100,
+                  "bottom": 400
+                },
+                "text": [
+                  "SECOND ITEM FF"
+                ],
+                "support": 3,
+                "status": "band_verified",
+                "reason": null
+              }
+            ],
+            "balance": [
+              {
+                "page": 3,
+                "rows_a": 6,
+                "rows_b": 6,
+                "cause_delta": -1,
+                "incoming": 0,
+                "outgoing": -1
+              },
+              {
+                "page": 4,
+                "rows_a": 5,
+                "rows_b": 4,
+                "cause_delta": 0,
+                "incoming": -1,
+                "outgoing": 0
+              }
+            ]
+          }
+        ],
+        "shared_components": [
+          {
+            "pages": [
+              1,
+              2
+            ],
+            "causes": [
+              {
+                "reference": {
+                  "page": 1,
+                  "structural_change_id": 1
+                },
+                "band": {
+                  "page": {
+                    "side": 0,
+                    "page": 1
+                  },
+                  "top": 500,
+                  "height": 100,
+                  "bottom": 600
+                },
+                "rows": 1,
+                "delta": -100
+              },
+              {
+                "reference": {
+                  "page": 2,
+                  "structural_change_id": 3
+                },
+                "band": {
+                  "page": {
+                    "side": 0,
+                    "page": 2
+                  },
+                  "top": 600,
+                  "height": 100,
+                  "bottom": 700
+                },
+                "rows": 1,
+                "delta": -100
+              }
+            ],
+            "structures": [
+              {
+                "page": 1,
+                "structural_change_id": 1
+              },
+              {
+                "page": 1,
+                "structural_change_id": 2
+              },
+              {
+                "page": 1,
+                "structural_change_id": 3
+              },
+              {
+                "page": 2,
+                "structural_change_id": 1
+              },
+              {
+                "page": 2,
+                "structural_change_id": 2
+              },
+              {
+                "page": 2,
+                "structural_change_id": 3
+              },
+              {
+                "page": 2,
+                "structural_change_id": 4
+              }
+            ],
+            "movements": [
+              {
+                "structure": {
+                  "page": 1,
+                  "structural_change_id": 2
+                },
+                "causes": [
+                  {
+                    "page": 1,
+                    "structural_change_id": 1
+                  }
+                ],
+                "dy": -100
+              },
+              {
+                "structure": {
+                  "page": 2,
+                  "structural_change_id": 2
+                },
+                "causes": [
+                  {
+                    "page": 1,
+                    "structural_change_id": 1
+                  }
+                ],
+                "dy": -100
+              },
+              {
+                "structure": {
+                  "page": 2,
+                  "structural_change_id": 4
+                },
+                "causes": [
+                  {
+                    "page": 1,
+                    "structural_change_id": 1
+                  },
+                  {
+                    "page": 2,
+                    "structural_change_id": 3
+                  }
+                ],
+                "dy": -200
+              }
+            ],
+            "links": [
+              {
+                "link": {
+                  "source": {
+                    "page": {
+                      "side": 1,
+                      "page": 1
+                    },
+                    "top": 800,
+                    "height": 100,
+                    "bottom": 900
+                  },
+                  "target": {
+                    "page": {
+                      "side": 0,
+                      "page": 2
+                    },
+                    "top": 300,
+                    "height": 100,
+                    "bottom": 400
+                  },
+                  "text": [
+                    "FIRST ITEM FF"
+                  ],
+                  "support": 3,
+                  "status": "band_verified",
+                  "reason": null
+                },
+                "structures": [
+                  {
+                    "page": 1,
+                    "structural_change_id": 3
+                  },
+                  {
+                    "page": 2,
+                    "structural_change_id": 1
+                  }
+                ],
+                "causes": [
+                  {
+                    "page": 1,
+                    "structural_change_id": 1
+                  }
+                ],
+                "rows": 1
+              }
+            ],
+            "balance": [
+              {
+                "page": 1,
+                "rows_a": 6,
+                "rows_b": 6,
+                "cause_delta": -1,
+                "incoming": 0,
+                "outgoing": -1
+              },
+              {
+                "page": 2,
+                "rows_a": 6,
+                "rows_b": 4,
+                "cause_delta": -1,
+                "incoming": -1,
+                "outgoing": 0
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "evidence": {
+    "out/t3-1c-shared-diagnosis/complete/diagnosis.json": "4fb147db53eca5e05053e20e57679324c490dddfb7fd02d8368b79e0d7d73177",
+    "out/t3-1c-shared-diagnosis/complete/verification.json": "e8d6763fd8d0718c87f28af816c580515d8a24356127429c8131eb9b45b1e8a9",
+    "out/t3-1c-shared-diagnosis/build-complete.log": "0ec03d6dc18a447a79339ce0e29b1400fb8230c2c4b2a8a77153e892a21f7b32",
+    "out/t3-1c-shared-diagnosis/flow-tests.xml": "78157991634ebe31d6de1e9514a6d0bd70ece73081170d316add39ee327c7e94"
+  },
+  "tests": {
+    "total": 320,
+    "passed": 320,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 254.243,
+    "scope": "PageFlow classes",
+    "runner": "xUnit in-process non-parallel"
+  },
+  "build": {
+    "warnings": 0,
+    "errors": 0
+  },
+  "preliminary_issue": "Diagnostic audit used a with assignment on read-only PageFlowPageKey.Page; corrected to construct a new key before final run.",
+  "next_scope": "ambiguous_displacement only: candidate matched to all crossing rows, or existing nonflow proof for every eligible displacement alternative",
+  "outstanding": [
+    "product integration of four newly demonstrated directions",
+    "same-page-two in both directions remains unsupported",
+    "binding to original input and descriptor budget for new candidate proofs",
+    "numeric and global alignment and exclusion combinations",
+    "selection and unpaired generalization",
+    "input mutation and output failure integration",
+    "old-new full product regression and performance",
+    "A4 nine unmet cases",
+    "Windows and actual business reports",
+    "large-scale performance",
+    "deferred browser and JavaScript verification"
+  ]
+}

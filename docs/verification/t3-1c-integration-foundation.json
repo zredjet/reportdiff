@@ -1,0 +1,2324 @@
+{
+  "date": "2026-09-22",
+  "status": "core_descriptor_limits_and_range_gate_verified",
+  "task_complete": false,
+  "product_implementation_started": true,
+  "core_foundation_only": true,
+  "cli_connected": false,
+  "carry_setting_available": false,
+  "committed": false,
+  "released": false,
+  "limits": {
+    "selected_physical_pages": 128,
+    "source_page_descriptors": 256,
+    "total_lines": 32768,
+    "text_utf16_characters": 2097152,
+    "descriptor_pixels": 536870912,
+    "descriptor_accounted_bytes": 67108864,
+    "candidates": 128,
+    "proof_bands": 256,
+    "per_page_line_limit_unchanged": 2000,
+    "descriptor_budget_is_not_rss_cap": true
+  },
+  "tests": {
+    "new_tests": 33,
+    "total": 1746,
+    "failed": 0,
+    "skipped": 0,
+    "elapsed_seconds": 152.402,
+    "release_build_warnings": 0,
+    "release_build_errors": 0
+  },
+  "replay": {
+    "runs": 76,
+    "images_described": 332,
+    "ready": 24,
+    "skipped": 52,
+    "descriptors_match": true,
+    "adoption_links_and_page_choices_match": true,
+    "all_reason_strings_compared": false,
+    "input_pdf_hashes_checked": true,
+    "final_replay_matches_except_time": true,
+    "maximum_accounted_bytes": 353416,
+    "checks": [
+      {
+        "run": "shifted-R10-ab",
+        "ready": false,
+        "reasons": [
+          "unproven_endpoint_range",
+          "unproven_page_map"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 4,
+          "lines": 37,
+          "text_characters": 349,
+          "pixels": 8395200,
+          "descriptor_bytes": 235502
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 371.669
+      },
+      {
+        "run": "shifted-R10-ba",
+        "ready": false,
+        "reasons": [
+          "unproven_endpoint_range",
+          "unproven_page_map"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 4,
+          "lines": 37,
+          "text_characters": 349,
+          "pixels": 8395200,
+          "descriptor_bytes": 235502
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 166.8227
+      },
+      {
+        "run": "shifted-R11-ab",
+        "ready": true,
+        "reasons": [],
+        "selected_links": 2,
+        "usage": {
+          "pages": 5,
+          "lines": 45,
+          "text_characters": 423,
+          "pixels": 11394000,
+          "descriptor_bytes": 318981
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 127.8368
+      },
+      {
+        "run": "shifted-R11-ba",
+        "ready": true,
+        "reasons": [],
+        "selected_links": 2,
+        "usage": {
+          "pages": 5,
+          "lines": 45,
+          "text_characters": 423,
+          "pixels": 11394000,
+          "descriptor_bytes": 318981
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 112.2167
+      },
+      {
+        "run": "shifted-chain3-ab",
+        "ready": false,
+        "reasons": [
+          "unproven_endpoint_range",
+          "unproven_page_map"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 6,
+          "lines": 57,
+          "text_characters": 533,
+          "pixels": 12592800,
+          "descriptor_bytes": 353416
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 116.9412
+      },
+      {
+        "run": "shifted-chain3-ba",
+        "ready": false,
+        "reasons": [
+          "unproven_endpoint_range",
+          "unproven_page_map"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 6,
+          "lines": 57,
+          "text_characters": 533,
+          "pixels": 12592800,
+          "descriptor_bytes": 353416
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 104.9986
+      },
+      {
+        "run": "single-support-ab",
+        "ready": false,
+        "reasons": [
+          "fixed_parts_support",
+          "no_verified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 3,
+          "lines": 25,
+          "text_characters": 239,
+          "pixels": 6836400,
+          "descriptor_bytes": 191167
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 64.8729
+      },
+      {
+        "run": "single-support-ba",
+        "ready": false,
+        "reasons": [
+          "fixed_parts_support",
+          "no_verified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 3,
+          "lines": 25,
+          "text_characters": 239,
+          "pixels": 6836400,
+          "descriptor_bytes": 191167
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 64.7871
+      },
+      {
+        "run": "paired-content-tone-ab",
+        "ready": true,
+        "reasons": [],
+        "selected_links": 1,
+        "usage": {
+          "pages": 4,
+          "lines": 37,
+          "text_characters": 349,
+          "pixels": 4995000,
+          "descriptor_bytes": 169634
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 44.8262
+      },
+      {
+        "run": "paired-content-tone-ba",
+        "ready": true,
+        "reasons": [],
+        "selected_links": 1,
+        "usage": {
+          "pages": 4,
+          "lines": 37,
+          "text_characters": 349,
+          "pixels": 4995000,
+          "descriptor_bytes": 169634
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 43.2395
+      },
+      {
+        "run": "paired-boundary-tone-ab",
+        "ready": true,
+        "reasons": [],
+        "selected_links": 1,
+        "usage": {
+          "pages": 4,
+          "lines": 37,
+          "text_characters": 349,
+          "pixels": 4995000,
+          "descriptor_bytes": 169634
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 44.4604
+      },
+      {
+        "run": "paired-boundary-tone-ba",
+        "ready": true,
+        "reasons": [],
+        "selected_links": 1,
+        "usage": {
+          "pages": 4,
+          "lines": 37,
+          "text_characters": 349,
+          "pixels": 4995000,
+          "descriptor_bytes": 169634
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 41.5426
+      },
+      {
+        "run": "two-inserts-ab",
+        "ready": true,
+        "reasons": [],
+        "selected_links": 1,
+        "usage": {
+          "pages": 4,
+          "lines": 38,
+          "text_characters": 361,
+          "pixels": 4995000,
+          "descriptor_bytes": 169754
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 297.495
+      },
+      {
+        "run": "two-inserts-ba",
+        "ready": true,
+        "reasons": [],
+        "selected_links": 1,
+        "usage": {
+          "pages": 4,
+          "lines": 38,
+          "text_characters": 361,
+          "pixels": 4995000,
+          "descriptor_bytes": 169754
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 126.4436
+      },
+      {
+        "run": "two-inserts-tone-ab",
+        "ready": true,
+        "reasons": [],
+        "selected_links": 1,
+        "usage": {
+          "pages": 4,
+          "lines": 38,
+          "text_characters": 361,
+          "pixels": 4995000,
+          "descriptor_bytes": 169754
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 114.0215
+      },
+      {
+        "run": "two-inserts-tone-ba",
+        "ready": true,
+        "reasons": [],
+        "selected_links": 1,
+        "usage": {
+          "pages": 4,
+          "lines": 38,
+          "text_characters": 361,
+          "pixels": 4995000,
+          "descriptor_bytes": 169754
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 104.9217
+      },
+      {
+        "run": "flow-number-change-ab",
+        "ready": false,
+        "reasons": [
+          "unproven_endpoint_range",
+          "unproven_page_map"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 4,
+          "lines": 37,
+          "text_characters": 349,
+          "pixels": 4995000,
+          "descriptor_bytes": 169634
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 85.655
+      },
+      {
+        "run": "flow-number-change-ba",
+        "ready": false,
+        "reasons": [
+          "unproven_endpoint_range",
+          "unproven_page_map"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 4,
+          "lines": 37,
+          "text_characters": 349,
+          "pixels": 4995000,
+          "descriptor_bytes": 169634
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 46.2379
+      },
+      {
+        "run": "R10-ab",
+        "ready": true,
+        "reasons": [],
+        "selected_links": 1,
+        "usage": {
+          "pages": 4,
+          "lines": 37,
+          "text_characters": 349,
+          "pixels": 4995000,
+          "descriptor_bytes": 169634
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 306.7181
+      },
+      {
+        "run": "R10-ba",
+        "ready": true,
+        "reasons": [],
+        "selected_links": 1,
+        "usage": {
+          "pages": 4,
+          "lines": 37,
+          "text_characters": 349,
+          "pixels": 4995000,
+          "descriptor_bytes": 169634
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 126.8941
+      },
+      {
+        "run": "R11-ab",
+        "ready": true,
+        "reasons": [],
+        "selected_links": 2,
+        "usage": {
+          "pages": 5,
+          "lines": 45,
+          "text_characters": 423,
+          "pixels": 6243750,
+          "descriptor_bytes": 211896
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 155.6557
+      },
+      {
+        "run": "R11-ba",
+        "ready": true,
+        "reasons": [],
+        "selected_links": 2,
+        "usage": {
+          "pages": 5,
+          "lines": 45,
+          "text_characters": 423,
+          "pixels": 6243750,
+          "descriptor_bytes": 211896
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 137.7664
+      },
+      {
+        "run": "chain3-ab",
+        "ready": true,
+        "reasons": [],
+        "selected_links": 2,
+        "usage": {
+          "pages": 6,
+          "lines": 57,
+          "text_characters": 533,
+          "pixels": 7492500,
+          "descriptor_bytes": 254614
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 160.9247
+      },
+      {
+        "run": "chain3-ab-pages-1-3",
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 4,
+          "lines": 37,
+          "text_characters": 349,
+          "pixels": 4995000,
+          "descriptor_bytes": 169634
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 109.8965
+      },
+      {
+        "run": "chain3-ab-pages-1",
+        "ready": false,
+        "reasons": [
+          "fixed_parts_support",
+          "no_verified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 2,
+          "lines": 20,
+          "text_characters": 184,
+          "pixels": 2497500,
+          "descriptor_bytes": 84980
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 52.7306
+      },
+      {
+        "run": "chain3-ba",
+        "ready": true,
+        "reasons": [],
+        "selected_links": 2,
+        "usage": {
+          "pages": 6,
+          "lines": 57,
+          "text_characters": 533,
+          "pixels": 7492500,
+          "descriptor_bytes": 254614
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 163.9473
+      },
+      {
+        "run": "chain3-ba-pages-1-3",
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 4,
+          "lines": 37,
+          "text_characters": 349,
+          "pixels": 4995000,
+          "descriptor_bytes": 169634
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 109.4657
+      },
+      {
+        "run": "chain3-ba-pages-1",
+        "ready": false,
+        "reasons": [
+          "fixed_parts_support",
+          "no_verified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 2,
+          "lines": 20,
+          "text_characters": 184,
+          "pixels": 2497500,
+          "descriptor_bytes": 84980
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 51.7722
+      },
+      {
+        "run": "text-change-ab",
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map",
+          "unverified_candidates"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 4,
+          "lines": 37,
+          "text_characters": 351,
+          "pixels": 4995000,
+          "descriptor_bytes": 169638
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 91.1586
+      },
+      {
+        "run": "text-change-ba",
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map",
+          "unverified_candidates"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 4,
+          "lines": 37,
+          "text_characters": 351,
+          "pixels": 4995000,
+          "descriptor_bytes": 169638
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 41.9208
+      },
+      {
+        "run": "same-text-pixels-ab",
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map",
+          "unverified_candidates"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 4,
+          "lines": 37,
+          "text_characters": 349,
+          "pixels": 4995000,
+          "descriptor_bytes": 169634
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 41.8396
+      },
+      {
+        "run": "same-text-pixels-ba",
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map",
+          "unverified_candidates"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 4,
+          "lines": 37,
+          "text_characters": 349,
+          "pixels": 4995000,
+          "descriptor_bytes": 169634
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 41.7842
+      },
+      {
+        "run": "band-edge-tone-ab",
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map",
+          "unverified_candidates"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 4,
+          "lines": 37,
+          "text_characters": 349,
+          "pixels": 4995000,
+          "descriptor_bytes": 169634
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 41.6973
+      },
+      {
+        "run": "band-edge-tone-ba",
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map",
+          "unverified_candidates"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 4,
+          "lines": 37,
+          "text_characters": 349,
+          "pixels": 4995000,
+          "descriptor_bytes": 169634
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 41.6752
+      },
+      {
+        "run": "neighbor-tone-ab",
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map",
+          "unverified_candidates"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 4,
+          "lines": 37,
+          "text_characters": 349,
+          "pixels": 4995000,
+          "descriptor_bytes": 169634
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 42.3294
+      },
+      {
+        "run": "neighbor-tone-ba",
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map",
+          "unverified_candidates"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 4,
+          "lines": 37,
+          "text_characters": 349,
+          "pixels": 4995000,
+          "descriptor_bytes": 169634
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 41.5428
+      },
+      {
+        "run": "new-page-extra-ab",
+        "ready": true,
+        "reasons": [],
+        "selected_links": 2,
+        "usage": {
+          "pages": 5,
+          "lines": 45,
+          "text_characters": 423,
+          "pixels": 6243750,
+          "descriptor_bytes": 211896
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 51.6096
+      },
+      {
+        "run": "new-page-extra-ba",
+        "ready": true,
+        "reasons": [],
+        "selected_links": 2,
+        "usage": {
+          "pages": 5,
+          "lines": 45,
+          "text_characters": 423,
+          "pixels": 6243750,
+          "descriptor_bytes": 211896
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 52.0624
+      },
+      {
+        "run": "repeated-ab",
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map",
+          "unverified_candidates"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 4,
+          "lines": 37,
+          "text_characters": 349,
+          "pixels": 4995000,
+          "descriptor_bytes": 169634
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 42.8012
+      },
+      {
+        "run": "repeated-ba",
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map",
+          "unverified_candidates"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 4,
+          "lines": 37,
+          "text_characters": 349,
+          "pixels": 4995000,
+          "descriptor_bytes": 169634
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 42.2452
+      },
+      {
+        "run": "no-footer-ab",
+        "ready": false,
+        "reasons": [
+          "fixed_parts_support",
+          "no_verified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 4,
+          "lines": 29,
+          "text_characters": 273,
+          "pixels": 4995000,
+          "descriptor_bytes": 168714
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 42.7143
+      },
+      {
+        "run": "no-footer-ba",
+        "ready": false,
+        "reasons": [
+          "fixed_parts_support",
+          "no_verified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 4,
+          "lines": 29,
+          "text_characters": 273,
+          "pixels": 4995000,
+          "descriptor_bytes": 168714
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 41.5938
+      },
+      {
+        "run": "skia-local-R10-ab",
+        "ready": true,
+        "reasons": [],
+        "selected_links": 1,
+        "usage": {
+          "pages": 4,
+          "lines": 37,
+          "text_characters": 349,
+          "pixels": 4995000,
+          "descriptor_bytes": 169634
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 304.044
+      },
+      {
+        "run": "skia-local-R10-ba",
+        "ready": true,
+        "reasons": [],
+        "selected_links": 1,
+        "usage": {
+          "pages": 4,
+          "lines": 37,
+          "text_characters": 349,
+          "pixels": 4995000,
+          "descriptor_bytes": 169634
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 126.0834
+      },
+      {
+        "run": "skia-local-R11-ab",
+        "ready": true,
+        "reasons": [],
+        "selected_links": 2,
+        "usage": {
+          "pages": 5,
+          "lines": 45,
+          "text_characters": 423,
+          "pixels": 6243750,
+          "descriptor_bytes": 211896
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 141.1727
+      },
+      {
+        "run": "skia-local-R11-ba",
+        "ready": true,
+        "reasons": [],
+        "selected_links": 2,
+        "usage": {
+          "pages": 5,
+          "lines": 45,
+          "text_characters": 423,
+          "pixels": 6243750,
+          "descriptor_bytes": 211896
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 135.0233
+      },
+      {
+        "run": "skia-local-chain3-ab",
+        "ready": true,
+        "reasons": [],
+        "selected_links": 2,
+        "usage": {
+          "pages": 6,
+          "lines": 57,
+          "text_characters": 533,
+          "pixels": 7492500,
+          "descriptor_bytes": 254614
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 66.2565
+      },
+      {
+        "run": "skia-local-chain3-ba",
+        "ready": true,
+        "reasons": [],
+        "selected_links": 2,
+        "usage": {
+          "pages": 6,
+          "lines": 57,
+          "text_characters": 533,
+          "pixels": 7492500,
+          "descriptor_bytes": 254614
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 61.0038
+      },
+      {
+        "run": "skia-R10-ab",
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map",
+          "unverified_candidates"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 4,
+          "lines": 37,
+          "text_characters": 349,
+          "pixels": 4995000,
+          "descriptor_bytes": 169634
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 303.2958
+      },
+      {
+        "run": "skia-R10-ba",
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map",
+          "unverified_candidates"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 4,
+          "lines": 37,
+          "text_characters": 349,
+          "pixels": 4995000,
+          "descriptor_bytes": 169634
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 126.0961
+      },
+      {
+        "run": "skia-R11-ab",
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map",
+          "unverified_candidates"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 5,
+          "lines": 45,
+          "text_characters": 423,
+          "pixels": 6243750,
+          "descriptor_bytes": 211896
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 145.5257
+      },
+      {
+        "run": "skia-R11-ba",
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map",
+          "unverified_candidates"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 5,
+          "lines": 45,
+          "text_characters": 423,
+          "pixels": 6243750,
+          "descriptor_bytes": 211896
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 136.7553
+      },
+      {
+        "run": "skia-chain3-ab",
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map",
+          "unverified_candidates"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 6,
+          "lines": 57,
+          "text_characters": 533,
+          "pixels": 7492500,
+          "descriptor_bytes": 254614
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 64.3498
+      },
+      {
+        "run": "skia-chain3-ab-pages-1-3",
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 4,
+          "lines": 37,
+          "text_characters": 349,
+          "pixels": 4995000,
+          "descriptor_bytes": 169634
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 44.0267
+      },
+      {
+        "run": "skia-chain3-ab-pages-1",
+        "ready": false,
+        "reasons": [
+          "fixed_parts_support",
+          "no_verified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 2,
+          "lines": 20,
+          "text_characters": 184,
+          "pixels": 2497500,
+          "descriptor_bytes": 84980
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 21.5747
+      },
+      {
+        "run": "skia-chain3-ba",
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map",
+          "unverified_candidates"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 6,
+          "lines": 57,
+          "text_characters": 533,
+          "pixels": 7492500,
+          "descriptor_bytes": 254614
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 63.615
+      },
+      {
+        "run": "skia-chain3-ba-pages-1-3",
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 4,
+          "lines": 37,
+          "text_characters": 349,
+          "pixels": 4995000,
+          "descriptor_bytes": 169634
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 43.3414
+      },
+      {
+        "run": "skia-chain3-ba-pages-1",
+        "ready": false,
+        "reasons": [
+          "fixed_parts_support",
+          "no_verified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 2,
+          "lines": 20,
+          "text_characters": 184,
+          "pixels": 2497500,
+          "descriptor_bytes": 84980
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 21.8277
+      },
+      {
+        "run": "skia-text-change-ab",
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map",
+          "unverified_candidates"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 4,
+          "lines": 37,
+          "text_characters": 351,
+          "pixels": 4995000,
+          "descriptor_bytes": 169638
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 44.5045
+      },
+      {
+        "run": "skia-text-change-ba",
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map",
+          "unverified_candidates"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 4,
+          "lines": 37,
+          "text_characters": 351,
+          "pixels": 4995000,
+          "descriptor_bytes": 169638
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 43.4023
+      },
+      {
+        "run": "skia-band-tone-ab",
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map",
+          "unverified_candidates"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 4,
+          "lines": 37,
+          "text_characters": 349,
+          "pixels": 4995000,
+          "descriptor_bytes": 169634
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 42.2553
+      },
+      {
+        "run": "skia-band-tone-ba",
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map",
+          "unverified_candidates"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 4,
+          "lines": 37,
+          "text_characters": 349,
+          "pixels": 4995000,
+          "descriptor_bytes": 169634
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 41.9939
+      },
+      {
+        "run": "skia-paired-tone-ab",
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map",
+          "unverified_candidates"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 4,
+          "lines": 37,
+          "text_characters": 349,
+          "pixels": 4995000,
+          "descriptor_bytes": 169634
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 46.0492
+      },
+      {
+        "run": "skia-paired-tone-ba",
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map",
+          "unverified_candidates"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 4,
+          "lines": 37,
+          "text_characters": 349,
+          "pixels": 4995000,
+          "descriptor_bytes": 169634
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 41.2412
+      },
+      {
+        "run": "skia-boundary-tone-ab",
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map",
+          "unverified_candidates"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 4,
+          "lines": 37,
+          "text_characters": 349,
+          "pixels": 4995000,
+          "descriptor_bytes": 169634
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 40.9139
+      },
+      {
+        "run": "skia-boundary-tone-ba",
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map",
+          "unverified_candidates"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 4,
+          "lines": 37,
+          "text_characters": 349,
+          "pixels": 4995000,
+          "descriptor_bytes": 169634
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 43.7545
+      },
+      {
+        "run": "skia-extra-ab",
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map",
+          "unverified_candidates"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 5,
+          "lines": 45,
+          "text_characters": 423,
+          "pixels": 6243750,
+          "descriptor_bytes": 211896
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 53.8705
+      },
+      {
+        "run": "skia-extra-ba",
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map",
+          "unverified_candidates"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 5,
+          "lines": 45,
+          "text_characters": 423,
+          "pixels": 6243750,
+          "descriptor_bytes": 211896
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 57.8826
+      },
+      {
+        "run": "skia-repeated-ab",
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map",
+          "unverified_candidates"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 4,
+          "lines": 37,
+          "text_characters": 349,
+          "pixels": 4995000,
+          "descriptor_bytes": 169634
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 48.0824
+      },
+      {
+        "run": "skia-repeated-ba",
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map",
+          "unverified_candidates"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 4,
+          "lines": 37,
+          "text_characters": 349,
+          "pixels": 4995000,
+          "descriptor_bytes": 169634
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 43.7799
+      },
+      {
+        "run": "skia-partial-chain-ab",
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map",
+          "unverified_candidates"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 6,
+          "lines": 57,
+          "text_characters": 533,
+          "pixels": 7492500,
+          "descriptor_bytes": 254614
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 67.4321
+      },
+      {
+        "run": "skia-partial-chain-ba",
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map",
+          "unverified_candidates"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 6,
+          "lines": 57,
+          "text_characters": 533,
+          "pixels": 7492500,
+          "descriptor_bytes": 254614
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 64.7885
+      },
+      {
+        "run": "skia-edge-repeat-ab",
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map",
+          "unverified_candidates"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 7,
+          "lines": 67,
+          "text_characters": 674,
+          "pixels": 8741250,
+          "descriptor_bytes": 297202
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 78.7594
+      },
+      {
+        "run": "skia-edge-repeat-ba",
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map",
+          "unverified_candidates"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 7,
+          "lines": 67,
+          "text_characters": 674,
+          "pixels": 8741250,
+          "descriptor_bytes": 297202
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 72.4405
+      },
+      {
+        "run": "skia-fractional-ab",
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map",
+          "unverified_candidates"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 4,
+          "lines": 37,
+          "text_characters": 349,
+          "pixels": 4995000,
+          "descriptor_bytes": 169634
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 41.1587
+      },
+      {
+        "run": "skia-fractional-ba",
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map",
+          "unverified_candidates"
+        ],
+        "selected_links": 0,
+        "usage": {
+          "pages": 4,
+          "lines": 37,
+          "text_characters": 349,
+          "pixels": 4995000,
+          "descriptor_bytes": 169634
+        },
+        "descriptors_match": true,
+        "range_decision_matches": true,
+        "elapsed_ms": 41.4829
+      }
+    ]
+  },
+  "measurements": {
+    "platform": "darwin",
+    "scenarios": [
+      {
+        "scenario": "a4-2",
+        "accepted": true,
+        "processes": 3,
+        "median_ms": 235.1092,
+        "max_rss_bytes": 94617600,
+        "median_retained_bytes": 568480,
+        "failure_reasons": [],
+        "runs": [
+          {
+            "scenario": "a4-2",
+            "descriptor_only": true,
+            "requested_images": 4,
+            "accepted": true,
+            "failure_reason": null,
+            "usage": {
+              "pages": 4,
+              "lines": 200,
+              "text_characters": 4000,
+              "pixels": 34799360,
+              "descriptor_bytes": 490640
+            },
+            "elapsed_ms": 235.1092,
+            "managed_allocated_bytes": 965728,
+            "managed_retained_delta_bytes": 568480,
+            "process_peak_rss_bytes": 94044160,
+            "rss_source": "wait4.ru_maxrss"
+          },
+          {
+            "scenario": "a4-2",
+            "descriptor_only": true,
+            "requested_images": 4,
+            "accepted": true,
+            "failure_reason": null,
+            "usage": {
+              "pages": 4,
+              "lines": 200,
+              "text_characters": 4000,
+              "pixels": 34799360,
+              "descriptor_bytes": 490640
+            },
+            "elapsed_ms": 233.1288,
+            "managed_allocated_bytes": 965728,
+            "managed_retained_delta_bytes": 568480,
+            "process_peak_rss_bytes": 94568448,
+            "rss_source": "wait4.ru_maxrss"
+          },
+          {
+            "scenario": "a4-2",
+            "descriptor_only": true,
+            "requested_images": 4,
+            "accepted": true,
+            "failure_reason": null,
+            "usage": {
+              "pages": 4,
+              "lines": 200,
+              "text_characters": 4000,
+              "pixels": 34799360,
+              "descriptor_bytes": 490640
+            },
+            "elapsed_ms": 235.5941,
+            "managed_allocated_bytes": 965728,
+            "managed_retained_delta_bytes": 568480,
+            "process_peak_rss_bytes": 94617600,
+            "rss_source": "wait4.ru_maxrss"
+          }
+        ]
+      },
+      {
+        "scenario": "a4-16",
+        "accepted": true,
+        "processes": 3,
+        "median_ms": 870.6757,
+        "max_rss_bytes": 101679104,
+        "median_retained_bytes": 4325944,
+        "failure_reasons": [],
+        "runs": [
+          {
+            "scenario": "a4-16",
+            "descriptor_only": true,
+            "requested_images": 32,
+            "accepted": true,
+            "failure_reason": null,
+            "usage": {
+              "pages": 32,
+              "lines": 1600,
+              "text_characters": 32000,
+              "pixels": 278394880,
+              "descriptor_bytes": 3925120
+            },
+            "elapsed_ms": 874.0257,
+            "managed_allocated_bytes": 7555904,
+            "managed_retained_delta_bytes": 4335208,
+            "process_peak_rss_bytes": 101613568,
+            "rss_source": "wait4.ru_maxrss"
+          },
+          {
+            "scenario": "a4-16",
+            "descriptor_only": true,
+            "requested_images": 32,
+            "accepted": true,
+            "failure_reason": null,
+            "usage": {
+              "pages": 32,
+              "lines": 1600,
+              "text_characters": 32000,
+              "pixels": 278394880,
+              "descriptor_bytes": 3925120
+            },
+            "elapsed_ms": 870.6757,
+            "managed_allocated_bytes": 7549424,
+            "managed_retained_delta_bytes": 4325944,
+            "process_peak_rss_bytes": 101679104,
+            "rss_source": "wait4.ru_maxrss"
+          },
+          {
+            "scenario": "a4-16",
+            "descriptor_only": true,
+            "requested_images": 32,
+            "accepted": true,
+            "failure_reason": null,
+            "usage": {
+              "pages": 32,
+              "lines": 1600,
+              "text_characters": 32000,
+              "pixels": 278394880,
+              "descriptor_bytes": 3925120
+            },
+            "elapsed_ms": 864.8564,
+            "managed_allocated_bytes": 7549424,
+            "managed_retained_delta_bytes": 4325944,
+            "process_peak_rss_bytes": 101482496,
+            "rss_source": "wait4.ru_maxrss"
+          }
+        ]
+      },
+      {
+        "scenario": "a4-30",
+        "accepted": true,
+        "processes": 3,
+        "median_ms": 1504.3398,
+        "max_rss_bytes": 105218048,
+        "median_retained_bytes": 8061712,
+        "failure_reasons": [],
+        "runs": [
+          {
+            "scenario": "a4-30",
+            "descriptor_only": true,
+            "requested_images": 60,
+            "accepted": true,
+            "failure_reason": null,
+            "usage": {
+              "pages": 60,
+              "lines": 3000,
+              "text_characters": 60000,
+              "pixels": 521990400,
+              "descriptor_bytes": 7359600
+            },
+            "elapsed_ms": 1508.196,
+            "managed_allocated_bytes": 14127088,
+            "managed_retained_delta_bytes": 8061712,
+            "process_peak_rss_bytes": 105086976,
+            "rss_source": "wait4.ru_maxrss"
+          },
+          {
+            "scenario": "a4-30",
+            "descriptor_only": true,
+            "requested_images": 60,
+            "accepted": true,
+            "failure_reason": null,
+            "usage": {
+              "pages": 60,
+              "lines": 3000,
+              "text_characters": 60000,
+              "pixels": 521990400,
+              "descriptor_bytes": 7359600
+            },
+            "elapsed_ms": 1504.3398,
+            "managed_allocated_bytes": 14125488,
+            "managed_retained_delta_bytes": 8061712,
+            "process_peak_rss_bytes": 105218048,
+            "rss_source": "wait4.ru_maxrss"
+          },
+          {
+            "scenario": "a4-30",
+            "descriptor_only": true,
+            "requested_images": 60,
+            "accepted": true,
+            "failure_reason": null,
+            "usage": {
+              "pages": 60,
+              "lines": 3000,
+              "text_characters": 60000,
+              "pixels": 521990400,
+              "descriptor_bytes": 7359600
+            },
+            "elapsed_ms": 1491.2411,
+            "managed_allocated_bytes": 14061488,
+            "managed_retained_delta_bytes": 8061712,
+            "process_peak_rss_bytes": 105152512,
+            "rss_source": "wait4.ru_maxrss"
+          }
+        ]
+      },
+      {
+        "scenario": "a4-31",
+        "accepted": false,
+        "processes": 3,
+        "median_ms": 1515.9585,
+        "max_rss_bytes": 99631104,
+        "median_retained_bytes": 41616,
+        "failure_reasons": [
+          "flow_pixel_limit"
+        ],
+        "runs": [
+          {
+            "scenario": "a4-31",
+            "descriptor_only": true,
+            "requested_images": 62,
+            "accepted": false,
+            "failure_reason": "flow_pixel_limit",
+            "usage": {
+              "pages": 61,
+              "lines": 3050,
+              "text_characters": 61000,
+              "pixels": 530690240,
+              "descriptor_bytes": 7482260
+            },
+            "elapsed_ms": 1507.5058,
+            "managed_allocated_bytes": 14358344,
+            "managed_retained_delta_bytes": 41616,
+            "process_peak_rss_bytes": 99549184,
+            "rss_source": "wait4.ru_maxrss"
+          },
+          {
+            "scenario": "a4-31",
+            "descriptor_only": true,
+            "requested_images": 62,
+            "accepted": false,
+            "failure_reason": "flow_pixel_limit",
+            "usage": {
+              "pages": 61,
+              "lines": 3050,
+              "text_characters": 61000,
+              "pixels": 530690240,
+              "descriptor_bytes": 7482260
+            },
+            "elapsed_ms": 1529.7835,
+            "managed_allocated_bytes": 14357336,
+            "managed_retained_delta_bytes": 41616,
+            "process_peak_rss_bytes": 99336192,
+            "rss_source": "wait4.ru_maxrss"
+          },
+          {
+            "scenario": "a4-31",
+            "descriptor_only": true,
+            "requested_images": 62,
+            "accepted": false,
+            "failure_reason": "flow_pixel_limit",
+            "usage": {
+              "pages": 61,
+              "lines": 3050,
+              "text_characters": 61000,
+              "pixels": 530690240,
+              "descriptor_bytes": 7482260
+            },
+            "elapsed_ms": 1515.9585,
+            "managed_allocated_bytes": 14357624,
+            "managed_retained_delta_bytes": 41592,
+            "process_peak_rss_bytes": 99631104,
+            "rss_source": "wait4.ru_maxrss"
+          }
+        ]
+      },
+      {
+        "scenario": "dense-16",
+        "accepted": true,
+        "processes": 3,
+        "median_ms": 583.5184,
+        "max_rss_bytes": 89128960,
+        "median_retained_bytes": 11551208,
+        "failure_reasons": [],
+        "runs": [
+          {
+            "scenario": "dense-16",
+            "descriptor_only": true,
+            "requested_images": 16,
+            "accepted": true,
+            "failure_reason": null,
+            "usage": {
+              "pages": 16,
+              "lines": 32000,
+              "text_characters": 640000,
+              "pixels": 12800000,
+              "descriptor_bytes": 6465536
+            },
+            "elapsed_ms": 579.9879,
+            "managed_allocated_bytes": 74636216,
+            "managed_retained_delta_bytes": 11551208,
+            "process_peak_rss_bytes": 89128960,
+            "rss_source": "wait4.ru_maxrss"
+          },
+          {
+            "scenario": "dense-16",
+            "descriptor_only": true,
+            "requested_images": 16,
+            "accepted": true,
+            "failure_reason": null,
+            "usage": {
+              "pages": 16,
+              "lines": 32000,
+              "text_characters": 640000,
+              "pixels": 12800000,
+              "descriptor_bytes": 6465536
+            },
+            "elapsed_ms": 583.5184,
+            "managed_allocated_bytes": 74634792,
+            "managed_retained_delta_bytes": 11551160,
+            "process_peak_rss_bytes": 88473600,
+            "rss_source": "wait4.ru_maxrss"
+          },
+          {
+            "scenario": "dense-16",
+            "descriptor_only": true,
+            "requested_images": 16,
+            "accepted": true,
+            "failure_reason": null,
+            "usage": {
+              "pages": 16,
+              "lines": 32000,
+              "text_characters": 640000,
+              "pixels": 12800000,
+              "descriptor_bytes": 6465536
+            },
+            "elapsed_ms": 654.6453,
+            "managed_allocated_bytes": 74629368,
+            "managed_retained_delta_bytes": 11551232,
+            "process_peak_rss_bytes": 88670208,
+            "rss_source": "wait4.ru_maxrss"
+          }
+        ]
+      },
+      {
+        "scenario": "dense-17",
+        "accepted": false,
+        "processes": 3,
+        "median_ms": 656.9788,
+        "max_rss_bytes": 83968000,
+        "median_retained_bytes": 656744,
+        "failure_reasons": [
+          "flow_line_limit"
+        ],
+        "runs": [
+          {
+            "scenario": "dense-17",
+            "descriptor_only": true,
+            "requested_images": 17,
+            "accepted": false,
+            "failure_reason": "flow_line_limit",
+            "usage": {
+              "pages": 16,
+              "lines": 32000,
+              "text_characters": 640000,
+              "pixels": 12800000,
+              "descriptor_bytes": 6465536
+            },
+            "elapsed_ms": 811.3798,
+            "managed_allocated_bytes": 78819656,
+            "managed_retained_delta_bytes": 656744,
+            "process_peak_rss_bytes": 83968000,
+            "rss_source": "wait4.ru_maxrss"
+          },
+          {
+            "scenario": "dense-17",
+            "descriptor_only": true,
+            "requested_images": 17,
+            "accepted": false,
+            "failure_reason": "flow_line_limit",
+            "usage": {
+              "pages": 16,
+              "lines": 32000,
+              "text_characters": 640000,
+              "pixels": 12800000,
+              "descriptor_bytes": 6465536
+            },
+            "elapsed_ms": 656.9788,
+            "managed_allocated_bytes": 78885456,
+            "managed_retained_delta_bytes": 656744,
+            "process_peak_rss_bytes": 83197952,
+            "rss_source": "wait4.ru_maxrss"
+          },
+          {
+            "scenario": "dense-17",
+            "descriptor_only": true,
+            "requested_images": 17,
+            "accepted": false,
+            "failure_reason": "flow_line_limit",
+            "usage": {
+              "pages": 16,
+              "lines": 32000,
+              "text_characters": 640000,
+              "pixels": 12800000,
+              "descriptor_bytes": 6465536
+            },
+            "elapsed_ms": 654.0942,
+            "managed_allocated_bytes": 78883056,
+            "managed_retained_delta_bytes": 656696,
+            "process_peak_rss_bytes": 83394560,
+            "rss_source": "wait4.ru_maxrss"
+          }
+        ]
+      },
+      {
+        "scenario": "page-128",
+        "accepted": true,
+        "processes": 3,
+        "median_ms": 22.9451,
+        "max_rss_bytes": 65781760,
+        "median_retained_bytes": 1070040,
+        "failure_reasons": [],
+        "runs": [
+          {
+            "scenario": "page-128",
+            "descriptor_only": true,
+            "requested_images": 128,
+            "accepted": true,
+            "failure_reason": null,
+            "usage": {
+              "pages": 128,
+              "lines": 0,
+              "text_characters": 0,
+              "pixels": 256000,
+              "descriptor_bytes": 434688
+            },
+            "elapsed_ms": 21.9768,
+            "managed_allocated_bytes": 587872,
+            "managed_retained_delta_bytes": 1070040,
+            "process_peak_rss_bytes": 65568768,
+            "rss_source": "wait4.ru_maxrss"
+          },
+          {
+            "scenario": "page-128",
+            "descriptor_only": true,
+            "requested_images": 128,
+            "accepted": true,
+            "failure_reason": null,
+            "usage": {
+              "pages": 128,
+              "lines": 0,
+              "text_characters": 0,
+              "pixels": 256000,
+              "descriptor_bytes": 434688
+            },
+            "elapsed_ms": 24.628,
+            "managed_allocated_bytes": 587872,
+            "managed_retained_delta_bytes": 1067464,
+            "process_peak_rss_bytes": 65781760,
+            "rss_source": "wait4.ru_maxrss"
+          },
+          {
+            "scenario": "page-128",
+            "descriptor_only": true,
+            "requested_images": 128,
+            "accepted": true,
+            "failure_reason": null,
+            "usage": {
+              "pages": 128,
+              "lines": 0,
+              "text_characters": 0,
+              "pixels": 256000,
+              "descriptor_bytes": 434688
+            },
+            "elapsed_ms": 22.9451,
+            "managed_allocated_bytes": 588208,
+            "managed_retained_delta_bytes": 1070040,
+            "process_peak_rss_bytes": 65667072,
+            "rss_source": "wait4.ru_maxrss"
+          }
+        ]
+      },
+      {
+        "scenario": "page-129",
+        "accepted": false,
+        "processes": 3,
+        "median_ms": 0.2326,
+        "max_rss_bytes": 55099392,
+        "median_retained_bytes": 8328,
+        "failure_reasons": [
+          "flow_page_limit"
+        ],
+        "runs": [
+          {
+            "scenario": "page-129",
+            "descriptor_only": true,
+            "requested_images": 129,
+            "accepted": false,
+            "failure_reason": "flow_page_limit",
+            "usage": {
+              "pages": 0,
+              "lines": 0,
+              "text_characters": 0,
+              "pixels": 0,
+              "descriptor_bytes": 0
+            },
+            "elapsed_ms": 0.2326,
+            "managed_allocated_bytes": 784,
+            "managed_retained_delta_bytes": 8328,
+            "process_peak_rss_bytes": 54984704,
+            "rss_source": "wait4.ru_maxrss"
+          },
+          {
+            "scenario": "page-129",
+            "descriptor_only": true,
+            "requested_images": 129,
+            "accepted": false,
+            "failure_reason": "flow_page_limit",
+            "usage": {
+              "pages": 0,
+              "lines": 0,
+              "text_characters": 0,
+              "pixels": 0,
+              "descriptor_bytes": 0
+            },
+            "elapsed_ms": 0.2737,
+            "managed_allocated_bytes": 784,
+            "managed_retained_delta_bytes": 8328,
+            "process_peak_rss_bytes": 55099392,
+            "rss_source": "wait4.ru_maxrss"
+          },
+          {
+            "scenario": "page-129",
+            "descriptor_only": true,
+            "requested_images": 129,
+            "accepted": false,
+            "failure_reason": "flow_page_limit",
+            "usage": {
+              "pages": 0,
+              "lines": 0,
+              "text_characters": 0,
+              "pixels": 0,
+              "descriptor_bytes": 0
+            },
+            "elapsed_ms": 0.2133,
+            "managed_allocated_bytes": 1120,
+            "managed_retained_delta_bytes": 128,
+            "process_peak_rss_bytes": 54886400,
+            "rss_source": "wait4.ru_maxrss"
+          }
+        ]
+      },
+      {
+        "scenario": "metadata-127",
+        "accepted": true,
+        "processes": 3,
+        "median_ms": 443.4808,
+        "max_rss_bytes": 137576448,
+        "median_retained_bytes": 69333200,
+        "failure_reasons": [],
+        "runs": [
+          {
+            "scenario": "metadata-127",
+            "descriptor_only": true,
+            "requested_images": 127,
+            "accepted": true,
+            "failure_reason": null,
+            "usage": {
+              "pages": 127,
+              "lines": 0,
+              "text_characters": 0,
+              "pixels": 2032000,
+              "descriptor_bytes": 67068192
+            },
+            "elapsed_ms": 443.4808,
+            "managed_allocated_bytes": 67282128,
+            "managed_retained_delta_bytes": 69333200,
+            "process_peak_rss_bytes": 137576448,
+            "rss_source": "wait4.ru_maxrss"
+          },
+          {
+            "scenario": "metadata-127",
+            "descriptor_only": true,
+            "requested_images": 127,
+            "accepted": true,
+            "failure_reason": null,
+            "usage": {
+              "pages": 127,
+              "lines": 0,
+              "text_characters": 0,
+              "pixels": 2032000,
+              "descriptor_bytes": 67068192
+            },
+            "elapsed_ms": 443.5835,
+            "managed_allocated_bytes": 67288320,
+            "managed_retained_delta_bytes": 69342440,
+            "process_peak_rss_bytes": 137347072,
+            "rss_source": "wait4.ru_maxrss"
+          },
+          {
+            "scenario": "metadata-127",
+            "descriptor_only": true,
+            "requested_images": 127,
+            "accepted": true,
+            "failure_reason": null,
+            "usage": {
+              "pages": 127,
+              "lines": 0,
+              "text_characters": 0,
+              "pixels": 2032000,
+              "descriptor_bytes": 67068192
+            },
+            "elapsed_ms": 440.5911,
+            "managed_allocated_bytes": 67282128,
+            "managed_retained_delta_bytes": 69333200,
+            "process_peak_rss_bytes": 137216000,
+            "rss_source": "wait4.ru_maxrss"
+          }
+        ]
+      },
+      {
+        "scenario": "metadata-128",
+        "accepted": false,
+        "processes": 3,
+        "median_ms": 442.2102,
+        "max_rss_bytes": 130531328,
+        "median_retained_bytes": 16224,
+        "failure_reasons": [
+          "flow_descriptor_limit"
+        ],
+        "runs": [
+          {
+            "scenario": "metadata-128",
+            "descriptor_only": true,
+            "requested_images": 128,
+            "accepted": false,
+            "failure_reason": "flow_descriptor_limit",
+            "usage": {
+              "pages": 127,
+              "lines": 0,
+              "text_characters": 0,
+              "pixels": 2032000,
+              "descriptor_bytes": 67068192
+            },
+            "elapsed_ms": 441.3637,
+            "managed_allocated_bytes": 67278352,
+            "managed_retained_delta_bytes": 16224,
+            "process_peak_rss_bytes": 130531328,
+            "rss_source": "wait4.ru_maxrss"
+          },
+          {
+            "scenario": "metadata-128",
+            "descriptor_only": true,
+            "requested_images": 128,
+            "accepted": false,
+            "failure_reason": "flow_descriptor_limit",
+            "usage": {
+              "pages": 127,
+              "lines": 0,
+              "text_characters": 0,
+              "pixels": 2032000,
+              "descriptor_bytes": 67068192
+            },
+            "elapsed_ms": 442.2102,
+            "managed_allocated_bytes": 67278352,
+            "managed_retained_delta_bytes": 16224,
+            "process_peak_rss_bytes": 130318336,
+            "rss_source": "wait4.ru_maxrss"
+          },
+          {
+            "scenario": "metadata-128",
+            "descriptor_only": true,
+            "requested_images": 128,
+            "accepted": false,
+            "failure_reason": "flow_descriptor_limit",
+            "usage": {
+              "pages": 127,
+              "lines": 0,
+              "text_characters": 0,
+              "pixels": 2032000,
+              "descriptor_bytes": 67068192
+            },
+            "elapsed_ms": 443.1437,
+            "managed_allocated_bytes": 67278016,
+            "managed_retained_delta_bytes": 16224,
+            "process_peak_rss_bytes": 130039808,
+            "rss_source": "wait4.ru_maxrss"
+          }
+        ]
+      },
+      {
+        "scenario": "candidates-128",
+        "accepted": true,
+        "processes": 3,
+        "median_ms": 4.4472,
+        "max_rss_bytes": 65486848,
+        "median_retained_bytes": null,
+        "failure_reasons": [],
+        "runs": [
+          {
+            "scenario": "candidates-128",
+            "range_gate_only": true,
+            "candidates": 128,
+            "accepted": true,
+            "reasons": [],
+            "selected_links": 128,
+            "elapsed_ms": 4.4472,
+            "process_peak_rss_bytes": 65404928,
+            "rss_source": "wait4.ru_maxrss"
+          },
+          {
+            "scenario": "candidates-128",
+            "range_gate_only": true,
+            "candidates": 128,
+            "accepted": true,
+            "reasons": [],
+            "selected_links": 128,
+            "elapsed_ms": 4.3464,
+            "process_peak_rss_bytes": 65339392,
+            "rss_source": "wait4.ru_maxrss"
+          },
+          {
+            "scenario": "candidates-128",
+            "range_gate_only": true,
+            "candidates": 128,
+            "accepted": true,
+            "reasons": [],
+            "selected_links": 128,
+            "elapsed_ms": 4.6531,
+            "process_peak_rss_bytes": 65486848,
+            "rss_source": "wait4.ru_maxrss"
+          }
+        ]
+      },
+      {
+        "scenario": "candidates-129",
+        "accepted": false,
+        "processes": 3,
+        "median_ms": 1.659,
+        "max_rss_bytes": 65470464,
+        "median_retained_bytes": null,
+        "failure_reasons": [],
+        "runs": [
+          {
+            "scenario": "candidates-129",
+            "range_gate_only": true,
+            "candidates": 129,
+            "accepted": false,
+            "reasons": [
+              "flow_candidate_limit"
+            ],
+            "selected_links": 0,
+            "elapsed_ms": 1.6353,
+            "process_peak_rss_bytes": 65339392,
+            "rss_source": "wait4.ru_maxrss"
+          },
+          {
+            "scenario": "candidates-129",
+            "range_gate_only": true,
+            "candidates": 129,
+            "accepted": false,
+            "reasons": [
+              "flow_candidate_limit"
+            ],
+            "selected_links": 0,
+            "elapsed_ms": 2.3179,
+            "process_peak_rss_bytes": 65470464,
+            "rss_source": "wait4.ru_maxrss"
+          },
+          {
+            "scenario": "candidates-129",
+            "range_gate_only": true,
+            "candidates": 129,
+            "accepted": false,
+            "reasons": [
+              "flow_candidate_limit"
+            ],
+            "selected_links": 0,
+            "elapsed_ms": 1.659,
+            "process_peak_rss_bytes": 65126400,
+            "rss_source": "wait4.ru_maxrss"
+          }
+        ]
+      }
+    ],
+    "processes": 36,
+    "pdf_rendering_included": false,
+    "image_comparison_included": false,
+    "product_runtime_acceptance": false
+  },
+  "compatibility": {
+    "previous_product_files_unchanged": 81,
+    "added_core_files": 3,
+    "existing_cli_report_pdf_sources_unchanged": true,
+    "new_core_types_unused_by_cli": true,
+    "previous_reference_mask_comparisons_repeated": false,
+    "cli_190_run_compatibility_repeated": false,
+    "all_raw_evidence_images_repeated": false,
+    "windows_or_browser_acceptance_repeated": false
+  },
+  "remaining": [
+    "core_candidate_generation_and_actual_band_image_verification",
+    "core_content_display_surfaces_and_causal_aggregation",
+    "carry_configuration_cli_and_report_integration",
+    "global_alignment_regions_exclusions_selection_and_atomic_output",
+    "multiple_cause_separation_and_text_change_aggregation_unproven",
+    "real_cli_performance_windows_and_browser_acceptance"
+  ],
+  "source_sha256": {
+    "src/ReportDiff.Core/PageFlowCollector.cs": "6963e45d7589759c244acd12092e0894ca2ba9100eca4581f60eea0834fb03d9",
+    "src/ReportDiff.Core/PageFlowData.cs": "0ea7d3d9b3a8416e27887563856fc0e76a12a6550b4b08756e99e66f14459fe0",
+    "src/ReportDiff.Core/PageFlowRangeGate.cs": "86814cbf0d130ef25b9d6c70822b8867910c2bc1ed7dc61d9d35e10f9bf5d637",
+    "tests/ReportDiff.Tests/PageFlowFoundationTests.cs": "fbf1bb0f63789a13e02cdf3a387dd676c7c6de754553573da806b2c19d96a9b6",
+    "tools/ReportDiff.PageFlowProbe/FoundationProbe.cs": "27eba1da90f62d771f6de55ab1b947243e08b0a09cb9e93899198f7a40715778",
+    "tools/ReportDiff.PageFlowProbe/measure-foundation.py": "3e48f114c4c4da46987c315cdf9996268b5e9260f30a336f4d087d648b3829f8",
+    "tools/ReportDiff.PageFlowProbe/Program.cs": "d9fb40f9d2d306a0c248a9ac531854e15e1cd73e6ab6d394ffdd10df2c4548ea"
+  },
+  "evidence_sha256": {
+    "out/t3-1c-foundation/replay-final/additional.json": "d5bd4bbea82a42175d911628be42b3df5f918d8b8302bc89a55a306cf8488cf7",
+    "out/t3-1c-foundation/replay-final/causal.json": "412431af4bf6e2d6b7a7201a7ea9ef47a44489f7ca51e99b25fcef70a2dc470d",
+    "out/t3-1c-foundation/replay-final/fixed.json": "0ad2f9e2530156f2ddd0a472327b6f5707bc097ab5fee803651e4e11c172965e",
+    "out/t3-1c-foundation/replay-final/skia-local.json": "00698a73dcaf10ef93aa70c6a9e98de467db075fdc3f1899dc28cedd78568624",
+    "out/t3-1c-foundation/replay-final/skia.json": "26d5d76e6072a52ce7ae0b6ba529d9067b755fee5acc566158599a107532c193",
+    "out/t3-1c-foundation/measure-final/a4-16-0.json": "fa660167b465239a3afbbc8737a8ec76cd424c73786b3a1b60b8c36b589446dc",
+    "out/t3-1c-foundation/measure-final/a4-16-1.json": "ee81bd318f8966479e00938c793929cc1076250abd8de27411355f00d9ba72a3",
+    "out/t3-1c-foundation/measure-final/a4-16-2.json": "f9366d92683a5c7424a7922b1e68afdcd21049fae96f8bbd77f1619d69559f97",
+    "out/t3-1c-foundation/measure-final/a4-2-0.json": "77c3527dccb13a46c3e5d2e6ce9fd077f201319436448cc2340f3895f5f43ac0",
+    "out/t3-1c-foundation/measure-final/a4-2-1.json": "aa75134dd46e6606042437478b19d01b5d24d6a12d29012a401bffa1ed9226dc",
+    "out/t3-1c-foundation/measure-final/a4-2-2.json": "cffbe1c88cbbf25b088f07c1691999a286d0ab63e16bcbdc380a8859cf9f726c",
+    "out/t3-1c-foundation/measure-final/a4-30-0.json": "675771528380f416be730fe6461cd6ee59861a062721cfb10ced07eccd7b2d75",
+    "out/t3-1c-foundation/measure-final/a4-30-1.json": "ffbd1a809873e5c14cba8c2cc61c9d2e0f188e6a91f2df10ca4ebc6a0e72a3a5",
+    "out/t3-1c-foundation/measure-final/a4-30-2.json": "f5e313567cbb9aa5215dd2b14d72d84623705d3cf6db44ae075c8e528be5eb2e",
+    "out/t3-1c-foundation/measure-final/a4-31-0.json": "31226d23cc13071fa1e1f3d8f716c078abbc0ab7e959cb17a0fcf03397572876",
+    "out/t3-1c-foundation/measure-final/a4-31-1.json": "9f0fdf44931716faded2707185887d954beb9965db8186bb53580792763a6b6f",
+    "out/t3-1c-foundation/measure-final/a4-31-2.json": "9b9074a844a7bb40feec50b366511d73ae16950eb51ed89ea276be78e12dcde0",
+    "out/t3-1c-foundation/measure-final/candidates-128-0.json": "be1d9a052d1ca00c024e7306ff8badc1a1d57d8d80ae202c029c38b6351ab271",
+    "out/t3-1c-foundation/measure-final/candidates-128-1.json": "1d7ba05580a6fe1f283a7190c225bf6975042cb62ed71a52f72c88af26367e18",
+    "out/t3-1c-foundation/measure-final/candidates-128-2.json": "f3010f0942ecf654f40d1ed5c03154d2cd372cead2a083610387d4ab2a9b701a",
+    "out/t3-1c-foundation/measure-final/candidates-129-0.json": "84d9b390ba396bb1d1d1bbd52ad6d22a1b745522d413fa14596bf29315a5b87e",
+    "out/t3-1c-foundation/measure-final/candidates-129-1.json": "60d5e8ab36f92ad864908f30a02921e48adf1a31c5403e5c19bdbe1eda378029",
+    "out/t3-1c-foundation/measure-final/candidates-129-2.json": "95567944410ff03fe306a0548f5241174d7614942727e7bef46fdd4de209c93e",
+    "out/t3-1c-foundation/measure-final/dense-16-0.json": "2d17ddb84a143d4ff06384b7b7b1ca303c82670e9a70d0648e5b8eb9e8ff7dca",
+    "out/t3-1c-foundation/measure-final/dense-16-1.json": "3f6714f97d0a5cd94d2814f2af8cc3ee1d8a29bd12382d3bc51c94a93d2d3af4",
+    "out/t3-1c-foundation/measure-final/dense-16-2.json": "0afa35f120f507b5635f8625b9cb320f98dde0804ee057c65ccc218f7a47fb58",
+    "out/t3-1c-foundation/measure-final/dense-17-0.json": "f9c268d9aa62f1b3d8e2ad2e139131a0d0bbd6afc6988659ffd543f6a24d0906",
+    "out/t3-1c-foundation/measure-final/dense-17-1.json": "6973b6bdbb00530476462c9daed63c22f60fe7c70ee508683a41d578656d56e2",
+    "out/t3-1c-foundation/measure-final/dense-17-2.json": "f97a9acf15e62b109014e7d49e40a5c8690478fecc1c4bcd2810de38c6579f38",
+    "out/t3-1c-foundation/measure-final/metadata-127-0.json": "472728ff50e905363a632b931a7c4e548374e37b4f3cdd71d0db56a59d2f1d2c",
+    "out/t3-1c-foundation/measure-final/metadata-127-1.json": "e2b9afd596da22c524679608ed62d92879bea50f37a4a0c32dbd4e96a840ba9a",
+    "out/t3-1c-foundation/measure-final/metadata-127-2.json": "6c2e0b8ce933026f6bc18bbea728d6390c6b64fc23aba7c54504fb34a2f73771",
+    "out/t3-1c-foundation/measure-final/metadata-128-0.json": "2e6a7aeca0dcce810694394b5836396dd725c1bfcddd8bf0e2a4274aae2ec86f",
+    "out/t3-1c-foundation/measure-final/metadata-128-1.json": "06f31cbeb1f6752e2db11742f21b995c826626a61e265ee5ca637ae37c84cf39",
+    "out/t3-1c-foundation/measure-final/metadata-128-2.json": "38019a297d6bca5c54cf9c211d3b5e806fd5bbdf4782cde6954cb92f1fb8fd7f",
+    "out/t3-1c-foundation/measure-final/page-128-0.json": "9bcf644814cc0243c1a32c1a0f9d8465aaece423578b4eb19f8a40b7aca732cf",
+    "out/t3-1c-foundation/measure-final/page-128-1.json": "8d5e1d88cd2ce9c160f19f8f74b6d930f782aa08808d886662ca2d0edcd7e74e",
+    "out/t3-1c-foundation/measure-final/page-128-2.json": "e85936501b3049d5512d102440f81e9924f5ab8b900e8fcf94832ebb710d42ed",
+    "out/t3-1c-foundation/measure-final/page-129-0.json": "f1840b5a9bca365a2a0a5dbd38c1f40524ff71c3cefbf1a800516a5f5ac3f0e9",
+    "out/t3-1c-foundation/measure-final/page-129-1.json": "df12c050f777857892511f1b58bde4f253a27d32975c528ea653deaa7e8486d2",
+    "out/t3-1c-foundation/measure-final/page-129-2.json": "1f7841f13f276018f2d6d1fd6108849a64f2e1f053631cf4d46d2e8d10ce68c8",
+    "out/t3-1c-foundation/measure-final/summary.json": "917ca2e96def67087b5890a7609d6b47e43fab7bf117ca0e4b17e00b23d620a2",
+    "out/t3-1c-foundation/all-tests.xml": "b146ee44dc88a65437836c6615789d725d41a4062e4de2abf3a26b4f1f0c2b34",
+    "out/t3-1c-foundation/foundation-tests.xml": "86b843bb09edaad11ac699d9f39d4068dc9242f164faee559997d96f509d453c"
+  }
+}

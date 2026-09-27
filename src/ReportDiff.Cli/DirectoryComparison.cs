@@ -1,4 +1,5 @@
 using ReportDiff.Report;
+using ReportDiff.Pdf;
 
 namespace ReportDiff.Cli;
 
@@ -14,6 +15,7 @@ internal static class DirectoryComparison
         using var workspace = new OutputWorkspace(command.Output, command.Force,
             rules.ProtectedFiles.Concat(new[] { plan.RootA, plan.RootB }).ToArray());
         var files = new List<DirectoryFileResult>();
+        var anchoredInputs = new List<(int Index, ReportInputs Inputs)>();
         var warnings = new List<ReportWarning>();
         foreach (var pair in plan.Pairs)
         {
@@ -48,6 +50,7 @@ internal static class DirectoryComparison
                 else if (OperatingSystem.IsWindows() || OperatingSystem.IsMacOS() || OperatingSystem.IsLinux())
                     report = ComparisonRunner.Compare(single, rule?.Settings ?? rules.Common, child, progress);
                 else throw new CommandLineException("この実行環境では比較処理に対応していません。");
+                if (report.PageFlow?.AnchoredContent?.Status == "applied") anchoredInputs.Add((files.Count, report.Inputs));
                 files.Add(Result(report.Summary.Status) with
                 {
                     SelectedRule = rule?.Description,
@@ -72,6 +75,25 @@ internal static class DirectoryComparison
                 error.WriteLine($"エラー: {CliApplication.OneLine(pair.RelativePath)}: {CliApplication.OneLine(failure.Message)}");
             }
         }
+        if (anchoredInputs.Count > 0) progress.Report(directory: true);
+        // 個別の保存後、残りの対の処理中に入力が変わった場合も、公開する一覧へ成功を残さない。
+        foreach (var (index, inputs) in anchoredInputs)
+        {
+            try
+            {
+                if (ReportInput.FromFile(inputs.A.Path, InputFormat.Pdf, inputs.A.Pages).Sha256 != inputs.A.Sha256
+                    || ReportInput.FromFile(inputs.B.Path, InputFormat.Pdf, inputs.B.Pages).Sha256 != inputs.B.Sha256)
+                    throw new CommandLineException("送りの検証中に入力ファイルが変わりました。入力を固定して再実行してください。");
+            }
+            catch (Exception ex)
+            {
+                var item = files[index]; var child = Path.Combine(workspace.StagingPath, "files", item.Id);
+                if (Directory.Exists(child)) Directory.Delete(child, recursive: true);
+                var failure = new DirectoryFileError("COMPARISON_FAILED", CliApplication.ErrorMessage(ex));
+                files[index] = item with { Status = "error", Comparison = null, WarningCount = null, Json = null, Html = null, Error = failure };
+                progress.EndLine(); error.WriteLine($"エラー: {CliApplication.OneLine(item.RelativePath)}: {CliApplication.OneLine(failure.Message)}");
+            }
+        }
         if (files.Count == 0)
         {
             var warning = new ReportWarning("NO_TARGET_FILES", "比較対象のファイルがありません。入力フォルダと対応拡張子を確認してください。");
@@ -84,8 +106,13 @@ internal static class DirectoryComparison
         var summary = new DirectorySummary(state, files.Count, same + different, same, different, onlyA, onlyB, errors, plan.Ignored.Count);
         var document = new DirectoryReportDocument(1, "directory_comparison", ReportTool.Current, DateTimeOffset.UtcNow,
             new(plan.RootA, plan.RootB), rules.Description, summary, files, plan.Ignored, warnings);
-        progress.Report(directory: true);
+        if (anchoredInputs.Count == 0) progress.Report(directory: true);
         DirectoryReportWriter.Write(workspace.StagingPath, document, command.NoHtml);
+        // 一覧の書込中にも変更された場合は公開自体を中止し、外側workspaceで旧一覧を保持する。
+        foreach (var (index, inputs) in anchoredInputs.Where(x => files[x.Index].Status != "error"))
+            if (ReportInput.FromFile(inputs.A.Path, InputFormat.Pdf, inputs.A.Pages).Sha256 != inputs.A.Sha256
+                || ReportInput.FromFile(inputs.B.Path, InputFormat.Pdf, inputs.B.Pages).Sha256 != inputs.B.Sha256)
+                throw new CommandLineException("一覧の公開直前に入力ファイルが変わりました。入力を固定して再実行してください。");
         workspace.Commit();
         progress.EndLine();
         if (!command.Quiet)

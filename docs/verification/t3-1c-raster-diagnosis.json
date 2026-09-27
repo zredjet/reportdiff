@@ -1,0 +1,895 @@
+{
+  "date": "2026-09-23",
+  "scope": "fixed A4 PDF raster and C/D diagnosis; not product adoption acceptance",
+  "platform": "macOS arm64",
+  "pdf_to_image": "5.4.0",
+  "pdfium": "152.0.7961",
+  "source_reference": "https://github.com/sungaila/PDFtoImage/blob/5948628cb2cf7d070c7fd28b1b4496db39e3afcd/src/PDFtoImage/Internals/PdfDocument.cs",
+  "fixed_pdfs": 12,
+  "original_pages": 24,
+  "matched_body_pairs": 288,
+  "renderer_modes": 4,
+  "original_pngs_equal_previous": 24,
+  "default_api_pixels_equal_product": 24,
+  "ceil_crops_equal_default": 24,
+  "independently_reconstructed_c_pages": 4,
+  "independently_projected_d_pages": 4,
+  "python_reference": [
+    {
+      "case": "integer",
+      "page": 1,
+      "raw": 13452,
+      "clusters": 2,
+      "csharp_mask_equal": true
+    },
+    {
+      "case": "integer",
+      "page": 2,
+      "raw": 13452,
+      "clusters": 2,
+      "csharp_mask_equal": true
+    },
+    {
+      "case": "sparse",
+      "page": 1,
+      "raw": 0,
+      "clusters": 0,
+      "csharp_mask_equal": true
+    },
+    {
+      "case": "sparse",
+      "page": 2,
+      "raw": 0,
+      "clusters": 0,
+      "csharp_mask_equal": true
+    }
+  ],
+  "build": {
+    "configuration": "Release",
+    "warnings": 0,
+    "errors": 0
+  },
+  "full_test_suite_rerun": false,
+  "previous_passing_tests": 1806,
+  "product_source_files_unchanged": 99,
+  "source_snapshot_sha256": {
+    "src/ReportDiff.Cli/AppSettings.cs": "b2c292532fc4286929a10c817b458a6373f94de9c635a1a300f8526647289b95",
+    "src/ReportDiff.Cli/AssemblyInfo.cs": "502510d8fadecad038256039d5f9b86967f68a15afc8678f06377713652881d3",
+    "src/ReportDiff.Cli/CliApplication.cs": "54873694ca6511b77f5e34e7a42e9319337a7ecc470aa55e0f20e6eba397a92b",
+    "src/ReportDiff.Cli/CommandLine.cs": "bc67f040e1ef7f8bfc4d516471426ff7aaa19126234d966e56848568723e4467",
+    "src/ReportDiff.Cli/ComparisonInput.cs": "1d754daa49db5501b96670b7df72a2564a7c6c635646a4bce214aa34c3d39d5f",
+    "src/ReportDiff.Cli/ComparisonRunner.cs": "66c5159d9707e254702db62c7f52b1fac267291a987a4e18f0c73b028e6ce853",
+    "src/ReportDiff.Cli/ConfigurationLoader.cs": "03230e1db64a78de9c354ca7c07729025f37c25c02075b58e9c1e05f2795c1a2",
+    "src/ReportDiff.Cli/ConsoleProgress.cs": "6cd669d3cd61c5bc85fef7f1b7f00205c74f34222104c492e747fc38e87eb69c",
+    "src/ReportDiff.Cli/DirectoryComparison.cs": "c85858c3b976f57197c0229784914fb8f591f35493d0e5c525347242d0dbb354",
+    "src/ReportDiff.Cli/DirectoryPlan.cs": "2ecb852089f07c15d4a9034207d81f83f58f2a3908580b4c0b08d63094ac9d28",
+    "src/ReportDiff.Cli/DirectoryRules.cs": "787adc3a21ec140d80da80b092bd280917b346bfe64190f5cc40e56be6353191",
+    "src/ReportDiff.Cli/OutputWorkspace.cs": "51acec7c80adca8d3e48921cb398737dcd989d5891ae414fd70b666927ce669e",
+    "src/ReportDiff.Cli/PageFlowRun.cs": "ba07f0642490355bddaf000470de14a210908b022a75ee7dc66567a2524fa616",
+    "src/ReportDiff.Cli/Program.cs": "b7a3b4da069f34065cf8b42f618a5828c84090358479cc58fe84755c528448c6",
+    "src/ReportDiff.Cli/RegionSetting.cs": "996d86b96f8650d79a77c6865c037939a9d792550cbdde062a9738c05481f316",
+    "src/ReportDiff.Cli/ReportDiff.Cli.csproj": "3e2795af95b113d59193c85dd18d57b33b6ea3b48194ed6bd4f286fcdd4ecca7",
+    "src/ReportDiff.Core/AssemblyInfo.cs": "060494a4b480a2d869fb11948811c14bcc777dbd4aa419b50dff4dce085b180c",
+    "src/ReportDiff.Core/CandidateRowSchedule.cs": "d3c3deb2467083a063e2f9d5a522760ca616ff74d3439c92830e1ddd91c329d9",
+    "src/ReportDiff.Core/ClusterProjectionData.cs": "e66b6b052b86092d2038a4f8e6fd010a75a9575dc74991730b4137fdc5a16015",
+    "src/ReportDiff.Core/ComparisonFeatures.cs": "b8c53bfdede76a9623d26c6f3ef48e28e5f690f875a4f4defbc38d6930211fda",
+    "src/ReportDiff.Core/ComparisonInk.cs": "bb06f1b539af62988ece41b65d992c07c8c791ab41d3ee087e2ae6c4bfadcf03",
+    "src/ReportDiff.Core/ComparisonParameters.cs": "5d4f15ca53e464931a8458a6b1bbf78769c1f14e9ab4162df5a6a7caf3cccee4",
+    "src/ReportDiff.Core/ComparisonTimings.cs": "0f6b8bf17f527e6f20d0eeea01e87437d663bddc866ac84f91e527b665e4f981",
+    "src/ReportDiff.Core/DifferenceClassifier.cs": "dc43e65f285a86b9ce926e19ea5145904e6d516c39f5d01a4b742817c38f134c",
+    "src/ReportDiff.Core/FeatureStripeSchedule.cs": "c9a602a01dc32d731af4bef1b7ef1923254a27e60a6b1bd3a81c7e14bf14549d",
+    "src/ReportDiff.Core/GlobalAlignment.cs": "eaa3777e70ed94b4bf171c5414426138fde5fc7627410015af7511e625f9d034",
+    "src/ReportDiff.Core/GroupCandidateSchedule.cs": "a8bb6419e82d6e1b932de721e83267ce5788e577b1da8441abbede8c5ffeda57",
+    "src/ReportDiff.Core/GroupCandidateSearch.cs": "ca903b3a82423f993043126dfa015c90a5f8adebf0a0ba296034bfcef431a698",
+    "src/ReportDiff.Core/GroupRunIndex.cs": "28ff0084042dc65d92ba6e1aa95f07b560801c056d54c320b6d302e6e2281f4e",
+    "src/ReportDiff.Core/GroupSearchSchedule.cs": "b36fcd6ee1a9c7faa086e85fcd00dbb6c3a6f1bf86a268b82318f92890fa02cb",
+    "src/ReportDiff.Core/GroupShiftSearch.cs": "6e95c31ab2c87acddeb01a6b863d817542319d2362858553b27cc5b9dc8dafba",
+    "src/ReportDiff.Core/ImageInk.cs": "3f3cefe9141fac6275b30d87a83d742e5330130d81294c21e67581cddf72be09",
+    "src/ReportDiff.Core/InitialCandidates.cs": "74822751930b3401ca4145b7ec5e9e2cfe6f0569a234c8f189d580d8301136d2",
+    "src/ReportDiff.Core/LabStripeCache.cs": "f68aff9007a05c249158ffe1ce6079eb685fab9e638bd81469dc4e26606609ff",
+    "src/ReportDiff.Core/MatBuffers.cs": "d196bd1541bd385b89ab9fd78882498c0ead5b2239d89c0bb19b39f8d7af45f9",
+    "src/ReportDiff.Core/MovementAnnotator.cs": "f6ceb5f6a84b2b08da0dc8daa5d71861462d308f6f9390594fdd3fafc599e9b8",
+    "src/ReportDiff.Core/PageComparer.cs": "d560b3f307a0f6c37539ac36dd1157f394ac9eb77fe2223d9cea24d7087434e8",
+    "src/ReportDiff.Core/PageComparison.cs": "310e74bb4ac5c520cc3d853bdcd2aa939cafb52a19c08e8569d64b04f0e3847b",
+    "src/ReportDiff.Core/PageFlowAdoption.cs": "6a5c30ab3573ebc068c5a4902abe2ce49d54d427d92b67a361c0d382702f5a91",
+    "src/ReportDiff.Core/PageFlowAggregation.cs": "fe38853cef2b9a2e964fc04f05e5257384dfd3ae8feac7d34f0fbe96127c8432",
+    "src/ReportDiff.Core/PageFlowBandVerifier.cs": "8fbb7d6be0e06510eb4e0287410708b31422a1e0924166f76e15d44fb29026e1",
+    "src/ReportDiff.Core/PageFlowCollector.cs": "6963e45d7589759c244acd12092e0894ca2ba9100eca4581f60eea0834fb03d9",
+    "src/ReportDiff.Core/PageFlowComparison.cs": "834f6372b11b6d5c13136bb576d8a8d938dccf60ec1ba71fa42f914de6770be0",
+    "src/ReportDiff.Core/PageFlowData.cs": "0ea7d3d9b3a8416e27887563856fc0e76a12a6550b4b08756e99e66f14459fe0",
+    "src/ReportDiff.Core/PageFlowInference.cs": "3eb15341443e8eacc2d6e9486b124a9f49955af44c5ed25d75c3a7f37cda2689",
+    "src/ReportDiff.Core/PageFlowPlan.cs": "3c12c4b23b3c7c543317e0d820842cd5ad227e41db648c7ca5fcf4825b982424",
+    "src/ReportDiff.Core/PageFlowRangeGate.cs": "86814cbf0d130ef25b9d6c70822b8867910c2bc1ed7dc61d9d35e10f9bf5d637",
+    "src/ReportDiff.Core/PageFlowSurface.cs": "03acf75ae3c998b92a3ee645c1e11bfa3937f01bc84ef70c716aec8fd217b436",
+    "src/ReportDiff.Core/PageMap.cs": "d037a4dc953cd2b6e4445055d05ebe1daf6e7872836909862150b147a9a75079",
+    "src/ReportDiff.Core/RegionMap.cs": "00e09dea774c79818e297f2e674ae079f5fbfe8592672080fa9d0ccbb126716e",
+    "src/ReportDiff.Core/RegionalComparison.cs": "2629aa0fd34db7991067c87bae77efdc9a8815b0c287908961846b7b46985049",
+    "src/ReportDiff.Core/ReportDiff.Core.csproj": "4fd131e59a31e5fea36ac35ad2e1cf2eb7bd913a3d937d7f112d2e4f1a03ff21",
+    "src/ReportDiff.Core/RowCandidateBuilder.cs": "64234efb0aec8fbd18c8da0b7d4b28bb44894e74f73ee3223440407c54f9b1ad",
+    "src/ReportDiff.Core/RowCanonicalizer.cs": "d1e66171499f03b5014afe846ba745e825707eb25b34d4d48334b345deaa4e81",
+    "src/ReportDiff.Core/RowComparison.cs": "3aac86bdf5bae8d6de6eac16f7d00f557eeac68c4fa87f141b688658140f895a",
+    "src/ReportDiff.Core/RowComparisonSurface.cs": "34fab9a23504973d274f75f69b23232924a737f291bb424eb6ecd81d5f888c5c",
+    "src/ReportDiff.Core/RowGroupValidator.cs": "461144fadb941aa0b8d79fe5b99d76f830c10bfe817c1ecc72077a07afd327f4",
+    "src/ReportDiff.Core/RowMatching.cs": "a7015cafed9839a10db95b32de5705abd209fa571bbbede0d70e9c83e87ade72",
+    "src/ReportDiff.Core/RowProjection.cs": "4715d629b2951837662c91d9d613a19a64ef4f77a6e50d545dffca720d90d7d1",
+    "src/ReportDiff.Core/RowSelector.cs": "5180d9fa814790519f8cd0c2d97f1165f2ee4318b5735da6907a1bc8813080d7",
+    "src/ReportDiff.Core/RowStructures.cs": "d9edbb5e189b6aa5c1336f6d81cb741b572491c20f178a8e81e2c5bdc187ce11",
+    "src/ReportDiff.Core/RowSupport.cs": "db3a85cc3633a1fa4332ef5ff40c0f5724ea5e72d29ba8e6d43ce8b2a919c951",
+    "src/ReportDiff.Core/RowText.cs": "9d14e5e607ba2983e74427cddb9905668e6625e71e69cd550d35b1a27eefec1a",
+    "src/ReportDiff.Core/TolerantDifference.cs": "5a9082634252a07b14b0ea2adf16c54fa2ce536eb9fd47374224f3a254c70e45",
+    "src/ReportDiff.Core/Units.cs": "2664a41731483bc23aaccd4dc5a7c462a90e7042960404fe93453a92ef4ea5e9",
+    "src/ReportDiff.Pdf/AssemblyInfo.cs": "502510d8fadecad038256039d5f9b86967f68a15afc8678f06377713652881d3",
+    "src/ReportDiff.Pdf/ImageReader.cs": "dd65252e10e2046c5401cb9b0c490d10ceb2a51ca974192507dfe4e811cdd8dd",
+    "src/ReportDiff.Pdf/InputFormat.cs": "a5ba93584766984432a613e038d249f49053a57bd8bd5ef433aecdeddb479fbc",
+    "src/ReportDiff.Pdf/LoadedImage.cs": "9a479a6e661bbfcdc3eb01e3d750914b6282b2fb5f19ee0fbb3a212b83e6ec44",
+    "src/ReportDiff.Pdf/PageNormalizer.cs": "78a9ba69476d8cf0e68b40d15d84beec72c4c5b80908cad16bfc57d48b2a8c0a",
+    "src/ReportDiff.Pdf/PagePairing.cs": "abd54c801c2816fb19518c20bf49c88d3e0366491648374ea1aaabee3c22554a",
+    "src/ReportDiff.Pdf/PageSelection.cs": "0cb8f84064f1d7263a2f30b06f20c77dd60688f877405103c57b3ab55ce999ab",
+    "src/ReportDiff.Pdf/PdfFontInspector.cs": "6ddcb863b79063e7594e5ad5779a62c9efd5a98fc80ebcc43be64636a5228997",
+    "src/ReportDiff.Pdf/PdfReader.cs": "a521c0532b0e2cd061e8ce6cd68403cd8eac45d3453f8a37b79b4d79647c20f5",
+    "src/ReportDiff.Pdf/PdfTextReader.cs": "dbc3cf40bd7e3c5a5c655a06507ff092db4b067d45e08abb4fab1bc102df4d30",
+    "src/ReportDiff.Pdf/ReportDiff.Pdf.csproj": "669ad02db31c565c8bc3620410c9312301439c37ccf9b7ac0db9a70aad409c3a",
+    "src/ReportDiff.Pdf/RowTextAnnotations.cs": "446de90eff2def29253da9ef6e9be085266986c448b22e3210095ad44f4a9eb6",
+    "src/ReportDiff.Pdf/TextAnnotations.cs": "e5fd667b6573f13fd91c697395d4a74efcf3be66dc9a89992b7b6395a866a5dc",
+    "src/ReportDiff.Pdf/TextOptions.cs": "c8cc766ededff6c993791593583a7e9ccbf559e2fc5335cc58fad132079be9fb",
+    "src/ReportDiff.Pdf/TiffAlpha.cs": "e6bbb487b32ac0592ab01d5f1b0fd8f40ccb2c093f4c825e8d57aa3a70f98b79",
+    "src/ReportDiff.Report/AssemblyInfo.cs": "502510d8fadecad038256039d5f9b86967f68a15afc8678f06377713652881d3",
+    "src/ReportDiff.Report/DirectoryReportDocument.cs": "a39cd5125411dd8c33d8beeec0e3469d283a968a96d53e6331332001ced9e167",
+    "src/ReportDiff.Report/DirectoryReportWriter.cs": "c31647a4040114dca7cfe607901e135a0fc50140dbf6c93bad543843d6b6d80a",
+    "src/ReportDiff.Report/ExclusionSnippet.cs": "80ee4fd3b2da35ded4b023f9f6f6fa7a4b95fc6f3e6c3220dc6b7437a75f0385",
+    "src/ReportDiff.Report/HtmlPageFlow.cs": "a1e92f30b3b391ebd3063fc409fc2a754d80304e097f32b6ce789aca69958029",
+    "src/ReportDiff.Report/HtmlRegions.cs": "e68cab2a4ca0ed73b0235883a373d99cb96bdb5585f1346256bc071ed6c7ac8b",
+    "src/ReportDiff.Report/HtmlReportWriter.cs": "d4e3182ceddcdc8acaf52e0b6ae5248f06a400e2d89f23e4f3741f12fa491469",
+    "src/ReportDiff.Report/HtmlRows.cs": "24527695d1a5c402e563253daf471606f883aa8295bda48f17b7a452f9eed0c2",
+    "src/ReportDiff.Report/PageImageWriteSchedule.cs": "5bf20dce01198ed377d7c41807830a5fa0c991c26d45c84982911d234289b24a",
+    "src/ReportDiff.Report/RawOverlay.cs": "73a821cc489464ec7f0990dd782e5012e7a5a7de20ce16b65a4cc18f9d828a07",
+    "src/ReportDiff.Report/RegionDrawing.cs": "7babd3024d1a5f76299d5be90f2ce7f50a34d5073093bc97326da491a5a69da5",
+    "src/ReportDiff.Report/ReportColor.cs": "6979a1d00188bf4dd353523ba5dc1ae41cae63b9e337c349d8e450f2ee15a2ef",
+    "src/ReportDiff.Report/ReportDiff.Report.csproj": "0f123f1803380365177bc6d7239361dff00eaf910205896ac1e675cf1c92bcd8",
+    "src/ReportDiff.Report/ReportDocument.cs": "de9333c703cd1a98e47271a2bc32c1358620c9484a3ff81b7138f68de7e88b4d",
+    "src/ReportDiff.Report/ReportImages.cs": "5d6826c78c5623acec087fd995e2864d4913a19d2691039c70b0530bbe4f4a8d",
+    "src/ReportDiff.Report/ReportPageFlow.cs": "dbe768cb7f6d2abe8df2e8ad948add1eea5cfd5434fec99d3f4b38d3c2e062b3",
+    "src/ReportDiff.Report/ReportRegions.cs": "5b9a45eb31fd0bdb41d206b74cb89335358969eebf9cc017494e54f185724443",
+    "src/ReportDiff.Report/ReportRows.cs": "4b8c92decc7a6e4b419620aecb7a70f38571b9fd760f2c613ab1710a0ad5726f",
+    "src/ReportDiff.Report/ReportWriter.cs": "1f0194010b440043044a3da1126bbc72efc01b25999c938720bc239ff7b250fa"
+  },
+  "diagnostic_tool_sha256": {
+    "tools/ReportDiff.PageFlowProbe/Program.cs": "508bdfe65a24d3355984b96b76b63f0dac7cc5d33dfa89789089112d66de3be7",
+    "tools/ReportDiff.PageFlowProbe/RasterDiagnostics.cs": "d1539ee64190acfb51daa05c8ead478d7a4fcbdc09c4d74aca3cc9b2cdb42eb8",
+    "tools/ReportDiff.PageFlowProbe/audit-raster.py": "f439c42c16dac1f2d847cc8c1c22772175d2cccf569bf39d97138090296a0f4b",
+    "tools/ReportDiff.PageFlowProbe/check-raster-reference.py": "66f491f0ae34552403c530745904c4b8df6a75de6cd30b3bb526fca2ff3b8825",
+    "tools/ReportDiff.PageFlowProbe/ReportDiff.PageFlowProbe.csproj": "b6ee5a97f245625708463f1f0199896be7443331ec996637936697c90fa2e491"
+  },
+  "reference_source_sha256": "e2979617b2bd7d5554f07ff5039bd8702ef56f5ae9baa34b003f270b9297fa61",
+  "artifact_root": "out/t3-1c-raster-diagnosis/final",
+  "artifact_sha256": {
+    "diagnostics.json": "8f6028523cbd255d72357f551fe3a925e0cc087fcf218af16854b06895defb6a",
+    "audit.json": "9f6032b5b72b57ea7a75dccbf78738b69eaddc17e3746bedf6b59874b4667eb4",
+    "reference.json": "02ca9decf158ec07bfdc463787455c36b3dedf5f7838c3dd2cf6a4c22c550e63",
+    "output-hashes.json": "30439c675368fd456401ed03ee69e225bc3d0f7356f94fd5e20651081b583f7a",
+    "build.log": "f90232d794b0c60e2636d364003d422b697bd0cc2b80d607b783291d6d63973f",
+    "run.log": "18d255437c65ec3d8b77b923486067121cec26a53ea3ffef08dd40e49c420932",
+    "audit.log": "54f4661cde8e6d33df71055a31acf644c41584539110435df4fb8019fd132542",
+    "reference.log": "3832243e4c3da3c8788eb99c0f3c9d263476ccae1a6867aa27fd6961b5be4886"
+  },
+  "cases": [
+    {
+      "case": "skia-a4-2",
+      "pair_count": 46,
+      "vector_mismatches": 0,
+      "rendering_font_equal": true,
+      "modes": {
+        "original": {
+          "differing_pairs": 3,
+          "pixels": 15503,
+          "carry_pixels": 5172
+        },
+        "ceil": {
+          "differing_pairs": 3,
+          "pixels": 15503,
+          "carry_pixels": 5172
+        },
+        "floor": {
+          "differing_pairs": 0,
+          "pixels": 0,
+          "carry_pixels": 0
+        },
+        "no-path-aa": {
+          "differing_pairs": 3,
+          "pixels": 15503,
+          "carry_pixels": 5172
+        }
+      },
+      "surfaces": [],
+      "range_decision": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map",
+          "unverified_candidates"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "links": [
+        {
+          "source": {
+            "page": {
+              "side": 0,
+              "page": 1
+            },
+            "top": 2701,
+            "height": 100,
+            "bottom": 2801
+          },
+          "target": {
+            "page": {
+              "side": 1,
+              "page": 2
+            },
+            "top": 400,
+            "height": 100,
+            "bottom": 500
+          },
+          "text": [
+            "ITEM R000023 DESCRIPTION VALUE"
+          ],
+          "support": 20,
+          "status": "skipped",
+          "reason": "unproven_body_bounds"
+        }
+      ],
+      "pdfs": [
+        {
+          "path": "out/t3-1c-scale/inputs/a4-2/a.pdf",
+          "sha256": "ad7a1622d0bad67ba7a27b04d596cf2a80ed2254bf23a6580bec0e9d1ffbe738"
+        },
+        {
+          "path": "out/t3-1c-scale/inputs/a4-2/b.pdf",
+          "sha256": "f5f28fb1eebee02993c404242600eea4a800898c2a85806a48507e15bc60e04a"
+        }
+      ]
+    },
+    {
+      "case": "skia-a4-dense-2",
+      "pair_count": 94,
+      "vector_mismatches": 0,
+      "rendering_font_equal": true,
+      "modes": {
+        "original": {
+          "differing_pairs": 5,
+          "pixels": 10489,
+          "carry_pixels": 3510
+        },
+        "ceil": {
+          "differing_pairs": 5,
+          "pixels": 10489,
+          "carry_pixels": 3510
+        },
+        "floor": {
+          "differing_pairs": 0,
+          "pixels": 0,
+          "carry_pixels": 0
+        },
+        "no-path-aa": {
+          "differing_pairs": 5,
+          "pixels": 10489,
+          "carry_pixels": 3510
+        }
+      },
+      "surfaces": [],
+      "range_decision": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map",
+          "unverified_candidates"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "links": [
+        {
+          "source": {
+            "page": {
+              "side": 0,
+              "page": 1
+            },
+            "top": 2751,
+            "height": 50,
+            "bottom": 2801
+          },
+          "target": {
+            "page": {
+              "side": 1,
+              "page": 2
+            },
+            "top": 400,
+            "height": 50,
+            "bottom": 450
+          },
+          "text": [
+            "ITEM R000047 DESCRIPTION VALUE"
+          ],
+          "support": 44,
+          "status": "skipped",
+          "reason": "unproven_body_bounds"
+        }
+      ],
+      "pdfs": [
+        {
+          "path": "out/t3-1c-scale/inputs/a4-dense-2/a.pdf",
+          "sha256": "955d085f57acd5580bf9dfe6b1e94cf5dc2245c93b371c02922740947b9f9f9e"
+        },
+        {
+          "path": "out/t3-1c-scale/inputs/a4-dense-2/b.pdf",
+          "sha256": "47ef203e43410f5c28c432f88ca31e80ae5649e52be2156a578da0a269d73031"
+        }
+      ]
+    },
+    {
+      "case": "inset-a4-2",
+      "pair_count": 46,
+      "vector_mismatches": 0,
+      "rendering_font_equal": true,
+      "modes": {
+        "original": {
+          "differing_pairs": 3,
+          "pixels": 15503,
+          "carry_pixels": 5172
+        },
+        "ceil": {
+          "differing_pairs": 3,
+          "pixels": 15503,
+          "carry_pixels": 5172
+        },
+        "floor": {
+          "differing_pairs": 3,
+          "pixels": 18,
+          "carry_pixels": 6
+        },
+        "no-path-aa": {
+          "differing_pairs": 3,
+          "pixels": 15503,
+          "carry_pixels": 5172
+        }
+      },
+      "surfaces": [],
+      "range_decision": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map",
+          "unverified_candidates"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "links": [
+        {
+          "source": {
+            "page": {
+              "side": 0,
+              "page": 1
+            },
+            "top": 2700,
+            "height": 100,
+            "bottom": 2800
+          },
+          "target": {
+            "page": {
+              "side": 1,
+              "page": 2
+            },
+            "top": 400,
+            "height": 100,
+            "bottom": 500
+          },
+          "text": [
+            "ITEM R000023 DESCRIPTION VALUE"
+          ],
+          "support": 20,
+          "status": "skipped",
+          "reason": "nonidentical_band_not_proven"
+        }
+      ],
+      "pdfs": [
+        {
+          "path": "out/t3-1c-scale/inputs-control/a4-2/a.pdf",
+          "sha256": "e57fecb70380938af7488b7152fc840b5c08432356eebba0b2adfe1a9aa82bcb"
+        },
+        {
+          "path": "out/t3-1c-scale/inputs-control/a4-2/b.pdf",
+          "sha256": "db180b594bed31bd00c42ec35d4896db59ca47f6f12301619b732eefc85970c1"
+        }
+      ]
+    },
+    {
+      "case": "fractional-a4-2",
+      "pair_count": 46,
+      "vector_mismatches": 0,
+      "rendering_font_equal": true,
+      "modes": {
+        "original": {
+          "differing_pairs": 7,
+          "pixels": 9666,
+          "carry_pixels": 230
+        },
+        "ceil": {
+          "differing_pairs": 7,
+          "pixels": 9666,
+          "carry_pixels": 230
+        },
+        "floor": {
+          "differing_pairs": 44,
+          "pixels": 97050,
+          "carry_pixels": 2784
+        },
+        "no-path-aa": {
+          "differing_pairs": 4,
+          "pixels": 8976,
+          "carry_pixels": 0
+        }
+      },
+      "surfaces": [],
+      "range_decision": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map",
+          "unverified_candidates"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "links": [
+        {
+          "source": {
+            "page": {
+              "side": 0,
+              "page": 1
+            },
+            "top": 2700,
+            "height": 100,
+            "bottom": 2800
+          },
+          "target": {
+            "page": {
+              "side": 1,
+              "page": 2
+            },
+            "top": 400,
+            "height": 100,
+            "bottom": 500
+          },
+          "text": [
+            "ITEM R000023 DESCRIPTION VALUE"
+          ],
+          "support": 21,
+          "status": "skipped",
+          "reason": "nonidentical_band_not_proven"
+        }
+      ],
+      "pdfs": [
+        {
+          "path": "out/t3-1c-scale/inputs-grid/a4-2/a.pdf",
+          "sha256": "4f3de991459142faf497de76007d35c42a7203818405d7fef8561867e7371386"
+        },
+        {
+          "path": "out/t3-1c-scale/inputs-grid/a4-2/b.pdf",
+          "sha256": "da03e556540614229b9815a6e109401c52cee0d3c93c8ea6fd010b6ce6d30e8a"
+        }
+      ]
+    },
+    {
+      "case": "integer-a4-2",
+      "pair_count": 46,
+      "vector_mismatches": 0,
+      "rendering_font_equal": true,
+      "modes": {
+        "original": {
+          "differing_pairs": 4,
+          "pixels": 8976,
+          "carry_pixels": 0
+        },
+        "ceil": {
+          "differing_pairs": 4,
+          "pixels": 8976,
+          "carry_pixels": 0
+        },
+        "floor": {
+          "differing_pairs": 44,
+          "pixels": 97026,
+          "carry_pixels": 2784
+        },
+        "no-path-aa": {
+          "differing_pairs": 4,
+          "pixels": 8976,
+          "carry_pixels": 0
+        }
+      },
+      "surfaces": [
+        {
+          "page": 1,
+          "reconstructed_c_equal": true,
+          "projected_d_equal": true,
+          "exact": {
+            "pixels": 4488,
+            "bounds": [
+              106,
+              1283,
+              2350,
+              1384
+            ]
+          },
+          "raw_pixels": 13452,
+          "raw_rows": [
+            1282,
+            1283,
+            1284,
+            1382,
+            1383,
+            1384
+          ],
+          "discontinuous_joins": [
+            600,
+            2700
+          ],
+          "minimum_distance_to_join": 682,
+          "neighborhood_radius": 18,
+          "adoption": {
+            "accepted": false,
+            "reason": "low_improvement",
+            "detail": null,
+            "score": 1,
+            "score_gap": 0.1497964221506911,
+            "support_bands": [
+              4,
+              21,
+              2
+            ],
+            "baseline_raw_pixels": 5791,
+            "candidate_raw_pixels": 13452,
+            "improvement": -1.3229148678984632
+          }
+        },
+        {
+          "page": 2,
+          "reconstructed_c_equal": true,
+          "projected_d_equal": true,
+          "exact": {
+            "pixels": 4488,
+            "bounds": [
+              106,
+              1283,
+              2350,
+              1384
+            ]
+          },
+          "raw_pixels": 13452,
+          "raw_rows": [
+            1282,
+            1283,
+            1284,
+            1382,
+            1383,
+            1384
+          ],
+          "discontinuous_joins": [
+            400,
+            2600,
+            2700
+          ],
+          "minimum_distance_to_join": 882,
+          "neighborhood_radius": 18,
+          "adoption": {
+            "accepted": true,
+            "reason": "applied",
+            "detail": null,
+            "score": 1,
+            "score_gap": 0.15015179226017406,
+            "support_bands": [
+              2,
+              22,
+              2
+            ],
+            "baseline_raw_pixels": 17761,
+            "candidate_raw_pixels": 13452,
+            "improvement": 0.24261021338888575
+          }
+        }
+      ],
+      "range_decision": {
+        "ready": true,
+        "reasons": [],
+        "selected_links": [
+          {
+            "source": {
+              "page": {
+                "side": 0,
+                "page": 1
+              },
+              "top": 2700,
+              "height": 100,
+              "bottom": 2800
+            },
+            "target": {
+              "page": {
+                "side": 1,
+                "page": 2
+              },
+              "top": 400,
+              "height": 100,
+              "bottom": 500
+            },
+            "verified": true,
+            "reason": null
+          }
+        ],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "candidate"
+          },
+          {
+            "page": 2,
+            "choice": "candidate"
+          }
+        ]
+      },
+      "links": [
+        {
+          "source": {
+            "page": {
+              "side": 0,
+              "page": 1
+            },
+            "top": 2700,
+            "height": 100,
+            "bottom": 2800
+          },
+          "target": {
+            "page": {
+              "side": 1,
+              "page": 2
+            },
+            "top": 400,
+            "height": 100,
+            "bottom": 500
+          },
+          "text": [
+            "ITEM R000023 DESCRIPTION VALUE"
+          ],
+          "support": 21,
+          "status": "band_verified",
+          "reason": null
+        }
+      ],
+      "pdfs": [
+        {
+          "path": "out/t3-1c-scale/inputs-integer/a4-2/a.pdf",
+          "sha256": "749b0a25590bc8752a6d76bcd2a62049c9377b5ea759f0dea786cd2a2a394548"
+        },
+        {
+          "path": "out/t3-1c-scale/inputs-integer/a4-2/b.pdf",
+          "sha256": "982bddf72b394a65f63d0ca570d144cac6c0938eaa00698634e7c3df94f52bc3"
+        }
+      ]
+    },
+    {
+      "case": "sparse-a4-sparse-2",
+      "pair_count": 10,
+      "vector_mismatches": 0,
+      "rendering_font_equal": true,
+      "modes": {
+        "original": {
+          "differing_pairs": 0,
+          "pixels": 0,
+          "carry_pixels": 0
+        },
+        "ceil": {
+          "differing_pairs": 0,
+          "pixels": 0,
+          "carry_pixels": 0
+        },
+        "floor": {
+          "differing_pairs": 8,
+          "pixels": 17886,
+          "carry_pixels": 2400
+        },
+        "no-path-aa": {
+          "differing_pairs": 0,
+          "pixels": 0,
+          "carry_pixels": 0
+        }
+      },
+      "surfaces": [
+        {
+          "page": 1,
+          "reconstructed_c_equal": true,
+          "projected_d_equal": true,
+          "exact": {
+            "pixels": 0,
+            "bounds": null
+          },
+          "raw_pixels": 0,
+          "raw_rows": [],
+          "discontinuous_joins": [
+            600,
+            900
+          ],
+          "minimum_distance_to_join": null,
+          "neighborhood_radius": 18,
+          "adoption": {
+            "accepted": true,
+            "reason": "applied",
+            "detail": null,
+            "score": 1,
+            "score_gap": 0.14947966603619323,
+            "support_bands": [
+              4,
+              3,
+              2
+            ],
+            "baseline_raw_pixels": 5070,
+            "candidate_raw_pixels": 0,
+            "improvement": 1
+          }
+        },
+        {
+          "page": 2,
+          "reconstructed_c_equal": true,
+          "projected_d_equal": true,
+          "exact": {
+            "pixels": 0,
+            "bounds": null
+          },
+          "raw_pixels": 0,
+          "raw_rows": [],
+          "discontinuous_joins": [
+            400,
+            800,
+            900
+          ],
+          "minimum_distance_to_join": null,
+          "neighborhood_radius": 18,
+          "adoption": {
+            "accepted": true,
+            "reason": "applied",
+            "detail": null,
+            "score": 1,
+            "score_gap": 0.14975686278546607,
+            "support_bands": [
+              2,
+              4,
+              2
+            ],
+            "baseline_raw_pixels": 16994,
+            "candidate_raw_pixels": 0,
+            "improvement": 1
+          }
+        }
+      ],
+      "range_decision": {
+        "ready": true,
+        "reasons": [],
+        "selected_links": [
+          {
+            "source": {
+              "page": {
+                "side": 0,
+                "page": 1
+              },
+              "top": 900,
+              "height": 100,
+              "bottom": 1000
+            },
+            "target": {
+              "page": {
+                "side": 1,
+                "page": 2
+              },
+              "top": 400,
+              "height": 100,
+              "bottom": 500
+            },
+            "verified": true,
+            "reason": null
+          }
+        ],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "candidate"
+          },
+          {
+            "page": 2,
+            "choice": "candidate"
+          }
+        ]
+      },
+      "links": [
+        {
+          "source": {
+            "page": {
+              "side": 0,
+              "page": 1
+            },
+            "top": 900,
+            "height": 100,
+            "bottom": 1000
+          },
+          "target": {
+            "page": {
+              "side": 1,
+              "page": 2
+            },
+            "top": 400,
+            "height": 100,
+            "bottom": 500
+          },
+          "text": [
+            "ITEM R000005 DESCRIPTION VALUE"
+          ],
+          "support": 3,
+          "status": "band_verified",
+          "reason": null
+        }
+      ],
+      "pdfs": [
+        {
+          "path": "out/t3-1c-scale/inputs-sparse/a4-sparse-2/a.pdf",
+          "sha256": "4ed9d74d6f4a614ad3f918fa5f7b5e13ae0b880b3f81a7ab4da6032509725928"
+        },
+        {
+          "path": "out/t3-1c-scale/inputs-sparse/a4-sparse-2/b.pdf",
+          "sha256": "2b63eac2d1c888ef49e2f94ba1f9d00ac2e32ef60dedc9b5839b2d2c55c68a6c"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Existing nine unmet adoption expectations remain unmet.",
+    "No production renderer, proof, threshold, or detection expectation changed.",
+    "Internal PDFium rounding operation is not isolated.",
+    "Diagnostic rendering controls are not user-facing evidence or product fixes.",
+    "Windows and real documents unverified; browser deferral preserved."
+  ],
+  "next_work": "Preflight composition of global alignment and page-flow coordinates, independently from unresolved A4 adoption."
+}

@@ -4,5 +4,6 @@
 # 適用範囲・制限: docs/CONFIGURATION.md の「PDFの行整列」。
 rows:
   enabled: true
+  carry_enabled: false
 report:
   raw_overlay: true

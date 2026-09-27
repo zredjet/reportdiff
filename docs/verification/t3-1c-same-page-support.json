@@ -1,0 +1,1912 @@
+{
+  "date": "2026-09-23",
+  "status": "support characterization and regression complete; original positive 2 directions and T3-1c remain incomplete",
+  "plan": "docs/planning/t3-1c-same-page-support.md",
+  "fixture_root": "tests/ReportDiff.Tests/Fixtures/page-flow-same-page-support",
+  "fixtures": {
+    "pdfs": 30,
+    "physical_pages": 60,
+    "sha256": {
+      "same-page-two/a.pdf": "73f6053bd12ed493060bee2c6aaeed0b63fb8e7a0d0ab16001682ee52b2d65a3",
+      "same-page-two/b.pdf": "dee1bc3814ea2557cd5f0637e0934935059f7c3af4d116bec8972dafd7ce3153",
+      "capacity7/a.pdf": "363183c257061267008296a451acee96589265b44dc2c01a607ea848d8bebfd4",
+      "capacity7/b.pdf": "c624f1496ac515e25285a99d82a9bb46da1e1647f4c1b99cefd716eae11b5ee9",
+      "capacity8/a.pdf": "69f840c8b624f5048acc2e652c14d5c761144c217140b65322841bc0ed69244f",
+      "capacity8/b.pdf": "e07da3b70f946be1ee20b2ba533cacdf458c9a2bb32bf9581871109d803b29d9",
+      "capacity9/a.pdf": "0d0f91951e3561d49a97544db557eb41ba334c7886252cbf9abf6154a3554284",
+      "capacity9/b.pdf": "3368e111b0b74d09825e990ac771507c5ade5fa6cf47a47af3f34ce660bd2b75",
+      "capacity10/a.pdf": "0d62c14e279ba6d4a36a97413a8094a286ad9a6d2eb341af6a14784cb6f25dc2",
+      "capacity10/b.pdf": "4e7dbc9cfe22f04a764f41b0d10b2537bc8b920259ced016bc989af620c8bc8e",
+      "later-short/a.pdf": "69f840c8b624f5048acc2e652c14d5c761144c217140b65322841bc0ed69244f",
+      "later-short/b.pdf": "9727e4143c8f44a44cc3fcb07b095149be49140114fcc4bfe53c8ecad1e9510c",
+      "later-supported/a.pdf": "0d0f91951e3561d49a97544db557eb41ba334c7886252cbf9abf6154a3554284",
+      "later-supported/b.pdf": "7e8ab6feb7a16c002d91557c38b5c7a932c5be7f13c76dfbae406135e2d53d5a",
+      "both-later/a.pdf": "0d0f91951e3561d49a97544db557eb41ba334c7886252cbf9abf6154a3554284",
+      "both-later/b.pdf": "60f6e65990dbfabb9d2aa77e58cf1060f2895d0baca679820e2c913bb783233e",
+      "before-short/a.pdf": "69f840c8b624f5048acc2e652c14d5c761144c217140b65322841bc0ed69244f",
+      "before-short/b.pdf": "006945fbc884af7e09afb5d4f9877126a33b4e64440160a3b85beba7f32c24cd",
+      "between-short/a.pdf": "69f840c8b624f5048acc2e652c14d5c761144c217140b65322841bc0ed69244f",
+      "between-short/b.pdf": "2250347891602463e4904462739b3591ac19925d3b5f79ab29cddccbfdc3720d",
+      "content-tone/a.pdf": "69f840c8b624f5048acc2e652c14d5c761144c217140b65322841bc0ed69244f",
+      "content-tone/b.pdf": "f9aa142b36e3cde6fca93c10e6c4745f92e2a86cc528f6c4f3bfcea40553fbe9",
+      "carry-tone/a.pdf": "69f840c8b624f5048acc2e652c14d5c761144c217140b65322841bc0ed69244f",
+      "carry-tone/b.pdf": "c728fb3402ab75ea60bca1b3f42b8031606b7e8fae5df8a48435a4ca2db5e9cc",
+      "repeated/a.pdf": "fe87667404c0126e67fbd523fd9674c1aaded8249c9df00d2c3b77a018fee5d5",
+      "repeated/b.pdf": "46b3e60b0dba9c3b76db37c72eeb507eb663b6b1dee500b2690a30628781e24f",
+      "reordered/a.pdf": "69f840c8b624f5048acc2e652c14d5c761144c217140b65322841bc0ed69244f",
+      "reordered/b.pdf": "f3d110bac3b8de87180eaa7cc356e1a876a86f04c0395d24000136be23aec6f4",
+      "faint-support/a.pdf": "13ece406c2aedcc4bf8aa199889330fb0a58a48aa55a2abe0b9cb5f53520afd6",
+      "faint-support/b.pdf": "7122d527dd9c8f83ac1accfb366937763622ba512c1ad3ad05d91a5ee9589c4d"
+    },
+    "geometry": [
+      {
+        "id": "same-page-two",
+        "capacity": 6,
+        "first": 2,
+        "second": 4,
+        "mutation": "none",
+        "grouped": true,
+        "existing_unmet": true
+      },
+      {
+        "id": "capacity7",
+        "capacity": 7,
+        "first": 2,
+        "second": 4,
+        "mutation": "none",
+        "grouped": false,
+        "existing_unmet": false
+      },
+      {
+        "id": "capacity8",
+        "capacity": 8,
+        "first": 2,
+        "second": 4,
+        "mutation": "none",
+        "grouped": true,
+        "existing_unmet": false
+      },
+      {
+        "id": "capacity9",
+        "capacity": 9,
+        "first": 2,
+        "second": 4,
+        "mutation": "none",
+        "grouped": true,
+        "existing_unmet": false
+      },
+      {
+        "id": "capacity10",
+        "capacity": 10,
+        "first": 2,
+        "second": 4,
+        "mutation": "none",
+        "grouped": true,
+        "existing_unmet": false
+      },
+      {
+        "id": "later-short",
+        "capacity": 8,
+        "first": 2,
+        "second": 5,
+        "mutation": "none",
+        "grouped": false,
+        "existing_unmet": false
+      },
+      {
+        "id": "later-supported",
+        "capacity": 9,
+        "first": 2,
+        "second": 5,
+        "mutation": "none",
+        "grouped": true,
+        "existing_unmet": false
+      },
+      {
+        "id": "both-later",
+        "capacity": 9,
+        "first": 3,
+        "second": 5,
+        "mutation": "none",
+        "grouped": true,
+        "existing_unmet": false
+      },
+      {
+        "id": "before-short",
+        "capacity": 8,
+        "first": 1,
+        "second": 4,
+        "mutation": "none",
+        "grouped": false,
+        "existing_unmet": false
+      },
+      {
+        "id": "between-short",
+        "capacity": 8,
+        "first": 2,
+        "second": 3,
+        "mutation": "none",
+        "grouped": false,
+        "existing_unmet": false
+      },
+      {
+        "id": "content-tone",
+        "capacity": 8,
+        "first": 2,
+        "second": 4,
+        "mutation": "paired",
+        "grouped": true,
+        "existing_unmet": false
+      },
+      {
+        "id": "carry-tone",
+        "capacity": 8,
+        "first": 2,
+        "second": 4,
+        "mutation": "pixels",
+        "grouped": false,
+        "existing_unmet": false
+      },
+      {
+        "id": "repeated",
+        "capacity": 8,
+        "first": 2,
+        "second": 4,
+        "mutation": "repeated",
+        "grouped": false,
+        "existing_unmet": false
+      },
+      {
+        "id": "reordered",
+        "capacity": 8,
+        "first": 2,
+        "second": 4,
+        "mutation": "reordered",
+        "grouped": false,
+        "existing_unmet": false
+      },
+      {
+        "id": "faint-support",
+        "capacity": 8,
+        "first": 2,
+        "second": 4,
+        "mutation": "faint",
+        "grouped": false,
+        "existing_unmet": false
+      }
+    ],
+    "original_pair_unchanged": true
+  },
+  "results": {
+    "metrics": {
+      "runs": 30,
+      "boundaries": 52,
+      "gaps": 120,
+      "adopted": 12,
+      "range_only": 4,
+      "negative_rejections": 16,
+      "original_unmet": 2
+    },
+    "product_checks": {
+      "core_decisions": 30,
+      "report_components": 12,
+      "structure_references": 84,
+      "html_anchors": 84
+    },
+    "product_audit": {
+      "inputs": 30,
+      "permutations": 60,
+      "rejections": 1668,
+      "completeness": 24,
+      "content_preserved": 24
+    },
+    "records": [
+      {
+        "run": "same-page-two-ab",
+        "capacity": 6,
+        "first": 2,
+        "second": 4,
+        "mutation": "none",
+        "hypothesis_met": false,
+        "range_ready": false,
+        "applied": false,
+        "candidate_count": 10,
+        "product": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 10,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 10,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 10,
+          "difference_count_complete": true
+        },
+        "adoptions": []
+      },
+      {
+        "run": "same-page-two-ba",
+        "capacity": 6,
+        "first": 2,
+        "second": 4,
+        "mutation": "none",
+        "hypothesis_met": false,
+        "range_ready": false,
+        "applied": false,
+        "candidate_count": 10,
+        "product": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 10,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 10,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 10,
+          "difference_count_complete": true
+        },
+        "adoptions": []
+      },
+      {
+        "run": "capacity7-ab",
+        "capacity": 7,
+        "first": 2,
+        "second": 4,
+        "mutation": "none",
+        "hypothesis_met": true,
+        "range_ready": false,
+        "applied": false,
+        "candidate_count": 12,
+        "product": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 12,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 12,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 12,
+          "difference_count_complete": true
+        },
+        "adoptions": []
+      },
+      {
+        "run": "capacity7-ba",
+        "capacity": 7,
+        "first": 2,
+        "second": 4,
+        "mutation": "none",
+        "hypothesis_met": true,
+        "range_ready": false,
+        "applied": false,
+        "candidate_count": 12,
+        "product": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 12,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 12,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 12,
+          "difference_count_complete": true
+        },
+        "adoptions": []
+      },
+      {
+        "run": "capacity8-ab",
+        "capacity": 8,
+        "first": 2,
+        "second": 4,
+        "mutation": "none",
+        "hypothesis_met": true,
+        "range_ready": true,
+        "applied": true,
+        "candidate_count": 7,
+        "product": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 0,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 2,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 7,
+          "structural_change_counts": {
+            "inserted": 3,
+            "deleted": 1,
+            "block_moved": 3
+          },
+          "difference_count": 7,
+          "difference_count_complete": true
+        },
+        "adoptions": [
+          {
+            "accepted": true,
+            "reason": "applied",
+            "detail": null,
+            "score": 1,
+            "score_gap": 0.16176896334327584,
+            "support_bands": [
+              4,
+              2,
+              2,
+              2
+            ],
+            "baseline_raw_pixels": 2031,
+            "candidate_raw_pixels": 0,
+            "improvement": 1
+          },
+          {
+            "accepted": true,
+            "reason": "applied",
+            "detail": null,
+            "score": 1,
+            "score_gap": 0.16369833502230158,
+            "support_bands": [
+              2,
+              6,
+              2
+            ],
+            "baseline_raw_pixels": 13376,
+            "candidate_raw_pixels": 0,
+            "improvement": 1
+          }
+        ]
+      },
+      {
+        "run": "capacity8-ba",
+        "capacity": 8,
+        "first": 2,
+        "second": 4,
+        "mutation": "none",
+        "hypothesis_met": true,
+        "range_ready": true,
+        "applied": true,
+        "candidate_count": 7,
+        "product": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 0,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 2,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 7,
+          "structural_change_counts": {
+            "inserted": 1,
+            "deleted": 3,
+            "block_moved": 3
+          },
+          "difference_count": 7,
+          "difference_count_complete": true
+        },
+        "adoptions": [
+          {
+            "accepted": true,
+            "reason": "applied",
+            "detail": null,
+            "score": 1,
+            "score_gap": 0.16176896334327584,
+            "support_bands": [
+              4,
+              2,
+              2,
+              2
+            ],
+            "baseline_raw_pixels": 2031,
+            "candidate_raw_pixels": 0,
+            "improvement": 1
+          },
+          {
+            "accepted": true,
+            "reason": "applied",
+            "detail": null,
+            "score": 1,
+            "score_gap": 0.16369833502230158,
+            "support_bands": [
+              2,
+              6,
+              2
+            ],
+            "baseline_raw_pixels": 13376,
+            "candidate_raw_pixels": 0,
+            "improvement": 1
+          }
+        ]
+      },
+      {
+        "run": "capacity9-ab",
+        "capacity": 9,
+        "first": 2,
+        "second": 4,
+        "mutation": "none",
+        "hypothesis_met": true,
+        "range_ready": true,
+        "applied": true,
+        "candidate_count": 7,
+        "product": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 0,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 2,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 7,
+          "structural_change_counts": {
+            "inserted": 3,
+            "deleted": 1,
+            "block_moved": 3
+          },
+          "difference_count": 7,
+          "difference_count_complete": true
+        },
+        "adoptions": [
+          {
+            "accepted": true,
+            "reason": "applied",
+            "detail": null,
+            "score": 1,
+            "score_gap": 0.16176896334327584,
+            "support_bands": [
+              4,
+              2,
+              3,
+              2
+            ],
+            "baseline_raw_pixels": 2163,
+            "candidate_raw_pixels": 0,
+            "improvement": 1
+          },
+          {
+            "accepted": true,
+            "reason": "applied",
+            "detail": null,
+            "score": 1,
+            "score_gap": 0.16380805225935258,
+            "support_bands": [
+              2,
+              7,
+              2
+            ],
+            "baseline_raw_pixels": 13412,
+            "candidate_raw_pixels": 0,
+            "improvement": 1
+          }
+        ]
+      },
+      {
+        "run": "capacity9-ba",
+        "capacity": 9,
+        "first": 2,
+        "second": 4,
+        "mutation": "none",
+        "hypothesis_met": true,
+        "range_ready": true,
+        "applied": true,
+        "candidate_count": 7,
+        "product": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 0,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 2,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 7,
+          "structural_change_counts": {
+            "inserted": 1,
+            "deleted": 3,
+            "block_moved": 3
+          },
+          "difference_count": 7,
+          "difference_count_complete": true
+        },
+        "adoptions": [
+          {
+            "accepted": true,
+            "reason": "applied",
+            "detail": null,
+            "score": 1,
+            "score_gap": 0.16176896334327584,
+            "support_bands": [
+              4,
+              2,
+              3,
+              2
+            ],
+            "baseline_raw_pixels": 2163,
+            "candidate_raw_pixels": 0,
+            "improvement": 1
+          },
+          {
+            "accepted": true,
+            "reason": "applied",
+            "detail": null,
+            "score": 1,
+            "score_gap": 0.16380805225935258,
+            "support_bands": [
+              2,
+              7,
+              2
+            ],
+            "baseline_raw_pixels": 13412,
+            "candidate_raw_pixels": 0,
+            "improvement": 1
+          }
+        ]
+      },
+      {
+        "run": "capacity10-ab",
+        "capacity": 10,
+        "first": 2,
+        "second": 4,
+        "mutation": "none",
+        "hypothesis_met": true,
+        "range_ready": true,
+        "applied": true,
+        "candidate_count": 7,
+        "product": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 0,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 2,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 7,
+          "structural_change_counts": {
+            "inserted": 3,
+            "deleted": 1,
+            "block_moved": 3
+          },
+          "difference_count": 7,
+          "difference_count_complete": true
+        },
+        "adoptions": [
+          {
+            "accepted": true,
+            "reason": "applied",
+            "detail": null,
+            "score": 1,
+            "score_gap": 0.14541359316396396,
+            "support_bands": [
+              4,
+              2,
+              4,
+              2
+            ],
+            "baseline_raw_pixels": 2203,
+            "candidate_raw_pixels": 0,
+            "improvement": 1
+          },
+          {
+            "accepted": true,
+            "reason": "applied",
+            "detail": null,
+            "score": 1,
+            "score_gap": 0.14770489252887076,
+            "support_bands": [
+              2,
+              8,
+              2
+            ],
+            "baseline_raw_pixels": 13540,
+            "candidate_raw_pixels": 0,
+            "improvement": 1
+          }
+        ]
+      },
+      {
+        "run": "capacity10-ba",
+        "capacity": 10,
+        "first": 2,
+        "second": 4,
+        "mutation": "none",
+        "hypothesis_met": true,
+        "range_ready": true,
+        "applied": true,
+        "candidate_count": 7,
+        "product": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 0,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 2,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 7,
+          "structural_change_counts": {
+            "inserted": 1,
+            "deleted": 3,
+            "block_moved": 3
+          },
+          "difference_count": 7,
+          "difference_count_complete": true
+        },
+        "adoptions": [
+          {
+            "accepted": true,
+            "reason": "applied",
+            "detail": null,
+            "score": 1,
+            "score_gap": 0.14541359316396396,
+            "support_bands": [
+              4,
+              2,
+              4,
+              2
+            ],
+            "baseline_raw_pixels": 2203,
+            "candidate_raw_pixels": 0,
+            "improvement": 1
+          },
+          {
+            "accepted": true,
+            "reason": "applied",
+            "detail": null,
+            "score": 1,
+            "score_gap": 0.14770489252887076,
+            "support_bands": [
+              2,
+              8,
+              2
+            ],
+            "baseline_raw_pixels": 13540,
+            "candidate_raw_pixels": 0,
+            "improvement": 1
+          }
+        ]
+      },
+      {
+        "run": "later-short-ab",
+        "capacity": 8,
+        "first": 2,
+        "second": 5,
+        "mutation": "none",
+        "hypothesis_met": true,
+        "range_ready": false,
+        "applied": false,
+        "candidate_count": 14,
+        "product": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 14,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 14,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 14,
+          "difference_count_complete": true
+        },
+        "adoptions": []
+      },
+      {
+        "run": "later-short-ba",
+        "capacity": 8,
+        "first": 2,
+        "second": 5,
+        "mutation": "none",
+        "hypothesis_met": true,
+        "range_ready": false,
+        "applied": false,
+        "candidate_count": 14,
+        "product": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 14,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 14,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 14,
+          "difference_count_complete": true
+        },
+        "adoptions": []
+      },
+      {
+        "run": "later-supported-ab",
+        "capacity": 9,
+        "first": 2,
+        "second": 5,
+        "mutation": "none",
+        "hypothesis_met": true,
+        "range_ready": true,
+        "applied": true,
+        "candidate_count": 7,
+        "product": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 0,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 2,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 7,
+          "structural_change_counts": {
+            "inserted": 3,
+            "deleted": 1,
+            "block_moved": 3
+          },
+          "difference_count": 7,
+          "difference_count_complete": true
+        },
+        "adoptions": [
+          {
+            "accepted": true,
+            "reason": "applied",
+            "detail": null,
+            "score": 1,
+            "score_gap": 0.16210194168039083,
+            "support_bands": [
+              4,
+              3,
+              2,
+              2
+            ],
+            "baseline_raw_pixels": 2203,
+            "candidate_raw_pixels": 0,
+            "improvement": 1
+          },
+          {
+            "accepted": true,
+            "reason": "applied",
+            "detail": null,
+            "score": 1,
+            "score_gap": 0.16380805225935258,
+            "support_bands": [
+              2,
+              7,
+              2
+            ],
+            "baseline_raw_pixels": 13412,
+            "candidate_raw_pixels": 0,
+            "improvement": 1
+          }
+        ]
+      },
+      {
+        "run": "later-supported-ba",
+        "capacity": 9,
+        "first": 2,
+        "second": 5,
+        "mutation": "none",
+        "hypothesis_met": true,
+        "range_ready": true,
+        "applied": true,
+        "candidate_count": 7,
+        "product": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 0,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 2,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 7,
+          "structural_change_counts": {
+            "inserted": 1,
+            "deleted": 3,
+            "block_moved": 3
+          },
+          "difference_count": 7,
+          "difference_count_complete": true
+        },
+        "adoptions": [
+          {
+            "accepted": true,
+            "reason": "applied",
+            "detail": null,
+            "score": 1,
+            "score_gap": 0.16210194168039083,
+            "support_bands": [
+              4,
+              3,
+              2,
+              2
+            ],
+            "baseline_raw_pixels": 2203,
+            "candidate_raw_pixels": 0,
+            "improvement": 1
+          },
+          {
+            "accepted": true,
+            "reason": "applied",
+            "detail": null,
+            "score": 1,
+            "score_gap": 0.16380805225935258,
+            "support_bands": [
+              2,
+              7,
+              2
+            ],
+            "baseline_raw_pixels": 13412,
+            "candidate_raw_pixels": 0,
+            "improvement": 1
+          }
+        ]
+      },
+      {
+        "run": "both-later-ab",
+        "capacity": 9,
+        "first": 3,
+        "second": 5,
+        "mutation": "none",
+        "hypothesis_met": true,
+        "range_ready": true,
+        "applied": true,
+        "candidate_count": 7,
+        "product": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 0,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 2,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 7,
+          "structural_change_counts": {
+            "inserted": 3,
+            "deleted": 1,
+            "block_moved": 3
+          },
+          "difference_count": 7,
+          "difference_count_complete": true
+        },
+        "adoptions": [
+          {
+            "accepted": true,
+            "reason": "applied",
+            "detail": null,
+            "score": 1,
+            "score_gap": 0.16176864636722876,
+            "support_bands": [
+              5,
+              2,
+              2,
+              2
+            ],
+            "baseline_raw_pixels": 2060,
+            "candidate_raw_pixels": 0,
+            "improvement": 1
+          },
+          {
+            "accepted": true,
+            "reason": "applied",
+            "detail": null,
+            "score": 1,
+            "score_gap": 0.16380805225935258,
+            "support_bands": [
+              2,
+              7,
+              2
+            ],
+            "baseline_raw_pixels": 13412,
+            "candidate_raw_pixels": 0,
+            "improvement": 1
+          }
+        ]
+      },
+      {
+        "run": "both-later-ba",
+        "capacity": 9,
+        "first": 3,
+        "second": 5,
+        "mutation": "none",
+        "hypothesis_met": true,
+        "range_ready": true,
+        "applied": true,
+        "candidate_count": 7,
+        "product": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 0,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 2,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 7,
+          "structural_change_counts": {
+            "inserted": 1,
+            "deleted": 3,
+            "block_moved": 3
+          },
+          "difference_count": 7,
+          "difference_count_complete": true
+        },
+        "adoptions": [
+          {
+            "accepted": true,
+            "reason": "applied",
+            "detail": null,
+            "score": 1,
+            "score_gap": 0.16176864636722876,
+            "support_bands": [
+              5,
+              2,
+              2,
+              2
+            ],
+            "baseline_raw_pixels": 2060,
+            "candidate_raw_pixels": 0,
+            "improvement": 1
+          },
+          {
+            "accepted": true,
+            "reason": "applied",
+            "detail": null,
+            "score": 1,
+            "score_gap": 0.16380805225935258,
+            "support_bands": [
+              2,
+              7,
+              2
+            ],
+            "baseline_raw_pixels": 13412,
+            "candidate_raw_pixels": 0,
+            "improvement": 1
+          }
+        ]
+      },
+      {
+        "run": "before-short-ab",
+        "capacity": 8,
+        "first": 1,
+        "second": 4,
+        "mutation": "none",
+        "hypothesis_met": true,
+        "range_ready": false,
+        "applied": false,
+        "candidate_count": 15,
+        "product": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 15,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 15,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 15,
+          "difference_count_complete": true
+        },
+        "adoptions": []
+      },
+      {
+        "run": "before-short-ba",
+        "capacity": 8,
+        "first": 1,
+        "second": 4,
+        "mutation": "none",
+        "hypothesis_met": true,
+        "range_ready": false,
+        "applied": false,
+        "candidate_count": 15,
+        "product": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 15,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 15,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 15,
+          "difference_count_complete": true
+        },
+        "adoptions": []
+      },
+      {
+        "run": "between-short-ab",
+        "capacity": 8,
+        "first": 2,
+        "second": 3,
+        "mutation": "none",
+        "hypothesis_met": true,
+        "range_ready": true,
+        "applied": false,
+        "candidate_count": 7,
+        "product": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 14,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 14,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 14,
+          "difference_count_complete": true
+        },
+        "adoptions": [
+          {
+            "accepted": false,
+            "reason": "insufficient_support",
+            "detail": "support_bands",
+            "score": null,
+            "score_gap": null,
+            "support_bands": null,
+            "baseline_raw_pixels": null,
+            "candidate_raw_pixels": null,
+            "improvement": null
+          },
+          {
+            "accepted": true,
+            "reason": "applied",
+            "detail": null,
+            "score": 1,
+            "score_gap": 0.16369833502230158,
+            "support_bands": [
+              2,
+              6,
+              2
+            ],
+            "baseline_raw_pixels": 13376,
+            "candidate_raw_pixels": 0,
+            "improvement": 1
+          }
+        ]
+      },
+      {
+        "run": "between-short-ba",
+        "capacity": 8,
+        "first": 2,
+        "second": 3,
+        "mutation": "none",
+        "hypothesis_met": true,
+        "range_ready": true,
+        "applied": false,
+        "candidate_count": 7,
+        "product": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 14,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 14,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 14,
+          "difference_count_complete": true
+        },
+        "adoptions": [
+          {
+            "accepted": false,
+            "reason": "insufficient_support",
+            "detail": "support_bands",
+            "score": null,
+            "score_gap": null,
+            "support_bands": null,
+            "baseline_raw_pixels": null,
+            "candidate_raw_pixels": null,
+            "improvement": null
+          },
+          {
+            "accepted": true,
+            "reason": "applied",
+            "detail": null,
+            "score": 1,
+            "score_gap": 0.16369833502230158,
+            "support_bands": [
+              2,
+              6,
+              2
+            ],
+            "baseline_raw_pixels": 13376,
+            "candidate_raw_pixels": 0,
+            "improvement": 1
+          }
+        ]
+      },
+      {
+        "run": "content-tone-ab",
+        "capacity": 8,
+        "first": 2,
+        "second": 4,
+        "mutation": "paired",
+        "hypothesis_met": true,
+        "range_ready": true,
+        "applied": true,
+        "candidate_count": 8,
+        "product": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 1,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 3,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 7,
+          "structural_change_counts": {
+            "inserted": 3,
+            "deleted": 1,
+            "block_moved": 3
+          },
+          "difference_count": 8,
+          "difference_count_complete": true
+        },
+        "adoptions": [
+          {
+            "accepted": true,
+            "reason": "applied",
+            "detail": null,
+            "score": 0.9668984675144461,
+            "score_gap": 0.11658721007671158,
+            "support_bands": [
+              4,
+              2,
+              2,
+              2
+            ],
+            "baseline_raw_pixels": 3567,
+            "candidate_raw_pixels": 1614,
+            "improvement": 0.5475189234650967
+          },
+          {
+            "accepted": true,
+            "reason": "applied",
+            "detail": null,
+            "score": 1,
+            "score_gap": 0.16369833502230158,
+            "support_bands": [
+              2,
+              6,
+              2
+            ],
+            "baseline_raw_pixels": 13376,
+            "candidate_raw_pixels": 0,
+            "improvement": 1
+          }
+        ]
+      },
+      {
+        "run": "content-tone-ba",
+        "capacity": 8,
+        "first": 2,
+        "second": 4,
+        "mutation": "paired",
+        "hypothesis_met": true,
+        "range_ready": true,
+        "applied": true,
+        "candidate_count": 8,
+        "product": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 1,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 3,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 7,
+          "structural_change_counts": {
+            "inserted": 1,
+            "deleted": 3,
+            "block_moved": 3
+          },
+          "difference_count": 8,
+          "difference_count_complete": true
+        },
+        "adoptions": [
+          {
+            "accepted": true,
+            "reason": "applied",
+            "detail": null,
+            "score": 0.9668984675144461,
+            "score_gap": 0.11658721007671158,
+            "support_bands": [
+              4,
+              2,
+              2,
+              2
+            ],
+            "baseline_raw_pixels": 3567,
+            "candidate_raw_pixels": 1614,
+            "improvement": 0.5475189234650967
+          },
+          {
+            "accepted": true,
+            "reason": "applied",
+            "detail": null,
+            "score": 1,
+            "score_gap": 0.16369833502230158,
+            "support_bands": [
+              2,
+              6,
+              2
+            ],
+            "baseline_raw_pixels": 13376,
+            "candidate_raw_pixels": 0,
+            "improvement": 1
+          }
+        ]
+      },
+      {
+        "run": "carry-tone-ab",
+        "capacity": 8,
+        "first": 2,
+        "second": 4,
+        "mutation": "pixels",
+        "hypothesis_met": true,
+        "range_ready": false,
+        "applied": false,
+        "candidate_count": 14,
+        "product": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 14,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 14,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 14,
+          "difference_count_complete": true
+        },
+        "adoptions": []
+      },
+      {
+        "run": "carry-tone-ba",
+        "capacity": 8,
+        "first": 2,
+        "second": 4,
+        "mutation": "pixels",
+        "hypothesis_met": true,
+        "range_ready": false,
+        "applied": false,
+        "candidate_count": 14,
+        "product": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 14,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 14,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 14,
+          "difference_count_complete": true
+        },
+        "adoptions": []
+      },
+      {
+        "run": "repeated-ab",
+        "capacity": 8,
+        "first": 2,
+        "second": 4,
+        "mutation": "repeated",
+        "hypothesis_met": true,
+        "range_ready": false,
+        "applied": false,
+        "candidate_count": 14,
+        "product": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 14,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 14,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 14,
+          "difference_count_complete": true
+        },
+        "adoptions": []
+      },
+      {
+        "run": "repeated-ba",
+        "capacity": 8,
+        "first": 2,
+        "second": 4,
+        "mutation": "repeated",
+        "hypothesis_met": true,
+        "range_ready": false,
+        "applied": false,
+        "candidate_count": 14,
+        "product": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 14,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 14,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 14,
+          "difference_count_complete": true
+        },
+        "adoptions": []
+      },
+      {
+        "run": "reordered-ab",
+        "capacity": 8,
+        "first": 2,
+        "second": 4,
+        "mutation": "reordered",
+        "hypothesis_met": true,
+        "range_ready": false,
+        "applied": false,
+        "candidate_count": 14,
+        "product": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 14,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 14,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 14,
+          "difference_count_complete": true
+        },
+        "adoptions": []
+      },
+      {
+        "run": "reordered-ba",
+        "capacity": 8,
+        "first": 2,
+        "second": 4,
+        "mutation": "reordered",
+        "hypothesis_met": true,
+        "range_ready": false,
+        "applied": false,
+        "candidate_count": 14,
+        "product": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 14,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 14,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 14,
+          "difference_count_complete": true
+        },
+        "adoptions": []
+      },
+      {
+        "run": "faint-support-ab",
+        "capacity": 8,
+        "first": 2,
+        "second": 4,
+        "mutation": "faint",
+        "hypothesis_met": true,
+        "range_ready": true,
+        "applied": false,
+        "candidate_count": 7,
+        "product": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 11,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 11,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 11,
+          "difference_count_complete": true
+        },
+        "adoptions": [
+          {
+            "accepted": false,
+            "reason": "insufficient_support",
+            "detail": "support_ink",
+            "score": null,
+            "score_gap": null,
+            "support_bands": null,
+            "baseline_raw_pixels": null,
+            "candidate_raw_pixels": null,
+            "improvement": null
+          },
+          {
+            "accepted": true,
+            "reason": "applied",
+            "detail": null,
+            "score": 1,
+            "score_gap": 0.16369833502230158,
+            "support_bands": [
+              2,
+              6,
+              2
+            ],
+            "baseline_raw_pixels": 13376,
+            "candidate_raw_pixels": 0,
+            "improvement": 1
+          }
+        ]
+      },
+      {
+        "run": "faint-support-ba",
+        "capacity": 8,
+        "first": 2,
+        "second": 4,
+        "mutation": "faint",
+        "hypothesis_met": true,
+        "range_ready": true,
+        "applied": false,
+        "candidate_count": 7,
+        "product": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 11,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 11,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 11,
+          "difference_count_complete": true
+        },
+        "adoptions": [
+          {
+            "accepted": false,
+            "reason": "insufficient_support",
+            "detail": "support_ink",
+            "score": null,
+            "score_gap": null,
+            "support_bands": null,
+            "baseline_raw_pixels": null,
+            "candidate_raw_pixels": null,
+            "improvement": null
+          },
+          {
+            "accepted": true,
+            "reason": "applied",
+            "detail": null,
+            "score": 1,
+            "score_gap": 0.16369833502230158,
+            "support_bands": [
+              2,
+              6,
+              2
+            ],
+            "baseline_raw_pixels": 13376,
+            "candidate_raw_pixels": 0,
+            "improvement": 1
+          }
+        ]
+      }
+    ]
+  },
+  "independent_new_matrix": {
+    "runs": 30,
+    "grouped": 12,
+    "unmet_positive_hypotheses": 2,
+    "unexpected_negative_acceptances": 0,
+    "reference_pages": 32,
+    "surface_images": 128,
+    "raw_pngs": 180,
+    "structures": 112,
+    "shared_movements": 24,
+    "permutations": 60,
+    "rejections": 2840,
+    "completeness": 24,
+    "content_preserved": 24
+  },
+  "independent_with_historical_replay": {
+    "runs": 30,
+    "grouped": 12,
+    "unmet_positive_hypotheses": 2,
+    "unexpected_negative_acceptances": 0,
+    "reference_pages": 32,
+    "surface_images": 128,
+    "raw_pngs": 180,
+    "structures": 112,
+    "shared_movements": 24,
+    "permutations": 100,
+    "rejections": 4596,
+    "completeness": 44,
+    "content_preserved": 44
+  },
+  "historical_model_replay": {
+    "runs": 104,
+    "preserved": 96,
+    "additional_grouped": 8,
+    "shared_movements": 8
+  },
+  "cli_compatibility": {
+    "runs": 26,
+    "files": 998,
+    "records": [
+      "shared-two-ab",
+      "shared-two-ba",
+      "shared-tone-ab",
+      "shared-tone-ba",
+      "shared-chain-ab",
+      "shared-chain-ba",
+      "same-page-two-ab",
+      "same-page-two-ba",
+      "shared-three-limit-ab",
+      "shared-three-limit-ba",
+      "shared-block-limit-ab",
+      "shared-block-limit-ba",
+      "adjacent-single-ab",
+      "adjacent-single-ba",
+      "merged-endpoint-ab",
+      "merged-endpoint-ba",
+      "shared-mixed-ab",
+      "shared-mixed-ba",
+      "shared-repeated-ab",
+      "shared-repeated-ba",
+      "shared-band-change-ab",
+      "shared-band-change-ba",
+      "shared-and-independent-ab",
+      "shared-and-independent-ba",
+      "independent-and-shared-ab",
+      "independent-and-shared-ba"
+    ]
+  },
+  "final_probe_replay": {
+    "runs": 30,
+    "files": 1154,
+    "diagnostic_files": 4,
+    "frozen_pdfs": 30,
+    "excluded_fields": [
+      "generated_at and its HTML representations",
+      "identical regenerated PDF input root (observed vs complete)"
+    ]
+  },
+  "tests": {
+    "total": 389,
+    "passed": 389,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "not-run": 0,
+    "seconds": 402.951,
+    "added": 30,
+    "runner": "xUnit.net v3 4.0.1+8ed8aa354c",
+    "environment": "64-bit (ARM) .NET 10.0.12 [collection-per-class, non-parallel]",
+    "xml": "out/t3-1c-same-page-support/page-flow-tests.xml",
+    "scope": "PageFlow classes only; full suite not rerun this turn"
+  },
+  "build": {
+    "configuration": "Release",
+    "warnings": 0,
+    "errors": 0,
+    "logs": [
+      "out/t3-1c-same-page-support/build-final.log",
+      "out/t3-1c-same-page-support/probe-build-final.log"
+    ]
+  },
+  "source": {
+    "count": 104,
+    "changed": 0,
+    "added": 0,
+    "before": {
+      "src/ReportDiff.Cli/AppSettings.cs": "b2c292532fc4286929a10c817b458a6373f94de9c635a1a300f8526647289b95",
+      "src/ReportDiff.Cli/AssemblyInfo.cs": "502510d8fadecad038256039d5f9b86967f68a15afc8678f06377713652881d3",
+      "src/ReportDiff.Cli/CliApplication.cs": "54873694ca6511b77f5e34e7a42e9319337a7ecc470aa55e0f20e6eba397a92b",
+      "src/ReportDiff.Cli/CommandLine.cs": "bc67f040e1ef7f8bfc4d516471426ff7aaa19126234d966e56848568723e4467",
+      "src/ReportDiff.Cli/ComparisonInput.cs": "1d754daa49db5501b96670b7df72a2564a7c6c635646a4bce214aa34c3d39d5f",
+      "src/ReportDiff.Cli/ComparisonRunner.cs": "35c0eb16fb8360d38b115cfe5501579e50cf003b6bb3ea732d082c5014689649",
+      "src/ReportDiff.Cli/ConfigurationLoader.cs": "03230e1db64a78de9c354ca7c07729025f37c25c02075b58e9c1e05f2795c1a2",
+      "src/ReportDiff.Cli/ConsoleProgress.cs": "6cd669d3cd61c5bc85fef7f1b7f00205c74f34222104c492e747fc38e87eb69c",
+      "src/ReportDiff.Cli/DirectoryComparison.cs": "c85858c3b976f57197c0229784914fb8f591f35493d0e5c525347242d0dbb354",
+      "src/ReportDiff.Cli/DirectoryPlan.cs": "2ecb852089f07c15d4a9034207d81f83f58f2a3908580b4c0b08d63094ac9d28",
+      "src/ReportDiff.Cli/DirectoryRules.cs": "787adc3a21ec140d80da80b092bd280917b346bfe64190f5cc40e56be6353191",
+      "src/ReportDiff.Cli/OutputWorkspace.cs": "51acec7c80adca8d3e48921cb398737dcd989d5891ae414fd70b666927ce669e",
+      "src/ReportDiff.Cli/PageFlowRun.cs": "a50405c2d84196b8b25dd8368569c6905f53d4b372f861ee44ff67dcd57d4d63",
+      "src/ReportDiff.Cli/Program.cs": "b7a3b4da069f34065cf8b42f618a5828c84090358479cc58fe84755c528448c6",
+      "src/ReportDiff.Cli/RegionSetting.cs": "996d86b96f8650d79a77c6865c037939a9d792550cbdde062a9738c05481f316",
+      "src/ReportDiff.Cli/ReportDiff.Cli.csproj": "3e2795af95b113d59193c85dd18d57b33b6ea3b48194ed6bd4f286fcdd4ecca7",
+      "src/ReportDiff.Core/AssemblyInfo.cs": "060494a4b480a2d869fb11948811c14bcc777dbd4aa419b50dff4dce085b180c",
+      "src/ReportDiff.Core/CandidateRowSchedule.cs": "d3c3deb2467083a063e2f9d5a522760ca616ff74d3439c92830e1ddd91c329d9",
+      "src/ReportDiff.Core/ClusterProjectionData.cs": "e66b6b052b86092d2038a4f8e6fd010a75a9575dc74991730b4137fdc5a16015",
+      "src/ReportDiff.Core/ComparisonFeatures.cs": "b8c53bfdede76a9623d26c6f3ef48e28e5f690f875a4f4defbc38d6930211fda",
+      "src/ReportDiff.Core/ComparisonInk.cs": "bb06f1b539af62988ece41b65d992c07c8c791ab41d3ee087e2ae6c4bfadcf03",
+      "src/ReportDiff.Core/ComparisonParameters.cs": "5d4f15ca53e464931a8458a6b1bbf78769c1f14e9ab4162df5a6a7caf3cccee4",
+      "src/ReportDiff.Core/ComparisonTimings.cs": "0f6b8bf17f527e6f20d0eeea01e87437d663bddc866ac84f91e527b665e4f981",
+      "src/ReportDiff.Core/DifferenceClassifier.cs": "dc43e65f285a86b9ce926e19ea5145904e6d516c39f5d01a4b742817c38f134c",
+      "src/ReportDiff.Core/FeatureStripeSchedule.cs": "c9a602a01dc32d731af4bef1b7ef1923254a27e60a6b1bd3a81c7e14bf14549d",
+      "src/ReportDiff.Core/GlobalAlignment.cs": "eaa3777e70ed94b4bf171c5414426138fde5fc7627410015af7511e625f9d034",
+      "src/ReportDiff.Core/GroupCandidateSchedule.cs": "a8bb6419e82d6e1b932de721e83267ce5788e577b1da8441abbede8c5ffeda57",
+      "src/ReportDiff.Core/GroupCandidateSearch.cs": "ca903b3a82423f993043126dfa015c90a5f8adebf0a0ba296034bfcef431a698",
+      "src/ReportDiff.Core/GroupRunIndex.cs": "28ff0084042dc65d92ba6e1aa95f07b560801c056d54c320b6d302e6e2281f4e",
+      "src/ReportDiff.Core/GroupSearchSchedule.cs": "b36fcd6ee1a9c7faa086e85fcd00dbb6c3a6f1bf86a268b82318f92890fa02cb",
+      "src/ReportDiff.Core/GroupShiftSearch.cs": "6e95c31ab2c87acddeb01a6b863d817542319d2362858553b27cc5b9dc8dafba",
+      "src/ReportDiff.Core/ImageInk.cs": "3f3cefe9141fac6275b30d87a83d742e5330130d81294c21e67581cddf72be09",
+      "src/ReportDiff.Core/InitialCandidates.cs": "74822751930b3401ca4145b7ec5e9e2cfe6f0569a234c8f189d580d8301136d2",
+      "src/ReportDiff.Core/LabStripeCache.cs": "f68aff9007a05c249158ffe1ce6079eb685fab9e638bd81469dc4e26606609ff",
+      "src/ReportDiff.Core/MatBuffers.cs": "d196bd1541bd385b89ab9fd78882498c0ead5b2239d89c0bb19b39f8d7af45f9",
+      "src/ReportDiff.Core/MovementAnnotator.cs": "f6ceb5f6a84b2b08da0dc8daa5d71861462d308f6f9390594fdd3fafc599e9b8",
+      "src/ReportDiff.Core/PageComparer.cs": "d560b3f307a0f6c37539ac36dd1157f394ac9eb77fe2223d9cea24d7087434e8",
+      "src/ReportDiff.Core/PageComparison.cs": "310e74bb4ac5c520cc3d853bdcd2aa939cafb52a19c08e8569d64b04f0e3847b",
+      "src/ReportDiff.Core/PageFlowAdoption.cs": "78cfa90921584b5bfcdb65b1b5df4db1e6b042c9bc822b86327a5fea41cdd8db",
+      "src/ReportDiff.Core/PageFlowAggregation.cs": "162752c45709d9c610b00c8654f4ad07b484d2eddfef4da4bd15c4e176dc833b",
+      "src/ReportDiff.Core/PageFlowAmbiguity.cs": "1ae1a1a9bcf9b3de319229742b4ad96ab5c887e08fa9f5348afed89748fee774",
+      "src/ReportDiff.Core/PageFlowBandVerifier.cs": "63b0544ee9627cc73f65610eaf9c284048074478d86538e0b86562045e86b06b",
+      "src/ReportDiff.Core/PageFlowCollector.cs": "f279f37bc344e8c90d43039b6063b23e4cc9e36a7496fbdf280bfef91478055f",
+      "src/ReportDiff.Core/PageFlowComparison.cs": "a25f1782ae13210025f66d3c1abe09b5ed553634cdad0c11faa9f159c1a5263a",
+      "src/ReportDiff.Core/PageFlowComponents.cs": "52ee4b714778ef49d6ba17a5aa41f453651e8b862de23f0ade6b02b6c02c8a30",
+      "src/ReportDiff.Core/PageFlowData.cs": "3b2105cac685e34357f7df01a8072a9d1f7c8d4661ffcbddf13bf3d4b2e00ac9",
+      "src/ReportDiff.Core/PageFlowInference.cs": "831d01ac7c415aa094acac43a9482c9ac62063951f63b3f53ad840a0a44ff290",
+      "src/ReportDiff.Core/PageFlowNonflow.cs": "09081510b99adc0dc6f9ce06d9bea7374b87f64b0321e2eaca07c76b0e7c8397",
+      "src/ReportDiff.Core/PageFlowNumericRows.cs": "9a6f7633aef96c49ded8a69391109c3b30e997688cca69d9836df2823f80c966",
+      "src/ReportDiff.Core/PageFlowPlan.cs": "b1f974a85a34983ebe5ef4666bf9edc6ad2f17a1f23bed8ab41f11e66b70b636",
+      "src/ReportDiff.Core/PageFlowRangeGate.cs": "693ebb57606222bc266aa06c6eda1b13808cef063523c4a6b4676b0f3aafbdbe",
+      "src/ReportDiff.Core/PageFlowSharedCauses.cs": "c7466023676d713f7e586f2684862b024bc62e6a7189c680c31c62aa65906593",
+      "src/ReportDiff.Core/PageFlowSurface.cs": "79b8512ca39c28fac9b13f58dd899fbe3729590fec0c681a2701ca610d41aa20",
+      "src/ReportDiff.Core/PageMap.cs": "d037a4dc953cd2b6e4445055d05ebe1daf6e7872836909862150b147a9a75079",
+      "src/ReportDiff.Core/RegionMap.cs": "00e09dea774c79818e297f2e674ae079f5fbfe8592672080fa9d0ccbb126716e",
+      "src/ReportDiff.Core/RegionalComparison.cs": "2629aa0fd34db7991067c87bae77efdc9a8815b0c287908961846b7b46985049",
+      "src/ReportDiff.Core/ReportDiff.Core.csproj": "4fd131e59a31e5fea36ac35ad2e1cf2eb7bd913a3d937d7f112d2e4f1a03ff21",
+      "src/ReportDiff.Core/RowCandidateBuilder.cs": "64234efb0aec8fbd18c8da0b7d4b28bb44894e74f73ee3223440407c54f9b1ad",
+      "src/ReportDiff.Core/RowCanonicalizer.cs": "d1e66171499f03b5014afe846ba745e825707eb25b34d4d48334b345deaa4e81",
+      "src/ReportDiff.Core/RowComparison.cs": "3aac86bdf5bae8d6de6eac16f7d00f557eeac68c4fa87f141b688658140f895a",
+      "src/ReportDiff.Core/RowComparisonSurface.cs": "34fab9a23504973d274f75f69b23232924a737f291bb424eb6ecd81d5f888c5c",
+      "src/ReportDiff.Core/RowGroupValidator.cs": "461144fadb941aa0b8d79fe5b99d76f830c10bfe817c1ecc72077a07afd327f4",
+      "src/ReportDiff.Core/RowMatching.cs": "a7015cafed9839a10db95b32de5705abd209fa571bbbede0d70e9c83e87ade72",
+      "src/ReportDiff.Core/RowProjection.cs": "4715d629b2951837662c91d9d613a19a64ef4f77a6e50d545dffca720d90d7d1",
+      "src/ReportDiff.Core/RowSelector.cs": "5180d9fa814790519f8cd0c2d97f1165f2ee4318b5735da6907a1bc8813080d7",
+      "src/ReportDiff.Core/RowStructures.cs": "d9edbb5e189b6aa5c1336f6d81cb741b572491c20f178a8e81e2c5bdc187ce11",
+      "src/ReportDiff.Core/RowSupport.cs": "db3a85cc3633a1fa4332ef5ff40c0f5724ea5e72d29ba8e6d43ce8b2a919c951",
+      "src/ReportDiff.Core/RowText.cs": "9d14e5e607ba2983e74427cddb9905668e6625e71e69cd550d35b1a27eefec1a",
+      "src/ReportDiff.Core/TolerantDifference.cs": "5a9082634252a07b14b0ea2adf16c54fa2ce536eb9fd47374224f3a254c70e45",
+      "src/ReportDiff.Core/Units.cs": "2664a41731483bc23aaccd4dc5a7c462a90e7042960404fe93453a92ef4ea5e9",
+      "src/ReportDiff.Pdf/AssemblyInfo.cs": "502510d8fadecad038256039d5f9b86967f68a15afc8678f06377713652881d3",
+      "src/ReportDiff.Pdf/ImageReader.cs": "dd65252e10e2046c5401cb9b0c490d10ceb2a51ca974192507dfe4e811cdd8dd",
+      "src/ReportDiff.Pdf/InputFormat.cs": "a5ba93584766984432a613e038d249f49053a57bd8bd5ef433aecdeddb479fbc",
+      "src/ReportDiff.Pdf/LoadedImage.cs": "9a479a6e661bbfcdc3eb01e3d750914b6282b2fb5f19ee0fbb3a212b83e6ec44",
+      "src/ReportDiff.Pdf/PageNormalizer.cs": "78a9ba69476d8cf0e68b40d15d84beec72c4c5b80908cad16bfc57d48b2a8c0a",
+      "src/ReportDiff.Pdf/PagePairing.cs": "abd54c801c2816fb19518c20bf49c88d3e0366491648374ea1aaabee3c22554a",
+      "src/ReportDiff.Pdf/PageSelection.cs": "0cb8f84064f1d7263a2f30b06f20c77dd60688f877405103c57b3ab55ce999ab",
+      "src/ReportDiff.Pdf/PdfFontInspector.cs": "6ddcb863b79063e7594e5ad5779a62c9efd5a98fc80ebcc43be64636a5228997",
+      "src/ReportDiff.Pdf/PdfReader.cs": "a521c0532b0e2cd061e8ce6cd68403cd8eac45d3453f8a37b79b4d79647c20f5",
+      "src/ReportDiff.Pdf/PdfTextReader.cs": "dbc3cf40bd7e3c5a5c655a06507ff092db4b067d45e08abb4fab1bc102df4d30",
+      "src/ReportDiff.Pdf/ReportDiff.Pdf.csproj": "669ad02db31c565c8bc3620410c9312301439c37ccf9b7ac0db9a70aad409c3a",
+      "src/ReportDiff.Pdf/RowTextAnnotations.cs": "446de90eff2def29253da9ef6e9be085266986c448b22e3210095ad44f4a9eb6",
+      "src/ReportDiff.Pdf/TextAnnotations.cs": "e5fd667b6573f13fd91c697395d4a74efcf3be66dc9a89992b7b6395a866a5dc",
+      "src/ReportDiff.Pdf/TextOptions.cs": "c8cc766ededff6c993791593583a7e9ccbf559e2fc5335cc58fad132079be9fb",
+      "src/ReportDiff.Pdf/TiffAlpha.cs": "e6bbb487b32ac0592ab01d5f1b0fd8f40ccb2c093f4c825e8d57aa3a70f98b79",
+      "src/ReportDiff.Report/AssemblyInfo.cs": "502510d8fadecad038256039d5f9b86967f68a15afc8678f06377713652881d3",
+      "src/ReportDiff.Report/DirectoryReportDocument.cs": "a39cd5125411dd8c33d8beeec0e3469d283a968a96d53e6331332001ced9e167",
+      "src/ReportDiff.Report/DirectoryReportWriter.cs": "c31647a4040114dca7cfe607901e135a0fc50140dbf6c93bad543843d6b6d80a",
+      "src/ReportDiff.Report/ExclusionSnippet.cs": "80ee4fd3b2da35ded4b023f9f6f6fa7a4b95fc6f3e6c3220dc6b7437a75f0385",
+      "src/ReportDiff.Report/HtmlPageFlow.cs": "f905cd090b6a329de848c28c055492f8c974ee6bf031cbff1535b21b8f02c65d",
+      "src/ReportDiff.Report/HtmlRegions.cs": "e68cab2a4ca0ed73b0235883a373d99cb96bdb5585f1346256bc071ed6c7ac8b",
+      "src/ReportDiff.Report/HtmlReportWriter.cs": "d4e3182ceddcdc8acaf52e0b6ae5248f06a400e2d89f23e4f3741f12fa491469",
+      "src/ReportDiff.Report/HtmlRows.cs": "24527695d1a5c402e563253daf471606f883aa8295bda48f17b7a452f9eed0c2",
+      "src/ReportDiff.Report/PageImageWriteSchedule.cs": "5bf20dce01198ed377d7c41807830a5fa0c991c26d45c84982911d234289b24a",
+      "src/ReportDiff.Report/RawOverlay.cs": "73a821cc489464ec7f0990dd782e5012e7a5a7de20ce16b65a4cc18f9d828a07",
+      "src/ReportDiff.Report/RegionDrawing.cs": "7babd3024d1a5f76299d5be90f2ce7f50a34d5073093bc97326da491a5a69da5",
+      "src/ReportDiff.Report/ReportColor.cs": "6979a1d00188bf4dd353523ba5dc1ae41cae63b9e337c349d8e450f2ee15a2ef",
+      "src/ReportDiff.Report/ReportDiff.Report.csproj": "0f123f1803380365177bc6d7239361dff00eaf910205896ac1e675cf1c92bcd8",
+      "src/ReportDiff.Report/ReportDocument.cs": "de9333c703cd1a98e47271a2bc32c1358620c9484a3ff81b7138f68de7e88b4d",
+      "src/ReportDiff.Report/ReportImages.cs": "5d6826c78c5623acec087fd995e2864d4913a19d2691039c70b0530bbe4f4a8d",
+      "src/ReportDiff.Report/ReportPageFlow.cs": "b15ed5ef2d52909b504c6d1ed9fa153243d084bce7010a2437462857962d98bd",
+      "src/ReportDiff.Report/ReportRegions.cs": "5b9a45eb31fd0bdb41d206b74cb89335358969eebf9cc017494e54f185724443",
+      "src/ReportDiff.Report/ReportRows.cs": "4b8c92decc7a6e4b419620aecb7a70f38571b9fd760f2c613ab1710a0ad5726f",
+      "src/ReportDiff.Report/ReportWriter.cs": "1f0194010b440043044a3da1126bbc72efc01b25999c938720bc239ff7b250fa"
+    },
+    "final": {
+      "src/ReportDiff.Cli/AppSettings.cs": "b2c292532fc4286929a10c817b458a6373f94de9c635a1a300f8526647289b95",
+      "src/ReportDiff.Cli/AssemblyInfo.cs": "502510d8fadecad038256039d5f9b86967f68a15afc8678f06377713652881d3",
+      "src/ReportDiff.Cli/CliApplication.cs": "54873694ca6511b77f5e34e7a42e9319337a7ecc470aa55e0f20e6eba397a92b",
+      "src/ReportDiff.Cli/CommandLine.cs": "bc67f040e1ef7f8bfc4d516471426ff7aaa19126234d966e56848568723e4467",
+      "src/ReportDiff.Cli/ComparisonInput.cs": "1d754daa49db5501b96670b7df72a2564a7c6c635646a4bce214aa34c3d39d5f",
+      "src/ReportDiff.Cli/ComparisonRunner.cs": "35c0eb16fb8360d38b115cfe5501579e50cf003b6bb3ea732d082c5014689649",
+      "src/ReportDiff.Cli/ConfigurationLoader.cs": "03230e1db64a78de9c354ca7c07729025f37c25c02075b58e9c1e05f2795c1a2",
+      "src/ReportDiff.Cli/ConsoleProgress.cs": "6cd669d3cd61c5bc85fef7f1b7f00205c74f34222104c492e747fc38e87eb69c",
+      "src/ReportDiff.Cli/DirectoryComparison.cs": "c85858c3b976f57197c0229784914fb8f591f35493d0e5c525347242d0dbb354",
+      "src/ReportDiff.Cli/DirectoryPlan.cs": "2ecb852089f07c15d4a9034207d81f83f58f2a3908580b4c0b08d63094ac9d28",
+      "src/ReportDiff.Cli/DirectoryRules.cs": "787adc3a21ec140d80da80b092bd280917b346bfe64190f5cc40e56be6353191",
+      "src/ReportDiff.Cli/OutputWorkspace.cs": "51acec7c80adca8d3e48921cb398737dcd989d5891ae414fd70b666927ce669e",
+      "src/ReportDiff.Cli/PageFlowRun.cs": "a50405c2d84196b8b25dd8368569c6905f53d4b372f861ee44ff67dcd57d4d63",
+      "src/ReportDiff.Cli/Program.cs": "b7a3b4da069f34065cf8b42f618a5828c84090358479cc58fe84755c528448c6",
+      "src/ReportDiff.Cli/RegionSetting.cs": "996d86b96f8650d79a77c6865c037939a9d792550cbdde062a9738c05481f316",
+      "src/ReportDiff.Cli/ReportDiff.Cli.csproj": "3e2795af95b113d59193c85dd18d57b33b6ea3b48194ed6bd4f286fcdd4ecca7",
+      "src/ReportDiff.Core/AssemblyInfo.cs": "060494a4b480a2d869fb11948811c14bcc777dbd4aa419b50dff4dce085b180c",
+      "src/ReportDiff.Core/CandidateRowSchedule.cs": "d3c3deb2467083a063e2f9d5a522760ca616ff74d3439c92830e1ddd91c329d9",
+      "src/ReportDiff.Core/ClusterProjectionData.cs": "e66b6b052b86092d2038a4f8e6fd010a75a9575dc74991730b4137fdc5a16015",
+      "src/ReportDiff.Core/ComparisonFeatures.cs": "b8c53bfdede76a9623d26c6f3ef48e28e5f690f875a4f4defbc38d6930211fda",
+      "src/ReportDiff.Core/ComparisonInk.cs": "bb06f1b539af62988ece41b65d992c07c8c791ab41d3ee087e2ae6c4bfadcf03",
+      "src/ReportDiff.Core/ComparisonParameters.cs": "5d4f15ca53e464931a8458a6b1bbf78769c1f14e9ab4162df5a6a7caf3cccee4",
+      "src/ReportDiff.Core/ComparisonTimings.cs": "0f6b8bf17f527e6f20d0eeea01e87437d663bddc866ac84f91e527b665e4f981",
+      "src/ReportDiff.Core/DifferenceClassifier.cs": "dc43e65f285a86b9ce926e19ea5145904e6d516c39f5d01a4b742817c38f134c",
+      "src/ReportDiff.Core/FeatureStripeSchedule.cs": "c9a602a01dc32d731af4bef1b7ef1923254a27e60a6b1bd3a81c7e14bf14549d",
+      "src/ReportDiff.Core/GlobalAlignment.cs": "eaa3777e70ed94b4bf171c5414426138fde5fc7627410015af7511e625f9d034",
+      "src/ReportDiff.Core/GroupCandidateSchedule.cs": "a8bb6419e82d6e1b932de721e83267ce5788e577b1da8441abbede8c5ffeda57",
+      "src/ReportDiff.Core/GroupCandidateSearch.cs": "ca903b3a82423f993043126dfa015c90a5f8adebf0a0ba296034bfcef431a698",
+      "src/ReportDiff.Core/GroupRunIndex.cs": "28ff0084042dc65d92ba6e1aa95f07b560801c056d54c320b6d302e6e2281f4e",
+      "src/ReportDiff.Core/GroupSearchSchedule.cs": "b36fcd6ee1a9c7faa086e85fcd00dbb6c3a6f1bf86a268b82318f92890fa02cb",
+      "src/ReportDiff.Core/GroupShiftSearch.cs": "6e95c31ab2c87acddeb01a6b863d817542319d2362858553b27cc5b9dc8dafba",
+      "src/ReportDiff.Core/ImageInk.cs": "3f3cefe9141fac6275b30d87a83d742e5330130d81294c21e67581cddf72be09",
+      "src/ReportDiff.Core/InitialCandidates.cs": "74822751930b3401ca4145b7ec5e9e2cfe6f0569a234c8f189d580d8301136d2",
+      "src/ReportDiff.Core/LabStripeCache.cs": "f68aff9007a05c249158ffe1ce6079eb685fab9e638bd81469dc4e26606609ff",
+      "src/ReportDiff.Core/MatBuffers.cs": "d196bd1541bd385b89ab9fd78882498c0ead5b2239d89c0bb19b39f8d7af45f9",
+      "src/ReportDiff.Core/MovementAnnotator.cs": "f6ceb5f6a84b2b08da0dc8daa5d71861462d308f6f9390594fdd3fafc599e9b8",
+      "src/ReportDiff.Core/PageComparer.cs": "d560b3f307a0f6c37539ac36dd1157f394ac9eb77fe2223d9cea24d7087434e8",
+      "src/ReportDiff.Core/PageComparison.cs": "310e74bb4ac5c520cc3d853bdcd2aa939cafb52a19c08e8569d64b04f0e3847b",
+      "src/ReportDiff.Core/PageFlowAdoption.cs": "78cfa90921584b5bfcdb65b1b5df4db1e6b042c9bc822b86327a5fea41cdd8db",
+      "src/ReportDiff.Core/PageFlowAggregation.cs": "162752c45709d9c610b00c8654f4ad07b484d2eddfef4da4bd15c4e176dc833b",
+      "src/ReportDiff.Core/PageFlowAmbiguity.cs": "1ae1a1a9bcf9b3de319229742b4ad96ab5c887e08fa9f5348afed89748fee774",
+      "src/ReportDiff.Core/PageFlowBandVerifier.cs": "63b0544ee9627cc73f65610eaf9c284048074478d86538e0b86562045e86b06b",
+      "src/ReportDiff.Core/PageFlowCollector.cs": "f279f37bc344e8c90d43039b6063b23e4cc9e36a7496fbdf280bfef91478055f",
+      "src/ReportDiff.Core/PageFlowComparison.cs": "a25f1782ae13210025f66d3c1abe09b5ed553634cdad0c11faa9f159c1a5263a",
+      "src/ReportDiff.Core/PageFlowComponents.cs": "52ee4b714778ef49d6ba17a5aa41f453651e8b862de23f0ade6b02b6c02c8a30",
+      "src/ReportDiff.Core/PageFlowData.cs": "3b2105cac685e34357f7df01a8072a9d1f7c8d4661ffcbddf13bf3d4b2e00ac9",
+      "src/ReportDiff.Core/PageFlowInference.cs": "831d01ac7c415aa094acac43a9482c9ac62063951f63b3f53ad840a0a44ff290",
+      "src/ReportDiff.Core/PageFlowNonflow.cs": "09081510b99adc0dc6f9ce06d9bea7374b87f64b0321e2eaca07c76b0e7c8397",
+      "src/ReportDiff.Core/PageFlowNumericRows.cs": "9a6f7633aef96c49ded8a69391109c3b30e997688cca69d9836df2823f80c966",
+      "src/ReportDiff.Core/PageFlowPlan.cs": "b1f974a85a34983ebe5ef4666bf9edc6ad2f17a1f23bed8ab41f11e66b70b636",
+      "src/ReportDiff.Core/PageFlowRangeGate.cs": "693ebb57606222bc266aa06c6eda1b13808cef063523c4a6b4676b0f3aafbdbe",
+      "src/ReportDiff.Core/PageFlowSharedCauses.cs": "c7466023676d713f7e586f2684862b024bc62e6a7189c680c31c62aa65906593",
+      "src/ReportDiff.Core/PageFlowSurface.cs": "79b8512ca39c28fac9b13f58dd899fbe3729590fec0c681a2701ca610d41aa20",
+      "src/ReportDiff.Core/PageMap.cs": "d037a4dc953cd2b6e4445055d05ebe1daf6e7872836909862150b147a9a75079",
+      "src/ReportDiff.Core/RegionMap.cs": "00e09dea774c79818e297f2e674ae079f5fbfe8592672080fa9d0ccbb126716e",
+      "src/ReportDiff.Core/RegionalComparison.cs": "2629aa0fd34db7991067c87bae77efdc9a8815b0c287908961846b7b46985049",
+      "src/ReportDiff.Core/ReportDiff.Core.csproj": "4fd131e59a31e5fea36ac35ad2e1cf2eb7bd913a3d937d7f112d2e4f1a03ff21",
+      "src/ReportDiff.Core/RowCandidateBuilder.cs": "64234efb0aec8fbd18c8da0b7d4b28bb44894e74f73ee3223440407c54f9b1ad",
+      "src/ReportDiff.Core/RowCanonicalizer.cs": "d1e66171499f03b5014afe846ba745e825707eb25b34d4d48334b345deaa4e81",
+      "src/ReportDiff.Core/RowComparison.cs": "3aac86bdf5bae8d6de6eac16f7d00f557eeac68c4fa87f141b688658140f895a",
+      "src/ReportDiff.Core/RowComparisonSurface.cs": "34fab9a23504973d274f75f69b23232924a737f291bb424eb6ecd81d5f888c5c",
+      "src/ReportDiff.Core/RowGroupValidator.cs": "461144fadb941aa0b8d79fe5b99d76f830c10bfe817c1ecc72077a07afd327f4",
+      "src/ReportDiff.Core/RowMatching.cs": "a7015cafed9839a10db95b32de5705abd209fa571bbbede0d70e9c83e87ade72",
+      "src/ReportDiff.Core/RowProjection.cs": "4715d629b2951837662c91d9d613a19a64ef4f77a6e50d545dffca720d90d7d1",
+      "src/ReportDiff.Core/RowSelector.cs": "5180d9fa814790519f8cd0c2d97f1165f2ee4318b5735da6907a1bc8813080d7",
+      "src/ReportDiff.Core/RowStructures.cs": "d9edbb5e189b6aa5c1336f6d81cb741b572491c20f178a8e81e2c5bdc187ce11",
+      "src/ReportDiff.Core/RowSupport.cs": "db3a85cc3633a1fa4332ef5ff40c0f5724ea5e72d29ba8e6d43ce8b2a919c951",
+      "src/ReportDiff.Core/RowText.cs": "9d14e5e607ba2983e74427cddb9905668e6625e71e69cd550d35b1a27eefec1a",
+      "src/ReportDiff.Core/TolerantDifference.cs": "5a9082634252a07b14b0ea2adf16c54fa2ce536eb9fd47374224f3a254c70e45",
+      "src/ReportDiff.Core/Units.cs": "2664a41731483bc23aaccd4dc5a7c462a90e7042960404fe93453a92ef4ea5e9",
+      "src/ReportDiff.Pdf/AssemblyInfo.cs": "502510d8fadecad038256039d5f9b86967f68a15afc8678f06377713652881d3",
+      "src/ReportDiff.Pdf/ImageReader.cs": "dd65252e10e2046c5401cb9b0c490d10ceb2a51ca974192507dfe4e811cdd8dd",
+      "src/ReportDiff.Pdf/InputFormat.cs": "a5ba93584766984432a613e038d249f49053a57bd8bd5ef433aecdeddb479fbc",
+      "src/ReportDiff.Pdf/LoadedImage.cs": "9a479a6e661bbfcdc3eb01e3d750914b6282b2fb5f19ee0fbb3a212b83e6ec44",
+      "src/ReportDiff.Pdf/PageNormalizer.cs": "78a9ba69476d8cf0e68b40d15d84beec72c4c5b80908cad16bfc57d48b2a8c0a",
+      "src/ReportDiff.Pdf/PagePairing.cs": "abd54c801c2816fb19518c20bf49c88d3e0366491648374ea1aaabee3c22554a",
+      "src/ReportDiff.Pdf/PageSelection.cs": "0cb8f84064f1d7263a2f30b06f20c77dd60688f877405103c57b3ab55ce999ab",
+      "src/ReportDiff.Pdf/PdfFontInspector.cs": "6ddcb863b79063e7594e5ad5779a62c9efd5a98fc80ebcc43be64636a5228997",
+      "src/ReportDiff.Pdf/PdfReader.cs": "a521c0532b0e2cd061e8ce6cd68403cd8eac45d3453f8a37b79b4d79647c20f5",
+      "src/ReportDiff.Pdf/PdfTextReader.cs": "dbc3cf40bd7e3c5a5c655a06507ff092db4b067d45e08abb4fab1bc102df4d30",
+      "src/ReportDiff.Pdf/ReportDiff.Pdf.csproj": "669ad02db31c565c8bc3620410c9312301439c37ccf9b7ac0db9a70aad409c3a",
+      "src/ReportDiff.Pdf/RowTextAnnotations.cs": "446de90eff2def29253da9ef6e9be085266986c448b22e3210095ad44f4a9eb6",
+      "src/ReportDiff.Pdf/TextAnnotations.cs": "e5fd667b6573f13fd91c697395d4a74efcf3be66dc9a89992b7b6395a866a5dc",
+      "src/ReportDiff.Pdf/TextOptions.cs": "c8cc766ededff6c993791593583a7e9ccbf559e2fc5335cc58fad132079be9fb",
+      "src/ReportDiff.Pdf/TiffAlpha.cs": "e6bbb487b32ac0592ab01d5f1b0fd8f40ccb2c093f4c825e8d57aa3a70f98b79",
+      "src/ReportDiff.Report/AssemblyInfo.cs": "502510d8fadecad038256039d5f9b86967f68a15afc8678f06377713652881d3",
+      "src/ReportDiff.Report/DirectoryReportDocument.cs": "a39cd5125411dd8c33d8beeec0e3469d283a968a96d53e6331332001ced9e167",
+      "src/ReportDiff.Report/DirectoryReportWriter.cs": "c31647a4040114dca7cfe607901e135a0fc50140dbf6c93bad543843d6b6d80a",
+      "src/ReportDiff.Report/ExclusionSnippet.cs": "80ee4fd3b2da35ded4b023f9f6f6fa7a4b95fc6f3e6c3220dc6b7437a75f0385",
+      "src/ReportDiff.Report/HtmlPageFlow.cs": "f905cd090b6a329de848c28c055492f8c974ee6bf031cbff1535b21b8f02c65d",
+      "src/ReportDiff.Report/HtmlRegions.cs": "e68cab2a4ca0ed73b0235883a373d99cb96bdb5585f1346256bc071ed6c7ac8b",
+      "src/ReportDiff.Report/HtmlReportWriter.cs": "d4e3182ceddcdc8acaf52e0b6ae5248f06a400e2d89f23e4f3741f12fa491469",
+      "src/ReportDiff.Report/HtmlRows.cs": "24527695d1a5c402e563253daf471606f883aa8295bda48f17b7a452f9eed0c2",
+      "src/ReportDiff.Report/PageImageWriteSchedule.cs": "5bf20dce01198ed377d7c41807830a5fa0c991c26d45c84982911d234289b24a",
+      "src/ReportDiff.Report/RawOverlay.cs": "73a821cc489464ec7f0990dd782e5012e7a5a7de20ce16b65a4cc18f9d828a07",
+      "src/ReportDiff.Report/RegionDrawing.cs": "7babd3024d1a5f76299d5be90f2ce7f50a34d5073093bc97326da491a5a69da5",
+      "src/ReportDiff.Report/ReportColor.cs": "6979a1d00188bf4dd353523ba5dc1ae41cae63b9e337c349d8e450f2ee15a2ef",
+      "src/ReportDiff.Report/ReportDiff.Report.csproj": "0f123f1803380365177bc6d7239361dff00eaf910205896ac1e675cf1c92bcd8",
+      "src/ReportDiff.Report/ReportDocument.cs": "de9333c703cd1a98e47271a2bc32c1358620c9484a3ff81b7138f68de7e88b4d",
+      "src/ReportDiff.Report/ReportImages.cs": "5d6826c78c5623acec087fd995e2864d4913a19d2691039c70b0530bbe4f4a8d",
+      "src/ReportDiff.Report/ReportPageFlow.cs": "b15ed5ef2d52909b504c6d1ed9fa153243d084bce7010a2437462857962d98bd",
+      "src/ReportDiff.Report/ReportRegions.cs": "5b9a45eb31fd0bdb41d206b74cb89335358969eebf9cc017494e54f185724443",
+      "src/ReportDiff.Report/ReportRows.cs": "4b8c92decc7a6e4b419620aecb7a70f38571b9fd760f2c613ab1710a0ad5726f",
+      "src/ReportDiff.Report/ReportWriter.cs": "1f0194010b440043044a3da1126bbc72efc01b25999c938720bc239ff7b250fa"
+    }
+  },
+  "visual": {
+    "renderer": "Poppler",
+    "pages": 2,
+    "artifacts": [
+      "out/t3-1c-same-page-support/capacity8-preview.png",
+      "out/t3-1c-same-page-support/faint-preview.png"
+    ],
+    "scope": "synthetic Type3 geometry and intentional faint ink only"
+  },
+  "commands": [
+    "dotnet build --no-restore -c Release --disable-build-servers -m:1",
+    "dotnet build tools/ReportDiff.PageFlowProbe/ReportDiff.PageFlowProbe.csproj --no-restore -c Release --disable-build-servers -m:1",
+    "dotnet tools/ReportDiff.PageFlowProbe/bin/Release/net10.0/ReportDiff.PageFlowProbe.dll --same-page-support out/t3-1c-same-page-support/complete",
+    "out/t2-4a/reference-env/bin/python tools/ReportDiff.PageFlowProbe/check-shared-causes.py out/t3-1c-same-page-support/complete",
+    "dotnet tools/ReportDiff.PageFlowProbe/bin/Release/net10.0/ReportDiff.PageFlowProbe.dll --shared-product-audit out/t3-1c-same-page-support/observed/shared-causes.json out/t3-1c-same-page-support/product-audit.json",
+    "python3 tools/ReportDiff.PageFlowProbe/check-same-page-support.py out/t3-1c-same-page-support/complete out/t3-1c-same-page-support/product-audit.json",
+    "out/t2-4a/reference-env/bin/python tools/ReportDiff.PageFlowProbe/replay-numeric-output.py out/t3-1c-same-page-support/compat out/t3-1c-ambiguity-cli/fixed --shared",
+    "dotnet tests/ReportDiff.Tests/bin/Release/net10.0/ReportDiff.Tests.dll -parallelMode none -class \"*PageFlow*\" -xml out/t3-1c-same-page-support/page-flow-tests.xml"
+  ],
+  "limitations": [
+    "Original same-page-two two directions remain unmet positives; input bytes and desired grouping unchanged",
+    "No production code or acceptance-threshold changes",
+    "No new full-suite, performance, Windows, real-form, A4 or browser acceptance evidence",
+    "Historical 104 aggregation replay is not a current 104 CLI comparison"
+  ],
+  "next_candidate": "Design and independently falsify a cross-page support evidence contract for original zero-local-support cases before production integration"
+}

@@ -21,6 +21,8 @@ internal sealed class ConsoleProgress(TextWriter output, bool quiet, Func<int>? 
     public void Page(int index, int total, int originalPage, bool selected) =>
         Show($"処理中 {index} / {total} ページ" + (selected ? $"（元ページ {originalPage}）" : ""));
 
+    public void Flow(int page) => Show($"ページ送りの事前検証中（元ページ {page}）");
+
     public void Report(bool directory = false) => Show(directory ? "一覧レポート出力中" : "レポート出力中");
 
     private void Show(string text)

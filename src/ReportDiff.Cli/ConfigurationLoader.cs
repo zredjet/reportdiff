@@ -12,7 +12,7 @@ public static partial class ConfigurationLoader
     // 省略の有無（特に image_dpi）を保つため、実効設定ではなく YAML の指定キーを重ねる。
     public static AppSettings LoadLayered(string? common, string? selected, string? profile = null, int? dpi = null)
     {
-        Load(common); Load(selected); // 上書きによって隠れる不正な値も拒否する。
+        LoadCore(common, null, null, false); LoadCore(selected, null, null, false); // 個別の型・範囲は先に検査し、キー間の依存は合成後に検査する。
         var root = Parse(common);
         Merge(root, Parse(selected));
         var writer = new StringWriter(CultureInfo.InvariantCulture);
@@ -44,7 +44,9 @@ public static partial class ConfigurationLoader
         }
     }
 
-    public static AppSettings Load(string? yaml = null, string? profile = null, int? dpi = null)
+    public static AppSettings Load(string? yaml = null, string? profile = null, int? dpi = null) => LoadCore(yaml, profile, dpi, true);
+
+    private static AppSettings LoadCore(string? yaml, string? profile, int? dpi, bool validateCarryDependency)
     {
         var settings = new AppSettings();
         int? imageDpi = null;
@@ -124,11 +126,12 @@ public static partial class ConfigurationLoader
                 }
                 if (root.TryGetValue("rows", out node))
                 {
-                    var values = Mapping(node, "rows", "enabled", "max_shift_mm", "min_word_match", "refine_mm",
+                    var values = Mapping(node, "rows", "enabled", "carry_enabled", "max_shift_mm", "min_word_match", "refine_mm",
                         "min_improvement", "min_score_gap", "min_support_bands", "min_support_ink_mm2", "max_segments");
                     settings = settings with { Rows = new RowOptions
                     {
                         Enabled = values.TryGetValue("enabled", out var enabled) ? Boolean(enabled, "rows.enabled") : settings.Rows.Enabled,
+                        CarryEnabled = values.TryGetValue("carry_enabled", out var carry) ? Boolean(carry, "rows.carry_enabled") : settings.Rows.CarryEnabled,
                         MaxShiftMm = Number(values, "max_shift_mm", "rows", settings.Rows.MaxShiftMm),
                         MinWordMatch = Number(values, "min_word_match", "rows", settings.Rows.MinWordMatch),
                         RefineMm = Number(values, "refine_mm", "rows", settings.Rows.RefineMm),
@@ -189,10 +192,10 @@ public static partial class ConfigurationLoader
             }
         }
         settings = settings with { ImageDpi = imageDpi ?? settings.Dpi };
-        Validate(settings);
+        Validate(settings, validateCarryDependency);
         settings = settings with { Diff = ApplyProfile(settings.Diff, profile) };
         settings = settings with { Dpi = dpi ?? settings.Dpi, ImageDpi = imageDpi ?? dpi ?? settings.Dpi };
-        Validate(settings);
+        Validate(settings, validateCarryDependency);
         ValidatePixelConversions(settings);
         return settings;
     }
@@ -280,12 +283,12 @@ public static partial class ConfigurationLoader
         return value;
     }
 
-    private static void Validate(AppSettings settings)
+    private static void Validate(AppSettings settings, bool validateCarryDependency = true)
     {
         ValidateRegions(settings, pixels: false);
         if (settings.Dpi is < 72 or > 1200) throw Error("dpi", "72〜1200 にしてください");
         if (settings.ImageDpi is < 72 or > 1200) throw Error("image_dpi", "72〜1200 にしてください");
-        try { settings.Rows.Validated(settings.Dpi); settings.Rows.Validated(settings.ImageDpi); }
+        try { var rows = validateCarryDependency ? settings.Rows : settings.Rows with { CarryEnabled = false }; rows.Validated(settings.Dpi); rows.Validated(settings.ImageDpi); }
         catch (ArgumentException ex) { throw new ConfigurationException(ex.Message, ex); }
         Nonnegative(settings.Diff.MaxShiftMm, "diff.max_shift_mm");
         Nonnegative(settings.Diff.ColorThreshold, "diff.color_threshold");

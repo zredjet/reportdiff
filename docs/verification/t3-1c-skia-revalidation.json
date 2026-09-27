@@ -1,0 +1,1264 @@
+{
+  "date": "2026-09-27",
+  "scope": "V-02_skia_existing_corpus",
+  "status": "complete",
+  "parent_tasks_complete": false,
+  "platform": "macOS arm64",
+  "runtime": "Microsoft.NETCore.App 10.0.12",
+  "metrics": {
+    "conditions": 34,
+    "processes": 68,
+    "pdfs": 30,
+    "applied": 6,
+    "skipped": 28,
+    "grouped": 6,
+    "identical_output_files": 2810,
+    "raw_png_pairs": 246,
+    "fallback_page_dtos": 66,
+    "selected_conditions": 4
+  },
+  "build": {
+    "configuration": "Release",
+    "warnings": 0,
+    "errors": 0,
+    "seconds": 0.8
+  },
+  "normalization": [
+    "generated_at in JSON and its HTML representations"
+  ],
+  "png_comparison": "all_bytes",
+  "source_integrity": {
+    "files": 544,
+    "snapshot": "out/t3-1c-unpaired-shared-integration/source-tested.json",
+    "snapshot_sha256": "c37bf3dd9845b093e66fb2393e12ef6cb4499482e59df70bc132b6fa16c55453",
+    "changed": 0
+  },
+  "inputs_and_oracles_sha256": {
+    "out/t3-1c-probe/skia-fixtures/skia-R10/a.pdf": "374ff81b879ebc938ce3ceb952b444158c5f5c3240e77d0ea9561c0199800c56",
+    "out/t3-1c-probe/skia-fixtures/skia-R10/b.pdf": "998c2be17cb866dc5255702c92b25aebbab5a5bbde41d7eb52bd57e6334824fd",
+    "out/t3-1c-probe/skia-fixtures/skia-R11/a.pdf": "1b8964100257b6a08d743a213f0ca80801be5b34261296f2ce18b3f012176bdd",
+    "out/t3-1c-probe/skia-fixtures/skia-R11/b.pdf": "f83e23b1cd5d8eed7c26dd72d29416f25c488f1917ea7d8e99b8a30b02b71b8a",
+    "out/t3-1c-probe/skia-fixtures/skia-chain3/a.pdf": "997752526e82989f7a3a5d46d48779d23e7d9b7e18ca962a7cc04f44328d7c85",
+    "out/t3-1c-probe/skia-fixtures/skia-chain3/b.pdf": "ce35999845519763a70101c9389ea4403f7bad5e12bb32d2221c99dcd108b287",
+    "out/t3-1c-probe/skia-fixtures/skia-text-change/a.pdf": "a07142560aa84b7ded7c66f346644f3d6126ee5b06ffe3c9bb06943bdc807c01",
+    "out/t3-1c-probe/skia-fixtures/skia-text-change/b.pdf": "cba6f185e4697d31b3c0d952a4eda1c72bbf26886850ef080c96a61546c7ea4d",
+    "out/t3-1c-probe/skia-fixtures/skia-band-tone/a.pdf": "0c1faff9be8f8a93c1a54c3ea47560584fe4f5cf92be2f15f6989458fc07b8f7",
+    "out/t3-1c-probe/skia-fixtures/skia-band-tone/b.pdf": "c17ce1a6399d7e1d27b948525dc63ca8433cab24be68526491ff9d6aed1702cb",
+    "out/t3-1c-probe/skia-fixtures/skia-paired-tone/a.pdf": "787f38dd27a3a88705bde27d35f731ea6940b5adf3421cadc3de046ff378aa19",
+    "out/t3-1c-probe/skia-fixtures/skia-paired-tone/b.pdf": "c3d4bce483c7d6b242ea92df4eb44b14ed9d42a85188fcc0b1739b9793e274a6",
+    "out/t3-1c-probe/skia-fixtures/skia-boundary-tone/a.pdf": "228f343b1cd041c5c7e1d297bff963ec5dd8274973ac0d2fd42e8d05364b2bfd",
+    "out/t3-1c-probe/skia-fixtures/skia-boundary-tone/b.pdf": "c3b77392bd0e50f4b582ae962d90f3e324906227f57397f8c304d5f1311d4602",
+    "out/t3-1c-probe/skia-fixtures/skia-extra/a.pdf": "ad5cdbc7163812cf9071534b986becd7853ad2d1aec6972685e9dbe7de7dd296",
+    "out/t3-1c-probe/skia-fixtures/skia-extra/b.pdf": "4ada0b6fec4290ab6c669bd19ee7931f53c88820c3c652cba4cb6a1621dea5ed",
+    "out/t3-1c-probe/skia-fixtures/skia-repeated/a.pdf": "0eeef47d055e446ed806bca0034f3114c8ef8724424304f040c95efe128cc5cc",
+    "out/t3-1c-probe/skia-fixtures/skia-repeated/b.pdf": "e6c51516f2952c2d5bd49e2a43d43ac367a1a51ce7c8928598945ba94e409242",
+    "out/t3-1c-probe/skia-fixtures/skia-partial-chain/a.pdf": "16f33cbc93a701bacc8c77d1954a9142caab620c4329a68961ee26d7e52a0610",
+    "out/t3-1c-probe/skia-fixtures/skia-partial-chain/b.pdf": "f3309cd1f7e7141a0c415b8acb1a7e61bca475259c8449dfeb719c76e11c657d",
+    "out/t3-1c-probe/skia-fixtures/skia-edge-repeat/a.pdf": "14a1282ba372e8e62a06cf39d63ba301c3bb3e56fd1956b565b1f673db5ea9a2",
+    "out/t3-1c-probe/skia-fixtures/skia-edge-repeat/b.pdf": "7da0aceee4967e1bc32bef6c95e9f5f216286d0b635322c3232df74d22253768",
+    "out/t3-1c-probe/skia-fixtures/skia-fractional/a.pdf": "a9acd53a662fddf7d19a8b271f52ef270da3a7084c9535399b680fbd1eca0d93",
+    "out/t3-1c-probe/skia-fixtures/skia-fractional/b.pdf": "3384e097b6ac0e3c8725a8d52f415db8069cafacb5cbeeb9a8e582793ccc48b6",
+    "out/t3-1c-probe/skia-local-fixtures/skia-local-R10/a.pdf": "08cee495832ff0a59dd8cb7bfb72d750aeed17a22cf6434af19f1ec71c696e4e",
+    "out/t3-1c-probe/skia-local-fixtures/skia-local-R10/b.pdf": "a381e87f70aa6f334f384b61e6b3ebea1fe7c02a0d5c1d2f6678cd66cd27f6dd",
+    "out/t3-1c-probe/skia-local-fixtures/skia-local-R11/a.pdf": "c7e7c3e61d09650a328192f78535d3a6f34a07e481957592b2ed5f58eb27d2ef",
+    "out/t3-1c-probe/skia-local-fixtures/skia-local-R11/b.pdf": "3e2ab19ed664001b1c8690cde352fb053ee739a930bb001e0aee550e4074924f",
+    "out/t3-1c-probe/skia-local-fixtures/skia-local-chain3/a.pdf": "31c407a279bd2c1496b906fcd9a54d668efea619409a12d5985419d3c5b4e659",
+    "out/t3-1c-probe/skia-local-fixtures/skia-local-chain3/b.pdf": "3a0cf283f792129ace7ce59eb1b41e8bec47667bf3c663f713875b21dbfb43bc",
+    "out/t3-1c-probe/skia-fixtures/observations.json": "f51801fab552afb4c0c973fe3587ed488d901fd091af9cec4f38047f33eeaa83",
+    "out/t3-1c-probe/skia-candidates/candidates.json": "e5dcaf4dd2c3710e12f43b9667c759618ddbbf7c5dfaebcf1b6238995302a431",
+    "out/t3-1c-probe/aggregate-skia/aggregation.json": "d330d5516fa75aa4f037832bbe976bb049c2b5b45efddd1fb6269f92fd816992",
+    "out/t3-1c-probe/skia-local-fixtures/observations.json": "ba7a32c53c9934752de67c0ae24671a03ec6e68d735e6bb3411178dcf958512e",
+    "out/t3-1c-probe/skia-local-candidates/candidates.json": "131191efdd77bd222a99c5f522df3d7415469f9f861a20b47f1d5befce21a663",
+    "out/t3-1c-probe/aggregate-skia-local/aggregation.json": "e5dd015af456f37ff655fe84a5f82c632bdc1593298a4cc8425455460403ef84"
+  },
+  "cli_files_unchanged": 278,
+  "prior_record": {
+    "path": "docs/verification/t3-1c-cli-integration.json",
+    "sha256": "ca151d47f33a56538c22b4a1d01d8b62d4c97b4c4540df27cd14e26e5c54aa22"
+  },
+  "records": [
+    {
+      "dataset": "skia",
+      "run": "skia-R10-ab",
+      "selected": null,
+      "status": "skipped",
+      "reasons": [
+        "no_verified_candidates",
+        "unproven_page_map",
+        "unverified_candidates"
+      ],
+      "summary": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 2,
+        "clusters": 9,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 9,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 9,
+        "difference_count_complete": true
+      },
+      "process_seconds": {
+        "false": 0.7636042921803892,
+        "true": 0.8760579170193523
+      }
+    },
+    {
+      "dataset": "skia",
+      "run": "skia-R10-ba",
+      "selected": null,
+      "status": "skipped",
+      "reasons": [
+        "no_verified_candidates",
+        "unproven_page_map",
+        "unverified_candidates"
+      ],
+      "summary": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 2,
+        "clusters": 9,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 9,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 9,
+        "difference_count_complete": true
+      },
+      "process_seconds": {
+        "false": 1.0767665419261903,
+        "true": 1.32589125004597
+      }
+    },
+    {
+      "dataset": "skia",
+      "run": "skia-R11-ab",
+      "selected": null,
+      "status": "skipped",
+      "reasons": [
+        "no_verified_candidates",
+        "unproven_page_map",
+        "unverified_candidates"
+      ],
+      "summary": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 3,
+        "clusters": 10,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 10,
+        "aggregated_difference_count_complete": false,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 10,
+        "difference_count_complete": false
+      },
+      "process_seconds": {
+        "false": 0.8028013750445098,
+        "true": 0.9337943329010159
+      }
+    },
+    {
+      "dataset": "skia",
+      "run": "skia-R11-ba",
+      "selected": null,
+      "status": "skipped",
+      "reasons": [
+        "no_verified_candidates",
+        "unproven_page_map",
+        "unverified_candidates"
+      ],
+      "summary": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 3,
+        "clusters": 10,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 10,
+        "aggregated_difference_count_complete": false,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 10,
+        "difference_count_complete": false
+      },
+      "process_seconds": {
+        "false": 0.773086000001058,
+        "true": 0.9470918329898268
+      }
+    },
+    {
+      "dataset": "skia",
+      "run": "skia-chain3-ab",
+      "selected": null,
+      "status": "skipped",
+      "reasons": [
+        "no_verified_candidates",
+        "unproven_page_map",
+        "unverified_candidates"
+      ],
+      "summary": {
+        "status": "different",
+        "pages_compared": 3,
+        "pages_different": 3,
+        "clusters": 16,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 16,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 16,
+        "difference_count_complete": true
+      },
+      "process_seconds": {
+        "false": 0.8174909169320017,
+        "true": 0.9804278749506921
+      }
+    },
+    {
+      "dataset": "skia",
+      "run": "skia-chain3-ab-pages-1-3",
+      "selected": [
+        1,
+        3
+      ],
+      "status": "skipped",
+      "reasons": [
+        "no_verified_candidates",
+        "unproven_page_map"
+      ],
+      "summary": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 2,
+        "clusters": 10,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 10,
+        "aggregated_difference_count_complete": false,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 10,
+        "difference_count_complete": true
+      },
+      "process_seconds": {
+        "false": 0.7520637500565499,
+        "true": 0.8535407909657806
+      }
+    },
+    {
+      "dataset": "skia",
+      "run": "skia-chain3-ab-pages-1",
+      "selected": [
+        1
+      ],
+      "status": "skipped",
+      "reasons": [
+        "fixed_parts_support",
+        "no_verified_candidates",
+        "unproven_page_map"
+      ],
+      "summary": {
+        "status": "different",
+        "pages_compared": 1,
+        "pages_different": 1,
+        "clusters": 4,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 4,
+        "aggregated_difference_count_complete": false,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 4,
+        "difference_count_complete": true
+      },
+      "process_seconds": {
+        "false": 0.6820449170190841,
+        "true": 0.7324578331317753
+      }
+    },
+    {
+      "dataset": "skia",
+      "run": "skia-chain3-ba",
+      "selected": null,
+      "status": "skipped",
+      "reasons": [
+        "no_verified_candidates",
+        "unproven_page_map",
+        "unverified_candidates"
+      ],
+      "summary": {
+        "status": "different",
+        "pages_compared": 3,
+        "pages_different": 3,
+        "clusters": 16,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 16,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 16,
+        "difference_count_complete": true
+      },
+      "process_seconds": {
+        "false": 0.8168374998494983,
+        "true": 0.9418871658854187
+      }
+    },
+    {
+      "dataset": "skia",
+      "run": "skia-chain3-ba-pages-1-3",
+      "selected": [
+        1,
+        3
+      ],
+      "status": "skipped",
+      "reasons": [
+        "no_verified_candidates",
+        "unproven_page_map"
+      ],
+      "summary": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 2,
+        "clusters": 10,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 10,
+        "aggregated_difference_count_complete": false,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 10,
+        "difference_count_complete": true
+      },
+      "process_seconds": {
+        "false": 0.7101821671240032,
+        "true": 0.8119753750506788
+      }
+    },
+    {
+      "dataset": "skia",
+      "run": "skia-chain3-ba-pages-1",
+      "selected": [
+        1
+      ],
+      "status": "skipped",
+      "reasons": [
+        "fixed_parts_support",
+        "no_verified_candidates",
+        "unproven_page_map"
+      ],
+      "summary": {
+        "status": "different",
+        "pages_compared": 1,
+        "pages_different": 1,
+        "clusters": 4,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 4,
+        "aggregated_difference_count_complete": false,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 4,
+        "difference_count_complete": true
+      },
+      "process_seconds": {
+        "false": 0.647522791987285,
+        "true": 0.692715167067945
+      }
+    },
+    {
+      "dataset": "skia",
+      "run": "skia-text-change-ab",
+      "selected": null,
+      "status": "skipped",
+      "reasons": [
+        "no_verified_candidates",
+        "unproven_page_map",
+        "unverified_candidates"
+      ],
+      "summary": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 2,
+        "clusters": 9,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 9,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 9,
+        "difference_count_complete": true
+      },
+      "process_seconds": {
+        "false": 0.6988854999653995,
+        "true": 0.836511166067794
+      }
+    },
+    {
+      "dataset": "skia",
+      "run": "skia-text-change-ba",
+      "selected": null,
+      "status": "skipped",
+      "reasons": [
+        "no_verified_candidates",
+        "unproven_page_map",
+        "unverified_candidates"
+      ],
+      "summary": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 2,
+        "clusters": 9,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 9,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 9,
+        "difference_count_complete": true
+      },
+      "process_seconds": {
+        "false": 0.7057138329837471,
+        "true": 0.8262524171732366
+      }
+    },
+    {
+      "dataset": "skia",
+      "run": "skia-band-tone-ab",
+      "selected": null,
+      "status": "skipped",
+      "reasons": [
+        "no_verified_candidates",
+        "unproven_page_map",
+        "unverified_candidates"
+      ],
+      "summary": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 2,
+        "clusters": 9,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 9,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 9,
+        "difference_count_complete": true
+      },
+      "process_seconds": {
+        "false": 0.7197652498725802,
+        "true": 0.8376243337988853
+      }
+    },
+    {
+      "dataset": "skia",
+      "run": "skia-band-tone-ba",
+      "selected": null,
+      "status": "skipped",
+      "reasons": [
+        "no_verified_candidates",
+        "unproven_page_map",
+        "unverified_candidates"
+      ],
+      "summary": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 2,
+        "clusters": 9,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 9,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 9,
+        "difference_count_complete": true
+      },
+      "process_seconds": {
+        "false": 0.706652875058353,
+        "true": 0.8262297499459237
+      }
+    },
+    {
+      "dataset": "skia",
+      "run": "skia-paired-tone-ab",
+      "selected": null,
+      "status": "skipped",
+      "reasons": [
+        "no_verified_candidates",
+        "unproven_page_map",
+        "unverified_candidates"
+      ],
+      "summary": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 2,
+        "clusters": 9,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 9,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 9,
+        "difference_count_complete": true
+      },
+      "process_seconds": {
+        "false": 0.7200825419276953,
+        "true": 0.8229953751433641
+      }
+    },
+    {
+      "dataset": "skia",
+      "run": "skia-paired-tone-ba",
+      "selected": null,
+      "status": "skipped",
+      "reasons": [
+        "no_verified_candidates",
+        "unproven_page_map",
+        "unverified_candidates"
+      ],
+      "summary": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 2,
+        "clusters": 9,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 9,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 9,
+        "difference_count_complete": true
+      },
+      "process_seconds": {
+        "false": 0.7188723341096193,
+        "true": 0.8220889170188457
+      }
+    },
+    {
+      "dataset": "skia",
+      "run": "skia-boundary-tone-ab",
+      "selected": null,
+      "status": "skipped",
+      "reasons": [
+        "no_verified_candidates",
+        "unproven_page_map",
+        "unverified_candidates"
+      ],
+      "summary": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 2,
+        "clusters": 10,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 10,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 10,
+        "difference_count_complete": true
+      },
+      "process_seconds": {
+        "false": 0.6941374579910189,
+        "true": 0.8251337921246886
+      }
+    },
+    {
+      "dataset": "skia",
+      "run": "skia-boundary-tone-ba",
+      "selected": null,
+      "status": "skipped",
+      "reasons": [
+        "no_verified_candidates",
+        "unproven_page_map",
+        "unverified_candidates"
+      ],
+      "summary": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 2,
+        "clusters": 10,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 10,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 10,
+        "difference_count_complete": true
+      },
+      "process_seconds": {
+        "false": 0.7056422920431942,
+        "true": 0.825886582955718
+      }
+    },
+    {
+      "dataset": "skia",
+      "run": "skia-extra-ab",
+      "selected": null,
+      "status": "skipped",
+      "reasons": [
+        "no_verified_candidates",
+        "unproven_page_map",
+        "unverified_candidates"
+      ],
+      "summary": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 3,
+        "clusters": 10,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 10,
+        "aggregated_difference_count_complete": false,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 10,
+        "difference_count_complete": false
+      },
+      "process_seconds": {
+        "false": 0.7374307080172002,
+        "true": 0.8988626250065863
+      }
+    },
+    {
+      "dataset": "skia",
+      "run": "skia-extra-ba",
+      "selected": null,
+      "status": "skipped",
+      "reasons": [
+        "no_verified_candidates",
+        "unproven_page_map",
+        "unverified_candidates"
+      ],
+      "summary": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 3,
+        "clusters": 10,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 10,
+        "aggregated_difference_count_complete": false,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 10,
+        "difference_count_complete": false
+      },
+      "process_seconds": {
+        "false": 0.7222930418793112,
+        "true": 0.8508024169132113
+      }
+    },
+    {
+      "dataset": "skia",
+      "run": "skia-repeated-ab",
+      "selected": null,
+      "status": "skipped",
+      "reasons": [
+        "no_verified_candidates",
+        "unproven_page_map",
+        "unverified_candidates"
+      ],
+      "summary": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 2,
+        "clusters": 8,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 8,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 8,
+        "difference_count_complete": true
+      },
+      "process_seconds": {
+        "false": 0.7201327499933541,
+        "true": 0.8285378750879318
+      }
+    },
+    {
+      "dataset": "skia",
+      "run": "skia-repeated-ba",
+      "selected": null,
+      "status": "skipped",
+      "reasons": [
+        "no_verified_candidates",
+        "unproven_page_map",
+        "unverified_candidates"
+      ],
+      "summary": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 2,
+        "clusters": 8,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 8,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 8,
+        "difference_count_complete": true
+      },
+      "process_seconds": {
+        "false": 0.7212761249393225,
+        "true": 0.8367817499674857
+      }
+    },
+    {
+      "dataset": "skia",
+      "run": "skia-partial-chain-ab",
+      "selected": null,
+      "status": "skipped",
+      "reasons": [
+        "no_verified_candidates",
+        "unproven_page_map",
+        "unverified_candidates"
+      ],
+      "summary": {
+        "status": "different",
+        "pages_compared": 3,
+        "pages_different": 3,
+        "clusters": 17,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 17,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 17,
+        "difference_count_complete": true
+      },
+      "process_seconds": {
+        "false": 0.7583899579476565,
+        "true": 0.9042757500428706
+      }
+    },
+    {
+      "dataset": "skia",
+      "run": "skia-partial-chain-ba",
+      "selected": null,
+      "status": "skipped",
+      "reasons": [
+        "no_verified_candidates",
+        "unproven_page_map",
+        "unverified_candidates"
+      ],
+      "summary": {
+        "status": "different",
+        "pages_compared": 3,
+        "pages_different": 3,
+        "clusters": 17,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 17,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 17,
+        "difference_count_complete": true
+      },
+      "process_seconds": {
+        "false": 0.75375762488693,
+        "true": 0.9248765828087926
+      }
+    },
+    {
+      "dataset": "skia",
+      "run": "skia-edge-repeat-ab",
+      "selected": null,
+      "status": "skipped",
+      "reasons": [
+        "no_verified_candidates",
+        "unproven_page_map",
+        "unverified_candidates"
+      ],
+      "summary": {
+        "status": "different",
+        "pages_compared": 3,
+        "pages_different": 4,
+        "clusters": 10,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 10,
+        "aggregated_difference_count_complete": false,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 10,
+        "difference_count_complete": false
+      },
+      "process_seconds": {
+        "false": 0.7636949578300118,
+        "true": 0.9112535000313073
+      }
+    },
+    {
+      "dataset": "skia",
+      "run": "skia-edge-repeat-ba",
+      "selected": null,
+      "status": "skipped",
+      "reasons": [
+        "no_verified_candidates",
+        "unproven_page_map",
+        "unverified_candidates"
+      ],
+      "summary": {
+        "status": "different",
+        "pages_compared": 3,
+        "pages_different": 4,
+        "clusters": 10,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 10,
+        "aggregated_difference_count_complete": false,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 10,
+        "difference_count_complete": false
+      },
+      "process_seconds": {
+        "false": 0.768655041931197,
+        "true": 0.9219484999775887
+      }
+    },
+    {
+      "dataset": "skia",
+      "run": "skia-fractional-ab",
+      "selected": null,
+      "status": "skipped",
+      "reasons": [
+        "no_verified_candidates",
+        "unproven_page_map",
+        "unverified_candidates"
+      ],
+      "summary": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 2,
+        "clusters": 9,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 9,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 9,
+        "difference_count_complete": true
+      },
+      "process_seconds": {
+        "false": 0.6891639172099531,
+        "true": 0.8077913750894368
+      }
+    },
+    {
+      "dataset": "skia",
+      "run": "skia-fractional-ba",
+      "selected": null,
+      "status": "skipped",
+      "reasons": [
+        "no_verified_candidates",
+        "unproven_page_map",
+        "unverified_candidates"
+      ],
+      "summary": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 2,
+        "clusters": 9,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 9,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 0,
+        "structural_change_counts": {
+          "inserted": 0,
+          "deleted": 0,
+          "block_moved": 0
+        },
+        "difference_count": 9,
+        "difference_count_complete": true
+      },
+      "process_seconds": {
+        "false": 0.688725708052516,
+        "true": 0.8129626659210771
+      }
+    },
+    {
+      "dataset": "skia-local",
+      "run": "skia-local-R10-ab",
+      "selected": null,
+      "status": "applied",
+      "reasons": [],
+      "summary": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 2,
+        "clusters": 0,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 1,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 5,
+        "structural_change_counts": {
+          "inserted": 2,
+          "deleted": 1,
+          "block_moved": 2
+        },
+        "difference_count": 5,
+        "difference_count_complete": true
+      },
+      "process_seconds": {
+        "false": 0.7027602079324424,
+        "true": 0.9273544158786535
+      }
+    },
+    {
+      "dataset": "skia-local",
+      "run": "skia-local-R10-ba",
+      "selected": null,
+      "status": "applied",
+      "reasons": [],
+      "summary": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 2,
+        "clusters": 0,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 1,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 5,
+        "structural_change_counts": {
+          "inserted": 1,
+          "deleted": 2,
+          "block_moved": 2
+        },
+        "difference_count": 5,
+        "difference_count_complete": true
+      },
+      "process_seconds": {
+        "false": 0.6961803748272359,
+        "true": 0.9243284589610994
+      }
+    },
+    {
+      "dataset": "skia-local",
+      "run": "skia-local-R11-ab",
+      "selected": null,
+      "status": "applied",
+      "reasons": [],
+      "summary": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 3,
+        "clusters": 0,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 1,
+        "aggregated_difference_count_complete": false,
+        "structural_change_count": 6,
+        "structural_change_counts": {
+          "inserted": 2,
+          "deleted": 2,
+          "block_moved": 2
+        },
+        "difference_count": 6,
+        "difference_count_complete": false
+      },
+      "process_seconds": {
+        "false": 0.7055715410970151,
+        "true": 0.9579522081185132
+      }
+    },
+    {
+      "dataset": "skia-local",
+      "run": "skia-local-R11-ba",
+      "selected": null,
+      "status": "applied",
+      "reasons": [],
+      "summary": {
+        "status": "different",
+        "pages_compared": 2,
+        "pages_different": 3,
+        "clusters": 0,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 1,
+        "aggregated_difference_count_complete": false,
+        "structural_change_count": 6,
+        "structural_change_counts": {
+          "inserted": 2,
+          "deleted": 2,
+          "block_moved": 2
+        },
+        "difference_count": 6,
+        "difference_count_complete": false
+      },
+      "process_seconds": {
+        "false": 0.7162151669617742,
+        "true": 0.9489730419591069
+      }
+    },
+    {
+      "dataset": "skia-local",
+      "run": "skia-local-chain3-ab",
+      "selected": null,
+      "status": "applied",
+      "reasons": [],
+      "summary": {
+        "status": "different",
+        "pages_compared": 3,
+        "pages_different": 3,
+        "clusters": 0,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 1,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 8,
+        "structural_change_counts": {
+          "inserted": 3,
+          "deleted": 2,
+          "block_moved": 3
+        },
+        "difference_count": 8,
+        "difference_count_complete": true
+      },
+      "process_seconds": {
+        "false": 0.7498661249410361,
+        "true": 1.054955666186288
+      }
+    },
+    {
+      "dataset": "skia-local",
+      "run": "skia-local-chain3-ba",
+      "selected": null,
+      "status": "applied",
+      "reasons": [],
+      "summary": {
+        "status": "different",
+        "pages_compared": 3,
+        "pages_different": 3,
+        "clusters": 0,
+        "absorbed_groups": 0,
+        "aggregated_difference_count": 1,
+        "aggregated_difference_count_complete": true,
+        "structural_change_count": 8,
+        "structural_change_counts": {
+          "inserted": 2,
+          "deleted": 3,
+          "block_moved": 3
+        },
+        "difference_count": 8,
+        "difference_count_complete": true
+      },
+      "process_seconds": {
+        "false": 0.7660321248695254,
+        "true": 1.048382082954049
+      }
+    }
+  ],
+  "verification_sources_sha256": {
+    "tools/ReportDiff.PageFlowProbe/verify-skia-regression.py": "3efe556374837f7fe33818608d7ab8f92fef5427fc6a0c680d5889a4963a2168",
+    "tools/verify-pagemap-compatibility.py": "19f792dcb8447e86dfbde2f884499f9a5ee97cd46c281830a015dc4326a853ed",
+    "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1c-skia-revalidation/finalize-evidence.py": "e1b7a636115274845c61528f272e80fb0af4f6e3fee1b0bb7bd607149add90a6"
+  },
+  "artifacts_sha256": {
+    "out/t3-1c-skia-revalidation/build.log": "a05b1ceea8dba23e1ade3b78f969a299a5078fafedec21bda381d76c5e668c69",
+    "out/t3-1c-skia-revalidation/cli.log": "e92ab5fcd72fc22992389843e6b73dc22b18db1d32abe4b693a6120250164305",
+    "out/t3-1c-skia-revalidation/cli/verification.json": "cd90b4b00b36b850744dd0ece88ac07d1a71b94969efc333c35e597a9b4df61c",
+    "out/t3-1c-skia-revalidation/cli-final.log": "5d9f8c4a0a6133552adc300a0f7735077dc7178b6b63ded619a17fad357eea23",
+    "out/t3-1c-skia-revalidation/cli-final/preflight.json": "64f4da13c0403cfc8fa051d98e8638e8fad5945e75316ccbc3533f71198c74e4",
+    "out/t3-1c-skia-revalidation/cli-final/verification.json": "cfb2c82c537f0135a4b92ae5f9eab7eb01cb8b46208363dd9d3b27cbe855a368",
+    "out/t3-1c-skia-revalidation/source-before.json": "c37bf3dd9845b093e66fb2393e12ef6cb4499482e59df70bc132b6fa16c55453",
+    "out/t3-1c-skia-revalidation/cli-final/skia-local-skia-local-R10-ab-false.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-local-skia-local-R10-ab-true.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-local-skia-local-R10-ba-false.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-local-skia-local-R10-ba-true.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-local-skia-local-R11-ab-false.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-local-skia-local-R11-ab-true.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-local-skia-local-R11-ba-false.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-local-skia-local-R11-ba-true.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-local-skia-local-chain3-ab-false.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-local-skia-local-chain3-ab-true.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-local-skia-local-chain3-ba-false.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-local-skia-local-chain3-ba-true.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-R10-ab-false.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-R10-ab-true.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-R10-ba-false.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-R10-ba-true.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-R11-ab-false.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-R11-ab-true.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-R11-ba-false.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-R11-ba-true.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-band-tone-ab-false.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-band-tone-ab-true.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-band-tone-ba-false.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-band-tone-ba-true.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-boundary-tone-ab-false.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-boundary-tone-ab-true.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-boundary-tone-ba-false.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-boundary-tone-ba-true.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-chain3-ab-false.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-chain3-ab-pages-1-3-false.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-chain3-ab-pages-1-3-true.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-chain3-ab-pages-1-false.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-chain3-ab-pages-1-true.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-chain3-ab-true.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-chain3-ba-false.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-chain3-ba-pages-1-3-false.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-chain3-ba-pages-1-3-true.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-chain3-ba-pages-1-false.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-chain3-ba-pages-1-true.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-chain3-ba-true.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-edge-repeat-ab-false.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-edge-repeat-ab-true.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-edge-repeat-ba-false.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-edge-repeat-ba-true.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-extra-ab-false.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-extra-ab-true.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-extra-ba-false.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-extra-ba-true.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-fractional-ab-false.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-fractional-ab-true.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-fractional-ba-false.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-fractional-ba-true.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-paired-tone-ab-false.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-paired-tone-ab-true.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-paired-tone-ba-false.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-paired-tone-ba-true.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-partial-chain-ab-false.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-partial-chain-ab-true.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-partial-chain-ba-false.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-partial-chain-ba-true.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-repeated-ab-false.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-repeated-ab-true.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-repeated-ba-false.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-repeated-ba-true.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-text-change-ab-false.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-text-change-ab-true.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-text-change-ba-false.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/skia-skia-text-change-ba-true.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "out/t3-1c-skia-revalidation/cli-final/carry-false.yaml": "ca151894c9bed806838376209340866bd283bdad7e4a1a65e4e78fb1ec911521",
+    "out/t3-1c-skia-revalidation/cli-final/carry-true.yaml": "65160ab14d579b5736909a1206b80c2e570fae8ccaaa9eca972b6c4a325b9b17"
+  },
+  "independent_postrun_check": {
+    "source_files": 544,
+    "input_and_oracle_files": 36,
+    "cli_files": 278,
+    "old_and_new_output_directories": 136,
+    "output_files_per_revision": 2810,
+    "changed": 0
+  },
+  "initial_checker_failure": {
+    "completed": false,
+    "processes": 12,
+    "included_in_final_count": false,
+    "reason": "ページ選択時のsummaryと文書集約の網羅性を同一と仮定した検査を、それぞれの既存契約へ修正。製品・入力・期待値は不変。"
+  },
+  "full_tests": {
+    "rerun": false,
+    "latest_saved_pass_count": 2375,
+    "same_544_source_files": true
+  },
+  "product_changed": false,
+  "expected_values_changed": false,
+  "fixtures_regenerated": false,
+  "browser_executed": false,
+  "windows_executed": false,
+  "committed": false,
+  "pushed": false,
+  "released": false
+}

@@ -1,0 +1,297 @@
+{
+  "observed_at": "2026-09-27T01:01:02.438860+09:00",
+  "scope": "progress_audit_only_no_product_changes",
+  "local_head": "6a899d1a21a1023cf807c8b0342bac672e4dc62d",
+  "remote_master": "6a899d1a21a1023cf807c8b0342bac672e4dc62d",
+  "release": {
+    "tag": "v0.1.4",
+    "url": "https://github.com/zredjet/reportdiff/releases/tag/v0.1.4",
+    "published_at": "2026-09-22T03:05:36Z",
+    "target": "6a899d1a21a1023cf807c8b0342bac672e4dc62d",
+    "is_draft": false,
+    "is_prerelease": false,
+    "assets": [
+      {
+        "digest": "sha256:24343ffb40c7fc22b7b7019bafc04128ca15806c51c6c17fb8238df652799a71",
+        "name": "reportdiff-0.1.4-win-x64.zip",
+        "size": 66087370,
+        "url": "https://github.com/zredjet/reportdiff/releases/download/v0.1.4/reportdiff-0.1.4-win-x64.zip"
+      },
+      {
+        "digest": "sha256:83f8e3ccef189a5969fcbda8ca06382d8a6b833fd48d16d91755f8382a992f93",
+        "name": "SHA256SUMS",
+        "size": 95,
+        "url": "https://github.com/zredjet/reportdiff/releases/download/v0.1.4/SHA256SUMS"
+      }
+    ]
+  },
+  "release_ci": {
+    "head": "6a899d1a21a1023cf807c8b0342bac672e4dc62d",
+    "conclusion": "success",
+    "url": "https://github.com/zredjet/reportdiff/actions/runs/35680342900",
+    "jobs": {
+      "macOS Apple Silicon": "success",
+      "Windows x64": "success"
+    }
+  },
+  "worktree_before": {
+    "tracked_modified": 33,
+    "untracked_files": 713,
+    "total_files": 746,
+    "by_directory": {
+      "README.md": 1,
+      "docs": 113,
+      "examples": 3,
+      "src": 77,
+      "tests": 417,
+      "tools": 135
+    },
+    "inventory": "out/progress-audit-20260927/worktree-before.json"
+  },
+  "phase3": {
+    "denominator": "14 numbered implementation tasks, excludes parents/repeated/separate release/continuing proposals",
+    "states": {
+      "partly_complete_deferred": 1,
+      "complete": 4,
+      "implemented_acceptance_pending": 2,
+      "implementation_not_started": 7
+    },
+    "tasks": [
+      {
+        "id": "T2-8",
+        "state": "partly_complete_deferred",
+        "complete_commit": null,
+        "released": false,
+        "partial_commit": "e02a6fd"
+      },
+      {
+        "id": "T3-4a",
+        "state": "complete",
+        "complete_commit": "f49eb31",
+        "released": true,
+        "partial_commit": null
+      },
+      {
+        "id": "T3-6",
+        "state": "complete",
+        "complete_commit": "bbf14cf",
+        "released": true,
+        "partial_commit": null
+      },
+      {
+        "id": "T3-4b",
+        "state": "complete",
+        "complete_commit": "416a6fd",
+        "released": true,
+        "partial_commit": null
+      },
+      {
+        "id": "T3-1a",
+        "state": "complete",
+        "complete_commit": "0cdd7a4",
+        "released": true,
+        "partial_commit": null
+      },
+      {
+        "id": "T3-1b",
+        "state": "implemented_acceptance_pending",
+        "complete_commit": null,
+        "released": false,
+        "partial_commit": null
+      },
+      {
+        "id": "T3-1c",
+        "state": "implemented_acceptance_pending",
+        "complete_commit": null,
+        "released": false,
+        "partial_commit": null
+      },
+      {
+        "id": "T3-1d",
+        "state": "implementation_not_started",
+        "complete_commit": null,
+        "released": false,
+        "partial_commit": null
+      },
+      {
+        "id": "T3-4c",
+        "state": "implementation_not_started",
+        "complete_commit": null,
+        "released": false,
+        "partial_commit": null
+      },
+      {
+        "id": "T2-9",
+        "state": "implementation_not_started",
+        "complete_commit": null,
+        "released": false,
+        "partial_commit": null
+      },
+      {
+        "id": "T3-5a",
+        "state": "implementation_not_started",
+        "complete_commit": null,
+        "released": false,
+        "partial_commit": null
+      },
+      {
+        "id": "T3-5",
+        "state": "implementation_not_started",
+        "complete_commit": null,
+        "released": false,
+        "partial_commit": null
+      },
+      {
+        "id": "T3-4d",
+        "state": "implementation_not_started",
+        "complete_commit": null,
+        "released": false,
+        "partial_commit": null
+      },
+      {
+        "id": "T3-1e",
+        "state": "implementation_not_started",
+        "complete_commit": null,
+        "released": false,
+        "partial_commit": null
+      }
+    ],
+    "effort_percent": null,
+    "remaining_days": null
+  },
+  "latest_product_test_run": {
+    "environment": "64-bit (ARM) .NET 10.0.12 [collection-per-class, non-parallel]",
+    "id": "8a3579e1-91ea-409d-860f-66112b0c102f",
+    "name": "/Users/redjet/aruma/repos/zredjet/reportdiff/tests/ReportDiff.Tests/bin/Release/net10.0/ReportDiff.Tests.dll",
+    "run-date": "2026-09-26",
+    "run-time": "15:11:00",
+    "start-rtf": "2026-09-26T15:11:00.7593700+00:00",
+    "test-framework": "xUnit.net v3 4.0.1+8ed8aa354c",
+    "target-framework": ".NETCoreApp,Version=v10.0",
+    "errors": "0",
+    "failed": "0",
+    "finish-rtf": "2026-09-26T15:23:59.8550660+00:00",
+    "not-run": "0",
+    "passed": "2375",
+    "skipped": "0",
+    "time": "779.127",
+    "time-rtf": "00:12:59.1270000",
+    "total": "2375",
+    "verified_test_elements": 2375,
+    "rerun_during_audit": false
+  },
+  "tested_source_integrity": {
+    "files": 544,
+    "missing_or_changed": []
+  },
+  "saved_evidence_integrity": {
+    "t3-1c-unpaired-shared-integration": {
+      "files": 31,
+      "missing_or_changed": []
+    },
+    "t3-1b-acceptance": {
+      "files": 11,
+      "missing_or_changed": []
+    },
+    "t3-1c-cli-integration": {
+      "files": 10,
+      "missing_or_changed": []
+    },
+    "t3-1c-unpaired-local-support": {
+      "files": 333,
+      "missing_or_changed": []
+    }
+  },
+  "golden": {
+    "registered": 42,
+    "required_ok_in_python_log": 40,
+    "observation_ids": [
+      "L01",
+      "L02"
+    ],
+    "csharp_reference_test_passed": 42,
+    "reference_unchanged_from_head": true,
+    "spec5_unchanged_from_head": true,
+    "spec7_existing_defaults_unchanged": true,
+    "spec7_development_rows_block_added": true
+  },
+  "latest_diagnosis": {
+    "runs": 28,
+    "unchanged_controls": 26,
+    "product_plans_unchanged": 28,
+    "unchanged_control_images": 266,
+    "pdfs": 28,
+    "experimental_gaps": 2,
+    "unmet_positive": 2,
+    "reference_pages": 4,
+    "surface_images": 16,
+    "mask_images": 8,
+    "exact_bands": 4,
+    "product_test_fixture_files_unchanged": 544
+  },
+  "history_migration": [
+    {
+      "task": "T3-1b",
+      "original_sha256": "75132c9accec04aa39e1ff4350da283f833bb7dd49672c84e7040dec9a24efb9",
+      "chars": 1828,
+      "preserved_except_relative_links": true
+    },
+    {
+      "task": "T3-1c",
+      "original_sha256": "85f8fd5c214283eaf57b43aeab809dd5194f929165713dc3215139c9900de48f",
+      "chars": 16886,
+      "preserved_except_relative_links": true
+    }
+  ],
+  "open_item_ids": [
+    "R-01",
+    "R-02",
+    "R-03",
+    "R-04",
+    "V-01",
+    "V-02",
+    "V-03",
+    "V-04",
+    "V-05",
+    "D-01"
+  ],
+  "skia_full_corpus_on_current_snapshot": "not_verified; prior real CLI evidence exists",
+  "audit_changes": {
+    "previous_files_changed": [
+      "README.md",
+      "docs/TASKS.md"
+    ],
+    "previous_files_preserved": 744,
+    "product_tests_fixtures_tools_modified": false,
+    "new_documents": [
+      "docs/PROGRESS.md",
+      "docs/verification/phase3-development-history.md",
+      "docs/verification/progress-audit-2026-09-27.json"
+    ]
+  },
+  "validation": {
+    "relative_file_links_checked": 226,
+    "task_state_counts_match": true,
+    "git_diff_check": true
+  },
+  "source_documents_sha256": {
+    "docs/PROGRESS.md": "e9aa6ad8bad8c05d022e8d5ca153baac01d4c650952bf2e596926a7267d64534",
+    "docs/TASKS.md": "e60ac1cf03d2d67d57756d3dafbcab6ef7be90c6d47443e3fc1c757a7690883e",
+    "docs/verification/phase3-development-history.md": "86fd99a4275859cbb7f1039d949248692a7dc47a2785c360f89933d4bbabec7c",
+    "README.md": "b086d9bac19a1e3846095b9cda76e1404c1d7fd36e2b399d7c3a78d0ba005f58",
+    "docs/verification/t3-1c-unpaired-shared-integration.json": "04323891aad3ff488c79d615f5a6bd2a3845cac1fbc348829de6c0654da58662",
+    "docs/verification/t3-1c-unpaired-local-support.json": "b73f2f1130782ff3e964c3f14527fcfa9ad7bb200dc5285d3361a6953a123991"
+  },
+  "audit_artifacts_sha256": {
+    "out/progress-audit-20260927/audit.py": "90f5f4c5190405840946aef560f9e00150c091c939fcbc82e7088c8c2039906c",
+    "out/progress-audit-20260927/final-validation.log": "b2d84d4b72d9bb513ffc278d0b8a15633eba5585c6785afc761af356668b3ddd",
+    "out/progress-audit-20260927/history-migration.json": "024f7190165196b06c7eb57673861126b6edc0907571bd645bd7316b0660db3a",
+    "out/progress-audit-20260927/organize-tasks.py": "3aa18ea66e8709a005f772b0c414ce602db2d9d959ba8afc43eab376ebf87fdb",
+    "out/progress-audit-20260927/release-ci.json": "7151560b8b2a414d8c9c8e07fd5d90fd8fb16790c9260105e40d780de2607fc4",
+    "out/progress-audit-20260927/release.json": "42bf57a33476136f14f239086625fde8c400b0e2e6b027b46e1a6d8595b8447e",
+    "out/progress-audit-20260927/remote-master.txt": "c50c822c7c6d8316ef5dc95a6ca10db817fda438745b6d85f6b793243a779af7",
+    "out/progress-audit-20260927/status-before.txt": "4fcc8ec87edddfe5f3d543b9a9251e2f3a176dd1de7d9cf8dff309fb1ee996aa",
+    "out/progress-audit-20260927/tag.json": "429a86745c89018781973764d39e954370b1d48bc784821318849a858078c8d1",
+    "out/progress-audit-20260927/worktree-before.json": "3cbf924b4c03130b650518e14aa6df980298864d13e6c86a8414e77a235bfa4b"
+  }
+}

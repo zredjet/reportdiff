@@ -9,6 +9,7 @@ public static partial class HtmlReportWriter
         var r = config.Rows;
         html.Append("<section class=\"row-settings\"><h3>PDF の行整列</h3><dl class=\"settings-grid\">");
         html.Append(Metric("行整列", r.Enabled ? "有効" : "無効"));
+        html.Append(Metric("ページ送りの検証", r.CarryEnabled ? "有効" : "無効"));
         html.Append(Metric("追加の縦ずれ上限", $"{N(r.MaxShiftMm)} mm"));
         html.Append(Metric("行の単語一致率", N(r.MinWordMatch)));
         html.Append(Metric("画像の再探索半径", $"{N(r.RefineMm)} mm"));
@@ -58,6 +59,7 @@ public static partial class HtmlReportWriter
             if (change.DisplacementPx is { } shift) html.Append($"<br>{Direction(shift.Dx, shift.Dy)}");
             if (change.EquivalentPositions.Any(p => p.FirstStart != p.LastStart)) html.Append("<br>同じ画像になる反復位置があります（件数は増えません）。");
             if (page.Images.Overlay is { } path) { ValidateImagePath(path); html.Append($"<br><a href=\"{path}\">S{change.Id} の帯を画像で確認</a>"); }
+            if (change.Role is { } role) html.Append($"<br>役割: {H(role)} · 内容比較: {(change.ComparedInContent == true ? "実施済み" : "原因帯として省略")}");
             html.Append("</td>");
             foreach (var (side, text) in new[] { ("A", change.TextA), ("B", change.TextB) })
                 html.Append($"<td><div class=\"text-value\" tabindex=\"0\" role=\"region\" aria-label=\"構造変化 S{change.Id} {side} 本文\">{H(text is null ? "テキスト注釈なし" : text.Length == 0 ? "該当テキストなし" : text)}</div></td>");
@@ -65,7 +67,7 @@ public static partial class HtmlReportWriter
         }
         html.Append("</tbody></table></div><details><summary>帯の写像・詰め物</summary><p>元範囲は全体補正後、行整列前の座標です。詰め物は対応する元画素を持ちません。</p><ul>");
         foreach (var band in row.Segments)
-            html.Append($"<li>表示 Y {band.CanvasStart} / 高さ {band.Length} px · A: {band.AStart?.ToString() ?? "白い詰め物"} · B: {band.BStart?.ToString() ?? "白い詰め物"} · {(band.Kind == "structural" ? "構造帯（内容比較から省略）" : band.Kind == "white_space" ? "純白余白（内容比較に保持）" : "対応帯")}</li>");
+            html.Append($"<li>表示 Y {band.CanvasStart} / 高さ {band.Length} px · A: {band.AStart?.ToString() ?? "白い詰め物"} · B: {band.BStart?.ToString() ?? "白い詰め物"} · {(band.Kind == "structural" ? "構造帯（内容比較から省略）" : band.Kind == "white_space" ? "純白余白（内容比較に保持）" : band.Kind == "carry" ? "送り帯（内容比較済み）" : "対応帯")}</li>");
         html.Append("</ul></details>");
         if (row.AnnotationOmissions.Count > 0)
             html.Append("<p class=\"notice\">表示画像で一つの平行移動として表せないため、次の内容差分の移動注釈を省略しました。差分と件数は残しています: "
@@ -75,6 +77,8 @@ public static partial class HtmlReportWriter
     private static string StructureKind(string kind) => kind switch { "inserted" => "行の挿入", "deleted" => "行の削除", "block_moved" => "ブロック移動", _ => H(kind) };
     private static string RowReason(string reason) => reason switch
     {
+        "anchored_content" => "元ページを保持する内容面で全ページの採用条件を確認しました。送り帯と移動帯の内容は比較済みです。",
+        "page_flow" => "隣接ページの送り帯と全ページの安全条件を確認して行整列を採用しました。",
         "applied" => "行の挿入・削除に合わせて整列しました。", "identical" => "画像が完全一致するため行整列を省略しました。",
         "not_compared" => "片側だけのページのため行整列していません。", "size_mismatch" => "元ページの寸法が異なるため行整列していません。",
         "no_text" => "PDF同士の比較で使える文字層がないため行整列していません。", "text_unavailable" => "PDF文字層や座標を安全に取得できないため行整列していません。",

@@ -7,7 +7,7 @@ using ReportDiff.Pdf;
 namespace ReportDiff.Report;
 
 /// <summary>画像をページごとに保存し、Complete で result.json を確定する。入力 Mat は所有しない。</summary>
-public sealed class ReportWriter
+public sealed partial class ReportWriter
 {
     private readonly string outputDirectory;
     private readonly ReportInputs inputs;
@@ -63,9 +63,9 @@ public sealed class ReportWriter
         var shift = alignment.Status == "applied" ? alignment.EstimatedShiftPx : null;
         if ((shift is not null) != (correctedB is not null) || (alignment.Status == "applied" && shift is null))
             throw new ArgumentException("補正画像と適用した補正量を一緒に指定してください。");
-        var rowApplied = rows?.Result.Display is not null;
+        var rowApplied = rows?.Display is not null;
         if (rowApplied != (rows?.DisplayA is not null && rows.DisplayB is not null)
-            || rowApplied && !ReferenceEquals(comparison, rows!.Result.Display!.Comparison))
+            || rowApplied && !ReferenceEquals(comparison, rows!.Display!.Comparison))
             throw new ArgumentException("採用した行整列の表示結果とA/B画像を一緒に指定してください。");
         var comparisonA = rows?.DisplayA ?? images.A;
         var comparisonB = rows?.DisplayB ?? correctedB ?? images.B;
@@ -101,9 +101,9 @@ public sealed class ReportWriter
                 if (rowApplied)
                 {
                     paths = paths with { ContentA = prefix + "_content_a.png", ContentB = prefix + "_content_b.png" };
-                    WritePng(paths.ContentA, rows!.Result.ContentA!); WritePng(paths.ContentB, rows.Result.ContentB!);
+                    WritePng(paths.ContentA, rows!.ContentA!); WritePng(paths.ContentB, rows.ContentB!);
                 }
-                using var overlay = rowApplied ? ReportImages.RowOverlay(comparisonB, rows!.Result.Display!, dpi)
+                using var overlay = rowApplied ? ReportImages.RowOverlay(comparisonB, rows!.Display!, dpi)
                     : ReportImages.Overlay(comparisonB, comparison, config.Exclude.Concat((config.Regions ?? []).Where(r => r.Mode == "exclude")
                     .Select(r => new ReportExclusion(r.Page, r.X, r.Y, r.W, r.H, r.Name)))
                     .Where(e => e.Page is null || e.Page == page), dpi);
@@ -143,7 +143,7 @@ public sealed class ReportWriter
         pages.Add(result);
         if (rowApplied)
             warnings.Add(new("ROW_ALIGNMENT_APPLIED", $"{page} ページ: 行整列を採用しました（追加 B→A の縦ずれ: {string.Join("、", rowAlignment.Segments.Where(s => s.AdditionalDyPx is not null).Select(s => s.AdditionalDyPx).Distinct())} px）。構造変化 {counts.Total} 件を相違に含めています。"));
-        else if (rows?.Result.Alignment.Suspected == true)
+        else if (rows?.Alignment.Suspected == true)
             warnings.Add(new("ROW_SHIFT_SUSPECTED", $"{page} ページ: 行ずれの手がかりがありますが、安全条件を満たさないため行整列を見送りました（{rowAlignment.Reason}）。"));
         if (shift is not null)
             warnings.Add(new("GLOBAL_SHIFT_APPLIED", $"{page} ページ: B 全体を A に合わせて補正しました（B→A: 横 {shift.Dx}px、縦 {shift.Dy}px。右・下が正）。補正前 B も保存しています。"));
@@ -218,6 +218,18 @@ public sealed class ReportWriter
         }
     }
 
+    public string AddFlowBand(int link, bool source, Mat original, PageFlowBand band)
+    {
+        CheckWritable(); ValidateImage(original);
+        if (link < 1 || band.Bottom > original.Height) throw new ArgumentException("送り帯の参照が元画像内にありません。");
+        var path = $"pages/flow_l{link:D3}_{(source ? "source" : "target")}.png";
+        ExecuteWrite(() =>
+        {
+            using var crop = new Mat(original, new Rect(0, band.Top, original.Width, band.Height)); WritePng(path, crop);
+        });
+        return path;
+    }
+
     public void AddFontWarnings(int page, string side, IReadOnlyList<PdfFontWarning> fontWarnings)
     {
         CheckWritable();
@@ -228,7 +240,7 @@ public sealed class ReportWriter
             warnings.Add(new(warning.Code, $"{side}・{page} ページ: {warning.Message}"));
     }
 
-    public ReportDocument Complete()
+    public ReportDocument Complete(ReportPageFlow? pageFlow = null)
     {
         CheckWritable();
         if (pages.Count == 0) throw new ReportWriteException("結果に出力するページがありません。");
@@ -241,10 +253,16 @@ public sealed class ReportWriter
             StructuralChangeCount = sorted.Sum(p => p.StructuralChangeCount),
             StructuralChangeCounts = new(sorted.Sum(p => p.StructuralChangeCounts.Inserted), sorted.Sum(p => p.StructuralChangeCounts.Deleted),
                 sorted.Sum(p => p.StructuralChangeCounts.BlockMoved)),
-            DifferenceCountComplete = sorted.All(p => p.DifferenceCountComplete)
+            DifferenceCountComplete = sorted.All(p => p.DifferenceCountComplete),
+            AggregatedDifferenceCount = pageFlow?.Aggregation.AggregatedDifferenceCount,
+            AggregatedDifferenceCountComplete = pageFlow?.Aggregation.AggregatedDifferenceCountComplete
         };
+        if (pageFlow is not null && (pageFlow.Aggregation.DifferenceCount != summary.DifferenceCount
+            || pageFlow.Aggregation.AggregatedDifferenceCount is not int aggregate || aggregate < 0 || aggregate > summary.DifferenceCount
+            || pageFlow.Aggregation.AggregatedDifferenceCountComplete == true && !summary.DifferenceCountComplete))
+            throw new ReportWriteException("送り集約の件数・網羅性がページ別の比較結果と一致しません。");
         var result = new ReportDocument(1, ReportTool.Current, generatedAt, inputs, config, summary,
-            Array.AsReadOnly(warnings.ToArray()), Array.AsReadOnly(sorted));
+            Array.AsReadOnly(warnings.ToArray()), Array.AsReadOnly(sorted)) { PageFlow = pageFlow };
         ExecuteWrite(() =>
         {
             using var stream = new FileStream(Path.Combine(outputDirectory, "result.json"), FileMode.CreateNew, FileAccess.Write);

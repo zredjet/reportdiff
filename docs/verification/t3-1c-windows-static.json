@@ -1,0 +1,190 @@
+{
+  "status": "pass",
+  "scope": "V-03_local_windows_publish_and_static_package",
+  "date": "2026-09-27",
+  "parent_v03_complete": false,
+  "release_archive": false,
+  "version": "0.1.4",
+  "uncommitted_development_build": true,
+  "head": "6a899d1a21a1023cf807c8b0342bac672e4dc62d",
+  "publish": {
+    "exit_code": 0,
+    "warnings": 0,
+    "errors": 0,
+    "configuration": "Release",
+    "rid": "win-x64",
+    "profile": "src/ReportDiff.Cli/Properties/PublishProfiles/win-x64.pubxml",
+    "nuget_audit_disabled": false,
+    "initial_attempt": "NU1900: 制限環境でNuGetサービスへの接続失敗。通常権限で再実行し成功。"
+  },
+  "bundle": {
+    "file": "out/t3-1c-windows-static/publish/reportdiff.exe",
+    "size_bytes": 157345349,
+    "sha256": "b1639526631eaaa1d1424ef5a83aea3e9d893e6a7f2ccdf33217392c1fb483aa",
+    "bundle_version": "6.0",
+    "bundle_id": "H6mXHLlM54Z_",
+    "embedded_files": 192,
+    "required_native_libraries": [
+      {
+        "name": "pdfium.dll",
+        "size_bytes": 7220736,
+        "machine": "win-x64",
+        "sha256": "d3d9f4b7c9dabe3363f30779c5c3c715c47332749fa590e4b4a2b8b6780cb1c4"
+      },
+      {
+        "name": "OpenCvSharpExtern.dll",
+        "size_bytes": 55547904,
+        "machine": "win-x64",
+        "sha256": "1fa122bdb8e94175e7719fb8aa8f2ab211268a756f5d0c7a13c710ed79ae30cd"
+      },
+      {
+        "name": "libSkiaSharp.dll",
+        "size_bytes": 12254048,
+        "machine": "win-x64",
+        "sha256": "c8770c219e0d3cd9bb119fad46f2d00ae1855b11315816e86e909e3332826212"
+      }
+    ],
+    "pdf_text_assemblies": [
+      {
+        "name": "UglyToad.PdfPig.Core.dll",
+        "size_bytes": 50176,
+        "sha256": "cbdd1809ee0f4ba617900845d182e5e67183377fe5848a8d9d1222b3c395116b"
+      },
+      {
+        "name": "UglyToad.PdfPig.DocumentLayoutAnalysis.dll",
+        "size_bytes": 248320,
+        "sha256": "c0d1e237eabcb2c741fc7ab7b26c255af6f5751d1cd7e86d7ae613611f79bc88"
+      },
+      {
+        "name": "UglyToad.PdfPig.Fonts.dll",
+        "size_bytes": 1095680,
+        "sha256": "30521d2aa02252c0097cd3a9b12832368d5c925e1ccb4bc3a5735671bd3d2e1e"
+      },
+      {
+        "name": "UglyToad.PdfPig.Package.dll",
+        "size_bytes": 4608,
+        "sha256": "3227f79347329b57e50745d2ade1deb7ccdfe57da1d382796283832aae6ea41a"
+      },
+      {
+        "name": "UglyToad.PdfPig.Tokenization.dll",
+        "size_bytes": 23040,
+        "sha256": "539d0ca2c7981b9eaf8541e17434911042f7cc73d3abc24962994bb99472ed3c"
+      },
+      {
+        "name": "UglyToad.PdfPig.Tokens.dll",
+        "size_bytes": 48128,
+        "sha256": "d6fbd73a520bb961ffcc98030ab686f43c88b03f5b059ba11e3781e0f091433d"
+      },
+      {
+        "name": "UglyToad.PdfPig.dll",
+        "size_bytes": 4251648,
+        "sha256": "c47abebdffebb6e48a1d40f4c22ce5f673c57558ecdb3187841b728112dea279"
+      }
+    ],
+    "dependencies": {
+      "runtimepack.Microsoft.NETCore.App.Runtime.win-x64/10.0.12": "runtimepack",
+      "bblanchon.PDFium.Win32/152.0.7961": "package",
+      "OpenCvSharp4/4.13.0.20260627": "package",
+      "OpenCvSharp4.runtime.win.slim/4.13.0.20260627": "package",
+      "PdfPig/0.1.16": "package",
+      "PDFtoImage/5.4.0": "package",
+      "SkiaSharp/4.150.1": "package",
+      "SkiaSharp.NativeAssets.Win32/4.150.1": "package",
+      "YamlDotNet/18.1.0": "package"
+    },
+    "runtime_options": {
+      "tfm": "net10.0",
+      "includedFrameworks": [
+        {
+          "name": "Microsoft.NETCore.App",
+          "version": "10.0.12"
+        }
+      ],
+      "configProperties": {
+        "System.Globalization.Invariant": false,
+        "System.Reflection.Metadata.MetadataUpdater.IsSupported": false,
+        "System.Runtime.Serialization.EnableUnsafeBinaryFormatterSerialization": false
+      }
+    },
+    "ffmpeg_assets": [],
+    "foreign_native_assets": []
+  },
+  "package": {
+    "file": "out/t3-1c-windows-static/reportdiff-development-validation-win-x64.zip",
+    "size_bytes": 67367652,
+    "sha256": "274fdcebab8c6cf99deb909e480e8a6518362e4cc020dffc5e1fba94e0b4bb31",
+    "files": 350,
+    "exe_size_bytes": 157345349
+  },
+  "embedded_product_assemblies": {
+    "reportdiff.dll": {
+      "sha256": "ee730235199d992c75b38b959a92d1118b829103734bccf903957dcde728702f",
+      "size_bytes": 130560,
+      "publish_build_file": "src/ReportDiff.Cli/bin/Release/net10.0/win-x64/reportdiff.dll"
+    },
+    "ReportDiff.Core.dll": {
+      "sha256": "233a68b3c6fdd7a22ea4e3bcd4f35b212db9c7f140d7176a4bab0cedf41f3486",
+      "size_bytes": 564224,
+      "publish_build_file": "src/ReportDiff.Cli/bin/Release/net10.0/win-x64/ReportDiff.Core.dll"
+    },
+    "ReportDiff.Pdf.dll": {
+      "sha256": "e16a3cd8a11f74a812b47af37a8b06ef00bffd1d50387316f4f29b16889dff34",
+      "size_bytes": 55296,
+      "publish_build_file": "src/ReportDiff.Cli/bin/Release/net10.0/win-x64/ReportDiff.Pdf.dll"
+    },
+    "ReportDiff.Report.dll": {
+      "sha256": "61af37115bb6890049374637c87b0e3f243e7d7538a846c22741cae728339366",
+      "size_bytes": 368128,
+      "publish_build_file": "src/ReportDiff.Cli/bin/Release/net10.0/win-x64/ReportDiff.Report.dll"
+    }
+  },
+  "checks": {
+    "zip_crc": "pass",
+    "manifest_sizes_and_sha256": "pass",
+    "snapshot_file_set_and_bytes": "pass",
+    "input_files": 348,
+    "readme_images": [
+      "docs/images/sample-overlay.png",
+      "docs/images/sample-differences.png",
+      "docs/images/sample-raw-overlay.png"
+    ],
+    "product_test_fixture_files_unchanged": 544,
+    "build_and_dependency_files_unchanged": 203,
+    "separate_dlls_or_pdbs": false,
+    "licenses_match": true
+  },
+  "windows_execution": false,
+  "current_development_ci": false,
+  "full_tests_rerun": false,
+  "browser_executed": false,
+  "committed": false,
+  "pushed": false,
+  "published": false,
+  "document_snapshot_note": "梱包時点の文書を同梱。V-03結果の追記はZIP作成後のため、この検証用ZIPには含めない。",
+  "artifacts_sha256": {
+    "out/t3-1c-windows-static/source-before.json": "aa600ad2c86a112914b1b8ea2badb56d0f6e1413c9998c6ea40cf2fa0262020b",
+    "out/t3-1c-windows-static/publish.log": "426bfdf2abb11195131196e133e3aab0fe1313ca444fc20730501191bed963f2",
+    "out/t3-1c-windows-static/publish-retry.log": "1b0d8386de7ef870294e998ebdcd83377f5e2ed3fc0371bfb2bf211c79eebceb",
+    "out/t3-1c-windows-static/bundle-inspection.json": "5a81507823429a5e4f7e066f4bf73820249810052cdc4d8b2685d981c71fac04",
+    "out/t3-1c-windows-static/package-inputs.json": "0bde2ee97a6bd207272a26771f2593d73c38b4e037c5d3626c33e5e12df56ca8",
+    "out/t3-1c-windows-static/package.log": "b78eaa052837c6a6c8acf5c7e3dc55542ca1989243559009caed27420c121a60",
+    "out/t3-1c-windows-static/package.json": "b78eaa052837c6a6c8acf5c7e3dc55542ca1989243559009caed27420c121a60",
+    "out/t3-1c-windows-static/verification.json": "f302090e278c7dacf5c45b3423a436fbb31b1121498ef883ae5a6cf2c3f3b119",
+    "out/t3-1c-windows-static/dotnet-info.txt": "ce80601129b43f7ad27cb9ebab46fb04eb6a74bde0ba90ca2446e327d7778e17",
+    "out/t3-1c-windows-static/verify-package.py": "5a980748fe8c2f88293b3086ebe8494f83dbd1230d883b2f7a1d3b48c2fbfba4",
+    "out/t3-1c-windows-static/finalize-evidence.py": "3ee049a1176ed21b1511931656d6f5943ebbd07224dfd4d422cf8a9db5a53ab3"
+  },
+  "verification_tools_sha256": {
+    "tools/inspect-win-bundle.py": "064e9a9584dac42e5ee15242722f5c84681328a9c511544b2257bf2cd8dd7c69",
+    "tools/package-win.py": "95e7ae2726820543857077c318aaeda88665d402af598708bbaeade24948fc70"
+  },
+  "source_snapshot_counts": {
+    "product_test_fixture_files": 544,
+    "build_and_dependency_files": 203
+  },
+  "latest_mac_full_tests": {
+    "passed": 2375,
+    "rerun_in_this_step": false,
+    "source_snapshot_matches": true
+  }
+}

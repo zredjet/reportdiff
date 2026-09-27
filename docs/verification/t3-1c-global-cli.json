@@ -1,0 +1,1515 @@
+{
+  "date": "2026-09-23",
+  "scope": "Vertical global alignment with page flow in the product CLI; synthetic vector PDFs, not real-form acceptance",
+  "platform": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+  "tests": {
+    "environment": "64-bit (ARM) .NET 10.0.12 [collection-per-class, non-parallel]",
+    "id": "c6f3991f-6b43-48b0-a134-d217eeed214b",
+    "name": "/Users/redjet/aruma/repos/zredjet/reportdiff/tests/ReportDiff.Tests/bin/Release/net10.0/ReportDiff.Tests.dll",
+    "run-date": "2026-09-22",
+    "run-time": "17:41:02",
+    "start-rtf": "2026-09-22T17:41:02.0110090+00:00",
+    "test-framework": "xUnit.net v3 4.0.1+8ed8aa354c",
+    "target-framework": ".NETCoreApp,Version=v10.0",
+    "errors": "0",
+    "failed": "0",
+    "finish-rtf": "2026-09-22T17:44:13.9698750+00:00",
+    "not-run": "0",
+    "passed": "1829",
+    "skipped": "0",
+    "time": "191.959",
+    "time-rtf": "00:03:11.9590000",
+    "total": "1829"
+  },
+  "new_tests": 23,
+  "production_sources": 95,
+  "changed_production_files": [
+    "src/ReportDiff.Cli/PageFlowRun.cs",
+    "src/ReportDiff.Cli/ComparisonRunner.cs",
+    "src/ReportDiff.Core/PageFlowCollector.cs",
+    "src/ReportDiff.Core/PageFlowComparison.cs",
+    "src/ReportDiff.Core/PageFlowData.cs",
+    "src/ReportDiff.Core/PageFlowAdoption.cs",
+    "src/ReportDiff.Core/PageFlowBandVerifier.cs",
+    "src/ReportDiff.Core/PageFlowPlan.cs"
+  ],
+  "source_snapshot_sha256": {
+    "src/ReportDiff.Report/DirectoryReportDocument.cs": "a39cd5125411dd8c33d8beeec0e3469d283a968a96d53e6331332001ced9e167",
+    "src/ReportDiff.Report/ReportRows.cs": "4b8c92decc7a6e4b419620aecb7a70f38571b9fd760f2c613ab1710a0ad5726f",
+    "src/ReportDiff.Report/ReportWriter.cs": "1f0194010b440043044a3da1126bbc72efc01b25999c938720bc239ff7b250fa",
+    "src/ReportDiff.Report/ExclusionSnippet.cs": "80ee4fd3b2da35ded4b023f9f6f6fa7a4b95fc6f3e6c3220dc6b7437a75f0385",
+    "src/ReportDiff.Report/AssemblyInfo.cs": "502510d8fadecad038256039d5f9b86967f68a15afc8678f06377713652881d3",
+    "src/ReportDiff.Report/ReportColor.cs": "6979a1d00188bf4dd353523ba5dc1ae41cae63b9e337c349d8e450f2ee15a2ef",
+    "src/ReportDiff.Report/HtmlRows.cs": "24527695d1a5c402e563253daf471606f883aa8295bda48f17b7a452f9eed0c2",
+    "src/ReportDiff.Report/ReportImages.cs": "5d6826c78c5623acec087fd995e2864d4913a19d2691039c70b0530bbe4f4a8d",
+    "src/ReportDiff.Report/RegionDrawing.cs": "7babd3024d1a5f76299d5be90f2ce7f50a34d5073093bc97326da491a5a69da5",
+    "src/ReportDiff.Report/HtmlRegions.cs": "e68cab2a4ca0ed73b0235883a373d99cb96bdb5585f1346256bc071ed6c7ac8b",
+    "src/ReportDiff.Report/PageImageWriteSchedule.cs": "5bf20dce01198ed377d7c41807830a5fa0c991c26d45c84982911d234289b24a",
+    "src/ReportDiff.Report/HtmlReportWriter.cs": "d4e3182ceddcdc8acaf52e0b6ae5248f06a400e2d89f23e4f3741f12fa491469",
+    "src/ReportDiff.Report/RawOverlay.cs": "73a821cc489464ec7f0990dd782e5012e7a5a7de20ce16b65a4cc18f9d828a07",
+    "src/ReportDiff.Report/ReportDocument.cs": "de9333c703cd1a98e47271a2bc32c1358620c9484a3ff81b7138f68de7e88b4d",
+    "src/ReportDiff.Report/ReportPageFlow.cs": "dbe768cb7f6d2abe8df2e8ad948add1eea5cfd5434fec99d3f4b38d3c2e062b3",
+    "src/ReportDiff.Report/DirectoryReportWriter.cs": "c31647a4040114dca7cfe607901e135a0fc50140dbf6c93bad543843d6b6d80a",
+    "src/ReportDiff.Report/ReportRegions.cs": "5b9a45eb31fd0bdb41d206b74cb89335358969eebf9cc017494e54f185724443",
+    "src/ReportDiff.Report/HtmlPageFlow.cs": "a1e92f30b3b391ebd3063fc409fc2a754d80304e097f32b6ce789aca69958029",
+    "src/ReportDiff.Cli/ConfigurationLoader.cs": "03230e1db64a78de9c354ca7c07729025f37c25c02075b58e9c1e05f2795c1a2",
+    "src/ReportDiff.Cli/RegionSetting.cs": "996d86b96f8650d79a77c6865c037939a9d792550cbdde062a9738c05481f316",
+    "src/ReportDiff.Cli/AssemblyInfo.cs": "502510d8fadecad038256039d5f9b86967f68a15afc8678f06377713652881d3",
+    "src/ReportDiff.Cli/CommandLine.cs": "bc67f040e1ef7f8bfc4d516471426ff7aaa19126234d966e56848568723e4467",
+    "src/ReportDiff.Cli/OutputWorkspace.cs": "51acec7c80adca8d3e48921cb398737dcd989d5891ae414fd70b666927ce669e",
+    "src/ReportDiff.Cli/DirectoryComparison.cs": "c85858c3b976f57197c0229784914fb8f591f35493d0e5c525347242d0dbb354",
+    "src/ReportDiff.Cli/PageFlowRun.cs": "21228dcadfff9abeff09ca1869be4f495b5ee7916c1d4279a1e5219aac062333",
+    "src/ReportDiff.Cli/AppSettings.cs": "b2c292532fc4286929a10c817b458a6373f94de9c635a1a300f8526647289b95",
+    "src/ReportDiff.Cli/ConsoleProgress.cs": "6cd669d3cd61c5bc85fef7f1b7f00205c74f34222104c492e747fc38e87eb69c",
+    "src/ReportDiff.Cli/ComparisonInput.cs": "1d754daa49db5501b96670b7df72a2564a7c6c635646a4bce214aa34c3d39d5f",
+    "src/ReportDiff.Cli/CliApplication.cs": "54873694ca6511b77f5e34e7a42e9319337a7ecc470aa55e0f20e6eba397a92b",
+    "src/ReportDiff.Cli/DirectoryRules.cs": "787adc3a21ec140d80da80b092bd280917b346bfe64190f5cc40e56be6353191",
+    "src/ReportDiff.Cli/DirectoryPlan.cs": "2ecb852089f07c15d4a9034207d81f83f58f2a3908580b4c0b08d63094ac9d28",
+    "src/ReportDiff.Cli/ComparisonRunner.cs": "35c0eb16fb8360d38b115cfe5501579e50cf003b6bb3ea732d082c5014689649",
+    "src/ReportDiff.Cli/Program.cs": "b7a3b4da069f34065cf8b42f618a5828c84090358479cc58fe84755c528448c6",
+    "src/ReportDiff.Core/PageFlowCollector.cs": "f279f37bc344e8c90d43039b6063b23e4cc9e36a7496fbdf280bfef91478055f",
+    "src/ReportDiff.Core/ComparisonFeatures.cs": "b8c53bfdede76a9623d26c6f3ef48e28e5f690f875a4f4defbc38d6930211fda",
+    "src/ReportDiff.Core/GroupShiftSearch.cs": "6e95c31ab2c87acddeb01a6b863d817542319d2362858553b27cc5b9dc8dafba",
+    "src/ReportDiff.Core/RowComparison.cs": "3aac86bdf5bae8d6de6eac16f7d00f557eeac68c4fa87f141b688658140f895a",
+    "src/ReportDiff.Core/TolerantDifference.cs": "5a9082634252a07b14b0ea2adf16c54fa2ce536eb9fd47374224f3a254c70e45",
+    "src/ReportDiff.Core/RowCandidateBuilder.cs": "64234efb0aec8fbd18c8da0b7d4b28bb44894e74f73ee3223440407c54f9b1ad",
+    "src/ReportDiff.Core/MovementAnnotator.cs": "f6ceb5f6a84b2b08da0dc8daa5d71861462d308f6f9390594fdd3fafc599e9b8",
+    "src/ReportDiff.Core/DifferenceClassifier.cs": "dc43e65f285a86b9ce926e19ea5145904e6d516c39f5d01a4b742817c38f134c",
+    "src/ReportDiff.Core/RowGroupValidator.cs": "461144fadb941aa0b8d79fe5b99d76f830c10bfe817c1ecc72077a07afd327f4",
+    "src/ReportDiff.Core/PageFlowComparison.cs": "a25f1782ae13210025f66d3c1abe09b5ed553634cdad0c11faa9f159c1a5263a",
+    "src/ReportDiff.Core/AssemblyInfo.cs": "060494a4b480a2d869fb11948811c14bcc777dbd4aa419b50dff4dce085b180c",
+    "src/ReportDiff.Core/RegionMap.cs": "00e09dea774c79818e297f2e674ae079f5fbfe8592672080fa9d0ccbb126716e",
+    "src/ReportDiff.Core/InitialCandidates.cs": "74822751930b3401ca4145b7ec5e9e2cfe6f0569a234c8f189d580d8301136d2",
+    "src/ReportDiff.Core/PageFlowData.cs": "3b2105cac685e34357f7df01a8072a9d1f7c8d4661ffcbddf13bf3d4b2e00ac9",
+    "src/ReportDiff.Core/GroupCandidateSearch.cs": "ca903b3a82423f993043126dfa015c90a5f8adebf0a0ba296034bfcef431a698",
+    "src/ReportDiff.Core/PageMap.cs": "d037a4dc953cd2b6e4445055d05ebe1daf6e7872836909862150b147a9a75079",
+    "src/ReportDiff.Core/MatBuffers.cs": "d196bd1541bd385b89ab9fd78882498c0ead5b2239d89c0bb19b39f8d7af45f9",
+    "src/ReportDiff.Core/ComparisonInk.cs": "bb06f1b539af62988ece41b65d992c07c8c791ab41d3ee087e2ae6c4bfadcf03",
+    "src/ReportDiff.Core/RowSelector.cs": "5180d9fa814790519f8cd0c2d97f1165f2ee4318b5735da6907a1bc8813080d7",
+    "src/ReportDiff.Core/PageFlowAdoption.cs": "78cfa90921584b5bfcdb65b1b5df4db1e6b042c9bc822b86327a5fea41cdd8db",
+    "src/ReportDiff.Core/RowComparisonSurface.cs": "34fab9a23504973d274f75f69b23232924a737f291bb424eb6ecd81d5f888c5c",
+    "src/ReportDiff.Core/RowStructures.cs": "d9edbb5e189b6aa5c1336f6d81cb741b572491c20f178a8e81e2c5bdc187ce11",
+    "src/ReportDiff.Core/ClusterProjectionData.cs": "e66b6b052b86092d2038a4f8e6fd010a75a9575dc74991730b4137fdc5a16015",
+    "src/ReportDiff.Core/LabStripeCache.cs": "f68aff9007a05c249158ffe1ce6079eb685fab9e638bd81469dc4e26606609ff",
+    "src/ReportDiff.Core/ImageInk.cs": "3f3cefe9141fac6275b30d87a83d742e5330130d81294c21e67581cddf72be09",
+    "src/ReportDiff.Core/RowProjection.cs": "4715d629b2951837662c91d9d613a19a64ef4f77a6e50d545dffca720d90d7d1",
+    "src/ReportDiff.Core/GroupRunIndex.cs": "28ff0084042dc65d92ba6e1aa95f07b560801c056d54c320b6d302e6e2281f4e",
+    "src/ReportDiff.Core/Units.cs": "2664a41731483bc23aaccd4dc5a7c462a90e7042960404fe93453a92ef4ea5e9",
+    "src/ReportDiff.Core/CandidateRowSchedule.cs": "d3c3deb2467083a063e2f9d5a522760ca616ff74d3439c92830e1ddd91c329d9",
+    "src/ReportDiff.Core/GlobalAlignment.cs": "eaa3777e70ed94b4bf171c5414426138fde5fc7627410015af7511e625f9d034",
+    "src/ReportDiff.Core/PageFlowBandVerifier.cs": "63b0544ee9627cc73f65610eaf9c284048074478d86538e0b86562045e86b06b",
+    "src/ReportDiff.Core/ComparisonTimings.cs": "0f6b8bf17f527e6f20d0eeea01e87437d663bddc866ac84f91e527b665e4f981",
+    "src/ReportDiff.Core/RowMatching.cs": "a7015cafed9839a10db95b32de5705abd209fa571bbbede0d70e9c83e87ade72",
+    "src/ReportDiff.Core/PageComparer.cs": "d560b3f307a0f6c37539ac36dd1157f394ac9eb77fe2223d9cea24d7087434e8",
+    "src/ReportDiff.Core/RowSupport.cs": "db3a85cc3633a1fa4332ef5ff40c0f5724ea5e72d29ba8e6d43ce8b2a919c951",
+    "src/ReportDiff.Core/RowText.cs": "9d14e5e607ba2983e74427cddb9905668e6625e71e69cd550d35b1a27eefec1a",
+    "src/ReportDiff.Core/ComparisonParameters.cs": "5d4f15ca53e464931a8458a6b1bbf78769c1f14e9ab4162df5a6a7caf3cccee4",
+    "src/ReportDiff.Core/PageComparison.cs": "310e74bb4ac5c520cc3d853bdcd2aa939cafb52a19c08e8569d64b04f0e3847b",
+    "src/ReportDiff.Core/PageFlowAggregation.cs": "fe38853cef2b9a2e964fc04f05e5257384dfd3ae8feac7d34f0fbe96127c8432",
+    "src/ReportDiff.Core/PageFlowSurface.cs": "03acf75ae3c998b92a3ee645c1e11bfa3937f01bc84ef70c716aec8fd217b436",
+    "src/ReportDiff.Core/RowCanonicalizer.cs": "d1e66171499f03b5014afe846ba745e825707eb25b34d4d48334b345deaa4e81",
+    "src/ReportDiff.Core/PageFlowPlan.cs": "14897bf70ba104fbf7a3c1046fc73897b6322f5f289f6b8a069f53e0e3cb8fef",
+    "src/ReportDiff.Core/PageFlowInference.cs": "3eb15341443e8eacc2d6e9486b124a9f49955af44c5ed25d75c3a7f37cda2689",
+    "src/ReportDiff.Core/GroupSearchSchedule.cs": "b36fcd6ee1a9c7faa086e85fcd00dbb6c3a6f1bf86a268b82318f92890fa02cb",
+    "src/ReportDiff.Core/GroupCandidateSchedule.cs": "a8bb6419e82d6e1b932de721e83267ce5788e577b1da8441abbede8c5ffeda57",
+    "src/ReportDiff.Core/FeatureStripeSchedule.cs": "c9a602a01dc32d731af4bef1b7ef1923254a27e60a6b1bd3a81c7e14bf14549d",
+    "src/ReportDiff.Core/PageFlowRangeGate.cs": "86814cbf0d130ef25b9d6c70822b8867910c2bc1ed7dc61d9d35e10f9bf5d637",
+    "src/ReportDiff.Core/RegionalComparison.cs": "2629aa0fd34db7991067c87bae77efdc9a8815b0c287908961846b7b46985049",
+    "src/ReportDiff.Pdf/PdfReader.cs": "a521c0532b0e2cd061e8ce6cd68403cd8eac45d3453f8a37b79b4d79647c20f5",
+    "src/ReportDiff.Pdf/PageSelection.cs": "0cb8f84064f1d7263a2f30b06f20c77dd60688f877405103c57b3ab55ce999ab",
+    "src/ReportDiff.Pdf/AssemblyInfo.cs": "502510d8fadecad038256039d5f9b86967f68a15afc8678f06377713652881d3",
+    "src/ReportDiff.Pdf/ImageReader.cs": "dd65252e10e2046c5401cb9b0c490d10ceb2a51ca974192507dfe4e811cdd8dd",
+    "src/ReportDiff.Pdf/TextAnnotations.cs": "e5fd667b6573f13fd91c697395d4a74efcf3be66dc9a89992b7b6395a866a5dc",
+    "src/ReportDiff.Pdf/PagePairing.cs": "abd54c801c2816fb19518c20bf49c88d3e0366491648374ea1aaabee3c22554a",
+    "src/ReportDiff.Pdf/InputFormat.cs": "a5ba93584766984432a613e038d249f49053a57bd8bd5ef433aecdeddb479fbc",
+    "src/ReportDiff.Pdf/PdfFontInspector.cs": "6ddcb863b79063e7594e5ad5779a62c9efd5a98fc80ebcc43be64636a5228997",
+    "src/ReportDiff.Pdf/PdfTextReader.cs": "dbc3cf40bd7e3c5a5c655a06507ff092db4b067d45e08abb4fab1bc102df4d30",
+    "src/ReportDiff.Pdf/LoadedImage.cs": "9a479a6e661bbfcdc3eb01e3d750914b6282b2fb5f19ee0fbb3a212b83e6ec44",
+    "src/ReportDiff.Pdf/TiffAlpha.cs": "e6bbb487b32ac0592ab01d5f1b0fd8f40ccb2c093f4c825e8d57aa3a70f98b79",
+    "src/ReportDiff.Pdf/RowTextAnnotations.cs": "446de90eff2def29253da9ef6e9be085266986c448b22e3210095ad44f4a9eb6",
+    "src/ReportDiff.Pdf/PageNormalizer.cs": "78a9ba69476d8cf0e68b40d15d84beec72c4c5b80908cad16bfc57d48b2a8c0a",
+    "src/ReportDiff.Pdf/TextOptions.cs": "c8cc766ededff6c993791593583a7e9ccbf559e2fc5335cc58fad132079be9fb"
+  },
+  "fixtures_sha256": {
+    "zero/a.pdf": "e414322a7f204b965353b37bee5491b2c49eab8b6c0acb8a27aac7038be1a65f",
+    "zero/b.pdf": "e0891318e1d7e8f6ee0ae4399361546495aaa4d936de8934633087f7f9edc8bf",
+    "down/a.pdf": "e414322a7f204b965353b37bee5491b2c49eab8b6c0acb8a27aac7038be1a65f",
+    "down/b.pdf": "74aa060f89081b88c0acd8fd187ac08624ec7f0399b22c761285b0ee952c1a6b",
+    "up/a.pdf": "e414322a7f204b965353b37bee5491b2c49eab8b6c0acb8a27aac7038be1a65f",
+    "up/b.pdf": "e5ce6d1c62200c69a7228d85ea68dfdc904773ff7e12eb942af8178d0bd81237",
+    "variable/a.pdf": "e414322a7f204b965353b37bee5491b2c49eab8b6c0acb8a27aac7038be1a65f",
+    "variable/b.pdf": "3162fda7f58f6bba5ae5f0045a7a1053ad081ab4b1ecf405caa2141adcc15208",
+    "mixed/a.pdf": "e414322a7f204b965353b37bee5491b2c49eab8b6c0acb8a27aac7038be1a65f",
+    "mixed/b.pdf": "fcb0662b79b3c645345d62599cb0623d20b29ed035e5067b67af86cdf6ffd7c3",
+    "chain/a.pdf": "3300dbd8d2c94c0bc3bc87f6828b98a6d24085a81c9777aaa5a3ab87957bd3e0",
+    "chain/b.pdf": "6084137d7ffbccde4d69b060a650572baedbdc7b5993ec9ab1006eca13344645",
+    "horizontal/a.pdf": "e414322a7f204b965353b37bee5491b2c49eab8b6c0acb8a27aac7038be1a65f",
+    "horizontal/b.pdf": "baf4af197bbbbaf8dc5a706b891fa408f7f99242462f3b5ac66dee026a648fa1",
+    "both/a.pdf": "e414322a7f204b965353b37bee5491b2c49eab8b6c0acb8a27aac7038be1a65f",
+    "both/b.pdf": "52d775aaa1e35d8f011f91e4f5f9a76b34f35de433c1d35b844b3da0b5dd145a",
+    "body-tone/a.pdf": "e414322a7f204b965353b37bee5491b2c49eab8b6c0acb8a27aac7038be1a65f",
+    "body-tone/b.pdf": "4d1857e18fe75a6c326af043cca5f5e55d9c377648c4b6a378fdfa533dcc6949",
+    "band-tone/a.pdf": "e414322a7f204b965353b37bee5491b2c49eab8b6c0acb8a27aac7038be1a65f",
+    "band-tone/b.pdf": "96ac95daa92f0f2d40bacced194b0600d2231aa9e652b8ed94371689558ce10f",
+    "edge/a.pdf": "e414322a7f204b965353b37bee5491b2c49eab8b6c0acb8a27aac7038be1a65f",
+    "edge/b.pdf": "a56426a557b7609633378fcb31374a2b9cfbad85889d1520a4edb24c007f4c62",
+    "subpixel/a.pdf": "e414322a7f204b965353b37bee5491b2c49eab8b6c0acb8a27aac7038be1a65f",
+    "subpixel/b.pdf": "408900439521b608940d1ad6e29651b931d20dd65131836a89a28f3b6fef818e",
+    "unpaired/a.pdf": "faa8b81523dc54af5b7ec61cd1d92209a01fea6c49be147d95219880407c22d2",
+    "unpaired/b.pdf": "e32a508c93ed3716efc77b704cbdb39101ca72b2d266b5000dcc4fdcda14b059"
+  },
+  "cli_acceptance": {
+    "cases": 17,
+    "processes": 68,
+    "surfaces": 21,
+    "structures": 53,
+    "original_band_pngs": 26,
+    "raw_png_pairs": 108,
+    "compatible_files": 916,
+    "records": [
+      {
+        "case": "zero",
+        "fixture": "zero",
+        "reverse": false,
+        "extra_yaml": "",
+        "status": "applied",
+        "summary": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 0,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 1,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 5,
+          "structural_change_counts": {
+            "inserted": 2,
+            "deleted": 1,
+            "block_moved": 2
+          },
+          "difference_count": 5,
+          "difference_count_complete": true
+        },
+        "directory": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1c-global-cli/acceptance/zero-on",
+        "pages": [
+          {
+            "page": 1,
+            "alignment": {
+              "status": "not_applied",
+              "reason": "no_shift",
+              "estimated_shift_px": {
+                "dx": 0,
+                "dy": 0
+              },
+              "score_before": 0.9975093050664582,
+              "score_after": 0.9975093050664582,
+              "score_gap": 0.1242124047095764,
+              "coarse_score_gap": 0.23104192879635121,
+              "support_cells": 0
+            }
+          },
+          {
+            "page": 2,
+            "alignment": {
+              "status": "not_applied",
+              "reason": "no_shift",
+              "estimated_shift_px": {
+                "dx": 0,
+                "dy": 0
+              },
+              "score_before": 0.9859593751287575,
+              "score_after": 0.9859593751287575,
+              "score_gap": 0.11742805228319364,
+              "coarse_score_gap": 0.22305823853765905,
+              "support_cells": 0
+            }
+          }
+        ],
+        "result_sha256": "5b56e864d7c43c9a8f0c68217c3b60e0b4a5d134df85620ec78f4d688774c00a"
+      },
+      {
+        "case": "down",
+        "fixture": "down",
+        "reverse": false,
+        "extra_yaml": "",
+        "status": "applied",
+        "summary": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 0,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 1,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 5,
+          "structural_change_counts": {
+            "inserted": 2,
+            "deleted": 1,
+            "block_moved": 2
+          },
+          "difference_count": 5,
+          "difference_count_complete": true
+        },
+        "directory": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1c-global-cli/acceptance/down-on",
+        "pages": [
+          {
+            "page": 1,
+            "alignment": {
+              "status": "applied",
+              "reason": "applied",
+              "estimated_shift_px": {
+                "dx": 0,
+                "dy": -4
+              },
+              "score_before": 0.7520985183059493,
+              "score_after": 0.9975093050664582,
+              "score_gap": 0.1242124047095764,
+              "coarse_score_gap": 0.23104192879635121,
+              "support_cells": 7
+            }
+          },
+          {
+            "page": 2,
+            "alignment": {
+              "status": "applied",
+              "reason": "applied",
+              "estimated_shift_px": {
+                "dx": 0,
+                "dy": -4
+              },
+              "score_before": 0.7563211866014378,
+              "score_after": 0.9859593751287575,
+              "score_gap": 0.11742805228319364,
+              "coarse_score_gap": 0.22305823853765905,
+              "support_cells": 6
+            }
+          }
+        ],
+        "result_sha256": "939cf69f143155908648e77d627badad3e3a4ed500e49980dc48ebae048978f2"
+      },
+      {
+        "case": "up",
+        "fixture": "up",
+        "reverse": false,
+        "extra_yaml": "",
+        "status": "applied",
+        "summary": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 0,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 1,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 5,
+          "structural_change_counts": {
+            "inserted": 2,
+            "deleted": 1,
+            "block_moved": 2
+          },
+          "difference_count": 5,
+          "difference_count_complete": true
+        },
+        "directory": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1c-global-cli/acceptance/up-on",
+        "pages": [
+          {
+            "page": 1,
+            "alignment": {
+              "status": "applied",
+              "reason": "applied",
+              "estimated_shift_px": {
+                "dx": 0,
+                "dy": 6
+              },
+              "score_before": 0.6968113612343942,
+              "score_after": 0.9975093050664582,
+              "score_gap": 0.1242124047095764,
+              "coarse_score_gap": 0.15582017119696312,
+              "support_cells": 7
+            }
+          },
+          {
+            "page": 2,
+            "alignment": {
+              "status": "applied",
+              "reason": "applied",
+              "estimated_shift_px": {
+                "dx": 0,
+                "dy": 6
+              },
+              "score_before": 0.6998642317573369,
+              "score_after": 0.9859593751287575,
+              "score_gap": 0.11742805228319364,
+              "coarse_score_gap": 0.14785402229078426,
+              "support_cells": 6
+            }
+          }
+        ],
+        "result_sha256": "d9d8fb675c169e3906b5d6112561be277c880f8c43eee02c0443265c25303f1d"
+      },
+      {
+        "case": "variable",
+        "fixture": "variable",
+        "reverse": false,
+        "extra_yaml": "",
+        "status": "applied",
+        "summary": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 0,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 1,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 5,
+          "structural_change_counts": {
+            "inserted": 2,
+            "deleted": 1,
+            "block_moved": 2
+          },
+          "difference_count": 5,
+          "difference_count_complete": true
+        },
+        "directory": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1c-global-cli/acceptance/variable-on",
+        "pages": [
+          {
+            "page": 1,
+            "alignment": {
+              "status": "applied",
+              "reason": "applied",
+              "estimated_shift_px": {
+                "dx": 0,
+                "dy": -4
+              },
+              "score_before": 0.7520985183059493,
+              "score_after": 0.9975093050664582,
+              "score_gap": 0.1242124047095764,
+              "coarse_score_gap": 0.23104192879635121,
+              "support_cells": 7
+            }
+          },
+          {
+            "page": 2,
+            "alignment": {
+              "status": "applied",
+              "reason": "applied",
+              "estimated_shift_px": {
+                "dx": 0,
+                "dy": 6
+              },
+              "score_before": 0.6998642317573369,
+              "score_after": 0.9859593751287575,
+              "score_gap": 0.11742805228319364,
+              "coarse_score_gap": 0.14785402229078426,
+              "support_cells": 6
+            }
+          }
+        ],
+        "result_sha256": "14a15d97846bf5a0574e7c94c2530a6a227f9c735e4240c2661eceec49748629"
+      },
+      {
+        "case": "mixed",
+        "fixture": "mixed",
+        "reverse": false,
+        "extra_yaml": "",
+        "status": "applied",
+        "summary": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 0,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 1,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 5,
+          "structural_change_counts": {
+            "inserted": 2,
+            "deleted": 1,
+            "block_moved": 2
+          },
+          "difference_count": 5,
+          "difference_count_complete": true
+        },
+        "directory": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1c-global-cli/acceptance/mixed-on",
+        "pages": [
+          {
+            "page": 1,
+            "alignment": {
+              "status": "not_applied",
+              "reason": "no_shift",
+              "estimated_shift_px": {
+                "dx": 0,
+                "dy": 0
+              },
+              "score_before": 0.9975093050664582,
+              "score_after": 0.9975093050664582,
+              "score_gap": 0.1242124047095764,
+              "coarse_score_gap": 0.23104192879635121,
+              "support_cells": 0
+            }
+          },
+          {
+            "page": 2,
+            "alignment": {
+              "status": "applied",
+              "reason": "applied",
+              "estimated_shift_px": {
+                "dx": 0,
+                "dy": -4
+              },
+              "score_before": 0.7563211866014378,
+              "score_after": 0.9859593751287575,
+              "score_gap": 0.11742805228319364,
+              "coarse_score_gap": 0.22305823853765905,
+              "support_cells": 6
+            }
+          }
+        ],
+        "result_sha256": "a28d5763530026819997b5562e921b8b3d92edf2540a58988e3a4fff9614fe96"
+      },
+      {
+        "case": "chain",
+        "fixture": "chain",
+        "reverse": false,
+        "extra_yaml": "",
+        "status": "applied",
+        "summary": {
+          "status": "different",
+          "pages_compared": 3,
+          "pages_different": 3,
+          "clusters": 0,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 1,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 8,
+          "structural_change_counts": {
+            "inserted": 3,
+            "deleted": 2,
+            "block_moved": 3
+          },
+          "difference_count": 8,
+          "difference_count_complete": true
+        },
+        "directory": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1c-global-cli/acceptance/chain-on",
+        "pages": [
+          {
+            "page": 1,
+            "alignment": {
+              "status": "applied",
+              "reason": "applied",
+              "estimated_shift_px": {
+                "dx": 0,
+                "dy": -4
+              },
+              "score_before": 0.7520985183059493,
+              "score_after": 0.9975093050664582,
+              "score_gap": 0.1242124047095764,
+              "coarse_score_gap": 0.23104192879635121,
+              "support_cells": 7
+            }
+          },
+          {
+            "page": 2,
+            "alignment": {
+              "status": "applied",
+              "reason": "applied",
+              "estimated_shift_px": {
+                "dx": 0,
+                "dy": 6
+              },
+              "score_before": 0.6967518554516282,
+              "score_after": 0.9981539533184716,
+              "score_gap": 0.12450302381469958,
+              "coarse_score_gap": 0.15636590810676299,
+              "support_cells": 8
+            }
+          },
+          {
+            "page": 3,
+            "alignment": {
+              "status": "applied",
+              "reason": "applied",
+              "estimated_shift_px": {
+                "dx": 0,
+                "dy": -3
+              },
+              "score_before": 0.7841089435605957,
+              "score_after": 0.9862914325149648,
+              "score_gap": 0.11771683252201914,
+              "coarse_score_gap": 0.19568854070020114,
+              "support_cells": 6
+            }
+          }
+        ],
+        "result_sha256": "8f9ba37a15ccf0fb94e32512471639b63b069d169bca72c7d54f735c8fabb892"
+      },
+      {
+        "case": "horizontal",
+        "fixture": "horizontal",
+        "reverse": false,
+        "extra_yaml": "",
+        "status": "skipped",
+        "summary": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 9,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 9,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 9,
+          "difference_count_complete": true
+        },
+        "directory": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1c-global-cli/acceptance/horizontal-on",
+        "pages": [
+          {
+            "page": 1,
+            "alignment": {
+              "status": "applied",
+              "reason": "applied",
+              "estimated_shift_px": {
+                "dx": -5,
+                "dy": 0
+              },
+              "score_before": 0.7421809615269532,
+              "score_after": 0.9975093050664582,
+              "score_gap": 0.1242124047095764,
+              "coarse_score_gap": 0.16822116392944497,
+              "support_cells": 6
+            }
+          },
+          {
+            "page": 2,
+            "alignment": {
+              "status": "applied",
+              "reason": "applied",
+              "estimated_shift_px": {
+                "dx": -5,
+                "dy": 0
+              },
+              "score_before": 0.7376040740095322,
+              "score_after": 0.9859593751287575,
+              "score_gap": 0.11742805228319364,
+              "coarse_score_gap": 0.16142245728640758,
+              "support_cells": 6
+            }
+          }
+        ],
+        "result_sha256": "b349578d2fd66b80e38b509bdc14efcce03364818d95988febccb3b00f913001"
+      },
+      {
+        "case": "both",
+        "fixture": "both",
+        "reverse": false,
+        "extra_yaml": "",
+        "status": "skipped",
+        "summary": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 9,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 9,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 9,
+          "difference_count_complete": true
+        },
+        "directory": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1c-global-cli/acceptance/both-on",
+        "pages": [
+          {
+            "page": 1,
+            "alignment": {
+              "status": "applied",
+              "reason": "applied",
+              "estimated_shift_px": {
+                "dx": 5,
+                "dy": -4
+              },
+              "score_before": 0.567085158956252,
+              "score_after": 0.9975093050664582,
+              "score_gap": 0.1242124047095764,
+              "coarse_score_gap": 0.1626936023973874,
+              "support_cells": 7
+            }
+          },
+          {
+            "page": 2,
+            "alignment": {
+              "status": "applied",
+              "reason": "applied",
+              "estimated_shift_px": {
+                "dx": 5,
+                "dy": -4
+              },
+              "score_before": 0.576385604626089,
+              "score_after": 0.9859593751287575,
+              "score_gap": 0.11742805228319364,
+              "coarse_score_gap": 0.1558157530341494,
+              "support_cells": 6
+            }
+          }
+        ],
+        "result_sha256": "f6c7c0f244b986512bd842d0691836800c407b830ff8e8efc5ae8ad209dc62f8"
+      },
+      {
+        "case": "body-tone",
+        "fixture": "body-tone",
+        "reverse": false,
+        "extra_yaml": "",
+        "status": "applied",
+        "summary": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 1,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 2,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 5,
+          "structural_change_counts": {
+            "inserted": 2,
+            "deleted": 1,
+            "block_moved": 2
+          },
+          "difference_count": 6,
+          "difference_count_complete": true
+        },
+        "directory": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1c-global-cli/acceptance/body-tone-on",
+        "pages": [
+          {
+            "page": 1,
+            "alignment": {
+              "status": "applied",
+              "reason": "applied",
+              "estimated_shift_px": {
+                "dx": 0,
+                "dy": -4
+              },
+              "score_before": 0.7520985183059493,
+              "score_after": 0.9975093050664582,
+              "score_gap": 0.1242124047095764,
+              "coarse_score_gap": 0.23104192879635121,
+              "support_cells": 7
+            }
+          },
+          {
+            "page": 2,
+            "alignment": {
+              "status": "applied",
+              "reason": "applied",
+              "estimated_shift_px": {
+                "dx": 0,
+                "dy": -4
+              },
+              "score_before": 0.7562568398699354,
+              "score_after": 0.9858758481896193,
+              "score_gap": 0.11741810420011478,
+              "coarse_score_gap": 0.2230393235715118,
+              "support_cells": 6
+            }
+          }
+        ],
+        "result_sha256": "1695f8e1e148ccafd9e32944183b5513246524abc7e29200cb35de21e4909aaf"
+      },
+      {
+        "case": "band-tone",
+        "fixture": "band-tone",
+        "reverse": false,
+        "extra_yaml": "",
+        "status": "skipped",
+        "summary": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 10,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 10,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 10,
+          "difference_count_complete": true
+        },
+        "directory": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1c-global-cli/acceptance/band-tone-on",
+        "pages": [
+          {
+            "page": 1,
+            "alignment": {
+              "status": "applied",
+              "reason": "applied",
+              "estimated_shift_px": {
+                "dx": 0,
+                "dy": -4
+              },
+              "score_before": 0.7520985183059493,
+              "score_after": 0.9975093050664582,
+              "score_gap": 0.1242124047095764,
+              "coarse_score_gap": 0.23104192879635121,
+              "support_cells": 7
+            }
+          },
+          {
+            "page": 2,
+            "alignment": {
+              "status": "applied",
+              "reason": "applied",
+              "estimated_shift_px": {
+                "dx": 0,
+                "dy": -4
+              },
+              "score_before": 0.7562568398699354,
+              "score_after": 0.9858758481896193,
+              "score_gap": 0.11741810420011478,
+              "coarse_score_gap": 0.2230393235715118,
+              "support_cells": 6
+            }
+          }
+        ],
+        "result_sha256": "d57210d4c5875d45e897e8add17b799350841b65d8a4abac94924967ab64116a"
+      },
+      {
+        "case": "edge",
+        "fixture": "edge",
+        "reverse": false,
+        "extra_yaml": "",
+        "status": "skipped",
+        "summary": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 17,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 17,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 17,
+          "difference_count_complete": true
+        },
+        "directory": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1c-global-cli/acceptance/edge-on",
+        "pages": [
+          {
+            "page": 1,
+            "alignment": {
+              "status": "applied",
+              "reason": "applied",
+              "estimated_shift_px": {
+                "dx": 0,
+                "dy": -4
+              },
+              "score_before": 0.7520985183059493,
+              "score_after": 0.9975093050664582,
+              "score_gap": 0.1242124047095764,
+              "coarse_score_gap": 0.23104192879635121,
+              "support_cells": 7
+            }
+          },
+          {
+            "page": 2,
+            "alignment": {
+              "status": "not_applied",
+              "reason": "edge_content",
+              "estimated_shift_px": {
+                "dx": 0,
+                "dy": -4
+              },
+              "score_before": 0.7563211866014378,
+              "score_after": 0.9859593751287575,
+              "score_gap": 0.11742805228319364,
+              "coarse_score_gap": 0.22305823853765905,
+              "support_cells": 6
+            }
+          }
+        ],
+        "result_sha256": "507274d320f7f85313d7c00b245143d328c2399306495279e279bbbf2e6b6e6b"
+      },
+      {
+        "case": "subpixel",
+        "fixture": "subpixel",
+        "reverse": false,
+        "extra_yaml": "",
+        "status": "skipped",
+        "summary": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 26,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 26,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 26,
+          "difference_count_complete": true
+        },
+        "directory": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1c-global-cli/acceptance/subpixel-on",
+        "pages": [
+          {
+            "page": 1,
+            "alignment": {
+              "status": "not_applied",
+              "reason": "low_score",
+              "estimated_shift_px": {
+                "dx": 0,
+                "dy": -4
+              },
+              "score_before": 0.752204486260668,
+              "score_after": 0.9673688700932622,
+              "score_gap": 0.0664454513707502,
+              "coarse_score_gap": 0.2260908154290162,
+              "support_cells": 6
+            }
+          },
+          {
+            "page": 2,
+            "alignment": {
+              "status": "not_applied",
+              "reason": "low_score",
+              "estimated_shift_px": {
+                "dx": 0,
+                "dy": -4
+              },
+              "score_before": 0.7563616910262175,
+              "score_after": 0.9635058871148903,
+              "score_gap": 0.07513000975104334,
+              "coarse_score_gap": 0.21874458876385872,
+              "support_cells": 6
+            }
+          }
+        ],
+        "result_sha256": "94ba1ca953a279958717186c9185dee82c39162fc1a40d66e1ffddb7a1702321"
+      },
+      {
+        "case": "unpaired",
+        "fixture": "unpaired",
+        "reverse": false,
+        "extra_yaml": "",
+        "status": "skipped",
+        "summary": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 3,
+          "clusters": 10,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 10,
+          "aggregated_difference_count_complete": false,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 10,
+          "difference_count_complete": false
+        },
+        "directory": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1c-global-cli/acceptance/unpaired-on",
+        "pages": [
+          {
+            "page": 1,
+            "alignment": {
+              "status": "applied",
+              "reason": "applied",
+              "estimated_shift_px": {
+                "dx": 0,
+                "dy": -4
+              },
+              "score_before": 0.7520985183059493,
+              "score_after": 0.9975093050664582,
+              "score_gap": 0.1242124047095764,
+              "coarse_score_gap": 0.23104192879635121,
+              "support_cells": 7
+            }
+          },
+          {
+            "page": 2,
+            "alignment": {
+              "status": "applied",
+              "reason": "applied",
+              "estimated_shift_px": {
+                "dx": 0,
+                "dy": -4
+              },
+              "score_before": 0.7505530851613385,
+              "score_after": 0.9956726427747233,
+              "score_gap": 0.12413662299347394,
+              "coarse_score_gap": 0.23004191158481202,
+              "support_cells": 7
+            }
+          },
+          {
+            "page": 3,
+            "alignment": {
+              "status": "not_applied",
+              "reason": "unpaired_page",
+              "estimated_shift_px": null,
+              "score_before": null,
+              "score_after": null,
+              "score_gap": null,
+              "coarse_score_gap": null,
+              "support_cells": null
+            }
+          }
+        ],
+        "result_sha256": "2e828ef449138e2cffbba6cf323bacebbad0339e48a46a6f8b720a528c6d3f4d"
+      },
+      {
+        "case": "reverse",
+        "fixture": "down",
+        "reverse": true,
+        "extra_yaml": "",
+        "status": "applied",
+        "summary": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 0,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 1,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 5,
+          "structural_change_counts": {
+            "inserted": 1,
+            "deleted": 2,
+            "block_moved": 2
+          },
+          "difference_count": 5,
+          "difference_count_complete": true
+        },
+        "directory": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1c-global-cli/acceptance/reverse-on",
+        "pages": [
+          {
+            "page": 1,
+            "alignment": {
+              "status": "applied",
+              "reason": "applied",
+              "estimated_shift_px": {
+                "dx": 0,
+                "dy": 4
+              },
+              "score_before": 0.7520985183059493,
+              "score_after": 0.9974883716794753,
+              "score_gap": 0.12367882788104201,
+              "coarse_score_gap": 0.2308284424991922,
+              "support_cells": 7
+            }
+          },
+          {
+            "page": 2,
+            "alignment": {
+              "status": "applied",
+              "reason": "applied",
+              "estimated_shift_px": {
+                "dx": 0,
+                "dy": 4
+              },
+              "score_before": 0.7563211866014378,
+              "score_after": 0.9858388002585482,
+              "score_gap": 0.11684523191170204,
+              "coarse_score_gap": 0.22270996362297868,
+              "support_cells": 6
+            }
+          }
+        ],
+        "result_sha256": "f50cab0fe87b0240306704b4ca7dd2ca1b966c9516ad480e378f410cb66c80d0"
+      },
+      {
+        "case": "body-excluded",
+        "fixture": "body-tone",
+        "reverse": false,
+        "extra_yaml": "exclude: [{page: 2, x: 54.86, y: 59.436, w: 1.7, h: 1.7}]",
+        "status": "applied",
+        "summary": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 0,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 1,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 5,
+          "structural_change_counts": {
+            "inserted": 2,
+            "deleted": 1,
+            "block_moved": 2
+          },
+          "difference_count": 5,
+          "difference_count_complete": true
+        },
+        "directory": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1c-global-cli/acceptance/body-excluded-on",
+        "pages": [
+          {
+            "page": 1,
+            "alignment": {
+              "status": "applied",
+              "reason": "applied",
+              "estimated_shift_px": {
+                "dx": 0,
+                "dy": -4
+              },
+              "score_before": 0.7520985183059493,
+              "score_after": 0.9975093050664582,
+              "score_gap": 0.1242124047095764,
+              "coarse_score_gap": 0.23104192879635121,
+              "support_cells": 7
+            }
+          },
+          {
+            "page": 2,
+            "alignment": {
+              "status": "applied",
+              "reason": "applied",
+              "estimated_shift_px": {
+                "dx": 0,
+                "dy": -4
+              },
+              "score_before": 0.7572252289930261,
+              "score_after": 0.9858578392593167,
+              "score_gap": 0.11693029503543162,
+              "coarse_score_gap": 0.22334377541866324,
+              "support_cells": 6
+            }
+          }
+        ],
+        "result_sha256": "3a8cf8198b0e267f8961cc4dc52b00ab13c057d37d70e907679c1ed08813023b"
+      },
+      {
+        "case": "body-region",
+        "fixture": "body-tone",
+        "reverse": false,
+        "extra_yaml": "regions: [{page: 2, name: strict, mode: compare, x: 54.86, y: 59.436, w: 1.7, h: 1.7, diff: {max_shift_mm: 0, edge_tolerance: 0}}]",
+        "status": "applied",
+        "summary": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 1,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 2,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 5,
+          "structural_change_counts": {
+            "inserted": 2,
+            "deleted": 1,
+            "block_moved": 2
+          },
+          "difference_count": 6,
+          "difference_count_complete": true
+        },
+        "directory": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1c-global-cli/acceptance/body-region-on",
+        "pages": [
+          {
+            "page": 1,
+            "alignment": {
+              "status": "applied",
+              "reason": "applied",
+              "estimated_shift_px": {
+                "dx": 0,
+                "dy": -4
+              },
+              "score_before": 0.7520985183059493,
+              "score_after": 0.9975093050664582,
+              "score_gap": 0.1242124047095764,
+              "coarse_score_gap": 0.23104192879635121,
+              "support_cells": 7
+            }
+          },
+          {
+            "page": 2,
+            "alignment": {
+              "status": "applied",
+              "reason": "applied",
+              "estimated_shift_px": {
+                "dx": 0,
+                "dy": -4
+              },
+              "score_before": 0.7562568398699354,
+              "score_after": 0.9858758481896193,
+              "score_gap": 0.11741810420011478,
+              "coarse_score_gap": 0.2230393235715118,
+              "support_cells": 6
+            }
+          }
+        ],
+        "result_sha256": "fbed6ce77a1499f14ea0e3528ea1c9b45496a36f649ed3650163ecb07d525837"
+      },
+      {
+        "case": "band-excluded",
+        "fixture": "band-tone",
+        "reverse": false,
+        "extra_yaml": "exclude: [{page: 2, x: 54, y: 51, w: 3, h: 3}]",
+        "status": "skipped",
+        "summary": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 9,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 9,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 9,
+          "difference_count_complete": true
+        },
+        "directory": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1c-global-cli/acceptance/band-excluded-on",
+        "pages": [
+          {
+            "page": 1,
+            "alignment": {
+              "status": "applied",
+              "reason": "applied",
+              "estimated_shift_px": {
+                "dx": 0,
+                "dy": -4
+              },
+              "score_before": 0.7520985183059493,
+              "score_after": 0.9975093050664582,
+              "score_gap": 0.1242124047095764,
+              "coarse_score_gap": 0.23104192879635121,
+              "support_cells": 7
+            }
+          },
+          {
+            "page": 2,
+            "alignment": {
+              "status": "applied",
+              "reason": "applied",
+              "estimated_shift_px": {
+                "dx": 0,
+                "dy": -4
+              },
+              "score_before": 0.7573936614278739,
+              "score_after": 0.9859395501916385,
+              "score_gap": 0.11688787227863151,
+              "coarse_score_gap": 0.2233874679775245,
+              "support_cells": 6
+            }
+          }
+        ],
+        "result_sha256": "409a5becb4955ec2bcf06dfd752d6419f7a6724af1b4b340d9bb1604ef2f82e3"
+      }
+    ]
+  },
+  "python_reference": [
+    {
+      "case": "zero",
+      "page": 1,
+      "raw_pixels": 0,
+      "clusters": 0
+    },
+    {
+      "case": "zero",
+      "page": 2,
+      "raw_pixels": 0,
+      "clusters": 0
+    },
+    {
+      "case": "down",
+      "page": 1,
+      "raw_pixels": 0,
+      "clusters": 0
+    },
+    {
+      "case": "down",
+      "page": 2,
+      "raw_pixels": 0,
+      "clusters": 0
+    },
+    {
+      "case": "up",
+      "page": 1,
+      "raw_pixels": 0,
+      "clusters": 0
+    },
+    {
+      "case": "up",
+      "page": 2,
+      "raw_pixels": 0,
+      "clusters": 0
+    },
+    {
+      "case": "variable",
+      "page": 1,
+      "raw_pixels": 0,
+      "clusters": 0
+    },
+    {
+      "case": "variable",
+      "page": 2,
+      "raw_pixels": 0,
+      "clusters": 0
+    },
+    {
+      "case": "mixed",
+      "page": 1,
+      "raw_pixels": 0,
+      "clusters": 0
+    },
+    {
+      "case": "mixed",
+      "page": 2,
+      "raw_pixels": 0,
+      "clusters": 0
+    },
+    {
+      "case": "chain",
+      "page": 1,
+      "raw_pixels": 0,
+      "clusters": 0
+    },
+    {
+      "case": "chain",
+      "page": 2,
+      "raw_pixels": 0,
+      "clusters": 0
+    },
+    {
+      "case": "chain",
+      "page": 3,
+      "raw_pixels": 0,
+      "clusters": 0
+    },
+    {
+      "case": "body-tone",
+      "page": 1,
+      "raw_pixels": 0,
+      "clusters": 0
+    },
+    {
+      "case": "body-tone",
+      "page": 2,
+      "raw_pixels": 100,
+      "clusters": 1
+    },
+    {
+      "case": "reverse",
+      "page": 1,
+      "raw_pixels": 0,
+      "clusters": 0
+    },
+    {
+      "case": "reverse",
+      "page": 2,
+      "raw_pixels": 0,
+      "clusters": 0
+    }
+  ],
+  "legacy_cli": {
+    "cases": 76,
+    "processes": 152,
+    "applied": 24,
+    "grouped": 18
+  },
+  "performance": {
+    "platform": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+    "product_processes": 18,
+    "instrumented_processes": 6,
+    "repeats": 3,
+    "raw_overlay": true,
+    "html": true,
+    "warmups": 0,
+    "cold_cache_claim": false,
+    "product_instrumented_outputs_equal": true,
+    "rss_source": "wait4.ru_maxrss",
+    "summaries": [
+      {
+        "case": "down",
+        "carry": false,
+        "status": "disabled",
+        "median_seconds": 1.0986460419371724,
+        "max_rss_bytes": 304316416,
+        "pdf_renders": 4,
+        "global_estimations": 2,
+        "stages": {
+          "cli": 2128.1617,
+          "global_align": 322.353,
+          "normalize": 4.3208,
+          "pdf_render": 622.5976,
+          "pdf_text": 193.6823,
+          "row_compare": 428.8113,
+          "save_flow_bands": 0.117,
+          "save_html": 6.9465,
+          "save_json": 28.4963,
+          "save_page": 67.3214
+        }
+      },
+      {
+        "case": "down",
+        "carry": true,
+        "status": "applied",
+        "median_seconds": 1.4466427500592545,
+        "max_rss_bytes": 335495168,
+        "pdf_renders": 18,
+        "global_estimations": 2,
+        "stages": {
+          "adoption_baseline": 133.18720000000002,
+          "cli": 1425.3727,
+          "final_flow_compare": 20.2709,
+          "flow_adoption": 290.4447,
+          "flow_band_verification": 29.5478,
+          "flow_collect": 40.5388,
+          "flow_collect_aligned": 38.3614,
+          "flow_comparison": 33.4749,
+          "flow_global_align": 315.00620000000004,
+          "flow_inference": 10.1572,
+          "flow_plan": 76.874,
+          "flow_prepare": 1007.4656,
+          "flow_surface": 4.7363,
+          "normalize": 0.5616,
+          "pdf_render": 68.0787,
+          "pdf_text": 265.6532,
+          "save_flow_bands": 9.1945,
+          "save_html": 8.1842,
+          "save_json": 37.1271,
+          "save_page": 91.0652
+        }
+      },
+      {
+        "case": "chain",
+        "carry": false,
+        "status": "disabled",
+        "median_seconds": 1.3697055000811815,
+        "max_rss_bytes": 311508992,
+        "pdf_renders": 6,
+        "global_estimations": 3,
+        "stages": {
+          "cli": 1334.9452,
+          "global_align": 472.5135,
+          "normalize": 2.4792,
+          "pdf_render": 31.224800000000002,
+          "pdf_text": 207.9309,
+          "row_compare": 491.2711,
+          "save_flow_bands": 0.0559,
+          "save_html": 7.2592,
+          "save_json": 29.1147,
+          "save_page": 94.6948
+        }
+      },
+      {
+        "case": "chain",
+        "carry": true,
+        "status": "applied",
+        "median_seconds": 1.8924959159921855,
+        "max_rss_bytes": 369377280,
+        "pdf_renders": 28,
+        "global_estimations": 3,
+        "stages": {
+          "adoption_baseline": 157.3691,
+          "cli": 1873.8692,
+          "final_flow_compare": 28.237000000000002,
+          "flow_adoption": 366.607,
+          "flow_band_verification": 65.1135,
+          "flow_collect": 59.4985,
+          "flow_collect_aligned": 57.9132,
+          "flow_comparison": 38.7385,
+          "flow_global_align": 488.13199999999995,
+          "flow_inference": 10.2978,
+          "flow_plan": 132.2003,
+          "flow_prepare": 1384.4859,
+          "flow_surface": 4.9046,
+          "normalize": 0.7817999999999999,
+          "pdf_render": 99.4969,
+          "pdf_text": 296.1843,
+          "save_flow_bands": 13.9491,
+          "save_html": 8.3267,
+          "save_json": 41.489,
+          "save_page": 130.5904
+        }
+      },
+      {
+        "case": "band-tone",
+        "carry": false,
+        "status": "disabled",
+        "median_seconds": 1.1096302920486778,
+        "max_rss_bytes": 302366720,
+        "pdf_renders": 4,
+        "global_estimations": 2,
+        "stages": {
+          "cli": 1080.8617,
+          "global_align": 317.09770000000003,
+          "normalize": 2.2831,
+          "pdf_render": 24.3397,
+          "pdf_text": 191.7416,
+          "row_compare": 427.8877,
+          "save_flow_bands": 0.0633,
+          "save_html": 7.1464,
+          "save_json": 28.5189,
+          "save_page": 67.5804
+        }
+      },
+      {
+        "case": "band-tone",
+        "carry": true,
+        "status": "skipped",
+        "median_seconds": 1.632768249954097,
+        "max_rss_bytes": 319324160,
+        "pdf_renders": 14,
+        "global_estimations": 4,
+        "stages": {
+          "cli": 1573.4933,
+          "flow_band_verification": 4.1189,
+          "flow_collect": 40.9394,
+          "flow_collect_aligned": 38.682100000000005,
+          "flow_global_align": 311.83399999999995,
+          "flow_inference": 10.2679,
+          "flow_plan": 48.7485,
+          "flow_prepare": 665.186,
+          "flow_surface": 2.9701,
+          "global_align": 303.6571,
+          "normalize": 0.5941000000000001,
+          "pdf_render": 55.8735,
+          "pdf_text": 231.2021,
+          "row_compare": 262.05510000000004,
+          "save_flow_bands": 12.1214,
+          "save_html": 7.5025,
+          "save_json": 35.9987,
+          "save_page": 71.2305
+        }
+      }
+    ]
+  },
+  "evidence_sha256": {
+    "out/t3-1c-global-cli/all-tests.xml": "d80a5b841746fa9b09f830570878cb93cf141cd5e31d7a65348a6ac3d0aabd93",
+    "out/t3-1c-global-cli/acceptance/verification.json": "7965015e41460150f7186b735b75f7d63b8f125d1c5e7c4f16b830254d02106a",
+    "out/t3-1c-global-cli/acceptance/reference.json": "23313c1ac77785d174107a449a2f1d448620553a861bf25ebacde8c4363e9c5b",
+    "out/t3-1c-global-cli/legacy-connected/connected.json": "dbb1485cdd573797321f40ac3e1f7df7e91548f2baea5721024b64bac1c51b7d",
+    "out/t3-1c-global-cli/performance/verification.json": "af5abe391752c340dac9b008ba453c9a2f3c591bffae6425921e1ddcfa01004a",
+    "out/t3-1c-global-cli/before-source.json": "40470a7df9423b72bb2a909dd0f12412bd2d10a1d4c1d66d5860f71f2960bb42"
+  },
+  "remaining": [
+    "A4 9 unmet conditions",
+    "horizontal alignment and aligned documents with unpaired pages",
+    "multiple causes and numeric edits in causal aggregation",
+    "large-document memory/time acceptance",
+    "Windows and real documents",
+    "deferred browser/JavaScript checks"
+  ]
+}

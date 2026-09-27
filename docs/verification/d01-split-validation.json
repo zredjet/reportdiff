@@ -1,0 +1,578 @@
+{
+  "date": "2026-09-27",
+  "scope": "D-01 split assembly, build, and complete test validation",
+  "base_commit": "6a899d1a21a1023cf807c8b0342bac672e4dc62d",
+  "worktree": "/Users/redjet/.codex/worktrees/row-flow-validation/reportdiff",
+  "sdk": "10.0.401",
+  "stages": {
+    "rows": {
+      "run": {
+        "stage": "rows",
+        "cwd": "/Users/redjet/.codex/worktrees/row-flow-validation/reportdiff",
+        "command": [
+          "dotnet",
+          "test",
+          "--no-build",
+          "--no-restore",
+          "-c",
+          "Release",
+          "--parallel",
+          "none",
+          "--report-xunit-xml",
+          "--report-xunit-xml-filename",
+          "rows-tests.xml",
+          "--results-directory",
+          "/Users/redjet/aruma/repos/zredjet/reportdiff/out/d01-split-validation/rows-results",
+          "--minimum-expected-tests",
+          "1713",
+          "--progress",
+          "on"
+        ],
+        "started_utc": "2026-09-27T05:10:27.734207+00:00",
+        "source_files": 635,
+        "status": "finished",
+        "exit_code": 0,
+        "elapsed_seconds": 144.65559229100108,
+        "finished_utc": "2026-09-27T05:12:52.389343+00:00",
+        "changed_source_paths": []
+      },
+      "totals": {
+        "total": 1713,
+        "passed": 1713,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0,
+        "not-run": 0
+      },
+      "test_seconds": 143.308,
+      "environment": [
+        "64-bit (ARM) .NET 10.0.12 [collection-per-class, non-parallel]"
+      ],
+      "test_framework": [
+        "xUnit.net v3 4.0.1+8ed8aa354c"
+      ],
+      "builds": [
+        {
+          "log": "out/d01-split-validation/rows-build.log",
+          "sha256": "29e74217a96e9373b121d0d43b24bdf4d15f35b2bd528f2ec2868bc9a392d341",
+          "exit_code": 0,
+          "warnings": 0,
+          "errors": 0
+        },
+        {
+          "log": "out/d01-split-validation/rows-probe-build.log",
+          "sha256": "fd4875aed5504bb72cd51676ec91fc9e2d759b9bfb3d88a6d2e2795ee44139a7",
+          "exit_code": 0,
+          "warnings": 0,
+          "errors": 0
+        }
+      ],
+      "tree_audit": {
+        "stage": "rows",
+        "worktree": "/Users/redjet/.codex/worktrees/row-flow-validation/reportdiff",
+        "changed_paths": 146,
+        "status_counts": {
+          " M": 28,
+          "??": 118
+        },
+        "historical_rows_sha256_matches": 103,
+        "current_full_tested_source_matches": null,
+        "relative_link_file_targets_checked": 228,
+        "link_anchor_semantics_checked": true,
+        "readme_images_unchanged_from_HEAD": {
+          "docs/images/sample-overlay.png": "92334fa1e95acba9e568aa12cd973f1c220053b948d56cda6600aafeed7b6e76",
+          "docs/images/sample-differences.png": "30eefdfe02cd04576060be72a52adfced77a37e15bce687e0e6e3203b39c3d26",
+          "docs/images/sample-raw-overlay.png": "4332aa3a6546d96d36c54e9387132bbe18776858230d74f1466ebb83a3634cb1"
+        },
+        "reference_CI_license_files_unchanged": true,
+        "no_page_flow_product_symbols": true,
+        "staged_files": 0,
+        "diff_check": "pass",
+        "local_heading_anchors_checked": 22,
+        "unresolved_local_heading_anchors": 0
+      }
+    },
+    "flow": {
+      "run": {
+        "stage": "flow",
+        "cwd": "/Users/redjet/.codex/worktrees/row-flow-validation/reportdiff",
+        "command": [
+          "dotnet",
+          "test",
+          "--no-build",
+          "--no-restore",
+          "-c",
+          "Release",
+          "--parallel",
+          "none",
+          "--report-xunit-xml",
+          "--report-xunit-xml-filename",
+          "flow-tests.xml",
+          "--results-directory",
+          "/Users/redjet/aruma/repos/zredjet/reportdiff/out/d01-split-validation/flow-results",
+          "--minimum-expected-tests",
+          "2375",
+          "--progress",
+          "on"
+        ],
+        "started_utc": "2026-09-27T05:14:35.835444+00:00",
+        "source_files": 1247,
+        "status": "finished",
+        "exit_code": 0,
+        "elapsed_seconds": 558.515892333,
+        "finished_utc": "2026-09-27T05:23:54.348980+00:00",
+        "changed_source_paths": []
+      },
+      "totals": {
+        "total": 2375,
+        "passed": 2375,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0,
+        "not-run": 0
+      },
+      "test_seconds": 556.878,
+      "environment": [
+        "64-bit (ARM) .NET 10.0.12 [collection-per-class, non-parallel]"
+      ],
+      "test_framework": [
+        "xUnit.net v3 4.0.1+8ed8aa354c"
+      ],
+      "builds": [
+        {
+          "log": "out/d01-split-validation/flow-build.log",
+          "sha256": "a60e171fe4dfba434e86159282f30bc934cd37e3cbe2394d28ed4d9b7a8a87f0",
+          "exit_code": 0,
+          "warnings": 0,
+          "errors": 0
+        },
+        {
+          "log": "out/d01-split-validation/flow-probe-build.log",
+          "sha256": "fa7db25f1bb013c9704a4b467f6e9e97917f6c945801f7a811cf553dbbee1705",
+          "exit_code": 0,
+          "warnings": 0,
+          "errors": 0
+        }
+      ],
+      "tree_audit": {
+        "stage": "flow",
+        "worktree": "/Users/redjet/.codex/worktrees/row-flow-validation/reportdiff",
+        "changed_paths": 763,
+        "status_counts": {
+          " M": 33,
+          "??": 730
+        },
+        "historical_rows_sha256_matches": null,
+        "current_full_tested_source_matches": 544,
+        "relative_link_file_targets_checked": 687,
+        "ignored_artifact_links_retained_in_original_workspace": [
+          {
+            "source": "docs/verification/t3-1c-browser-handoff.md",
+            "target": "../../out/t3-1c-unpaired-shared-integration/compat/page-flow-R10-ab-new/report.html",
+            "exists_in_original_workspace": true,
+            "exists_in_validation_worktree": false
+          },
+          {
+            "source": "docs/verification/t3-1c-browser-handoff.md",
+            "target": "../../out/t3-1c-unpaired-shared-integration/compat/page-flow-shared-shared-and-independent-ab-new/report.html",
+            "exists_in_original_workspace": true,
+            "exists_in_validation_worktree": false
+          },
+          {
+            "source": "docs/verification/t3-1c-browser-handoff.md",
+            "target": "../../out/t3-1c-unpaired-shared-integration/fixed/before8-ab-on/report.html",
+            "exists_in_original_workspace": true,
+            "exists_in_validation_worktree": false
+          },
+          {
+            "source": "docs/verification/t3-1c-browser-handoff.md",
+            "target": "../../out/t3-1c-unpaired-shared-integration/fixed/before8-ba-on/report.html",
+            "exists_in_original_workspace": true,
+            "exists_in_validation_worktree": false
+          },
+          {
+            "source": "docs/verification/t3-1c-browser-handoff.md",
+            "target": "../../out/t3-1c-unpaired-shared-integration/fixed/tone-ab-on/report.html",
+            "exists_in_original_workspace": true,
+            "exists_in_validation_worktree": false
+          },
+          {
+            "source": "docs/verification/t3-1c-browser-handoff.md",
+            "target": "../../out/t3-1c-unpaired-shared-integration/compat/page-flow-anchored-acceptance-context-ab-new/report.html",
+            "exists_in_original_workspace": true,
+            "exists_in_validation_worktree": false
+          },
+          {
+            "source": "docs/verification/t3-1c-browser-handoff.md",
+            "target": "../../out/t3-1c-unpaired-shared-integration/compat/page-flow-anchored-acceptance-context-ba-new/report.html",
+            "exists_in_original_workspace": true,
+            "exists_in_validation_worktree": false
+          },
+          {
+            "source": "docs/verification/t3-1c-browser-handoff.md",
+            "target": "../../out/t3-1c-unpaired-shared-integration/fixed/original-ab-on/report.html",
+            "exists_in_original_workspace": true,
+            "exists_in_validation_worktree": false
+          },
+          {
+            "source": "docs/verification/t3-1c-browser-handoff.md",
+            "target": "../../out/t3-1c-unpaired-shared-integration/directory/report/index.html",
+            "exists_in_original_workspace": true,
+            "exists_in_validation_worktree": false
+          }
+        ],
+        "link_anchor_semantics_checked": false,
+        "readme_images_unchanged_from_HEAD": {
+          "docs/images/sample-overlay.png": "92334fa1e95acba9e568aa12cd973f1c220053b948d56cda6600aafeed7b6e76",
+          "docs/images/sample-differences.png": "30eefdfe02cd04576060be72a52adfced77a37e15bce687e0e6e3203b39c3d26",
+          "docs/images/sample-raw-overlay.png": "4332aa3a6546d96d36c54e9387132bbe18776858230d74f1466ebb83a3634cb1"
+        },
+        "reference_CI_license_files_unchanged": true,
+        "no_page_flow_product_symbols": null,
+        "staged_files": 0,
+        "diff_check": "pass"
+      }
+    }
+  },
+  "rows_candidate": {
+    "path": "out/d01-split-validation/rows-candidate.tar.gz",
+    "sha256": "278fd14d278acafcf1d7b998eb1961f7151366135d9cae65d674f3db4af45835",
+    "files": 146
+  },
+  "rows_candidate_files_sha256": {
+    "README.md": "c511ff7ea5c3f58979139106a21b77bafcc8c4cf95c45c4e5965ad4cd9b0b218",
+    "docs/CONFIGURATION.md": "4e638eb7f320356a392446374056c20de17d4fea65a709b04c93fd7ea4ae6d35",
+    "docs/SPEC.md": "b4deb356007eab28403ad93b7b20dfe544caced7181808f063757a904f9b5f4a",
+    "docs/TASKS.md": "9f4351d88ab0c565ee7b193fddd6a5e81801c4105589dd5bcea863f64ba628b6",
+    "examples/settings.yaml": "aeb9742bbe82c260c4792238ab69853b511e7ffe4e29ea5b7a213873641beafd",
+    "src/ReportDiff.Cli/AppSettings.cs": "b2c292532fc4286929a10c817b458a6373f94de9c635a1a300f8526647289b95",
+    "src/ReportDiff.Cli/CliApplication.cs": "4de1aca7ac4125deb887f45199c5f38ca117641df4869b64f63e9a3d2116d4ad",
+    "src/ReportDiff.Cli/ComparisonInput.cs": "1d754daa49db5501b96670b7df72a2564a7c6c635646a4bce214aa34c3d39d5f",
+    "src/ReportDiff.Cli/ComparisonRunner.cs": "c2c8b1087bf619137236f5d3fc0bb10b02ec2fbcd8c4bbaff23677a5589b4153",
+    "src/ReportDiff.Cli/ConfigurationLoader.cs": "be6b1cbb35ab88e28398ee2ce0a33856c398e2e0b391c00592039dc8bc2c9d21",
+    "src/ReportDiff.Core/DifferenceClassifier.cs": "dc43e65f285a86b9ce926e19ea5145904e6d516c39f5d01a4b742817c38f134c",
+    "src/ReportDiff.Core/MovementAnnotator.cs": "f6ceb5f6a84b2b08da0dc8daa5d71861462d308f6f9390594fdd3fafc599e9b8",
+    "src/ReportDiff.Core/PageComparer.cs": "d560b3f307a0f6c37539ac36dd1157f394ac9eb77fe2223d9cea24d7087434e8",
+    "src/ReportDiff.Core/PageComparison.cs": "310e74bb4ac5c520cc3d853bdcd2aa939cafb52a19c08e8569d64b04f0e3847b",
+    "src/ReportDiff.Core/PageMap.cs": "d037a4dc953cd2b6e4445055d05ebe1daf6e7872836909862150b147a9a75079",
+    "src/ReportDiff.Core/RegionMap.cs": "00e09dea774c79818e297f2e674ae079f5fbfe8592672080fa9d0ccbb126716e",
+    "src/ReportDiff.Core/RegionalComparison.cs": "2629aa0fd34db7991067c87bae77efdc9a8815b0c287908961846b7b46985049",
+    "src/ReportDiff.Pdf/PdfTextReader.cs": "dbc3cf40bd7e3c5a5c655a06507ff092db4b067d45e08abb4fab1bc102df4d30",
+    "src/ReportDiff.Pdf/TextAnnotations.cs": "e5fd667b6573f13fd91c697395d4a74efcf3be66dc9a89992b7b6395a866a5dc",
+    "src/ReportDiff.Report/DirectoryReportWriter.cs": "abd8d41e469101e279358c377a8018e51610c648a263c41ff94b14ec1432c72c",
+    "src/ReportDiff.Report/ExclusionSnippet.cs": "80ee4fd3b2da35ded4b023f9f6f6fa7a4b95fc6f3e6c3220dc6b7437a75f0385",
+    "src/ReportDiff.Report/HtmlRegions.cs": "e68cab2a4ca0ed73b0235883a373d99cb96bdb5585f1346256bc071ed6c7ac8b",
+    "src/ReportDiff.Report/HtmlReportWriter.cs": "a9b7f474457d4c97b29add592e48a8bf91a70feec6c2516a46fae91130954dd2",
+    "src/ReportDiff.Report/ReportDocument.cs": "1fa602c4ad68f242a56d7d94ea16977d649d8898affd8f8be89d75ef6cb97e3b",
+    "src/ReportDiff.Report/ReportImages.cs": "5d6826c78c5623acec087fd995e2864d4913a19d2691039c70b0530bbe4f4a8d",
+    "src/ReportDiff.Report/ReportWriter.cs": "843793c3bcfa2bca1289d514e24a6e432a3f7c212e210e74dc2e079d2de99411",
+    "tests/ReportDiff.Tests/ReportDiff.Tests.csproj": "f8a7d452efd05a342d17cbd9acaeb49643ceaa5428b614736739ca35d31bf5c0",
+    "tests/ReportDiff.Tests/ReportWriterTests.cs": "ebe88e5908302d885862333acb5cc10fc5c527583bbfe635246bddbf45c35b2d",
+    "docs/planning/t3-1b-common-surface.md": "17d25817432435be8d825f097668178cc7b24b009d6f30886b5899ea9115a38f",
+    "docs/planning/t3-1b-rows.md": "10a78bd6beaedf0f43a4bb85f143e183847e2c7859116584836a176c41c0a51c",
+    "docs/verification/t3-1b-acceptance.json": "20d3f5da3d17146335cba1b5e8567fb81d4298298c48ff6c05f0ee7e31210128",
+    "docs/verification/t3-1b-acceptance.md": "37e82e2105cdfeb22599c71f67c665be9355bb5dd13ab3d1e9639289d3b2997e",
+    "docs/verification/t3-1b-browser-handoff.md": "9f6e8c42d3e6f9a1c1e835ac893e07b9d4ad9dd7e8e9383da4effdc01a4e5805",
+    "docs/verification/t3-1b-common-surface.json": "a61f6906939e7ef1752d1469eb2731e4a48431bf9f7d5d085e9a525c1337a8c3",
+    "docs/verification/t3-1b-common-surface.md": "78f621a2845fd7015decff8687ed336ec520c96735dd38a598f06d53b48031df",
+    "docs/verification/t3-1b-foundation.json": "bc45a48aea5f28fbff58790e641abb38b6fb58e2c72282531f2874e7abf7f8e1",
+    "docs/verification/t3-1b-foundation.md": "1d93c1959a0ffb4511749c9b8fcc08bf70301da1ec4cdc323d3c2057e1131712",
+    "docs/verification/t3-1b-integration.json": "a030c8d55d8d50e2c6992e4d38e9c5e6b3864cc815d4d3f4cd31fa9bdd3ba6cd",
+    "docs/verification/t3-1b-integration.md": "c85b1f5f09b360200a09b49c4647e670699c3e339367a9a531f0c600620b54f9",
+    "docs/verification/t3-1b-mapped-features.json": "72305f7b463971490868280b2d8dd35599e91cf6e2195e74e3914750fdb66e8c",
+    "docs/verification/t3-1b-mapped-features.md": "d6251bd0bac3d6f0040d42a89520151663dcf7475e4f3b3339db1bf7f7384f5d",
+    "docs/verification/t3-1b-projection.json": "571dffc5c7ca085db561011f90e7062d46f1948cce9937c06851b88d7bb8cd55",
+    "docs/verification/t3-1b-projection.md": "5941c3b92cf31f9343e3981f5c6a3ec834cea2d9390fe10b9c2905e1cfc27b3a",
+    "docs/verification/t3-1b-row-seams.json": "d1392e32abf9897816cf6b6dac62e8380dc80d5ca0be86e74389a14e9517848d",
+    "docs/verification/t3-1b-row-seams.md": "4c6e9eb1e084a23d8fab06f025d4de52208e38de742e00f9838c3e8f05b0393c",
+    "docs/verification/t3-1b-selection.json": "b7572f4a8b09321ee209c921e9dbdf4001a6c817e9c0ac7ac7d8070ab522e127",
+    "docs/verification/t3-1b-selection.md": "44265651329d18b93cbcc44ca2cc712c3525533e6567484b2f4ba26f2bd417f0",
+    "docs/verification/t3-1b-white-band.json": "cd2b9cdf6f8ce8b6fe0dd4a03f19fe90b5039c89a4a27084a780b8ede37566e6",
+    "docs/verification/t3-1b-white-band.md": "95199095e7211d9b698875f942cd7e962790dcfa0828ad87499297313ed08d82",
+    "examples/rows.yaml": "0e099ee1f47a0b8976c80724fa972e45983c48405b3e94da96258fc9ba5f733a",
+    "src/ReportDiff.Core/ClusterProjectionData.cs": "e66b6b052b86092d2038a4f8e6fd010a75a9575dc74991730b4137fdc5a16015",
+    "src/ReportDiff.Core/RowCandidateBuilder.cs": "f5f676712eb46ba58a466d8604433f3708ad020e09f23b3e692038c9f125e1a2",
+    "src/ReportDiff.Core/RowCanonicalizer.cs": "d1e66171499f03b5014afe846ba745e825707eb25b34d4d48334b345deaa4e81",
+    "src/ReportDiff.Core/RowComparison.cs": "3aac86bdf5bae8d6de6eac16f7d00f557eeac68c4fa87f141b688658140f895a",
+    "src/ReportDiff.Core/RowComparisonSurface.cs": "34fab9a23504973d274f75f69b23232924a737f291bb424eb6ecd81d5f888c5c",
+    "src/ReportDiff.Core/RowMatching.cs": "a7015cafed9839a10db95b32de5705abd209fa571bbbede0d70e9c83e87ade72",
+    "src/ReportDiff.Core/RowProjection.cs": "4715d629b2951837662c91d9d613a19a64ef4f77a6e50d545dffca720d90d7d1",
+    "src/ReportDiff.Core/RowSelector.cs": "fde9b78848ed9fcc123540d89693655af03b4514252645ee5c2c4540074c0155",
+    "src/ReportDiff.Core/RowStructures.cs": "d9edbb5e189b6aa5c1336f6d81cb741b572491c20f178a8e81e2c5bdc187ce11",
+    "src/ReportDiff.Core/RowSupport.cs": "db3a85cc3633a1fa4332ef5ff40c0f5724ea5e72d29ba8e6d43ce8b2a919c951",
+    "src/ReportDiff.Core/RowText.cs": "43fa7322ddfb229859dee495a90534488203ee6f51cc6c4494a8f44c4407fc75",
+    "src/ReportDiff.Pdf/RowTextAnnotations.cs": "446de90eff2def29253da9ef6e9be085266986c448b22e3210095ad44f4a9eb6",
+    "src/ReportDiff.Report/HtmlRows.cs": "d38d7a7bc40465e07b4848d1031ea774f0b524e6ef34c975d8db74339aeb5f89",
+    "src/ReportDiff.Report/ReportRows.cs": "95f0e706abd3e70a0a896a2540cb17af88fb632c53b7cb96234927abac6e76ee",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/071058cc6dba52cbd4475950521f956a9ddc4e010316b50336975c9d65b51fa3.png": "071058cc6dba52cbd4475950521f956a9ddc4e010316b50336975c9d65b51fa3",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/092ca058a28bb7777d3be7e2a2656b7daf1b04e1449a888659e0bafe733a2d31.png": "092ca058a28bb7777d3be7e2a2656b7daf1b04e1449a888659e0bafe733a2d31",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/0aa0355a8bfe233f7d1a273cf388c6a5bdeb422e1921e8fe321ad0558e62c495.png": "0aa0355a8bfe233f7d1a273cf388c6a5bdeb422e1921e8fe321ad0558e62c495",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/0b21ddeb9ed56a8cf99334e7509bef0f9cc6b39647924f84f697544dc7d897f1.png": "0b21ddeb9ed56a8cf99334e7509bef0f9cc6b39647924f84f697544dc7d897f1",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/0c7b13afbaea0c161aced58393ec985f6b9e35b43f1f0d279a65140827755d33.png": "0c7b13afbaea0c161aced58393ec985f6b9e35b43f1f0d279a65140827755d33",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/0d2a34666665bdec50183daab9b05982c76d55682802636fb62b8774f0f00b58.png": "0d2a34666665bdec50183daab9b05982c76d55682802636fb62b8774f0f00b58",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/0e19e9fe31e0b4d8417dee2f84a4e04ff152f5b1c415c9f9400051defe31d437.png": "0e19e9fe31e0b4d8417dee2f84a4e04ff152f5b1c415c9f9400051defe31d437",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/1449faf86f4672cce336dffa9e0713dd64c70e00bc9334e046add6b112a11c41.png": "1449faf86f4672cce336dffa9e0713dd64c70e00bc9334e046add6b112a11c41",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/16cdf9aff9923f9f8b73c232537af6049a1a2e407272a1ee04feef57afed90bb.png": "16cdf9aff9923f9f8b73c232537af6049a1a2e407272a1ee04feef57afed90bb",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/1d7c8eec22d67186e807cb1d743f590d4a0589dd2ebf0e8f9522ebaa3c2d8358.png": "1d7c8eec22d67186e807cb1d743f590d4a0589dd2ebf0e8f9522ebaa3c2d8358",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/268973d6aa7f2454e7927d4e899258b9e02e69f89abed6d9b0206c4b23de8cae.png": "268973d6aa7f2454e7927d4e899258b9e02e69f89abed6d9b0206c4b23de8cae",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/268e4e5535ab1c8c2a1231372d79279668649dfbb03990afdf3c552c5062ed1c.png": "268e4e5535ab1c8c2a1231372d79279668649dfbb03990afdf3c552c5062ed1c",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/3d9f1f5abbb7ca1d2edecf677230e8618ac1df402073217689877844763d8084.png": "3d9f1f5abbb7ca1d2edecf677230e8618ac1df402073217689877844763d8084",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/411395a9ea95f23e2239c68503bf246199bd4b5e83b6a9323e9e5db083d22311.png": "411395a9ea95f23e2239c68503bf246199bd4b5e83b6a9323e9e5db083d22311",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/4a84e9b2b91de57abfb204986147e67dab631462caa2fd483058df6b6a235c0a.png": "4a84e9b2b91de57abfb204986147e67dab631462caa2fd483058df6b6a235c0a",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/50a94cc00f72b89c66edd168f5cb977eccde8c0698a7dbf85f662d8a2cd783c7.png": "50a94cc00f72b89c66edd168f5cb977eccde8c0698a7dbf85f662d8a2cd783c7",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/521c0a024612002ddee6215f4989d6e389bc89167990d86083602fe95a7599e1.png": "521c0a024612002ddee6215f4989d6e389bc89167990d86083602fe95a7599e1",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/5269a0ab0be05967e474a2247dd3385e51cc5061745835e856c1aadeacf5727e.png": "5269a0ab0be05967e474a2247dd3385e51cc5061745835e856c1aadeacf5727e",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/5a331278114f75f5a6c80a61d12663c900cff34d3c9e66f93a4a591a39e90557.png": "5a331278114f75f5a6c80a61d12663c900cff34d3c9e66f93a4a591a39e90557",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/696a58c1c933da66cdbf1e25cdaaa2ae63bf637c4ec2600241f5f40d1f9db709.png": "696a58c1c933da66cdbf1e25cdaaa2ae63bf637c4ec2600241f5f40d1f9db709",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/6af23bf396ab57b11d174abf85d32b709ca96df3e5eb3ab6c0677ec0b818df94.png": "6af23bf396ab57b11d174abf85d32b709ca96df3e5eb3ab6c0677ec0b818df94",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/6ca52b5c179f73b986a39c604bcb72bb9adf4356046c2aa37633f4b4bf316322.png": "6ca52b5c179f73b986a39c604bcb72bb9adf4356046c2aa37633f4b4bf316322",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/6dbe72028e69b16500906455c0cd3788d2a36f339afc70867f98d81cda8586ab.png": "6dbe72028e69b16500906455c0cd3788d2a36f339afc70867f98d81cda8586ab",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/766c5b0fd4b3f7e772274b5e2af2eaebb2b5d8506be67235c0581b2e3216dfa9.png": "766c5b0fd4b3f7e772274b5e2af2eaebb2b5d8506be67235c0581b2e3216dfa9",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/7c03142bab25cfe4f5072ed69a1f61a4074f7d5a0c2f161044a9562f9680d0bb.png": "7c03142bab25cfe4f5072ed69a1f61a4074f7d5a0c2f161044a9562f9680d0bb",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/8ed0a0580a032e0eb954934aa16ef36e974cd487baec765b1170a6a88d54ab8b.png": "8ed0a0580a032e0eb954934aa16ef36e974cd487baec765b1170a6a88d54ab8b",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/920f141e8da2d16a4f0c69cc115c3bbcd732bafdeeb45e572b8e2ed1b7a20eb4.png": "920f141e8da2d16a4f0c69cc115c3bbcd732bafdeeb45e572b8e2ed1b7a20eb4",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/932cfe7c0b6ff1b72de7437dfc83d1f17b56180358699e1ffb69afe9b6710bca.png": "932cfe7c0b6ff1b72de7437dfc83d1f17b56180358699e1ffb69afe9b6710bca",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/9529f65d30081539b3b61346cb4451a41640c388cb64e0ebfb52812916b01259.png": "9529f65d30081539b3b61346cb4451a41640c388cb64e0ebfb52812916b01259",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/96ba653a1ba9ea1ef6999737c26e19263ae734eeff7b9755a6846a17ae42b58a.png": "96ba653a1ba9ea1ef6999737c26e19263ae734eeff7b9755a6846a17ae42b58a",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/README.md": "1f64658e862b60016e2e166072779b7aa2ceb2a3c7638b50760b9d168985b930",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/a0df73e5326d82aba33373af49ae29d78466e032f43a2656396caa902ec06a18.png": "a0df73e5326d82aba33373af49ae29d78466e032f43a2656396caa902ec06a18",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/aaf9dfceb0d31edccaf0249530e172410508030e0b16f6d6c465c18662b58ec4.png": "aaf9dfceb0d31edccaf0249530e172410508030e0b16f6d6c465c18662b58ec4",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/b988b8a446336ba6e5dc067e9b419a2d23397d475bb929ae32087414030de497.png": "b988b8a446336ba6e5dc067e9b419a2d23397d475bb929ae32087414030de497",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/bf32f6e1ca8e508db9877aeabe0894395d9a39e2c252924061a5bd008c667e93.png": "bf32f6e1ca8e508db9877aeabe0894395d9a39e2c252924061a5bd008c667e93",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/bff58368d7f24728a37821786af8d5d97d6819c1694816a65f130637f1a5c9f1.png": "bff58368d7f24728a37821786af8d5d97d6819c1694816a65f130637f1a5c9f1",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/c8c0c953c08122ac84f89529fa56a9365ac6885f203a6d22d8abc2861618c1b3.png": "c8c0c953c08122ac84f89529fa56a9365ac6885f203a6d22d8abc2861618c1b3",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/c98198dc038e50999a81a70922aac6cc2a90126a3f7fcf9c0b514bfdfa81896c.png": "c98198dc038e50999a81a70922aac6cc2a90126a3f7fcf9c0b514bfdfa81896c",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/cab73134a1e2e580326304c776f60d5732830e293d2588296852e29f6a623d5d.png": "cab73134a1e2e580326304c776f60d5732830e293d2588296852e29f6a623d5d",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/cases.json": "0ede7a24f0e104dc0f33a639485191a4852457107d476145c7a5db91b3aa1253",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/ccf7e35b7c13fd45fbae44aeca0251f18ef385c905b4567efefd8c343710b1a4.png": "ccf7e35b7c13fd45fbae44aeca0251f18ef385c905b4567efefd8c343710b1a4",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/cdeb9eff61f81fd38957f686b80d6358f38208d3a8cc0ca7983a936c6f5d0b88.png": "cdeb9eff61f81fd38957f686b80d6358f38208d3a8cc0ca7983a936c6f5d0b88",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/e047c820b6ddcf557a5716e7aff603eab058b37c4d77bff13cf560bac0857ad0.png": "e047c820b6ddcf557a5716e7aff603eab058b37c4d77bff13cf560bac0857ad0",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/e289c464de3d18dc3fda1ec593da0094d52616679dbca33d966641fa34d909b2.png": "e289c464de3d18dc3fda1ec593da0094d52616679dbca33d966641fa34d909b2",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/e68730013dd4d2e8c089e30cf7d9eb6535f3499726f20f9b8745086c1f347818.png": "e68730013dd4d2e8c089e30cf7d9eb6535f3499726f20f9b8745086c1f347818",
+    "tests/ReportDiff.Tests/Fixtures/row-surfaces/f5ac91e40a2a204063a6cd94e3bd3d41a4348836d9cd2bec73095ba7da103728.png": "f5ac91e40a2a204063a6cd94e3bd3d41a4348836d9cd2bec73095ba7da103728",
+    "tests/ReportDiff.Tests/RowAdoptionTests.cs": "3e72e401b81f0f0e043ec04ba14b0dc6b25007b2b16c8dd92587b658d264dff7",
+    "tests/ReportDiff.Tests/RowCliTests.cs": "29cd6cea98e09472752204867d03f4967c64e4e0967f410baad688d83e2ca4d9",
+    "tests/ReportDiff.Tests/RowComparisonSurfaceTests.cs": "9a171dce7e01057f362e27191ec95873f3d9c6e2a81eaec4c6f6c4f361569fcc",
+    "tests/ReportDiff.Tests/RowConfigurationTests.cs": "6ef1667aa3a38eefbf769cda7cf27d9a2889693ee8b9afd70bcfe905f1cf67db",
+    "tests/ReportDiff.Tests/RowGridFixture.cs": "2499eb64de195a8c7d219e199973ab5417f2b4f48b96ec9439e2a035d59294d4",
+    "tests/ReportDiff.Tests/RowInferenceTests.cs": "e06608f2ec49104d830b141fde3286dfdaedd92d028b591ea6bfc0e1843bc2c4",
+    "tests/ReportDiff.Tests/RowOutputTests.cs": "a319d9671d63d60baaaea0e2b6f668d03eb424a5c44fbbc10c46b3cb97d1de8d",
+    "tests/ReportDiff.Tests/RowProjectionTests.cs": "817a1e0ff1807abcae7cfe6d43794733d2be0f2a78ca35a4e57089be85226aed",
+    "tests/ReportDiff.Tests/RowRegionTests.cs": "11d808f24edc8909820251805944645e7c18768febe19a5fcd39e6a1a66bfc28",
+    "tests/ReportDiff.Tests/RowSelectionTests.cs": "a3993a84543cb459a9c5f376713b73a24626ea251d50ab0bf19590ea9dfd1248",
+    "tests/ReportDiff.Tests/RowStructureTests.cs": "59b2106c35d13498201c65a37d08bc5fa8c34e49d49a7c410c0d743bcbbe3de0",
+    "tools/ReportDiff.RowBenchmark/Fixtures.cs": "234653780155b0172e61148692aa1b86da539e64fae121a3368e18dd424e635e",
+    "tools/ReportDiff.RowBenchmark/Program.cs": "2b41d797952b4d6f47a65f246855f07bbe882b58cdc3b4739b4ea5807d949072",
+    "tools/ReportDiff.RowBenchmark/README.md": "30153b9ee6e09f19f44573a26152306c9acc50bdafd4a23d39716137af7bb981",
+    "tools/ReportDiff.RowBenchmark/ReportDiff.RowBenchmark.csproj": "a7fd6d8ea29eabd17af84fc9df78c73745c739a66439caca6d8f13ab34d54b20",
+    "tools/ReportDiff.RowBenchmark/instrument.py": "d50ffb8dc638dccbb1e087b546302aaf7260a4da0f5989f49f8a9222ac9a91e0",
+    "tools/ReportDiff.RowBenchmark/measure.py": "511494ff9fa71664a3a0e44d71ee980c2c4791a19ebcd9f72d8f57401bf93f95",
+    "tools/ReportDiff.RowBenchmark/verify.py": "ec1ab4c1f1f3ed48ccea3a5ac498a714579c5cb9e8adfcdad70f33dfa132b5e0",
+    "tools/ReportDiff.RowProbe/CommonSurfaceProbe.cs": "64ba5b614999dba4746de165cc8ff7d40294b83139bcb32dbf15063a8d525534",
+    "tools/ReportDiff.RowProbe/MappedFeatureProbe.cs": "e0d1a22075237b52b00d6fd3b6bc3eb04a59f525319a13e07c46ba267723d37c",
+    "tools/ReportDiff.RowProbe/MappedFeatures.cs": "8098ff7518fd3f20c7ce54cd0becf2250d8cf5ce2ab35806312f4bfd196aa0c0",
+    "tools/ReportDiff.RowProbe/PdfSeams.cs": "d14e2e05b470de3f7ecc2f5c59724d9d691cc48a698ac6dba98bfdb4bff41804",
+    "tools/ReportDiff.RowProbe/ProbeMasks.cs": "a38fcfa93e94614b2505d6d31e99d387beb07f12afa28c9c16562ae37ad88c6c",
+    "tools/ReportDiff.RowProbe/Program.cs": "2af1ffe85e0f214266cf06dca23fb7bab5761d3971fe01e5035abe5e8f5d85aa",
+    "tools/ReportDiff.RowProbe/README.md": "678aba82bcc6a5a7935be0b9d8c97f6a8cdd94a5a2d9febfd6651beaf7cbc873",
+    "tools/ReportDiff.RowProbe/ReportDiff.RowProbe.csproj": "531f2501b9de9bfaae21e911cba1939337b3fd94b5a8b66031be99858cd2a702",
+    "tools/ReportDiff.RowProbe/WhiteBandPdf.cs": "be2f54608160eae0615762082c83b089fc9010213218c115fbe89a231e4a66b6",
+    "tools/ReportDiff.RowProbe/WhiteBandProbe.cs": "e5c3908c42411689be006da82c9943e37cb7009352be55bdf85a50a7030a24de",
+    "tools/ReportDiff.RowProbe/check-mapped-features.py": "3498101511f6692a0799a6a7cce5c6ff6451ebad0f61f9955ba16ccd15f467e7",
+    "tools/ReportDiff.RowProbe/check-reference.py": "a9e3a4518147f61a4b3e8c83de76c34453946695d633d462cfe1ce03e7e05ef8",
+    "tools/ReportDiff.RowProbe/check-white-band.py": "e58e7495ce5d39e338d982319f776f3e94fc0719f9d440264223f778cf91a19f",
+    "tools/ReportDiff.RowProbe/common_surface.py": "15162fef97905253f4379bed59fa3a65b8861aa7c92df5ae23ee8eb82adec451",
+    "tools/ReportDiff.RowProbe/mapped_features.py": "2c155a9e4067a225f4486c03ea8954bb970934426d541ac549e52662d3edd67f",
+    "tools/ReportDiff.RowProbe/write-common-summary.py": "f4e17b0a3ad3cbf89ad315859b8f63152cf3782e9cc74a04614bf25b945d4e32",
+    "tools/ReportDiff.RowProbe/write-mapped-summary.py": "c782c6cb568fea79e7d625dad333e4f2c4bcdca58f91d475c4c8b036092ae59d",
+    "tools/verify-row-compatibility.py": "b00b77cbe5c59ac79284ff7248ae52ff130a37ca118cea656d04362544793ecf"
+  },
+  "rows_document_adjustments": [
+    "docs/TASKS.md: preserve accepted T3-1b browser deferral"
+  ],
+  "flow_delta": {
+    "row_candidate_paths": 146,
+    "flow_delta_paths": 643,
+    "flow_delta_status": {
+      "M": 31,
+      "A": 612
+    },
+    "unexpected_paths": [],
+    "deleted_paths": []
+  },
+  "source_file_counts": {
+    "rows": 635,
+    "flow": 1247
+  },
+  "current_previously_tested_source_matches": 544,
+  "document_audit": {
+    "heading_anchors_checked": 130,
+    "unresolved_heading_anchors": [],
+    "python_files_syntax_checked": 89,
+    "executed_python_tools": false
+  },
+  "local_evidence_sha256": {
+    "out/d01-split-validation/assemble_flow.py": {
+      "sha256": "00925cd4fb8e8cbb18abbf1e9f4ec1831ea692d0479fdb14e4b28b198b6c2123",
+      "bytes": 2807
+    },
+    "out/d01-split-validation/assemble_rows.py": {
+      "sha256": "1f2ef9820828c67bb433f0cc53c3238db1b69484b5cdb34fff1c74af9318d2f7",
+      "bytes": 3456
+    },
+    "out/d01-split-validation/audit_tree.py": {
+      "sha256": "913a74da917a34f1e8d166d5b4a5186fed06d1024a0c2c6753427f09b7141a0a",
+      "bytes": 4460
+    },
+    "out/d01-split-validation/before.json": {
+      "sha256": "6a6dba6873283939748ab9696f08fba221dc0600400c27f2a82cc50ae45770d9",
+      "bytes": 156520
+    },
+    "out/d01-split-validation/dotnet-test-help.log": {
+      "sha256": "08c26be841396b57db67c27e7e9fbb0699c9b53184a5a64226e6118b69b20d64",
+      "bytes": 35833
+    },
+    "out/d01-split-validation/flow-assembly.json": {
+      "sha256": "df2e5fd12ffe79b4994f0307d90f30c8248873653aee003e25aa974ae718fe08",
+      "bytes": 87546
+    },
+    "out/d01-split-validation/flow-build.log": {
+      "sha256": "a60e171fe4dfba434e86159282f30bc934cd37e3cbe2394d28ed4d9b7a8a87f0",
+      "bytes": 812
+    },
+    "out/d01-split-validation/flow-documents-audit.json": {
+      "sha256": "7918d71b7188e7314ea81f997f099686dc2d9145b94e0d21c8a06624431a729b",
+      "bytes": 144
+    },
+    "out/d01-split-validation/flow-probe-build.log": {
+      "sha256": "fa7db25f1bb013c9704a4b467f6e9e97917f6c945801f7a811cf553dbbee1705",
+      "bytes": 1138
+    },
+    "out/d01-split-validation/flow-results/flow-tests.xml": {
+      "sha256": "cb43656c89aa6d06423b4b549464d1e15a13ea2d3e9a2693537334649f9d3d0c",
+      "bytes": 1414318
+    },
+    "out/d01-split-validation/flow-source-tested.json": {
+      "sha256": "6a6dba6873283939748ab9696f08fba221dc0600400c27f2a82cc50ae45770d9",
+      "bytes": 156520
+    },
+    "out/d01-split-validation/flow-test-run.json": {
+      "sha256": "3249dffb04a6139d921aa6ca628864acd3f8b902c6a5be4ec6857e7e5deb54d5",
+      "bytes": 745
+    },
+    "out/d01-split-validation/flow-tests.log": {
+      "sha256": "4ea2ef515f0a57be8506cb4aceba225636d1926abd1c4dd4d04d4242352c1bb2",
+      "bytes": 664
+    },
+    "out/d01-split-validation/flow-tree-audit.json": {
+      "sha256": "8e419036b906b6f20d54e9fed7f26de454a352b3755f10dcf0f97d18d5b6c92a",
+      "bytes": 3353
+    },
+    "out/d01-split-validation/prepare_report.py": {
+      "sha256": "01ff5d4e8a0958278f81d68f142848692180dc12a93baaa6743c1e4964d35271",
+      "bytes": 11084
+    },
+    "out/d01-split-validation/rows-assembly.json": {
+      "sha256": "5ff45b77f8e5ee923e0e31bec176aa3a92c35df7489aff6466d4b969c4a3b93b",
+      "bytes": 20537
+    },
+    "out/d01-split-validation/rows-build.log": {
+      "sha256": "29e74217a96e9373b121d0d43b24bdf4d15f35b2bd528f2ec2868bc9a392d341",
+      "bytes": 1619
+    },
+    "out/d01-split-validation/rows-candidate.tar.gz": {
+      "sha256": "278fd14d278acafcf1d7b998eb1961f7151366135d9cae65d674f3db4af45835",
+      "bytes": 567877
+    },
+    "out/d01-split-validation/rows-probe-build.log": {
+      "sha256": "fd4875aed5504bb72cd51676ec91fc9e2d759b9bfb3d88a6d2e2795ee44139a7",
+      "bytes": 1113
+    },
+    "out/d01-split-validation/rows-results/rows-tests.xml": {
+      "sha256": "c8a580e8b559879ede97b306e738f3b3f994f0121d28c1467a2b93392d80c0af",
+      "bytes": 994841
+    },
+    "out/d01-split-validation/rows-source-tested.json": {
+      "sha256": "ca8c9d02befdb87d0777582eb1ebf74cdba6bbf7916d9116996cebabfe32afd6",
+      "bytes": 74068
+    },
+    "out/d01-split-validation/rows-test-run.json": {
+      "sha256": "42c304906f869acea6784e4ac44f0f074476a67cd544bbdf446fd4adbbcf5567",
+      "bytes": 749
+    },
+    "out/d01-split-validation/rows-tests.log": {
+      "sha256": "ae160ae877d454d4d979e3e8ea3a0e9f86efbc2e5a98316680c8e8899f7e0fe7",
+      "bytes": 664
+    },
+    "out/d01-split-validation/rows-tree-audit.json": {
+      "sha256": "dacd5f63952687e8c93bb885639493ea21f5751a9512cf06c7f924cbb383388b",
+      "bytes": 936
+    },
+    "out/d01-split-validation/run_tests.py": {
+      "sha256": "385a15589bdbd951950bb3acb21f9fed38735814e05dc3489fea93a34b64ab5a",
+      "bytes": 2057
+    },
+    "out/d01-split-validation/t3-1b-commit.txt": {
+      "sha256": "2b23678ad7c6b0a2246d797690795a33c1b6f476fbab7a014246449676d3f9bc",
+      "bytes": 667
+    },
+    "out/d01-split-validation/t3-1c-commit.txt": {
+      "sha256": "9e6a2a44fd21a847562126d26ef164124c8f4022b6c3c26f35ea0ac56ef4d6f4",
+      "bytes": 950
+    },
+    "out/d01-split-validation/test-runner-help.log": {
+      "sha256": "d4d0429fba9bea78a6779aaa580427129101b3c5ff3d3067038abb0195128ff2",
+      "bytes": 14800
+    },
+    "out/d01-split-validation/update_ledgers.py": {
+      "sha256": "f49e5521654b00421160d99f90de613c49234ba5f60549d29bde906ffe8d3a49",
+      "bytes": 10213
+    },
+    "out/d01-split-validation/verified-split-delta.json": {
+      "sha256": "b80ad81cfe4a453bb17d4a89415d139979657360ad685d6bcdff6d59055b2799",
+      "bytes": 147702
+    }
+  },
+  "product_source_changed": false,
+  "test_expectations_changed": false,
+  "windows_executed": false,
+  "ci_executed": false,
+  "browser_reexecuted": false,
+  "committed": false,
+  "pushed": false,
+  "released": false,
+  "open_items": {
+    "R-01_R-02_R-03": "unresolved; user-approved deferral maintained",
+    "V-01_R-04": "user-approved deferral maintained",
+    "V-04": "complete by user proxy review, broadly OK; no itemized environment details",
+    "V-03": "Windows execution and target-commit CI not verified",
+    "V-05": "waiting for T2-7 evaluation inputs and criteria"
+  },
+  "next_step": "Finalize scoped commit descriptions and record the verified T3-1b and T3-1c implementation as separate commits; retain acceptance and release boundaries.",
+  "post_test_documentation_validation": {
+    "changed_existing": [
+      "docs/PROGRESS.md",
+      "docs/TASKS.md",
+      "docs/planning/d01-commit-scope.md"
+    ],
+    "added": [
+      "docs/verification/d01-split-validation.json",
+      "docs/verification/d01-split-validation.md"
+    ],
+    "removed": [],
+    "current_pending_files": 765,
+    "status_counts": {
+      " M": 33,
+      "??": 732
+    },
+    "product_test_input_hash_matches": 544,
+    "original_acceptance_unchanged": true,
+    "source_expectations_unchanged": true,
+    "evidence_hashes_verified": 30,
+    "local_file_links_checked": 148,
+    "heading_anchors_checked": 14,
+    "git_diff_check": "pass",
+    "head_unchanged": true,
+    "staged_files": 0
+  }
+}

@@ -1,0 +1,4508 @@
+{
+  "date": "2026-09-23",
+  "scope": "ambiguous boundary resolution for four approved directions",
+  "source": {
+    "before": {
+      "src/ReportDiff.Report/DirectoryReportDocument.cs": "a39cd5125411dd8c33d8beeec0e3469d283a968a96d53e6331332001ced9e167",
+      "src/ReportDiff.Report/ReportRows.cs": "4b8c92decc7a6e4b419620aecb7a70f38571b9fd760f2c613ab1710a0ad5726f",
+      "src/ReportDiff.Report/ReportWriter.cs": "1f0194010b440043044a3da1126bbc72efc01b25999c938720bc239ff7b250fa",
+      "src/ReportDiff.Report/ExclusionSnippet.cs": "80ee4fd3b2da35ded4b023f9f6f6fa7a4b95fc6f3e6c3220dc6b7437a75f0385",
+      "src/ReportDiff.Report/AssemblyInfo.cs": "502510d8fadecad038256039d5f9b86967f68a15afc8678f06377713652881d3",
+      "src/ReportDiff.Report/ReportColor.cs": "6979a1d00188bf4dd353523ba5dc1ae41cae63b9e337c349d8e450f2ee15a2ef",
+      "src/ReportDiff.Report/HtmlRows.cs": "24527695d1a5c402e563253daf471606f883aa8295bda48f17b7a452f9eed0c2",
+      "src/ReportDiff.Report/ReportImages.cs": "5d6826c78c5623acec087fd995e2864d4913a19d2691039c70b0530bbe4f4a8d",
+      "src/ReportDiff.Report/RegionDrawing.cs": "7babd3024d1a5f76299d5be90f2ce7f50a34d5073093bc97326da491a5a69da5",
+      "src/ReportDiff.Report/HtmlRegions.cs": "e68cab2a4ca0ed73b0235883a373d99cb96bdb5585f1346256bc071ed6c7ac8b",
+      "src/ReportDiff.Report/PageImageWriteSchedule.cs": "5bf20dce01198ed377d7c41807830a5fa0c991c26d45c84982911d234289b24a",
+      "src/ReportDiff.Report/HtmlReportWriter.cs": "d4e3182ceddcdc8acaf52e0b6ae5248f06a400e2d89f23e4f3741f12fa491469",
+      "src/ReportDiff.Report/RawOverlay.cs": "73a821cc489464ec7f0990dd782e5012e7a5a7de20ce16b65a4cc18f9d828a07",
+      "src/ReportDiff.Report/ReportDocument.cs": "de9333c703cd1a98e47271a2bc32c1358620c9484a3ff81b7138f68de7e88b4d",
+      "src/ReportDiff.Report/ReportPageFlow.cs": "5f22ebd5084eee0edc2a8e17a7cc2469962a4ffeaa61662e25908825197d5895",
+      "src/ReportDiff.Report/DirectoryReportWriter.cs": "c31647a4040114dca7cfe607901e135a0fc50140dbf6c93bad543843d6b6d80a",
+      "src/ReportDiff.Report/ReportRegions.cs": "5b9a45eb31fd0bdb41d206b74cb89335358969eebf9cc017494e54f185724443",
+      "src/ReportDiff.Report/ReportDiff.Report.csproj": "0f123f1803380365177bc6d7239361dff00eaf910205896ac1e675cf1c92bcd8",
+      "src/ReportDiff.Report/HtmlPageFlow.cs": "9e2dc523b2d06b5f18f56e5869eb095b1bf9d04d136eabf23138eb0e8ac6aa7a",
+      "src/ReportDiff.Cli/ConfigurationLoader.cs": "03230e1db64a78de9c354ca7c07729025f37c25c02075b58e9c1e05f2795c1a2",
+      "src/ReportDiff.Cli/RegionSetting.cs": "996d86b96f8650d79a77c6865c037939a9d792550cbdde062a9738c05481f316",
+      "src/ReportDiff.Cli/AssemblyInfo.cs": "502510d8fadecad038256039d5f9b86967f68a15afc8678f06377713652881d3",
+      "src/ReportDiff.Cli/CommandLine.cs": "bc67f040e1ef7f8bfc4d516471426ff7aaa19126234d966e56848568723e4467",
+      "src/ReportDiff.Cli/OutputWorkspace.cs": "51acec7c80adca8d3e48921cb398737dcd989d5891ae414fd70b666927ce669e",
+      "src/ReportDiff.Cli/DirectoryComparison.cs": "c85858c3b976f57197c0229784914fb8f591f35493d0e5c525347242d0dbb354",
+      "src/ReportDiff.Cli/PageFlowRun.cs": "a4815c679e7cec77dcf5b7ef72e511dcf8af479d6e089c4f44791e37d584ebb6",
+      "src/ReportDiff.Cli/AppSettings.cs": "b2c292532fc4286929a10c817b458a6373f94de9c635a1a300f8526647289b95",
+      "src/ReportDiff.Cli/ConsoleProgress.cs": "6cd669d3cd61c5bc85fef7f1b7f00205c74f34222104c492e747fc38e87eb69c",
+      "src/ReportDiff.Cli/ComparisonInput.cs": "1d754daa49db5501b96670b7df72a2564a7c6c635646a4bce214aa34c3d39d5f",
+      "src/ReportDiff.Cli/CliApplication.cs": "54873694ca6511b77f5e34e7a42e9319337a7ecc470aa55e0f20e6eba397a92b",
+      "src/ReportDiff.Cli/DirectoryRules.cs": "787adc3a21ec140d80da80b092bd280917b346bfe64190f5cc40e56be6353191",
+      "src/ReportDiff.Cli/ReportDiff.Cli.csproj": "3e2795af95b113d59193c85dd18d57b33b6ea3b48194ed6bd4f286fcdd4ecca7",
+      "src/ReportDiff.Cli/DirectoryPlan.cs": "2ecb852089f07c15d4a9034207d81f83f58f2a3908580b4c0b08d63094ac9d28",
+      "src/ReportDiff.Cli/ComparisonRunner.cs": "35c0eb16fb8360d38b115cfe5501579e50cf003b6bb3ea732d082c5014689649",
+      "src/ReportDiff.Cli/Program.cs": "b7a3b4da069f34065cf8b42f618a5828c84090358479cc58fe84755c528448c6",
+      "src/ReportDiff.Core/PageFlowCollector.cs": "f279f37bc344e8c90d43039b6063b23e4cc9e36a7496fbdf280bfef91478055f",
+      "src/ReportDiff.Core/ComparisonFeatures.cs": "b8c53bfdede76a9623d26c6f3ef48e28e5f690f875a4f4defbc38d6930211fda",
+      "src/ReportDiff.Core/GroupShiftSearch.cs": "6e95c31ab2c87acddeb01a6b863d817542319d2362858553b27cc5b9dc8dafba",
+      "src/ReportDiff.Core/RowComparison.cs": "3aac86bdf5bae8d6de6eac16f7d00f557eeac68c4fa87f141b688658140f895a",
+      "src/ReportDiff.Core/PageFlowNonflow.cs": "09081510b99adc0dc6f9ce06d9bea7374b87f64b0321e2eaca07c76b0e7c8397",
+      "src/ReportDiff.Core/TolerantDifference.cs": "5a9082634252a07b14b0ea2adf16c54fa2ce536eb9fd47374224f3a254c70e45",
+      "src/ReportDiff.Core/RowCandidateBuilder.cs": "64234efb0aec8fbd18c8da0b7d4b28bb44894e74f73ee3223440407c54f9b1ad",
+      "src/ReportDiff.Core/MovementAnnotator.cs": "f6ceb5f6a84b2b08da0dc8daa5d71861462d308f6f9390594fdd3fafc599e9b8",
+      "src/ReportDiff.Core/DifferenceClassifier.cs": "dc43e65f285a86b9ce926e19ea5145904e6d516c39f5d01a4b742817c38f134c",
+      "src/ReportDiff.Core/RowGroupValidator.cs": "461144fadb941aa0b8d79fe5b99d76f830c10bfe817c1ecc72077a07afd327f4",
+      "src/ReportDiff.Core/PageFlowComparison.cs": "a25f1782ae13210025f66d3c1abe09b5ed553634cdad0c11faa9f159c1a5263a",
+      "src/ReportDiff.Core/AssemblyInfo.cs": "060494a4b480a2d869fb11948811c14bcc777dbd4aa419b50dff4dce085b180c",
+      "src/ReportDiff.Core/RegionMap.cs": "00e09dea774c79818e297f2e674ae079f5fbfe8592672080fa9d0ccbb126716e",
+      "src/ReportDiff.Core/InitialCandidates.cs": "74822751930b3401ca4145b7ec5e9e2cfe6f0569a234c8f189d580d8301136d2",
+      "src/ReportDiff.Core/PageFlowData.cs": "3b2105cac685e34357f7df01a8072a9d1f7c8d4661ffcbddf13bf3d4b2e00ac9",
+      "src/ReportDiff.Core/GroupCandidateSearch.cs": "ca903b3a82423f993043126dfa015c90a5f8adebf0a0ba296034bfcef431a698",
+      "src/ReportDiff.Core/PageMap.cs": "d037a4dc953cd2b6e4445055d05ebe1daf6e7872836909862150b147a9a75079",
+      "src/ReportDiff.Core/MatBuffers.cs": "d196bd1541bd385b89ab9fd78882498c0ead5b2239d89c0bb19b39f8d7af45f9",
+      "src/ReportDiff.Core/ComparisonInk.cs": "bb06f1b539af62988ece41b65d992c07c8c791ab41d3ee087e2ae6c4bfadcf03",
+      "src/ReportDiff.Core/RowSelector.cs": "5180d9fa814790519f8cd0c2d97f1165f2ee4318b5735da6907a1bc8813080d7",
+      "src/ReportDiff.Core/PageFlowAdoption.cs": "78cfa90921584b5bfcdb65b1b5df4db1e6b042c9bc822b86327a5fea41cdd8db",
+      "src/ReportDiff.Core/RowComparisonSurface.cs": "34fab9a23504973d274f75f69b23232924a737f291bb424eb6ecd81d5f888c5c",
+      "src/ReportDiff.Core/RowStructures.cs": "d9edbb5e189b6aa5c1336f6d81cb741b572491c20f178a8e81e2c5bdc187ce11",
+      "src/ReportDiff.Core/ClusterProjectionData.cs": "e66b6b052b86092d2038a4f8e6fd010a75a9575dc74991730b4137fdc5a16015",
+      "src/ReportDiff.Core/LabStripeCache.cs": "f68aff9007a05c249158ffe1ce6079eb685fab9e638bd81469dc4e26606609ff",
+      "src/ReportDiff.Core/ImageInk.cs": "3f3cefe9141fac6275b30d87a83d742e5330130d81294c21e67581cddf72be09",
+      "src/ReportDiff.Core/RowProjection.cs": "4715d629b2951837662c91d9d613a19a64ef4f77a6e50d545dffca720d90d7d1",
+      "src/ReportDiff.Core/GroupRunIndex.cs": "28ff0084042dc65d92ba6e1aa95f07b560801c056d54c320b6d302e6e2281f4e",
+      "src/ReportDiff.Core/PageFlowComponents.cs": "52ee4b714778ef49d6ba17a5aa41f453651e8b862de23f0ade6b02b6c02c8a30",
+      "src/ReportDiff.Core/Units.cs": "2664a41731483bc23aaccd4dc5a7c462a90e7042960404fe93453a92ef4ea5e9",
+      "src/ReportDiff.Core/CandidateRowSchedule.cs": "d3c3deb2467083a063e2f9d5a522760ca616ff74d3439c92830e1ddd91c329d9",
+      "src/ReportDiff.Core/GlobalAlignment.cs": "eaa3777e70ed94b4bf171c5414426138fde5fc7627410015af7511e625f9d034",
+      "src/ReportDiff.Core/PageFlowBandVerifier.cs": "63b0544ee9627cc73f65610eaf9c284048074478d86538e0b86562045e86b06b",
+      "src/ReportDiff.Core/ComparisonTimings.cs": "0f6b8bf17f527e6f20d0eeea01e87437d663bddc866ac84f91e527b665e4f981",
+      "src/ReportDiff.Core/RowMatching.cs": "a7015cafed9839a10db95b32de5705abd209fa571bbbede0d70e9c83e87ade72",
+      "src/ReportDiff.Core/PageComparer.cs": "d560b3f307a0f6c37539ac36dd1157f394ac9eb77fe2223d9cea24d7087434e8",
+      "src/ReportDiff.Core/RowSupport.cs": "db3a85cc3633a1fa4332ef5ff40c0f5724ea5e72d29ba8e6d43ce8b2a919c951",
+      "src/ReportDiff.Core/PageFlowNumericRows.cs": "9a6f7633aef96c49ded8a69391109c3b30e997688cca69d9836df2823f80c966",
+      "src/ReportDiff.Core/ReportDiff.Core.csproj": "4fd131e59a31e5fea36ac35ad2e1cf2eb7bd913a3d937d7f112d2e4f1a03ff21",
+      "src/ReportDiff.Core/RowText.cs": "9d14e5e607ba2983e74427cddb9905668e6625e71e69cd550d35b1a27eefec1a",
+      "src/ReportDiff.Core/ComparisonParameters.cs": "5d4f15ca53e464931a8458a6b1bbf78769c1f14e9ab4162df5a6a7caf3cccee4",
+      "src/ReportDiff.Core/PageComparison.cs": "310e74bb4ac5c520cc3d853bdcd2aa939cafb52a19c08e8569d64b04f0e3847b",
+      "src/ReportDiff.Core/PageFlowAggregation.cs": "162752c45709d9c610b00c8654f4ad07b484d2eddfef4da4bd15c4e176dc833b",
+      "src/ReportDiff.Core/PageFlowSurface.cs": "79b8512ca39c28fac9b13f58dd899fbe3729590fec0c681a2701ca610d41aa20",
+      "src/ReportDiff.Core/RowCanonicalizer.cs": "d1e66171499f03b5014afe846ba745e825707eb25b34d4d48334b345deaa4e81",
+      "src/ReportDiff.Core/PageFlowSharedCauses.cs": "c7466023676d713f7e586f2684862b024bc62e6a7189c680c31c62aa65906593",
+      "src/ReportDiff.Core/PageFlowPlan.cs": "ef226243ada7992e25d4b2ae7c539beaa8e4e8396a032dede21ec4d9d0550a8a",
+      "src/ReportDiff.Core/PageFlowInference.cs": "3eb15341443e8eacc2d6e9486b124a9f49955af44c5ed25d75c3a7f37cda2689",
+      "src/ReportDiff.Core/GroupSearchSchedule.cs": "b36fcd6ee1a9c7faa086e85fcd00dbb6c3a6f1bf86a268b82318f92890fa02cb",
+      "src/ReportDiff.Core/GroupCandidateSchedule.cs": "a8bb6419e82d6e1b932de721e83267ce5788e577b1da8441abbede8c5ffeda57",
+      "src/ReportDiff.Core/FeatureStripeSchedule.cs": "c9a602a01dc32d731af4bef1b7ef1923254a27e60a6b1bd3a81c7e14bf14549d",
+      "src/ReportDiff.Core/PageFlowRangeGate.cs": "e346a5d88de28d10437893385a5fcca61fbc784dd12c2218d328a5e4de705547",
+      "src/ReportDiff.Core/RegionalComparison.cs": "2629aa0fd34db7991067c87bae77efdc9a8815b0c287908961846b7b46985049",
+      "src/ReportDiff.Pdf/PdfReader.cs": "a521c0532b0e2cd061e8ce6cd68403cd8eac45d3453f8a37b79b4d79647c20f5",
+      "src/ReportDiff.Pdf/PageSelection.cs": "0cb8f84064f1d7263a2f30b06f20c77dd60688f877405103c57b3ab55ce999ab",
+      "src/ReportDiff.Pdf/AssemblyInfo.cs": "502510d8fadecad038256039d5f9b86967f68a15afc8678f06377713652881d3",
+      "src/ReportDiff.Pdf/ImageReader.cs": "dd65252e10e2046c5401cb9b0c490d10ceb2a51ca974192507dfe4e811cdd8dd",
+      "src/ReportDiff.Pdf/ReportDiff.Pdf.csproj": "669ad02db31c565c8bc3620410c9312301439c37ccf9b7ac0db9a70aad409c3a",
+      "src/ReportDiff.Pdf/TextAnnotations.cs": "e5fd667b6573f13fd91c697395d4a74efcf3be66dc9a89992b7b6395a866a5dc",
+      "src/ReportDiff.Pdf/PagePairing.cs": "abd54c801c2816fb19518c20bf49c88d3e0366491648374ea1aaabee3c22554a",
+      "src/ReportDiff.Pdf/InputFormat.cs": "a5ba93584766984432a613e038d249f49053a57bd8bd5ef433aecdeddb479fbc",
+      "src/ReportDiff.Pdf/PdfFontInspector.cs": "6ddcb863b79063e7594e5ad5779a62c9efd5a98fc80ebcc43be64636a5228997",
+      "src/ReportDiff.Pdf/PdfTextReader.cs": "dbc3cf40bd7e3c5a5c655a06507ff092db4b067d45e08abb4fab1bc102df4d30",
+      "src/ReportDiff.Pdf/LoadedImage.cs": "9a479a6e661bbfcdc3eb01e3d750914b6282b2fb5f19ee0fbb3a212b83e6ec44",
+      "src/ReportDiff.Pdf/TiffAlpha.cs": "e6bbb487b32ac0592ab01d5f1b0fd8f40ccb2c093f4c825e8d57aa3a70f98b79",
+      "src/ReportDiff.Pdf/RowTextAnnotations.cs": "446de90eff2def29253da9ef6e9be085266986c448b22e3210095ad44f4a9eb6",
+      "src/ReportDiff.Pdf/PageNormalizer.cs": "78a9ba69476d8cf0e68b40d15d84beec72c4c5b80908cad16bfc57d48b2a8c0a",
+      "src/ReportDiff.Pdf/TextOptions.cs": "c8cc766ededff6c993791593583a7e9ccbf559e2fc5335cc58fad132079be9fb"
+    },
+    "final": {
+      "src/ReportDiff.Cli/AppSettings.cs": "b2c292532fc4286929a10c817b458a6373f94de9c635a1a300f8526647289b95",
+      "src/ReportDiff.Cli/AssemblyInfo.cs": "502510d8fadecad038256039d5f9b86967f68a15afc8678f06377713652881d3",
+      "src/ReportDiff.Cli/CliApplication.cs": "54873694ca6511b77f5e34e7a42e9319337a7ecc470aa55e0f20e6eba397a92b",
+      "src/ReportDiff.Cli/CommandLine.cs": "bc67f040e1ef7f8bfc4d516471426ff7aaa19126234d966e56848568723e4467",
+      "src/ReportDiff.Cli/ComparisonInput.cs": "1d754daa49db5501b96670b7df72a2564a7c6c635646a4bce214aa34c3d39d5f",
+      "src/ReportDiff.Cli/ComparisonRunner.cs": "35c0eb16fb8360d38b115cfe5501579e50cf003b6bb3ea732d082c5014689649",
+      "src/ReportDiff.Cli/ConfigurationLoader.cs": "03230e1db64a78de9c354ca7c07729025f37c25c02075b58e9c1e05f2795c1a2",
+      "src/ReportDiff.Cli/ConsoleProgress.cs": "6cd669d3cd61c5bc85fef7f1b7f00205c74f34222104c492e747fc38e87eb69c",
+      "src/ReportDiff.Cli/DirectoryComparison.cs": "c85858c3b976f57197c0229784914fb8f591f35493d0e5c525347242d0dbb354",
+      "src/ReportDiff.Cli/DirectoryPlan.cs": "2ecb852089f07c15d4a9034207d81f83f58f2a3908580b4c0b08d63094ac9d28",
+      "src/ReportDiff.Cli/DirectoryRules.cs": "787adc3a21ec140d80da80b092bd280917b346bfe64190f5cc40e56be6353191",
+      "src/ReportDiff.Cli/OutputWorkspace.cs": "51acec7c80adca8d3e48921cb398737dcd989d5891ae414fd70b666927ce669e",
+      "src/ReportDiff.Cli/PageFlowRun.cs": "a50405c2d84196b8b25dd8368569c6905f53d4b372f861ee44ff67dcd57d4d63",
+      "src/ReportDiff.Cli/Program.cs": "b7a3b4da069f34065cf8b42f618a5828c84090358479cc58fe84755c528448c6",
+      "src/ReportDiff.Cli/RegionSetting.cs": "996d86b96f8650d79a77c6865c037939a9d792550cbdde062a9738c05481f316",
+      "src/ReportDiff.Cli/ReportDiff.Cli.csproj": "3e2795af95b113d59193c85dd18d57b33b6ea3b48194ed6bd4f286fcdd4ecca7",
+      "src/ReportDiff.Core/AssemblyInfo.cs": "060494a4b480a2d869fb11948811c14bcc777dbd4aa419b50dff4dce085b180c",
+      "src/ReportDiff.Core/CandidateRowSchedule.cs": "d3c3deb2467083a063e2f9d5a522760ca616ff74d3439c92830e1ddd91c329d9",
+      "src/ReportDiff.Core/ClusterProjectionData.cs": "e66b6b052b86092d2038a4f8e6fd010a75a9575dc74991730b4137fdc5a16015",
+      "src/ReportDiff.Core/ComparisonFeatures.cs": "b8c53bfdede76a9623d26c6f3ef48e28e5f690f875a4f4defbc38d6930211fda",
+      "src/ReportDiff.Core/ComparisonInk.cs": "bb06f1b539af62988ece41b65d992c07c8c791ab41d3ee087e2ae6c4bfadcf03",
+      "src/ReportDiff.Core/ComparisonParameters.cs": "5d4f15ca53e464931a8458a6b1bbf78769c1f14e9ab4162df5a6a7caf3cccee4",
+      "src/ReportDiff.Core/ComparisonTimings.cs": "0f6b8bf17f527e6f20d0eeea01e87437d663bddc866ac84f91e527b665e4f981",
+      "src/ReportDiff.Core/DifferenceClassifier.cs": "dc43e65f285a86b9ce926e19ea5145904e6d516c39f5d01a4b742817c38f134c",
+      "src/ReportDiff.Core/FeatureStripeSchedule.cs": "c9a602a01dc32d731af4bef1b7ef1923254a27e60a6b1bd3a81c7e14bf14549d",
+      "src/ReportDiff.Core/GlobalAlignment.cs": "eaa3777e70ed94b4bf171c5414426138fde5fc7627410015af7511e625f9d034",
+      "src/ReportDiff.Core/GroupCandidateSchedule.cs": "a8bb6419e82d6e1b932de721e83267ce5788e577b1da8441abbede8c5ffeda57",
+      "src/ReportDiff.Core/GroupCandidateSearch.cs": "ca903b3a82423f993043126dfa015c90a5f8adebf0a0ba296034bfcef431a698",
+      "src/ReportDiff.Core/GroupRunIndex.cs": "28ff0084042dc65d92ba6e1aa95f07b560801c056d54c320b6d302e6e2281f4e",
+      "src/ReportDiff.Core/GroupSearchSchedule.cs": "b36fcd6ee1a9c7faa086e85fcd00dbb6c3a6f1bf86a268b82318f92890fa02cb",
+      "src/ReportDiff.Core/GroupShiftSearch.cs": "6e95c31ab2c87acddeb01a6b863d817542319d2362858553b27cc5b9dc8dafba",
+      "src/ReportDiff.Core/ImageInk.cs": "3f3cefe9141fac6275b30d87a83d742e5330130d81294c21e67581cddf72be09",
+      "src/ReportDiff.Core/InitialCandidates.cs": "74822751930b3401ca4145b7ec5e9e2cfe6f0569a234c8f189d580d8301136d2",
+      "src/ReportDiff.Core/LabStripeCache.cs": "f68aff9007a05c249158ffe1ce6079eb685fab9e638bd81469dc4e26606609ff",
+      "src/ReportDiff.Core/MatBuffers.cs": "d196bd1541bd385b89ab9fd78882498c0ead5b2239d89c0bb19b39f8d7af45f9",
+      "src/ReportDiff.Core/MovementAnnotator.cs": "f6ceb5f6a84b2b08da0dc8daa5d71861462d308f6f9390594fdd3fafc599e9b8",
+      "src/ReportDiff.Core/PageComparer.cs": "d560b3f307a0f6c37539ac36dd1157f394ac9eb77fe2223d9cea24d7087434e8",
+      "src/ReportDiff.Core/PageComparison.cs": "310e74bb4ac5c520cc3d853bdcd2aa939cafb52a19c08e8569d64b04f0e3847b",
+      "src/ReportDiff.Core/PageFlowAdoption.cs": "78cfa90921584b5bfcdb65b1b5df4db1e6b042c9bc822b86327a5fea41cdd8db",
+      "src/ReportDiff.Core/PageFlowAggregation.cs": "162752c45709d9c610b00c8654f4ad07b484d2eddfef4da4bd15c4e176dc833b",
+      "src/ReportDiff.Core/PageFlowAmbiguity.cs": "1ae1a1a9bcf9b3de319229742b4ad96ab5c887e08fa9f5348afed89748fee774",
+      "src/ReportDiff.Core/PageFlowBandVerifier.cs": "63b0544ee9627cc73f65610eaf9c284048074478d86538e0b86562045e86b06b",
+      "src/ReportDiff.Core/PageFlowCollector.cs": "f279f37bc344e8c90d43039b6063b23e4cc9e36a7496fbdf280bfef91478055f",
+      "src/ReportDiff.Core/PageFlowComparison.cs": "a25f1782ae13210025f66d3c1abe09b5ed553634cdad0c11faa9f159c1a5263a",
+      "src/ReportDiff.Core/PageFlowComponents.cs": "52ee4b714778ef49d6ba17a5aa41f453651e8b862de23f0ade6b02b6c02c8a30",
+      "src/ReportDiff.Core/PageFlowData.cs": "3b2105cac685e34357f7df01a8072a9d1f7c8d4661ffcbddf13bf3d4b2e00ac9",
+      "src/ReportDiff.Core/PageFlowInference.cs": "831d01ac7c415aa094acac43a9482c9ac62063951f63b3f53ad840a0a44ff290",
+      "src/ReportDiff.Core/PageFlowNonflow.cs": "09081510b99adc0dc6f9ce06d9bea7374b87f64b0321e2eaca07c76b0e7c8397",
+      "src/ReportDiff.Core/PageFlowNumericRows.cs": "9a6f7633aef96c49ded8a69391109c3b30e997688cca69d9836df2823f80c966",
+      "src/ReportDiff.Core/PageFlowPlan.cs": "b1f974a85a34983ebe5ef4666bf9edc6ad2f17a1f23bed8ab41f11e66b70b636",
+      "src/ReportDiff.Core/PageFlowRangeGate.cs": "693ebb57606222bc266aa06c6eda1b13808cef063523c4a6b4676b0f3aafbdbe",
+      "src/ReportDiff.Core/PageFlowSharedCauses.cs": "c7466023676d713f7e586f2684862b024bc62e6a7189c680c31c62aa65906593",
+      "src/ReportDiff.Core/PageFlowSurface.cs": "79b8512ca39c28fac9b13f58dd899fbe3729590fec0c681a2701ca610d41aa20",
+      "src/ReportDiff.Core/PageMap.cs": "d037a4dc953cd2b6e4445055d05ebe1daf6e7872836909862150b147a9a75079",
+      "src/ReportDiff.Core/RegionMap.cs": "00e09dea774c79818e297f2e674ae079f5fbfe8592672080fa9d0ccbb126716e",
+      "src/ReportDiff.Core/RegionalComparison.cs": "2629aa0fd34db7991067c87bae77efdc9a8815b0c287908961846b7b46985049",
+      "src/ReportDiff.Core/ReportDiff.Core.csproj": "4fd131e59a31e5fea36ac35ad2e1cf2eb7bd913a3d937d7f112d2e4f1a03ff21",
+      "src/ReportDiff.Core/RowCandidateBuilder.cs": "64234efb0aec8fbd18c8da0b7d4b28bb44894e74f73ee3223440407c54f9b1ad",
+      "src/ReportDiff.Core/RowCanonicalizer.cs": "d1e66171499f03b5014afe846ba745e825707eb25b34d4d48334b345deaa4e81",
+      "src/ReportDiff.Core/RowComparison.cs": "3aac86bdf5bae8d6de6eac16f7d00f557eeac68c4fa87f141b688658140f895a",
+      "src/ReportDiff.Core/RowComparisonSurface.cs": "34fab9a23504973d274f75f69b23232924a737f291bb424eb6ecd81d5f888c5c",
+      "src/ReportDiff.Core/RowGroupValidator.cs": "461144fadb941aa0b8d79fe5b99d76f830c10bfe817c1ecc72077a07afd327f4",
+      "src/ReportDiff.Core/RowMatching.cs": "a7015cafed9839a10db95b32de5705abd209fa571bbbede0d70e9c83e87ade72",
+      "src/ReportDiff.Core/RowProjection.cs": "4715d629b2951837662c91d9d613a19a64ef4f77a6e50d545dffca720d90d7d1",
+      "src/ReportDiff.Core/RowSelector.cs": "5180d9fa814790519f8cd0c2d97f1165f2ee4318b5735da6907a1bc8813080d7",
+      "src/ReportDiff.Core/RowStructures.cs": "d9edbb5e189b6aa5c1336f6d81cb741b572491c20f178a8e81e2c5bdc187ce11",
+      "src/ReportDiff.Core/RowSupport.cs": "db3a85cc3633a1fa4332ef5ff40c0f5724ea5e72d29ba8e6d43ce8b2a919c951",
+      "src/ReportDiff.Core/RowText.cs": "9d14e5e607ba2983e74427cddb9905668e6625e71e69cd550d35b1a27eefec1a",
+      "src/ReportDiff.Core/TolerantDifference.cs": "5a9082634252a07b14b0ea2adf16c54fa2ce536eb9fd47374224f3a254c70e45",
+      "src/ReportDiff.Core/Units.cs": "2664a41731483bc23aaccd4dc5a7c462a90e7042960404fe93453a92ef4ea5e9",
+      "src/ReportDiff.Pdf/AssemblyInfo.cs": "502510d8fadecad038256039d5f9b86967f68a15afc8678f06377713652881d3",
+      "src/ReportDiff.Pdf/ImageReader.cs": "dd65252e10e2046c5401cb9b0c490d10ceb2a51ca974192507dfe4e811cdd8dd",
+      "src/ReportDiff.Pdf/InputFormat.cs": "a5ba93584766984432a613e038d249f49053a57bd8bd5ef433aecdeddb479fbc",
+      "src/ReportDiff.Pdf/LoadedImage.cs": "9a479a6e661bbfcdc3eb01e3d750914b6282b2fb5f19ee0fbb3a212b83e6ec44",
+      "src/ReportDiff.Pdf/PageNormalizer.cs": "78a9ba69476d8cf0e68b40d15d84beec72c4c5b80908cad16bfc57d48b2a8c0a",
+      "src/ReportDiff.Pdf/PagePairing.cs": "abd54c801c2816fb19518c20bf49c88d3e0366491648374ea1aaabee3c22554a",
+      "src/ReportDiff.Pdf/PageSelection.cs": "0cb8f84064f1d7263a2f30b06f20c77dd60688f877405103c57b3ab55ce999ab",
+      "src/ReportDiff.Pdf/PdfFontInspector.cs": "6ddcb863b79063e7594e5ad5779a62c9efd5a98fc80ebcc43be64636a5228997",
+      "src/ReportDiff.Pdf/PdfReader.cs": "a521c0532b0e2cd061e8ce6cd68403cd8eac45d3453f8a37b79b4d79647c20f5",
+      "src/ReportDiff.Pdf/PdfTextReader.cs": "dbc3cf40bd7e3c5a5c655a06507ff092db4b067d45e08abb4fab1bc102df4d30",
+      "src/ReportDiff.Pdf/ReportDiff.Pdf.csproj": "669ad02db31c565c8bc3620410c9312301439c37ccf9b7ac0db9a70aad409c3a",
+      "src/ReportDiff.Pdf/RowTextAnnotations.cs": "446de90eff2def29253da9ef6e9be085266986c448b22e3210095ad44f4a9eb6",
+      "src/ReportDiff.Pdf/TextAnnotations.cs": "e5fd667b6573f13fd91c697395d4a74efcf3be66dc9a89992b7b6395a866a5dc",
+      "src/ReportDiff.Pdf/TextOptions.cs": "c8cc766ededff6c993791593583a7e9ccbf559e2fc5335cc58fad132079be9fb",
+      "src/ReportDiff.Pdf/TiffAlpha.cs": "e6bbb487b32ac0592ab01d5f1b0fd8f40ccb2c093f4c825e8d57aa3a70f98b79",
+      "src/ReportDiff.Report/AssemblyInfo.cs": "502510d8fadecad038256039d5f9b86967f68a15afc8678f06377713652881d3",
+      "src/ReportDiff.Report/DirectoryReportDocument.cs": "a39cd5125411dd8c33d8beeec0e3469d283a968a96d53e6331332001ced9e167",
+      "src/ReportDiff.Report/DirectoryReportWriter.cs": "c31647a4040114dca7cfe607901e135a0fc50140dbf6c93bad543843d6b6d80a",
+      "src/ReportDiff.Report/ExclusionSnippet.cs": "80ee4fd3b2da35ded4b023f9f6f6fa7a4b95fc6f3e6c3220dc6b7437a75f0385",
+      "src/ReportDiff.Report/HtmlPageFlow.cs": "f905cd090b6a329de848c28c055492f8c974ee6bf031cbff1535b21b8f02c65d",
+      "src/ReportDiff.Report/HtmlRegions.cs": "e68cab2a4ca0ed73b0235883a373d99cb96bdb5585f1346256bc071ed6c7ac8b",
+      "src/ReportDiff.Report/HtmlReportWriter.cs": "d4e3182ceddcdc8acaf52e0b6ae5248f06a400e2d89f23e4f3741f12fa491469",
+      "src/ReportDiff.Report/HtmlRows.cs": "24527695d1a5c402e563253daf471606f883aa8295bda48f17b7a452f9eed0c2",
+      "src/ReportDiff.Report/PageImageWriteSchedule.cs": "5bf20dce01198ed377d7c41807830a5fa0c991c26d45c84982911d234289b24a",
+      "src/ReportDiff.Report/RawOverlay.cs": "73a821cc489464ec7f0990dd782e5012e7a5a7de20ce16b65a4cc18f9d828a07",
+      "src/ReportDiff.Report/RegionDrawing.cs": "7babd3024d1a5f76299d5be90f2ce7f50a34d5073093bc97326da491a5a69da5",
+      "src/ReportDiff.Report/ReportColor.cs": "6979a1d00188bf4dd353523ba5dc1ae41cae63b9e337c349d8e450f2ee15a2ef",
+      "src/ReportDiff.Report/ReportDiff.Report.csproj": "0f123f1803380365177bc6d7239361dff00eaf910205896ac1e675cf1c92bcd8",
+      "src/ReportDiff.Report/ReportDocument.cs": "de9333c703cd1a98e47271a2bc32c1358620c9484a3ff81b7138f68de7e88b4d",
+      "src/ReportDiff.Report/ReportImages.cs": "5d6826c78c5623acec087fd995e2864d4913a19d2691039c70b0530bbe4f4a8d",
+      "src/ReportDiff.Report/ReportPageFlow.cs": "b15ed5ef2d52909b504c6d1ed9fa153243d084bce7010a2437462857962d98bd",
+      "src/ReportDiff.Report/ReportRegions.cs": "5b9a45eb31fd0bdb41d206b74cb89335358969eebf9cc017494e54f185724443",
+      "src/ReportDiff.Report/ReportRows.cs": "4b8c92decc7a6e4b419620aecb7a70f38571b9fd760f2c613ab1710a0ad5726f",
+      "src/ReportDiff.Report/ReportWriter.cs": "1f0194010b440043044a3da1126bbc72efc01b25999c938720bc239ff7b250fa"
+    },
+    "changed": [
+      "src/ReportDiff.Report/ReportPageFlow.cs",
+      "src/ReportDiff.Report/HtmlPageFlow.cs",
+      "src/ReportDiff.Cli/PageFlowRun.cs",
+      "src/ReportDiff.Core/PageFlowPlan.cs",
+      "src/ReportDiff.Core/PageFlowInference.cs",
+      "src/ReportDiff.Core/PageFlowRangeGate.cs"
+    ],
+    "added": [
+      "src/ReportDiff.Core/PageFlowAmbiguity.cs"
+    ]
+  },
+  "tests": {
+    "total": "2072",
+    "passed": "2072",
+    "failed": "0",
+    "errors": "0",
+    "skipped": "0",
+    "time": "531.468",
+    "environment": "64-bit (ARM) .NET 10.0.12 [collection-per-class, non-parallel]"
+  },
+  "build": {
+    "warnings": 0,
+    "errors": 0,
+    "log": "out/t3-1c-ambiguity-cli/build-fixtures.log"
+  },
+  "fixed": {
+    "runs": 26,
+    "processes": 104,
+    "added": 4,
+    "unchanged": 22,
+    "compatible_files": 2158,
+    "cd_images": 56,
+    "raw_png_pairs": 198,
+    "structures": 44,
+    "alternatives": 4,
+    "same_page_rows": 12
+  },
+  "legacy": {
+    "cases": 104,
+    "processes": 208,
+    "unchanged_cases": 104,
+    "unchanged_files": 3972,
+    "approved_shared_cases": 0,
+    "raw_png_pairs": 864
+  },
+  "numeric": {
+    "runs": 50,
+    "processes": 150,
+    "adopted": 24,
+    "cd_images": 224,
+    "raw_png_pairs": 324,
+    "compatible_files": 1936,
+    "numeric_proofs": 32,
+    "content_clusters": 30
+  },
+  "global_cases": {
+    "global": {
+      "cases": 17,
+      "processes": 68,
+      "surfaces": 21,
+      "structures": 53,
+      "original_band_pngs": 26,
+      "raw_png_pairs": 108,
+      "compatible_files": 916,
+      "nonflow_rows": 0
+    },
+    "global-multiple": {
+      "cases": 12,
+      "processes": 48,
+      "surfaces": 28,
+      "structures": 70,
+      "original_band_pngs": 42,
+      "raw_png_pairs": 144,
+      "compatible_files": 906,
+      "nonflow_rows": 14
+    },
+    "global-numeric": {
+      "cases": 12,
+      "processes": 48,
+      "surfaces": 14,
+      "structures": 35,
+      "original_band_pngs": 16,
+      "raw_png_pairs": 84,
+      "compatible_files": 574,
+      "nonflow_rows": 2
+    },
+    "global-shared": {
+      "cases": 18,
+      "processes": 72,
+      "surfaces": 8,
+      "structures": 26,
+      "original_band_pngs": 10,
+      "raw_png_pairs": 132,
+      "compatible_files": 2207,
+      "nonflow_rows": 2
+    }
+  },
+  "combinations": {
+    "runs": 28,
+    "processes": 56,
+    "adopted": 15,
+    "raw_png_pairs": 270,
+    "audit": {
+      "runs": 15,
+      "pages": 51,
+      "surface_images": 204,
+      "structures": 162,
+      "band_images": 60,
+      "boundary_rows": 54
+    },
+    "records": [
+      {
+        "run": "chain-number-ab-plain",
+        "expected": true,
+        "applied": true,
+        "summary": {
+          "status": "different",
+          "pages_compared": 3,
+          "pages_different": 3,
+          "clusters": 1,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 3,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 10,
+          "structural_change_counts": {
+            "inserted": 4,
+            "deleted": 2,
+            "block_moved": 4
+          },
+          "difference_count": 11,
+          "difference_count_complete": true
+        },
+        "reasons": []
+      },
+      {
+        "run": "chain-number-ab-all-selected",
+        "expected": false,
+        "applied": false,
+        "summary": {
+          "status": "different",
+          "pages_compared": 3,
+          "pages_different": 3,
+          "clusters": 16,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 16,
+          "aggregated_difference_count_complete": false,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 16,
+          "difference_count_complete": true
+        },
+        "reasons": [
+          "unproven_endpoint_range",
+          "unproven_page_map",
+          "unverified_candidates"
+        ]
+      },
+      {
+        "run": "chain-number-ab-partial",
+        "expected": false,
+        "applied": false,
+        "summary": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 11,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 11,
+          "aggregated_difference_count_complete": false,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 11,
+          "difference_count_complete": true
+        },
+        "reasons": [
+          "unproven_endpoint_range",
+          "unproven_page_map"
+        ]
+      },
+      {
+        "run": "chain-number-ab-support-excluded",
+        "expected": false,
+        "applied": false,
+        "summary": {
+          "status": "different",
+          "pages_compared": 3,
+          "pages_different": 2,
+          "clusters": 11,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 11,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 11,
+          "difference_count_complete": true
+        },
+        "reasons": [
+          "adoption_not_ready"
+        ]
+      },
+      {
+        "run": "chain-number-ab-strict",
+        "expected": true,
+        "applied": true,
+        "summary": {
+          "status": "different",
+          "pages_compared": 3,
+          "pages_different": 3,
+          "clusters": 1,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 3,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 10,
+          "structural_change_counts": {
+            "inserted": 4,
+            "deleted": 2,
+            "block_moved": 4
+          },
+          "difference_count": 11,
+          "difference_count_complete": true
+        },
+        "reasons": []
+      },
+      {
+        "run": "chain-number-ba-plain",
+        "expected": true,
+        "applied": true,
+        "summary": {
+          "status": "different",
+          "pages_compared": 3,
+          "pages_different": 3,
+          "clusters": 1,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 3,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 10,
+          "structural_change_counts": {
+            "inserted": 2,
+            "deleted": 4,
+            "block_moved": 4
+          },
+          "difference_count": 11,
+          "difference_count_complete": true
+        },
+        "reasons": []
+      },
+      {
+        "run": "chain-number-ba-all-selected",
+        "expected": false,
+        "applied": false,
+        "summary": {
+          "status": "different",
+          "pages_compared": 3,
+          "pages_different": 3,
+          "clusters": 16,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 16,
+          "aggregated_difference_count_complete": false,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 16,
+          "difference_count_complete": true
+        },
+        "reasons": [
+          "unproven_endpoint_range",
+          "unproven_page_map",
+          "unverified_candidates"
+        ]
+      },
+      {
+        "run": "chain-number-ba-partial",
+        "expected": false,
+        "applied": false,
+        "summary": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 11,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 11,
+          "aggregated_difference_count_complete": false,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 11,
+          "difference_count_complete": true
+        },
+        "reasons": [
+          "unproven_endpoint_range",
+          "unproven_page_map"
+        ]
+      },
+      {
+        "run": "chain-number-ba-support-excluded",
+        "expected": false,
+        "applied": false,
+        "summary": {
+          "status": "different",
+          "pages_compared": 3,
+          "pages_different": 2,
+          "clusters": 11,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 11,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 11,
+          "difference_count_complete": true
+        },
+        "reasons": [
+          "adoption_not_ready"
+        ]
+      },
+      {
+        "run": "chain-number-ba-strict",
+        "expected": true,
+        "applied": true,
+        "summary": {
+          "status": "different",
+          "pages_compared": 3,
+          "pages_different": 3,
+          "clusters": 1,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 3,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 10,
+          "structural_change_counts": {
+            "inserted": 2,
+            "deleted": 4,
+            "block_moved": 4
+          },
+          "difference_count": 11,
+          "difference_count_complete": true
+        },
+        "reasons": []
+      },
+      {
+        "run": "chain-support-number-ab-plain",
+        "expected": false,
+        "applied": false,
+        "summary": {
+          "status": "different",
+          "pages_compared": 3,
+          "pages_different": 3,
+          "clusters": 16,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 16,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 16,
+          "difference_count_complete": true
+        },
+        "reasons": [
+          "unproven_endpoint_range",
+          "unproven_page_map",
+          "unverified_candidates"
+        ]
+      },
+      {
+        "run": "chain-support-number-ba-plain",
+        "expected": false,
+        "applied": false,
+        "summary": {
+          "status": "different",
+          "pages_compared": 3,
+          "pages_different": 3,
+          "clusters": 16,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 16,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 16,
+          "difference_count_complete": true
+        },
+        "reasons": [
+          "unproven_endpoint_range",
+          "unproven_page_map",
+          "unverified_candidates"
+        ]
+      },
+      {
+        "run": "chain-carry-number-ab-plain",
+        "expected": false,
+        "applied": false,
+        "summary": {
+          "status": "different",
+          "pages_compared": 3,
+          "pages_different": 3,
+          "clusters": 16,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 16,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 16,
+          "difference_count_complete": true
+        },
+        "reasons": [
+          "unproven_endpoint_range",
+          "unproven_page_map",
+          "unverified_candidates"
+        ]
+      },
+      {
+        "run": "chain-carry-number-ba-plain",
+        "expected": false,
+        "applied": false,
+        "summary": {
+          "status": "different",
+          "pages_compared": 3,
+          "pages_different": 3,
+          "clusters": 16,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 16,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 16,
+          "difference_count_complete": true
+        },
+        "reasons": [
+          "unproven_endpoint_range",
+          "unproven_page_map",
+          "unverified_candidates"
+        ]
+      },
+      {
+        "run": "independent-number-ab-plain",
+        "expected": true,
+        "applied": true,
+        "summary": {
+          "status": "different",
+          "pages_compared": 4,
+          "pages_different": 4,
+          "clusters": 1,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 4,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 12,
+          "structural_change_counts": {
+            "inserted": 5,
+            "deleted": 2,
+            "block_moved": 5
+          },
+          "difference_count": 13,
+          "difference_count_complete": true
+        },
+        "reasons": []
+      },
+      {
+        "run": "independent-number-ba-plain",
+        "expected": true,
+        "applied": true,
+        "summary": {
+          "status": "different",
+          "pages_compared": 4,
+          "pages_different": 4,
+          "clusters": 1,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 4,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 12,
+          "structural_change_counts": {
+            "inserted": 2,
+            "deleted": 5,
+            "block_moved": 5
+          },
+          "difference_count": 13,
+          "difference_count_complete": true
+        },
+        "reasons": []
+      },
+      {
+        "run": "independent-endpoint-number-ab-plain",
+        "expected": false,
+        "applied": false,
+        "summary": {
+          "status": "different",
+          "pages_compared": 4,
+          "pages_different": 4,
+          "clusters": 20,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 20,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 20,
+          "difference_count_complete": true
+        },
+        "reasons": [
+          "unproven_endpoint_range",
+          "unproven_page_map",
+          "unverified_candidates"
+        ]
+      },
+      {
+        "run": "independent-endpoint-number-ba-plain",
+        "expected": false,
+        "applied": false,
+        "summary": {
+          "status": "different",
+          "pages_compared": 4,
+          "pages_different": 4,
+          "clusters": 20,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 20,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 20,
+          "difference_count_complete": true
+        },
+        "reasons": [
+          "unproven_endpoint_range",
+          "unproven_page_map",
+          "unverified_candidates"
+        ]
+      },
+      {
+        "run": "independent-tone-ab-plain",
+        "expected": true,
+        "applied": true,
+        "summary": {
+          "status": "different",
+          "pages_compared": 4,
+          "pages_different": 4,
+          "clusters": 1,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 4,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 12,
+          "structural_change_counts": {
+            "inserted": 5,
+            "deleted": 2,
+            "block_moved": 5
+          },
+          "difference_count": 13,
+          "difference_count_complete": true
+        },
+        "reasons": []
+      },
+      {
+        "run": "independent-tone-ba-plain",
+        "expected": true,
+        "applied": true,
+        "summary": {
+          "status": "different",
+          "pages_compared": 4,
+          "pages_different": 4,
+          "clusters": 1,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 4,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 12,
+          "structural_change_counts": {
+            "inserted": 2,
+            "deleted": 5,
+            "block_moved": 5
+          },
+          "difference_count": 13,
+          "difference_count_complete": true
+        },
+        "reasons": []
+      },
+      {
+        "run": "chain-down-ab-plain",
+        "expected": true,
+        "applied": true,
+        "summary": {
+          "status": "different",
+          "pages_compared": 3,
+          "pages_different": 3,
+          "clusters": 0,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 2,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 10,
+          "structural_change_counts": {
+            "inserted": 4,
+            "deleted": 2,
+            "block_moved": 4
+          },
+          "difference_count": 10,
+          "difference_count_complete": true
+        },
+        "reasons": []
+      },
+      {
+        "run": "chain-down-ba-plain",
+        "expected": true,
+        "applied": true,
+        "summary": {
+          "status": "different",
+          "pages_compared": 3,
+          "pages_different": 3,
+          "clusters": 0,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 2,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 10,
+          "structural_change_counts": {
+            "inserted": 2,
+            "deleted": 4,
+            "block_moved": 4
+          },
+          "difference_count": 10,
+          "difference_count_complete": true
+        },
+        "reasons": []
+      },
+      {
+        "run": "chain-up-ab-plain",
+        "expected": true,
+        "applied": true,
+        "summary": {
+          "status": "different",
+          "pages_compared": 3,
+          "pages_different": 3,
+          "clusters": 0,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 2,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 10,
+          "structural_change_counts": {
+            "inserted": 4,
+            "deleted": 2,
+            "block_moved": 4
+          },
+          "difference_count": 10,
+          "difference_count_complete": true
+        },
+        "reasons": []
+      },
+      {
+        "run": "chain-up-ba-plain",
+        "expected": true,
+        "applied": true,
+        "summary": {
+          "status": "different",
+          "pages_compared": 3,
+          "pages_different": 3,
+          "clusters": 0,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 2,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 10,
+          "structural_change_counts": {
+            "inserted": 2,
+            "deleted": 4,
+            "block_moved": 4
+          },
+          "difference_count": 10,
+          "difference_count_complete": true
+        },
+        "reasons": []
+      },
+      {
+        "run": "chain-variable-ab-plain",
+        "expected": true,
+        "applied": true,
+        "summary": {
+          "status": "different",
+          "pages_compared": 3,
+          "pages_different": 3,
+          "clusters": 0,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 2,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 10,
+          "structural_change_counts": {
+            "inserted": 4,
+            "deleted": 2,
+            "block_moved": 4
+          },
+          "difference_count": 10,
+          "difference_count_complete": true
+        },
+        "reasons": []
+      },
+      {
+        "run": "chain-variable-ba-plain",
+        "expected": false,
+        "applied": false,
+        "summary": {
+          "status": "different",
+          "pages_compared": 3,
+          "pages_different": 3,
+          "clusters": 16,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 16,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 16,
+          "difference_count_complete": true
+        },
+        "reasons": [
+          "fixed_parts_support",
+          "no_verified_candidates",
+          "unproven_page_map"
+        ]
+      },
+      {
+        "run": "independent-global-ab-plain",
+        "expected": true,
+        "applied": true,
+        "summary": {
+          "status": "different",
+          "pages_compared": 4,
+          "pages_different": 4,
+          "clusters": 0,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 3,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 12,
+          "structural_change_counts": {
+            "inserted": 5,
+            "deleted": 2,
+            "block_moved": 5
+          },
+          "difference_count": 12,
+          "difference_count_complete": true
+        },
+        "reasons": []
+      },
+      {
+        "run": "independent-global-ba-plain",
+        "expected": true,
+        "applied": true,
+        "summary": {
+          "status": "different",
+          "pages_compared": 4,
+          "pages_different": 4,
+          "clusters": 0,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 3,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 12,
+          "structural_change_counts": {
+            "inserted": 2,
+            "deleted": 5,
+            "block_moved": 5
+          },
+          "difference_count": 12,
+          "difference_count_complete": true
+        },
+        "reasons": []
+      }
+    ]
+  },
+  "final_replay": {
+    "fixed-complete": {
+      "runs": 26,
+      "files": 998
+    },
+    "numeric-final": {
+      "runs": 50,
+      "files": 1594
+    }
+  },
+  "performance": {
+    "platform": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+    "product_processes": 18,
+    "baseline_processes": 9,
+    "instrumented_processes": 6,
+    "repeats": 3,
+    "raw_overlay": true,
+    "html": true,
+    "warmups": 0,
+    "cold_cache_claim": false,
+    "product_instrumented_outputs_equal": true,
+    "rss_source": "wait4.ru_maxrss",
+    "summaries": [
+      {
+        "case": "shared-chain",
+        "carry": false,
+        "status": "disabled",
+        "median_seconds": 1.170483791967854,
+        "max_rss_bytes": 285507584,
+        "pdf_renders": 6,
+        "global_estimations": 3,
+        "stages": {
+          "cli": 2513.9781,
+          "global_align": 2.5797,
+          "normalize": 4.914,
+          "pdf_render": 882.3585999999999,
+          "pdf_text": 151.8195,
+          "row_compare": 841.2173,
+          "save_flow_bands": 0.1563,
+          "save_html": 8.0662,
+          "save_json": 34.1842,
+          "save_page": 59.904399999999995
+        }
+      },
+      {
+        "case": "shared-chain",
+        "carry": true,
+        "status": "applied",
+        "median_seconds": 1.1124406249728054,
+        "max_rss_bytes": 309673984,
+        "pdf_renders": 36,
+        "global_estimations": 3,
+        "stages": {
+          "adoption_baseline": 143.9721,
+          "cli": 1096.1302,
+          "final_flow_compare": 20.2301,
+          "flow_adoption": 280.87080000000003,
+          "flow_ambiguity": 5.381,
+          "flow_band_verification": 55.4493,
+          "flow_collect": 82.7184,
+          "flow_comparison": 31.8992,
+          "flow_global_align": 2.6732,
+          "flow_inference": 10.3247,
+          "flow_numeric_rows": 4.6798,
+          "flow_plan": 130.2947,
+          "flow_prepare": 693.3362,
+          "flow_surface": 6.3746,
+          "normalize": 0.7263000000000001,
+          "pdf_render": 60.3745,
+          "pdf_text": 164.5761,
+          "save_flow_bands": 11.441,
+          "save_html": 9.74,
+          "save_json": 51.857,
+          "save_page": 87.3098,
+          "shared_aggregation": 6.6101
+        }
+      },
+      {
+        "case": "shared-and-independent",
+        "carry": false,
+        "status": "disabled",
+        "median_seconds": 1.1216635829769075,
+        "max_rss_bytes": 295010304,
+        "pdf_renders": 8,
+        "global_estimations": 4,
+        "stages": {
+          "cli": 1114.4142,
+          "global_align": 1.3473,
+          "normalize": 2.533,
+          "pdf_render": 24.2198,
+          "pdf_text": 151.2424,
+          "row_compare": 756.1645,
+          "save_flow_bands": 0.0637,
+          "save_html": 8.0822,
+          "save_json": 33.8553,
+          "save_page": 75.381
+        }
+      },
+      {
+        "case": "shared-and-independent",
+        "carry": true,
+        "status": "applied",
+        "median_seconds": 1.283087957999669,
+        "max_rss_bytes": 305381376,
+        "pdf_renders": 48,
+        "global_estimations": 4,
+        "stages": {
+          "adoption_baseline": 163.207,
+          "cli": 1262.4615,
+          "final_flow_compare": 27.2616,
+          "flow_adoption": 333.0395,
+          "flow_ambiguity": 5.9113,
+          "flow_band_verification": 66.1508,
+          "flow_collect": 112.5659,
+          "flow_comparison": 40.8954,
+          "flow_global_align": 2.5696999999999997,
+          "flow_inference": 10.577,
+          "flow_numeric_rows": 4.6701,
+          "flow_plan": 161.0493,
+          "flow_prepare": 813.067,
+          "flow_surface": 7.7143,
+          "normalize": 0.7493000000000001,
+          "pdf_render": 78.1403,
+          "pdf_text": 165.7835,
+          "save_flow_bands": 14.0876,
+          "save_html": 9.5936,
+          "save_json": 55.8423,
+          "save_page": 113.31360000000001,
+          "shared_aggregation": 6.5206
+        }
+      },
+      {
+        "case": "same-page-two",
+        "carry": false,
+        "status": "disabled",
+        "median_seconds": 1.0970005419803783,
+        "max_rss_bytes": 267681792,
+        "pdf_renders": 4,
+        "global_estimations": 2,
+        "stages": {
+          "cli": 1076.7827,
+          "global_align": 1.2474,
+          "normalize": 2.0963,
+          "pdf_render": 17.6246,
+          "pdf_text": 149.1927,
+          "row_compare": 760.2589,
+          "save_flow_bands": 0.0525,
+          "save_html": 8.0094,
+          "save_json": 31.734,
+          "save_page": 44.456
+        }
+      },
+      {
+        "case": "same-page-two",
+        "carry": true,
+        "status": "skipped",
+        "median_seconds": 1.2121302500599995,
+        "max_rss_bytes": 275955712,
+        "pdf_renders": 12,
+        "global_estimations": 4,
+        "stages": {
+          "cli": 1191.1329,
+          "flow_ambiguity": 1.4835,
+          "flow_collect": 59.9197,
+          "flow_global_align": 2.6037,
+          "flow_inference": 10.6903,
+          "flow_numeric_rows": 4.6855,
+          "flow_plan": 41.4763,
+          "flow_prepare": 278.0557,
+          "flow_surface": 3.8959,
+          "global_align": 0.0376,
+          "normalize": 1.0656,
+          "pdf_render": 28.6852,
+          "pdf_text": 155.003,
+          "row_compare": 604.6698,
+          "save_flow_bands": 7.5667,
+          "save_html": 8.168,
+          "save_json": 36.4469,
+          "save_page": 42.5867
+        }
+      }
+    ],
+    "records": [
+      {
+        "case": "shared-chain",
+        "carry": false,
+        "kind": "product",
+        "iteration": 0,
+        "seconds": 1.170483791967854,
+        "peak_rss_bytes": 281837568,
+        "stages": [],
+        "status": "disabled",
+        "summary": {
+          "status": "different",
+          "pages_compared": 3,
+          "pages_different": 3,
+          "clusters": 16,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": null,
+          "aggregated_difference_count_complete": null,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 16,
+          "difference_count_complete": true
+        }
+      },
+      {
+        "case": "shared-chain",
+        "carry": false,
+        "kind": "instrumented",
+        "iteration": 0,
+        "seconds": 2.537381291971542,
+        "peak_rss_bytes": 268926976,
+        "stages": [
+          {
+            "id": 1,
+            "parent": null,
+            "stage": "cli",
+            "ms": 2513.9781
+          },
+          {
+            "id": 2,
+            "parent": 1,
+            "stage": "pdf_render",
+            "ms": 873.3145
+          },
+          {
+            "id": 3,
+            "parent": 1,
+            "stage": "pdf_render",
+            "ms": 3.3265
+          },
+          {
+            "id": 4,
+            "parent": 1,
+            "stage": "save_flow_bands",
+            "ms": 0.105
+          },
+          {
+            "id": 5,
+            "parent": 1,
+            "stage": "save_flow_bands",
+            "ms": 0.0505
+          },
+          {
+            "id": 6,
+            "parent": 1,
+            "stage": "normalize",
+            "ms": 4.563
+          },
+          {
+            "id": 7,
+            "parent": 1,
+            "stage": "global_align",
+            "ms": 2.5757
+          },
+          {
+            "id": 8,
+            "parent": 1,
+            "stage": "row_compare",
+            "ms": 412.1837
+          },
+          {
+            "id": 9,
+            "parent": 8,
+            "stage": "pdf_text",
+            "ms": 146.5369
+          },
+          {
+            "id": 10,
+            "parent": 8,
+            "stage": "pdf_text",
+            "ms": 2.2442
+          },
+          {
+            "id": 11,
+            "parent": 1,
+            "stage": "save_page",
+            "ms": 27.0727
+          },
+          {
+            "id": 12,
+            "parent": 1,
+            "stage": "pdf_render",
+            "ms": 1.4987
+          },
+          {
+            "id": 13,
+            "parent": 1,
+            "stage": "pdf_render",
+            "ms": 1.3844
+          },
+          {
+            "id": 14,
+            "parent": 1,
+            "stage": "save_flow_bands",
+            "ms": 0.0004
+          },
+          {
+            "id": 15,
+            "parent": 1,
+            "stage": "save_flow_bands",
+            "ms": 0
+          },
+          {
+            "id": 16,
+            "parent": 1,
+            "stage": "normalize",
+            "ms": 0.1785
+          },
+          {
+            "id": 17,
+            "parent": 1,
+            "stage": "global_align",
+            "ms": 0.0023
+          },
+          {
+            "id": 18,
+            "parent": 1,
+            "stage": "row_compare",
+            "ms": 131.9902
+          },
+          {
+            "id": 19,
+            "parent": 18,
+            "stage": "pdf_text",
+            "ms": 0.9346
+          },
+          {
+            "id": 20,
+            "parent": 18,
+            "stage": "pdf_text",
+            "ms": 0.6677
+          },
+          {
+            "id": 21,
+            "parent": 1,
+            "stage": "save_page",
+            "ms": 15.889
+          },
+          {
+            "id": 22,
+            "parent": 1,
+            "stage": "pdf_render",
+            "ms": 1.4517
+          },
+          {
+            "id": 23,
+            "parent": 1,
+            "stage": "pdf_render",
+            "ms": 1.3828
+          },
+          {
+            "id": 24,
+            "parent": 1,
+            "stage": "save_flow_bands",
+            "ms": 0.0004
+          },
+          {
+            "id": 25,
+            "parent": 1,
+            "stage": "save_flow_bands",
+            "ms": 0
+          },
+          {
+            "id": 26,
+            "parent": 1,
+            "stage": "normalize",
+            "ms": 0.1725
+          },
+          {
+            "id": 27,
+            "parent": 1,
+            "stage": "global_align",
+            "ms": 0.0017
+          },
+          {
+            "id": 28,
+            "parent": 1,
+            "stage": "row_compare",
+            "ms": 297.0434
+          },
+          {
+            "id": 29,
+            "parent": 28,
+            "stage": "pdf_text",
+            "ms": 0.743
+          },
+          {
+            "id": 30,
+            "parent": 28,
+            "stage": "pdf_text",
+            "ms": 0.6931
+          },
+          {
+            "id": 31,
+            "parent": 1,
+            "stage": "save_page",
+            "ms": 16.9427
+          },
+          {
+            "id": 32,
+            "parent": 1,
+            "stage": "save_json",
+            "ms": 34.1842
+          },
+          {
+            "id": 33,
+            "parent": 1,
+            "stage": "save_html",
+            "ms": 8.0662
+          }
+        ],
+        "status": "disabled",
+        "summary": {
+          "status": "different",
+          "pages_compared": 3,
+          "pages_different": 3,
+          "clusters": 16,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": null,
+          "aggregated_difference_count_complete": null,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 16,
+          "difference_count_complete": true
+        }
+      },
+      {
+        "case": "shared-chain",
+        "carry": true,
+        "kind": "product",
+        "iteration": 0,
+        "seconds": 1.115273708011955,
+        "peak_rss_bytes": 309673984,
+        "stages": [],
+        "status": "applied",
+        "summary": {
+          "status": "different",
+          "pages_compared": 3,
+          "pages_different": 3,
+          "clusters": 0,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 2,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 10,
+          "structural_change_counts": {
+            "inserted": 4,
+            "deleted": 2,
+            "block_moved": 4
+          },
+          "difference_count": 10,
+          "difference_count_complete": true
+        }
+      },
+      {
+        "case": "shared-chain",
+        "carry": true,
+        "kind": "instrumented",
+        "iteration": 0,
+        "seconds": 1.1197391249006614,
+        "peak_rss_bytes": 293814272,
+        "stages": [
+          {
+            "id": 1,
+            "parent": null,
+            "stage": "cli",
+            "ms": 1096.1302
+          },
+          {
+            "id": 2,
+            "parent": 1,
+            "stage": "flow_prepare",
+            "ms": 693.3362
+          },
+          {
+            "id": 3,
+            "parent": 2,
+            "stage": "pdf_render",
+            "ms": 12.8716
+          },
+          {
+            "id": 4,
+            "parent": 2,
+            "stage": "pdf_render",
+            "ms": 1.6387
+          },
+          {
+            "id": 5,
+            "parent": 2,
+            "stage": "flow_global_align",
+            "ms": 2.6522
+          },
+          {
+            "id": 6,
+            "parent": 2,
+            "stage": "pdf_text",
+            "ms": 151.9509
+          },
+          {
+            "id": 7,
+            "parent": 2,
+            "stage": "flow_collect",
+            "ms": 18.444
+          },
+          {
+            "id": 8,
+            "parent": 2,
+            "stage": "pdf_text",
+            "ms": 2.0913
+          },
+          {
+            "id": 9,
+            "parent": 2,
+            "stage": "flow_collect",
+            "ms": 13.6786
+          },
+          {
+            "id": 10,
+            "parent": 2,
+            "stage": "pdf_render",
+            "ms": 1.5752
+          },
+          {
+            "id": 11,
+            "parent": 2,
+            "stage": "pdf_render",
+            "ms": 1.358
+          },
+          {
+            "id": 12,
+            "parent": 2,
+            "stage": "flow_global_align",
+            "ms": 0.0106
+          },
+          {
+            "id": 13,
+            "parent": 2,
+            "stage": "pdf_text",
+            "ms": 0.7577
+          },
+          {
+            "id": 14,
+            "parent": 2,
+            "stage": "flow_collect",
+            "ms": 11.9035
+          },
+          {
+            "id": 15,
+            "parent": 2,
+            "stage": "pdf_text",
+            "ms": 0.6927
+          },
+          {
+            "id": 16,
+            "parent": 2,
+            "stage": "flow_collect",
+            "ms": 11.923
+          },
+          {
+            "id": 17,
+            "parent": 2,
+            "stage": "pdf_render",
+            "ms": 1.5237
+          },
+          {
+            "id": 18,
+            "parent": 2,
+            "stage": "pdf_render",
+            "ms": 1.283
+          },
+          {
+            "id": 19,
+            "parent": 2,
+            "stage": "flow_global_align",
+            "ms": 0.0104
+          },
+          {
+            "id": 20,
+            "parent": 2,
+            "stage": "pdf_text",
+            "ms": 0.7205
+          },
+          {
+            "id": 21,
+            "parent": 2,
+            "stage": "flow_collect",
+            "ms": 14.7273
+          },
+          {
+            "id": 22,
+            "parent": 2,
+            "stage": "pdf_text",
+            "ms": 0.6861
+          },
+          {
+            "id": 23,
+            "parent": 2,
+            "stage": "flow_collect",
+            "ms": 12.042
+          },
+          {
+            "id": 24,
+            "parent": 2,
+            "stage": "flow_plan",
+            "ms": 130.2947
+          },
+          {
+            "id": 25,
+            "parent": 24,
+            "stage": "flow_inference",
+            "ms": 10.3247
+          },
+          {
+            "id": 26,
+            "parent": 24,
+            "stage": "flow_numeric_rows",
+            "ms": 4.6798
+          },
+          {
+            "id": 27,
+            "parent": 24,
+            "stage": "pdf_render",
+            "ms": 1.5051
+          },
+          {
+            "id": 28,
+            "parent": 24,
+            "stage": "pdf_render",
+            "ms": 1.3992
+          },
+          {
+            "id": 29,
+            "parent": 24,
+            "stage": "flow_band_verification",
+            "ms": 21.424
+          },
+          {
+            "id": 30,
+            "parent": 24,
+            "stage": "pdf_render",
+            "ms": 1.3932
+          },
+          {
+            "id": 31,
+            "parent": 24,
+            "stage": "pdf_render",
+            "ms": 1.3247
+          },
+          {
+            "id": 32,
+            "parent": 24,
+            "stage": "flow_surface",
+            "ms": 5.8918
+          },
+          {
+            "id": 33,
+            "parent": 24,
+            "stage": "pdf_render",
+            "ms": 1.4051
+          },
+          {
+            "id": 34,
+            "parent": 24,
+            "stage": "pdf_render",
+            "ms": 1.2765
+          },
+          {
+            "id": 35,
+            "parent": 24,
+            "stage": "flow_surface",
+            "ms": 0.1717
+          },
+          {
+            "id": 36,
+            "parent": 24,
+            "stage": "pdf_render",
+            "ms": 1.2407
+          },
+          {
+            "id": 37,
+            "parent": 24,
+            "stage": "pdf_render",
+            "ms": 1.3659
+          },
+          {
+            "id": 38,
+            "parent": 24,
+            "stage": "flow_surface",
+            "ms": 0.0171
+          },
+          {
+            "id": 39,
+            "parent": 24,
+            "stage": "flow_ambiguity",
+            "ms": 5.381
+          },
+          {
+            "id": 40,
+            "parent": 24,
+            "stage": "pdf_render",
+            "ms": 1.3695
+          },
+          {
+            "id": 41,
+            "parent": 24,
+            "stage": "pdf_render",
+            "ms": 1.2656
+          },
+          {
+            "id": 42,
+            "parent": 24,
+            "stage": "flow_band_verification",
+            "ms": 18.4769
+          },
+          {
+            "id": 43,
+            "parent": 24,
+            "stage": "pdf_render",
+            "ms": 1.3072
+          },
+          {
+            "id": 44,
+            "parent": 24,
+            "stage": "pdf_render",
+            "ms": 1.4297
+          },
+          {
+            "id": 45,
+            "parent": 24,
+            "stage": "flow_band_verification",
+            "ms": 15.5484
+          },
+          {
+            "id": 46,
+            "parent": 24,
+            "stage": "pdf_render",
+            "ms": 1.3912
+          },
+          {
+            "id": 47,
+            "parent": 24,
+            "stage": "pdf_render",
+            "ms": 1.2298
+          },
+          {
+            "id": 48,
+            "parent": 24,
+            "stage": "flow_surface",
+            "ms": 0.1142
+          },
+          {
+            "id": 49,
+            "parent": 24,
+            "stage": "pdf_render",
+            "ms": 1.351
+          },
+          {
+            "id": 50,
+            "parent": 24,
+            "stage": "pdf_render",
+            "ms": 1.3271
+          },
+          {
+            "id": 51,
+            "parent": 24,
+            "stage": "flow_surface",
+            "ms": 0.1012
+          },
+          {
+            "id": 52,
+            "parent": 24,
+            "stage": "pdf_render",
+            "ms": 1.2141
+          },
+          {
+            "id": 53,
+            "parent": 24,
+            "stage": "pdf_render",
+            "ms": 1.3347
+          },
+          {
+            "id": 54,
+            "parent": 24,
+            "stage": "flow_surface",
+            "ms": 0.0786
+          },
+          {
+            "id": 55,
+            "parent": 2,
+            "stage": "pdf_render",
+            "ms": 1.3013
+          },
+          {
+            "id": 56,
+            "parent": 2,
+            "stage": "pdf_render",
+            "ms": 1.1893
+          },
+          {
+            "id": 57,
+            "parent": 2,
+            "stage": "flow_adoption",
+            "ms": 171.3805
+          },
+          {
+            "id": 58,
+            "parent": 57,
+            "stage": "pdf_text",
+            "ms": 0.7067
+          },
+          {
+            "id": 59,
+            "parent": 57,
+            "stage": "pdf_text",
+            "ms": 0.6147
+          },
+          {
+            "id": 60,
+            "parent": 57,
+            "stage": "adoption_baseline",
+            "ms": 101.6867
+          },
+          {
+            "id": 61,
+            "parent": 57,
+            "stage": "flow_comparison",
+            "ms": 9.8693
+          },
+          {
+            "id": 62,
+            "parent": 2,
+            "stage": "pdf_render",
+            "ms": 1.497
+          },
+          {
+            "id": 63,
+            "parent": 2,
+            "stage": "pdf_render",
+            "ms": 1.2355
+          },
+          {
+            "id": 64,
+            "parent": 2,
+            "stage": "flow_adoption",
+            "ms": 53.067
+          },
+          {
+            "id": 65,
+            "parent": 64,
+            "stage": "pdf_text",
+            "ms": 0.6942
+          },
+          {
+            "id": 66,
+            "parent": 64,
+            "stage": "pdf_text",
+            "ms": 0.6356
+          },
+          {
+            "id": 67,
+            "parent": 64,
+            "stage": "adoption_baseline",
+            "ms": 19.153
+          },
+          {
+            "id": 68,
+            "parent": 64,
+            "stage": "flow_comparison",
+            "ms": 4.6647
+          },
+          {
+            "id": 69,
+            "parent": 2,
+            "stage": "pdf_render",
+            "ms": 1.2654
+          },
+          {
+            "id": 70,
+            "parent": 2,
+            "stage": "pdf_render",
+            "ms": 1.2387
+          },
+          {
+            "id": 71,
+            "parent": 2,
+            "stage": "flow_adoption",
+            "ms": 56.4233
+          },
+          {
+            "id": 72,
+            "parent": 71,
+            "stage": "pdf_text",
+            "ms": 0.6031
+          },
+          {
+            "id": 73,
+            "parent": 71,
+            "stage": "pdf_text",
+            "ms": 0.6065
+          },
+          {
+            "id": 74,
+            "parent": 71,
+            "stage": "adoption_baseline",
+            "ms": 23.1324
+          },
+          {
+            "id": 75,
+            "parent": 71,
+            "stage": "flow_comparison",
+            "ms": 4.5609
+          },
+          {
+            "id": 76,
+            "parent": 1,
+            "stage": "pdf_render",
+            "ms": 1.3788
+          },
+          {
+            "id": 77,
+            "parent": 1,
+            "stage": "pdf_render",
+            "ms": 1.3071
+          },
+          {
+            "id": 78,
+            "parent": 1,
+            "stage": "save_flow_bands",
+            "ms": 3.3715
+          },
+          {
+            "id": 79,
+            "parent": 1,
+            "stage": "save_flow_bands",
+            "ms": 1.2223
+          },
+          {
+            "id": 80,
+            "parent": 1,
+            "stage": "normalize",
+            "ms": 0.4293
+          },
+          {
+            "id": 81,
+            "parent": 1,
+            "stage": "final_flow_compare",
+            "ms": 6.7701
+          },
+          {
+            "id": 82,
+            "parent": 81,
+            "stage": "flow_comparison",
+            "ms": 4.3591
+          },
+          {
+            "id": 83,
+            "parent": 1,
+            "stage": "pdf_text",
+            "ms": 0.7035
+          },
+          {
+            "id": 84,
+            "parent": 1,
+            "stage": "pdf_text",
+            "ms": 0.5897
+          },
+          {
+            "id": 85,
+            "parent": 1,
+            "stage": "save_page",
+            "ms": 37.741
+          },
+          {
+            "id": 86,
+            "parent": 1,
+            "stage": "pdf_render",
+            "ms": 1.4485
+          },
+          {
+            "id": 87,
+            "parent": 1,
+            "stage": "pdf_render",
+            "ms": 1.3341
+          },
+          {
+            "id": 88,
+            "parent": 1,
+            "stage": "save_flow_bands",
+            "ms": 1.9834
+          },
+          {
+            "id": 89,
+            "parent": 1,
+            "stage": "save_flow_bands",
+            "ms": 1.5253
+          },
+          {
+            "id": 90,
+            "parent": 1,
+            "stage": "normalize",
+            "ms": 0.1516
+          },
+          {
+            "id": 91,
+            "parent": 1,
+            "stage": "final_flow_compare",
+            "ms": 6.4323
+          },
+          {
+            "id": 92,
+            "parent": 91,
+            "stage": "flow_comparison",
+            "ms": 3.9573
+          },
+          {
+            "id": 93,
+            "parent": 1,
+            "stage": "pdf_text",
+            "ms": 0.7017
+          },
+          {
+            "id": 94,
+            "parent": 1,
+            "stage": "pdf_text",
+            "ms": 0.5785
+          },
+          {
+            "id": 95,
+            "parent": 1,
+            "stage": "save_page",
+            "ms": 24.9387
+          },
+          {
+            "id": 96,
+            "parent": 1,
+            "stage": "pdf_render",
+            "ms": 1.4395
+          },
+          {
+            "id": 97,
+            "parent": 1,
+            "stage": "pdf_render",
+            "ms": 1.3588
+          },
+          {
+            "id": 98,
+            "parent": 1,
+            "stage": "save_flow_bands",
+            "ms": 1.2873
+          },
+          {
+            "id": 99,
+            "parent": 1,
+            "stage": "save_flow_bands",
+            "ms": 2.0512
+          },
+          {
+            "id": 100,
+            "parent": 1,
+            "stage": "normalize",
+            "ms": 0.1454
+          },
+          {
+            "id": 101,
+            "parent": 1,
+            "stage": "final_flow_compare",
+            "ms": 7.0277
+          },
+          {
+            "id": 102,
+            "parent": 101,
+            "stage": "flow_comparison",
+            "ms": 4.4879
+          },
+          {
+            "id": 103,
+            "parent": 1,
+            "stage": "pdf_text",
+            "ms": 0.633
+          },
+          {
+            "id": 104,
+            "parent": 1,
+            "stage": "pdf_text",
+            "ms": 0.6097
+          },
+          {
+            "id": 105,
+            "parent": 1,
+            "stage": "save_page",
+            "ms": 24.6301
+          },
+          {
+            "id": 106,
+            "parent": 1,
+            "stage": "save_json",
+            "ms": 51.857
+          },
+          {
+            "id": 107,
+            "parent": 106,
+            "stage": "shared_aggregation",
+            "ms": 6.6101
+          },
+          {
+            "id": 108,
+            "parent": 1,
+            "stage": "save_html",
+            "ms": 9.74
+          }
+        ],
+        "status": "applied",
+        "summary": {
+          "status": "different",
+          "pages_compared": 3,
+          "pages_different": 3,
+          "clusters": 0,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 2,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 10,
+          "structural_change_counts": {
+            "inserted": 4,
+            "deleted": 2,
+            "block_moved": 4
+          },
+          "difference_count": 10,
+          "difference_count_complete": true
+        }
+      },
+      {
+        "case": "shared-chain",
+        "carry": true,
+        "kind": "before",
+        "iteration": 0,
+        "seconds": 1.3314686249941587,
+        "peak_rss_bytes": 288276480,
+        "stages": [],
+        "status": "skipped",
+        "summary": {
+          "status": "different",
+          "pages_compared": 3,
+          "pages_different": 3,
+          "clusters": 16,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 16,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 16,
+          "difference_count_complete": true
+        }
+      },
+      {
+        "case": "shared-chain",
+        "carry": true,
+        "kind": "product",
+        "iteration": 1,
+        "seconds": 1.1097595000173897,
+        "peak_rss_bytes": 301842432,
+        "stages": [],
+        "status": "applied",
+        "summary": {
+          "status": "different",
+          "pages_compared": 3,
+          "pages_different": 3,
+          "clusters": 0,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 2,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 10,
+          "structural_change_counts": {
+            "inserted": 4,
+            "deleted": 2,
+            "block_moved": 4
+          },
+          "difference_count": 10,
+          "difference_count_complete": true
+        }
+      },
+      {
+        "case": "shared-chain",
+        "carry": true,
+        "kind": "before",
+        "iteration": 1,
+        "seconds": 1.3265836250502616,
+        "peak_rss_bytes": 263208960,
+        "stages": [],
+        "status": "skipped",
+        "summary": {
+          "status": "different",
+          "pages_compared": 3,
+          "pages_different": 3,
+          "clusters": 16,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 16,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 16,
+          "difference_count_complete": true
+        }
+      },
+      {
+        "case": "shared-chain",
+        "carry": false,
+        "kind": "product",
+        "iteration": 1,
+        "seconds": 1.170986459008418,
+        "peak_rss_bytes": 268632064,
+        "stages": [],
+        "status": "disabled",
+        "summary": {
+          "status": "different",
+          "pages_compared": 3,
+          "pages_different": 3,
+          "clusters": 16,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": null,
+          "aggregated_difference_count_complete": null,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 16,
+          "difference_count_complete": true
+        }
+      },
+      {
+        "case": "shared-chain",
+        "carry": false,
+        "kind": "product",
+        "iteration": 2,
+        "seconds": 1.1544054170371965,
+        "peak_rss_bytes": 285507584,
+        "stages": [],
+        "status": "disabled",
+        "summary": {
+          "status": "different",
+          "pages_compared": 3,
+          "pages_different": 3,
+          "clusters": 16,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": null,
+          "aggregated_difference_count_complete": null,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 16,
+          "difference_count_complete": true
+        }
+      },
+      {
+        "case": "shared-chain",
+        "carry": true,
+        "kind": "product",
+        "iteration": 2,
+        "seconds": 1.1124406249728054,
+        "peak_rss_bytes": 302202880,
+        "stages": [],
+        "status": "applied",
+        "summary": {
+          "status": "different",
+          "pages_compared": 3,
+          "pages_different": 3,
+          "clusters": 0,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 2,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 10,
+          "structural_change_counts": {
+            "inserted": 4,
+            "deleted": 2,
+            "block_moved": 4
+          },
+          "difference_count": 10,
+          "difference_count_complete": true
+        }
+      },
+      {
+        "case": "shared-chain",
+        "carry": true,
+        "kind": "before",
+        "iteration": 2,
+        "seconds": 1.3332220410229638,
+        "peak_rss_bytes": 268877824,
+        "stages": [],
+        "status": "skipped",
+        "summary": {
+          "status": "different",
+          "pages_compared": 3,
+          "pages_different": 3,
+          "clusters": 16,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 16,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 16,
+          "difference_count_complete": true
+        }
+      },
+      {
+        "case": "shared-and-independent",
+        "carry": false,
+        "kind": "product",
+        "iteration": 0,
+        "seconds": 1.1165340839652345,
+        "peak_rss_bytes": 271433728,
+        "stages": [],
+        "status": "disabled",
+        "summary": {
+          "status": "different",
+          "pages_compared": 4,
+          "pages_different": 4,
+          "clusters": 20,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": null,
+          "aggregated_difference_count_complete": null,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 20,
+          "difference_count_complete": true
+        }
+      },
+      {
+        "case": "shared-and-independent",
+        "carry": false,
+        "kind": "instrumented",
+        "iteration": 0,
+        "seconds": 1.1385492919944227,
+        "peak_rss_bytes": 276348928,
+        "stages": [
+          {
+            "id": 1,
+            "parent": null,
+            "stage": "cli",
+            "ms": 1114.4142
+          },
+          {
+            "id": 2,
+            "parent": 1,
+            "stage": "pdf_render",
+            "ms": 13.92
+          },
+          {
+            "id": 3,
+            "parent": 1,
+            "stage": "pdf_render",
+            "ms": 1.695
+          },
+          {
+            "id": 4,
+            "parent": 1,
+            "stage": "save_flow_bands",
+            "ms": 0.0427
+          },
+          {
+            "id": 5,
+            "parent": 1,
+            "stage": "save_flow_bands",
+            "ms": 0.0199
+          },
+          {
+            "id": 6,
+            "parent": 1,
+            "stage": "normalize",
+            "ms": 2.0012
+          },
+          {
+            "id": 7,
+            "parent": 1,
+            "stage": "global_align",
+            "ms": 1.3434
+          },
+          {
+            "id": 8,
+            "parent": 1,
+            "stage": "row_compare",
+            "ms": 391.0157
+          },
+          {
+            "id": 9,
+            "parent": 8,
+            "stage": "pdf_text",
+            "ms": 144.6741
+          },
+          {
+            "id": 10,
+            "parent": 8,
+            "stage": "pdf_text",
+            "ms": 2.101
+          },
+          {
+            "id": 11,
+            "parent": 1,
+            "stage": "save_page",
+            "ms": 27.0714
+          },
+          {
+            "id": 12,
+            "parent": 1,
+            "stage": "pdf_render",
+            "ms": 1.4897
+          },
+          {
+            "id": 13,
+            "parent": 1,
+            "stage": "pdf_render",
+            "ms": 1.4899
+          },
+          {
+            "id": 14,
+            "parent": 1,
+            "stage": "save_flow_bands",
+            "ms": 0.0004
+          },
+          {
+            "id": 15,
+            "parent": 1,
+            "stage": "save_flow_bands",
+            "ms": 0
+          },
+          {
+            "id": 16,
+            "parent": 1,
+            "stage": "normalize",
+            "ms": 0.1774
+          },
+          {
+            "id": 17,
+            "parent": 1,
+            "stage": "global_align",
+            "ms": 0.0015
+          },
+          {
+            "id": 18,
+            "parent": 1,
+            "stage": "row_compare",
+            "ms": 96
+          },
+          {
+            "id": 19,
+            "parent": 18,
+            "stage": "pdf_text",
+            "ms": 0.7706
+          },
+          {
+            "id": 20,
+            "parent": 18,
+            "stage": "pdf_text",
+            "ms": 0.64
+          },
+          {
+            "id": 21,
+            "parent": 1,
+            "stage": "save_page",
+            "ms": 16.9762
+          },
+          {
+            "id": 22,
+            "parent": 1,
+            "stage": "pdf_render",
+            "ms": 1.4493
+          },
+          {
+            "id": 23,
+            "parent": 1,
+            "stage": "pdf_render",
+            "ms": 1.3317
+          },
+          {
+            "id": 24,
+            "parent": 1,
+            "stage": "save_flow_bands",
+            "ms": 0.0002
+          },
+          {
+            "id": 25,
+            "parent": 1,
+            "stage": "save_flow_bands",
+            "ms": 0
+          },
+          {
+            "id": 26,
+            "parent": 1,
+            "stage": "normalize",
+            "ms": 0.1742
+          },
+          {
+            "id": 27,
+            "parent": 1,
+            "stage": "global_align",
+            "ms": 0.0012
+          },
+          {
+            "id": 28,
+            "parent": 1,
+            "stage": "row_compare",
+            "ms": 117.1356
+          },
+          {
+            "id": 29,
+            "parent": 28,
+            "stage": "pdf_text",
+            "ms": 1.1222
+          },
+          {
+            "id": 30,
+            "parent": 28,
+            "stage": "pdf_text",
+            "ms": 0.6412
+          },
+          {
+            "id": 31,
+            "parent": 1,
+            "stage": "save_page",
+            "ms": 15.0997
+          },
+          {
+            "id": 32,
+            "parent": 1,
+            "stage": "pdf_render",
+            "ms": 1.432
+          },
+          {
+            "id": 33,
+            "parent": 1,
+            "stage": "pdf_render",
+            "ms": 1.4122
+          },
+          {
+            "id": 34,
+            "parent": 1,
+            "stage": "save_flow_bands",
+            "ms": 0.0005
+          },
+          {
+            "id": 35,
+            "parent": 1,
+            "stage": "save_flow_bands",
+            "ms": 0
+          },
+          {
+            "id": 36,
+            "parent": 1,
+            "stage": "normalize",
+            "ms": 0.1802
+          },
+          {
+            "id": 37,
+            "parent": 1,
+            "stage": "global_align",
+            "ms": 0.0012
+          },
+          {
+            "id": 38,
+            "parent": 1,
+            "stage": "row_compare",
+            "ms": 152.0132
+          },
+          {
+            "id": 39,
+            "parent": 38,
+            "stage": "pdf_text",
+            "ms": 0.6825
+          },
+          {
+            "id": 40,
+            "parent": 38,
+            "stage": "pdf_text",
+            "ms": 0.6108
+          },
+          {
+            "id": 41,
+            "parent": 1,
+            "stage": "save_page",
+            "ms": 16.2337
+          },
+          {
+            "id": 42,
+            "parent": 1,
+            "stage": "save_json",
+            "ms": 33.8553
+          },
+          {
+            "id": 43,
+            "parent": 1,
+            "stage": "save_html",
+            "ms": 8.0822
+          }
+        ],
+        "status": "disabled",
+        "summary": {
+          "status": "different",
+          "pages_compared": 4,
+          "pages_different": 4,
+          "clusters": 20,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": null,
+          "aggregated_difference_count_complete": null,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 20,
+          "difference_count_complete": true
+        }
+      },
+      {
+        "case": "shared-and-independent",
+        "carry": true,
+        "kind": "product",
+        "iteration": 0,
+        "seconds": 1.283087957999669,
+        "peak_rss_bytes": 305381376,
+        "stages": [],
+        "status": "applied",
+        "summary": {
+          "status": "different",
+          "pages_compared": 4,
+          "pages_different": 4,
+          "clusters": 0,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 3,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 12,
+          "structural_change_counts": {
+            "inserted": 5,
+            "deleted": 2,
+            "block_moved": 5
+          },
+          "difference_count": 12,
+          "difference_count_complete": true
+        }
+      },
+      {
+        "case": "shared-and-independent",
+        "carry": true,
+        "kind": "instrumented",
+        "iteration": 0,
+        "seconds": 1.2868782909354195,
+        "peak_rss_bytes": 300400640,
+        "stages": [
+          {
+            "id": 1,
+            "parent": null,
+            "stage": "cli",
+            "ms": 1262.4615
+          },
+          {
+            "id": 2,
+            "parent": 1,
+            "stage": "flow_prepare",
+            "ms": 813.067
+          },
+          {
+            "id": 3,
+            "parent": 2,
+            "stage": "pdf_render",
+            "ms": 12.5323
+          },
+          {
+            "id": 4,
+            "parent": 2,
+            "stage": "pdf_render",
+            "ms": 1.6318
+          },
+          {
+            "id": 5,
+            "parent": 2,
+            "stage": "flow_global_align",
+            "ms": 2.5422
+          },
+          {
+            "id": 6,
+            "parent": 2,
+            "stage": "pdf_text",
+            "ms": 148.9081
+          },
+          {
+            "id": 7,
+            "parent": 2,
+            "stage": "flow_collect",
+            "ms": 18.333
+          },
+          {
+            "id": 8,
+            "parent": 2,
+            "stage": "pdf_text",
+            "ms": 2.2065
+          },
+          {
+            "id": 9,
+            "parent": 2,
+            "stage": "flow_collect",
+            "ms": 14.5991
+          },
+          {
+            "id": 10,
+            "parent": 2,
+            "stage": "pdf_render",
+            "ms": 1.4472
+          },
+          {
+            "id": 11,
+            "parent": 2,
+            "stage": "pdf_render",
+            "ms": 1.3165
+          },
+          {
+            "id": 12,
+            "parent": 2,
+            "stage": "flow_global_align",
+            "ms": 0.0106
+          },
+          {
+            "id": 13,
+            "parent": 2,
+            "stage": "pdf_text",
+            "ms": 0.675
+          },
+          {
+            "id": 14,
+            "parent": 2,
+            "stage": "flow_collect",
+            "ms": 14.7412
+          },
+          {
+            "id": 15,
+            "parent": 2,
+            "stage": "pdf_text",
+            "ms": 0.7099
+          },
+          {
+            "id": 16,
+            "parent": 2,
+            "stage": "flow_collect",
+            "ms": 12.3543
+          },
+          {
+            "id": 17,
+            "parent": 2,
+            "stage": "pdf_render",
+            "ms": 1.3689
+          },
+          {
+            "id": 18,
+            "parent": 2,
+            "stage": "pdf_render",
+            "ms": 1.3632
+          },
+          {
+            "id": 19,
+            "parent": 2,
+            "stage": "flow_global_align",
+            "ms": 0.0084
+          },
+          {
+            "id": 20,
+            "parent": 2,
+            "stage": "pdf_text",
+            "ms": 0.7019
+          },
+          {
+            "id": 21,
+            "parent": 2,
+            "stage": "flow_collect",
+            "ms": 12.2716
+          },
+          {
+            "id": 22,
+            "parent": 2,
+            "stage": "pdf_text",
+            "ms": 0.7605
+          },
+          {
+            "id": 23,
+            "parent": 2,
+            "stage": "flow_collect",
+            "ms": 12.2173
+          },
+          {
+            "id": 24,
+            "parent": 2,
+            "stage": "pdf_render",
+            "ms": 1.4617
+          },
+          {
+            "id": 25,
+            "parent": 2,
+            "stage": "pdf_render",
+            "ms": 1.3237
+          },
+          {
+            "id": 26,
+            "parent": 2,
+            "stage": "flow_global_align",
+            "ms": 0.0085
+          },
+          {
+            "id": 27,
+            "parent": 2,
+            "stage": "pdf_text",
+            "ms": 0.601
+          },
+          {
+            "id": 28,
+            "parent": 2,
+            "stage": "flow_collect",
+            "ms": 14.4162
+          },
+          {
+            "id": 29,
+            "parent": 2,
+            "stage": "pdf_text",
+            "ms": 0.6717
+          },
+          {
+            "id": 30,
+            "parent": 2,
+            "stage": "flow_collect",
+            "ms": 13.6332
+          },
+          {
+            "id": 31,
+            "parent": 2,
+            "stage": "flow_plan",
+            "ms": 161.0493
+          },
+          {
+            "id": 32,
+            "parent": 31,
+            "stage": "flow_inference",
+            "ms": 10.577
+          },
+          {
+            "id": 33,
+            "parent": 31,
+            "stage": "flow_numeric_rows",
+            "ms": 4.6701
+          },
+          {
+            "id": 34,
+            "parent": 31,
+            "stage": "pdf_render",
+            "ms": 1.5311
+          },
+          {
+            "id": 35,
+            "parent": 31,
+            "stage": "pdf_render",
+            "ms": 1.5204
+          },
+          {
+            "id": 36,
+            "parent": 31,
+            "stage": "flow_band_verification",
+            "ms": 21.0479
+          },
+          {
+            "id": 37,
+            "parent": 31,
+            "stage": "pdf_render",
+            "ms": 1.4512
+          },
+          {
+            "id": 38,
+            "parent": 31,
+            "stage": "pdf_render",
+            "ms": 1.3725
+          },
+          {
+            "id": 39,
+            "parent": 31,
+            "stage": "flow_band_verification",
+            "ms": 15.2285
+          },
+          {
+            "id": 40,
+            "parent": 31,
+            "stage": "pdf_render",
+            "ms": 1.4271
+          },
+          {
+            "id": 41,
+            "parent": 31,
+            "stage": "pdf_render",
+            "ms": 1.3303
+          },
+          {
+            "id": 42,
+            "parent": 31,
+            "stage": "flow_surface",
+            "ms": 6.5225
+          },
+          {
+            "id": 43,
+            "parent": 31,
+            "stage": "pdf_render",
+            "ms": 1.4125
+          },
+          {
+            "id": 44,
+            "parent": 31,
+            "stage": "pdf_render",
+            "ms": 1.3877
+          },
+          {
+            "id": 45,
+            "parent": 31,
+            "stage": "flow_surface",
+            "ms": 0.1607
+          },
+          {
+            "id": 46,
+            "parent": 31,
+            "stage": "pdf_render",
+            "ms": 1.3318
+          },
+          {
+            "id": 47,
+            "parent": 31,
+            "stage": "pdf_render",
+            "ms": 1.389
+          },
+          {
+            "id": 48,
+            "parent": 31,
+            "stage": "flow_surface",
+            "ms": 0.0756
+          },
+          {
+            "id": 49,
+            "parent": 31,
+            "stage": "pdf_render",
+            "ms": 1.2786
+          },
+          {
+            "id": 50,
+            "parent": 31,
+            "stage": "pdf_render",
+            "ms": 1.2338
+          },
+          {
+            "id": 51,
+            "parent": 31,
+            "stage": "flow_surface",
+            "ms": 0.1006
+          },
+          {
+            "id": 52,
+            "parent": 31,
+            "stage": "flow_ambiguity",
+            "ms": 5.9113
+          },
+          {
+            "id": 53,
+            "parent": 31,
+            "stage": "pdf_render",
+            "ms": 1.458
+          },
+          {
+            "id": 54,
+            "parent": 31,
+            "stage": "pdf_render",
+            "ms": 1.338
+          },
+          {
+            "id": 55,
+            "parent": 31,
+            "stage": "flow_band_verification",
+            "ms": 14.9868
+          },
+          {
+            "id": 56,
+            "parent": 31,
+            "stage": "pdf_render",
+            "ms": 1.4997
+          },
+          {
+            "id": 57,
+            "parent": 31,
+            "stage": "pdf_render",
+            "ms": 1.2945
+          },
+          {
+            "id": 58,
+            "parent": 31,
+            "stage": "flow_band_verification",
+            "ms": 14.8876
+          },
+          {
+            "id": 59,
+            "parent": 31,
+            "stage": "pdf_render",
+            "ms": 1.3515
+          },
+          {
+            "id": 60,
+            "parent": 31,
+            "stage": "pdf_render",
+            "ms": 1.328
+          },
+          {
+            "id": 61,
+            "parent": 31,
+            "stage": "flow_surface",
+            "ms": 0.6636
+          },
+          {
+            "id": 62,
+            "parent": 31,
+            "stage": "pdf_render",
+            "ms": 1.2666
+          },
+          {
+            "id": 63,
+            "parent": 31,
+            "stage": "pdf_render",
+            "ms": 1.295
+          },
+          {
+            "id": 64,
+            "parent": 31,
+            "stage": "flow_surface",
+            "ms": 0.0884
+          },
+          {
+            "id": 65,
+            "parent": 31,
+            "stage": "pdf_render",
+            "ms": 1.382
+          },
+          {
+            "id": 66,
+            "parent": 31,
+            "stage": "pdf_render",
+            "ms": 1.5834
+          },
+          {
+            "id": 67,
+            "parent": 31,
+            "stage": "flow_surface",
+            "ms": 0.0561
+          },
+          {
+            "id": 68,
+            "parent": 31,
+            "stage": "pdf_render",
+            "ms": 1.2142
+          },
+          {
+            "id": 69,
+            "parent": 31,
+            "stage": "pdf_render",
+            "ms": 1.2652
+          },
+          {
+            "id": 70,
+            "parent": 31,
+            "stage": "flow_surface",
+            "ms": 0.0468
+          },
+          {
+            "id": 71,
+            "parent": 2,
+            "stage": "pdf_render",
+            "ms": 1.4601
+          },
+          {
+            "id": 72,
+            "parent": 2,
+            "stage": "pdf_render",
+            "ms": 1.314
+          },
+          {
+            "id": 73,
+            "parent": 2,
+            "stage": "flow_adoption",
+            "ms": 171.4427
+          },
+          {
+            "id": 74,
+            "parent": 73,
+            "stage": "pdf_text",
+            "ms": 0.6593
+          },
+          {
+            "id": 75,
+            "parent": 73,
+            "stage": "pdf_text",
+            "ms": 0.5791
+          },
+          {
+            "id": 76,
+            "parent": 73,
+            "stage": "adoption_baseline",
+            "ms": 101.5097
+          },
+          {
+            "id": 77,
+            "parent": 73,
+            "stage": "flow_comparison",
+            "ms": 9.9422
+          },
+          {
+            "id": 78,
+            "parent": 2,
+            "stage": "pdf_render",
+            "ms": 1.3721
+          },
+          {
+            "id": 79,
+            "parent": 2,
+            "stage": "pdf_render",
+            "ms": 1.4107
+          },
+          {
+            "id": 80,
+            "parent": 2,
+            "stage": "flow_adoption",
+            "ms": 56.818
+          },
+          {
+            "id": 81,
+            "parent": 80,
+            "stage": "pdf_text",
+            "ms": 0.668
+          },
+          {
+            "id": 82,
+            "parent": 80,
+            "stage": "pdf_text",
+            "ms": 0.6302
+          },
+          {
+            "id": 83,
+            "parent": 80,
+            "stage": "adoption_baseline",
+            "ms": 21.6937
+          },
+          {
+            "id": 84,
+            "parent": 80,
+            "stage": "flow_comparison",
+            "ms": 5.8402
+          },
+          {
+            "id": 85,
+            "parent": 2,
+            "stage": "pdf_render",
+            "ms": 1.4131
+          },
+          {
+            "id": 86,
+            "parent": 2,
+            "stage": "pdf_render",
+            "ms": 1.4823
+          },
+          {
+            "id": 87,
+            "parent": 2,
+            "stage": "flow_adoption",
+            "ms": 52.4468
+          },
+          {
+            "id": 88,
+            "parent": 87,
+            "stage": "pdf_text",
+            "ms": 0.7033
+          },
+          {
+            "id": 89,
+            "parent": 87,
+            "stage": "pdf_text",
+            "ms": 0.6125
+          },
+          {
+            "id": 90,
+            "parent": 87,
+            "stage": "adoption_baseline",
+            "ms": 18.5288
+          },
+          {
+            "id": 91,
+            "parent": 87,
+            "stage": "flow_comparison",
+            "ms": 3.9815
+          },
+          {
+            "id": 92,
+            "parent": 2,
+            "stage": "pdf_render",
+            "ms": 1.4607
+          },
+          {
+            "id": 93,
+            "parent": 2,
+            "stage": "pdf_render",
+            "ms": 1.3657
+          },
+          {
+            "id": 94,
+            "parent": 2,
+            "stage": "flow_adoption",
+            "ms": 52.332
+          },
+          {
+            "id": 95,
+            "parent": 94,
+            "stage": "pdf_text",
+            "ms": 0.6331
+          },
+          {
+            "id": 96,
+            "parent": 94,
+            "stage": "pdf_text",
+            "ms": 0.5691
+          },
+          {
+            "id": 97,
+            "parent": 94,
+            "stage": "adoption_baseline",
+            "ms": 21.4748
+          },
+          {
+            "id": 98,
+            "parent": 94,
+            "stage": "flow_comparison",
+            "ms": 4.1527
+          },
+          {
+            "id": 99,
+            "parent": 1,
+            "stage": "pdf_render",
+            "ms": 1.4809
+          },
+          {
+            "id": 100,
+            "parent": 1,
+            "stage": "pdf_render",
+            "ms": 1.3657
+          },
+          {
+            "id": 101,
+            "parent": 1,
+            "stage": "save_flow_bands",
+            "ms": 3.0818
+          },
+          {
+            "id": 102,
+            "parent": 1,
+            "stage": "save_flow_bands",
+            "ms": 1.2226
+          },
+          {
+            "id": 103,
+            "parent": 1,
+            "stage": "normalize",
+            "ms": 0.2832
+          },
+          {
+            "id": 104,
+            "parent": 1,
+            "stage": "final_flow_compare",
+            "ms": 6.7764
+          },
+          {
+            "id": 105,
+            "parent": 104,
+            "stage": "flow_comparison",
+            "ms": 4.231
+          },
+          {
+            "id": 106,
+            "parent": 1,
+            "stage": "pdf_text",
+            "ms": 1.0034
+          },
+          {
+            "id": 107,
+            "parent": 1,
+            "stage": "pdf_text",
+            "ms": 0.6124
+          },
+          {
+            "id": 108,
+            "parent": 1,
+            "stage": "save_page",
+            "ms": 37.4213
+          },
+          {
+            "id": 109,
+            "parent": 1,
+            "stage": "pdf_render",
+            "ms": 1.3649
+          },
+          {
+            "id": 110,
+            "parent": 1,
+            "stage": "pdf_render",
+            "ms": 1.3586
+          },
+          {
+            "id": 111,
+            "parent": 1,
+            "stage": "save_flow_bands",
+            "ms": 1.3629
+          },
+          {
+            "id": 112,
+            "parent": 1,
+            "stage": "save_flow_bands",
+            "ms": 1.8732
+          },
+          {
+            "id": 113,
+            "parent": 1,
+            "stage": "normalize",
+            "ms": 0.1552
+          },
+          {
+            "id": 114,
+            "parent": 1,
+            "stage": "final_flow_compare",
+            "ms": 6.0342
+          },
+          {
+            "id": 115,
+            "parent": 114,
+            "stage": "flow_comparison",
+            "ms": 3.6325
+          },
+          {
+            "id": 116,
+            "parent": 1,
+            "stage": "pdf_text",
+            "ms": 0.6412
+          },
+          {
+            "id": 117,
+            "parent": 1,
+            "stage": "pdf_text",
+            "ms": 0.6293
+          },
+          {
+            "id": 118,
+            "parent": 1,
+            "stage": "save_page",
+            "ms": 26.292
+          },
+          {
+            "id": 119,
+            "parent": 1,
+            "stage": "pdf_render",
+            "ms": 1.6201
+          },
+          {
+            "id": 120,
+            "parent": 1,
+            "stage": "pdf_render",
+            "ms": 1.4781
+          },
+          {
+            "id": 121,
+            "parent": 1,
+            "stage": "save_flow_bands",
+            "ms": 2.0685
+          },
+          {
+            "id": 122,
+            "parent": 1,
+            "stage": "save_flow_bands",
+            "ms": 1.4129
+          },
+          {
+            "id": 123,
+            "parent": 1,
+            "stage": "normalize",
+            "ms": 0.1625
+          },
+          {
+            "id": 124,
+            "parent": 1,
+            "stage": "final_flow_compare",
+            "ms": 7.2345
+          },
+          {
+            "id": 125,
+            "parent": 124,
+            "stage": "flow_comparison",
+            "ms": 4.5113
+          },
+          {
+            "id": 126,
+            "parent": 1,
+            "stage": "pdf_text",
+            "ms": 0.7467
+          },
+          {
+            "id": 127,
+            "parent": 1,
+            "stage": "pdf_text",
+            "ms": 0.6601
+          },
+          {
+            "id": 128,
+            "parent": 1,
+            "stage": "save_page",
+            "ms": 25.0191
+          },
+          {
+            "id": 129,
+            "parent": 1,
+            "stage": "pdf_render",
+            "ms": 1.4468
+          },
+          {
+            "id": 130,
+            "parent": 1,
+            "stage": "pdf_render",
+            "ms": 1.3591
+          },
+          {
+            "id": 131,
+            "parent": 1,
+            "stage": "save_flow_bands",
+            "ms": 1.2695
+          },
+          {
+            "id": 132,
+            "parent": 1,
+            "stage": "save_flow_bands",
+            "ms": 1.7962
+          },
+          {
+            "id": 133,
+            "parent": 1,
+            "stage": "normalize",
+            "ms": 0.1484
+          },
+          {
+            "id": 134,
+            "parent": 1,
+            "stage": "final_flow_compare",
+            "ms": 7.2165
+          },
+          {
+            "id": 135,
+            "parent": 134,
+            "stage": "flow_comparison",
+            "ms": 4.604
+          },
+          {
+            "id": 136,
+            "parent": 1,
+            "stage": "pdf_text",
+            "ms": 0.6382
+          },
+          {
+            "id": 137,
+            "parent": 1,
+            "stage": "pdf_text",
+            "ms": 0.563
+          },
+          {
+            "id": 138,
+            "parent": 1,
+            "stage": "save_page",
+            "ms": 24.5812
+          },
+          {
+            "id": 139,
+            "parent": 1,
+            "stage": "save_json",
+            "ms": 55.8423
+          },
+          {
+            "id": 140,
+            "parent": 139,
+            "stage": "shared_aggregation",
+            "ms": 6.5206
+          },
+          {
+            "id": 141,
+            "parent": 1,
+            "stage": "save_html",
+            "ms": 9.5936
+          }
+        ],
+        "status": "applied",
+        "summary": {
+          "status": "different",
+          "pages_compared": 4,
+          "pages_different": 4,
+          "clusters": 0,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 3,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 12,
+          "structural_change_counts": {
+            "inserted": 5,
+            "deleted": 2,
+            "block_moved": 5
+          },
+          "difference_count": 12,
+          "difference_count_complete": true
+        }
+      },
+      {
+        "case": "shared-and-independent",
+        "carry": true,
+        "kind": "before",
+        "iteration": 0,
+        "seconds": 1.3381138329859823,
+        "peak_rss_bytes": 290553856,
+        "stages": [],
+        "status": "skipped",
+        "summary": {
+          "status": "different",
+          "pages_compared": 4,
+          "pages_different": 4,
+          "clusters": 20,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 20,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 20,
+          "difference_count_complete": true
+        }
+      },
+      {
+        "case": "shared-and-independent",
+        "carry": true,
+        "kind": "product",
+        "iteration": 1,
+        "seconds": 1.2802184170577675,
+        "peak_rss_bytes": 292962304,
+        "stages": [],
+        "status": "applied",
+        "summary": {
+          "status": "different",
+          "pages_compared": 4,
+          "pages_different": 4,
+          "clusters": 0,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 3,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 12,
+          "structural_change_counts": {
+            "inserted": 5,
+            "deleted": 2,
+            "block_moved": 5
+          },
+          "difference_count": 12,
+          "difference_count_complete": true
+        }
+      },
+      {
+        "case": "shared-and-independent",
+        "carry": true,
+        "kind": "before",
+        "iteration": 1,
+        "seconds": 1.3353053749306127,
+        "peak_rss_bytes": 273907712,
+        "stages": [],
+        "status": "skipped",
+        "summary": {
+          "status": "different",
+          "pages_compared": 4,
+          "pages_different": 4,
+          "clusters": 20,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 20,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 20,
+          "difference_count_complete": true
+        }
+      },
+      {
+        "case": "shared-and-independent",
+        "carry": false,
+        "kind": "product",
+        "iteration": 1,
+        "seconds": 1.1216635829769075,
+        "peak_rss_bytes": 265060352,
+        "stages": [],
+        "status": "disabled",
+        "summary": {
+          "status": "different",
+          "pages_compared": 4,
+          "pages_different": 4,
+          "clusters": 20,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": null,
+          "aggregated_difference_count_complete": null,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 20,
+          "difference_count_complete": true
+        }
+      },
+      {
+        "case": "shared-and-independent",
+        "carry": false,
+        "kind": "product",
+        "iteration": 2,
+        "seconds": 1.1544193750014529,
+        "peak_rss_bytes": 295010304,
+        "stages": [],
+        "status": "disabled",
+        "summary": {
+          "status": "different",
+          "pages_compared": 4,
+          "pages_different": 4,
+          "clusters": 20,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": null,
+          "aggregated_difference_count_complete": null,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 20,
+          "difference_count_complete": true
+        }
+      },
+      {
+        "case": "shared-and-independent",
+        "carry": true,
+        "kind": "product",
+        "iteration": 2,
+        "seconds": 1.284366333973594,
+        "peak_rss_bytes": 295501824,
+        "stages": [],
+        "status": "applied",
+        "summary": {
+          "status": "different",
+          "pages_compared": 4,
+          "pages_different": 4,
+          "clusters": 0,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 3,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 12,
+          "structural_change_counts": {
+            "inserted": 5,
+            "deleted": 2,
+            "block_moved": 5
+          },
+          "difference_count": 12,
+          "difference_count_complete": true
+        }
+      },
+      {
+        "case": "shared-and-independent",
+        "carry": true,
+        "kind": "before",
+        "iteration": 2,
+        "seconds": 1.354152415995486,
+        "peak_rss_bytes": 269352960,
+        "stages": [],
+        "status": "skipped",
+        "summary": {
+          "status": "different",
+          "pages_compared": 4,
+          "pages_different": 4,
+          "clusters": 20,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 20,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 20,
+          "difference_count_complete": true
+        }
+      },
+      {
+        "case": "same-page-two",
+        "carry": false,
+        "kind": "product",
+        "iteration": 0,
+        "seconds": 1.0970005419803783,
+        "peak_rss_bytes": 266764288,
+        "stages": [],
+        "status": "disabled",
+        "summary": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 10,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": null,
+          "aggregated_difference_count_complete": null,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 10,
+          "difference_count_complete": true
+        }
+      },
+      {
+        "case": "same-page-two",
+        "carry": false,
+        "kind": "instrumented",
+        "iteration": 0,
+        "seconds": 1.1015105419792235,
+        "peak_rss_bytes": 284983296,
+        "stages": [
+          {
+            "id": 1,
+            "parent": null,
+            "stage": "cli",
+            "ms": 1076.7827
+          },
+          {
+            "id": 2,
+            "parent": 1,
+            "stage": "pdf_render",
+            "ms": 13.1617
+          },
+          {
+            "id": 3,
+            "parent": 1,
+            "stage": "pdf_render",
+            "ms": 1.5634
+          },
+          {
+            "id": 4,
+            "parent": 1,
+            "stage": "save_flow_bands",
+            "ms": 0.0339
+          },
+          {
+            "id": 5,
+            "parent": 1,
+            "stage": "save_flow_bands",
+            "ms": 0.018
+          },
+          {
+            "id": 6,
+            "parent": 1,
+            "stage": "normalize",
+            "ms": 1.9239
+          },
+          {
+            "id": 7,
+            "parent": 1,
+            "stage": "global_align",
+            "ms": 1.2462
+          },
+          {
+            "id": 8,
+            "parent": 1,
+            "stage": "row_compare",
+            "ms": 477.4163
+          },
+          {
+            "id": 9,
+            "parent": 8,
+            "stage": "pdf_text",
+            "ms": 145.8092
+          },
+          {
+            "id": 10,
+            "parent": 8,
+            "stage": "pdf_text",
+            "ms": 2.0559
+          },
+          {
+            "id": 11,
+            "parent": 1,
+            "stage": "save_page",
+            "ms": 27.9855
+          },
+          {
+            "id": 12,
+            "parent": 1,
+            "stage": "pdf_render",
+            "ms": 1.4741
+          },
+          {
+            "id": 13,
+            "parent": 1,
+            "stage": "pdf_render",
+            "ms": 1.4254
+          },
+          {
+            "id": 14,
+            "parent": 1,
+            "stage": "save_flow_bands",
+            "ms": 0.0005
+          },
+          {
+            "id": 15,
+            "parent": 1,
+            "stage": "save_flow_bands",
+            "ms": 0.0001
+          },
+          {
+            "id": 16,
+            "parent": 1,
+            "stage": "normalize",
+            "ms": 0.1724
+          },
+          {
+            "id": 17,
+            "parent": 1,
+            "stage": "global_align",
+            "ms": 0.0012
+          },
+          {
+            "id": 18,
+            "parent": 1,
+            "stage": "row_compare",
+            "ms": 282.8426
+          },
+          {
+            "id": 19,
+            "parent": 18,
+            "stage": "pdf_text",
+            "ms": 0.7247
+          },
+          {
+            "id": 20,
+            "parent": 18,
+            "stage": "pdf_text",
+            "ms": 0.6029
+          },
+          {
+            "id": 21,
+            "parent": 1,
+            "stage": "save_page",
+            "ms": 16.4705
+          },
+          {
+            "id": 22,
+            "parent": 1,
+            "stage": "save_json",
+            "ms": 31.734
+          },
+          {
+            "id": 23,
+            "parent": 1,
+            "stage": "save_html",
+            "ms": 8.0094
+          }
+        ],
+        "status": "disabled",
+        "summary": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 10,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": null,
+          "aggregated_difference_count_complete": null,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 10,
+          "difference_count_complete": true
+        }
+      },
+      {
+        "case": "same-page-two",
+        "carry": true,
+        "kind": "product",
+        "iteration": 0,
+        "seconds": 1.2121302500599995,
+        "peak_rss_bytes": 261128192,
+        "stages": [],
+        "status": "skipped",
+        "summary": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 10,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 10,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 10,
+          "difference_count_complete": true
+        }
+      },
+      {
+        "case": "same-page-two",
+        "carry": true,
+        "kind": "instrumented",
+        "iteration": 0,
+        "seconds": 1.2147425420116633,
+        "peak_rss_bytes": 262127616,
+        "stages": [
+          {
+            "id": 1,
+            "parent": null,
+            "stage": "cli",
+            "ms": 1191.1329
+          },
+          {
+            "id": 2,
+            "parent": 1,
+            "stage": "flow_prepare",
+            "ms": 278.0557
+          },
+          {
+            "id": 3,
+            "parent": 2,
+            "stage": "pdf_render",
+            "ms": 13.2236
+          },
+          {
+            "id": 4,
+            "parent": 2,
+            "stage": "pdf_render",
+            "ms": 1.7176
+          },
+          {
+            "id": 5,
+            "parent": 2,
+            "stage": "flow_global_align",
+            "ms": 2.5862
+          },
+          {
+            "id": 6,
+            "parent": 2,
+            "stage": "pdf_text",
+            "ms": 148.7737
+          },
+          {
+            "id": 7,
+            "parent": 2,
+            "stage": "flow_collect",
+            "ms": 18.7528
+          },
+          {
+            "id": 8,
+            "parent": 2,
+            "stage": "pdf_text",
+            "ms": 2.2287
+          },
+          {
+            "id": 9,
+            "parent": 2,
+            "stage": "flow_collect",
+            "ms": 14.3707
+          },
+          {
+            "id": 10,
+            "parent": 2,
+            "stage": "pdf_render",
+            "ms": 1.5165
+          },
+          {
+            "id": 11,
+            "parent": 2,
+            "stage": "pdf_render",
+            "ms": 1.504
+          },
+          {
+            "id": 12,
+            "parent": 2,
+            "stage": "flow_global_align",
+            "ms": 0.0175
+          },
+          {
+            "id": 13,
+            "parent": 2,
+            "stage": "pdf_text",
+            "ms": 0.6575
+          },
+          {
+            "id": 14,
+            "parent": 2,
+            "stage": "flow_collect",
+            "ms": 14.4427
+          },
+          {
+            "id": 15,
+            "parent": 2,
+            "stage": "pdf_text",
+            "ms": 0.7291
+          },
+          {
+            "id": 16,
+            "parent": 2,
+            "stage": "flow_collect",
+            "ms": 12.3535
+          },
+          {
+            "id": 17,
+            "parent": 2,
+            "stage": "flow_plan",
+            "ms": 41.4763
+          },
+          {
+            "id": 18,
+            "parent": 17,
+            "stage": "flow_inference",
+            "ms": 10.6903
+          },
+          {
+            "id": 19,
+            "parent": 17,
+            "stage": "flow_numeric_rows",
+            "ms": 4.6855
+          },
+          {
+            "id": 20,
+            "parent": 17,
+            "stage": "pdf_render",
+            "ms": 1.4252
+          },
+          {
+            "id": 21,
+            "parent": 17,
+            "stage": "pdf_render",
+            "ms": 1.2518
+          },
+          {
+            "id": 22,
+            "parent": 17,
+            "stage": "flow_surface",
+            "ms": 3.862
+          },
+          {
+            "id": 23,
+            "parent": 17,
+            "stage": "pdf_render",
+            "ms": 1.2425
+          },
+          {
+            "id": 24,
+            "parent": 17,
+            "stage": "pdf_render",
+            "ms": 1.2506
+          },
+          {
+            "id": 25,
+            "parent": 17,
+            "stage": "flow_surface",
+            "ms": 0.0339
+          },
+          {
+            "id": 26,
+            "parent": 17,
+            "stage": "flow_ambiguity",
+            "ms": 1.4835
+          },
+          {
+            "id": 27,
+            "parent": 1,
+            "stage": "pdf_render",
+            "ms": 1.3907
+          },
+          {
+            "id": 28,
+            "parent": 1,
+            "stage": "pdf_render",
+            "ms": 1.3811
+          },
+          {
+            "id": 29,
+            "parent": 1,
+            "stage": "save_flow_bands",
+            "ms": 3.2885
+          },
+          {
+            "id": 30,
+            "parent": 1,
+            "stage": "save_flow_bands",
+            "ms": 1.2269
+          },
+          {
+            "id": 31,
+            "parent": 1,
+            "stage": "normalize",
+            "ms": 0.8937
+          },
+          {
+            "id": 32,
+            "parent": 1,
+            "stage": "global_align",
+            "ms": 0.0362
+          },
+          {
+            "id": 33,
+            "parent": 1,
+            "stage": "row_compare",
+            "ms": 323.8566
+          },
+          {
+            "id": 34,
+            "parent": 33,
+            "stage": "pdf_text",
+            "ms": 0.7244
+          },
+          {
+            "id": 35,
+            "parent": 33,
+            "stage": "pdf_text",
+            "ms": 0.6114
+          },
+          {
+            "id": 36,
+            "parent": 1,
+            "stage": "save_page",
+            "ms": 26.3143
+          },
+          {
+            "id": 37,
+            "parent": 1,
+            "stage": "pdf_render",
+            "ms": 1.3937
+          },
+          {
+            "id": 38,
+            "parent": 1,
+            "stage": "pdf_render",
+            "ms": 1.3879
+          },
+          {
+            "id": 39,
+            "parent": 1,
+            "stage": "save_flow_bands",
+            "ms": 1.333
+          },
+          {
+            "id": 40,
+            "parent": 1,
+            "stage": "save_flow_bands",
+            "ms": 1.7183
+          },
+          {
+            "id": 41,
+            "parent": 1,
+            "stage": "normalize",
+            "ms": 0.1719
+          },
+          {
+            "id": 42,
+            "parent": 1,
+            "stage": "global_align",
+            "ms": 0.0014
+          },
+          {
+            "id": 43,
+            "parent": 1,
+            "stage": "row_compare",
+            "ms": 280.8132
+          },
+          {
+            "id": 44,
+            "parent": 43,
+            "stage": "pdf_text",
+            "ms": 0.621
+          },
+          {
+            "id": 45,
+            "parent": 43,
+            "stage": "pdf_text",
+            "ms": 0.6572
+          },
+          {
+            "id": 46,
+            "parent": 1,
+            "stage": "save_page",
+            "ms": 16.2724
+          },
+          {
+            "id": 47,
+            "parent": 1,
+            "stage": "save_json",
+            "ms": 36.4469
+          },
+          {
+            "id": 48,
+            "parent": 1,
+            "stage": "save_html",
+            "ms": 8.168
+          }
+        ],
+        "status": "skipped",
+        "summary": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 10,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 10,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 10,
+          "difference_count_complete": true
+        }
+      },
+      {
+        "case": "same-page-two",
+        "carry": true,
+        "kind": "before",
+        "iteration": 0,
+        "seconds": 1.2071488330839202,
+        "peak_rss_bytes": 261259264,
+        "stages": [],
+        "status": "skipped",
+        "summary": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 10,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 10,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 10,
+          "difference_count_complete": true
+        }
+      },
+      {
+        "case": "same-page-two",
+        "carry": true,
+        "kind": "product",
+        "iteration": 1,
+        "seconds": 1.2108161250362173,
+        "peak_rss_bytes": 275955712,
+        "stages": [],
+        "status": "skipped",
+        "summary": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 10,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 10,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 10,
+          "difference_count_complete": true
+        }
+      },
+      {
+        "case": "same-page-two",
+        "carry": true,
+        "kind": "before",
+        "iteration": 1,
+        "seconds": 1.2054089589510113,
+        "peak_rss_bytes": 268075008,
+        "stages": [],
+        "status": "skipped",
+        "summary": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 10,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 10,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 10,
+          "difference_count_complete": true
+        }
+      },
+      {
+        "case": "same-page-two",
+        "carry": false,
+        "kind": "product",
+        "iteration": 1,
+        "seconds": 1.0962615410098806,
+        "peak_rss_bytes": 267681792,
+        "stages": [],
+        "status": "disabled",
+        "summary": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 10,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": null,
+          "aggregated_difference_count_complete": null,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 10,
+          "difference_count_complete": true
+        }
+      },
+      {
+        "case": "same-page-two",
+        "carry": false,
+        "kind": "product",
+        "iteration": 2,
+        "seconds": 1.1136872910428792,
+        "peak_rss_bytes": 260931584,
+        "stages": [],
+        "status": "disabled",
+        "summary": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 10,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": null,
+          "aggregated_difference_count_complete": null,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 10,
+          "difference_count_complete": true
+        }
+      },
+      {
+        "case": "same-page-two",
+        "carry": true,
+        "kind": "product",
+        "iteration": 2,
+        "seconds": 1.215645125019364,
+        "peak_rss_bytes": 259964928,
+        "stages": [],
+        "status": "skipped",
+        "summary": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 10,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 10,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 10,
+          "difference_count_complete": true
+        }
+      },
+      {
+        "case": "same-page-two",
+        "carry": true,
+        "kind": "before",
+        "iteration": 2,
+        "seconds": 1.2195320420432836,
+        "peak_rss_bytes": 274546688,
+        "stages": [],
+        "status": "skipped",
+        "summary": {
+          "status": "different",
+          "pages_compared": 2,
+          "pages_different": 2,
+          "clusters": 10,
+          "absorbed_groups": 0,
+          "aggregated_difference_count": 10,
+          "aggregated_difference_count_complete": true,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 10,
+          "difference_count_complete": true
+        }
+      }
+    ]
+  },
+  "fixtures": {
+    "chain-number/a.pdf": "e6da7eeeb76795b3dba7244938ddde8b345c0c61dcdc3a217026701328e9c628",
+    "chain-number/b.pdf": "11774d2c216d5aa88ef0eb1aca1059bd6db3e4815b531407d774e1df593c9e13",
+    "chain-support-number/a.pdf": "ea848866b5b7556336ffd6374948009c25225324ed39ab26cbe3450549f26b57",
+    "chain-support-number/b.pdf": "a1d4bb7516bc06ec2b08a8bdddccd5db85fb4948b0fa32fd19ef1cb493721877",
+    "chain-carry-number/a.pdf": "fbc8a7a38d413c17c2b1e959ebf80af92260aa35802db94865d08b00dd2178f4",
+    "chain-carry-number/b.pdf": "a339464732903a17b2ce30043559f74cb0f29ed82b89bd56be783824136dd341",
+    "independent-number/a.pdf": "1c86b6bd37531d0dc2fd59e147f66b0a790e929dd546bdebc6c4381f45944662",
+    "independent-number/b.pdf": "9ab89fc1bb2a0b49a38b4019755942c58ff4e715b578516611e2f2fff49c4b03",
+    "independent-endpoint-number/a.pdf": "f9505875d216a34a770ff48b2f3f138a856190329436c587fd2dd34dab84a315",
+    "independent-endpoint-number/b.pdf": "7430c228566cf3ceb2ea48269acf12f4a57d70d7bdb1c4d4d4d4acfbd8c8536a",
+    "independent-tone/a.pdf": "b3f00e6811c568be06d9ed94569f7bb6c8f69cbc830507bc684311033ccd54ef",
+    "independent-tone/b.pdf": "a96b9437223b7729451f7b8c033a548816bbc504c8bd844720d8b2c518281506",
+    "chain-down/a.pdf": "b7af6d0aedfffc5cdf839e8f7ac68a989aa2349685f806f93ff1eb8afc378d3f",
+    "chain-down/b.pdf": "f508833f828e38175ba199c718532c26007b4548c5636a10173220ff2d3849c9",
+    "chain-up/a.pdf": "b7af6d0aedfffc5cdf839e8f7ac68a989aa2349685f806f93ff1eb8afc378d3f",
+    "chain-up/b.pdf": "83660a2834c96339d4800097d67c85f316eb161fcf1aa8c2aa6eafe8b125e759",
+    "chain-variable/a.pdf": "b7af6d0aedfffc5cdf839e8f7ac68a989aa2349685f806f93ff1eb8afc378d3f",
+    "chain-variable/b.pdf": "43d20e95bd5978e99833ed88e71256bace231c4ae7cc292c5375fcd9d7decd38",
+    "independent-global/a.pdf": "986611ed76d7e2f1297cb876047a714fb7187481cdf67badcb147b84f16ac288",
+    "independent-global/b.pdf": "c6e51b51af897d8c6d6c1a245fcb48ad98b623df61c03c1219c0490e31e63876"
+  },
+  "remaining": [
+    "same-page-two both directions: unsupported displacement and trailing row support",
+    "A4 9 unmet cases",
+    "unpaired and numeric crossing generalization",
+    "Windows and private documents",
+    "large-scale performance",
+    "deferred browser and JavaScript acceptance"
+  ]
+}

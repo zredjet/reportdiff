@@ -1,0 +1,1001 @@
+[
+  {
+    "id": "single-r11",
+    "side": "a",
+    "expected_rows": [
+      [
+        "ITEM AAAA",
+        "ITEM BBBB",
+        "ITEM CCCC",
+        "ITEM DDDD",
+        "ITEM EEEE",
+        "ITEM FFFF"
+      ],
+      [
+        "ITEM GGGG",
+        "ITEM HHHH",
+        "ITEM IIII",
+        "ITEM JJJJ",
+        "ITEM KKKK",
+        "SUM TOTAL 555"
+      ]
+    ],
+    "sha256": "33c2b74453d44c6c9a1d757310a3f7afbe14f1d46bf6a88feaba30df90b4c6c9"
+  },
+  {
+    "id": "single-r11",
+    "side": "b",
+    "expected_rows": [
+      [
+        "ITEM AAAA",
+        "ITEM BBBB",
+        "NEW ADDED",
+        "ITEM CCCC",
+        "ITEM DDDD",
+        "ITEM EEEE"
+      ],
+      [
+        "ITEM FFFF",
+        "ITEM GGGG",
+        "ITEM HHHH",
+        "ITEM IIII",
+        "ITEM JJJJ",
+        "ITEM KKKK"
+      ],
+      [
+        "SUM TOTAL 555"
+      ]
+    ],
+    "sha256": "79055faf3572a74b52452319ce4a4237ec00bf92a786ebb5e64ff93b08127864"
+  },
+  {
+    "id": "single-chain",
+    "side": "a",
+    "expected_rows": [
+      [
+        "ITEM AAAA",
+        "ITEM BBBB",
+        "ITEM CCCC",
+        "ITEM DDDD",
+        "ITEM EEEE",
+        "ITEM FFFF"
+      ],
+      [
+        "ITEM GGGG",
+        "ITEM HHHH",
+        "ITEM IIII",
+        "ITEM JJJJ",
+        "ITEM KKKK",
+        "ITEM LLLL"
+      ],
+      [
+        "ITEM MMMM",
+        "ITEM NNNN",
+        "ITEM OOOO",
+        "ITEM PPPP",
+        "ITEM QQQQ",
+        "SUM TOTAL 555"
+      ]
+    ],
+    "sha256": "f9a4139d8f29fa974f145b9b63abce6199967a8f97ab203d2eb6dff1f223fca7"
+  },
+  {
+    "id": "single-chain",
+    "side": "b",
+    "expected_rows": [
+      [
+        "ITEM AAAA",
+        "ITEM BBBB",
+        "NEW ADDED",
+        "ITEM CCCC",
+        "ITEM DDDD",
+        "ITEM EEEE"
+      ],
+      [
+        "ITEM FFFF",
+        "ITEM GGGG",
+        "ITEM HHHH",
+        "ITEM IIII",
+        "ITEM JJJJ",
+        "ITEM KKKK"
+      ],
+      [
+        "ITEM LLLL",
+        "ITEM MMMM",
+        "ITEM NNNN",
+        "ITEM OOOO",
+        "ITEM PPPP",
+        "ITEM QQQQ"
+      ],
+      [
+        "SUM TOTAL 555"
+      ]
+    ],
+    "sha256": "3dea62abfe3bf86976bd5ba953228c5024f235d7b2129e4de5e94e732f13ae6c"
+  },
+  {
+    "id": "insufficient-fixed",
+    "side": "a",
+    "expected_rows": [
+      [
+        "ITEM AAAA",
+        "ITEM BBBB",
+        "ITEM CCCC",
+        "ITEM DDDD",
+        "ITEM EEEE",
+        "SUM TOTAL 555"
+      ]
+    ],
+    "sha256": "5ae08d0b88e25a10d0a8abe5306b88c44e9297af7fcd2a2b595bff9004db1ac6"
+  },
+  {
+    "id": "insufficient-fixed",
+    "side": "b",
+    "expected_rows": [
+      [
+        "ITEM AAAA",
+        "ITEM BBBB",
+        "NEW ADDED",
+        "ITEM CCCC",
+        "ITEM DDDD",
+        "ITEM EEEE"
+      ],
+      [
+        "SUM TOTAL 555"
+      ]
+    ],
+    "sha256": "6423b00149830e07a217299860e6bf917a92ee4ca640f4559cf01b6ff9ed89d0"
+  },
+  {
+    "id": "residual-tone",
+    "side": "a",
+    "expected_rows": [
+      [
+        "ITEM AAAA",
+        "ITEM BBBB",
+        "ITEM CCCC",
+        "ITEM DDDD",
+        "ITEM EEEE",
+        "ITEM FFFF"
+      ],
+      [
+        "ITEM GGGG",
+        "ITEM HHHH",
+        "ITEM IIII",
+        "ITEM JJJJ",
+        "ITEM KKKK",
+        "SUM TOTAL 555"
+      ]
+    ],
+    "sha256": "33c2b74453d44c6c9a1d757310a3f7afbe14f1d46bf6a88feaba30df90b4c6c9"
+  },
+  {
+    "id": "residual-tone",
+    "side": "b",
+    "expected_rows": [
+      [
+        "ITEM AAAA",
+        "ITEM BBBB",
+        "NEW ADDED",
+        "ITEM CCCC",
+        "ITEM DDDD",
+        "ITEM EEEE"
+      ],
+      [
+        "ITEM FFFF",
+        "ITEM GGGG",
+        "ITEM HHHH",
+        "ITEM IIII",
+        "ITEM JJJJ",
+        "ITEM KKKK"
+      ],
+      [
+        "SUM TOTAL 555"
+      ]
+    ],
+    "sha256": "b882ffc6e964327edab5571fd69312d192b464a4b5e5bd6c9fa6be631dfe1a14"
+  },
+  {
+    "id": "residual-faint",
+    "side": "a",
+    "expected_rows": [
+      [
+        "ITEM AAAA",
+        "ITEM BBBB",
+        "ITEM CCCC",
+        "ITEM DDDD",
+        "ITEM EEEE",
+        "ITEM FFFF"
+      ],
+      [
+        "ITEM GGGG",
+        "ITEM HHHH",
+        "ITEM IIII",
+        "ITEM JJJJ",
+        "ITEM KKKK",
+        "SUM TOTAL 555"
+      ]
+    ],
+    "sha256": "33c2b74453d44c6c9a1d757310a3f7afbe14f1d46bf6a88feaba30df90b4c6c9"
+  },
+  {
+    "id": "residual-faint",
+    "side": "b",
+    "expected_rows": [
+      [
+        "ITEM AAAA",
+        "ITEM BBBB",
+        "NEW ADDED",
+        "ITEM CCCC",
+        "ITEM DDDD",
+        "ITEM EEEE"
+      ],
+      [
+        "ITEM FFFF",
+        "ITEM GGGG",
+        "ITEM HHHH",
+        "ITEM IIII",
+        "ITEM JJJJ",
+        "ITEM KKKK"
+      ],
+      [
+        "SUM TOTAL 555"
+      ]
+    ],
+    "sha256": "50da6c56334b48e2fde0c3b0d19718ceb0dd11667a93027a5f38ed5558c469a2"
+  },
+  {
+    "id": "fixed-header-change",
+    "side": "a",
+    "expected_rows": [
+      [
+        "ITEM AAAA",
+        "ITEM BBBB",
+        "ITEM CCCC",
+        "ITEM DDDD",
+        "ITEM EEEE",
+        "ITEM FFFF"
+      ],
+      [
+        "ITEM GGGG",
+        "ITEM HHHH",
+        "ITEM IIII",
+        "ITEM JJJJ",
+        "ITEM KKKK",
+        "SUM TOTAL 555"
+      ]
+    ],
+    "sha256": "33c2b74453d44c6c9a1d757310a3f7afbe14f1d46bf6a88feaba30df90b4c6c9"
+  },
+  {
+    "id": "fixed-header-change",
+    "side": "b",
+    "expected_rows": [
+      [
+        "ITEM AAAA",
+        "ITEM BBBB",
+        "NEW ADDED",
+        "ITEM CCCC",
+        "ITEM DDDD",
+        "ITEM EEEE"
+      ],
+      [
+        "ITEM FFFF",
+        "ITEM GGGG",
+        "ITEM HHHH",
+        "ITEM IIII",
+        "ITEM JJJJ",
+        "ITEM KKKK"
+      ],
+      [
+        "SUM TOTAL 555"
+      ]
+    ],
+    "sha256": "7e54e6cbf1093ae7371adbb2dd5eebce076d24befa5fb48ff347f8e505ad6c4d"
+  },
+  {
+    "id": "crossing-number-change",
+    "side": "a",
+    "expected_rows": [
+      [
+        "ITEM AAAA",
+        "ITEM BBBB",
+        "ITEM CCCC",
+        "ITEM DDDD",
+        "ITEM EEEE",
+        "ITEM FFFF"
+      ],
+      [
+        "ITEM GGGG",
+        "ITEM HHHH",
+        "ITEM IIII",
+        "ITEM JJJJ",
+        "ITEM KKKK",
+        "SUM TOTAL 555"
+      ]
+    ],
+    "sha256": "33c2b74453d44c6c9a1d757310a3f7afbe14f1d46bf6a88feaba30df90b4c6c9"
+  },
+  {
+    "id": "crossing-number-change",
+    "side": "b",
+    "expected_rows": [
+      [
+        "ITEM AAAA",
+        "ITEM BBBB",
+        "NEW ADDED",
+        "ITEM CCCC",
+        "ITEM DDDD",
+        "ITEM EEEE"
+      ],
+      [
+        "ITEM FFFF",
+        "ITEM GGGG",
+        "ITEM HHHH",
+        "ITEM IIII",
+        "ITEM JJJJ",
+        "ITEM KKKK"
+      ],
+      [
+        "SUM TOTAL 556"
+      ]
+    ],
+    "sha256": "4f37b7bf84a11520a3d4cb753d930e9b1e262dd0fa29c8cbe592410bb9dd20b6"
+  },
+  {
+    "id": "shared-unpaired",
+    "side": "a",
+    "expected_rows": [
+      [
+        "ITEM AAAA",
+        "ITEM BBBB",
+        "ITEM CCCC",
+        "ITEM DDDD",
+        "ITEM EEEE",
+        "ITEM FFFF"
+      ],
+      [
+        "ITEM GGGG",
+        "ITEM HHHH",
+        "ITEM IIII",
+        "ITEM JJJJ",
+        "ITEM KKKK",
+        "SUM TOTAL 555"
+      ]
+    ],
+    "sha256": "33c2b74453d44c6c9a1d757310a3f7afbe14f1d46bf6a88feaba30df90b4c6c9"
+  },
+  {
+    "id": "shared-unpaired",
+    "side": "b",
+    "expected_rows": [
+      [
+        "ITEM AAAA",
+        "ITEM BBBB",
+        "NEW ADDED",
+        "ITEM CCCC",
+        "ITEM DDDD",
+        "ITEM EEEE"
+      ],
+      [
+        "ITEM FFFF",
+        "ITEM GGGG",
+        "SECOND ADDED",
+        "ITEM HHHH",
+        "ITEM IIII",
+        "ITEM JJJJ"
+      ],
+      [
+        "ITEM KKKK",
+        "SUM TOTAL 555"
+      ]
+    ],
+    "sha256": "720fe60bc9d9cede25b070b8f53eb0966684cf1ffa68d8d535f20d2d973c88e7"
+  },
+  {
+    "id": "independent-terminal",
+    "side": "a",
+    "expected_rows": [
+      [
+        "SECTION A ITEM AA",
+        "SECTION A ITEM BB",
+        "SECTION A ITEM CC",
+        "SECTION A ITEM DD",
+        "SECTION A ITEM EE",
+        "SECTION A ITEM FF"
+      ],
+      [
+        "SECTION A ITEM GG",
+        "SECTION A ITEM HH",
+        "SECTION A ITEM II",
+        "SECTION A TOTAL 555"
+      ],
+      [
+        "SECTION B ITEM AA",
+        "SECTION B ITEM BB",
+        "SECTION B ITEM CC",
+        "SECTION B ITEM DD",
+        "SECTION B ITEM EE",
+        "SECTION B ITEM FF"
+      ],
+      [
+        "SECTION B ITEM GG",
+        "SECTION B ITEM HH",
+        "SECTION B ITEM II",
+        "SECTION B ITEM JJ",
+        "SECTION B ITEM KK",
+        "SECTION B TOTAL 555"
+      ]
+    ],
+    "sha256": "d172ea8fa880d4266932d7422e23ec691e4f69981fac95de3a21a37564f61ed6"
+  },
+  {
+    "id": "independent-terminal",
+    "side": "b",
+    "expected_rows": [
+      [
+        "SECTION A ITEM AA",
+        "SECTION A ITEM BB",
+        "SECTION A NEW ADDED",
+        "SECTION A ITEM CC",
+        "SECTION A ITEM DD",
+        "SECTION A ITEM EE"
+      ],
+      [
+        "SECTION A ITEM FF",
+        "SECTION A ITEM GG",
+        "SECTION A ITEM HH",
+        "SECTION A ITEM II",
+        "SECTION A TOTAL 555"
+      ],
+      [
+        "SECTION B ITEM AA",
+        "SECTION B ITEM BB",
+        "SECTION B NEW ADDED",
+        "SECTION B ITEM CC",
+        "SECTION B ITEM DD",
+        "SECTION B ITEM EE"
+      ],
+      [
+        "SECTION B ITEM FF",
+        "SECTION B ITEM GG",
+        "SECTION B ITEM HH",
+        "SECTION B ITEM II",
+        "SECTION B ITEM JJ",
+        "SECTION B ITEM KK"
+      ],
+      [
+        "SECTION B TOTAL 555"
+      ]
+    ],
+    "sha256": "b53f2b27c8ef103238c1e14a3899fa8df055113074f939c6a9e9cff6d2d215ba"
+  },
+  {
+    "id": "independent-opposite",
+    "side": "a",
+    "expected_rows": [
+      [
+        "SECTION A ITEM AA",
+        "SECTION A ITEM BB",
+        "SECTION A NEW ADDED",
+        "SECTION A ITEM CC",
+        "SECTION A ITEM DD",
+        "SECTION A ITEM EE"
+      ],
+      [
+        "SECTION A ITEM FF",
+        "SECTION A ITEM GG",
+        "SECTION A ITEM HH",
+        "SECTION A ITEM II",
+        "SECTION A TOTAL 555"
+      ],
+      [
+        "SECTION B ITEM AA",
+        "SECTION B ITEM BB",
+        "SECTION B ITEM CC",
+        "SECTION B ITEM DD",
+        "SECTION B ITEM EE",
+        "SECTION B ITEM FF"
+      ],
+      [
+        "SECTION B ITEM GG",
+        "SECTION B ITEM HH",
+        "SECTION B ITEM II",
+        "SECTION B ITEM JJ",
+        "SECTION B ITEM KK",
+        "SECTION B TOTAL 555"
+      ]
+    ],
+    "sha256": "fd5e22805d615f02c154bb639ff0364dcdefd9ad598368c2e284959d17aed9b5"
+  },
+  {
+    "id": "independent-opposite",
+    "side": "b",
+    "expected_rows": [
+      [
+        "SECTION A ITEM AA",
+        "SECTION A ITEM BB",
+        "SECTION A ITEM CC",
+        "SECTION A ITEM DD",
+        "SECTION A ITEM EE",
+        "SECTION A ITEM FF"
+      ],
+      [
+        "SECTION A ITEM GG",
+        "SECTION A ITEM HH",
+        "SECTION A ITEM II",
+        "SECTION A TOTAL 555"
+      ],
+      [
+        "SECTION B ITEM AA",
+        "SECTION B ITEM BB",
+        "SECTION B NEW ADDED",
+        "SECTION B ITEM CC",
+        "SECTION B ITEM DD",
+        "SECTION B ITEM EE"
+      ],
+      [
+        "SECTION B ITEM FF",
+        "SECTION B ITEM GG",
+        "SECTION B ITEM HH",
+        "SECTION B ITEM II",
+        "SECTION B ITEM JJ",
+        "SECTION B ITEM KK"
+      ],
+      [
+        "SECTION B TOTAL 555"
+      ]
+    ],
+    "sha256": "48a2c6d57b506eaa784eafca9d9394b50faf4770781abe224182da11b05f119c"
+  },
+  {
+    "id": "neutral-between",
+    "side": "a",
+    "expected_rows": [
+      [
+        "SECTION A ITEM AA",
+        "SECTION A ITEM BB",
+        "SECTION A ITEM CC",
+        "SECTION A ITEM DD",
+        "SECTION A ITEM EE",
+        "SECTION A ITEM FF"
+      ],
+      [
+        "SECTION A ITEM GG",
+        "SECTION A ITEM HH",
+        "SECTION A ITEM II",
+        "SECTION A TOTAL 555"
+      ],
+      [
+        "IDLE FIRST",
+        "IDLE NEXT",
+        "IDLE LAST"
+      ],
+      [
+        "SECTION B ITEM AA",
+        "SECTION B ITEM BB",
+        "SECTION B ITEM CC",
+        "SECTION B ITEM DD",
+        "SECTION B ITEM EE",
+        "SECTION B ITEM FF"
+      ],
+      [
+        "SECTION B ITEM GG",
+        "SECTION B ITEM HH",
+        "SECTION B ITEM II",
+        "SECTION B ITEM JJ",
+        "SECTION B ITEM KK",
+        "SECTION B TOTAL 555"
+      ]
+    ],
+    "sha256": "b17fed362cecc616527b87891b9db4e2d84e577735737677d11e71dc4ce7dc85"
+  },
+  {
+    "id": "neutral-between",
+    "side": "b",
+    "expected_rows": [
+      [
+        "SECTION A ITEM AA",
+        "SECTION A ITEM BB",
+        "SECTION A NEW ADDED",
+        "SECTION A ITEM CC",
+        "SECTION A ITEM DD",
+        "SECTION A ITEM EE"
+      ],
+      [
+        "SECTION A ITEM FF",
+        "SECTION A ITEM GG",
+        "SECTION A ITEM HH",
+        "SECTION A ITEM II",
+        "SECTION A TOTAL 555"
+      ],
+      [
+        "IDLE FIRST",
+        "IDLE NEXT",
+        "IDLE LAST"
+      ],
+      [
+        "SECTION B ITEM AA",
+        "SECTION B ITEM BB",
+        "SECTION B NEW ADDED",
+        "SECTION B ITEM CC",
+        "SECTION B ITEM DD",
+        "SECTION B ITEM EE"
+      ],
+      [
+        "SECTION B ITEM FF",
+        "SECTION B ITEM GG",
+        "SECTION B ITEM HH",
+        "SECTION B ITEM II",
+        "SECTION B ITEM JJ",
+        "SECTION B ITEM KK"
+      ],
+      [
+        "SECTION B TOTAL 555"
+      ]
+    ],
+    "sha256": "c62d106ad0c39da23abdb07f357a29ed4ce334598a428cb73e0d0aa9a5fdc987"
+  },
+  {
+    "id": "independent-tone",
+    "side": "a",
+    "expected_rows": [
+      [
+        "SECTION A ITEM AA",
+        "SECTION A ITEM BB",
+        "SECTION A ITEM CC",
+        "SECTION A ITEM DD",
+        "SECTION A ITEM EE",
+        "SECTION A ITEM FF"
+      ],
+      [
+        "SECTION A ITEM GG",
+        "SECTION A ITEM HH",
+        "SECTION A ITEM II",
+        "SECTION A TOTAL 555"
+      ],
+      [
+        "SECTION B ITEM AA",
+        "SECTION B ITEM BB",
+        "SECTION B ITEM CC",
+        "SECTION B ITEM DD",
+        "SECTION B ITEM EE",
+        "SECTION B ITEM FF"
+      ],
+      [
+        "SECTION B ITEM GG",
+        "SECTION B ITEM HH",
+        "SECTION B ITEM II",
+        "SECTION B ITEM JJ",
+        "SECTION B ITEM KK",
+        "SECTION B TOTAL 555"
+      ]
+    ],
+    "sha256": "d172ea8fa880d4266932d7422e23ec691e4f69981fac95de3a21a37564f61ed6"
+  },
+  {
+    "id": "independent-tone",
+    "side": "b",
+    "expected_rows": [
+      [
+        "SECTION A ITEM AA",
+        "SECTION A ITEM BB",
+        "SECTION A NEW ADDED",
+        "SECTION A ITEM CC",
+        "SECTION A ITEM DD",
+        "SECTION A ITEM EE"
+      ],
+      [
+        "SECTION A ITEM FF",
+        "SECTION A ITEM GG",
+        "SECTION A ITEM HH",
+        "SECTION A ITEM II",
+        "SECTION A TOTAL 555"
+      ],
+      [
+        "SECTION B ITEM AA",
+        "SECTION B ITEM BB",
+        "SECTION B NEW ADDED",
+        "SECTION B ITEM CC",
+        "SECTION B ITEM DD",
+        "SECTION B ITEM EE"
+      ],
+      [
+        "SECTION B ITEM FF",
+        "SECTION B ITEM GG",
+        "SECTION B ITEM HH",
+        "SECTION B ITEM II",
+        "SECTION B ITEM JJ",
+        "SECTION B ITEM KK"
+      ],
+      [
+        "SECTION B TOTAL 555"
+      ]
+    ],
+    "sha256": "485b8e2377c4e430a032e4baab24ccc87e7e5e9b6432f61f4203c176e33766fb"
+  },
+  {
+    "id": "independent-residual",
+    "side": "a",
+    "expected_rows": [
+      [
+        "SECTION A ITEM AA",
+        "SECTION A ITEM BB",
+        "SECTION A ITEM CC",
+        "SECTION A ITEM DD",
+        "SECTION A ITEM EE",
+        "SECTION A ITEM FF"
+      ],
+      [
+        "SECTION A ITEM GG",
+        "SECTION A ITEM HH",
+        "SECTION A ITEM II",
+        "SECTION A TOTAL 555"
+      ],
+      [
+        "SECTION B ITEM AA",
+        "SECTION B ITEM BB",
+        "SECTION B ITEM CC",
+        "SECTION B ITEM DD",
+        "SECTION B ITEM EE",
+        "SECTION B ITEM FF"
+      ],
+      [
+        "SECTION B ITEM GG",
+        "SECTION B ITEM HH",
+        "SECTION B ITEM II",
+        "SECTION B ITEM JJ",
+        "SECTION B ITEM KK",
+        "SECTION B TOTAL 555"
+      ]
+    ],
+    "sha256": "d172ea8fa880d4266932d7422e23ec691e4f69981fac95de3a21a37564f61ed6"
+  },
+  {
+    "id": "independent-residual",
+    "side": "b",
+    "expected_rows": [
+      [
+        "SECTION A ITEM AA",
+        "SECTION A ITEM BB",
+        "SECTION A NEW ADDED",
+        "SECTION A ITEM CC",
+        "SECTION A ITEM DD",
+        "SECTION A ITEM EE"
+      ],
+      [
+        "SECTION A ITEM FF",
+        "SECTION A ITEM GG",
+        "SECTION A ITEM HH",
+        "SECTION A ITEM II",
+        "SECTION A TOTAL 555"
+      ],
+      [
+        "SECTION B ITEM AA",
+        "SECTION B ITEM BB",
+        "SECTION B NEW ADDED",
+        "SECTION B ITEM CC",
+        "SECTION B ITEM DD",
+        "SECTION B ITEM EE"
+      ],
+      [
+        "SECTION B ITEM FF",
+        "SECTION B ITEM GG",
+        "SECTION B ITEM HH",
+        "SECTION B ITEM II",
+        "SECTION B ITEM JJ",
+        "SECTION B ITEM KK"
+      ],
+      [
+        "SECTION B TOTAL 555"
+      ]
+    ],
+    "sha256": "d29f729420ad49bdaf2b560f5e825a399ec38d7e7331f1f6f37749b2236a2b7a"
+  },
+  {
+    "id": "independent-faint",
+    "side": "a",
+    "expected_rows": [
+      [
+        "SECTION A ITEM AA",
+        "SECTION A ITEM BB",
+        "SECTION A ITEM CC",
+        "SECTION A ITEM DD",
+        "SECTION A ITEM EE",
+        "SECTION A ITEM FF"
+      ],
+      [
+        "SECTION A ITEM GG",
+        "SECTION A ITEM HH",
+        "SECTION A ITEM II",
+        "SECTION A TOTAL 555"
+      ],
+      [
+        "SECTION B ITEM AA",
+        "SECTION B ITEM BB",
+        "SECTION B ITEM CC",
+        "SECTION B ITEM DD",
+        "SECTION B ITEM EE",
+        "SECTION B ITEM FF"
+      ],
+      [
+        "SECTION B ITEM GG",
+        "SECTION B ITEM HH",
+        "SECTION B ITEM II",
+        "SECTION B ITEM JJ",
+        "SECTION B ITEM KK",
+        "SECTION B TOTAL 555"
+      ]
+    ],
+    "sha256": "d172ea8fa880d4266932d7422e23ec691e4f69981fac95de3a21a37564f61ed6"
+  },
+  {
+    "id": "independent-faint",
+    "side": "b",
+    "expected_rows": [
+      [
+        "SECTION A ITEM AA",
+        "SECTION A ITEM BB",
+        "SECTION A NEW ADDED",
+        "SECTION A ITEM CC",
+        "SECTION A ITEM DD",
+        "SECTION A ITEM EE"
+      ],
+      [
+        "SECTION A ITEM FF",
+        "SECTION A ITEM GG",
+        "SECTION A ITEM HH",
+        "SECTION A ITEM II",
+        "SECTION A TOTAL 555"
+      ],
+      [
+        "SECTION B ITEM AA",
+        "SECTION B ITEM BB",
+        "SECTION B NEW ADDED",
+        "SECTION B ITEM CC",
+        "SECTION B ITEM DD",
+        "SECTION B ITEM EE"
+      ],
+      [
+        "SECTION B ITEM FF",
+        "SECTION B ITEM GG",
+        "SECTION B ITEM HH",
+        "SECTION B ITEM II",
+        "SECTION B ITEM JJ",
+        "SECTION B ITEM KK"
+      ],
+      [
+        "SECTION B TOTAL 555"
+      ]
+    ],
+    "sha256": "04f6ffc6649a0ec628c3cc9b318ea10f5dadc8ed5d07c6dd50fefa16cb87af76"
+  },
+  {
+    "id": "repeated-components",
+    "side": "a",
+    "expected_rows": [
+      [
+        "SAME ITEM AA",
+        "SAME ITEM BB",
+        "SAME ITEM CC",
+        "SAME ITEM DD",
+        "SAME ITEM EE",
+        "SAME ITEM FF"
+      ],
+      [
+        "SAME ITEM GG",
+        "SAME ITEM HH",
+        "SAME ITEM II",
+        "SAME TOTAL 555"
+      ],
+      [
+        "SAME ITEM AA",
+        "SAME ITEM BB",
+        "SAME ITEM CC",
+        "SAME ITEM DD",
+        "SAME ITEM EE",
+        "SAME ITEM FF"
+      ],
+      [
+        "SAME ITEM GG",
+        "SAME ITEM HH",
+        "SAME ITEM II",
+        "SAME ITEM JJ",
+        "SAME ITEM KK",
+        "SAME TOTAL 555"
+      ]
+    ],
+    "sha256": "8b220d94fa6bb54fb82ab14582372876313050c2c35a6aaf82ef2c37d2bebe5c"
+  },
+  {
+    "id": "repeated-components",
+    "side": "b",
+    "expected_rows": [
+      [
+        "SAME ITEM AA",
+        "SAME ITEM BB",
+        "SAME NEW ADDED",
+        "SAME ITEM CC",
+        "SAME ITEM DD",
+        "SAME ITEM EE"
+      ],
+      [
+        "SAME ITEM FF",
+        "SAME ITEM GG",
+        "SAME ITEM HH",
+        "SAME ITEM II",
+        "SAME TOTAL 555"
+      ],
+      [
+        "SAME ITEM AA",
+        "SAME ITEM BB",
+        "SAME NEW ADDED",
+        "SAME ITEM CC",
+        "SAME ITEM DD",
+        "SAME ITEM EE"
+      ],
+      [
+        "SAME ITEM FF",
+        "SAME ITEM GG",
+        "SAME ITEM HH",
+        "SAME ITEM II",
+        "SAME ITEM JJ",
+        "SAME ITEM KK"
+      ],
+      [
+        "SAME TOTAL 555"
+      ]
+    ],
+    "sha256": "a0eb32c25c3bb58eb1c420a37df7b9cd47d35c0c8fd4c3fea8a11d13ba26edcf"
+  },
+  {
+    "id": "unlinked-last-page",
+    "side": "a",
+    "expected_rows": [
+      [
+        "ITEM AAAA",
+        "ITEM BBBB",
+        "ITEM CCCC",
+        "ITEM DDDD",
+        "ITEM EEEE",
+        "ITEM FFFF"
+      ],
+      [
+        "ITEM GGGG",
+        "ITEM HHHH",
+        "ITEM IIII",
+        "ITEM JJJJ",
+        "ITEM KKKK",
+        "SUM TOTAL 555"
+      ]
+    ],
+    "sha256": "33c2b74453d44c6c9a1d757310a3f7afbe14f1d46bf6a88feaba30df90b4c6c9"
+  },
+  {
+    "id": "unlinked-last-page",
+    "side": "b",
+    "expected_rows": [
+      [
+        "ITEM AAAA",
+        "ITEM BBBB",
+        "NEW ADDED",
+        "ITEM CCCC",
+        "ITEM DDDD",
+        "ITEM EEEE"
+      ],
+      [
+        "ITEM FFFF",
+        "ITEM GGGG",
+        "ITEM HHHH",
+        "ITEM IIII",
+        "ITEM JJJJ",
+        "ITEM KKKK"
+      ],
+      [
+        "SUM TOTAL 555"
+      ],
+      []
+    ],
+    "sha256": "4fce5df347abe19328993fcb2ea66dfb0c027cb6b265c316220e2e77cc6b1ca4"
+  }
+]

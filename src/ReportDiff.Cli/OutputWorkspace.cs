@@ -7,10 +7,15 @@ internal sealed class OutputWorkspace : IDisposable
 {
     private readonly string destination;
     private readonly bool force;
+    private readonly OutputWorkspaceOperations operations;
     public string StagingPath { get; }
 
     public OutputWorkspace(string output, bool force, params string[] protectedFiles)
+        : this(output, force, new OutputWorkspaceOperations(), protectedFiles) { }
+
+    internal OutputWorkspace(string output, bool force, OutputWorkspaceOperations operations, params string[] protectedFiles)
     {
+        this.operations = operations;
         destination = Path.TrimEndingDirectorySeparator(Path.GetFullPath(output));
         this.force = force;
         ValidateDestination();
@@ -35,14 +40,14 @@ internal sealed class OutputWorkspace : IDisposable
         if (Directory.Exists(destination))
         {
             backup = Path.Combine(Path.GetDirectoryName(destination)!, ".reportdiff-backup-" + Guid.NewGuid().ToString("N"));
-            Directory.Move(destination, backup);
+            operations.Move(destination, backup);
         }
-        try { Directory.Move(StagingPath, destination); }
+        try { operations.Move(StagingPath, destination); }
         catch
         {
             if (backup is not null)
             {
-                try { Directory.Move(backup, destination); }
+                try { operations.Move(backup, destination); }
                 catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
                 {
                     throw new CommandLineException($"出力先の置き換えと復元に失敗しました。旧出力は次に残っています: {backup}");
@@ -52,7 +57,7 @@ internal sealed class OutputWorkspace : IDisposable
         }
         if (backup is not null)
         {
-            try { Directory.Delete(backup, recursive: true); }
+            try { operations.Delete(backup); }
             catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
             {
                 throw new CommandLineException($"新しい結果は保存しましたが、旧出力の削除に失敗しました。次の保存先を確認してください: {backup}");
@@ -110,4 +115,11 @@ internal sealed class OutputWorkspace : IDisposable
     {
         if (Directory.Exists(StagingPath)) Directory.Delete(StagingPath, recursive: true);
     }
+}
+
+// 通常実行は同じDirectory操作。置換・復元・公開後の清掃の失敗を独立して検証する。
+internal sealed record OutputWorkspaceOperations
+{
+    internal Action<string, string> Move { get; init; } = Directory.Move;
+    internal Action<string> Delete { get; init; } = path => Directory.Delete(path, true);
 }

@@ -6,6 +6,16 @@
   </PropertyGroup>
   <ItemGroup>
     <None Update="Fixtures/row-surfaces/**" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="Fixtures/page-flow-global/**" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="Fixtures/page-flow-multiple/**" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="Fixtures/page-flow-shared/**" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="Fixtures/page-flow-ambiguity/**" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="Fixtures/page-flow-same-page-support/**" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="Fixtures/page-flow-anchored-acceptance/**" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="Fixtures/page-flow-terminal-shared/**" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="Fixtures/page-flow-unpaired/**" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="Fixtures/page-flow-numeric/**" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="Fixtures/page-flow/**" CopyToOutputDirectory="PreserveNewest" />
     <PackageReference Include="xunit.v3" Version="4.0.1" />
   </ItemGroup>
   <ItemGroup>

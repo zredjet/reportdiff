@@ -1,0 +1,2503 @@
+{
+  "date": "2026-09-23",
+  "scope": "Independent preflight of global alignment and page flow; product CLI unchanged",
+  "platform": "macOS arm64",
+  "fixed_pdf_sha256": {
+    "out/t3-1c-probe/type3-final/R10/a.pdf": "3d0356ca32f9b11c798a1c9dc5a1c38c9125ba9ba3281ee804256bbec804a895",
+    "out/t3-1c-probe/type3-final/R10/b.pdf": "210d0371db8c2d799e5a0446f6fc15ed631b9142ead74e3af581418946387269",
+    "out/t3-1c-probe/type3-final/chain3/a.pdf": "e942b92d8e5e95be48260a21f32fa8131d9bae9b82d03976ad0d5fa8d4043c0f",
+    "out/t3-1c-probe/type3-final/chain3/b.pdf": "49692df465c9f1e9b5232ae54aeadf7975578ec277d292efccb719e424a67058"
+  },
+  "cases": 18,
+  "paired_pages": 38,
+  "diagnostic_adoptable": 10,
+  "nonzero_alignment_and_flow": 9,
+  "diagnostic_fallback": 8,
+  "expected_results_met": 18,
+  "surface_pages": 25,
+  "actual_structures": 63,
+  "words": 1448,
+  "original_band_proofs": 11,
+  "original_substitution_comparisons": 132,
+  "changed_reread_rejections": 38,
+  "mismatched_frame_rejections": 28,
+  "mixed_frame_aggregation_rejections": 9,
+  "python_reference_pages": 23,
+  "python_reference": [
+    {
+      "case": "anchor-zero",
+      "page": 1,
+      "raw": 0,
+      "clusters": 0,
+      "csharp_mask_equal": true
+    },
+    {
+      "case": "anchor-zero",
+      "page": 2,
+      "raw": 0,
+      "clusters": 0,
+      "csharp_mask_equal": true
+    },
+    {
+      "case": "anchor-down",
+      "page": 1,
+      "raw": 0,
+      "clusters": 0,
+      "csharp_mask_equal": true
+    },
+    {
+      "case": "anchor-down",
+      "page": 2,
+      "raw": 0,
+      "clusters": 0,
+      "csharp_mask_equal": true
+    },
+    {
+      "case": "anchor-up",
+      "page": 1,
+      "raw": 0,
+      "clusters": 0,
+      "csharp_mask_equal": true
+    },
+    {
+      "case": "anchor-up",
+      "page": 2,
+      "raw": 0,
+      "clusters": 0,
+      "csharp_mask_equal": true
+    },
+    {
+      "case": "anchor-reverse",
+      "page": 1,
+      "raw": 0,
+      "clusters": 0,
+      "csharp_mask_equal": true
+    },
+    {
+      "case": "anchor-reverse",
+      "page": 2,
+      "raw": 0,
+      "clusters": 0,
+      "csharp_mask_equal": true
+    },
+    {
+      "case": "anchor-variable",
+      "page": 1,
+      "raw": 0,
+      "clusters": 0,
+      "csharp_mask_equal": true
+    },
+    {
+      "case": "anchor-variable",
+      "page": 2,
+      "raw": 0,
+      "clusters": 0,
+      "csharp_mask_equal": true
+    },
+    {
+      "case": "anchor-mixed",
+      "page": 1,
+      "raw": 0,
+      "clusters": 0,
+      "csharp_mask_equal": true
+    },
+    {
+      "case": "anchor-mixed",
+      "page": 2,
+      "raw": 0,
+      "clusters": 0,
+      "csharp_mask_equal": true
+    },
+    {
+      "case": "anchor-chain",
+      "page": 1,
+      "raw": 0,
+      "clusters": 0,
+      "csharp_mask_equal": true
+    },
+    {
+      "case": "anchor-chain",
+      "page": 2,
+      "raw": 0,
+      "clusters": 0,
+      "csharp_mask_equal": true
+    },
+    {
+      "case": "anchor-chain",
+      "page": 3,
+      "raw": 0,
+      "clusters": 0,
+      "csharp_mask_equal": true
+    },
+    {
+      "case": "anchor-horizontal",
+      "page": 1,
+      "raw": 0,
+      "clusters": 0,
+      "csharp_mask_equal": true
+    },
+    {
+      "case": "anchor-horizontal",
+      "page": 2,
+      "raw": 0,
+      "clusters": 0,
+      "csharp_mask_equal": true
+    },
+    {
+      "case": "anchor-both",
+      "page": 1,
+      "raw": 0,
+      "clusters": 0,
+      "csharp_mask_equal": true
+    },
+    {
+      "case": "anchor-both",
+      "page": 2,
+      "raw": 0,
+      "clusters": 0,
+      "csharp_mask_equal": true
+    },
+    {
+      "case": "body-tone",
+      "page": 1,
+      "raw": 0,
+      "clusters": 0,
+      "csharp_mask_equal": true
+    },
+    {
+      "case": "body-tone",
+      "page": 2,
+      "raw": 100,
+      "clusters": 1,
+      "csharp_mask_equal": true
+    },
+    {
+      "case": "body-excluded",
+      "page": 1,
+      "raw": 0,
+      "clusters": 0,
+      "csharp_mask_equal": true
+    },
+    {
+      "case": "body-region",
+      "page": 1,
+      "raw": 0,
+      "clusters": 0,
+      "csharp_mask_equal": true
+    }
+  ],
+  "product_source_files_unchanged": 99,
+  "source_snapshot_sha256": {
+    "src/ReportDiff.Cli/AppSettings.cs": "b2c292532fc4286929a10c817b458a6373f94de9c635a1a300f8526647289b95",
+    "src/ReportDiff.Cli/AssemblyInfo.cs": "502510d8fadecad038256039d5f9b86967f68a15afc8678f06377713652881d3",
+    "src/ReportDiff.Cli/CliApplication.cs": "54873694ca6511b77f5e34e7a42e9319337a7ecc470aa55e0f20e6eba397a92b",
+    "src/ReportDiff.Cli/CommandLine.cs": "bc67f040e1ef7f8bfc4d516471426ff7aaa19126234d966e56848568723e4467",
+    "src/ReportDiff.Cli/ComparisonInput.cs": "1d754daa49db5501b96670b7df72a2564a7c6c635646a4bce214aa34c3d39d5f",
+    "src/ReportDiff.Cli/ComparisonRunner.cs": "66c5159d9707e254702db62c7f52b1fac267291a987a4e18f0c73b028e6ce853",
+    "src/ReportDiff.Cli/ConfigurationLoader.cs": "03230e1db64a78de9c354ca7c07729025f37c25c02075b58e9c1e05f2795c1a2",
+    "src/ReportDiff.Cli/ConsoleProgress.cs": "6cd669d3cd61c5bc85fef7f1b7f00205c74f34222104c492e747fc38e87eb69c",
+    "src/ReportDiff.Cli/DirectoryComparison.cs": "c85858c3b976f57197c0229784914fb8f591f35493d0e5c525347242d0dbb354",
+    "src/ReportDiff.Cli/DirectoryPlan.cs": "2ecb852089f07c15d4a9034207d81f83f58f2a3908580b4c0b08d63094ac9d28",
+    "src/ReportDiff.Cli/DirectoryRules.cs": "787adc3a21ec140d80da80b092bd280917b346bfe64190f5cc40e56be6353191",
+    "src/ReportDiff.Cli/OutputWorkspace.cs": "51acec7c80adca8d3e48921cb398737dcd989d5891ae414fd70b666927ce669e",
+    "src/ReportDiff.Cli/PageFlowRun.cs": "ba07f0642490355bddaf000470de14a210908b022a75ee7dc66567a2524fa616",
+    "src/ReportDiff.Cli/Program.cs": "b7a3b4da069f34065cf8b42f618a5828c84090358479cc58fe84755c528448c6",
+    "src/ReportDiff.Cli/RegionSetting.cs": "996d86b96f8650d79a77c6865c037939a9d792550cbdde062a9738c05481f316",
+    "src/ReportDiff.Cli/ReportDiff.Cli.csproj": "3e2795af95b113d59193c85dd18d57b33b6ea3b48194ed6bd4f286fcdd4ecca7",
+    "src/ReportDiff.Core/AssemblyInfo.cs": "060494a4b480a2d869fb11948811c14bcc777dbd4aa419b50dff4dce085b180c",
+    "src/ReportDiff.Core/CandidateRowSchedule.cs": "d3c3deb2467083a063e2f9d5a522760ca616ff74d3439c92830e1ddd91c329d9",
+    "src/ReportDiff.Core/ClusterProjectionData.cs": "e66b6b052b86092d2038a4f8e6fd010a75a9575dc74991730b4137fdc5a16015",
+    "src/ReportDiff.Core/ComparisonFeatures.cs": "b8c53bfdede76a9623d26c6f3ef48e28e5f690f875a4f4defbc38d6930211fda",
+    "src/ReportDiff.Core/ComparisonInk.cs": "bb06f1b539af62988ece41b65d992c07c8c791ab41d3ee087e2ae6c4bfadcf03",
+    "src/ReportDiff.Core/ComparisonParameters.cs": "5d4f15ca53e464931a8458a6b1bbf78769c1f14e9ab4162df5a6a7caf3cccee4",
+    "src/ReportDiff.Core/ComparisonTimings.cs": "0f6b8bf17f527e6f20d0eeea01e87437d663bddc866ac84f91e527b665e4f981",
+    "src/ReportDiff.Core/DifferenceClassifier.cs": "dc43e65f285a86b9ce926e19ea5145904e6d516c39f5d01a4b742817c38f134c",
+    "src/ReportDiff.Core/FeatureStripeSchedule.cs": "c9a602a01dc32d731af4bef1b7ef1923254a27e60a6b1bd3a81c7e14bf14549d",
+    "src/ReportDiff.Core/GlobalAlignment.cs": "eaa3777e70ed94b4bf171c5414426138fde5fc7627410015af7511e625f9d034",
+    "src/ReportDiff.Core/GroupCandidateSchedule.cs": "a8bb6419e82d6e1b932de721e83267ce5788e577b1da8441abbede8c5ffeda57",
+    "src/ReportDiff.Core/GroupCandidateSearch.cs": "ca903b3a82423f993043126dfa015c90a5f8adebf0a0ba296034bfcef431a698",
+    "src/ReportDiff.Core/GroupRunIndex.cs": "28ff0084042dc65d92ba6e1aa95f07b560801c056d54c320b6d302e6e2281f4e",
+    "src/ReportDiff.Core/GroupSearchSchedule.cs": "b36fcd6ee1a9c7faa086e85fcd00dbb6c3a6f1bf86a268b82318f92890fa02cb",
+    "src/ReportDiff.Core/GroupShiftSearch.cs": "6e95c31ab2c87acddeb01a6b863d817542319d2362858553b27cc5b9dc8dafba",
+    "src/ReportDiff.Core/ImageInk.cs": "3f3cefe9141fac6275b30d87a83d742e5330130d81294c21e67581cddf72be09",
+    "src/ReportDiff.Core/InitialCandidates.cs": "74822751930b3401ca4145b7ec5e9e2cfe6f0569a234c8f189d580d8301136d2",
+    "src/ReportDiff.Core/LabStripeCache.cs": "f68aff9007a05c249158ffe1ce6079eb685fab9e638bd81469dc4e26606609ff",
+    "src/ReportDiff.Core/MatBuffers.cs": "d196bd1541bd385b89ab9fd78882498c0ead5b2239d89c0bb19b39f8d7af45f9",
+    "src/ReportDiff.Core/MovementAnnotator.cs": "f6ceb5f6a84b2b08da0dc8daa5d71861462d308f6f9390594fdd3fafc599e9b8",
+    "src/ReportDiff.Core/PageComparer.cs": "d560b3f307a0f6c37539ac36dd1157f394ac9eb77fe2223d9cea24d7087434e8",
+    "src/ReportDiff.Core/PageComparison.cs": "310e74bb4ac5c520cc3d853bdcd2aa939cafb52a19c08e8569d64b04f0e3847b",
+    "src/ReportDiff.Core/PageFlowAdoption.cs": "6a5c30ab3573ebc068c5a4902abe2ce49d54d427d92b67a361c0d382702f5a91",
+    "src/ReportDiff.Core/PageFlowAggregation.cs": "fe38853cef2b9a2e964fc04f05e5257384dfd3ae8feac7d34f0fbe96127c8432",
+    "src/ReportDiff.Core/PageFlowBandVerifier.cs": "8fbb7d6be0e06510eb4e0287410708b31422a1e0924166f76e15d44fb29026e1",
+    "src/ReportDiff.Core/PageFlowCollector.cs": "6963e45d7589759c244acd12092e0894ca2ba9100eca4581f60eea0834fb03d9",
+    "src/ReportDiff.Core/PageFlowComparison.cs": "834f6372b11b6d5c13136bb576d8a8d938dccf60ec1ba71fa42f914de6770be0",
+    "src/ReportDiff.Core/PageFlowData.cs": "0ea7d3d9b3a8416e27887563856fc0e76a12a6550b4b08756e99e66f14459fe0",
+    "src/ReportDiff.Core/PageFlowInference.cs": "3eb15341443e8eacc2d6e9486b124a9f49955af44c5ed25d75c3a7f37cda2689",
+    "src/ReportDiff.Core/PageFlowPlan.cs": "3c12c4b23b3c7c543317e0d820842cd5ad227e41db648c7ca5fcf4825b982424",
+    "src/ReportDiff.Core/PageFlowRangeGate.cs": "86814cbf0d130ef25b9d6c70822b8867910c2bc1ed7dc61d9d35e10f9bf5d637",
+    "src/ReportDiff.Core/PageFlowSurface.cs": "03acf75ae3c998b92a3ee645c1e11bfa3937f01bc84ef70c716aec8fd217b436",
+    "src/ReportDiff.Core/PageMap.cs": "d037a4dc953cd2b6e4445055d05ebe1daf6e7872836909862150b147a9a75079",
+    "src/ReportDiff.Core/RegionMap.cs": "00e09dea774c79818e297f2e674ae079f5fbfe8592672080fa9d0ccbb126716e",
+    "src/ReportDiff.Core/RegionalComparison.cs": "2629aa0fd34db7991067c87bae77efdc9a8815b0c287908961846b7b46985049",
+    "src/ReportDiff.Core/ReportDiff.Core.csproj": "4fd131e59a31e5fea36ac35ad2e1cf2eb7bd913a3d937d7f112d2e4f1a03ff21",
+    "src/ReportDiff.Core/RowCandidateBuilder.cs": "64234efb0aec8fbd18c8da0b7d4b28bb44894e74f73ee3223440407c54f9b1ad",
+    "src/ReportDiff.Core/RowCanonicalizer.cs": "d1e66171499f03b5014afe846ba745e825707eb25b34d4d48334b345deaa4e81",
+    "src/ReportDiff.Core/RowComparison.cs": "3aac86bdf5bae8d6de6eac16f7d00f557eeac68c4fa87f141b688658140f895a",
+    "src/ReportDiff.Core/RowComparisonSurface.cs": "34fab9a23504973d274f75f69b23232924a737f291bb424eb6ecd81d5f888c5c",
+    "src/ReportDiff.Core/RowGroupValidator.cs": "461144fadb941aa0b8d79fe5b99d76f830c10bfe817c1ecc72077a07afd327f4",
+    "src/ReportDiff.Core/RowMatching.cs": "a7015cafed9839a10db95b32de5705abd209fa571bbbede0d70e9c83e87ade72",
+    "src/ReportDiff.Core/RowProjection.cs": "4715d629b2951837662c91d9d613a19a64ef4f77a6e50d545dffca720d90d7d1",
+    "src/ReportDiff.Core/RowSelector.cs": "5180d9fa814790519f8cd0c2d97f1165f2ee4318b5735da6907a1bc8813080d7",
+    "src/ReportDiff.Core/RowStructures.cs": "d9edbb5e189b6aa5c1336f6d81cb741b572491c20f178a8e81e2c5bdc187ce11",
+    "src/ReportDiff.Core/RowSupport.cs": "db3a85cc3633a1fa4332ef5ff40c0f5724ea5e72d29ba8e6d43ce8b2a919c951",
+    "src/ReportDiff.Core/RowText.cs": "9d14e5e607ba2983e74427cddb9905668e6625e71e69cd550d35b1a27eefec1a",
+    "src/ReportDiff.Core/TolerantDifference.cs": "5a9082634252a07b14b0ea2adf16c54fa2ce536eb9fd47374224f3a254c70e45",
+    "src/ReportDiff.Core/Units.cs": "2664a41731483bc23aaccd4dc5a7c462a90e7042960404fe93453a92ef4ea5e9",
+    "src/ReportDiff.Pdf/AssemblyInfo.cs": "502510d8fadecad038256039d5f9b86967f68a15afc8678f06377713652881d3",
+    "src/ReportDiff.Pdf/ImageReader.cs": "dd65252e10e2046c5401cb9b0c490d10ceb2a51ca974192507dfe4e811cdd8dd",
+    "src/ReportDiff.Pdf/InputFormat.cs": "a5ba93584766984432a613e038d249f49053a57bd8bd5ef433aecdeddb479fbc",
+    "src/ReportDiff.Pdf/LoadedImage.cs": "9a479a6e661bbfcdc3eb01e3d750914b6282b2fb5f19ee0fbb3a212b83e6ec44",
+    "src/ReportDiff.Pdf/PageNormalizer.cs": "78a9ba69476d8cf0e68b40d15d84beec72c4c5b80908cad16bfc57d48b2a8c0a",
+    "src/ReportDiff.Pdf/PagePairing.cs": "abd54c801c2816fb19518c20bf49c88d3e0366491648374ea1aaabee3c22554a",
+    "src/ReportDiff.Pdf/PageSelection.cs": "0cb8f84064f1d7263a2f30b06f20c77dd60688f877405103c57b3ab55ce999ab",
+    "src/ReportDiff.Pdf/PdfFontInspector.cs": "6ddcb863b79063e7594e5ad5779a62c9efd5a98fc80ebcc43be64636a5228997",
+    "src/ReportDiff.Pdf/PdfReader.cs": "a521c0532b0e2cd061e8ce6cd68403cd8eac45d3453f8a37b79b4d79647c20f5",
+    "src/ReportDiff.Pdf/PdfTextReader.cs": "dbc3cf40bd7e3c5a5c655a06507ff092db4b067d45e08abb4fab1bc102df4d30",
+    "src/ReportDiff.Pdf/ReportDiff.Pdf.csproj": "669ad02db31c565c8bc3620410c9312301439c37ccf9b7ac0db9a70aad409c3a",
+    "src/ReportDiff.Pdf/RowTextAnnotations.cs": "446de90eff2def29253da9ef6e9be085266986c448b22e3210095ad44f4a9eb6",
+    "src/ReportDiff.Pdf/TextAnnotations.cs": "e5fd667b6573f13fd91c697395d4a74efcf3be66dc9a89992b7b6395a866a5dc",
+    "src/ReportDiff.Pdf/TextOptions.cs": "c8cc766ededff6c993791593583a7e9ccbf559e2fc5335cc58fad132079be9fb",
+    "src/ReportDiff.Pdf/TiffAlpha.cs": "e6bbb487b32ac0592ab01d5f1b0fd8f40ccb2c093f4c825e8d57aa3a70f98b79",
+    "src/ReportDiff.Report/AssemblyInfo.cs": "502510d8fadecad038256039d5f9b86967f68a15afc8678f06377713652881d3",
+    "src/ReportDiff.Report/DirectoryReportDocument.cs": "a39cd5125411dd8c33d8beeec0e3469d283a968a96d53e6331332001ced9e167",
+    "src/ReportDiff.Report/DirectoryReportWriter.cs": "c31647a4040114dca7cfe607901e135a0fc50140dbf6c93bad543843d6b6d80a",
+    "src/ReportDiff.Report/ExclusionSnippet.cs": "80ee4fd3b2da35ded4b023f9f6f6fa7a4b95fc6f3e6c3220dc6b7437a75f0385",
+    "src/ReportDiff.Report/HtmlPageFlow.cs": "a1e92f30b3b391ebd3063fc409fc2a754d80304e097f32b6ce789aca69958029",
+    "src/ReportDiff.Report/HtmlRegions.cs": "e68cab2a4ca0ed73b0235883a373d99cb96bdb5585f1346256bc071ed6c7ac8b",
+    "src/ReportDiff.Report/HtmlReportWriter.cs": "d4e3182ceddcdc8acaf52e0b6ae5248f06a400e2d89f23e4f3741f12fa491469",
+    "src/ReportDiff.Report/HtmlRows.cs": "24527695d1a5c402e563253daf471606f883aa8295bda48f17b7a452f9eed0c2",
+    "src/ReportDiff.Report/PageImageWriteSchedule.cs": "5bf20dce01198ed377d7c41807830a5fa0c991c26d45c84982911d234289b24a",
+    "src/ReportDiff.Report/RawOverlay.cs": "73a821cc489464ec7f0990dd782e5012e7a5a7de20ce16b65a4cc18f9d828a07",
+    "src/ReportDiff.Report/RegionDrawing.cs": "7babd3024d1a5f76299d5be90f2ce7f50a34d5073093bc97326da491a5a69da5",
+    "src/ReportDiff.Report/ReportColor.cs": "6979a1d00188bf4dd353523ba5dc1ae41cae63b9e337c349d8e450f2ee15a2ef",
+    "src/ReportDiff.Report/ReportDiff.Report.csproj": "0f123f1803380365177bc6d7239361dff00eaf910205896ac1e675cf1c92bcd8",
+    "src/ReportDiff.Report/ReportDocument.cs": "de9333c703cd1a98e47271a2bc32c1358620c9484a3ff81b7138f68de7e88b4d",
+    "src/ReportDiff.Report/ReportImages.cs": "5d6826c78c5623acec087fd995e2864d4913a19d2691039c70b0530bbe4f4a8d",
+    "src/ReportDiff.Report/ReportPageFlow.cs": "dbe768cb7f6d2abe8df2e8ad948add1eea5cfd5434fec99d3f4b38d3c2e062b3",
+    "src/ReportDiff.Report/ReportRegions.cs": "5b9a45eb31fd0bdb41d206b74cb89335358969eebf9cc017494e54f185724443",
+    "src/ReportDiff.Report/ReportRows.cs": "4b8c92decc7a6e4b419620aecb7a70f38571b9fd760f2c613ab1710a0ad5726f",
+    "src/ReportDiff.Report/ReportWriter.cs": "1f0194010b440043044a3da1126bbc72efc01b25999c938720bc239ff7b250fa"
+  },
+  "diagnostic_tool_sha256": {
+    "tools/ReportDiff.PageFlowProbe/Program.cs": "e8a987b786920f0d3771f9341bf1207e746f2ed004315d1cdfbb287acffe35b5",
+    "tools/ReportDiff.PageFlowProbe/GlobalFlowProbe.cs": "90c674d338c4d76edc166da7a29cc0275fd47fb591212469a7865b32d0546ce6",
+    "tools/ReportDiff.PageFlowProbe/audit-global-flow.py": "da8c787dc7b13e2e4d749d83e88a8ddf6c0a1fb9a7b407d787944552717890c5",
+    "tools/ReportDiff.PageFlowProbe/check-global-reference.py": "f9f4475bc3fdb439dc3878c18a10489d15c841a64c3af7272f7527f60cabe1c2",
+    "tools/ReportDiff.PageFlowProbe/ReportDiff.PageFlowProbe.csproj": "b6ee5a97f245625708463f1f0199896be7443331ec996637936697c90fa2e491"
+  },
+  "reference_source_sha256": "e2979617b2bd7d5554f07ff5039bd8702ef56f5ae9baa34b003f270b9297fa61",
+  "build": {
+    "configuration": "Release",
+    "warnings": 0,
+    "errors": 0
+  },
+  "full_test_suite_rerun": false,
+  "previous_passing_tests": 1806,
+  "artifact_root": "out/t3-1c-global-composition/final-verified",
+  "artifact_sha256": {
+    "global-flow.json": "d1c8db79efe7f80d4997e49a1c74e06e168b76aaf13446d97f3972a8bdfd935c",
+    "audit.json": "d9304a21b23fccd7603211877535cb540292246750a24852dffc6884a955dcc3",
+    "reference.json": "3861385d4c3a4242e9dc49b5573a5f7b15ac17ebb150b53a82cf85a6e23375f8",
+    "output-hashes.json": "b416d1e337b60df8f45d59da572b7e695b091e34c180af68b1f72461244e20c8",
+    "build.log": "32d23a28c2aece8754764820bbe4211172d9850e534d8baa6cca57dc48e96212",
+    "run.log": "347aa7a2c01f690142024888b6c4bdad88d58b15cbeda87de36cfdd95d5fbbe7",
+    "audit.log": "08f6d1d246277db3b5a74aa00e1f0034981b6b594e56cb50096bf99a331495e9",
+    "reference.log": "1f1f777bacd2b39d5e2a47bee168e8c1d6d36f5b397e87c40d8310d3564ee27d"
+  },
+  "cases_detail": [
+    {
+      "scenario": {
+        "id": "original-r10",
+        "fixture": "R10",
+        "anchor": false,
+        "reverse": false,
+        "x": 0,
+        "y": 4,
+        "mutation": "none",
+        "settings": "normal",
+        "pattern": "uniform",
+        "expected": false
+      },
+      "pdf_sha256": [
+        "3d0356ca32f9b11c798a1c9dc5a1c38c9125ba9ba3281ee804256bbec804a895",
+        "210d0371db8c2d799e5a0446f6fc15ed631b9142ead74e3af581418946387269"
+      ],
+      "decision": {
+        "ready": false,
+        "reasons": [
+          "fixed_parts_support",
+          "no_verified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "original_proofs_passed": false,
+      "diagnostic_adoptable": false,
+      "expectation_met": true,
+      "candidate_aggregation": null,
+      "mixed_frame_aggregation": null,
+      "mismatched_frame_rejected": 0,
+      "changed_reread_rejected": 2
+    },
+    {
+      "scenario": {
+        "id": "original-chain",
+        "fixture": "chain3",
+        "anchor": false,
+        "reverse": false,
+        "x": 0,
+        "y": 4,
+        "mutation": "none",
+        "settings": "normal",
+        "pattern": "uniform",
+        "expected": false
+      },
+      "pdf_sha256": [
+        "e942b92d8e5e95be48260a21f32fa8131d9bae9b82d03976ad0d5fa8d4043c0f",
+        "49692df465c9f1e9b5232ae54aeadf7975578ec277d292efccb719e424a67058"
+      ],
+      "decision": {
+        "ready": false,
+        "reasons": [
+          "fixed_parts_support",
+          "no_verified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          },
+          {
+            "page": 3,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "original_proofs_passed": false,
+      "diagnostic_adoptable": false,
+      "expectation_met": true,
+      "candidate_aggregation": null,
+      "mixed_frame_aggregation": null,
+      "mismatched_frame_rejected": 1,
+      "changed_reread_rejected": 3
+    },
+    {
+      "scenario": {
+        "id": "anchor-zero",
+        "fixture": "R10",
+        "anchor": true,
+        "reverse": false,
+        "x": 0,
+        "y": 0,
+        "mutation": "none",
+        "settings": "normal",
+        "pattern": "uniform",
+        "expected": true
+      },
+      "pdf_sha256": [
+        "3d0356ca32f9b11c798a1c9dc5a1c38c9125ba9ba3281ee804256bbec804a895",
+        "210d0371db8c2d799e5a0446f6fc15ed631b9142ead74e3af581418946387269"
+      ],
+      "decision": {
+        "ready": true,
+        "reasons": [],
+        "selected_links": [
+          {
+            "source": {
+              "page": {
+                "side": 0,
+                "page": 1
+              },
+              "top": 1056,
+              "height": 100,
+              "bottom": 1156
+            },
+            "target": {
+              "page": {
+                "side": 1,
+                "page": 2
+              },
+              "top": 556,
+              "height": 100,
+              "bottom": 656
+            },
+            "verified": true,
+            "reason": null
+          }
+        ],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "candidate"
+          },
+          {
+            "page": 2,
+            "choice": "candidate"
+          }
+        ]
+      },
+      "original_proofs_passed": true,
+      "diagnostic_adoptable": true,
+      "expectation_met": true,
+      "candidate_aggregation": {
+        "status": "grouped",
+        "reason": null,
+        "difference_count": 5,
+        "aggregated_difference_count": 1,
+        "difference_count_complete": true,
+        "aggregated_difference_count_complete": true,
+        "groups": [
+          {
+            "cause": {
+              "page": 1,
+              "structural_change_id": 1
+            },
+            "structures": [
+              {
+                "page": 1,
+                "structural_change_id": 1
+              },
+              {
+                "page": 1,
+                "structural_change_id": 2
+              },
+              {
+                "page": 1,
+                "structural_change_id": 3
+              },
+              {
+                "page": 2,
+                "structural_change_id": 1
+              },
+              {
+                "page": 2,
+                "structural_change_id": 2
+              }
+            ],
+            "auxiliary_bands": [],
+            "links": [
+              {
+                "source": {
+                  "page": {
+                    "side": 0,
+                    "page": 1
+                  },
+                  "top": 1056,
+                  "height": 100,
+                  "bottom": 1156
+                },
+                "target": {
+                  "page": {
+                    "side": 1,
+                    "page": 2
+                  },
+                  "top": 556,
+                  "height": 100,
+                  "bottom": 656
+                },
+                "text": [
+                  "ITEM FFFF"
+                ],
+                "support": 3,
+                "status": "band_verified",
+                "reason": null
+              }
+            ],
+            "balance": [
+              {
+                "page": 1,
+                "rows_a": 6,
+                "rows_b": 6,
+                "cause_delta": 1,
+                "incoming": 0,
+                "outgoing": 1
+              },
+              {
+                "page": 2,
+                "rows_a": 4,
+                "rows_b": 5,
+                "cause_delta": 0,
+                "incoming": 1,
+                "outgoing": 0
+              }
+            ]
+          }
+        ]
+      },
+      "mixed_frame_aggregation": null,
+      "mismatched_frame_rejected": 0,
+      "changed_reread_rejected": 2
+    },
+    {
+      "scenario": {
+        "id": "anchor-down",
+        "fixture": "R10",
+        "anchor": true,
+        "reverse": false,
+        "x": 0,
+        "y": 4,
+        "mutation": "none",
+        "settings": "normal",
+        "pattern": "uniform",
+        "expected": true
+      },
+      "pdf_sha256": [
+        "3d0356ca32f9b11c798a1c9dc5a1c38c9125ba9ba3281ee804256bbec804a895",
+        "210d0371db8c2d799e5a0446f6fc15ed631b9142ead74e3af581418946387269"
+      ],
+      "decision": {
+        "ready": true,
+        "reasons": [],
+        "selected_links": [
+          {
+            "source": {
+              "page": {
+                "side": 0,
+                "page": 1
+              },
+              "top": 1056,
+              "height": 100,
+              "bottom": 1156
+            },
+            "target": {
+              "page": {
+                "side": 1,
+                "page": 2
+              },
+              "top": 556,
+              "height": 100,
+              "bottom": 656
+            },
+            "verified": true,
+            "reason": null
+          }
+        ],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "candidate"
+          },
+          {
+            "page": 2,
+            "choice": "candidate"
+          }
+        ]
+      },
+      "original_proofs_passed": true,
+      "diagnostic_adoptable": true,
+      "expectation_met": true,
+      "candidate_aggregation": {
+        "status": "grouped",
+        "reason": null,
+        "difference_count": 5,
+        "aggregated_difference_count": 1,
+        "difference_count_complete": true,
+        "aggregated_difference_count_complete": true,
+        "groups": [
+          {
+            "cause": {
+              "page": 1,
+              "structural_change_id": 1
+            },
+            "structures": [
+              {
+                "page": 1,
+                "structural_change_id": 1
+              },
+              {
+                "page": 1,
+                "structural_change_id": 2
+              },
+              {
+                "page": 1,
+                "structural_change_id": 3
+              },
+              {
+                "page": 2,
+                "structural_change_id": 1
+              },
+              {
+                "page": 2,
+                "structural_change_id": 2
+              }
+            ],
+            "auxiliary_bands": [],
+            "links": [
+              {
+                "source": {
+                  "page": {
+                    "side": 0,
+                    "page": 1
+                  },
+                  "top": 1056,
+                  "height": 100,
+                  "bottom": 1156
+                },
+                "target": {
+                  "page": {
+                    "side": 1,
+                    "page": 2
+                  },
+                  "top": 556,
+                  "height": 100,
+                  "bottom": 656
+                },
+                "text": [
+                  "ITEM FFFF"
+                ],
+                "support": 3,
+                "status": "band_verified",
+                "reason": null
+              }
+            ],
+            "balance": [
+              {
+                "page": 1,
+                "rows_a": 6,
+                "rows_b": 6,
+                "cause_delta": 1,
+                "incoming": 0,
+                "outgoing": 1
+              },
+              {
+                "page": 2,
+                "rows_a": 4,
+                "rows_b": 5,
+                "cause_delta": 0,
+                "incoming": 1,
+                "outgoing": 0
+              }
+            ]
+          }
+        ]
+      },
+      "mixed_frame_aggregation": {
+        "status": "skipped",
+        "reason": "flow_band_balance_not_proven",
+        "difference_count": 5,
+        "aggregated_difference_count": 5,
+        "difference_count_complete": true,
+        "aggregated_difference_count_complete": true,
+        "groups": []
+      },
+      "mismatched_frame_rejected": 2,
+      "changed_reread_rejected": 2
+    },
+    {
+      "scenario": {
+        "id": "anchor-up",
+        "fixture": "R10",
+        "anchor": true,
+        "reverse": false,
+        "x": 0,
+        "y": -6,
+        "mutation": "none",
+        "settings": "normal",
+        "pattern": "uniform",
+        "expected": true
+      },
+      "pdf_sha256": [
+        "3d0356ca32f9b11c798a1c9dc5a1c38c9125ba9ba3281ee804256bbec804a895",
+        "210d0371db8c2d799e5a0446f6fc15ed631b9142ead74e3af581418946387269"
+      ],
+      "decision": {
+        "ready": true,
+        "reasons": [],
+        "selected_links": [
+          {
+            "source": {
+              "page": {
+                "side": 0,
+                "page": 1
+              },
+              "top": 1056,
+              "height": 100,
+              "bottom": 1156
+            },
+            "target": {
+              "page": {
+                "side": 1,
+                "page": 2
+              },
+              "top": 556,
+              "height": 100,
+              "bottom": 656
+            },
+            "verified": true,
+            "reason": null
+          }
+        ],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "candidate"
+          },
+          {
+            "page": 2,
+            "choice": "candidate"
+          }
+        ]
+      },
+      "original_proofs_passed": true,
+      "diagnostic_adoptable": true,
+      "expectation_met": true,
+      "candidate_aggregation": {
+        "status": "grouped",
+        "reason": null,
+        "difference_count": 5,
+        "aggregated_difference_count": 1,
+        "difference_count_complete": true,
+        "aggregated_difference_count_complete": true,
+        "groups": [
+          {
+            "cause": {
+              "page": 1,
+              "structural_change_id": 1
+            },
+            "structures": [
+              {
+                "page": 1,
+                "structural_change_id": 1
+              },
+              {
+                "page": 1,
+                "structural_change_id": 2
+              },
+              {
+                "page": 1,
+                "structural_change_id": 3
+              },
+              {
+                "page": 2,
+                "structural_change_id": 1
+              },
+              {
+                "page": 2,
+                "structural_change_id": 2
+              }
+            ],
+            "auxiliary_bands": [],
+            "links": [
+              {
+                "source": {
+                  "page": {
+                    "side": 0,
+                    "page": 1
+                  },
+                  "top": 1056,
+                  "height": 100,
+                  "bottom": 1156
+                },
+                "target": {
+                  "page": {
+                    "side": 1,
+                    "page": 2
+                  },
+                  "top": 556,
+                  "height": 100,
+                  "bottom": 656
+                },
+                "text": [
+                  "ITEM FFFF"
+                ],
+                "support": 3,
+                "status": "band_verified",
+                "reason": null
+              }
+            ],
+            "balance": [
+              {
+                "page": 1,
+                "rows_a": 6,
+                "rows_b": 6,
+                "cause_delta": 1,
+                "incoming": 0,
+                "outgoing": 1
+              },
+              {
+                "page": 2,
+                "rows_a": 4,
+                "rows_b": 5,
+                "cause_delta": 0,
+                "incoming": 1,
+                "outgoing": 0
+              }
+            ]
+          }
+        ]
+      },
+      "mixed_frame_aggregation": {
+        "status": "skipped",
+        "reason": "flow_band_balance_not_proven",
+        "difference_count": 5,
+        "aggregated_difference_count": 5,
+        "difference_count_complete": true,
+        "aggregated_difference_count_complete": true,
+        "groups": []
+      },
+      "mismatched_frame_rejected": 2,
+      "changed_reread_rejected": 2
+    },
+    {
+      "scenario": {
+        "id": "anchor-reverse",
+        "fixture": "R10",
+        "anchor": true,
+        "reverse": true,
+        "x": 0,
+        "y": 4,
+        "mutation": "none",
+        "settings": "normal",
+        "pattern": "uniform",
+        "expected": true
+      },
+      "pdf_sha256": [
+        "3d0356ca32f9b11c798a1c9dc5a1c38c9125ba9ba3281ee804256bbec804a895",
+        "210d0371db8c2d799e5a0446f6fc15ed631b9142ead74e3af581418946387269"
+      ],
+      "decision": {
+        "ready": true,
+        "reasons": [],
+        "selected_links": [
+          {
+            "source": {
+              "page": {
+                "side": 1,
+                "page": 1
+              },
+              "top": 1060,
+              "height": 100,
+              "bottom": 1160
+            },
+            "target": {
+              "page": {
+                "side": 0,
+                "page": 2
+              },
+              "top": 560,
+              "height": 100,
+              "bottom": 660
+            },
+            "verified": true,
+            "reason": null
+          }
+        ],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "candidate"
+          },
+          {
+            "page": 2,
+            "choice": "candidate"
+          }
+        ]
+      },
+      "original_proofs_passed": true,
+      "diagnostic_adoptable": true,
+      "expectation_met": true,
+      "candidate_aggregation": {
+        "status": "grouped",
+        "reason": null,
+        "difference_count": 5,
+        "aggregated_difference_count": 1,
+        "difference_count_complete": true,
+        "aggregated_difference_count_complete": true,
+        "groups": [
+          {
+            "cause": {
+              "page": 1,
+              "structural_change_id": 1
+            },
+            "structures": [
+              {
+                "page": 1,
+                "structural_change_id": 1
+              },
+              {
+                "page": 1,
+                "structural_change_id": 2
+              },
+              {
+                "page": 1,
+                "structural_change_id": 3
+              },
+              {
+                "page": 2,
+                "structural_change_id": 1
+              },
+              {
+                "page": 2,
+                "structural_change_id": 2
+              }
+            ],
+            "auxiliary_bands": [],
+            "links": [
+              {
+                "source": {
+                  "page": {
+                    "side": 1,
+                    "page": 1
+                  },
+                  "top": 1060,
+                  "height": 100,
+                  "bottom": 1160
+                },
+                "target": {
+                  "page": {
+                    "side": 0,
+                    "page": 2
+                  },
+                  "top": 560,
+                  "height": 100,
+                  "bottom": 660
+                },
+                "text": [
+                  "ITEM FFFF"
+                ],
+                "support": 3,
+                "status": "band_verified",
+                "reason": null
+              }
+            ],
+            "balance": [
+              {
+                "page": 1,
+                "rows_a": 6,
+                "rows_b": 6,
+                "cause_delta": -1,
+                "incoming": 0,
+                "outgoing": -1
+              },
+              {
+                "page": 2,
+                "rows_a": 5,
+                "rows_b": 4,
+                "cause_delta": 0,
+                "incoming": -1,
+                "outgoing": 0
+              }
+            ]
+          }
+        ]
+      },
+      "mixed_frame_aggregation": {
+        "status": "skipped",
+        "reason": "flow_band_balance_not_proven",
+        "difference_count": 5,
+        "aggregated_difference_count": 5,
+        "difference_count_complete": true,
+        "aggregated_difference_count_complete": true,
+        "groups": []
+      },
+      "mismatched_frame_rejected": 2,
+      "changed_reread_rejected": 2
+    },
+    {
+      "scenario": {
+        "id": "anchor-variable",
+        "fixture": "R10",
+        "anchor": true,
+        "reverse": false,
+        "x": 0,
+        "y": 4,
+        "mutation": "none",
+        "settings": "normal",
+        "pattern": "variable",
+        "expected": true
+      },
+      "pdf_sha256": [
+        "3d0356ca32f9b11c798a1c9dc5a1c38c9125ba9ba3281ee804256bbec804a895",
+        "210d0371db8c2d799e5a0446f6fc15ed631b9142ead74e3af581418946387269"
+      ],
+      "decision": {
+        "ready": true,
+        "reasons": [],
+        "selected_links": [
+          {
+            "source": {
+              "page": {
+                "side": 0,
+                "page": 1
+              },
+              "top": 1056,
+              "height": 100,
+              "bottom": 1156
+            },
+            "target": {
+              "page": {
+                "side": 1,
+                "page": 2
+              },
+              "top": 556,
+              "height": 100,
+              "bottom": 656
+            },
+            "verified": true,
+            "reason": null
+          }
+        ],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "candidate"
+          },
+          {
+            "page": 2,
+            "choice": "candidate"
+          }
+        ]
+      },
+      "original_proofs_passed": true,
+      "diagnostic_adoptable": true,
+      "expectation_met": true,
+      "candidate_aggregation": {
+        "status": "grouped",
+        "reason": null,
+        "difference_count": 5,
+        "aggregated_difference_count": 1,
+        "difference_count_complete": true,
+        "aggregated_difference_count_complete": true,
+        "groups": [
+          {
+            "cause": {
+              "page": 1,
+              "structural_change_id": 1
+            },
+            "structures": [
+              {
+                "page": 1,
+                "structural_change_id": 1
+              },
+              {
+                "page": 1,
+                "structural_change_id": 2
+              },
+              {
+                "page": 1,
+                "structural_change_id": 3
+              },
+              {
+                "page": 2,
+                "structural_change_id": 1
+              },
+              {
+                "page": 2,
+                "structural_change_id": 2
+              }
+            ],
+            "auxiliary_bands": [],
+            "links": [
+              {
+                "source": {
+                  "page": {
+                    "side": 0,
+                    "page": 1
+                  },
+                  "top": 1056,
+                  "height": 100,
+                  "bottom": 1156
+                },
+                "target": {
+                  "page": {
+                    "side": 1,
+                    "page": 2
+                  },
+                  "top": 556,
+                  "height": 100,
+                  "bottom": 656
+                },
+                "text": [
+                  "ITEM FFFF"
+                ],
+                "support": 3,
+                "status": "band_verified",
+                "reason": null
+              }
+            ],
+            "balance": [
+              {
+                "page": 1,
+                "rows_a": 6,
+                "rows_b": 6,
+                "cause_delta": 1,
+                "incoming": 0,
+                "outgoing": 1
+              },
+              {
+                "page": 2,
+                "rows_a": 4,
+                "rows_b": 5,
+                "cause_delta": 0,
+                "incoming": 1,
+                "outgoing": 0
+              }
+            ]
+          }
+        ]
+      },
+      "mixed_frame_aggregation": {
+        "status": "skipped",
+        "reason": "flow_band_balance_not_proven",
+        "difference_count": 5,
+        "aggregated_difference_count": 5,
+        "difference_count_complete": true,
+        "aggregated_difference_count_complete": true,
+        "groups": []
+      },
+      "mismatched_frame_rejected": 2,
+      "changed_reread_rejected": 2
+    },
+    {
+      "scenario": {
+        "id": "anchor-mixed",
+        "fixture": "R10",
+        "anchor": true,
+        "reverse": false,
+        "x": 0,
+        "y": 4,
+        "mutation": "none",
+        "settings": "normal",
+        "pattern": "mixed",
+        "expected": true
+      },
+      "pdf_sha256": [
+        "3d0356ca32f9b11c798a1c9dc5a1c38c9125ba9ba3281ee804256bbec804a895",
+        "210d0371db8c2d799e5a0446f6fc15ed631b9142ead74e3af581418946387269"
+      ],
+      "decision": {
+        "ready": true,
+        "reasons": [],
+        "selected_links": [
+          {
+            "source": {
+              "page": {
+                "side": 0,
+                "page": 1
+              },
+              "top": 1056,
+              "height": 100,
+              "bottom": 1156
+            },
+            "target": {
+              "page": {
+                "side": 1,
+                "page": 2
+              },
+              "top": 556,
+              "height": 100,
+              "bottom": 656
+            },
+            "verified": true,
+            "reason": null
+          }
+        ],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "candidate"
+          },
+          {
+            "page": 2,
+            "choice": "candidate"
+          }
+        ]
+      },
+      "original_proofs_passed": true,
+      "diagnostic_adoptable": true,
+      "expectation_met": true,
+      "candidate_aggregation": {
+        "status": "grouped",
+        "reason": null,
+        "difference_count": 5,
+        "aggregated_difference_count": 1,
+        "difference_count_complete": true,
+        "aggregated_difference_count_complete": true,
+        "groups": [
+          {
+            "cause": {
+              "page": 1,
+              "structural_change_id": 1
+            },
+            "structures": [
+              {
+                "page": 1,
+                "structural_change_id": 1
+              },
+              {
+                "page": 1,
+                "structural_change_id": 2
+              },
+              {
+                "page": 1,
+                "structural_change_id": 3
+              },
+              {
+                "page": 2,
+                "structural_change_id": 1
+              },
+              {
+                "page": 2,
+                "structural_change_id": 2
+              }
+            ],
+            "auxiliary_bands": [],
+            "links": [
+              {
+                "source": {
+                  "page": {
+                    "side": 0,
+                    "page": 1
+                  },
+                  "top": 1056,
+                  "height": 100,
+                  "bottom": 1156
+                },
+                "target": {
+                  "page": {
+                    "side": 1,
+                    "page": 2
+                  },
+                  "top": 556,
+                  "height": 100,
+                  "bottom": 656
+                },
+                "text": [
+                  "ITEM FFFF"
+                ],
+                "support": 3,
+                "status": "band_verified",
+                "reason": null
+              }
+            ],
+            "balance": [
+              {
+                "page": 1,
+                "rows_a": 6,
+                "rows_b": 6,
+                "cause_delta": 1,
+                "incoming": 0,
+                "outgoing": 1
+              },
+              {
+                "page": 2,
+                "rows_a": 4,
+                "rows_b": 5,
+                "cause_delta": 0,
+                "incoming": 1,
+                "outgoing": 0
+              }
+            ]
+          }
+        ]
+      },
+      "mixed_frame_aggregation": {
+        "status": "skipped",
+        "reason": "flow_band_balance_not_proven",
+        "difference_count": 5,
+        "aggregated_difference_count": 5,
+        "difference_count_complete": true,
+        "aggregated_difference_count_complete": true,
+        "groups": []
+      },
+      "mismatched_frame_rejected": 1,
+      "changed_reread_rejected": 2
+    },
+    {
+      "scenario": {
+        "id": "anchor-chain",
+        "fixture": "chain3",
+        "anchor": true,
+        "reverse": false,
+        "x": 0,
+        "y": 4,
+        "mutation": "none",
+        "settings": "normal",
+        "pattern": "variable",
+        "expected": true
+      },
+      "pdf_sha256": [
+        "e942b92d8e5e95be48260a21f32fa8131d9bae9b82d03976ad0d5fa8d4043c0f",
+        "49692df465c9f1e9b5232ae54aeadf7975578ec277d292efccb719e424a67058"
+      ],
+      "decision": {
+        "ready": true,
+        "reasons": [],
+        "selected_links": [
+          {
+            "source": {
+              "page": {
+                "side": 0,
+                "page": 1
+              },
+              "top": 1056,
+              "height": 100,
+              "bottom": 1156
+            },
+            "target": {
+              "page": {
+                "side": 1,
+                "page": 2
+              },
+              "top": 556,
+              "height": 100,
+              "bottom": 656
+            },
+            "verified": true,
+            "reason": null
+          },
+          {
+            "source": {
+              "page": {
+                "side": 0,
+                "page": 2
+              },
+              "top": 1056,
+              "height": 100,
+              "bottom": 1156
+            },
+            "target": {
+              "page": {
+                "side": 1,
+                "page": 3
+              },
+              "top": 556,
+              "height": 100,
+              "bottom": 656
+            },
+            "verified": true,
+            "reason": null
+          }
+        ],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "candidate"
+          },
+          {
+            "page": 2,
+            "choice": "candidate"
+          },
+          {
+            "page": 3,
+            "choice": "candidate"
+          }
+        ]
+      },
+      "original_proofs_passed": true,
+      "diagnostic_adoptable": true,
+      "expectation_met": true,
+      "candidate_aggregation": {
+        "status": "grouped",
+        "reason": null,
+        "difference_count": 8,
+        "aggregated_difference_count": 1,
+        "difference_count_complete": true,
+        "aggregated_difference_count_complete": true,
+        "groups": [
+          {
+            "cause": {
+              "page": 1,
+              "structural_change_id": 1
+            },
+            "structures": [
+              {
+                "page": 1,
+                "structural_change_id": 1
+              },
+              {
+                "page": 1,
+                "structural_change_id": 2
+              },
+              {
+                "page": 1,
+                "structural_change_id": 3
+              },
+              {
+                "page": 2,
+                "structural_change_id": 1
+              },
+              {
+                "page": 2,
+                "structural_change_id": 2
+              },
+              {
+                "page": 2,
+                "structural_change_id": 3
+              },
+              {
+                "page": 3,
+                "structural_change_id": 1
+              },
+              {
+                "page": 3,
+                "structural_change_id": 2
+              }
+            ],
+            "auxiliary_bands": [],
+            "links": [
+              {
+                "source": {
+                  "page": {
+                    "side": 0,
+                    "page": 1
+                  },
+                  "top": 1056,
+                  "height": 100,
+                  "bottom": 1156
+                },
+                "target": {
+                  "page": {
+                    "side": 1,
+                    "page": 2
+                  },
+                  "top": 556,
+                  "height": 100,
+                  "bottom": 656
+                },
+                "text": [
+                  "ITEM FFFF"
+                ],
+                "support": 3,
+                "status": "band_verified",
+                "reason": null
+              },
+              {
+                "source": {
+                  "page": {
+                    "side": 0,
+                    "page": 2
+                  },
+                  "top": 1056,
+                  "height": 100,
+                  "bottom": 1156
+                },
+                "target": {
+                  "page": {
+                    "side": 1,
+                    "page": 3
+                  },
+                  "top": 556,
+                  "height": 100,
+                  "bottom": 656
+                },
+                "text": [
+                  "ITEM LLLL"
+                ],
+                "support": 5,
+                "status": "band_verified",
+                "reason": null
+              }
+            ],
+            "balance": [
+              {
+                "page": 1,
+                "rows_a": 6,
+                "rows_b": 6,
+                "cause_delta": 1,
+                "incoming": 0,
+                "outgoing": 1
+              },
+              {
+                "page": 2,
+                "rows_a": 6,
+                "rows_b": 6,
+                "cause_delta": 0,
+                "incoming": 1,
+                "outgoing": 1
+              },
+              {
+                "page": 3,
+                "rows_a": 4,
+                "rows_b": 5,
+                "cause_delta": 0,
+                "incoming": 1,
+                "outgoing": 0
+              }
+            ]
+          }
+        ]
+      },
+      "mixed_frame_aggregation": {
+        "status": "skipped",
+        "reason": "flow_band_balance_not_proven",
+        "difference_count": 8,
+        "aggregated_difference_count": 8,
+        "difference_count_complete": true,
+        "aggregated_difference_count_complete": true,
+        "groups": []
+      },
+      "mismatched_frame_rejected": 3,
+      "changed_reread_rejected": 3
+    },
+    {
+      "scenario": {
+        "id": "anchor-horizontal",
+        "fixture": "R10",
+        "anchor": true,
+        "reverse": false,
+        "x": 5,
+        "y": 0,
+        "mutation": "none",
+        "settings": "normal",
+        "pattern": "uniform",
+        "expected": false
+      },
+      "pdf_sha256": [
+        "3d0356ca32f9b11c798a1c9dc5a1c38c9125ba9ba3281ee804256bbec804a895",
+        "210d0371db8c2d799e5a0446f6fc15ed631b9142ead74e3af581418946387269"
+      ],
+      "decision": {
+        "ready": true,
+        "reasons": [],
+        "selected_links": [
+          {
+            "source": {
+              "page": {
+                "side": 0,
+                "page": 1
+              },
+              "top": 1056,
+              "height": 100,
+              "bottom": 1156
+            },
+            "target": {
+              "page": {
+                "side": 1,
+                "page": 2
+              },
+              "top": 556,
+              "height": 100,
+              "bottom": 656
+            },
+            "verified": true,
+            "reason": null
+          }
+        ],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "candidate"
+          },
+          {
+            "page": 2,
+            "choice": "candidate"
+          }
+        ]
+      },
+      "original_proofs_passed": false,
+      "diagnostic_adoptable": false,
+      "expectation_met": true,
+      "candidate_aggregation": {
+        "status": "grouped",
+        "reason": null,
+        "difference_count": 5,
+        "aggregated_difference_count": 1,
+        "difference_count_complete": true,
+        "aggregated_difference_count_complete": true,
+        "groups": [
+          {
+            "cause": {
+              "page": 1,
+              "structural_change_id": 1
+            },
+            "structures": [
+              {
+                "page": 1,
+                "structural_change_id": 1
+              },
+              {
+                "page": 1,
+                "structural_change_id": 2
+              },
+              {
+                "page": 1,
+                "structural_change_id": 3
+              },
+              {
+                "page": 2,
+                "structural_change_id": 1
+              },
+              {
+                "page": 2,
+                "structural_change_id": 2
+              }
+            ],
+            "auxiliary_bands": [],
+            "links": [
+              {
+                "source": {
+                  "page": {
+                    "side": 0,
+                    "page": 1
+                  },
+                  "top": 1056,
+                  "height": 100,
+                  "bottom": 1156
+                },
+                "target": {
+                  "page": {
+                    "side": 1,
+                    "page": 2
+                  },
+                  "top": 556,
+                  "height": 100,
+                  "bottom": 656
+                },
+                "text": [
+                  "ITEM FFFF"
+                ],
+                "support": 3,
+                "status": "band_verified",
+                "reason": null
+              }
+            ],
+            "balance": [
+              {
+                "page": 1,
+                "rows_a": 6,
+                "rows_b": 6,
+                "cause_delta": 1,
+                "incoming": 0,
+                "outgoing": 1
+              },
+              {
+                "page": 2,
+                "rows_a": 4,
+                "rows_b": 5,
+                "cause_delta": 0,
+                "incoming": 1,
+                "outgoing": 0
+              }
+            ]
+          }
+        ]
+      },
+      "mixed_frame_aggregation": null,
+      "mismatched_frame_rejected": 2,
+      "changed_reread_rejected": 2
+    },
+    {
+      "scenario": {
+        "id": "anchor-both",
+        "fixture": "R10",
+        "anchor": true,
+        "reverse": false,
+        "x": -5,
+        "y": 4,
+        "mutation": "none",
+        "settings": "normal",
+        "pattern": "uniform",
+        "expected": false
+      },
+      "pdf_sha256": [
+        "3d0356ca32f9b11c798a1c9dc5a1c38c9125ba9ba3281ee804256bbec804a895",
+        "210d0371db8c2d799e5a0446f6fc15ed631b9142ead74e3af581418946387269"
+      ],
+      "decision": {
+        "ready": true,
+        "reasons": [],
+        "selected_links": [
+          {
+            "source": {
+              "page": {
+                "side": 0,
+                "page": 1
+              },
+              "top": 1056,
+              "height": 100,
+              "bottom": 1156
+            },
+            "target": {
+              "page": {
+                "side": 1,
+                "page": 2
+              },
+              "top": 556,
+              "height": 100,
+              "bottom": 656
+            },
+            "verified": true,
+            "reason": null
+          }
+        ],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "candidate"
+          },
+          {
+            "page": 2,
+            "choice": "candidate"
+          }
+        ]
+      },
+      "original_proofs_passed": false,
+      "diagnostic_adoptable": false,
+      "expectation_met": true,
+      "candidate_aggregation": {
+        "status": "grouped",
+        "reason": null,
+        "difference_count": 5,
+        "aggregated_difference_count": 1,
+        "difference_count_complete": true,
+        "aggregated_difference_count_complete": true,
+        "groups": [
+          {
+            "cause": {
+              "page": 1,
+              "structural_change_id": 1
+            },
+            "structures": [
+              {
+                "page": 1,
+                "structural_change_id": 1
+              },
+              {
+                "page": 1,
+                "structural_change_id": 2
+              },
+              {
+                "page": 1,
+                "structural_change_id": 3
+              },
+              {
+                "page": 2,
+                "structural_change_id": 1
+              },
+              {
+                "page": 2,
+                "structural_change_id": 2
+              }
+            ],
+            "auxiliary_bands": [],
+            "links": [
+              {
+                "source": {
+                  "page": {
+                    "side": 0,
+                    "page": 1
+                  },
+                  "top": 1056,
+                  "height": 100,
+                  "bottom": 1156
+                },
+                "target": {
+                  "page": {
+                    "side": 1,
+                    "page": 2
+                  },
+                  "top": 556,
+                  "height": 100,
+                  "bottom": 656
+                },
+                "text": [
+                  "ITEM FFFF"
+                ],
+                "support": 3,
+                "status": "band_verified",
+                "reason": null
+              }
+            ],
+            "balance": [
+              {
+                "page": 1,
+                "rows_a": 6,
+                "rows_b": 6,
+                "cause_delta": 1,
+                "incoming": 0,
+                "outgoing": 1
+              },
+              {
+                "page": 2,
+                "rows_a": 4,
+                "rows_b": 5,
+                "cause_delta": 0,
+                "incoming": 1,
+                "outgoing": 0
+              }
+            ]
+          }
+        ]
+      },
+      "mixed_frame_aggregation": null,
+      "mismatched_frame_rejected": 2,
+      "changed_reread_rejected": 2
+    },
+    {
+      "scenario": {
+        "id": "body-tone",
+        "fixture": "R10",
+        "anchor": true,
+        "reverse": false,
+        "x": 0,
+        "y": 4,
+        "mutation": "body",
+        "settings": "normal",
+        "pattern": "uniform",
+        "expected": true
+      },
+      "pdf_sha256": [
+        "3d0356ca32f9b11c798a1c9dc5a1c38c9125ba9ba3281ee804256bbec804a895",
+        "210d0371db8c2d799e5a0446f6fc15ed631b9142ead74e3af581418946387269"
+      ],
+      "decision": {
+        "ready": true,
+        "reasons": [],
+        "selected_links": [
+          {
+            "source": {
+              "page": {
+                "side": 0,
+                "page": 1
+              },
+              "top": 1056,
+              "height": 100,
+              "bottom": 1156
+            },
+            "target": {
+              "page": {
+                "side": 1,
+                "page": 2
+              },
+              "top": 556,
+              "height": 100,
+              "bottom": 656
+            },
+            "verified": true,
+            "reason": null
+          }
+        ],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "candidate"
+          },
+          {
+            "page": 2,
+            "choice": "candidate"
+          }
+        ]
+      },
+      "original_proofs_passed": true,
+      "diagnostic_adoptable": true,
+      "expectation_met": true,
+      "candidate_aggregation": {
+        "status": "grouped",
+        "reason": null,
+        "difference_count": 6,
+        "aggregated_difference_count": 2,
+        "difference_count_complete": true,
+        "aggregated_difference_count_complete": true,
+        "groups": [
+          {
+            "cause": {
+              "page": 1,
+              "structural_change_id": 1
+            },
+            "structures": [
+              {
+                "page": 1,
+                "structural_change_id": 1
+              },
+              {
+                "page": 1,
+                "structural_change_id": 2
+              },
+              {
+                "page": 1,
+                "structural_change_id": 3
+              },
+              {
+                "page": 2,
+                "structural_change_id": 1
+              },
+              {
+                "page": 2,
+                "structural_change_id": 2
+              }
+            ],
+            "auxiliary_bands": [],
+            "links": [
+              {
+                "source": {
+                  "page": {
+                    "side": 0,
+                    "page": 1
+                  },
+                  "top": 1056,
+                  "height": 100,
+                  "bottom": 1156
+                },
+                "target": {
+                  "page": {
+                    "side": 1,
+                    "page": 2
+                  },
+                  "top": 556,
+                  "height": 100,
+                  "bottom": 656
+                },
+                "text": [
+                  "ITEM FFFF"
+                ],
+                "support": 3,
+                "status": "band_verified",
+                "reason": null
+              }
+            ],
+            "balance": [
+              {
+                "page": 1,
+                "rows_a": 6,
+                "rows_b": 6,
+                "cause_delta": 1,
+                "incoming": 0,
+                "outgoing": 1
+              },
+              {
+                "page": 2,
+                "rows_a": 4,
+                "rows_b": 5,
+                "cause_delta": 0,
+                "incoming": 1,
+                "outgoing": 0
+              }
+            ]
+          }
+        ]
+      },
+      "mixed_frame_aggregation": {
+        "status": "skipped",
+        "reason": "flow_band_balance_not_proven",
+        "difference_count": 6,
+        "aggregated_difference_count": 6,
+        "difference_count_complete": true,
+        "aggregated_difference_count_complete": true,
+        "groups": []
+      },
+      "mismatched_frame_rejected": 2,
+      "changed_reread_rejected": 2
+    },
+    {
+      "scenario": {
+        "id": "body-excluded",
+        "fixture": "R10",
+        "anchor": true,
+        "reverse": false,
+        "x": 0,
+        "y": 4,
+        "mutation": "body",
+        "settings": "exclude",
+        "pattern": "uniform",
+        "expected": true
+      },
+      "pdf_sha256": [
+        "3d0356ca32f9b11c798a1c9dc5a1c38c9125ba9ba3281ee804256bbec804a895",
+        "210d0371db8c2d799e5a0446f6fc15ed631b9142ead74e3af581418946387269"
+      ],
+      "decision": {
+        "ready": true,
+        "reasons": [],
+        "selected_links": [
+          {
+            "source": {
+              "page": {
+                "side": 0,
+                "page": 1
+              },
+              "top": 1056,
+              "height": 100,
+              "bottom": 1156
+            },
+            "target": {
+              "page": {
+                "side": 1,
+                "page": 2
+              },
+              "top": 556,
+              "height": 100,
+              "bottom": 656
+            },
+            "verified": true,
+            "reason": null
+          }
+        ],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "candidate"
+          },
+          {
+            "page": 2,
+            "choice": "candidate"
+          }
+        ]
+      },
+      "original_proofs_passed": true,
+      "diagnostic_adoptable": true,
+      "expectation_met": true,
+      "candidate_aggregation": {
+        "status": "grouped",
+        "reason": null,
+        "difference_count": 5,
+        "aggregated_difference_count": 1,
+        "difference_count_complete": true,
+        "aggregated_difference_count_complete": true,
+        "groups": [
+          {
+            "cause": {
+              "page": 1,
+              "structural_change_id": 1
+            },
+            "structures": [
+              {
+                "page": 1,
+                "structural_change_id": 1
+              },
+              {
+                "page": 1,
+                "structural_change_id": 2
+              },
+              {
+                "page": 1,
+                "structural_change_id": 3
+              },
+              {
+                "page": 2,
+                "structural_change_id": 1
+              },
+              {
+                "page": 2,
+                "structural_change_id": 2
+              }
+            ],
+            "auxiliary_bands": [],
+            "links": [
+              {
+                "source": {
+                  "page": {
+                    "side": 0,
+                    "page": 1
+                  },
+                  "top": 1056,
+                  "height": 100,
+                  "bottom": 1156
+                },
+                "target": {
+                  "page": {
+                    "side": 1,
+                    "page": 2
+                  },
+                  "top": 556,
+                  "height": 100,
+                  "bottom": 656
+                },
+                "text": [
+                  "ITEM FFFF"
+                ],
+                "support": 3,
+                "status": "band_verified",
+                "reason": null
+              }
+            ],
+            "balance": [
+              {
+                "page": 1,
+                "rows_a": 6,
+                "rows_b": 6,
+                "cause_delta": 1,
+                "incoming": 0,
+                "outgoing": 1
+              },
+              {
+                "page": 2,
+                "rows_a": 4,
+                "rows_b": 5,
+                "cause_delta": 0,
+                "incoming": 1,
+                "outgoing": 0
+              }
+            ]
+          }
+        ]
+      },
+      "mixed_frame_aggregation": {
+        "status": "skipped",
+        "reason": "flow_band_balance_not_proven",
+        "difference_count": 5,
+        "aggregated_difference_count": 5,
+        "difference_count_complete": true,
+        "aggregated_difference_count_complete": true,
+        "groups": []
+      },
+      "mismatched_frame_rejected": 2,
+      "changed_reread_rejected": 2
+    },
+    {
+      "scenario": {
+        "id": "body-region",
+        "fixture": "R10",
+        "anchor": true,
+        "reverse": false,
+        "x": 0,
+        "y": 4,
+        "mutation": "body",
+        "settings": "region",
+        "pattern": "uniform",
+        "expected": true
+      },
+      "pdf_sha256": [
+        "3d0356ca32f9b11c798a1c9dc5a1c38c9125ba9ba3281ee804256bbec804a895",
+        "210d0371db8c2d799e5a0446f6fc15ed631b9142ead74e3af581418946387269"
+      ],
+      "decision": {
+        "ready": true,
+        "reasons": [],
+        "selected_links": [
+          {
+            "source": {
+              "page": {
+                "side": 0,
+                "page": 1
+              },
+              "top": 1056,
+              "height": 100,
+              "bottom": 1156
+            },
+            "target": {
+              "page": {
+                "side": 1,
+                "page": 2
+              },
+              "top": 556,
+              "height": 100,
+              "bottom": 656
+            },
+            "verified": true,
+            "reason": null
+          }
+        ],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "candidate"
+          },
+          {
+            "page": 2,
+            "choice": "candidate"
+          }
+        ]
+      },
+      "original_proofs_passed": true,
+      "diagnostic_adoptable": true,
+      "expectation_met": true,
+      "candidate_aggregation": {
+        "status": "grouped",
+        "reason": null,
+        "difference_count": 6,
+        "aggregated_difference_count": 2,
+        "difference_count_complete": true,
+        "aggregated_difference_count_complete": true,
+        "groups": [
+          {
+            "cause": {
+              "page": 1,
+              "structural_change_id": 1
+            },
+            "structures": [
+              {
+                "page": 1,
+                "structural_change_id": 1
+              },
+              {
+                "page": 1,
+                "structural_change_id": 2
+              },
+              {
+                "page": 1,
+                "structural_change_id": 3
+              },
+              {
+                "page": 2,
+                "structural_change_id": 1
+              },
+              {
+                "page": 2,
+                "structural_change_id": 2
+              }
+            ],
+            "auxiliary_bands": [],
+            "links": [
+              {
+                "source": {
+                  "page": {
+                    "side": 0,
+                    "page": 1
+                  },
+                  "top": 1056,
+                  "height": 100,
+                  "bottom": 1156
+                },
+                "target": {
+                  "page": {
+                    "side": 1,
+                    "page": 2
+                  },
+                  "top": 556,
+                  "height": 100,
+                  "bottom": 656
+                },
+                "text": [
+                  "ITEM FFFF"
+                ],
+                "support": 3,
+                "status": "band_verified",
+                "reason": null
+              }
+            ],
+            "balance": [
+              {
+                "page": 1,
+                "rows_a": 6,
+                "rows_b": 6,
+                "cause_delta": 1,
+                "incoming": 0,
+                "outgoing": 1
+              },
+              {
+                "page": 2,
+                "rows_a": 4,
+                "rows_b": 5,
+                "cause_delta": 0,
+                "incoming": 1,
+                "outgoing": 0
+              }
+            ]
+          }
+        ]
+      },
+      "mixed_frame_aggregation": {
+        "status": "skipped",
+        "reason": "flow_band_balance_not_proven",
+        "difference_count": 6,
+        "aggregated_difference_count": 6,
+        "difference_count_complete": true,
+        "aggregated_difference_count_complete": true,
+        "groups": []
+      },
+      "mismatched_frame_rejected": 2,
+      "changed_reread_rejected": 2
+    },
+    {
+      "scenario": {
+        "id": "band-tone",
+        "fixture": "R10",
+        "anchor": true,
+        "reverse": false,
+        "x": 0,
+        "y": 4,
+        "mutation": "band",
+        "settings": "normal",
+        "pattern": "uniform",
+        "expected": false
+      },
+      "pdf_sha256": [
+        "3d0356ca32f9b11c798a1c9dc5a1c38c9125ba9ba3281ee804256bbec804a895",
+        "210d0371db8c2d799e5a0446f6fc15ed631b9142ead74e3af581418946387269"
+      ],
+      "decision": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map",
+          "unverified_candidates"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "original_proofs_passed": false,
+      "diagnostic_adoptable": false,
+      "expectation_met": true,
+      "candidate_aggregation": null,
+      "mixed_frame_aggregation": null,
+      "mismatched_frame_rejected": 2,
+      "changed_reread_rejected": 2
+    },
+    {
+      "scenario": {
+        "id": "band-excluded",
+        "fixture": "R10",
+        "anchor": true,
+        "reverse": false,
+        "x": 0,
+        "y": 4,
+        "mutation": "band",
+        "settings": "band-exclude",
+        "pattern": "uniform",
+        "expected": false
+      },
+      "pdf_sha256": [
+        "3d0356ca32f9b11c798a1c9dc5a1c38c9125ba9ba3281ee804256bbec804a895",
+        "210d0371db8c2d799e5a0446f6fc15ed631b9142ead74e3af581418946387269"
+      ],
+      "decision": {
+        "ready": false,
+        "reasons": [
+          "no_verified_candidates",
+          "unproven_page_map",
+          "unverified_candidates"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "original_proofs_passed": false,
+      "diagnostic_adoptable": false,
+      "expectation_met": true,
+      "candidate_aggregation": null,
+      "mixed_frame_aggregation": null,
+      "mismatched_frame_rejected": 2,
+      "changed_reread_rejected": 2
+    },
+    {
+      "scenario": {
+        "id": "edge-content",
+        "fixture": "R10",
+        "anchor": true,
+        "reverse": false,
+        "x": 0,
+        "y": 4,
+        "mutation": "edge",
+        "settings": "normal",
+        "pattern": "uniform",
+        "expected": false
+      },
+      "pdf_sha256": [
+        "3d0356ca32f9b11c798a1c9dc5a1c38c9125ba9ba3281ee804256bbec804a895",
+        "210d0371db8c2d799e5a0446f6fc15ed631b9142ead74e3af581418946387269"
+      ],
+      "decision": {
+        "ready": false,
+        "reasons": [
+          "fixed_parts_support",
+          "no_verified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "original_proofs_passed": false,
+      "diagnostic_adoptable": false,
+      "expectation_met": true,
+      "candidate_aggregation": null,
+      "mixed_frame_aggregation": null,
+      "mismatched_frame_rejected": 1,
+      "changed_reread_rejected": 2
+    },
+    {
+      "scenario": {
+        "id": "subpixel",
+        "fixture": "R10",
+        "anchor": true,
+        "reverse": false,
+        "x": 0,
+        "y": 4.5,
+        "mutation": "none",
+        "settings": "normal",
+        "pattern": "uniform",
+        "expected": false
+      },
+      "pdf_sha256": [
+        "3d0356ca32f9b11c798a1c9dc5a1c38c9125ba9ba3281ee804256bbec804a895",
+        "210d0371db8c2d799e5a0446f6fc15ed631b9142ead74e3af581418946387269"
+      ],
+      "decision": {
+        "ready": false,
+        "reasons": [
+          "fixed_parts_support",
+          "no_verified_candidates",
+          "unproven_page_map"
+        ],
+        "selected_links": [],
+        "selections": [
+          {
+            "page": 1,
+            "choice": "baseline"
+          },
+          {
+            "page": 2,
+            "choice": "baseline"
+          }
+        ]
+      },
+      "original_proofs_passed": false,
+      "diagnostic_adoptable": false,
+      "expectation_met": true,
+      "candidate_aggregation": null,
+      "mixed_frame_aggregation": null,
+      "mismatched_frame_rejected": 0,
+      "changed_reread_rejected": 2
+    }
+  ],
+  "limitations": [
+    "Synthetic transformed rasters and PDF text; not transformed PDF or CLI acceptance.",
+    "An independent padded fixed-pattern control was used; unmodified R10 still fails default global alignment.",
+    "Horizontal/cropped original endpoints are not accepted even if corrected C is identical.",
+    "Product global_alignment_applied fallback unchanged.",
+    "Existing nine A4 adoption failures, Windows, real documents, performance and browser deferrals remain."
+  ],
+  "next_work": "Product integration limited to fully paired documents with vertical integer global alignment, separating original evidence from aligned causal aggregation."
+}

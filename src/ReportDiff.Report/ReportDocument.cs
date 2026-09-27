@@ -8,7 +8,10 @@ namespace ReportDiff.Report;
 
 public sealed record ReportDocument(int SchemaVersion, ReportTool Tool, DateTimeOffset GeneratedAt,
     ReportInputs Inputs, ReportConfiguration Config, ReportSummary Summary,
-    IReadOnlyList<ReportWarning> Warnings, IReadOnlyList<ReportPage> Pages);
+    IReadOnlyList<ReportWarning> Warnings, IReadOnlyList<ReportPage> Pages)
+{
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)] public ReportPageFlow? PageFlow { get; init; }
+}
 public sealed record ReportTool(string Name, string Version)
 {
     public static ReportTool Current { get; } = new("reportdiff", "0.1.4");
@@ -26,6 +29,8 @@ public sealed record ReportInput(string Path, string Type, int Pages, string Sha
 }
 public sealed record ReportSummary(string Status, int PagesCompared, int PagesDifferent, int Clusters, int AbsorbedGroups)
 {
+    public int? AggregatedDifferenceCount { get; init; }
+    public bool? AggregatedDifferenceCountComplete { get; init; }
     public int StructuralChangeCount { get; init; }
     public StructureCounts StructuralChangeCounts { get; init; } = new(0, 0, 0);
     public int DifferenceCount => Clusters + StructuralChangeCount;
@@ -58,6 +63,8 @@ public sealed record ReportCluster(int Id, PixelBox BboxPx, MillimeterBox BboxMm
     string? Kind, PixelShift? ShiftPx, string? TextA, string? TextB, ClusterCrops Crops)
 {
     public IReadOnlyList<int> RelatedClusterIds { get; init; } = [];
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)] public ReportContentKey? ContentRef { get; init; }
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)] public IReadOnlyList<ReportContentPart>? SourceParts { get; init; }
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)] public IReadOnlyList<PixelBox>? DisplayPartsPx { get; init; }
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)] public PixelBox? ContentBboxPx { get; init; }
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)] public MillimeterBox? ContentBboxMm { get; init; }
@@ -69,6 +76,8 @@ public sealed record ReportCluster(int Id, PixelBox BboxPx, MillimeterBox BboxMm
 public sealed record ReportPage(int Page, string Status, PixelSize SizePx, bool SizeMismatch, int RawPixels,
     int NoiseDropped, int AbsorbedGroups, int MaxShiftPx, PageImages Images, IReadOnlyList<ReportCluster> Clusters)
 {
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)] public IReadOnlyList<ReportContentReference>? ContentReferences { get; init; }
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)] public ReportContentDisplay? ContentDisplay { get; init; }
     public PixelShift? GlobalShiftPx { get; init; }
     public AlignmentResult Alignment { get; init; } = AlignmentResult.Disabled;
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

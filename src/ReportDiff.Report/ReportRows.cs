@@ -26,7 +26,11 @@ public sealed record ReportEquivalentPosition(string Side, int FirstStart, int L
 public sealed record ReportStructuralChange(int Id, string Kind, PixelBox BboxPx, MillimeterBox BboxMm,
     ReportSourceBounds? SourceA, ReportSourceBounds? SourceB, int BandCount, PixelShift? DisplacementPx,
     bool Excluded, string? ExclusionReason, long ContentPixelsA, long ContentPixelsB, long ExcludedContentPixelsA, long ExcludedContentPixelsB,
-    IReadOnlyList<ReportEquivalentPosition> EquivalentPositions, string? TextA, string? TextB);
+    IReadOnlyList<ReportEquivalentPosition> EquivalentPositions, string? TextA, string? TextB)
+{
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)] public string? Role { get; init; }
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)] public bool? ComparedInContent { get; init; }
+}
 public sealed record ReportRowRegion(int Index, MillimeterBox SourceBoundsMm, PixelBox DisplayBoundsPx, PixelBox ContentBoundsPx, string ContentStatus);
 public sealed record ReportRowAlignment(string Status, string Reason, string? Detail, string? Source,
     double? Score, double? ScoreGap, int? Hypotheses, IReadOnlyList<int>? SupportBands,
@@ -36,6 +40,7 @@ public sealed record ReportRowAlignment(string Status, string Reason, string? De
     IReadOnlyList<ReportStructuralChange> StructuralChanges, RowOmissionAudit? OmissionAudit,
     IReadOnlyList<RowAnnotationOmission> AnnotationOmissions, IReadOnlyList<ReportRowRegion> Regions, IReadOnlyList<PixelBox> ExclusionsPx)
 {
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)] public int? ContentSurfaceId { get; init; }
     public static ReportRowAlignment Disabled { get; } = Skipped("disabled", null, false);
     public static ReportRowAlignment Skipped(string reason, string? source, bool enabled = true) =>
         new(enabled ? "skipped" : "disabled", reason, null, source, null, null, null, null, null, null, null,
@@ -43,8 +48,18 @@ public sealed record ReportRowAlignment(string Status, string Reason, string? De
 }
 
 /// <summary>呼び出し元が所有する行比較と画像を、保存が終わるまで借りる。</summary>
-public sealed record RowReportContext(RowComparison Result, Mat? DisplayA = null, Mat? DisplayB = null,
-    PageTextAnnotations? StructuralTextA = null, PageTextAnnotations? StructuralTextB = null);
+public sealed record RowReportContext(RowComparison? Result, Mat? DisplayA = null, Mat? DisplayB = null,
+    PageTextAnnotations? StructuralTextA = null, PageTextAnnotations? StructuralTextB = null,
+    PageFlowComparison? Flow = null, RowComparisonSurface? FlowSurface = null, PageFlowAdoptionResult? FlowAdoption = null)
+{
+    public RowComparisonSurface? Surface => Result?.Surface ?? FlowSurface;
+    public RowDisplayProjection? Display => Result?.Display ?? Flow?.Display;
+    public Mat? ContentA => Result?.ContentA ?? Flow?.ContentA;
+    public Mat? ContentB => Result?.ContentB ?? Flow?.ContentB;
+    public RowAlignmentInfo Alignment => Result?.Alignment ?? new("applied", "page_flow", null, false,
+        FlowAdoption?.Score, FlowAdoption?.ScoreGap, 1, FlowAdoption?.SupportBands,
+        FlowAdoption?.BaselineRawPixels, FlowAdoption?.CandidateRawPixels, FlowAdoption?.Improvement);
+}
 
 internal static class ReportRows
 {
@@ -53,7 +68,7 @@ internal static class ReportRows
     {
         var source = inputs.A.Type == "pdf" && inputs.B.Type == "pdf" ? "pdf_text" : null;
         if (context is null) return ReportRowAlignment.Skipped(config.Rows.Enabled ? "not_compared" : "disabled", source, config.Rows.Enabled);
-        var result = context.Result; var a = result.Alignment; var surface = result.Surface; var display = result.Display;
+        var a = context.Alignment; var surface = context.Surface; var display = context.Display;
         var structural = display?.StructuralChanges.Select(s => new ReportStructuralChange(s.Id, s.Kind, Box(s.DisplayBounds), Mm(s.DisplayBounds, dpi),
             Source(s.SourceA), Source(s.SourceB), s.BandCount, s.DisplacementPx is { } shift ? new(shift.Dx, shift.Dy) : null,
             s.Excluded, s.ExclusionReason, s.ContentPixelsA, s.ContentPixelsB, s.ExcludedContentPixelsA, s.ExcludedContentPixelsB,

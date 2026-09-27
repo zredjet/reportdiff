@@ -71,7 +71,7 @@ internal static class RowSelector
     private static bool Intersects(PageBounds word, Rect2d exclusion, int verticalRadius) => word.Left < exclusion.Right
         && word.Right > exclusion.Left && word.Top < exclusion.Bottom + verticalRadius && word.Bottom > exclusion.Top - verticalRadius;
 
-    private static bool ColumnConflict(IReadOnlyList<RowLine> a, IReadOnlyList<RowLine> b, RowOptions options, int dpi)
+    internal static bool ColumnConflict(IReadOnlyList<RowLine> a, IReadOnlyList<RowLine> b, RowOptions options, int dpi)
     {
         var wordsA = a.SelectMany((line, i) => line.Words.Select(word => (Word: word, Line: i, line.Baseline))).GroupBy(w => w.Word.Text)
             .Where(g => g.Count() == 1).ToDictionary(g => g.Key, g => g.Single(), StringComparer.Ordinal);

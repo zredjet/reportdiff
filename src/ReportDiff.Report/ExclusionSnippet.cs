@@ -9,6 +9,12 @@ internal static class ExclusionSnippet
     {
         if (!double.IsFinite(marginMm) || marginMm is < 0 or > 20)
             throw new ArgumentException("除外 YAML の余白は 0〜20 の有限の mm 値にしてください。", nameof(marginMm));
+        if (cluster.SourceParts is { } originalParts)
+        {
+            var lines = originalParts.Where(p => p.SourceA?.Page == page.Page && p.DisplaySides.Contains("a"))
+                .Select(p => CreateOriginal(p.SourceA!, page.RowAlignment.OriginalSizeA!, dpi, marginMm)).Distinct().ToArray();
+            return lines.Length == 0 ? "# この表示断片には設定用Aがありません。元Aを表示する参照ページを確認してください。" : string.Join('\n', lines);
+        }
         if (page.RowAlignment.Status == "applied" && cluster.DisplayPartsPx is { } parts)
         {
             var size = page.RowAlignment.AlignedSizePx!;
@@ -35,6 +41,14 @@ internal static class ExclusionSnippet
         var candidate = PageMap.ExclusionCandidate(new(box.X, box.Y, box.W, box.H), new(page.SizePx.W, page.SizePx.H), dpi, marginMm);
         return Line(candidate);
         string Line(RectMm r) => FormattableString.Invariant($"- {{page: {page.Page}, x: {Number(r.X)}, y: {Number(r.Y)}, w: {Number(r.W)}, h: {Number(r.H)}, note: \"\"}}");
+    }
+
+    internal static string CreateOriginal(ReportOriginalBox original, PixelSize size, int dpi, double margin)
+    {
+        var b = original.BoundsPx;
+        var mm = PageMap.CanvasMillimeters(new(b.X, b.Y, b.W, b.H), dpi);
+        var r = PageMap.ExclusionCandidate(mm, new(size.W, size.H), dpi, margin);
+        return FormattableString.Invariant($"- {{page: {original.Page}, x: {Number(r.X)}, y: {Number(r.Y)}, w: {Number(r.W)}, h: {Number(r.H)}, note: \"\"}}");
     }
 
     private static string Number(double value) => value.ToString("0.##########", CultureInfo.InvariantCulture);

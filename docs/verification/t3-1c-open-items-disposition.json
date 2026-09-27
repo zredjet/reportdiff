@@ -1,0 +1,138 @@
+{
+  "date": "2026-09-27",
+  "scope": "R-01_to_R-03_disposition_evidence_review_and_approved_documentation",
+  "status": "approved_A_documentation_applied_unresolved_expectations_deferred",
+  "counts": {
+    "current_source_test_fixture": 544,
+    "r01_saved_evidence": 333,
+    "r02_saved_evidence": 61,
+    "r02_pdf_inputs": 26,
+    "r03_saved_records": 3,
+    "r03_fixed_inputs": 57
+  },
+  "source_snapshot_sha256": "c37bf3dd9845b093e66fb2393e12ef6cb4499482e59df70bc132b6fa16c55453",
+  "evidence_documents_sha256": {
+    "CLAUDE.md": "43aafc946ea314742bc4b65779ecc1b531b65d8e023870a1798974fd5dd9151f",
+    "docs/SPEC.md": "3c5f41adbc2579080367de48e44b4337234e061f22d3126465fc7bb641005601",
+    "docs/verification/t3-1c-unpaired-local-support.md": "44dae36580555ee87076af023b2ecc583eeb205ced7baa38fa555e5cea8b8c7f",
+    "docs/verification/t3-1c-unpaired-local-support.json": "b73f2f1130782ff3e964c3f14527fcfa9ad7bb200dc5285d3361a6953a123991",
+    "docs/verification/t3-1c-unpaired-shared-integration.md": "9cc1a5d1d9d3dce22c4ef54e1431947ab43fb003bf05dd3a8220ad88d612294a",
+    "docs/verification/t3-1c-a4-revalidation.md": "8068ac9728341129c3b3ef0ca500fad0cd5b629cf4ad5dd93a58620326eb0ce3",
+    "docs/verification/t3-1c-a4-revalidation.json": "edc130064ff655696451da326a1f49aa08176750063a699cabe635f85f06d669",
+    "docs/verification/t3-1c-raster-diagnosis.md": "f99d735c5d367efb33bc80dd4a56d7e2984315b5189645879b64beb3b9a57435",
+    "docs/verification/t3-1c-anchored-content.md": "2d6cb625d4599004dbc3d58a0bddb035d121e714ccf061340f2aa283ec56d8c6",
+    "docs/verification/t3-1c-anchored-content.json": "9dc1c811fd392b9f78f72f1b72382cff47e341c3e43ba4f111ed8c317c2dc4c1",
+    "tests/ReportDiff.Tests/Fixtures/page-flow-terminal-shared/README.md": "63789e560f49644cb7a85f4a697644927068efb6d07996c186ed265f5ba5f5a3"
+  },
+  "r03_fixed_records_sha256": {
+    "out/t3-1c-anchored-content/inputs-final/manifest.json": "a059d1c04451d17d63343ba6b838860b1219eff0416309cd133c8df581e60ca0",
+    "out/t3-1c-anchored-content/inputs-final/expectations.json": "887426b17a6abff93546880631a94f16ad4d19ae9263304faf82bcc03023b5c6",
+    "out/t3-1c-anchored-content/final/content.json": "2689656ccfd81dbb130244d6c7ff693c13e98ca269c0cf2dc8c406d5dad52b9a"
+  },
+  "r03_reexecuted": false,
+  "product_reexecuted": false,
+  "full_tests_reexecuted": false,
+  "build_reexecuted": false,
+  "r03_historical_product_files": 104,
+  "r03_historical_product_files_changed_since_diagnosis": 24,
+  "product_changed": false,
+  "expected_values_changed": false,
+  "decision": {
+    "date": "2026-09-27",
+    "timezone": "Asia/Tokyo",
+    "selected_option": "A",
+    "status": "user_approved_applied",
+    "user_reply": "OKです。進めてください。",
+    "reply_context": "元の期待を保持した未解消の保留と、検証済みの限定範囲の受け入れ整理へ進める案Aへの確認",
+    "parent_tasks_completed": false,
+    "original_expectations_preserved": true
+  },
+  "committed": false,
+  "released": false,
+  "proposal": "docs/planning/t3-1c-open-items-disposition.md",
+  "proposal_status": "user_approved_applied",
+  "recommendation": "A_preserve_unmet_expectations_defer_and_bound_current_scope",
+  "proposed_dispositions": {
+    "R-01": "defer_unresolved_preserve_original_expectation",
+    "R-02": "defer_unresolved_preserve_original_expectation",
+    "R-03": "defer_unresolved_preserve_original_expectation"
+  },
+  "applied_dispositions": {
+    "R-01": "defer_unresolved_preserve_original_expectation",
+    "R-02": "defer_unresolved_preserve_original_expectation",
+    "R-03": "defer_unresolved_preserve_original_expectation"
+  },
+  "source_evidence_record": {
+    "path": "out/t3-1c-open-items-disposition/evidence-check.json",
+    "sha256": "f926799aae3be4490fcbd16d31d5018ad73c2917c3ddb8d0b24ac3d6b3f1a48c"
+  },
+  "disposition_details": {
+    "R-01": {
+      "unresolved": true,
+      "deferred": true,
+      "original_positive_directions": 2,
+      "expected": "元PDF両方向の採用・二原因集約",
+      "observed": "10 -> 10; support before/after 1/3",
+      "last_execution_date": "2026-09-27"
+    },
+    "R-02": {
+      "unresolved": true,
+      "deferred": true,
+      "original_unmet_conditions": 9,
+      "expected": "集約後1件、本文濃淡変更は2件",
+      "last_execution_date": "2026-09-27"
+    },
+    "R-03": {
+      "unresolved": true,
+      "deferred": true,
+      "original_unmet_detection_directions": 2,
+      "detect": true,
+      "detection_expectation_met": false,
+      "last_execution_date": "2026-09-26",
+      "input_kind": "in_memory_diagnostic_images_not_new_real_PDF",
+      "current_product_reexecuted": false
+    }
+  },
+  "decision_history": [
+    {
+      "status": "pending_user_decision",
+      "date": "2026-09-27",
+      "record": "out/t3-1c-disposition-accepted/before/docs/verification/t3-1c-open-items-disposition.json",
+      "sha256": "8477d1cd8e3f12a8c87a150db6c2dd3ceb0c91e13ab7257edb3f8a2c185a7adf"
+    },
+    {
+      "status": "user_approved_applied",
+      "date": "2026-09-27",
+      "option": "A"
+    }
+  ],
+  "documentation_application": {
+    "date": "2026-09-27",
+    "applied": [
+      "progress_ledger_and_restart_conditions",
+      "bounded_acceptance_table_preserving_original_criteria",
+      "README_and_configuration_limitations",
+      "V01_to_V05_and_D01_reconciliation"
+    ],
+    "changed_documents": [
+      "docs/planning/t3-1c-open-items-disposition.md",
+      "docs/PROGRESS.md",
+      "docs/TASKS.md",
+      "README.md",
+      "docs/CONFIGURATION.md"
+    ],
+    "product_changed": false,
+    "spec_changed": false,
+    "expected_values_changed": false,
+    "next_step": "V-04_additional_HTML_operations",
+    "remaining": {
+      "V-01": "user_deferred",
+      "V-02": "complete",
+      "V-03": "local_publish_static_verified_windows_execution_and_target_commit_CI_pending",
+      "V-04": "unverified",
+      "V-05": "inputs_environment_and_acceptance_criteria_undefined",
+      "D-01": "not_performed"
+    },
+    "validation_record": "out/t3-1c-disposition-accepted/validation.json"
+  }
+}

@@ -1,0 +1,79 @@
+[
+  {
+    "id": "chain-number",
+    "base": "shared-chain",
+    "global_shifts": null,
+    "expected": true
+  },
+  {
+    "id": "chain-support-number",
+    "base": "shared-chain",
+    "global_shifts": null,
+    "expected": false
+  },
+  {
+    "id": "chain-carry-number",
+    "base": "shared-chain",
+    "global_shifts": null,
+    "expected": false
+  },
+  {
+    "id": "independent-number",
+    "base": "shared-and-independent",
+    "global_shifts": null,
+    "expected": true
+  },
+  {
+    "id": "independent-endpoint-number",
+    "base": "shared-and-independent",
+    "global_shifts": null,
+    "expected": false
+  },
+  {
+    "id": "independent-tone",
+    "base": "shared-and-independent",
+    "global_shifts": null,
+    "expected": true
+  },
+  {
+    "id": "chain-down",
+    "base": "shared-chain",
+    "global_shifts": [
+      4,
+      4,
+      4
+    ],
+    "expected": true
+  },
+  {
+    "id": "chain-up",
+    "base": "shared-chain",
+    "global_shifts": [
+      -6,
+      -6,
+      -6
+    ],
+    "expected": true
+  },
+  {
+    "id": "chain-variable",
+    "base": "shared-chain",
+    "global_shifts": [
+      4,
+      -6,
+      3
+    ],
+    "expected": null
+  },
+  {
+    "id": "independent-global",
+    "base": "shared-and-independent",
+    "global_shifts": [
+      4,
+      4,
+      4,
+      4
+    ],
+    "expected": true
+  }
+]

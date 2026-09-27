@@ -73,13 +73,15 @@ public static partial class HtmlReportWriter
             html.Append("</ul>");
         }
         html.Append("</section>");
+        AppendPageFlow(html, report);
+        AppendAnchoredAudit(html, report);
         AppendSettings(html, report.Config);
         html.Append("<section id=\"pages\" aria-labelledby=\"pages-title\"><h2 id=\"pages-title\">ページ別の結果</h2><p class=\"muted\">重ね描きの赤は差分・輪郭・番号、黄色は除外領域です。画像を選ぶと元の大きさで開きます。</p><p class=\"muted\">追加・削除などの分類は A→B のインクの有無からの推定です。背景・塗りや判定が明確でない差は「変更」とします。「移動（推定）」は位置を変えると内容が一致し、対応が一意と判断できた箇所です。移動の向きは A→B です。移動も相違として数えます。切り出しの緑は A だけのインク、赤は B だけ・両方のインクやその他の差分です。</p>");
         html.Append("<p class=\"muted\">PDF テキストは元ファイルの文字情報を添えた補足です。画像の文字認識結果ではなく、不可視の文字や変更されていない部分を含むことがあります。複雑な段組みや縦書きの読み順は再現しません。画像と併せて確認してください。</p>");
         if (report.Config.Align.Enabled)
             html.Append("<p class=\"muted\">全体補正の向きは B→A（B に加えた補正量）です。補正したページの差分・切り出し・除外領域・PDF テキストは A／補正後 B の座標で表示します。クラスタの移動量は補正後に残った A→B の移動です。補正前 B はページ画像の切り替えで確認できます。</p>");
         var pageDpi = report.Inputs.A.Type == "pdf" ? report.Config.Dpi : report.Config.ImageDpi;
-        foreach (var page in report.Pages) AppendPage(html, page, pageDpi, report.Config.Report.SnippetMarginMm);
+        foreach (var page in report.Pages) AppendPage(html, page, pageDpi, report.Config.Report.SnippetMarginMm, report);
         html.Append("</section><footer>ReportDiff · オフライン比較レポート</footer></main>");
         // HTML の終了タグとして解釈されない既定エンコーダを使用する。スラッシュも符号化し、URL のリテラルを残さない。
         var json = JsonSerializer.Serialize(report, ReportJson.Options).Replace("/", "\\u002F", StringComparison.Ordinal);
@@ -144,7 +146,7 @@ public static partial class HtmlReportWriter
         html.Append("</details>");
     }
 
-    private static void AppendPage(StringBuilder html, ReportPage page, int dpi, double snippetMarginMm)
+    private static void AppendPage(StringBuilder html, ReportPage page, int dpi, double snippetMarginMm, ReportDocument report)
     {
         var same = page.Status == "same";
         html.Append($"<details class=\"card page\" id=\"page-{page.Page}\"{(same ? "" : " open")}><summary><span>{page.Page} ページ</span> <span class=\"status {(same ? "same" : "different")}\">{Status(page.Status)}</span>{(page.GlobalShiftPx is null ? "" : " <span>全体補正あり</span>")}{(page.Regions is { SuppressedPixels: > 0 } regions ? $" <span>領域で抑制: {regions.SuppressedPixels} 画素</span>" : "")}</summary>");
@@ -159,17 +161,19 @@ public static partial class HtmlReportWriter
         AppendAlignment(html, page);
         AppendRows(html, page);
         AppendPageRegions(html, page);
+        AppendAnchoredPage(html, page, report, dpi, snippetMarginMm);
+        if (page.ContentDisplay is not null) html.Append($"<h3>物理ページ {page.Page} · D 判定表示／O 元画像</h3>");
         if (page.RawEvidence is not null) html.Append("<h3>判定表示</h3>");
         AppendViewer(html, page);
         if (page.RawEvidence is { } evidence) AppendRawEvidence(html, page.Page, evidence);
         if (page.Clusters.Count > 0)
         {
-            html.Append("<p class=\"muted\">相違を次回から除外する場合は、各行の「除外 YAML」を開いて設定の <code>exclude:</code> の下へ貼り付けてください。行頭に半角スペース 2 個を付けます。対象はこのページだけです。座標は A／補正後 B が基準です。</p>");
+            if (page.ContentDisplay is null) html.Append("<p class=\"muted\">相違を次回から除外する場合は、各行の「除外 YAML」を開いて設定の <code>exclude:</code> の下へ貼り付けてください。行頭に半角スペース 2 個を付けます。対象はこのページだけです。座標は A／補正後 B が基準です。</p>");
             html.Append($"<h3>相違箇所 <span class=\"muted\">{page.Clusters.Count} 件</span></h3><p class=\"muted table-hint\">一覧は横にスクロールできます。</p><div class=\"table-scroll\" role=\"region\" aria-label=\"{page.Page} ページの相違箇所\" tabindex=\"0\"><table class=\"clusters\"><caption>位置は左上が原点です。位置と大きさは mm（小数第 2 位まで）、画素数は差分に属する画素数です。</caption><thead><tr><th scope=\"col\">番号・分類</th><th scope=\"col\">位置・大きさ（mm）</th><th scope=\"col\">画素数</th><th scope=\"col\">A · 基準</th><th scope=\"col\">B · 比較</th><th scope=\"col\">差分</th></tr></thead><tbody>");
             foreach (var cluster in page.Clusters)
             {
                 var box = cluster.BboxMm;
-                html.Append($"<tr id=\"page-{page.Page}-cluster-{cluster.Id}\"><th scope=\"row\">{cluster.Id}<br><span class=\"kind\">{Kind(cluster.Kind)}</span>{Movement(page, cluster)}</th><td class=\"bounds\">X {Mm(box.X)} · Y {Mm(box.Y)}<br>幅 {Mm(box.W)} × 高さ {Mm(box.H)}");
+                html.Append($"<tr id=\"page-{page.Page}-cluster-{cluster.Id}\"><th scope=\"row\">{(cluster.ContentRef is null ? cluster.Id.ToString() : $"内容差分 P{page.Page}-C{cluster.Id}（{page.Page}ページで計上）")}<br><span class=\"kind\">{Kind(cluster.Kind)}</span>{Movement(page, cluster)}</th><td class=\"bounds\">X {Mm(box.X)} · Y {Mm(box.Y)}<br>幅 {Mm(box.W)} × 高さ {Mm(box.H)}");
                 var snippetId = $"exclusion-{page.Page}-{cluster.Id}";
                 html.Append($"<details class=\"exclusion-snippet\"><summary>除外 YAML</summary><label for=\"{snippetId}\">{page.Page} ページ・相違 {cluster.Id}</label><textarea id=\"{snippetId}\" readonly rows=\"4\" spellcheck=\"false\" aria-label=\"{page.Page} ページ・相違 {cluster.Id}の除外 YAML\">{H(ExclusionSnippet.Create(page, cluster, dpi, snippetMarginMm))}</textarea><button type=\"button\" class=\"select-yaml\" hidden>YAML を選択</button></details></td><td>{cluster.Pixels}</td>");
                 AppendCrop(html, cluster.Crops.A, $"{page.Page} ページ・相違 {cluster.Id}・A の切り出し", true, cluster.TextA);
