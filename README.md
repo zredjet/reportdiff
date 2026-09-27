@@ -33,6 +33,27 @@ Start-Process .\sample-result\report.html
 
 帳票のレイアウト・数値・文言はこのプロジェクトで作成したデモデータで、外部帳票・ロゴ・個人情報は使用していない。自作データと生成コードは本リポジトリのMIT Licenseで提供する。[出自・ライセンス・再生成方法](docs/samples/readme/README.md)を参照。
 
+### 日本語PDFの行挿入・削除
+
+架空の「発注明細書」で、**バーコードスキャナーを1行追加し、ラベルプリンターを1行削除**した例。間の6行は、内容を変えずに1行下へ移動する。A4縦の日本語PDFで、明細本文の罫線を省いた一覧形式としている。
+
+下図の赤・緑の枠は、変更箇所を示す説明用ガイド。入力PDFには着色していない。
+
+![日本語の発注明細書の変更前後。明細035のバーコードスキャナーを追加し、明細100のラベルプリンターを削除](docs/images/sample-pdf-rows.png)
+
+行整列を有効にしてnormal・300dpiで比較すると、**行挿入1件・行削除1件・ブロック移動1件の計3箇所、内容の差分0件**となる。次の画像は、v0.1.5が出力した実際のHTMLレポートの構造変化一覧。S番号で挿入・移動・削除を示し、元PDFの文字情報も確認できる。
+
+![実際の比較レポート。S1はバーコードスキャナーの行挿入、S2は6行のブロック移動、S3はラベルプリンターの行削除](docs/images/sample-pdf-row-changes.png)
+
+[変更前PDF](docs/samples/readme-rows/order-before.pdf)・[変更後PDF](docs/samples/readme-rows/order-after.pdf)を使い、次のコマンドで再現できる。`rows.enabled` は既定では無効のため、行整列の設定を指定する。
+
+```powershell
+.\reportdiff.exe compare docs/samples/readme-rows/order-before.pdf docs/samples/readme-rows/order-after.pdf --out row-sample-result --config examples/rows.yaml
+Start-Process .\row-sample-result\report.html
+```
+
+企業名・住所・取引内容はすべて自作の架空データ。PDFにはBIZ UDGothicを埋め込んでいる。[出自・フォントのライセンス・再生成方法](docs/samples/readme-rows/README.md)を参照。この例はページ内の行整列であり、ページ送りは無効。[行整列の条件と制限](docs/CONFIGURATION.md#pdfの行整列)も参照。
+
 ## Windows で使う
 
 配布 ZIP を展開し、そのフォルダで PowerShell を開く。自己完結の `reportdiff.exe` に .NET ランタイムを含めているため、.NET を別途インストールする構成ではない。初回起動時はネイティブ DLL を一時領域に展開する。[動作条件と配布手順](docs/DISTRIBUTION.md)も参照。

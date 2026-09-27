@@ -1,0 +1,27 @@
+{
+  "browser": "153.0.8010.54",
+  "pageErrors": [],
+  "externalRequests": [],
+  "previewNarrowOverflow": false,
+  "tool": {
+    "name": "reportdiff",
+    "version": "0.1.5"
+  },
+  "summary": {
+    "status": "different",
+    "pages_compared": 1,
+    "pages_different": 1,
+    "clusters": 0,
+    "absorbed_groups": 0,
+    "aggregated_difference_count": null,
+    "aggregated_difference_count_complete": null,
+    "structural_change_count": 3,
+    "structural_change_counts": {
+      "inserted": 1,
+      "deleted": 1,
+      "block_moved": 1
+    },
+    "difference_count": 3,
+    "difference_count_complete": true
+  }
+}

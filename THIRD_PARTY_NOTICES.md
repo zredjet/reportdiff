@@ -34,6 +34,10 @@ PDFium 内の FreeType には FreeType License（FTL）を適用する。[原文
 | Ninja（ビルド用） | 1.13.0 | Apache-2.0 | https://ninja-build.org/ |
 | Playwright / playwright-core（任意のブラウザ検証用、アプリには含めない） | 1.62.1 で確認 | Apache-2.0 | https://github.com/microsoft/playwright |
 
+## READMEの日本語帳票サンプル
+
+[発注明細書のサンプルPDF](docs/samples/readme-rows/README.md)には、BIZ UDGothic（Regular / Bold）のサブセットを埋め込んでいる。Copyright 2022 The BIZ UDGothic Project Authors。フォントは [SIL Open Font License 1.1](docs/samples/readme-rows/BIZUDGothic-OFL.txt) に従う。[取得元](https://github.com/google/fonts/tree/main/ofl/bizudgothic)と[ファイルのSHA-256](docs/samples/readme-rows/manifest.json)を記録している。フォントのライセンスはサンプルの自作データ・生成コードに適用するMIT Licenseとは別で、製品の実行時依存には追加していない。
+
 ## Windows 配布に同梱する許諾文
 
 | 対象 | 原文 |

@@ -1,0 +1,33 @@
+{
+  "format": "A4 portrait, embedded Japanese text, one page per file",
+  "case": "本社事務所の備品補充発注を見直し",
+  "inserted": [
+    "035",
+    "バーコードスキャナー",
+    "USB接続 / 1次元コード",
+    "2",
+    "台",
+    "物流管理課"
+  ],
+  "deleted": [
+    "100",
+    "ラベルプリンター",
+    "据置型 / 24mm幅対応",
+    "1",
+    "台",
+    "総務課"
+  ],
+  "unchanged_rows": 13,
+  "source": "Original synthetic data and layout; no existing fixture reused",
+  "font_source": "https://github.com/google/fonts/tree/main/ofl/bizudgothic",
+  "font_license": "BIZUDGothic-OFL.txt",
+  "files": {
+    "order-after.pdf": "2799da57907e72908a8697728c9d270c237c53ff05a5669cbc084ddd89f767e6",
+    "order-before.pdf": "c11a092c72191bdfdb729f376cd2b6943b42de1bc7eb82b8a811b9f24885ee98"
+  },
+  "fonts": {
+    "BIZUDGothic-Bold.ttf": "98a528b6b638463041968783cc0f63adaf4cdc26f5398afed68bab712d1113f3",
+    "BIZUDGothic-Regular.ttf": "709fcd41e3209fb765da750472f55ccdf925653e9fa7e1eb007cb65c8f749c75",
+    "OFL.txt": "e753d7155d53c747d037a445e584c8ecfca6dd79846db610417e282a736b28bc"
+  }
+}
