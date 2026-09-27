@@ -1,7 +1,7 @@
 {
   "version": "0.1.5",
   "date": "2026-09-27",
-  "status": "local_validation_passed_release_pending",
+  "status": "published_and_redownload_verified",
   "local": {
     "status": "pass",
     "version": "reportdiff 0.1.5",
@@ -39,9 +39,422 @@
       "source-tested.json": "37c52af81bf1bf57c0891417e2c3f927b7f7477433498fef688dae8a075efd11"
     }
   },
-  "ci": null,
-  "package": null,
-  "publication": null,
+  "ci": {
+    "observed_at_utc": "2026-09-27T11:01:25.860465+00:00",
+    "target_commit": "75e79512001511de793401b6e677101b826d4600",
+    "run_id": 36312890442,
+    "url": "https://github.com/zredjet/reportdiff/actions/runs/36312890442",
+    "status": "completed",
+    "conclusion": "success",
+    "created_at": "2026-09-27T10:33:01Z",
+    "updated_at": "2026-09-27T11:00:43Z",
+    "jobs": [
+      {
+        "name": "Windows x64",
+        "job_id": 108602079017,
+        "url": "https://github.com/zredjet/reportdiff/actions/runs/36312890442/job/108602079017",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-09-27T10:33:04Z",
+        "completed_at": "2026-09-27T10:59:39Z",
+        "steps": [
+          {
+            "completedAt": "2026-09-27T10:33:06Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-09-27T10:33:05Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-27T10:33:13Z",
+            "conclusion": "success",
+            "name": "ソースを取得",
+            "number": 2,
+            "startedAt": "2026-09-27T10:33:06Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-27T10:33:13Z",
+            "conclusion": "success",
+            "name": "対象アーキテクチャを確認",
+            "number": 3,
+            "startedAt": "2026-09-27T10:33:13Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-27T10:33:16Z",
+            "conclusion": "success",
+            "name": ".NET 10 SDK を準備",
+            "number": 4,
+            "startedAt": "2026-09-27T10:33:13Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-27T10:33:16Z",
+            "conclusion": "skipped",
+            "name": "Python を準備",
+            "number": 5,
+            "startedAt": "2026-09-27T10:33:16Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-27T10:33:16Z",
+            "conclusion": "success",
+            "name": "ローカル NuGet ソースを準備",
+            "number": 6,
+            "startedAt": "2026-09-27T10:33:16Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-27T10:33:16Z",
+            "conclusion": "skipped",
+            "name": "FFmpeg なしの macOS ランタイムを生成",
+            "number": 7,
+            "startedAt": "2026-09-27T10:33:16Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-27T10:33:21Z",
+            "conclusion": "success",
+            "name": "SDK とランタイムを表示",
+            "number": 8,
+            "startedAt": "2026-09-27T10:33:16Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-27T10:33:58Z",
+            "conclusion": "success",
+            "name": "ビルド",
+            "number": 9,
+            "startedAt": "2026-09-27T10:33:21Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-27T10:59:35Z",
+            "conclusion": "success",
+            "name": "テスト",
+            "number": 10,
+            "startedAt": "2026-09-27T10:33:58Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-27T10:59:35Z",
+            "conclusion": "success",
+            "name": "Post .NET 10 SDK を準備",
+            "number": 19,
+            "startedAt": "2026-09-27T10:59:35Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-27T10:59:37Z",
+            "conclusion": "success",
+            "name": "Post ソースを取得",
+            "number": 20,
+            "startedAt": "2026-09-27T10:59:35Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-27T10:59:37Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 21,
+            "startedAt": "2026-09-27T10:59:37Z",
+            "status": "completed"
+          }
+        ],
+        "test_totals": {
+          "total": 2375,
+          "failed": 0,
+          "succeeded": 2369,
+          "skipped": 6
+        },
+        "build_totals": {
+          "warnings": 0,
+          "errors": 0
+        },
+        "skipped_cases": [
+          "ReportDiff.Tests.OutputWorkspaceTests.ReplacementRemovesLinksWithoutDeletingTheirTargets",
+          "ReportDiff.Tests.OutputWorkspaceTests.InputLinkAndLinkedParentCannotBypassContainmentCheck",
+          "ReportDiff.Tests.OutputWorkspaceTests.OutputLinkIsRejectedEvenWhenDangling(dangling: False)",
+          "ReportDiff.Tests.OutputWorkspaceTests.OutputLinkIsRejectedEvenWhenDangling(dangling: True)",
+          "ReportDiff.Tests.OutputWorkspaceTests.OrdinaryLinkedParentCanBeUsedForOutput",
+          "ReportDiff.Tests.OutputWorkspaceTests.MacUnicodeNormalizationCannotBypassInputProtection"
+        ],
+        "log_path": "out/releases/v0.1.5/windows-108602079017.log",
+        "log_sha256": "1611ee0c8d8320e1e5276efcc5141a1aa19c39777adf2da7159731457d8d7594",
+        "evidence_lines": [
+          "Windows x64\tビルド\t2026-09-27T10:33:58.1044447Z     0 Warning(s)",
+          "Windows x64\tビルド\t2026-09-27T10:33:58.1044812Z     0 Error(s)",
+          "Windows x64\tテスト\t2026-09-27T10:59:35.3208526Z Test run summary: Passed!",
+          "Windows x64\tテスト\t2026-09-27T10:59:35.3209309Z   total: 2375",
+          "Windows x64\tテスト\t2026-09-27T10:59:35.3210399Z   failed: 0",
+          "Windows x64\tテスト\t2026-09-27T10:59:35.3211496Z   succeeded: 2369",
+          "Windows x64\tテスト\t2026-09-27T10:59:35.3212088Z   skipped: 6",
+          "Windows x64\tテスト\t2026-09-27T10:59:35.3212573Z   duration: 25m 35s 866ms"
+        ]
+      },
+      {
+        "name": "macOS Apple Silicon",
+        "job_id": 108602079103,
+        "url": "https://github.com/zredjet/reportdiff/actions/runs/36312890442/job/108602079103",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-09-27T10:38:09Z",
+        "completed_at": "2026-09-27T11:00:42Z",
+        "steps": [
+          {
+            "completedAt": "2026-09-27T10:38:11Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-09-27T10:38:10Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-27T10:38:14Z",
+            "conclusion": "success",
+            "name": "ソースを取得",
+            "number": 2,
+            "startedAt": "2026-09-27T10:38:11Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-27T10:38:14Z",
+            "conclusion": "success",
+            "name": "対象アーキテクチャを確認",
+            "number": 3,
+            "startedAt": "2026-09-27T10:38:14Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-27T10:38:23Z",
+            "conclusion": "success",
+            "name": ".NET 10 SDK を準備",
+            "number": 4,
+            "startedAt": "2026-09-27T10:38:14Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-27T10:38:23Z",
+            "conclusion": "success",
+            "name": "Python を準備",
+            "number": 5,
+            "startedAt": "2026-09-27T10:38:23Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-27T10:38:24Z",
+            "conclusion": "success",
+            "name": "ローカル NuGet ソースを準備",
+            "number": 6,
+            "startedAt": "2026-09-27T10:38:23Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-27T10:44:42Z",
+            "conclusion": "success",
+            "name": "FFmpeg なしの macOS ランタイムを生成",
+            "number": 7,
+            "startedAt": "2026-09-27T10:38:24Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-27T10:44:43Z",
+            "conclusion": "success",
+            "name": "SDK とランタイムを表示",
+            "number": 8,
+            "startedAt": "2026-09-27T10:44:42Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-27T10:45:02Z",
+            "conclusion": "success",
+            "name": "ビルド",
+            "number": 9,
+            "startedAt": "2026-09-27T10:44:43Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-27T11:00:38Z",
+            "conclusion": "success",
+            "name": "テスト",
+            "number": 10,
+            "startedAt": "2026-09-27T10:45:02Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-27T11:00:38Z",
+            "conclusion": "success",
+            "name": "Post Python を準備",
+            "number": 18,
+            "startedAt": "2026-09-27T11:00:38Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-27T11:00:39Z",
+            "conclusion": "success",
+            "name": "Post .NET 10 SDK を準備",
+            "number": 19,
+            "startedAt": "2026-09-27T11:00:38Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-27T11:00:39Z",
+            "conclusion": "success",
+            "name": "Post ソースを取得",
+            "number": 20,
+            "startedAt": "2026-09-27T11:00:39Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-27T11:00:41Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 21,
+            "startedAt": "2026-09-27T11:00:39Z",
+            "status": "completed"
+          }
+        ],
+        "test_totals": {
+          "total": 2375,
+          "failed": 0,
+          "succeeded": 2375,
+          "skipped": 0
+        },
+        "build_totals": {
+          "warnings": 0,
+          "errors": 0
+        },
+        "skipped_cases": [],
+        "log_path": "out/releases/v0.1.5/macos-108602079103.log",
+        "log_sha256": "2f0b78548bfcb51c09726fba0ace0b918ddf85c0c7c92bfba64e4353f1a1adf4",
+        "evidence_lines": [
+          "macOS Apple Silicon\tビルド\t2026-09-27T10:45:02.3694890Z     0 Warning(s)",
+          "macOS Apple Silicon\tビルド\t2026-09-27T10:45:02.3726890Z     0 Error(s)",
+          "macOS Apple Silicon\tテスト\t2026-09-27T11:00:38.4026690Z Test run summary: Passed!",
+          "macOS Apple Silicon\tテスト\t2026-09-27T11:00:38.4027040Z   total: 2375",
+          "macOS Apple Silicon\tテスト\t2026-09-27T11:00:38.4027340Z   failed: 0",
+          "macOS Apple Silicon\tテスト\t2026-09-27T11:00:38.4027950Z   succeeded: 2375",
+          "macOS Apple Silicon\tテスト\t2026-09-27T11:00:38.4028310Z   skipped: 0",
+          "macOS Apple Silicon\tテスト\t2026-09-27T11:00:38.4028560Z   duration: 15m 35s 251ms"
+        ]
+      }
+    ],
+    "unchanged_locally_verified_source_files": 688,
+    "source_changed_since_local_validation": false,
+    "fixed_inputs_changed": false,
+    "manual_windows_distribution_acceptance": "not_verified"
+  },
+  "package": {
+    "status": "pass",
+    "commit": "75e79512001511de793401b6e677101b826d4600",
+    "version": "0.1.5",
+    "source_files": 1255,
+    "package": {
+      "file": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/releases/v0.1.5/reportdiff-0.1.5-win-x64.zip",
+      "size_bytes": 67516612,
+      "sha256": "066b3869d2b5af85fc9f3e0033b98ffc4528196888fc58088d824292af734eab",
+      "files": 367,
+      "exe_size_bytes": 157345349
+    },
+    "packaged_committed_files": 364,
+    "crc_and_manifest": true,
+    "committed_content_equal": true,
+    "project_versions": [
+      "ReportDiff.Core/0.1.5",
+      "ReportDiff.Pdf/0.1.5",
+      "ReportDiff.Report/0.1.5",
+      "reportdiff/0.1.5"
+    ],
+    "embedded_assemblies": {
+      "reportdiff.dll": {
+        "sha256": "0a305410ea016e308f5b761fe39a015e76076e4486ce094243cf87f24e4b4b7a",
+        "size_bytes": 130560
+      },
+      "ReportDiff.Core.dll": {
+        "sha256": "b724231f9e58ec5a17e4a2e85d938cad6a44886a8ac93d1e9bcac262f8f5e990",
+        "size_bytes": 564224
+      },
+      "ReportDiff.Pdf.dll": {
+        "sha256": "1235196ccbe868cd7782475be50a2be550567ee8d5a4457eac945f90417950b7",
+        "size_bytes": 55296
+      },
+      "ReportDiff.Report.dll": {
+        "sha256": "420a20a82f6ad1d63b8fe39a99efaab3a6b8beaa287bd549caa911c8e7fe181f",
+        "size_bytes": 368128
+      }
+    },
+    "readme_images": [
+      "docs/images/sample-overlay.png",
+      "docs/images/sample-differences.png",
+      "docs/images/sample-raw-overlay.png"
+    ],
+    "licenses_verified": true,
+    "native_libraries": [
+      {
+        "name": "pdfium.dll",
+        "size_bytes": 7220736,
+        "machine": "win-x64",
+        "sha256": "d3d9f4b7c9dabe3363f30779c5c3c715c47332749fa590e4b4a2b8b6780cb1c4"
+      },
+      {
+        "name": "OpenCvSharpExtern.dll",
+        "size_bytes": 55547904,
+        "machine": "win-x64",
+        "sha256": "1fa122bdb8e94175e7719fb8aa8f2ab211268a756f5d0c7a13c710ed79ae30cd"
+      },
+      {
+        "name": "libSkiaSharp.dll",
+        "size_bytes": 12254048,
+        "machine": "win-x64",
+        "sha256": "c8770c219e0d3cd9bb119fad46f2d00ae1855b11315816e86e909e3332826212"
+      }
+    ],
+    "runtime_options": {
+      "tfm": "net10.0",
+      "includedFrameworks": [
+        {
+          "name": "Microsoft.NETCore.App",
+          "version": "10.0.12"
+        }
+      ],
+      "configProperties": {
+        "System.Globalization.Invariant": false,
+        "System.Reflection.Metadata.MetadataUpdater.IsSupported": false,
+        "System.Runtime.Serialization.EnableUnsafeBinaryFormatterSerialization": false
+      }
+    },
+    "embedded_files": 192,
+    "windows_execution": false
+  },
+  "publication": {
+    "status": "pass",
+    "verified_at_utc": "2026-09-27T11:03:23.541392+00:00",
+    "version": "0.1.5",
+    "commit": "75e79512001511de793401b6e677101b826d4600",
+    "url": "https://github.com/zredjet/reportdiff/releases/tag/v0.1.5",
+    "published_at": "2026-09-27T11:02:42Z",
+    "normal_public_release": true,
+    "tag_matches_commit": true,
+    "downloaded_assets_match": true,
+    "github_asset_digests_match": true,
+    "zip_crc_and_manifest": true,
+    "zip_files": 367,
+    "assets": {
+      "SHA256SUMS": {
+        "size_bytes": 95,
+        "sha256": "3b3e1f266eeeb450d876ef57d4ffdd31d853383269dcaf10361d398994f75b51",
+        "url": "https://github.com/zredjet/reportdiff/releases/download/v0.1.5/SHA256SUMS"
+      },
+      "reportdiff-0.1.5-win-x64.zip": {
+        "size_bytes": 67516612,
+        "sha256": "066b3869d2b5af85fc9f3e0033b98ffc4528196888fc58088d824292af734eab",
+        "url": "https://github.com/zredjet/reportdiff/releases/download/v0.1.5/reportdiff-0.1.5-win-x64.zip"
+      }
+    },
+    "windows_manual_acceptance": false
+  },
   "scope": {
     "rows_default_enabled": false,
     "carry_default_enabled": false,
@@ -56,5 +469,12 @@
       "V-05/T2-7"
     ],
     "v04": "user_proxy_approximately_ok"
+  },
+  "release_commit": "75e79512001511de793401b6e677101b826d4600",
+  "post_publication_documentation": {
+    "changed_documents": 5,
+    "product_test_reference_files_unchanged": 688,
+    "release_tag_and_assets_unchanged": true,
+    "validation": "reuse successful local full regression and release-commit CI for unchanged product/test source; validate documentation links and data"
   }
 }
