@@ -77,14 +77,14 @@ public sealed partial class PageFlowCliTests
     }
 
     [Fact]
-    public void Multiple_input_mutation_keeps_old_output()
+    public void Multiple_input_update_failure_keeps_old_output()
     {
         using var files = new Files("multiple-independent-inserts"); Directory.CreateDirectory(files.PathOf("changed"));
-        File.WriteAllText(files.PathOf("changed", "old.txt"), "old"); var changed = false;
+        File.WriteAllText(files.PathOf("changed", "old.txt"), "old"); var mutation = new InputMutationAttempt(files.B);
         using var writer = new HookWriter(line =>
-        { if (!changed && line.StartsWith("処理中 1 /", StringComparison.Ordinal)) { File.AppendAllText(files.B, "\n% changed\n"); changed = true; } });
+        { if (!mutation.Attempted && line.StartsWith("処理中 1 /", StringComparison.Ordinal)) mutation.AppendPdfComment(); });
         var result = files.Run("changed", true, extraArgs: ["--force"], writer: writer);
-        Assert.True(changed); Assert.Equal(2, result.Code); Assert.Contains("入力ファイルが変わりました", result.Error);
+        mutation.AssertCliError(result.Code, result.Error);
         Assert.Equal("old", File.ReadAllText(files.PathOf("changed", "old.txt")));
         Assert.False(File.Exists(files.PathOf("changed", "result.json"))); Assert.Empty(Directory.GetDirectories(files.Root, ".reportdiff-stage-*"));
     }

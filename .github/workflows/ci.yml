@@ -72,7 +72,9 @@ jobs:
         run: dotnet --info
 
       - name: ビルド
-        run: dotnet build
+        run: dotnet build -c Release
 
       - name: テスト
-        run: dotnet test
+        # PDF・画像の全回帰をローカルの受け入れと同じ構成・逐次実行で検証する。
+        # 比較コア内部の並列処理は維持し、テストケース同士の同時実行だけを止める。
+        run: dotnet test --no-build --no-restore -c Release --parallel none --minimum-expected-tests 2375 --progress on

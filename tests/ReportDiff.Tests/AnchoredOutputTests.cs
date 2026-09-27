@@ -65,11 +65,12 @@ public sealed class AnchoredOutputTests
     [Theory]
     [InlineData("before_recompare")] [InlineData("content_saved_1")] [InlineData("display_saved_1")]
     [InlineData("json_saved")] [InlineData("before_publication")]
-    public void Changed_input_is_error_and_old_output_survives(string failure)
+    public void Input_update_failure_preserves_old_output(string failure)
     {
-        using var files = new Files(); files.Old("keep");
-        Assert.Throws<CommandLineException>(() => files.Compare("keep", hook: (stage, _, _) =>
-        { if (stage == failure) File.AppendAllText(files.B, "\n% changed\n"); }));
+        using var files = new Files(); files.Old("keep"); var mutation = new InputMutationAttempt(files.B);
+        var error = Record.Exception(() => files.Compare("keep", hook: (stage, _, _) =>
+        { if (stage == failure) mutation.AppendPdfComment(); }));
+        mutation.AssertException(error);
         files.AssertOld("keep");
     }
 

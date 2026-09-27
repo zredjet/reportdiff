@@ -89,14 +89,14 @@ public sealed partial class PageFlowCliTests
 
     [Theory]
     [InlineData("shared-two")] [InlineData("shared-chain")] [InlineData("shared-and-independent")]
-    public void Shared_input_mutation_preserves_previous_output(string scenario)
+    public void Shared_input_update_failure_preserves_previous_output(string scenario)
     {
         using var files = new Files("shared-" + scenario); Directory.CreateDirectory(files.PathOf("changed"));
-        File.WriteAllText(files.PathOf("changed", "old.txt"), "old"); var changed = false;
+        File.WriteAllText(files.PathOf("changed", "old.txt"), "old"); var mutation = new InputMutationAttempt(files.B);
         using var writer = new HookWriter(line =>
-        { if (!changed && line.StartsWith("処理中 1 /", StringComparison.Ordinal)) { File.AppendAllText(files.B, "\n% changed\n"); changed = true; } });
+        { if (!mutation.Attempted && line.StartsWith("処理中 1 /", StringComparison.Ordinal)) mutation.AppendPdfComment(); });
         var result = files.Run("changed", true, extraArgs: ["--force"], writer: writer);
-        Assert.True(changed); Assert.Equal(2, result.Code); Assert.Equal("old", File.ReadAllText(files.PathOf("changed", "old.txt")));
+        mutation.AssertCliError(result.Code, result.Error); Assert.Equal("old", File.ReadAllText(files.PathOf("changed", "old.txt")));
         Assert.Empty(Directory.GetDirectories(files.Root, ".reportdiff-stage-*"));
     }
 
