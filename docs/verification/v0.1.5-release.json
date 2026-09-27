@@ -1,0 +1,60 @@
+{
+  "version": "0.1.5",
+  "date": "2026-09-27",
+  "status": "local_validation_passed_release_pending",
+  "local": {
+    "status": "pass",
+    "version": "reportdiff 0.1.5",
+    "build_warnings": 0,
+    "build_errors": 0,
+    "tests": {
+      "environment": "64-bit (ARM) .NET 10.0.12 [collection-per-class, non-parallel]",
+      "id": "020ace88-c190-4167-a7d2-dd1d60cf9f12",
+      "run-date": "2026-09-27",
+      "run-time": "10:22:55",
+      "start-rtf": "2026-09-27T10:22:55.8875270+00:00",
+      "test-framework": "xUnit.net v3 4.0.1+8ed8aa354c",
+      "target-framework": ".NETCoreApp,Version=v10.0",
+      "errors": "0",
+      "failed": "0",
+      "finish-rtf": "2026-09-27T10:32:03.2322920+00:00",
+      "not-run": "0",
+      "passed": "2375",
+      "skipped": "0",
+      "time": "547.328",
+      "time-rtf": "00:09:07.3280000",
+      "total": "2375"
+    },
+    "source_files_unchanged": 688,
+    "retained_evidence_files_unchanged": 133,
+    "markdown_local_links_checked": 276,
+    "sample_html_links_checked": 32,
+    "sample_html_duplicate_ids": 0,
+    "sample_html_external_references": 0,
+    "evidence_sha256": {
+      "build.log": "639467388f4416c2421957f595263f5dcfb9462bb3106aaafdccc5df14747284",
+      "tests.log": "51061451a77a575c92b0fd29bfa681f4a9c5e72757a4694ca18787781d2aa9f9",
+      "test-results/tests.xml": "fcefc61bbbb281c85eabf2d26b44675ef2068929b1f2d950713d6ae38a6686d6",
+      "sample-verification.json": "f45f8b81453a9c73755772d768580c7b64b2a4b24143b2c46eb45378272d9efc",
+      "source-tested.json": "37c52af81bf1bf57c0891417e2c3f927b7f7477433498fef688dae8a075efd11"
+    }
+  },
+  "ci": null,
+  "package": null,
+  "publication": null,
+  "scope": {
+    "rows_default_enabled": false,
+    "carry_default_enabled": false,
+    "parent_tasks_complete": false,
+    "pending": [
+      "R-01",
+      "R-02",
+      "R-03",
+      "R-04",
+      "V-01",
+      "V-03 Windows manual",
+      "V-05/T2-7"
+    ],
+    "v04": "user_proxy_approximately_ok"
+  }
+}

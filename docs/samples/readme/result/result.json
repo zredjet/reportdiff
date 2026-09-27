@@ -2,7 +2,7 @@
   "schema_version": 1,
   "tool": {
     "name": "reportdiff",
-    "version": "0.1.4"
+    "version": "0.1.5"
   },
   "generated_at": "2026-09-21T12:00:00+09:00",
   "inputs": {
@@ -65,6 +65,18 @@
       "min_support_columns": 2,
       "min_ink_area_mm2": 1
     },
+    "rows": {
+      "enabled": false,
+      "carry_enabled": false,
+      "max_shift_mm": 20,
+      "min_word_match": 0.6,
+      "refine_mm": 0.3,
+      "min_improvement": 0.05,
+      "min_score_gap": 0.02,
+      "min_support_bands": 2,
+      "min_support_ink_mm2": 1,
+      "max_segments": 8
+    },
     "text": {
       "max_letters_per_page": 100000,
       "max_words_per_page": 20000,
@@ -77,7 +89,17 @@
     "pages_compared": 1,
     "pages_different": 1,
     "clusters": 3,
-    "absorbed_groups": 0
+    "absorbed_groups": 0,
+    "aggregated_difference_count": null,
+    "aggregated_difference_count_complete": null,
+    "structural_change_count": 0,
+    "structural_change_counts": {
+      "inserted": 0,
+      "deleted": 0,
+      "block_moved": 0
+    },
+    "difference_count": 3,
+    "difference_count_complete": true
   },
   "warnings": [],
   "pages": [
@@ -227,7 +249,38 @@
         },
         "overlay": "pages/p001_raw_overlay.png",
         "common_color": "#CCCCCC"
-      }
+      },
+      "row_alignment": {
+        "status": "disabled",
+        "reason": "disabled",
+        "detail": null,
+        "source": null,
+        "score": null,
+        "score_gap": null,
+        "hypotheses": null,
+        "support_bands": null,
+        "baseline_raw_pixels": null,
+        "candidate_raw_pixels": null,
+        "improvement": null,
+        "original_size_a": null,
+        "original_size_b": null,
+        "aligned_size_px": null,
+        "segments": [],
+        "content_canvas": null,
+        "structural_changes": [],
+        "omission_audit": null,
+        "annotation_omissions": [],
+        "regions": [],
+        "exclusions_px": []
+      },
+      "structural_change_count": 0,
+      "structural_change_counts": {
+        "inserted": 0,
+        "deleted": 0,
+        "block_moved": 0
+      },
+      "difference_count": 3,
+      "difference_count_complete": true
     }
   ]
 }
