@@ -20,7 +20,11 @@ internal static class RegionalComparer
     public static PageComparison Compare(Mat a, Mat b, ComparisonParameters parameters)
     {
         parameters = parameters with { Exclude = parameters.Exclude.Concat(parameters.Regions.Where(r => r.Mode == "exclude").Select(r => r.Bounds)).Distinct().ToArray() };
-        var map = new RegionMap(a.Width, a.Height, parameters);
+        return Compare(a, b, parameters, new RegionMap(a.Width, a.Height, parameters));
+    }
+
+    internal static PageComparison Compare(Mat a, Mat b, ComparisonParameters parameters, RegionMap map, bool retainProjection = false)
+    {
         using var ink = new ComparisonInk();
         using var baseline = TolerantDifference.Calculate(a, b, parameters, true, null, ink);
         var original = MatBuffers.Bytes(baseline.RawMask);
@@ -58,7 +62,7 @@ internal static class RegionalComparer
             else if (original[pixel] != 0) { suppressed[pixel] = 255; suppressedCounts[owner]++; }
         }
         using var raw = new RawDifference(MatBuffers.Mask(combined, a.Width, a.Height), baseline.AbsorbedGroups, baseline.MaxShiftPx);
-        var result = PageComparer.Cluster(raw, parameters, a, b, classificationInk: ink, regions: map);
+        var result = PageComparer.Cluster(raw, parameters, a, b, classificationInk: ink, regions: map, retainProjection: retainProjection);
         Mat? mask = null;
         try
         {

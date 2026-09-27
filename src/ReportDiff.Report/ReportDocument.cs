@@ -24,7 +24,13 @@ public sealed record ReportInput(string Path, string Type, int Pages, string Sha
         return new(path, format.ToString().ToLowerInvariant(), pages, Convert.ToHexStringLower(SHA256.HashData(stream)));
     }
 }
-public sealed record ReportSummary(string Status, int PagesCompared, int PagesDifferent, int Clusters, int AbsorbedGroups);
+public sealed record ReportSummary(string Status, int PagesCompared, int PagesDifferent, int Clusters, int AbsorbedGroups)
+{
+    public int StructuralChangeCount { get; init; }
+    public StructureCounts StructuralChangeCounts { get; init; } = new(0, 0, 0);
+    public int DifferenceCount => Clusters + StructuralChangeCount;
+    public bool DifferenceCountComplete { get; init; } = true;
+}
 public sealed record ReportWarning(string Code, string Message);
 public sealed record PixelSize(int W, int H);
 public sealed record PixelBox(int X, int Y, int W, int H);
@@ -33,6 +39,10 @@ public sealed record PixelShift(int Dx, int Dy);
 public sealed record PageImages(string? A, string? B, string? Overlay)
 {
     public string? BOriginal { get; init; }
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    public string? ContentA { get; init; }
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    public string? ContentB { get; init; }
 }
 public sealed record ClusterCrops(string A, string B, string Diff);
 public sealed record RawEvidencePadding(int Right, int Bottom);
@@ -48,6 +58,13 @@ public sealed record ReportCluster(int Id, PixelBox BboxPx, MillimeterBox BboxMm
     string? Kind, PixelShift? ShiftPx, string? TextA, string? TextB, ClusterCrops Crops)
 {
     public IReadOnlyList<int> RelatedClusterIds { get; init; } = [];
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)] public IReadOnlyList<PixelBox>? DisplayPartsPx { get; init; }
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)] public PixelBox? ContentBboxPx { get; init; }
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)] public MillimeterBox? ContentBboxMm { get; init; }
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)] public double? ContentFillRatio { get; init; }
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)] public IReadOnlyList<ReportRowFragment>? RowParts { get; init; }
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)] public ReportSourceBounds? SourceA { get; init; }
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)] public ReportSourceBounds? SourceB { get; init; }
 }
 public sealed record ReportPage(int Page, string Status, PixelSize SizePx, bool SizeMismatch, int RawPixels,
     int NoiseDropped, int AbsorbedGroups, int MaxShiftPx, PageImages Images, IReadOnlyList<ReportCluster> Clusters)
@@ -58,6 +75,11 @@ public sealed record ReportPage(int Page, string Status, PixelSize SizePx, bool 
     public RawEvidence? RawEvidence { get; init; }
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public PageRegions? Regions { get; init; }
+    public ReportRowAlignment RowAlignment { get; init; } = ReportRowAlignment.Disabled;
+    public int StructuralChangeCount { get; init; }
+    public StructureCounts StructuralChangeCounts { get; init; } = new(0, 0, 0);
+    public int DifferenceCount => Clusters.Count + StructuralChangeCount;
+    public bool DifferenceCountComplete { get; init; } = Status is not ("too_different" or "only_in_a" or "only_in_b");
 }
 
 // CLI への逆参照を作らず、設定の実効値を出力用の型で受け取る。
@@ -67,6 +89,7 @@ public sealed record ReportConfiguration(int Dpi, int ImageDpi, DiffOptions Diff
     public InkOptions Ink { get; init; } = new();
     public MoveOptions Move { get; init; } = new();
     public AlignOptions Align { get; init; } = new();
+    public RowOptions Rows { get; init; } = new();
     public TextOptions Text { get; init; } = new();
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public IReadOnlyList<ReportRegion>? Regions { get; init; }

@@ -1,0 +1,6984 @@
+{
+  "date": "2026-09-22",
+  "baseline_commit": "f77ac1c72a0754373041273f9f36b49e312379b7",
+  "task": "T3-1b",
+  "candidate": "map_original_features_then_search_on_display_canvas",
+  "decision": "rejected_detectable_tone_change_lost_and_swap_results_differ",
+  "product_code_changed": false,
+  "reference_formula_changed": false,
+  "golden_expectations_changed": false,
+  "formal_acceptance_complete": false,
+  "release_build": {
+    "warnings": 0,
+    "errors": 0
+  },
+  "full_product_test_suite_rerun": false,
+  "python_opencv": "4.13.0",
+  "previous_pdf_conditions": 42,
+  "new_pdf_conditions": 36,
+  "csharp_python_pdf_comparisons": 72,
+  "identity_csharp_product_conditions": 42,
+  "identity_python_reference_conditions": 42,
+  "tone_image_conditions": 42,
+  "white_boundary_image_conditions": 180,
+  "new_pdf_detection_loss_conditions": 12,
+  "tone_image_detection_loss_conditions": 16,
+  "originals_display_raw_evidence_unchanged_in_pdf_probe": true,
+  "previous_pdf_results": [
+    {
+      "id": "unchanged-normal-forward",
+      "baseline": {
+        "status": "same",
+        "raw_pixels": 0,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": []
+      },
+      "candidate": {
+        "status": "same",
+        "raw_pixels": 0,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": []
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    },
+    {
+      "id": "unchanged-normal-reverse",
+      "baseline": {
+        "status": "same",
+        "raw_pixels": 0,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": []
+      },
+      "candidate": {
+        "status": "same",
+        "raw_pixels": 0,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": []
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    },
+    {
+      "id": "unchanged-strict-forward",
+      "baseline": {
+        "status": "same",
+        "raw_pixels": 0,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": []
+      },
+      "candidate": {
+        "status": "same",
+        "raw_pixels": 0,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": []
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    },
+    {
+      "id": "unchanged-strict-reverse",
+      "baseline": {
+        "status": "same",
+        "raw_pixels": 0,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": []
+      },
+      "candidate": {
+        "status": "same",
+        "raw_pixels": 0,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": []
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    },
+    {
+      "id": "unchanged-loose-forward",
+      "baseline": {
+        "status": "same",
+        "raw_pixels": 0,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": []
+      },
+      "candidate": {
+        "status": "same",
+        "raw_pixels": 0,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": []
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    },
+    {
+      "id": "unchanged-loose-reverse",
+      "baseline": {
+        "status": "same",
+        "raw_pixels": 0,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": []
+      },
+      "candidate": {
+        "status": "same",
+        "raw_pixels": 0,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": []
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    },
+    {
+      "id": "number-normal-forward",
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 69,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 412,
+            "y": 755,
+            "w": 54,
+            "h": 5,
+            "pixels": 69,
+            "fill_ratio": 0.25555555555555554
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 69,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 412,
+            "y": 855,
+            "w": 54,
+            "h": 5,
+            "pixels": 69,
+            "fill_ratio": 0.25555555555555554
+          }
+        ]
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    },
+    {
+      "id": "number-normal-reverse",
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 69,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 412,
+            "y": 755,
+            "w": 54,
+            "h": 5,
+            "pixels": 69,
+            "fill_ratio": 0.25555555555555554
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 69,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 412,
+            "y": 855,
+            "w": 54,
+            "h": 5,
+            "pixels": 69,
+            "fill_ratio": 0.25555555555555554
+          }
+        ]
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    },
+    {
+      "id": "number-strict-forward",
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 90,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 412,
+            "y": 755,
+            "w": 54,
+            "h": 5,
+            "pixels": 90,
+            "fill_ratio": 0.3333333333333333
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 90,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 412,
+            "y": 855,
+            "w": 54,
+            "h": 5,
+            "pixels": 90,
+            "fill_ratio": 0.3333333333333333
+          }
+        ]
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    },
+    {
+      "id": "number-strict-reverse",
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 90,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 412,
+            "y": 755,
+            "w": 54,
+            "h": 5,
+            "pixels": 90,
+            "fill_ratio": 0.3333333333333333
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 90,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 412,
+            "y": 855,
+            "w": 54,
+            "h": 5,
+            "pixels": 90,
+            "fill_ratio": 0.3333333333333333
+          }
+        ]
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    },
+    {
+      "id": "number-loose-forward",
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 69,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 412,
+            "y": 755,
+            "w": 54,
+            "h": 5,
+            "pixels": 69,
+            "fill_ratio": 0.25555555555555554
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 69,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 412,
+            "y": 855,
+            "w": 54,
+            "h": 5,
+            "pixels": 69,
+            "fill_ratio": 0.25555555555555554
+          }
+        ]
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    },
+    {
+      "id": "number-loose-reverse",
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 69,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 412,
+            "y": 755,
+            "w": 54,
+            "h": 5,
+            "pixels": 69,
+            "fill_ratio": 0.25555555555555554
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 69,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 412,
+            "y": 855,
+            "w": 54,
+            "h": 5,
+            "pixels": 69,
+            "fill_ratio": 0.25555555555555554
+          }
+        ]
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    },
+    {
+      "id": "boundary-0-normal-forward",
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 102,
+            "y": 400,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 102,
+            "y": 500,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    },
+    {
+      "id": "boundary-0-normal-reverse",
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 102,
+            "y": 400,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 102,
+            "y": 500,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    },
+    {
+      "id": "boundary-0-strict-forward",
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 100,
+            "y": 400,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 100,
+            "y": 500,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    },
+    {
+      "id": "boundary-0-strict-reverse",
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 100,
+            "y": 400,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 100,
+            "y": 500,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    },
+    {
+      "id": "boundary-0-loose-forward",
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 102,
+            "y": 400,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 102,
+            "y": 500,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    },
+    {
+      "id": "boundary-0-loose-reverse",
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 102,
+            "y": 400,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 102,
+            "y": 500,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    },
+    {
+      "id": "boundary-1-normal-forward",
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 102,
+            "y": 401,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 102,
+            "y": 501,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    },
+    {
+      "id": "boundary-1-normal-reverse",
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 102,
+            "y": 401,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 102,
+            "y": 501,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    },
+    {
+      "id": "boundary-1-strict-forward",
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 100,
+            "y": 401,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 100,
+            "y": 501,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    },
+    {
+      "id": "boundary-1-strict-reverse",
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 100,
+            "y": 401,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 100,
+            "y": 501,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    },
+    {
+      "id": "boundary-1-loose-forward",
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 102,
+            "y": 401,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 102,
+            "y": 501,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    },
+    {
+      "id": "boundary-1-loose-reverse",
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 102,
+            "y": 401,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 102,
+            "y": 501,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    },
+    {
+      "id": "boundary-2-normal-forward",
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 102,
+            "y": 402,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 102,
+            "y": 502,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    },
+    {
+      "id": "boundary-2-normal-reverse",
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 102,
+            "y": 402,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 102,
+            "y": 502,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    },
+    {
+      "id": "boundary-2-strict-forward",
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 100,
+            "y": 402,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 100,
+            "y": 502,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    },
+    {
+      "id": "boundary-2-strict-reverse",
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 100,
+            "y": 402,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 100,
+            "y": 502,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    },
+    {
+      "id": "boundary-2-loose-forward",
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 102,
+            "y": 402,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 102,
+            "y": 502,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    },
+    {
+      "id": "boundary-2-loose-reverse",
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 102,
+            "y": 402,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 102,
+            "y": 502,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    },
+    {
+      "id": "boundary-4-normal-forward",
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 102,
+            "y": 404,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 102,
+            "y": 504,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    },
+    {
+      "id": "boundary-4-normal-reverse",
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 102,
+            "y": 404,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 102,
+            "y": 504,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    },
+    {
+      "id": "boundary-4-strict-forward",
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 100,
+            "y": 404,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 100,
+            "y": 504,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    },
+    {
+      "id": "boundary-4-strict-reverse",
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 100,
+            "y": 404,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 100,
+            "y": 504,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    },
+    {
+      "id": "boundary-4-loose-forward",
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 102,
+            "y": 404,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 102,
+            "y": 504,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    },
+    {
+      "id": "boundary-4-loose-reverse",
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 102,
+            "y": 404,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 102,
+            "y": 504,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    },
+    {
+      "id": "boundary-8-normal-forward",
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 102,
+            "y": 408,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 102,
+            "y": 508,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    },
+    {
+      "id": "boundary-8-normal-reverse",
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 102,
+            "y": 408,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 102,
+            "y": 508,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    },
+    {
+      "id": "boundary-8-strict-forward",
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 100,
+            "y": 408,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 100,
+            "y": 508,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    },
+    {
+      "id": "boundary-8-strict-reverse",
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 100,
+            "y": 408,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 100,
+            "y": 508,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    },
+    {
+      "id": "boundary-8-loose-forward",
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 102,
+            "y": 408,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 102,
+            "y": 508,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    },
+    {
+      "id": "boundary-8-loose-reverse",
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 102,
+            "y": 408,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 102,
+            "y": 508,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "baseline_mask_equal": true,
+      "detection_lost": false
+    }
+  ],
+  "new_pdf_results": [
+    {
+      "id": "gray-unchanged-normal-forward",
+      "name": "gray-unchanged",
+      "profile": "normal",
+      "reverse": false,
+      "patch_distance_px": null,
+      "changed": false,
+      "baseline": {
+        "Status": "same",
+        "RawPixels": 0,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": []
+      },
+      "candidate": {
+        "Status": "same",
+        "RawPixels": 0,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": []
+      },
+      "initial_paired_pixels": 0,
+      "groups": [
+        {
+          "Id": 1,
+          "Before": 600,
+          "After": 600,
+          "Dx": 0,
+          "Dy": 0
+        },
+        {
+          "Id": 2,
+          "Before": 848,
+          "After": 848,
+          "Dx": 0,
+          "Dy": 0
+        },
+        {
+          "Id": 3,
+          "Before": 1267,
+          "After": 1267,
+          "Dx": 0,
+          "Dy": 0
+        }
+      ],
+      "detection_lost": false,
+      "paired_b_matches_baseline_b": true,
+      "source_a_sha256": "268973d6aa7f2454e7927d4e899258b9e02e69f89abed6d9b0206c4b23de8cae",
+      "source_b_sha256": "920f141e8da2d16a4f0c69cc115c3bbcd732bafdeeb45e572b8e2ed1b7a20eb4",
+      "raw_evidence_sha256": "567760fb23a85707320f3db636b97964144088d9cf5746e1ddc9da96e2191d95"
+    },
+    {
+      "id": "gray-unchanged-normal-reverse",
+      "name": "gray-unchanged",
+      "profile": "normal",
+      "reverse": true,
+      "patch_distance_px": null,
+      "changed": false,
+      "baseline": {
+        "Status": "same",
+        "RawPixels": 0,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": []
+      },
+      "candidate": {
+        "Status": "same",
+        "RawPixels": 0,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": []
+      },
+      "initial_paired_pixels": 0,
+      "groups": [
+        {
+          "Id": 1,
+          "Before": 600,
+          "After": 600,
+          "Dx": 0,
+          "Dy": 0
+        },
+        {
+          "Id": 2,
+          "Before": 848,
+          "After": 848,
+          "Dx": 0,
+          "Dy": 0
+        },
+        {
+          "Id": 3,
+          "Before": 1267,
+          "After": 1267,
+          "Dx": 0,
+          "Dy": 0
+        }
+      ],
+      "detection_lost": false,
+      "paired_b_matches_baseline_b": true,
+      "source_a_sha256": "268973d6aa7f2454e7927d4e899258b9e02e69f89abed6d9b0206c4b23de8cae",
+      "source_b_sha256": "920f141e8da2d16a4f0c69cc115c3bbcd732bafdeeb45e572b8e2ed1b7a20eb4",
+      "raw_evidence_sha256": "567760fb23a85707320f3db636b97964144088d9cf5746e1ddc9da96e2191d95"
+    },
+    {
+      "id": "gray-unchanged-strict-forward",
+      "name": "gray-unchanged",
+      "profile": "strict",
+      "reverse": false,
+      "patch_distance_px": null,
+      "changed": false,
+      "baseline": {
+        "Status": "same",
+        "RawPixels": 0,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": []
+      },
+      "candidate": {
+        "Status": "same",
+        "RawPixels": 0,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": []
+      },
+      "initial_paired_pixels": 0,
+      "groups": [],
+      "detection_lost": false,
+      "paired_b_matches_baseline_b": true,
+      "source_a_sha256": "268973d6aa7f2454e7927d4e899258b9e02e69f89abed6d9b0206c4b23de8cae",
+      "source_b_sha256": "920f141e8da2d16a4f0c69cc115c3bbcd732bafdeeb45e572b8e2ed1b7a20eb4",
+      "raw_evidence_sha256": "567760fb23a85707320f3db636b97964144088d9cf5746e1ddc9da96e2191d95"
+    },
+    {
+      "id": "gray-unchanged-strict-reverse",
+      "name": "gray-unchanged",
+      "profile": "strict",
+      "reverse": true,
+      "patch_distance_px": null,
+      "changed": false,
+      "baseline": {
+        "Status": "same",
+        "RawPixels": 0,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": []
+      },
+      "candidate": {
+        "Status": "same",
+        "RawPixels": 0,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": []
+      },
+      "initial_paired_pixels": 0,
+      "groups": [],
+      "detection_lost": false,
+      "paired_b_matches_baseline_b": true,
+      "source_a_sha256": "268973d6aa7f2454e7927d4e899258b9e02e69f89abed6d9b0206c4b23de8cae",
+      "source_b_sha256": "920f141e8da2d16a4f0c69cc115c3bbcd732bafdeeb45e572b8e2ed1b7a20eb4",
+      "raw_evidence_sha256": "567760fb23a85707320f3db636b97964144088d9cf5746e1ddc9da96e2191d95"
+    },
+    {
+      "id": "gray-unchanged-loose-forward",
+      "name": "gray-unchanged",
+      "profile": "loose",
+      "reverse": false,
+      "patch_distance_px": null,
+      "changed": false,
+      "baseline": {
+        "Status": "same",
+        "RawPixels": 0,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": []
+      },
+      "candidate": {
+        "Status": "same",
+        "RawPixels": 0,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": []
+      },
+      "initial_paired_pixels": 0,
+      "groups": [
+        {
+          "Id": 1,
+          "Before": 600,
+          "After": 600,
+          "Dx": 0,
+          "Dy": 0
+        },
+        {
+          "Id": 2,
+          "Before": 848,
+          "After": 848,
+          "Dx": 0,
+          "Dy": 0
+        },
+        {
+          "Id": 3,
+          "Before": 1267,
+          "After": 1267,
+          "Dx": 0,
+          "Dy": 0
+        }
+      ],
+      "detection_lost": false,
+      "paired_b_matches_baseline_b": true,
+      "source_a_sha256": "268973d6aa7f2454e7927d4e899258b9e02e69f89abed6d9b0206c4b23de8cae",
+      "source_b_sha256": "920f141e8da2d16a4f0c69cc115c3bbcd732bafdeeb45e572b8e2ed1b7a20eb4",
+      "raw_evidence_sha256": "567760fb23a85707320f3db636b97964144088d9cf5746e1ddc9da96e2191d95"
+    },
+    {
+      "id": "gray-unchanged-loose-reverse",
+      "name": "gray-unchanged",
+      "profile": "loose",
+      "reverse": true,
+      "patch_distance_px": null,
+      "changed": false,
+      "baseline": {
+        "Status": "same",
+        "RawPixels": 0,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": []
+      },
+      "candidate": {
+        "Status": "same",
+        "RawPixels": 0,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": []
+      },
+      "initial_paired_pixels": 0,
+      "groups": [
+        {
+          "Id": 1,
+          "Before": 600,
+          "After": 600,
+          "Dx": 0,
+          "Dy": 0
+        },
+        {
+          "Id": 2,
+          "Before": 848,
+          "After": 848,
+          "Dx": 0,
+          "Dy": 0
+        },
+        {
+          "Id": 3,
+          "Before": 1267,
+          "After": 1267,
+          "Dx": 0,
+          "Dy": 0
+        }
+      ],
+      "detection_lost": false,
+      "paired_b_matches_baseline_b": true,
+      "source_a_sha256": "268973d6aa7f2454e7927d4e899258b9e02e69f89abed6d9b0206c4b23de8cae",
+      "source_b_sha256": "920f141e8da2d16a4f0c69cc115c3bbcd732bafdeeb45e572b8e2ed1b7a20eb4",
+      "raw_evidence_sha256": "567760fb23a85707320f3db636b97964144088d9cf5746e1ddc9da96e2191d95"
+    },
+    {
+      "id": "gray-tone-normal-forward",
+      "name": "gray-tone",
+      "profile": "normal",
+      "reverse": false,
+      "patch_distance_px": null,
+      "changed": true,
+      "baseline": {
+        "Status": "different",
+        "RawPixels": 4,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 102,
+            "y": 400,
+            "w": 2,
+            "h": 2,
+            "Pixels": 4,
+            "Kind": "color_changed"
+          }
+        ]
+      },
+      "candidate": {
+        "Status": "same",
+        "RawPixels": 2,
+        "NoiseDropped": 1,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": []
+      },
+      "initial_paired_pixels": 4,
+      "groups": [
+        {
+          "Id": 1,
+          "Before": 604,
+          "After": 602,
+          "Dx": 0,
+          "Dy": -1
+        },
+        {
+          "Id": 2,
+          "Before": 848,
+          "After": 848,
+          "Dx": 0,
+          "Dy": 0
+        },
+        {
+          "Id": 3,
+          "Before": 1267,
+          "After": 1267,
+          "Dx": 0,
+          "Dy": 0
+        }
+      ],
+      "detection_lost": true,
+      "paired_b_matches_baseline_b": true,
+      "source_a_sha256": "268973d6aa7f2454e7927d4e899258b9e02e69f89abed6d9b0206c4b23de8cae",
+      "source_b_sha256": "696a58c1c933da66cdbf1e25cdaaa2ae63bf637c4ec2600241f5f40d1f9db709",
+      "raw_evidence_sha256": "6a79df18888eeb837243e2d21427b21a14909cebc5bba5ab2065ae66b8bcee25"
+    },
+    {
+      "id": "gray-tone-normal-reverse",
+      "name": "gray-tone",
+      "profile": "normal",
+      "reverse": true,
+      "patch_distance_px": null,
+      "changed": true,
+      "baseline": {
+        "Status": "different",
+        "RawPixels": 4,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 102,
+            "y": 400,
+            "w": 2,
+            "h": 2,
+            "Pixels": 4,
+            "Kind": "color_changed"
+          }
+        ]
+      },
+      "candidate": {
+        "Status": "different",
+        "RawPixels": 8,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 100,
+            "y": 500,
+            "w": 6,
+            "h": 2,
+            "Pixels": 8,
+            "Kind": null
+          }
+        ]
+      },
+      "initial_paired_pixels": 4,
+      "groups": [
+        {
+          "Id": 1,
+          "Before": 604,
+          "After": 602,
+          "Dx": 0,
+          "Dy": 1
+        },
+        {
+          "Id": 2,
+          "Before": 848,
+          "After": 848,
+          "Dx": 0,
+          "Dy": 0
+        },
+        {
+          "Id": 3,
+          "Before": 1267,
+          "After": 1267,
+          "Dx": 0,
+          "Dy": 0
+        }
+      ],
+      "detection_lost": false,
+      "paired_b_matches_baseline_b": true,
+      "source_a_sha256": "268973d6aa7f2454e7927d4e899258b9e02e69f89abed6d9b0206c4b23de8cae",
+      "source_b_sha256": "696a58c1c933da66cdbf1e25cdaaa2ae63bf637c4ec2600241f5f40d1f9db709",
+      "raw_evidence_sha256": "6a79df18888eeb837243e2d21427b21a14909cebc5bba5ab2065ae66b8bcee25"
+    },
+    {
+      "id": "gray-tone-strict-forward",
+      "name": "gray-tone",
+      "profile": "strict",
+      "reverse": false,
+      "patch_distance_px": null,
+      "changed": true,
+      "baseline": {
+        "Status": "different",
+        "RawPixels": 12,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 100,
+            "y": 400,
+            "w": 6,
+            "h": 2,
+            "Pixels": 12,
+            "Kind": "color_changed"
+          }
+        ]
+      },
+      "candidate": {
+        "Status": "different",
+        "RawPixels": 12,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 100,
+            "y": 500,
+            "w": 6,
+            "h": 2,
+            "Pixels": 12,
+            "Kind": null
+          }
+        ]
+      },
+      "initial_paired_pixels": 12,
+      "groups": [],
+      "detection_lost": false,
+      "paired_b_matches_baseline_b": true,
+      "source_a_sha256": "268973d6aa7f2454e7927d4e899258b9e02e69f89abed6d9b0206c4b23de8cae",
+      "source_b_sha256": "696a58c1c933da66cdbf1e25cdaaa2ae63bf637c4ec2600241f5f40d1f9db709",
+      "raw_evidence_sha256": "6a79df18888eeb837243e2d21427b21a14909cebc5bba5ab2065ae66b8bcee25"
+    },
+    {
+      "id": "gray-tone-strict-reverse",
+      "name": "gray-tone",
+      "profile": "strict",
+      "reverse": true,
+      "patch_distance_px": null,
+      "changed": true,
+      "baseline": {
+        "Status": "different",
+        "RawPixels": 12,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 100,
+            "y": 400,
+            "w": 6,
+            "h": 2,
+            "Pixels": 12,
+            "Kind": "color_changed"
+          }
+        ]
+      },
+      "candidate": {
+        "Status": "different",
+        "RawPixels": 12,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 100,
+            "y": 500,
+            "w": 6,
+            "h": 2,
+            "Pixels": 12,
+            "Kind": null
+          }
+        ]
+      },
+      "initial_paired_pixels": 12,
+      "groups": [],
+      "detection_lost": false,
+      "paired_b_matches_baseline_b": true,
+      "source_a_sha256": "268973d6aa7f2454e7927d4e899258b9e02e69f89abed6d9b0206c4b23de8cae",
+      "source_b_sha256": "696a58c1c933da66cdbf1e25cdaaa2ae63bf637c4ec2600241f5f40d1f9db709",
+      "raw_evidence_sha256": "6a79df18888eeb837243e2d21427b21a14909cebc5bba5ab2065ae66b8bcee25"
+    },
+    {
+      "id": "gray-tone-loose-forward",
+      "name": "gray-tone",
+      "profile": "loose",
+      "reverse": false,
+      "patch_distance_px": null,
+      "changed": true,
+      "baseline": {
+        "Status": "different",
+        "RawPixels": 4,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 102,
+            "y": 400,
+            "w": 2,
+            "h": 2,
+            "Pixels": 4,
+            "Kind": "color_changed"
+          }
+        ]
+      },
+      "candidate": {
+        "Status": "same",
+        "RawPixels": 2,
+        "NoiseDropped": 1,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": []
+      },
+      "initial_paired_pixels": 4,
+      "groups": [
+        {
+          "Id": 1,
+          "Before": 604,
+          "After": 602,
+          "Dx": 0,
+          "Dy": -1
+        },
+        {
+          "Id": 2,
+          "Before": 848,
+          "After": 848,
+          "Dx": 0,
+          "Dy": 0
+        },
+        {
+          "Id": 3,
+          "Before": 1267,
+          "After": 1267,
+          "Dx": 0,
+          "Dy": 0
+        }
+      ],
+      "detection_lost": true,
+      "paired_b_matches_baseline_b": true,
+      "source_a_sha256": "268973d6aa7f2454e7927d4e899258b9e02e69f89abed6d9b0206c4b23de8cae",
+      "source_b_sha256": "696a58c1c933da66cdbf1e25cdaaa2ae63bf637c4ec2600241f5f40d1f9db709",
+      "raw_evidence_sha256": "6a79df18888eeb837243e2d21427b21a14909cebc5bba5ab2065ae66b8bcee25"
+    },
+    {
+      "id": "gray-tone-loose-reverse",
+      "name": "gray-tone",
+      "profile": "loose",
+      "reverse": true,
+      "patch_distance_px": null,
+      "changed": true,
+      "baseline": {
+        "Status": "different",
+        "RawPixels": 4,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 102,
+            "y": 400,
+            "w": 2,
+            "h": 2,
+            "Pixels": 4,
+            "Kind": "color_changed"
+          }
+        ]
+      },
+      "candidate": {
+        "Status": "different",
+        "RawPixels": 8,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 100,
+            "y": 500,
+            "w": 6,
+            "h": 2,
+            "Pixels": 8,
+            "Kind": null
+          }
+        ]
+      },
+      "initial_paired_pixels": 4,
+      "groups": [
+        {
+          "Id": 1,
+          "Before": 604,
+          "After": 602,
+          "Dx": 0,
+          "Dy": 1
+        },
+        {
+          "Id": 2,
+          "Before": 848,
+          "After": 848,
+          "Dx": 0,
+          "Dy": 0
+        },
+        {
+          "Id": 3,
+          "Before": 1267,
+          "After": 1267,
+          "Dx": 0,
+          "Dy": 0
+        }
+      ],
+      "detection_lost": false,
+      "paired_b_matches_baseline_b": true,
+      "source_a_sha256": "268973d6aa7f2454e7927d4e899258b9e02e69f89abed6d9b0206c4b23de8cae",
+      "source_b_sha256": "696a58c1c933da66cdbf1e25cdaaa2ae63bf637c4ec2600241f5f40d1f9db709",
+      "raw_evidence_sha256": "6a79df18888eeb837243e2d21427b21a14909cebc5bba5ab2065ae66b8bcee25"
+    },
+    {
+      "id": "patch-0-normal-forward",
+      "name": "patch-0",
+      "profile": "normal",
+      "reverse": false,
+      "patch_distance_px": 0,
+      "changed": true,
+      "baseline": {
+        "Status": "different",
+        "RawPixels": 4,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 102,
+            "y": 400,
+            "w": 2,
+            "h": 2,
+            "Pixels": 4,
+            "Kind": "color_changed"
+          }
+        ]
+      },
+      "candidate": {
+        "Status": "same",
+        "RawPixels": 0,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": []
+      },
+      "initial_paired_pixels": 0,
+      "groups": [
+        {
+          "Id": 1,
+          "Before": 606,
+          "After": 606,
+          "Dx": 0,
+          "Dy": 0
+        },
+        {
+          "Id": 2,
+          "Before": 848,
+          "After": 848,
+          "Dx": 0,
+          "Dy": 0
+        },
+        {
+          "Id": 3,
+          "Before": 1267,
+          "After": 1267,
+          "Dx": 0,
+          "Dy": 0
+        }
+      ],
+      "detection_lost": true,
+      "paired_b_matches_baseline_b": true,
+      "source_a_sha256": "268973d6aa7f2454e7927d4e899258b9e02e69f89abed6d9b0206c4b23de8cae",
+      "source_b_sha256": "cdeb9eff61f81fd38957f686b80d6358f38208d3a8cc0ca7983a936c6f5d0b88",
+      "raw_evidence_sha256": "f7795431bb6dd5075d6e83944003c7d10d5e4b3903b26ed730cc1d96092899f4"
+    },
+    {
+      "id": "patch-0-normal-reverse",
+      "name": "patch-0",
+      "profile": "normal",
+      "reverse": true,
+      "patch_distance_px": 0,
+      "changed": true,
+      "baseline": {
+        "Status": "different",
+        "RawPixels": 4,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 102,
+            "y": 400,
+            "w": 2,
+            "h": 2,
+            "Pixels": 4,
+            "Kind": "color_changed"
+          }
+        ]
+      },
+      "candidate": {
+        "Status": "same",
+        "RawPixels": 0,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": []
+      },
+      "initial_paired_pixels": 0,
+      "groups": [
+        {
+          "Id": 1,
+          "Before": 606,
+          "After": 606,
+          "Dx": 0,
+          "Dy": 0
+        },
+        {
+          "Id": 2,
+          "Before": 848,
+          "After": 848,
+          "Dx": 0,
+          "Dy": 0
+        },
+        {
+          "Id": 3,
+          "Before": 1267,
+          "After": 1267,
+          "Dx": 0,
+          "Dy": 0
+        }
+      ],
+      "detection_lost": true,
+      "paired_b_matches_baseline_b": true,
+      "source_a_sha256": "268973d6aa7f2454e7927d4e899258b9e02e69f89abed6d9b0206c4b23de8cae",
+      "source_b_sha256": "cdeb9eff61f81fd38957f686b80d6358f38208d3a8cc0ca7983a936c6f5d0b88",
+      "raw_evidence_sha256": "f7795431bb6dd5075d6e83944003c7d10d5e4b3903b26ed730cc1d96092899f4"
+    },
+    {
+      "id": "patch-0-strict-forward",
+      "name": "patch-0",
+      "profile": "strict",
+      "reverse": false,
+      "patch_distance_px": 0,
+      "changed": true,
+      "baseline": {
+        "Status": "different",
+        "RawPixels": 12,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 100,
+            "y": 400,
+            "w": 6,
+            "h": 2,
+            "Pixels": 12,
+            "Kind": "color_changed"
+          }
+        ]
+      },
+      "candidate": {
+        "Status": "different",
+        "RawPixels": 12,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 100,
+            "y": 500,
+            "w": 6,
+            "h": 2,
+            "Pixels": 12,
+            "Kind": null
+          }
+        ]
+      },
+      "initial_paired_pixels": 12,
+      "groups": [],
+      "detection_lost": false,
+      "paired_b_matches_baseline_b": true,
+      "source_a_sha256": "268973d6aa7f2454e7927d4e899258b9e02e69f89abed6d9b0206c4b23de8cae",
+      "source_b_sha256": "cdeb9eff61f81fd38957f686b80d6358f38208d3a8cc0ca7983a936c6f5d0b88",
+      "raw_evidence_sha256": "f7795431bb6dd5075d6e83944003c7d10d5e4b3903b26ed730cc1d96092899f4"
+    },
+    {
+      "id": "patch-0-strict-reverse",
+      "name": "patch-0",
+      "profile": "strict",
+      "reverse": true,
+      "patch_distance_px": 0,
+      "changed": true,
+      "baseline": {
+        "Status": "different",
+        "RawPixels": 12,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 100,
+            "y": 400,
+            "w": 6,
+            "h": 2,
+            "Pixels": 12,
+            "Kind": "color_changed"
+          }
+        ]
+      },
+      "candidate": {
+        "Status": "different",
+        "RawPixels": 12,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 100,
+            "y": 500,
+            "w": 6,
+            "h": 2,
+            "Pixels": 12,
+            "Kind": null
+          }
+        ]
+      },
+      "initial_paired_pixels": 12,
+      "groups": [],
+      "detection_lost": false,
+      "paired_b_matches_baseline_b": true,
+      "source_a_sha256": "268973d6aa7f2454e7927d4e899258b9e02e69f89abed6d9b0206c4b23de8cae",
+      "source_b_sha256": "cdeb9eff61f81fd38957f686b80d6358f38208d3a8cc0ca7983a936c6f5d0b88",
+      "raw_evidence_sha256": "f7795431bb6dd5075d6e83944003c7d10d5e4b3903b26ed730cc1d96092899f4"
+    },
+    {
+      "id": "patch-0-loose-forward",
+      "name": "patch-0",
+      "profile": "loose",
+      "reverse": false,
+      "patch_distance_px": 0,
+      "changed": true,
+      "baseline": {
+        "Status": "different",
+        "RawPixels": 4,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 102,
+            "y": 400,
+            "w": 2,
+            "h": 2,
+            "Pixels": 4,
+            "Kind": "color_changed"
+          }
+        ]
+      },
+      "candidate": {
+        "Status": "same",
+        "RawPixels": 0,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": []
+      },
+      "initial_paired_pixels": 0,
+      "groups": [
+        {
+          "Id": 1,
+          "Before": 606,
+          "After": 606,
+          "Dx": 0,
+          "Dy": 0
+        },
+        {
+          "Id": 2,
+          "Before": 848,
+          "After": 848,
+          "Dx": 0,
+          "Dy": 0
+        },
+        {
+          "Id": 3,
+          "Before": 1267,
+          "After": 1267,
+          "Dx": 0,
+          "Dy": 0
+        }
+      ],
+      "detection_lost": true,
+      "paired_b_matches_baseline_b": true,
+      "source_a_sha256": "268973d6aa7f2454e7927d4e899258b9e02e69f89abed6d9b0206c4b23de8cae",
+      "source_b_sha256": "cdeb9eff61f81fd38957f686b80d6358f38208d3a8cc0ca7983a936c6f5d0b88",
+      "raw_evidence_sha256": "f7795431bb6dd5075d6e83944003c7d10d5e4b3903b26ed730cc1d96092899f4"
+    },
+    {
+      "id": "patch-0-loose-reverse",
+      "name": "patch-0",
+      "profile": "loose",
+      "reverse": true,
+      "patch_distance_px": 0,
+      "changed": true,
+      "baseline": {
+        "Status": "different",
+        "RawPixels": 4,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 102,
+            "y": 400,
+            "w": 2,
+            "h": 2,
+            "Pixels": 4,
+            "Kind": "color_changed"
+          }
+        ]
+      },
+      "candidate": {
+        "Status": "same",
+        "RawPixels": 0,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": []
+      },
+      "initial_paired_pixels": 0,
+      "groups": [
+        {
+          "Id": 1,
+          "Before": 606,
+          "After": 606,
+          "Dx": 0,
+          "Dy": 0
+        },
+        {
+          "Id": 2,
+          "Before": 848,
+          "After": 848,
+          "Dx": 0,
+          "Dy": 0
+        },
+        {
+          "Id": 3,
+          "Before": 1267,
+          "After": 1267,
+          "Dx": 0,
+          "Dy": 0
+        }
+      ],
+      "detection_lost": true,
+      "paired_b_matches_baseline_b": true,
+      "source_a_sha256": "268973d6aa7f2454e7927d4e899258b9e02e69f89abed6d9b0206c4b23de8cae",
+      "source_b_sha256": "cdeb9eff61f81fd38957f686b80d6358f38208d3a8cc0ca7983a936c6f5d0b88",
+      "raw_evidence_sha256": "f7795431bb6dd5075d6e83944003c7d10d5e4b3903b26ed730cc1d96092899f4"
+    },
+    {
+      "id": "patch-1-normal-forward",
+      "name": "patch-1",
+      "profile": "normal",
+      "reverse": false,
+      "patch_distance_px": 1,
+      "changed": true,
+      "baseline": {
+        "Status": "different",
+        "RawPixels": 4,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 102,
+            "y": 400,
+            "w": 2,
+            "h": 2,
+            "Pixels": 4,
+            "Kind": "color_changed"
+          }
+        ]
+      },
+      "candidate": {
+        "Status": "same",
+        "RawPixels": 2,
+        "NoiseDropped": 1,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": []
+      },
+      "initial_paired_pixels": 2,
+      "groups": [
+        {
+          "Id": 1,
+          "Before": 608,
+          "After": 606,
+          "Dx": 0,
+          "Dy": -1
+        },
+        {
+          "Id": 2,
+          "Before": 848,
+          "After": 848,
+          "Dx": 0,
+          "Dy": 0
+        },
+        {
+          "Id": 3,
+          "Before": 1267,
+          "After": 1267,
+          "Dx": 0,
+          "Dy": 0
+        }
+      ],
+      "detection_lost": true,
+      "paired_b_matches_baseline_b": true,
+      "source_a_sha256": "268973d6aa7f2454e7927d4e899258b9e02e69f89abed6d9b0206c4b23de8cae",
+      "source_b_sha256": "268e4e5535ab1c8c2a1231372d79279668649dfbb03990afdf3c552c5062ed1c",
+      "raw_evidence_sha256": "075824d5511d7289ce186240a1ef18f581636aa45a8c6c16d37adfb87898d106"
+    },
+    {
+      "id": "patch-1-normal-reverse",
+      "name": "patch-1",
+      "profile": "normal",
+      "reverse": true,
+      "patch_distance_px": 1,
+      "changed": true,
+      "baseline": {
+        "Status": "different",
+        "RawPixels": 4,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 102,
+            "y": 400,
+            "w": 2,
+            "h": 2,
+            "Pixels": 4,
+            "Kind": "color_changed"
+          }
+        ]
+      },
+      "candidate": {
+        "Status": "different",
+        "RawPixels": 6,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 101,
+            "y": 500,
+            "w": 4,
+            "h": 2,
+            "Pixels": 6,
+            "Kind": null
+          }
+        ]
+      },
+      "initial_paired_pixels": 2,
+      "groups": [
+        {
+          "Id": 1,
+          "Before": 608,
+          "After": 606,
+          "Dx": 0,
+          "Dy": 1
+        },
+        {
+          "Id": 2,
+          "Before": 848,
+          "After": 848,
+          "Dx": 0,
+          "Dy": 0
+        },
+        {
+          "Id": 3,
+          "Before": 1267,
+          "After": 1267,
+          "Dx": 0,
+          "Dy": 0
+        }
+      ],
+      "detection_lost": false,
+      "paired_b_matches_baseline_b": true,
+      "source_a_sha256": "268973d6aa7f2454e7927d4e899258b9e02e69f89abed6d9b0206c4b23de8cae",
+      "source_b_sha256": "268e4e5535ab1c8c2a1231372d79279668649dfbb03990afdf3c552c5062ed1c",
+      "raw_evidence_sha256": "075824d5511d7289ce186240a1ef18f581636aa45a8c6c16d37adfb87898d106"
+    },
+    {
+      "id": "patch-1-strict-forward",
+      "name": "patch-1",
+      "profile": "strict",
+      "reverse": false,
+      "patch_distance_px": 1,
+      "changed": true,
+      "baseline": {
+        "Status": "different",
+        "RawPixels": 12,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 100,
+            "y": 400,
+            "w": 6,
+            "h": 2,
+            "Pixels": 12,
+            "Kind": "color_changed"
+          }
+        ]
+      },
+      "candidate": {
+        "Status": "different",
+        "RawPixels": 12,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 100,
+            "y": 500,
+            "w": 6,
+            "h": 2,
+            "Pixels": 12,
+            "Kind": null
+          }
+        ]
+      },
+      "initial_paired_pixels": 12,
+      "groups": [],
+      "detection_lost": false,
+      "paired_b_matches_baseline_b": true,
+      "source_a_sha256": "268973d6aa7f2454e7927d4e899258b9e02e69f89abed6d9b0206c4b23de8cae",
+      "source_b_sha256": "268e4e5535ab1c8c2a1231372d79279668649dfbb03990afdf3c552c5062ed1c",
+      "raw_evidence_sha256": "075824d5511d7289ce186240a1ef18f581636aa45a8c6c16d37adfb87898d106"
+    },
+    {
+      "id": "patch-1-strict-reverse",
+      "name": "patch-1",
+      "profile": "strict",
+      "reverse": true,
+      "patch_distance_px": 1,
+      "changed": true,
+      "baseline": {
+        "Status": "different",
+        "RawPixels": 12,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 100,
+            "y": 400,
+            "w": 6,
+            "h": 2,
+            "Pixels": 12,
+            "Kind": "color_changed"
+          }
+        ]
+      },
+      "candidate": {
+        "Status": "different",
+        "RawPixels": 12,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 100,
+            "y": 500,
+            "w": 6,
+            "h": 2,
+            "Pixels": 12,
+            "Kind": null
+          }
+        ]
+      },
+      "initial_paired_pixels": 12,
+      "groups": [],
+      "detection_lost": false,
+      "paired_b_matches_baseline_b": true,
+      "source_a_sha256": "268973d6aa7f2454e7927d4e899258b9e02e69f89abed6d9b0206c4b23de8cae",
+      "source_b_sha256": "268e4e5535ab1c8c2a1231372d79279668649dfbb03990afdf3c552c5062ed1c",
+      "raw_evidence_sha256": "075824d5511d7289ce186240a1ef18f581636aa45a8c6c16d37adfb87898d106"
+    },
+    {
+      "id": "patch-1-loose-forward",
+      "name": "patch-1",
+      "profile": "loose",
+      "reverse": false,
+      "patch_distance_px": 1,
+      "changed": true,
+      "baseline": {
+        "Status": "different",
+        "RawPixels": 4,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 102,
+            "y": 400,
+            "w": 2,
+            "h": 2,
+            "Pixels": 4,
+            "Kind": "color_changed"
+          }
+        ]
+      },
+      "candidate": {
+        "Status": "same",
+        "RawPixels": 2,
+        "NoiseDropped": 1,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": []
+      },
+      "initial_paired_pixels": 2,
+      "groups": [
+        {
+          "Id": 1,
+          "Before": 608,
+          "After": 606,
+          "Dx": 0,
+          "Dy": -1
+        },
+        {
+          "Id": 2,
+          "Before": 848,
+          "After": 848,
+          "Dx": 0,
+          "Dy": 0
+        },
+        {
+          "Id": 3,
+          "Before": 1267,
+          "After": 1267,
+          "Dx": 0,
+          "Dy": 0
+        }
+      ],
+      "detection_lost": true,
+      "paired_b_matches_baseline_b": true,
+      "source_a_sha256": "268973d6aa7f2454e7927d4e899258b9e02e69f89abed6d9b0206c4b23de8cae",
+      "source_b_sha256": "268e4e5535ab1c8c2a1231372d79279668649dfbb03990afdf3c552c5062ed1c",
+      "raw_evidence_sha256": "075824d5511d7289ce186240a1ef18f581636aa45a8c6c16d37adfb87898d106"
+    },
+    {
+      "id": "patch-1-loose-reverse",
+      "name": "patch-1",
+      "profile": "loose",
+      "reverse": true,
+      "patch_distance_px": 1,
+      "changed": true,
+      "baseline": {
+        "Status": "different",
+        "RawPixels": 4,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 102,
+            "y": 400,
+            "w": 2,
+            "h": 2,
+            "Pixels": 4,
+            "Kind": "color_changed"
+          }
+        ]
+      },
+      "candidate": {
+        "Status": "different",
+        "RawPixels": 6,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 101,
+            "y": 500,
+            "w": 4,
+            "h": 2,
+            "Pixels": 6,
+            "Kind": null
+          }
+        ]
+      },
+      "initial_paired_pixels": 2,
+      "groups": [
+        {
+          "Id": 1,
+          "Before": 608,
+          "After": 606,
+          "Dx": 0,
+          "Dy": 1
+        },
+        {
+          "Id": 2,
+          "Before": 848,
+          "After": 848,
+          "Dx": 0,
+          "Dy": 0
+        },
+        {
+          "Id": 3,
+          "Before": 1267,
+          "After": 1267,
+          "Dx": 0,
+          "Dy": 0
+        }
+      ],
+      "detection_lost": false,
+      "paired_b_matches_baseline_b": true,
+      "source_a_sha256": "268973d6aa7f2454e7927d4e899258b9e02e69f89abed6d9b0206c4b23de8cae",
+      "source_b_sha256": "268e4e5535ab1c8c2a1231372d79279668649dfbb03990afdf3c552c5062ed1c",
+      "raw_evidence_sha256": "075824d5511d7289ce186240a1ef18f581636aa45a8c6c16d37adfb87898d106"
+    },
+    {
+      "id": "patch-3-normal-forward",
+      "name": "patch-3",
+      "profile": "normal",
+      "reverse": false,
+      "patch_distance_px": 3,
+      "changed": true,
+      "baseline": {
+        "Status": "different",
+        "RawPixels": 4,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 102,
+            "y": 400,
+            "w": 2,
+            "h": 2,
+            "Pixels": 4,
+            "Kind": "color_changed"
+          }
+        ]
+      },
+      "candidate": {
+        "Status": "same",
+        "RawPixels": 2,
+        "NoiseDropped": 1,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": []
+      },
+      "initial_paired_pixels": 4,
+      "groups": [
+        {
+          "Id": 1,
+          "Before": 608,
+          "After": 606,
+          "Dx": 0,
+          "Dy": -1
+        },
+        {
+          "Id": 2,
+          "Before": 848,
+          "After": 848,
+          "Dx": 0,
+          "Dy": 0
+        },
+        {
+          "Id": 3,
+          "Before": 1267,
+          "After": 1267,
+          "Dx": 0,
+          "Dy": 0
+        }
+      ],
+      "detection_lost": true,
+      "paired_b_matches_baseline_b": true,
+      "source_a_sha256": "268973d6aa7f2454e7927d4e899258b9e02e69f89abed6d9b0206c4b23de8cae",
+      "source_b_sha256": "4a84e9b2b91de57abfb204986147e67dab631462caa2fd483058df6b6a235c0a",
+      "raw_evidence_sha256": "004c1ded3509aa18dc42eeb19522411f9dfd3d51c83ce629fc8ea8e0af009dd0"
+    },
+    {
+      "id": "patch-3-normal-reverse",
+      "name": "patch-3",
+      "profile": "normal",
+      "reverse": true,
+      "patch_distance_px": 3,
+      "changed": true,
+      "baseline": {
+        "Status": "different",
+        "RawPixels": 4,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 102,
+            "y": 400,
+            "w": 2,
+            "h": 2,
+            "Pixels": 4,
+            "Kind": "color_changed"
+          }
+        ]
+      },
+      "candidate": {
+        "Status": "different",
+        "RawPixels": 8,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 100,
+            "y": 500,
+            "w": 6,
+            "h": 2,
+            "Pixels": 8,
+            "Kind": null
+          }
+        ]
+      },
+      "initial_paired_pixels": 4,
+      "groups": [
+        {
+          "Id": 1,
+          "Before": 608,
+          "After": 606,
+          "Dx": 0,
+          "Dy": 1
+        },
+        {
+          "Id": 2,
+          "Before": 848,
+          "After": 848,
+          "Dx": 0,
+          "Dy": 0
+        },
+        {
+          "Id": 3,
+          "Before": 1267,
+          "After": 1267,
+          "Dx": 0,
+          "Dy": 0
+        }
+      ],
+      "detection_lost": false,
+      "paired_b_matches_baseline_b": true,
+      "source_a_sha256": "268973d6aa7f2454e7927d4e899258b9e02e69f89abed6d9b0206c4b23de8cae",
+      "source_b_sha256": "4a84e9b2b91de57abfb204986147e67dab631462caa2fd483058df6b6a235c0a",
+      "raw_evidence_sha256": "004c1ded3509aa18dc42eeb19522411f9dfd3d51c83ce629fc8ea8e0af009dd0"
+    },
+    {
+      "id": "patch-3-strict-forward",
+      "name": "patch-3",
+      "profile": "strict",
+      "reverse": false,
+      "patch_distance_px": 3,
+      "changed": true,
+      "baseline": {
+        "Status": "different",
+        "RawPixels": 12,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 100,
+            "y": 400,
+            "w": 6,
+            "h": 2,
+            "Pixels": 12,
+            "Kind": "color_changed"
+          }
+        ]
+      },
+      "candidate": {
+        "Status": "different",
+        "RawPixels": 12,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 100,
+            "y": 500,
+            "w": 6,
+            "h": 2,
+            "Pixels": 12,
+            "Kind": null
+          }
+        ]
+      },
+      "initial_paired_pixels": 12,
+      "groups": [],
+      "detection_lost": false,
+      "paired_b_matches_baseline_b": true,
+      "source_a_sha256": "268973d6aa7f2454e7927d4e899258b9e02e69f89abed6d9b0206c4b23de8cae",
+      "source_b_sha256": "4a84e9b2b91de57abfb204986147e67dab631462caa2fd483058df6b6a235c0a",
+      "raw_evidence_sha256": "004c1ded3509aa18dc42eeb19522411f9dfd3d51c83ce629fc8ea8e0af009dd0"
+    },
+    {
+      "id": "patch-3-strict-reverse",
+      "name": "patch-3",
+      "profile": "strict",
+      "reverse": true,
+      "patch_distance_px": 3,
+      "changed": true,
+      "baseline": {
+        "Status": "different",
+        "RawPixels": 12,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 100,
+            "y": 400,
+            "w": 6,
+            "h": 2,
+            "Pixels": 12,
+            "Kind": "color_changed"
+          }
+        ]
+      },
+      "candidate": {
+        "Status": "different",
+        "RawPixels": 12,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 100,
+            "y": 500,
+            "w": 6,
+            "h": 2,
+            "Pixels": 12,
+            "Kind": null
+          }
+        ]
+      },
+      "initial_paired_pixels": 12,
+      "groups": [],
+      "detection_lost": false,
+      "paired_b_matches_baseline_b": true,
+      "source_a_sha256": "268973d6aa7f2454e7927d4e899258b9e02e69f89abed6d9b0206c4b23de8cae",
+      "source_b_sha256": "4a84e9b2b91de57abfb204986147e67dab631462caa2fd483058df6b6a235c0a",
+      "raw_evidence_sha256": "004c1ded3509aa18dc42eeb19522411f9dfd3d51c83ce629fc8ea8e0af009dd0"
+    },
+    {
+      "id": "patch-3-loose-forward",
+      "name": "patch-3",
+      "profile": "loose",
+      "reverse": false,
+      "patch_distance_px": 3,
+      "changed": true,
+      "baseline": {
+        "Status": "different",
+        "RawPixels": 4,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 102,
+            "y": 400,
+            "w": 2,
+            "h": 2,
+            "Pixels": 4,
+            "Kind": "color_changed"
+          }
+        ]
+      },
+      "candidate": {
+        "Status": "same",
+        "RawPixels": 2,
+        "NoiseDropped": 1,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": []
+      },
+      "initial_paired_pixels": 4,
+      "groups": [
+        {
+          "Id": 1,
+          "Before": 608,
+          "After": 606,
+          "Dx": 0,
+          "Dy": -1
+        },
+        {
+          "Id": 2,
+          "Before": 848,
+          "After": 848,
+          "Dx": 0,
+          "Dy": 0
+        },
+        {
+          "Id": 3,
+          "Before": 1267,
+          "After": 1267,
+          "Dx": 0,
+          "Dy": 0
+        }
+      ],
+      "detection_lost": true,
+      "paired_b_matches_baseline_b": true,
+      "source_a_sha256": "268973d6aa7f2454e7927d4e899258b9e02e69f89abed6d9b0206c4b23de8cae",
+      "source_b_sha256": "4a84e9b2b91de57abfb204986147e67dab631462caa2fd483058df6b6a235c0a",
+      "raw_evidence_sha256": "004c1ded3509aa18dc42eeb19522411f9dfd3d51c83ce629fc8ea8e0af009dd0"
+    },
+    {
+      "id": "patch-3-loose-reverse",
+      "name": "patch-3",
+      "profile": "loose",
+      "reverse": true,
+      "patch_distance_px": 3,
+      "changed": true,
+      "baseline": {
+        "Status": "different",
+        "RawPixels": 4,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 102,
+            "y": 400,
+            "w": 2,
+            "h": 2,
+            "Pixels": 4,
+            "Kind": "color_changed"
+          }
+        ]
+      },
+      "candidate": {
+        "Status": "different",
+        "RawPixels": 8,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 100,
+            "y": 500,
+            "w": 6,
+            "h": 2,
+            "Pixels": 8,
+            "Kind": null
+          }
+        ]
+      },
+      "initial_paired_pixels": 4,
+      "groups": [
+        {
+          "Id": 1,
+          "Before": 608,
+          "After": 606,
+          "Dx": 0,
+          "Dy": 1
+        },
+        {
+          "Id": 2,
+          "Before": 848,
+          "After": 848,
+          "Dx": 0,
+          "Dy": 0
+        },
+        {
+          "Id": 3,
+          "Before": 1267,
+          "After": 1267,
+          "Dx": 0,
+          "Dy": 0
+        }
+      ],
+      "detection_lost": false,
+      "paired_b_matches_baseline_b": true,
+      "source_a_sha256": "268973d6aa7f2454e7927d4e899258b9e02e69f89abed6d9b0206c4b23de8cae",
+      "source_b_sha256": "4a84e9b2b91de57abfb204986147e67dab631462caa2fd483058df6b6a235c0a",
+      "raw_evidence_sha256": "004c1ded3509aa18dc42eeb19522411f9dfd3d51c83ce629fc8ea8e0af009dd0"
+    },
+    {
+      "id": "patch-20-normal-forward",
+      "name": "patch-20",
+      "profile": "normal",
+      "reverse": false,
+      "patch_distance_px": 20,
+      "changed": true,
+      "baseline": {
+        "Status": "different",
+        "RawPixels": 4,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 102,
+            "y": 400,
+            "w": 2,
+            "h": 2,
+            "Pixels": 4,
+            "Kind": "color_changed"
+          }
+        ]
+      },
+      "candidate": {
+        "Status": "same",
+        "RawPixels": 2,
+        "NoiseDropped": 1,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": []
+      },
+      "initial_paired_pixels": 4,
+      "groups": [
+        {
+          "Id": 1,
+          "Before": 608,
+          "After": 606,
+          "Dx": 0,
+          "Dy": -1
+        },
+        {
+          "Id": 2,
+          "Before": 848,
+          "After": 848,
+          "Dx": 0,
+          "Dy": 0
+        },
+        {
+          "Id": 3,
+          "Before": 1267,
+          "After": 1267,
+          "Dx": 0,
+          "Dy": 0
+        }
+      ],
+      "detection_lost": true,
+      "paired_b_matches_baseline_b": true,
+      "source_a_sha256": "268973d6aa7f2454e7927d4e899258b9e02e69f89abed6d9b0206c4b23de8cae",
+      "source_b_sha256": "0c7b13afbaea0c161aced58393ec985f6b9e35b43f1f0d279a65140827755d33",
+      "raw_evidence_sha256": "e2033caba2d61e96df18e3f7113fd39579e85526d4f868baaa014c07fa3eaa9e"
+    },
+    {
+      "id": "patch-20-normal-reverse",
+      "name": "patch-20",
+      "profile": "normal",
+      "reverse": true,
+      "patch_distance_px": 20,
+      "changed": true,
+      "baseline": {
+        "Status": "different",
+        "RawPixels": 4,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 102,
+            "y": 400,
+            "w": 2,
+            "h": 2,
+            "Pixels": 4,
+            "Kind": "color_changed"
+          }
+        ]
+      },
+      "candidate": {
+        "Status": "different",
+        "RawPixels": 8,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 100,
+            "y": 500,
+            "w": 6,
+            "h": 2,
+            "Pixels": 8,
+            "Kind": null
+          }
+        ]
+      },
+      "initial_paired_pixels": 4,
+      "groups": [
+        {
+          "Id": 1,
+          "Before": 608,
+          "After": 606,
+          "Dx": 0,
+          "Dy": 1
+        },
+        {
+          "Id": 2,
+          "Before": 848,
+          "After": 848,
+          "Dx": 0,
+          "Dy": 0
+        },
+        {
+          "Id": 3,
+          "Before": 1267,
+          "After": 1267,
+          "Dx": 0,
+          "Dy": 0
+        }
+      ],
+      "detection_lost": false,
+      "paired_b_matches_baseline_b": true,
+      "source_a_sha256": "268973d6aa7f2454e7927d4e899258b9e02e69f89abed6d9b0206c4b23de8cae",
+      "source_b_sha256": "0c7b13afbaea0c161aced58393ec985f6b9e35b43f1f0d279a65140827755d33",
+      "raw_evidence_sha256": "e2033caba2d61e96df18e3f7113fd39579e85526d4f868baaa014c07fa3eaa9e"
+    },
+    {
+      "id": "patch-20-strict-forward",
+      "name": "patch-20",
+      "profile": "strict",
+      "reverse": false,
+      "patch_distance_px": 20,
+      "changed": true,
+      "baseline": {
+        "Status": "different",
+        "RawPixels": 12,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 100,
+            "y": 400,
+            "w": 6,
+            "h": 2,
+            "Pixels": 12,
+            "Kind": "color_changed"
+          }
+        ]
+      },
+      "candidate": {
+        "Status": "different",
+        "RawPixels": 12,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 100,
+            "y": 500,
+            "w": 6,
+            "h": 2,
+            "Pixels": 12,
+            "Kind": null
+          }
+        ]
+      },
+      "initial_paired_pixels": 12,
+      "groups": [],
+      "detection_lost": false,
+      "paired_b_matches_baseline_b": true,
+      "source_a_sha256": "268973d6aa7f2454e7927d4e899258b9e02e69f89abed6d9b0206c4b23de8cae",
+      "source_b_sha256": "0c7b13afbaea0c161aced58393ec985f6b9e35b43f1f0d279a65140827755d33",
+      "raw_evidence_sha256": "e2033caba2d61e96df18e3f7113fd39579e85526d4f868baaa014c07fa3eaa9e"
+    },
+    {
+      "id": "patch-20-strict-reverse",
+      "name": "patch-20",
+      "profile": "strict",
+      "reverse": true,
+      "patch_distance_px": 20,
+      "changed": true,
+      "baseline": {
+        "Status": "different",
+        "RawPixels": 12,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 100,
+            "y": 400,
+            "w": 6,
+            "h": 2,
+            "Pixels": 12,
+            "Kind": "color_changed"
+          }
+        ]
+      },
+      "candidate": {
+        "Status": "different",
+        "RawPixels": 12,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 100,
+            "y": 500,
+            "w": 6,
+            "h": 2,
+            "Pixels": 12,
+            "Kind": null
+          }
+        ]
+      },
+      "initial_paired_pixels": 12,
+      "groups": [],
+      "detection_lost": false,
+      "paired_b_matches_baseline_b": true,
+      "source_a_sha256": "268973d6aa7f2454e7927d4e899258b9e02e69f89abed6d9b0206c4b23de8cae",
+      "source_b_sha256": "0c7b13afbaea0c161aced58393ec985f6b9e35b43f1f0d279a65140827755d33",
+      "raw_evidence_sha256": "e2033caba2d61e96df18e3f7113fd39579e85526d4f868baaa014c07fa3eaa9e"
+    },
+    {
+      "id": "patch-20-loose-forward",
+      "name": "patch-20",
+      "profile": "loose",
+      "reverse": false,
+      "patch_distance_px": 20,
+      "changed": true,
+      "baseline": {
+        "Status": "different",
+        "RawPixels": 4,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 102,
+            "y": 400,
+            "w": 2,
+            "h": 2,
+            "Pixels": 4,
+            "Kind": "color_changed"
+          }
+        ]
+      },
+      "candidate": {
+        "Status": "same",
+        "RawPixels": 2,
+        "NoiseDropped": 1,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": []
+      },
+      "initial_paired_pixels": 4,
+      "groups": [
+        {
+          "Id": 1,
+          "Before": 608,
+          "After": 606,
+          "Dx": 0,
+          "Dy": -1
+        },
+        {
+          "Id": 2,
+          "Before": 848,
+          "After": 848,
+          "Dx": 0,
+          "Dy": 0
+        },
+        {
+          "Id": 3,
+          "Before": 1267,
+          "After": 1267,
+          "Dx": 0,
+          "Dy": 0
+        }
+      ],
+      "detection_lost": true,
+      "paired_b_matches_baseline_b": true,
+      "source_a_sha256": "268973d6aa7f2454e7927d4e899258b9e02e69f89abed6d9b0206c4b23de8cae",
+      "source_b_sha256": "0c7b13afbaea0c161aced58393ec985f6b9e35b43f1f0d279a65140827755d33",
+      "raw_evidence_sha256": "e2033caba2d61e96df18e3f7113fd39579e85526d4f868baaa014c07fa3eaa9e"
+    },
+    {
+      "id": "patch-20-loose-reverse",
+      "name": "patch-20",
+      "profile": "loose",
+      "reverse": true,
+      "patch_distance_px": 20,
+      "changed": true,
+      "baseline": {
+        "Status": "different",
+        "RawPixels": 4,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 102,
+            "y": 400,
+            "w": 2,
+            "h": 2,
+            "Pixels": 4,
+            "Kind": "color_changed"
+          }
+        ]
+      },
+      "candidate": {
+        "Status": "different",
+        "RawPixels": 8,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 100,
+            "y": 500,
+            "w": 6,
+            "h": 2,
+            "Pixels": 8,
+            "Kind": null
+          }
+        ]
+      },
+      "initial_paired_pixels": 4,
+      "groups": [
+        {
+          "Id": 1,
+          "Before": 608,
+          "After": 606,
+          "Dx": 0,
+          "Dy": 1
+        },
+        {
+          "Id": 2,
+          "Before": 848,
+          "After": 848,
+          "Dx": 0,
+          "Dy": 0
+        },
+        {
+          "Id": 3,
+          "Before": 1267,
+          "After": 1267,
+          "Dx": 0,
+          "Dy": 0
+        }
+      ],
+      "detection_lost": false,
+      "paired_b_matches_baseline_b": true,
+      "source_a_sha256": "268973d6aa7f2454e7927d4e899258b9e02e69f89abed6d9b0206c4b23de8cae",
+      "source_b_sha256": "0c7b13afbaea0c161aced58393ec985f6b9e35b43f1f0d279a65140827755d33",
+      "raw_evidence_sha256": "e2033caba2d61e96df18e3f7113fd39579e85526d4f868baaa014c07fa3eaa9e"
+    }
+  ],
+  "csharp_python_equal_ids": [
+    "gray-unchanged-normal-forward",
+    "gray-unchanged-normal-reverse",
+    "gray-unchanged-strict-forward",
+    "gray-unchanged-strict-reverse",
+    "gray-unchanged-loose-forward",
+    "gray-unchanged-loose-reverse",
+    "gray-tone-normal-forward",
+    "gray-tone-normal-reverse",
+    "gray-tone-strict-forward",
+    "gray-tone-strict-reverse",
+    "gray-tone-loose-forward",
+    "gray-tone-loose-reverse",
+    "patch-0-normal-forward",
+    "patch-0-normal-reverse",
+    "patch-0-strict-forward",
+    "patch-0-strict-reverse",
+    "patch-0-loose-forward",
+    "patch-0-loose-reverse",
+    "patch-1-normal-forward",
+    "patch-1-normal-reverse",
+    "patch-1-strict-forward",
+    "patch-1-strict-reverse",
+    "patch-1-loose-forward",
+    "patch-1-loose-reverse",
+    "patch-3-normal-forward",
+    "patch-3-normal-reverse",
+    "patch-3-strict-forward",
+    "patch-3-strict-reverse",
+    "patch-3-loose-forward",
+    "patch-3-loose-reverse",
+    "patch-20-normal-forward",
+    "patch-20-normal-reverse",
+    "patch-20-strict-forward",
+    "patch-20-strict-reverse",
+    "patch-20-loose-forward",
+    "patch-20-loose-reverse"
+  ],
+  "identity_csharp_results": [
+    {
+      "id": "I01",
+      "product_equal": true,
+      "result": {
+        "Status": "same",
+        "RawPixels": 0,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": []
+      }
+    },
+    {
+      "id": "I02-1",
+      "product_equal": true,
+      "result": {
+        "Status": "same",
+        "RawPixels": 0,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": []
+      }
+    },
+    {
+      "id": "I02-2",
+      "product_equal": true,
+      "result": {
+        "Status": "same",
+        "RawPixels": 0,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": []
+      }
+    },
+    {
+      "id": "I02-3",
+      "product_equal": true,
+      "result": {
+        "Status": "same",
+        "RawPixels": 0,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": []
+      }
+    },
+    {
+      "id": "I02-4",
+      "product_equal": true,
+      "result": {
+        "Status": "same",
+        "RawPixels": 0,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": []
+      }
+    },
+    {
+      "id": "I02-5",
+      "product_equal": true,
+      "result": {
+        "Status": "same",
+        "RawPixels": 0,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": []
+      }
+    },
+    {
+      "id": "I03-1",
+      "product_equal": true,
+      "result": {
+        "Status": "same",
+        "RawPixels": 0,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 22,
+        "MaxShiftPx": 1,
+        "clusters": []
+      }
+    },
+    {
+      "id": "I03-2",
+      "product_equal": true,
+      "result": {
+        "Status": "same",
+        "RawPixels": 0,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 32,
+        "MaxShiftPx": 1,
+        "clusters": []
+      }
+    },
+    {
+      "id": "I03-3",
+      "product_equal": true,
+      "result": {
+        "Status": "same",
+        "RawPixels": 0,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 20,
+        "MaxShiftPx": 1,
+        "clusters": []
+      }
+    },
+    {
+      "id": "I03-4",
+      "product_equal": true,
+      "result": {
+        "Status": "same",
+        "RawPixels": 0,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 22,
+        "MaxShiftPx": 1,
+        "clusters": []
+      }
+    },
+    {
+      "id": "I03-5",
+      "product_equal": true,
+      "result": {
+        "Status": "same",
+        "RawPixels": 0,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 19,
+        "MaxShiftPx": 1,
+        "clusters": []
+      }
+    },
+    {
+      "id": "L02",
+      "product_equal": true,
+      "result": {
+        "Status": "different",
+        "RawPixels": 6525,
+        "NoiseDropped": 1,
+        "AbsorbedGroups": 2,
+        "MaxShiftPx": 2,
+        "clusters": [
+          {
+            "x": 93,
+            "y": 96,
+            "w": 130,
+            "h": 281,
+            "Pixels": 1995,
+            "Kind": "changed"
+          },
+          {
+            "x": 471,
+            "y": 97,
+            "w": 144,
+            "h": 279,
+            "Pixels": 808,
+            "Kind": "changed"
+          },
+          {
+            "x": 849,
+            "y": 97,
+            "w": 125,
+            "h": 279,
+            "Pixels": 1081,
+            "Kind": "changed"
+          },
+          {
+            "x": 1227,
+            "y": 96,
+            "w": 4,
+            "h": 281,
+            "Pixels": 552,
+            "Kind": "changed"
+          },
+          {
+            "x": 513,
+            "y": 129,
+            "w": 84,
+            "h": 37,
+            "Pixels": 345,
+            "Kind": "moved"
+          },
+          {
+            "x": 526,
+            "y": 318,
+            "w": 97,
+            "h": 34,
+            "Pixels": 402,
+            "Kind": "changed"
+          },
+          {
+            "x": 106,
+            "y": 484,
+            "w": 177,
+            "h": 36,
+            "Pixels": 630,
+            "Kind": "moved"
+          },
+          {
+            "x": 106,
+            "y": 602,
+            "w": 179,
+            "h": 36,
+            "Pixels": 710,
+            "Kind": "moved"
+          }
+        ]
+      }
+    },
+    {
+      "id": "I04",
+      "product_equal": true,
+      "result": {
+        "Status": "same",
+        "RawPixels": 0,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": []
+      }
+    },
+    {
+      "id": "I05",
+      "product_equal": true,
+      "result": {
+        "Status": "same",
+        "RawPixels": 0,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": []
+      }
+    },
+    {
+      "id": "D01",
+      "product_equal": true,
+      "result": {
+        "Status": "different",
+        "RawPixels": 22,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 536,
+            "y": 255,
+            "w": 5,
+            "h": 5,
+            "Pixels": 22,
+            "Kind": "removed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "D02",
+      "product_equal": true,
+      "result": {
+        "Status": "different",
+        "RawPixels": 55,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 496,
+            "y": 336,
+            "w": 19,
+            "h": 3,
+            "Pixels": 55,
+            "Kind": "removed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "D03",
+      "product_equal": true,
+      "result": {
+        "Status": "different",
+        "RawPixels": 315,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 568,
+            "y": 127,
+            "w": 28,
+            "h": 38,
+            "Pixels": 315,
+            "Kind": "changed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "D06a",
+      "product_equal": true,
+      "result": {
+        "Status": "different",
+        "RawPixels": 44,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 828,
+            "y": 507,
+            "w": 22,
+            "h": 2,
+            "Pixels": 44,
+            "Kind": "added"
+          }
+        ]
+      }
+    },
+    {
+      "id": "D07",
+      "product_equal": true,
+      "result": {
+        "Status": "different",
+        "RawPixels": 1418,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 355,
+            "y": 507,
+            "w": 473,
+            "h": 3,
+            "Pixels": 1418,
+            "Kind": "color_changed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "D08",
+      "product_equal": true,
+      "result": {
+        "Status": "different",
+        "RawPixels": 266,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 379,
+            "y": 507,
+            "w": 435,
+            "h": 2,
+            "Pixels": 266,
+            "Kind": "changed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "D09",
+      "product_equal": true,
+      "result": {
+        "Status": "different",
+        "RawPixels": 24219,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 864,
+            "y": 202,
+            "w": 351,
+            "h": 69,
+            "Pixels": 24219,
+            "Kind": "changed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "D10",
+      "product_equal": true,
+      "result": {
+        "Status": "different",
+        "RawPixels": 320,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 697,
+            "y": 721,
+            "w": 23,
+            "h": 24,
+            "Pixels": 320,
+            "Kind": "added"
+          }
+        ]
+      }
+    },
+    {
+      "id": "D11",
+      "product_equal": true,
+      "result": {
+        "Status": "different",
+        "RawPixels": 18972,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 91,
+            "y": 91,
+            "w": 1141,
+            "h": 290,
+            "Pixels": 18657,
+            "Kind": "changed"
+          },
+          {
+            "x": 568,
+            "y": 127,
+            "w": 28,
+            "h": 38,
+            "Pixels": 315,
+            "Kind": "changed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "D12a",
+      "product_equal": true,
+      "result": {
+        "Status": "different",
+        "RawPixels": 723,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 568,
+            "y": 127,
+            "w": 28,
+            "h": 38,
+            "Pixels": 315,
+            "Kind": "changed"
+          },
+          {
+            "x": 904,
+            "y": 316,
+            "w": 35,
+            "h": 41,
+            "Pixels": 408,
+            "Kind": "changed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "D12b",
+      "product_equal": true,
+      "result": {
+        "Status": "different",
+        "RawPixels": 1172,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 904,
+            "y": 127,
+            "w": 70,
+            "h": 41,
+            "Pixels": 1172,
+            "Kind": "changed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "D13",
+      "product_equal": true,
+      "result": {
+        "Status": "different",
+        "RawPixels": 316,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 568,
+            "y": 128,
+            "w": 28,
+            "h": 40,
+            "Pixels": 316,
+            "Kind": "changed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "D14",
+      "product_equal": true,
+      "result": {
+        "Status": "different",
+        "RawPixels": 1418,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 354,
+            "y": 625,
+            "w": 709,
+            "h": 2,
+            "Pixels": 1418,
+            "Kind": "changed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "S01",
+      "product_equal": true,
+      "result": {
+        "Status": "different",
+        "RawPixels": 9617,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 93,
+            "y": 93,
+            "w": 1137,
+            "h": 287,
+            "Pixels": 9617,
+            "Kind": "changed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "S02",
+      "product_equal": true,
+      "result": {
+        "Status": "same",
+        "RawPixels": 0,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": []
+      }
+    },
+    {
+      "id": "D15",
+      "product_equal": true,
+      "result": {
+        "Status": "different",
+        "RawPixels": 11818,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 92,
+            "y": 95,
+            "w": 1139,
+            "h": 286,
+            "Pixels": 11818,
+            "Kind": "changed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "L01",
+      "product_equal": true,
+      "result": {
+        "Status": "same",
+        "RawPixels": 0,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": []
+      }
+    },
+    {
+      "id": "J01",
+      "product_equal": true,
+      "result": {
+        "Status": "different",
+        "RawPixels": 12,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 271,
+            "y": 130,
+            "w": 7,
+            "h": 8,
+            "Pixels": 12,
+            "Kind": "changed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "J02",
+      "product_equal": true,
+      "result": {
+        "Status": "different",
+        "RawPixels": 14,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 440,
+            "y": 146,
+            "w": 36,
+            "h": 3,
+            "Pixels": 14,
+            "Kind": "changed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "J03",
+      "product_equal": true,
+      "result": {
+        "Status": "different",
+        "RawPixels": 31,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 120,
+            "y": 255,
+            "w": 34,
+            "h": 12,
+            "Pixels": 31,
+            "Kind": "changed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "J04",
+      "product_equal": true,
+      "result": {
+        "Status": "different",
+        "RawPixels": 1622,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 261,
+            "y": 250,
+            "w": 118,
+            "h": 37,
+            "Pixels": 1622,
+            "Kind": "changed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "J05",
+      "product_equal": true,
+      "result": {
+        "Status": "same",
+        "RawPixels": 0,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": []
+      }
+    },
+    {
+      "id": "J06",
+      "product_equal": true,
+      "result": {
+        "Status": "same",
+        "RawPixels": 0,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 11,
+        "MaxShiftPx": 1,
+        "clusters": []
+      }
+    },
+    {
+      "id": "I10",
+      "product_equal": true,
+      "result": {
+        "Status": "same",
+        "RawPixels": 0,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 1,
+        "MaxShiftPx": 2,
+        "clusters": []
+      }
+    },
+    {
+      "id": "I11",
+      "product_equal": true,
+      "result": {
+        "Status": "same",
+        "RawPixels": 0,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 1,
+        "MaxShiftPx": 2,
+        "clusters": []
+      }
+    },
+    {
+      "id": "I12",
+      "product_equal": true,
+      "result": {
+        "Status": "same",
+        "RawPixels": 0,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 1,
+        "MaxShiftPx": 4,
+        "clusters": []
+      }
+    },
+    {
+      "id": "D20",
+      "product_equal": true,
+      "result": {
+        "Status": "different",
+        "RawPixels": 60,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 415,
+            "y": 240,
+            "w": 4,
+            "h": 16,
+            "Pixels": 60,
+            "Kind": "changed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "D21",
+      "product_equal": true,
+      "result": {
+        "Status": "different",
+        "RawPixels": 96,
+        "NoiseDropped": 0,
+        "AbsorbedGroups": 0,
+        "MaxShiftPx": 0,
+        "clusters": [
+          {
+            "x": 591,
+            "y": 239,
+            "w": 6,
+            "h": 18,
+            "Pixels": 96,
+            "Kind": "changed"
+          }
+        ]
+      }
+    }
+  ],
+  "identity_python_equal_ids": [
+    "I01",
+    "I02-1",
+    "I02-2",
+    "I02-3",
+    "I02-4",
+    "I02-5",
+    "I03-1",
+    "I03-2",
+    "I03-3",
+    "I03-4",
+    "I03-5",
+    "L02",
+    "I04",
+    "I05",
+    "D01",
+    "D02",
+    "D03",
+    "D06a",
+    "D07",
+    "D08",
+    "D09",
+    "D10",
+    "D11",
+    "D12a",
+    "D12b",
+    "D13",
+    "D14",
+    "S01",
+    "S02",
+    "D15",
+    "L01",
+    "J01",
+    "J02",
+    "J03",
+    "J04",
+    "J05",
+    "J06",
+    "I10",
+    "I11",
+    "I12",
+    "D20",
+    "D21"
+  ],
+  "tone_image_results": [
+    {
+      "id": "tone-patch-None-normal-forward",
+      "patch_distance": null,
+      "profile": "normal",
+      "reverse": false,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 42,
+            "y": 70,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "same",
+        "raw_pixels": 2,
+        "noise_dropped": 1,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": []
+      },
+      "initial_paired_pixels": 4,
+      "groups": [
+        {
+          "id": 1,
+          "before": 244,
+          "after": 242,
+          "shift": [
+            0,
+            -1
+          ]
+        }
+      ],
+      "detection_lost": true
+    },
+    {
+      "id": "tone-patch-None-normal-reverse",
+      "patch_distance": null,
+      "profile": "normal",
+      "reverse": true,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 42,
+            "y": 70,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 8,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 40,
+            "y": 110,
+            "w": 6,
+            "h": 2,
+            "pixels": 8,
+            "fill_ratio": 0.6666666666666666
+          }
+        ]
+      },
+      "initial_paired_pixels": 4,
+      "groups": [
+        {
+          "id": 1,
+          "before": 244,
+          "after": 242,
+          "shift": [
+            0,
+            1
+          ]
+        }
+      ],
+      "detection_lost": false
+    },
+    {
+      "id": "tone-patch-None-strict-forward",
+      "patch_distance": null,
+      "profile": "strict",
+      "reverse": false,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 40,
+            "y": 70,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 40,
+            "y": 110,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "initial_paired_pixels": 12,
+      "groups": [],
+      "detection_lost": false
+    },
+    {
+      "id": "tone-patch-None-strict-reverse",
+      "patch_distance": null,
+      "profile": "strict",
+      "reverse": true,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 40,
+            "y": 70,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 40,
+            "y": 110,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "initial_paired_pixels": 12,
+      "groups": [],
+      "detection_lost": false
+    },
+    {
+      "id": "tone-patch-None-loose-forward",
+      "patch_distance": null,
+      "profile": "loose",
+      "reverse": false,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 42,
+            "y": 70,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "same",
+        "raw_pixels": 2,
+        "noise_dropped": 1,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": []
+      },
+      "initial_paired_pixels": 4,
+      "groups": [
+        {
+          "id": 1,
+          "before": 244,
+          "after": 242,
+          "shift": [
+            0,
+            -1
+          ]
+        }
+      ],
+      "detection_lost": true
+    },
+    {
+      "id": "tone-patch-None-loose-reverse",
+      "patch_distance": null,
+      "profile": "loose",
+      "reverse": true,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 42,
+            "y": 70,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 8,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 40,
+            "y": 110,
+            "w": 6,
+            "h": 2,
+            "pixels": 8,
+            "fill_ratio": 0.6666666666666666
+          }
+        ]
+      },
+      "initial_paired_pixels": 4,
+      "groups": [
+        {
+          "id": 1,
+          "before": 244,
+          "after": 242,
+          "shift": [
+            0,
+            1
+          ]
+        }
+      ],
+      "detection_lost": false
+    },
+    {
+      "id": "tone-patch-0-normal-forward",
+      "patch_distance": 0,
+      "profile": "normal",
+      "reverse": false,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 42,
+            "y": 70,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "same",
+        "raw_pixels": 0,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": []
+      },
+      "initial_paired_pixels": 0,
+      "groups": [
+        {
+          "id": 1,
+          "before": 246,
+          "after": 246,
+          "shift": [
+            0,
+            0
+          ]
+        }
+      ],
+      "detection_lost": true
+    },
+    {
+      "id": "tone-patch-0-normal-reverse",
+      "patch_distance": 0,
+      "profile": "normal",
+      "reverse": true,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 42,
+            "y": 70,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "same",
+        "raw_pixels": 0,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": []
+      },
+      "initial_paired_pixels": 0,
+      "groups": [
+        {
+          "id": 1,
+          "before": 246,
+          "after": 246,
+          "shift": [
+            0,
+            0
+          ]
+        }
+      ],
+      "detection_lost": true
+    },
+    {
+      "id": "tone-patch-0-strict-forward",
+      "patch_distance": 0,
+      "profile": "strict",
+      "reverse": false,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 40,
+            "y": 70,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 40,
+            "y": 110,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "initial_paired_pixels": 12,
+      "groups": [],
+      "detection_lost": false
+    },
+    {
+      "id": "tone-patch-0-strict-reverse",
+      "patch_distance": 0,
+      "profile": "strict",
+      "reverse": true,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 40,
+            "y": 70,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 40,
+            "y": 110,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "initial_paired_pixels": 12,
+      "groups": [],
+      "detection_lost": false
+    },
+    {
+      "id": "tone-patch-0-loose-forward",
+      "patch_distance": 0,
+      "profile": "loose",
+      "reverse": false,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 42,
+            "y": 70,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "same",
+        "raw_pixels": 0,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": []
+      },
+      "initial_paired_pixels": 0,
+      "groups": [
+        {
+          "id": 1,
+          "before": 246,
+          "after": 246,
+          "shift": [
+            0,
+            0
+          ]
+        }
+      ],
+      "detection_lost": true
+    },
+    {
+      "id": "tone-patch-0-loose-reverse",
+      "patch_distance": 0,
+      "profile": "loose",
+      "reverse": true,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 42,
+            "y": 70,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "same",
+        "raw_pixels": 0,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": []
+      },
+      "initial_paired_pixels": 0,
+      "groups": [
+        {
+          "id": 1,
+          "before": 246,
+          "after": 246,
+          "shift": [
+            0,
+            0
+          ]
+        }
+      ],
+      "detection_lost": true
+    },
+    {
+      "id": "tone-patch-1-normal-forward",
+      "patch_distance": 1,
+      "profile": "normal",
+      "reverse": false,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 42,
+            "y": 70,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "same",
+        "raw_pixels": 2,
+        "noise_dropped": 1,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": []
+      },
+      "initial_paired_pixels": 2,
+      "groups": [
+        {
+          "id": 1,
+          "before": 248,
+          "after": 246,
+          "shift": [
+            0,
+            -1
+          ]
+        }
+      ],
+      "detection_lost": true
+    },
+    {
+      "id": "tone-patch-1-normal-reverse",
+      "patch_distance": 1,
+      "profile": "normal",
+      "reverse": true,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 42,
+            "y": 70,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 6,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 41,
+            "y": 110,
+            "w": 4,
+            "h": 2,
+            "pixels": 6,
+            "fill_ratio": 0.75
+          }
+        ]
+      },
+      "initial_paired_pixels": 2,
+      "groups": [
+        {
+          "id": 1,
+          "before": 248,
+          "after": 246,
+          "shift": [
+            0,
+            1
+          ]
+        }
+      ],
+      "detection_lost": false
+    },
+    {
+      "id": "tone-patch-1-strict-forward",
+      "patch_distance": 1,
+      "profile": "strict",
+      "reverse": false,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 40,
+            "y": 70,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 40,
+            "y": 110,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "initial_paired_pixels": 12,
+      "groups": [],
+      "detection_lost": false
+    },
+    {
+      "id": "tone-patch-1-strict-reverse",
+      "patch_distance": 1,
+      "profile": "strict",
+      "reverse": true,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 40,
+            "y": 70,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 40,
+            "y": 110,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "initial_paired_pixels": 12,
+      "groups": [],
+      "detection_lost": false
+    },
+    {
+      "id": "tone-patch-1-loose-forward",
+      "patch_distance": 1,
+      "profile": "loose",
+      "reverse": false,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 42,
+            "y": 70,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "same",
+        "raw_pixels": 2,
+        "noise_dropped": 1,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": []
+      },
+      "initial_paired_pixels": 2,
+      "groups": [
+        {
+          "id": 1,
+          "before": 248,
+          "after": 246,
+          "shift": [
+            0,
+            -1
+          ]
+        }
+      ],
+      "detection_lost": true
+    },
+    {
+      "id": "tone-patch-1-loose-reverse",
+      "patch_distance": 1,
+      "profile": "loose",
+      "reverse": true,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 42,
+            "y": 70,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 6,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 41,
+            "y": 110,
+            "w": 4,
+            "h": 2,
+            "pixels": 6,
+            "fill_ratio": 0.75
+          }
+        ]
+      },
+      "initial_paired_pixels": 2,
+      "groups": [
+        {
+          "id": 1,
+          "before": 248,
+          "after": 246,
+          "shift": [
+            0,
+            1
+          ]
+        }
+      ],
+      "detection_lost": false
+    },
+    {
+      "id": "tone-patch-2-normal-forward",
+      "patch_distance": 2,
+      "profile": "normal",
+      "reverse": false,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 42,
+            "y": 70,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "same",
+        "raw_pixels": 2,
+        "noise_dropped": 1,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": []
+      },
+      "initial_paired_pixels": 4,
+      "groups": [
+        {
+          "id": 1,
+          "before": 248,
+          "after": 246,
+          "shift": [
+            0,
+            -1
+          ]
+        }
+      ],
+      "detection_lost": true
+    },
+    {
+      "id": "tone-patch-2-normal-reverse",
+      "patch_distance": 2,
+      "profile": "normal",
+      "reverse": true,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 42,
+            "y": 70,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 8,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 40,
+            "y": 110,
+            "w": 6,
+            "h": 2,
+            "pixels": 8,
+            "fill_ratio": 0.6666666666666666
+          }
+        ]
+      },
+      "initial_paired_pixels": 4,
+      "groups": [
+        {
+          "id": 1,
+          "before": 248,
+          "after": 246,
+          "shift": [
+            0,
+            1
+          ]
+        }
+      ],
+      "detection_lost": false
+    },
+    {
+      "id": "tone-patch-2-strict-forward",
+      "patch_distance": 2,
+      "profile": "strict",
+      "reverse": false,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 40,
+            "y": 70,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 40,
+            "y": 110,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "initial_paired_pixels": 12,
+      "groups": [],
+      "detection_lost": false
+    },
+    {
+      "id": "tone-patch-2-strict-reverse",
+      "patch_distance": 2,
+      "profile": "strict",
+      "reverse": true,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 40,
+            "y": 70,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 40,
+            "y": 110,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "initial_paired_pixels": 12,
+      "groups": [],
+      "detection_lost": false
+    },
+    {
+      "id": "tone-patch-2-loose-forward",
+      "patch_distance": 2,
+      "profile": "loose",
+      "reverse": false,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 42,
+            "y": 70,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "same",
+        "raw_pixels": 2,
+        "noise_dropped": 1,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": []
+      },
+      "initial_paired_pixels": 4,
+      "groups": [
+        {
+          "id": 1,
+          "before": 248,
+          "after": 246,
+          "shift": [
+            0,
+            -1
+          ]
+        }
+      ],
+      "detection_lost": true
+    },
+    {
+      "id": "tone-patch-2-loose-reverse",
+      "patch_distance": 2,
+      "profile": "loose",
+      "reverse": true,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 42,
+            "y": 70,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 8,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 40,
+            "y": 110,
+            "w": 6,
+            "h": 2,
+            "pixels": 8,
+            "fill_ratio": 0.6666666666666666
+          }
+        ]
+      },
+      "initial_paired_pixels": 4,
+      "groups": [
+        {
+          "id": 1,
+          "before": 248,
+          "after": 246,
+          "shift": [
+            0,
+            1
+          ]
+        }
+      ],
+      "detection_lost": false
+    },
+    {
+      "id": "tone-patch-3-normal-forward",
+      "patch_distance": 3,
+      "profile": "normal",
+      "reverse": false,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 42,
+            "y": 70,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "same",
+        "raw_pixels": 2,
+        "noise_dropped": 1,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": []
+      },
+      "initial_paired_pixels": 4,
+      "groups": [
+        {
+          "id": 1,
+          "before": 248,
+          "after": 246,
+          "shift": [
+            0,
+            -1
+          ]
+        }
+      ],
+      "detection_lost": true
+    },
+    {
+      "id": "tone-patch-3-normal-reverse",
+      "patch_distance": 3,
+      "profile": "normal",
+      "reverse": true,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 42,
+            "y": 70,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 8,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 40,
+            "y": 110,
+            "w": 6,
+            "h": 2,
+            "pixels": 8,
+            "fill_ratio": 0.6666666666666666
+          }
+        ]
+      },
+      "initial_paired_pixels": 4,
+      "groups": [
+        {
+          "id": 1,
+          "before": 248,
+          "after": 246,
+          "shift": [
+            0,
+            1
+          ]
+        }
+      ],
+      "detection_lost": false
+    },
+    {
+      "id": "tone-patch-3-strict-forward",
+      "patch_distance": 3,
+      "profile": "strict",
+      "reverse": false,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 40,
+            "y": 70,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 40,
+            "y": 110,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "initial_paired_pixels": 12,
+      "groups": [],
+      "detection_lost": false
+    },
+    {
+      "id": "tone-patch-3-strict-reverse",
+      "patch_distance": 3,
+      "profile": "strict",
+      "reverse": true,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 40,
+            "y": 70,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 40,
+            "y": 110,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "initial_paired_pixels": 12,
+      "groups": [],
+      "detection_lost": false
+    },
+    {
+      "id": "tone-patch-3-loose-forward",
+      "patch_distance": 3,
+      "profile": "loose",
+      "reverse": false,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 42,
+            "y": 70,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "same",
+        "raw_pixels": 2,
+        "noise_dropped": 1,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": []
+      },
+      "initial_paired_pixels": 4,
+      "groups": [
+        {
+          "id": 1,
+          "before": 248,
+          "after": 246,
+          "shift": [
+            0,
+            -1
+          ]
+        }
+      ],
+      "detection_lost": true
+    },
+    {
+      "id": "tone-patch-3-loose-reverse",
+      "patch_distance": 3,
+      "profile": "loose",
+      "reverse": true,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 42,
+            "y": 70,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 8,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 40,
+            "y": 110,
+            "w": 6,
+            "h": 2,
+            "pixels": 8,
+            "fill_ratio": 0.6666666666666666
+          }
+        ]
+      },
+      "initial_paired_pixels": 4,
+      "groups": [
+        {
+          "id": 1,
+          "before": 248,
+          "after": 246,
+          "shift": [
+            0,
+            1
+          ]
+        }
+      ],
+      "detection_lost": false
+    },
+    {
+      "id": "tone-patch-8-normal-forward",
+      "patch_distance": 8,
+      "profile": "normal",
+      "reverse": false,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 42,
+            "y": 70,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "same",
+        "raw_pixels": 2,
+        "noise_dropped": 1,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": []
+      },
+      "initial_paired_pixels": 4,
+      "groups": [
+        {
+          "id": 1,
+          "before": 248,
+          "after": 246,
+          "shift": [
+            0,
+            -1
+          ]
+        }
+      ],
+      "detection_lost": true
+    },
+    {
+      "id": "tone-patch-8-normal-reverse",
+      "patch_distance": 8,
+      "profile": "normal",
+      "reverse": true,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 42,
+            "y": 70,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 8,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 40,
+            "y": 110,
+            "w": 6,
+            "h": 2,
+            "pixels": 8,
+            "fill_ratio": 0.6666666666666666
+          }
+        ]
+      },
+      "initial_paired_pixels": 4,
+      "groups": [
+        {
+          "id": 1,
+          "before": 248,
+          "after": 246,
+          "shift": [
+            0,
+            1
+          ]
+        }
+      ],
+      "detection_lost": false
+    },
+    {
+      "id": "tone-patch-8-strict-forward",
+      "patch_distance": 8,
+      "profile": "strict",
+      "reverse": false,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 40,
+            "y": 70,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 40,
+            "y": 110,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "initial_paired_pixels": 12,
+      "groups": [],
+      "detection_lost": false
+    },
+    {
+      "id": "tone-patch-8-strict-reverse",
+      "patch_distance": 8,
+      "profile": "strict",
+      "reverse": true,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 40,
+            "y": 70,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 40,
+            "y": 110,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "initial_paired_pixels": 12,
+      "groups": [],
+      "detection_lost": false
+    },
+    {
+      "id": "tone-patch-8-loose-forward",
+      "patch_distance": 8,
+      "profile": "loose",
+      "reverse": false,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 42,
+            "y": 70,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "same",
+        "raw_pixels": 2,
+        "noise_dropped": 1,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": []
+      },
+      "initial_paired_pixels": 4,
+      "groups": [
+        {
+          "id": 1,
+          "before": 248,
+          "after": 246,
+          "shift": [
+            0,
+            -1
+          ]
+        }
+      ],
+      "detection_lost": true
+    },
+    {
+      "id": "tone-patch-8-loose-reverse",
+      "patch_distance": 8,
+      "profile": "loose",
+      "reverse": true,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 42,
+            "y": 70,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 8,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 40,
+            "y": 110,
+            "w": 6,
+            "h": 2,
+            "pixels": 8,
+            "fill_ratio": 0.6666666666666666
+          }
+        ]
+      },
+      "initial_paired_pixels": 4,
+      "groups": [
+        {
+          "id": 1,
+          "before": 248,
+          "after": 246,
+          "shift": [
+            0,
+            1
+          ]
+        }
+      ],
+      "detection_lost": false
+    },
+    {
+      "id": "tone-patch-20-normal-forward",
+      "patch_distance": 20,
+      "profile": "normal",
+      "reverse": false,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 42,
+            "y": 70,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "same",
+        "raw_pixels": 2,
+        "noise_dropped": 1,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": []
+      },
+      "initial_paired_pixels": 4,
+      "groups": [
+        {
+          "id": 1,
+          "before": 248,
+          "after": 246,
+          "shift": [
+            0,
+            -1
+          ]
+        }
+      ],
+      "detection_lost": true
+    },
+    {
+      "id": "tone-patch-20-normal-reverse",
+      "patch_distance": 20,
+      "profile": "normal",
+      "reverse": true,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 42,
+            "y": 70,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 8,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 40,
+            "y": 110,
+            "w": 6,
+            "h": 2,
+            "pixels": 8,
+            "fill_ratio": 0.6666666666666666
+          }
+        ]
+      },
+      "initial_paired_pixels": 4,
+      "groups": [
+        {
+          "id": 1,
+          "before": 248,
+          "after": 246,
+          "shift": [
+            0,
+            1
+          ]
+        }
+      ],
+      "detection_lost": false
+    },
+    {
+      "id": "tone-patch-20-strict-forward",
+      "patch_distance": 20,
+      "profile": "strict",
+      "reverse": false,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 40,
+            "y": 70,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 40,
+            "y": 110,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "initial_paired_pixels": 12,
+      "groups": [],
+      "detection_lost": false
+    },
+    {
+      "id": "tone-patch-20-strict-reverse",
+      "patch_distance": 20,
+      "profile": "strict",
+      "reverse": true,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 40,
+            "y": 70,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 12,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 40,
+            "y": 110,
+            "w": 6,
+            "h": 2,
+            "pixels": 12,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "initial_paired_pixels": 12,
+      "groups": [],
+      "detection_lost": false
+    },
+    {
+      "id": "tone-patch-20-loose-forward",
+      "patch_distance": 20,
+      "profile": "loose",
+      "reverse": false,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 42,
+            "y": 70,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "same",
+        "raw_pixels": 2,
+        "noise_dropped": 1,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": []
+      },
+      "initial_paired_pixels": 4,
+      "groups": [
+        {
+          "id": 1,
+          "before": 248,
+          "after": 246,
+          "shift": [
+            0,
+            -1
+          ]
+        }
+      ],
+      "detection_lost": true
+    },
+    {
+      "id": "tone-patch-20-loose-reverse",
+      "patch_distance": 20,
+      "profile": "loose",
+      "reverse": true,
+      "baseline": {
+        "status": "different",
+        "raw_pixels": 4,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 42,
+            "y": 70,
+            "w": 2,
+            "h": 2,
+            "pixels": 4,
+            "fill_ratio": 1.0
+          }
+        ]
+      },
+      "candidate": {
+        "status": "different",
+        "raw_pixels": 8,
+        "noise_dropped": 0,
+        "absorbed_groups": 0,
+        "max_shift_px": 0,
+        "clusters": [
+          {
+            "id": 1,
+            "x": 40,
+            "y": 110,
+            "w": 6,
+            "h": 2,
+            "pixels": 8,
+            "fill_ratio": 0.6666666666666666
+          }
+        ]
+      },
+      "initial_paired_pixels": 4,
+      "groups": [
+        {
+          "id": 1,
+          "before": 248,
+          "after": 246,
+          "shift": [
+            0,
+            1
+          ]
+        }
+      ],
+      "detection_lost": false
+    }
+  ],
+  "white_boundary_false_detections": 0,
+  "causes": [
+    {
+      "name": "gray-tone",
+      "pixel_values": [
+        {
+          "variant": "baseline",
+          "x": 102,
+          "y": 400,
+          "delta_L": 8.158367156982422,
+          "threshold_L": 6.6712646484375,
+          "candidate": true
+        },
+        {
+          "variant": "mapped",
+          "x": 102,
+          "y": 500,
+          "delta_L": 8.158367156982422,
+          "threshold_L": 6.6712646484375,
+          "candidate": true
+        }
+      ],
+      "shift_costs": [
+        {
+          "dy": 0,
+          "paired": 4,
+          "unpaired": 600,
+          "paired_points_yx": [
+            [
+              500,
+              102
+            ],
+            [
+              500,
+              103
+            ],
+            [
+              501,
+              102
+            ],
+            [
+              501,
+              103
+            ]
+          ]
+        },
+        {
+          "dy": -1,
+          "paired": 2,
+          "unpaired": 600,
+          "paired_points_yx": [
+            [
+              500,
+              102
+            ],
+            [
+              500,
+              103
+            ]
+          ]
+        },
+        {
+          "dy": 1,
+          "paired": 4,
+          "unpaired": 600,
+          "paired_points_yx": [
+            [
+              501,
+              102
+            ],
+            [
+              501,
+              103
+            ],
+            [
+              502,
+              102
+            ],
+            [
+              502,
+              103
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "patch-0",
+      "pixel_values": [
+        {
+          "variant": "baseline",
+          "x": 102,
+          "y": 400,
+          "delta_L": 8.158367156982422,
+          "threshold_L": 6.6712646484375,
+          "candidate": true
+        },
+        {
+          "variant": "mapped",
+          "x": 102,
+          "y": 500,
+          "delta_L": 9.702556610107422,
+          "threshold_L": 22.74609375,
+          "candidate": false
+        }
+      ],
+      "shift_costs": [
+        {
+          "dy": 0,
+          "paired": 0,
+          "unpaired": 606,
+          "paired_points_yx": []
+        },
+        {
+          "dy": -1,
+          "paired": 0,
+          "unpaired": 606,
+          "paired_points_yx": []
+        },
+        {
+          "dy": 1,
+          "paired": 2,
+          "unpaired": 606,
+          "paired_points_yx": [
+            [
+              500,
+              102
+            ],
+            [
+              500,
+              103
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "patch-1",
+      "pixel_values": [
+        {
+          "variant": "baseline",
+          "x": 102,
+          "y": 400,
+          "delta_L": 8.158367156982422,
+          "threshold_L": 6.6712646484375,
+          "candidate": true
+        },
+        {
+          "variant": "mapped",
+          "x": 102,
+          "y": 500,
+          "delta_L": 8.158367156982422,
+          "threshold_L": 22.74609375,
+          "candidate": false
+        }
+      ],
+      "shift_costs": [
+        {
+          "dy": 0,
+          "paired": 2,
+          "unpaired": 606,
+          "paired_points_yx": [
+            [
+              501,
+              102
+            ],
+            [
+              501,
+              103
+            ]
+          ]
+        },
+        {
+          "dy": -1,
+          "paired": 2,
+          "unpaired": 604,
+          "paired_points_yx": [
+            [
+              500,
+              102
+            ],
+            [
+              500,
+              103
+            ]
+          ]
+        },
+        {
+          "dy": 1,
+          "paired": 2,
+          "unpaired": 606,
+          "paired_points_yx": [
+            [
+              502,
+              102
+            ],
+            [
+              502,
+              103
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "patch-3",
+      "pixel_values": [
+        {
+          "variant": "baseline",
+          "x": 102,
+          "y": 400,
+          "delta_L": 8.158367156982422,
+          "threshold_L": 6.6712646484375,
+          "candidate": true
+        },
+        {
+          "variant": "mapped",
+          "x": 102,
+          "y": 500,
+          "delta_L": 8.158367156982422,
+          "threshold_L": 6.6712646484375,
+          "candidate": true
+        }
+      ],
+      "shift_costs": [
+        {
+          "dy": 0,
+          "paired": 4,
+          "unpaired": 604,
+          "paired_points_yx": [
+            [
+              500,
+              102
+            ],
+            [
+              500,
+              103
+            ],
+            [
+              501,
+              102
+            ],
+            [
+              501,
+              103
+            ]
+          ]
+        },
+        {
+          "dy": -1,
+          "paired": 2,
+          "unpaired": 604,
+          "paired_points_yx": [
+            [
+              500,
+              102
+            ],
+            [
+              500,
+              103
+            ]
+          ]
+        },
+        {
+          "dy": 1,
+          "paired": 4,
+          "unpaired": 604,
+          "paired_points_yx": [
+            [
+              501,
+              102
+            ],
+            [
+              501,
+              103
+            ],
+            [
+              502,
+              102
+            ],
+            [
+              502,
+              103
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "patch-20",
+      "pixel_values": [
+        {
+          "variant": "baseline",
+          "x": 102,
+          "y": 400,
+          "delta_L": 8.158367156982422,
+          "threshold_L": 6.6712646484375,
+          "candidate": true
+        },
+        {
+          "variant": "mapped",
+          "x": 102,
+          "y": 500,
+          "delta_L": 8.158367156982422,
+          "threshold_L": 6.6712646484375,
+          "candidate": true
+        }
+      ],
+      "shift_costs": [
+        {
+          "dy": 0,
+          "paired": 4,
+          "unpaired": 604,
+          "paired_points_yx": [
+            [
+              500,
+              102
+            ],
+            [
+              500,
+              103
+            ],
+            [
+              501,
+              102
+            ],
+            [
+              501,
+              103
+            ]
+          ]
+        },
+        {
+          "dy": -1,
+          "paired": 2,
+          "unpaired": 604,
+          "paired_points_yx": [
+            [
+              500,
+              102
+            ],
+            [
+              500,
+              103
+            ]
+          ]
+        },
+        {
+          "dy": 1,
+          "paired": 4,
+          "unpaired": 604,
+          "paired_points_yx": [
+            [
+              501,
+              102
+            ],
+            [
+              501,
+              103
+            ],
+            [
+              502,
+              102
+            ],
+            [
+              502,
+              103
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "source_sha256": {
+    "tools/ReportDiff.RowProbe/GridFixture.cs": "213bd6f6cfcdb8ed6a8ea9b26301fa204f473e918e6d2d77505bac29b65cddd8",
+    "tools/ReportDiff.RowProbe/MappedFeatureProbe.cs": "e0d1a22075237b52b00d6fd3b6bc3eb04a59f525319a13e07c46ba267723d37c",
+    "tools/ReportDiff.RowProbe/MappedFeatures.cs": "8098ff7518fd3f20c7ce54cd0becf2250d8cf5ce2ab35806312f4bfd196aa0c0",
+    "tools/ReportDiff.RowProbe/PdfSeams.cs": "d14e2e05b470de3f7ecc2f5c59724d9d691cc48a698ac6dba98bfdb4bff41804",
+    "tools/ReportDiff.RowProbe/ProbeMasks.cs": "a38fcfa93e94614b2505d6d31e99d387beb07f12afa28c9c16562ae37ad88c6c",
+    "tools/ReportDiff.RowProbe/Program.cs": "e121633235d667e28dd0bb09f2be83d35ccf88a67e52adeb125cecb6f73b816d",
+    "tools/ReportDiff.RowProbe/ReportDiff.RowProbe.csproj": "77de0b783765033d0d45ddfc8b76bc4e27deffad4649489932e02d0fb09dfc25",
+    "tools/ReportDiff.RowProbe/WhiteBandPdf.cs": "be2f54608160eae0615762082c83b089fc9010213218c115fbe89a231e4a66b6",
+    "tools/ReportDiff.RowProbe/WhiteBandProbe.cs": "e5c3908c42411689be006da82c9943e37cb7009352be55bdf85a50a7030a24de",
+    "tools/ReportDiff.RowProbe/check-mapped-features.py": "3498101511f6692a0799a6a7cce5c6ff6451ebad0f61f9955ba16ccd15f467e7",
+    "tools/ReportDiff.RowProbe/check-reference.py": "a9e3a4518147f61a4b3e8c83de76c34453946695d633d462cfe1ce03e7e05ef8",
+    "tools/ReportDiff.RowProbe/check-white-band.py": "e58e7495ce5d39e338d982319f776f3e94fc0719f9d440264223f778cf91a19f",
+    "tools/ReportDiff.RowProbe/mapped_features.py": "2c155a9e4067a225f4486c03ea8954bb970934426d541ac549e52662d3edd67f",
+    "tools/ReportDiff.RowProbe/write-mapped-summary.py": "c782c6cb568fea79e7d625dad333e4f2c4bcdca58f91d475c4c8b036092ae59d",
+    "reference/prototype.py": "e2979617b2bd7d5554f07ff5039bd8702ef56f5ae9baa34b003f270b9297fa61",
+    "reference/golden/expected.json": "0a9b0bac1cd4125cbd692af4f8c0bc3550838399569148b02aa652be4594dc4d",
+    "src/ReportDiff.Core/TolerantDifference.cs": "5a9082634252a07b14b0ea2adf16c54fa2ce536eb9fd47374224f3a254c70e45",
+    "src/ReportDiff.Core/ComparisonFeatures.cs": "b8c53bfdede76a9623d26c6f3ef48e28e5f690f875a4f4defbc38d6930211fda",
+    "src/ReportDiff.Core/PageComparer.cs": "06b4df055886e5e2a02b8d9c527d041ade693d35d61ab0cc8d78ab39e9d08cb1",
+    "src/ReportDiff.Core/PageMap.cs": "f8bab30da742b2593bdce95e37b30d346bfda42c45c564e7c9195904f74faf03"
+  },
+  "output_sha256": {
+    "out/t3-1b-probe/results/mapped-features/causes.json": "cde96ba2761d24405a86f8048470fe69266b4d42d0cd534e70de2fc17baaca6e",
+    "out/t3-1b-probe/results/mapped-features/context.json": "090cd3eebb3c5e067524b7137f8f19f59a43f10660958c163274f59c20a203f2",
+    "out/t3-1b-probe/results/mapped-features/csharp.json": "cbb65faddc52328614d8b0caf35cace7d597515b20e75c7773c60883e920c872",
+    "out/t3-1b-probe/results/mapped-features/identity-csharp.json": "03a3a201aa84ec434095f6db33fa520928169970891e5cf3a0a26e1104679ea0",
+    "out/t3-1b-probe/results/mapped-features/identity.json": "89c58a709bca94e5acb8f79c905065ee79e1cc27ee7ec58a0ea8eedaed59614b",
+    "out/t3-1b-probe/results/mapped-features/new-pdf-csharp.json": "94344b02b11a59c396c4aa4ca29af36c65c62c652f3bbf65ff210bfb0edca0c2",
+    "out/t3-1b-probe/results/mapped-features/pdf.json": "d22ce145d396c83e00c433ab0060970caf9ca72c43fc8892e84c5bf24087bea5",
+    "out/t3-1b-probe/results/mapped-features/tone.json": "5bfc76fed25ef2c305c83aa32627cf54218cdd76bd2457b333a1be0bca38a7be"
+  }
+}

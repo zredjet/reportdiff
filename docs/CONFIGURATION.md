@@ -45,6 +45,30 @@ UTF-8 の YAML を `--config` で読み込む。`#` のコメントを記載で�
 
 確認用オーバーレイは共通 YAML → 帳票別 YAML → `--raw-overlay` の順で決まる。帳票別の `false` は共通の `true` を解除し、省略すれば継承する。CLI に指定した場合はすべての比較対象で有効になる。共通色も共通 YAML → 帳票別 YAML の順で決まり、省略時は継承する。`#` は YAML のコメント開始なので色は必ず引用符で囲む。グレー化の係数・丸めは固定で、色設定は共通成分だけに反映する。プロファイルや各しきい値では表示を変更しない。[表示式と出力項目](SPEC.md#84-確認用オーバーレイ補正前)を参照。
 
+## PDFの行整列
+
+開発版のT3-1bで接続済み。最終受け入れは未完了で、配布済みv0.1.4では `rows` は未知キーとなる。[検証状況](verification/t3-1b-acceptance.md)を参照。設定例は [rows.yaml](../examples/rows.yaml)。既定は無効で、PDF同士・元の描画サイズが同じページだけが対象。画像入力、文字層なし、曖昧な対応等では従来の比較へ戻り、理由を報告する。OCR、ページをまたぐ対応、列ごとの整列は行わない。
+
+| キー | 単位・既定値 | 許容範囲 | 意味 |
+|---|---|---|---|
+| `rows.enabled` | 真偽、false | true / false | PDFテキスト層を手がかりに行整列する |
+| `rows.max_shift_mm` | mm、20 | 0 より大きく 100 以下 | 全体補正後からの追加縦ずれの絶対値上限。累積量にも適用 |
+| `rows.min_word_match` | 比率、0.60 | 0 より大きく 1 以下 | 行の単語一致率の下限 |
+| `rows.refine_mm` | mm、0.3 | 0〜2 | テキスト位置周辺の画像再探索半径。0pxでは中心だけ |
+| `rows.min_improvement` | 比率、0.05 | 0 より大きく 1 以下 | 基準の生差分から要求する減少率 |
+| `rows.min_score_gap` | 一致度差、0.02 | 0 より大きく 1 以下 | 異なる量の整列仮説との画像一致度の差 |
+| `rows.min_support_bands` | 帯数、2 | 整数 2〜100 | 各内容区間に必要な独立した支持帯 |
+| `rows.min_support_ink_mm2` | 黒換算 mm²、1 | 0 より大きく 1000 以下 | 各内容区間の支持帯に必要な面積。A/Bそれぞれで満たす |
+| `rows.max_segments` | 区間数、8 | 整数 1〜64 | 同じ追加dyの内容区間数の上限。詰め物・純白余白を除く |
+
+共通YAML → 帳票別YAMLの順で指定スカラーだけを上書きする。プロファイルと `--no-regions` はrowsの指定を変更しない。専用CLIフラグは設けず、全実効値を `config.rows` とHTMLの設定欄へ記録する。無効時・後段で上書きする値も型・範囲を検証する。長さ・面積は最終DPIで換算する。
+
+順序は正規化 → 全体補正 → 行整列 → 内容比較。`exclude` / `regions` は行整列前のA座標で指定し、表示・内容比較へ写す。PDF注釈では丸めない連続座標の除外を使う。HTMLの除外YAMLは各表示断片に余白を付けてから元の設定用A座標へ戻し、外側へ0.5mm単位で丸める。断片間の構造帯をひとつの外接矩形で覆わない。
+
+行整列しても挿入・削除・ブロック移動は相違として残る。CLI/HTMLの総箇所数は内容クラスタと除外されていない構造変化の合計。JSONの `clusters` は内容クラスタ数を維持し、`structural_change_count`・`structural_change_counts`・`difference_count`・`difference_count_complete` で総数・内訳・網羅性を示す。構造変化だけでも終了コード1となる。上限による省略・未比較ページでは総数が相違を網羅しない。
+
+行整列後の表示画像と、差分計算に使った内容比較画像を別々に保存する。生差分・ノイズ・上限・抑制量は内容比較画像上の値で、白い詰め物によって相違率を薄めない。確認用オーバーレイは補正前の原画像のままで、行整列・除外・判定の描き込みを適用しない。詳細は [SPEC 11.7](SPEC.md#117-pdfテキスト層による行整列t3-1b)。
+
 ## 領域別の設定
 
 `regions` の既定は空配列。領域の指定例は [examples/regions.yaml](../examples/regions.yaml)。`name`・`page`・`x`・`y`・`w`・`h` は必須。名前は非空で設定内で一意、page は all（null も同義）または 1 以上の整数。x/y は 0 以上、w/h は 0 より大きい有限 mm 値とする。
@@ -57,7 +81,7 @@ UTF-8 の YAML を `--config` で読み込む。`#` のコメントを記載で�
 | `regions[].diff.color_threshold` | 省略で継承、0 以上 | 領域内の色差しきい値 |
 | `regions[].diff.edge_tolerance` | 省略で継承、0 以上 1 未満 | 領域内の輪郭許容 |
 
-領域の実効 diff は「CLI を反映したページ設定 → 領域の profile → 領域の明示 diff」の順。内包する親領域からは継承しない。CLI の `--profile` も領域の明示指定を消さない。mode: exclude と profile/diff の併用はエラー。ink / cluster / move / align / text はページ共通。`anchor` と `float_mm` は将来の予約名で、この版では未知キーとして拒否する。
+領域の実効 diff は「CLI を反映したページ設定 → 領域の profile → 領域の明示 diff」の順。内包する親領域からは継承しない。CLI の `--profile` も領域の明示指定を消さない。mode: exclude と profile/diff の併用はエラー。ink / cluster / move / align / rows / text はページ共通。`anchor` と `float_mm` は将来の予約名で、この版では未知キーとして拒否する。
 
 適用座標は A／全体補正後 B の左上原点。左上を切り捨て、右下を切り上げて px 化し、ページ外はクリップする。同じページの領域は非交差か完全内包のみで、内側を優先する。同一矩形と部分交差はエラー。mm で非交差でも最終 DPI の丸めで同じ画素を共有するとエラーになる。内包が丸めで同じ px 矩形になった場合は内側を優先する。除外は常に比較より優先し、従来の exclude との重なりは許可する。
 
@@ -65,7 +89,7 @@ UTF-8 の YAML を `--config` で読み込む。`#` のコメントを記載で�
 
 判定画像には青の破線と名前で領域、薄い橙色で抑制した画素を示す。抑制量は「ページ既定の生差分のうち領域設定で消えた画素」で、箇所数は 8 近傍連結成分数。通常の相違件数とは別で、ノイズ閾値未満の基準画素も含む。除外で消した基準差分は別集計し、重複させない。全差分を抑制したページも判定画像を保存する。元 A/B と確認用オーバーレイには描き込まない。
 
-`--no-regions` は regions と exclude の両方を比較・全体補正・PDF 注釈・判定画像から外す。実効 `config.regions` と `config.exclude` は空配列になり、無視した宣言は `config.region_audit` と HTML に残る。不正な設定の検証は無効化前に行う。ページの profile と align.enabled は維持する。
+`--no-regions` は regions と exclude の両方を比較・全体補正・PDF 注釈・判定画像から外す。実効 `config.regions` と `config.exclude` は空配列になり、無視した宣言は `config.region_audit` と HTML に残る。不正な設定の検証は無効化前に行う。ページの profile、align.enabled、rowsの指定は維持する。
 
 JSON の `config.regions` は宣言と effective_diff、`pages[].regions` は適用状態・クリップ後の bounds_px・所有画素・生差分・抑制量・実行参照を記録する。ページ外／内側領域・除外による非適用／対象外ページ／片側ページを区別する。ページと要約の absorbed_groups / max_shift_px はページ既定の基準実行値を維持し、別設定の全ページ実行値は runs に記録する。領域なしではこれらの追加項目を省略する。
 
@@ -82,7 +106,7 @@ JSON の `config.regions` は宣言と effective_diff、`pages[].regions` は適
 | `text.max_letters_per_page` | 文字要素数、100000 | 整数 1〜1000000 | PdfTextReader の上限。超過時はその側の注釈を省略して警告する |
 | `text.max_words_per_page` | 単語数、20000 | 整数 1〜200000 | 同、単語化後の上限。抽出後の整形量を制限する |
 | `text.max_runes_per_cluster` | Unicode スカラー値数、2000 | 整数 1〜100000 | TextAnnotations の片側本文上限。超過時は上限内の最後の 1 文字を「…」にする |
-| `text.min_line_overlap` | 短い方の高さに対する比率、0.5 | 0 より大きく 1 以下 | 行の先頭語との縦の重なり。大きくすると同じ行としてまとめにくくなる。画像比較には影響しない |
+| `text.min_line_overlap` | 短い方の高さに対する比率、0.5 | 0 より大きく 1 以下 | 行の先頭語との縦の重なり。大きくすると同じ行としてまとめにくくなる。通常比較の判定には影響しない。行整列時は行推定にも使う |
 | `align.coarse_max_side_samples` | 計算格子の要素数、800 | 整数 64〜4096 | 粗い探索段階の長辺の目安上限。大きくすると縮小が減り細部を残すが、探索量が増える |
 | `align.refine_radius_samples` | 各軸の計算格子の要素数、2 | 整数 1〜8 | 各復元段階の候補周囲の探索半径。小さくすると粗い段階の誤差を補えず見送る場合が増える |
 | `align.min_support_cells` | 区画数、3 | 整数 1〜9 | 固定 3×3 格子で補正を支持する最小区画数。小さくすると局所移動を全体移動と扱う可能性が高まる |
@@ -136,6 +160,7 @@ JSON の `config.regions` は宣言と effective_diff、`pages[].regions` は適
 | [strict.yaml](../examples/strict.yaml) | 局所ずれと輪郭の許容を 0 にする。同じ出力環境での厳密比較 |
 | [scan.yaml](../examples/scan.yaml) | JPEG／スキャン向けに色差しきい値を 10 にする |
 | [align.yaml](../examples/align.yaml) | 全体補正を有効にする。その他は既定値 |
+| [rows.yaml](../examples/rows.yaml) | 開発版用。PDFの行整列と補正前の確認用オーバーレイを有効にする |
 
 上のコマンドの `--config` に各ファイルを指定する。明示した `--profile` は YAML の位置ずれ・輪郭の許容を上書きする。たとえば strict.yaml に `--profile normal` を併記すると、局所ずれ 0.15mm・輪郭許容 0.3 となる。
 

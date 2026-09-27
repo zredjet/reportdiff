@@ -57,7 +57,7 @@ public static partial class ConfigurationLoader
                 stream.Load(new StringReader(yaml));
                 if (stream.Documents.Count != 1)
                     throw Error("設定ファイル", "YAML ドキュメントは 1 個にしてください");
-                var root = Mapping(stream.Documents[0].RootNode, "", "dpi", "image_dpi", "diff", "ink", "cluster", "move", "align", "text", "exclude", "report", "regions");
+                var root = Mapping(stream.Documents[0].RootNode, "", "dpi", "image_dpi", "diff", "ink", "cluster", "move", "align", "rows", "text", "exclude", "report", "regions");
                 if (root.TryGetValue("dpi", out var node)) settings = settings with { Dpi = Integer(node, "dpi") };
                 if (root.TryGetValue("image_dpi", out node)) imageDpi = Integer(node, "image_dpi");
                 if (root.TryGetValue("diff", out node))
@@ -120,6 +120,23 @@ public static partial class ConfigurationLoader
                         MinSupportRows = Integer(values, "min_support_rows", "align", settings.Align.MinSupportRows),
                         MinSupportColumns = Integer(values, "min_support_columns", "align", settings.Align.MinSupportColumns),
                         MinInkAreaMm2 = Number(values, "min_ink_area_mm2", "align", settings.Align.MinInkAreaMm2)
+                    }};
+                }
+                if (root.TryGetValue("rows", out node))
+                {
+                    var values = Mapping(node, "rows", "enabled", "max_shift_mm", "min_word_match", "refine_mm",
+                        "min_improvement", "min_score_gap", "min_support_bands", "min_support_ink_mm2", "max_segments");
+                    settings = settings with { Rows = new RowOptions
+                    {
+                        Enabled = values.TryGetValue("enabled", out var enabled) ? Boolean(enabled, "rows.enabled") : settings.Rows.Enabled,
+                        MaxShiftMm = Number(values, "max_shift_mm", "rows", settings.Rows.MaxShiftMm),
+                        MinWordMatch = Number(values, "min_word_match", "rows", settings.Rows.MinWordMatch),
+                        RefineMm = Number(values, "refine_mm", "rows", settings.Rows.RefineMm),
+                        MinImprovement = Number(values, "min_improvement", "rows", settings.Rows.MinImprovement),
+                        MinScoreGap = Number(values, "min_score_gap", "rows", settings.Rows.MinScoreGap),
+                        MinSupportBands = Integer(values, "min_support_bands", "rows", settings.Rows.MinSupportBands),
+                        MinSupportInkMm2 = Number(values, "min_support_ink_mm2", "rows", settings.Rows.MinSupportInkMm2),
+                        MaxSegments = Integer(values, "max_segments", "rows", settings.Rows.MaxSegments)
                     }};
                 }
                 if (root.TryGetValue("text", out node))
@@ -268,6 +285,8 @@ public static partial class ConfigurationLoader
         ValidateRegions(settings, pixels: false);
         if (settings.Dpi is < 72 or > 1200) throw Error("dpi", "72〜1200 にしてください");
         if (settings.ImageDpi is < 72 or > 1200) throw Error("image_dpi", "72〜1200 にしてください");
+        try { settings.Rows.Validated(settings.Dpi); settings.Rows.Validated(settings.ImageDpi); }
+        catch (ArgumentException ex) { throw new ConfigurationException(ex.Message, ex); }
         Nonnegative(settings.Diff.MaxShiftMm, "diff.max_shift_mm");
         Nonnegative(settings.Diff.ColorThreshold, "diff.color_threshold");
         Range(settings.Ink.BackgroundRadiusMm, "ink.background_radius_mm", 0, 20, positive: true);

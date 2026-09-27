@@ -24,6 +24,56 @@ public sealed class PdfTextReader(string path, TextOptions? textOptions = null) 
     private Page? cachedPage;
     private IReadOnlyList<PdfFontWarning>? cachedFontWarnings;
 
+    /// <summary>行整列用の元ページ座標。矩形下端をベースラインの代用にしない。</summary>
+    public RowTextResult ReadRowWords(int pageNumber, Size originalSize, int dpi)
+    {
+        ObjectDisposedException.ThrowIf(disposed, this);
+        try
+        {
+            var page = GetPage(pageNumber);
+            if (page.Rotation.Value != 0) return Unavailable("rotated_page");
+            if (page.Dictionary.TryGet(NameToken.UserUnit, out var unit)
+                && (unit is not NumericToken number || number.Double != 1)) return Unavailable("user_unit");
+            if (!double.IsFinite(page.Width) || !double.IsFinite(page.Height) || page.Width <= 0 || page.Height <= 0
+                || originalSize.Width <= 0 || originalSize.Height <= 0
+                || Math.Abs(Units.PointsToPixels(page.Width, dpi) - originalSize.Width) > 1
+                || Math.Abs(Units.PointsToPixels(page.Height, dpi) - originalSize.Height) > 1) return Unavailable("page_coordinates");
+            if (page.Letters.Count > options.MaxLettersPerPage) return Unavailable("letter_limit");
+            var words = page.GetWords(WordExtractor).Where(w => !string.IsNullOrWhiteSpace(w.Text))
+                .Take(options.MaxWordsPerPage + 1).ToArray();
+            if (words.Length > options.MaxWordsPerPage) return Unavailable("word_limit");
+            var map = PageMap.Unaligned(originalSize, originalSize);
+            var result = new List<RowWord>();
+            foreach (var word in words)
+            {
+                var clean = TextLineLayout.Clean(word.Text);
+                if (clean.Length == 0) continue;
+                var points = new[] { word.BoundingBox.BottomLeft, word.BoundingBox.BottomRight, word.BoundingBox.TopLeft, word.BoundingBox.TopRight };
+                var bounds = map.PdfToSource(PageSpace.A, page.Width, page.Height, points.Min(p => p.X), points.Min(p => p.Y),
+                    points.Max(p => p.X), points.Max(p => p.Y));
+                if (!PageMap.Finite(bounds) || bounds.Right <= bounds.Left || bounds.Bottom <= bounds.Top
+                    || bounds.Left < 0 || bounds.Top < 0 || bounds.Right > originalSize.Width || bounds.Bottom > originalSize.Height)
+                    return Unavailable("word_coordinates");
+                var baselines = new List<double>();
+                foreach (var letter in word.Letters)
+                {
+                    var start = letter.StartBaseLine; var end = letter.EndBaseLine;
+                    if (!double.IsFinite(start.X) || !double.IsFinite(start.Y) || !double.IsFinite(end.X) || !double.IsFinite(end.Y)
+                        || Math.Abs(start.Y - end.Y) > 0.000001 || end.X < start.X) return Unavailable("nonhorizontal_text");
+                    baselines.Add((page.Height - start.Y) * originalSize.Height / page.Height);
+                }
+                if (baselines.Count == 0) return Unavailable("missing_baseline");
+                result.Add(new(clean, bounds, baselines.AsReadOnly()));
+            }
+            return new(result.Count == 0 ? "no_text" : "available", null, result.AsReadOnly());
+        }
+        catch (Exception ex) when (ex is not OutOfMemoryException)
+        {
+            return Unavailable(openFailed ? "open_failed" : "extraction_failed");
+        }
+        static RowTextResult Unavailable(string detail) => new("text_unavailable", detail, []);
+    }
+
     public IReadOnlyList<PdfFontWarning> InspectFonts(int pageNumber)
     {
         ObjectDisposedException.ThrowIf(disposed, this);

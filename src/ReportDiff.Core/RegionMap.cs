@@ -17,11 +17,15 @@ internal sealed class RegionMap
     public ComparisonRegion[] Regions { get; }
     public Rect[] Bounds { get; }
     public int[] EffectivePixels { get; }
+    public Rect[] ExclusionBounds { get; }
     private readonly DiffOptions baseline;
     private readonly DiffOptions validationBaseline;
     private readonly DiffOptions[] validationRegions;
 
     public RegionMap(int width, int height, ComparisonParameters parameters)
+        : this(width, height, parameters, r => PageMap.CanvasRectangle(r, parameters.Dpi, new(width, height))) { }
+
+    private RegionMap(int width, int height, ComparisonParameters parameters, Func<RectMm, Rect> rectangle)
     {
         Width = width; Height = height; baseline = parameters.Diff;
         Regions = parameters.Regions.ToArray();
@@ -29,7 +33,9 @@ internal sealed class RegionMap
         validationRegions = Regions.Select(r => r.Diff with { MaxShiftMm = 0 }).ToArray();
         Owners = Enumerable.Repeat(-1, checked(width * height)).ToArray();
         Excluded = new bool[Owners.Length];
-        Bounds = Regions.Select(r => PageMap.CanvasRectangle(r.Bounds, parameters.Dpi, new(width, height))).ToArray();
+        Bounds = Regions.Select(r => rectangle(r.Bounds)).ToArray();
+        ExclusionBounds = parameters.Exclude.Concat(Regions.Where(r => r.Mode == "exclude").Select(r => r.Bounds))
+            .Distinct().Select(rectangle).ToArray();
         EffectivePixels = new int[Regions.Length];
         // 内包する側から塗る。同面積は非交差だけなので宣言順で結果は変わらない。
         var order = Enumerable.Range(0, Regions.Length).OrderByDescending(i => Regions[i].Bounds.W * Regions[i].Bounds.H).ToArray();
@@ -47,10 +53,55 @@ internal sealed class RegionMap
         }
         foreach (var exclusion in parameters.Exclude)
         {
-            var box = PageMap.CanvasRectangle(exclusion, parameters.Dpi, new(width, height));
+            var box = rectangle(exclusion);
             for (var y = box.Top; y < box.Bottom; y++)
             for (var x = box.Left; x < box.Right; x++) Excluded[y * width + x] = true;
         }
+        CountEffective();
+    }
+
+    private RegionMap(RegionMap display, RowComparisonSurface surface)
+    {
+        Width = surface.ContentMap.CanvasSize.Width; Height = surface.ContentMap.CanvasSize.Height;
+        baseline = display.baseline; validationBaseline = display.validationBaseline; validationRegions = display.validationRegions;
+        Regions = display.Regions; EffectivePixels = new int[Regions.Length];
+        Owners = new int[checked(Width * Height)]; Excluded = new bool[Owners.Length];
+        foreach (var piece in surface.Pieces)
+        {
+            Array.Copy(display.Owners, piece.DisplayStart * Width, Owners, piece.ContentStart * Width, piece.Length * Width);
+            Array.Copy(display.Excluded, piece.DisplayStart * Width, Excluded, piece.ContentStart * Width, piece.Length * Width);
+        }
+        Bounds = display.Bounds.Select(box => Parts(box).Aggregate(new Rect(), Union)).ToArray();
+        ExclusionBounds = display.ExclusionBounds.SelectMany(Parts).Distinct().ToArray();
+        CountEffective();
+
+        IEnumerable<Rect> Parts(Rect box)
+        {
+            foreach (var piece in surface.Pieces)
+            {
+                var top = Math.Max(box.Top, piece.DisplayStart); var bottom = Math.Min(box.Bottom, piece.DisplayStart + piece.Length);
+                if (box.Width > 0 && bottom > top) yield return new(box.X, top - piece.DisplayStart + piece.ContentStart, box.Width, bottom - top);
+            }
+        }
+        static Rect Union(Rect a, Rect b) => a.Width == 0 || a.Height == 0 ? b
+            : new(Math.Min(a.Left, b.Left), Math.Min(a.Top, b.Top), Math.Max(a.Right, b.Right) - Math.Min(a.Left, b.Left),
+                Math.Max(a.Bottom, b.Bottom) - Math.Min(a.Top, b.Top));
+    }
+
+    internal static RegionMap ForRows(RowComparisonSurface surface, ComparisonParameters parameters)
+        => new(ForRowDisplay(surface.DisplayMap, parameters), surface);
+
+    internal static RegionMap ForRowDisplay(PageMap map, ComparisonParameters parameters)
+    {
+        return new RegionMap(map.CanvasSize.Width, map.CanvasSize.Height, parameters, rectangle =>
+        {
+            var bounds = map.MapBounds(PageMap.RoundedPixels(rectangle, parameters.Dpi), PageSpace.A, PageSpace.Canvas);
+            return bounds is not { } box ? new() : new((int)box.Left, (int)box.Top, (int)(box.Right - box.Left), (int)(box.Bottom - box.Top));
+        });
+    }
+
+    private void CountEffective()
+    {
         for (var pixel = 0; pixel < Owners.Length; pixel++)
             if (Owners[pixel] is var owner && owner >= 0 && (!Excluded[pixel] || Regions[owner].Mode == "exclude"))
                 EffectivePixels[owner]++;

@@ -5,17 +5,18 @@ namespace ReportDiff.Core;
 /// <summary>一意で、関連する差分全体を説明できる平行移動だけを注釈する。</summary>
 internal static class MovementAnnotator
 {
-    private sealed record Candidate(MovementShift Shift, int[] Indices);
+    private sealed record Candidate(MovementShift Shift, int[] Indices, MovementWindowPair Template);
 
     public static DifferenceCluster[] Annotate(Mat a, Mat b, ComparisonParameters parameters,
-        byte[] raw, int[] labels, int[] acceptedLabels, DifferenceCluster[] clusters, RegionMap? regions = null)
+        byte[] raw, int[] labels, int[] acceptedLabels, DifferenceCluster[] clusters, RegionMap? regions = null,
+        IDictionary<int, MovementProjectionProof>? projection = null)
     {
         var width = a.Width; var height = a.Height;
         var radius = (int)Math.Floor(Units.MmToPixels(parameters.Move.SearchMm, parameters.Dpi));
         if (radius < 1) return clusters;
         var margin = Math.Max(1, (int)Math.Ceiling(Units.MmToPixels(parameters.Move.TemplateMarginMm, parameters.Dpi)));
         var kept = acceptedLabels.ToHashSet();
-        var exclusions = parameters.Exclude.Select(e => PageMap.CanvasRectangle(e, parameters.Dpi, new(width, height))).ToArray();
+        var exclusions = regions?.ExclusionBounds ?? parameters.Exclude.Select(e => PageMap.CanvasRectangle(e, parameters.Dpi, new(width, height))).ToArray();
         var windows = clusters.Select(c => new Rect(c.Bounds.X - margin, c.Bounds.Y - margin,
             c.Bounds.Width + 2 * margin, c.Bounds.Height + 2 * margin)).ToArray();
         var validation = parameters with { Diff = parameters.Diff with { MaxShiftMm = 0 } };
@@ -69,7 +70,7 @@ internal static class MovementAnnotator
             }
             if (!explainsAll) continue;
             var key = $"{shift.Dx},{shift.Dy}:{string.Join(',', related)}";
-            if (seen.Add(key)) proposals.Add(new(shift, related.ToArray()));
+            if (seen.Add(key)) proposals.Add(new(shift, related.ToArray(), new(window, destination)));
         }
 
         // 同じクラスタに異なる対応が提案された場合、順序で勝者を決めず保留する。
@@ -79,6 +80,17 @@ internal static class MovementAnnotator
         foreach (var candidate in proposals)
         {
             if (candidate.Indices.Any(index => uses[index] != 1)) continue;
+            if (projection is not null)
+            {
+                var checks = candidate.Indices.SelectMany(i => new[]
+                {
+                    new MovementWindowPair(windows[i], Translate(windows[i], candidate.Shift)),
+                    new MovementWindowPair(Translate(windows[i], new(-candidate.Shift.Dx, -candidate.Shift.Dy)), windows[i])
+                }).ToArray();
+                var proof = new MovementProjectionProof(candidate.Shift, candidate.Template, checks,
+                    candidate.Indices.Select(i => clusters[i].Id).ToArray());
+                foreach (var index in candidate.Indices) projection.Add(clusters[index].Id, proof);
+            }
             foreach (var index in candidate.Indices)
                 result[index] = clusters[index] with
                 {

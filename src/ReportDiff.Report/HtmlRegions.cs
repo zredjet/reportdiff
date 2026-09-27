@@ -37,9 +37,11 @@ public static partial class HtmlReportWriter
     private static void AppendPageRegions(StringBuilder html, ReportPage page)
     {
         if (page.Regions is not { } regions) return;
+        if (page.RowAlignment.Status == "applied") html.Append("<p class=\"muted\">下表の範囲は表示画像の座標、画素数・抑制数は内容比較画像上の値です。設定の元矩形は行整列前のA座標です。</p>");
         html.Append($"<section class=\"page-regions\" aria-label=\"{page.Page} ページの領域設定の影響\"><h3>領域設定の影響</h3><p>領域設定で抑制した差分: <strong>{regions.SuppressedPixels} 画素・{regions.SuppressedComponents} 箇所</strong>。除外で消した基準差分: {regions.ExcludedPixels} 画素（重複なし）。</p>");
         html.Append("<p class=\"muted\">抑制した箇所は、ページ既定の生差分から領域設定で消えた画素の 8 近傍連結成分です。ノイズ除去や結合を行う通常の相違箇所とは別で、相違件数には加えません。基準のノイズ閾値未満の画素も含みます。判定画像の薄い橙色が抑制画素、青の破線と R 番号が領域、黄色が除外です。元 A/B と確認用オーバーレイには描き込みません。</p>");
-        html.Append($"<div class=\"table-scroll\" role=\"region\" aria-label=\"{page.Page} ページの領域適用結果\" tabindex=\"0\"><table class=\"region-results\"><caption>A／補正後 B の座標。所有画素は内包・除外の優先順位を反映します。</caption><thead><tr><th>番号・名前</th><th>適用状態</th><th>範囲（px）</th><th>所有画素</th><th>生差分</th><th>抑制画素・箇所</th><th>除外画素</th><th>実行</th></tr></thead><tbody>");
+        var coordinates = page.RowAlignment.Status == "applied" ? "表示画像の座標" : "A／補正後 B の座標";
+        html.Append($"<div class=\"table-scroll\" role=\"region\" aria-label=\"{page.Page} ページの領域適用結果\" tabindex=\"0\"><table class=\"region-results\"><caption>{coordinates}。所有画素は内包・除外の優先順位を反映します。</caption><thead><tr><th>番号・名前</th><th>適用状態</th><th>範囲（px）</th><th>所有画素</th><th>生差分</th><th>抑制画素・箇所</th><th>除外画素</th><th>実行</th></tr></thead><tbody>");
         foreach (var r in regions.Items)
             html.Append($"<tr><th scope=\"row\">R{r.Index + 1} {H(r.Name)}</th><td>{RegionStatus(r.Status)}</td><td>X {r.BoundsPx.X} / Y {r.BoundsPx.Y}<br>{r.BoundsPx.W} × {r.BoundsPx.H}</td><td>{r.EffectivePixels}</td><td>{r.RawPixels}</td><td>{r.SuppressedPixels} / {r.SuppressedComponents}</td><td>{r.ExcludedPixels}</td><td>{(r.RunId is int run ? N(run) : "—")}</td></tr>");
         html.Append("</tbody></table></div><details class=\"region-runs\"><summary>比較設定ごとの全ページ実行</summary><p class=\"muted\">実行 0 がページ既定の基準実行です。ページと要約の吸収数・最大ずれには、この基準値だけを使います。以下の吸収数は全ページの実行値で、領域内の数ではありません。</p><ul>");
@@ -51,6 +53,6 @@ public static partial class HtmlReportWriter
     private static string RegionStatus(string status) => status switch
     {
         "applied" => "適用", "outside_page" => "ページ外", "shadowed" => "内側領域・除外が優先",
-        "not_applicable" => "対象外ページ", "not_compared" => "片側ページ・未比較", _ => H(status)
+        "omitted_from_content" => "構造帯のため内容比較から省略", "not_applicable" => "対象外ページ", "not_compared" => "片側ページ・未比較", _ => H(status)
     };
 }

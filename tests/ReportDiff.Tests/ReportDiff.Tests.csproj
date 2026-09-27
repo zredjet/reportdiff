@@ -5,6 +5,7 @@
     <TestingPlatformDotnetTestSupport>true</TestingPlatformDotnetTestSupport>
   </PropertyGroup>
   <ItemGroup>
+    <None Update="Fixtures/row-surfaces/**" CopyToOutputDirectory="PreserveNewest" />
     <PackageReference Include="xunit.v3" Version="4.0.1" />
   </ItemGroup>
   <ItemGroup>

@@ -57,7 +57,7 @@ public static partial class HtmlReportWriter
             <dl class="metrics summary-metrics">
             {{Metric("比較したページ", report.Summary.PagesCompared)}}
             {{Metric("相違のあるページ", report.Summary.PagesDifferent)}}
-            {{Metric("相違箇所", report.Summary.Clusters)}}
+            {{Metric("相違箇所", report.Summary.DifferenceCount)}}
             {{Metric("位置ずれを吸収した数", report.Summary.AbsorbedGroups)}}
             </dl>
             <p class="muted">比較・相違のページ数は今回の出力対象分です。片側だけのページも相違に含みます。吸収数は位置ずれとして相違から除いたグループ数です。</p>
@@ -140,6 +140,7 @@ public static partial class HtmlReportWriter
             html.Append("</tbody></table></div>");
         }
         AppendRegionSettings(html, config);
+        AppendRowSettings(html, config);
         html.Append("</details>");
     }
 
@@ -156,6 +157,7 @@ public static partial class HtmlReportWriter
         html.Append("</dl>");
         if (page.SizeMismatch) html.Append("<p class=\"notice\">画像サイズが異なるため、右と下を白で埋めて比較しました。</p>");
         AppendAlignment(html, page);
+        AppendRows(html, page);
         AppendPageRegions(html, page);
         if (page.RawEvidence is not null) html.Append("<h3>判定表示</h3>");
         AppendViewer(html, page);
@@ -181,7 +183,7 @@ public static partial class HtmlReportWriter
         {
             "too_different" => "差分の割合が上限を超えたため、相違箇所のクラスタ化を省略しました。",
             "only_in_a" or "only_in_b" => "対応するページがないため、画素の比較と相違箇所の切り出しは行っていません。",
-            _ => "相違箇所はありません。"
+            _ => page.RowAlignment.Status == "applied" ? "内容の差分はありません。行の構造変化は別に表示しています。" : "相違箇所はありません。"
         }}</p>");
         html.Append("</details>");
     }
@@ -194,6 +196,12 @@ public static partial class HtmlReportWriter
         views.Add(("重ね描き", page.Images.Overlay));
         foreach (var view in views) if (view.Path is not null) ValidateImagePath(view.Path);
         var initial = views.LastOrDefault(v => v.Path is not null);
+        if (page.RowAlignment.Status == "applied")
+        {
+            html.Append("<p>画像リンク（JavaScriptなしでも表示できます）: ");
+            foreach (var view in views.Where(v => v.Path is not null)) html.Append($"<a href=\"{view.Path}\">{view.Label}</a>　");
+            html.Append("</p>");
+        }
         if (initial.Path is null)
         {
             html.Append("<p class=\"muted\">相違のないページの画像は保存されていません。</p>");

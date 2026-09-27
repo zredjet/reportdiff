@@ -23,18 +23,19 @@ public static class PageComparer
     }
 
     internal static PageComparison Compare(Mat a, Mat b, ComparisonParameters parameters,
-        bool useGroupBounds, ComparisonTimings? timings = null, bool classify = true)
+        bool useGroupBounds, ComparisonTimings? timings = null, bool classify = true, bool retainProjection = false)
     {
         using var ink = classify ? new ComparisonInk() : null;
         using var raw = TolerantDifference.Calculate(a, b, parameters, useGroupBounds, timings, ink);
         var started = Stopwatch.GetTimestamp();
-        var result = Cluster(raw, parameters, classify ? a : null, classify ? b : null, timings, ink);
+        var result = Cluster(raw, parameters, classify ? a : null, classify ? b : null, timings, ink, retainProjection: retainProjection);
         if (timings is not null) timings.ClusteringMs = Stopwatch.GetElapsedTime(started).TotalMilliseconds - timings.ClassificationMs - timings.MovementMs;
         return result;
     }
 
     internal static PageComparison Cluster(RawDifference difference, ComparisonParameters parameters,
-        Mat? a = null, Mat? b = null, ComparisonTimings? timings = null, ComparisonInk? classificationInk = null, RegionMap? regions = null)
+        Mat? a = null, Mat? b = null, ComparisonTimings? timings = null, ComparisonInk? classificationInk = null, RegionMap? regions = null,
+        bool retainProjection = false)
     {
         var width = difference.RawMask.Cols;
         var height = difference.RawMask.Rows;
@@ -119,21 +120,31 @@ public static class PageComparer
         {
             var clusters = accepted.Select((item, index) => item.Cluster with
                 { Id = index + 1, Kind = kinds?[item.Label] }).ToArray();
+            var movements = retainProjection ? new Dictionary<int, MovementProjectionProof>() : null;
             if (a is not null && b is not null && clusters.Length > 0 && parameters.Move.SearchMm > 0)
             {
                 var started = Stopwatch.GetTimestamp();
                 var allocated = GC.GetAllocatedBytesForCurrentThread();
                 clusters = MovementAnnotator.Annotate(a, b, parameters, raw, labels,
-                    accepted.Select(item => item.Label).ToArray(), clusters, regions);
+                    accepted.Select(item => item.Label).ToArray(), clusters, regions, movements);
                 if (timings is not null)
                 {
                     timings.MovementMs = Stopwatch.GetElapsedTime(started).TotalMilliseconds;
                     timings.MovementManagedBytes = GC.GetAllocatedBytesForCurrentThread() - allocated;
                 }
             }
+            ClusterProjectionData? projection = null;
+            if (retainProjection)
+            {
+                var ids = new int[count];
+                for (var i = 0; i < accepted.Count; i++) ids[accepted[i].Label] = clusters[i].Id;
+                // 分類・移動が済んだラベル配列を再利用する。通常比較では保持しない。
+                for (var i = 0; i < labels.Length; i++) labels[i] = raw[i] == 0 ? 0 : ids[labels[i]];
+                projection = new(new(width, height), labels, movements!);
+            }
             return new(clusters.Length == 0 ? "same" : "different", clusters, rawPixels, dropped,
                 difference.AbsorbedGroups, difference.MaxShiftPx, MatBuffers.Mask(raw, width, height),
-                MatBuffers.Mask(labelMask, width, height), limited ? ["CLUSTER_LIMIT"] : [], removalMask);
+                MatBuffers.Mask(labelMask, width, height), limited ? ["CLUSTER_LIMIT"] : [], removalMask) { ProjectionData = projection };
         }
         catch { removalMask?.Dispose(); throw; }
     }

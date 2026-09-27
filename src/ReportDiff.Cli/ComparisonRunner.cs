@@ -33,10 +33,29 @@ internal static class ComparisonRunner
                 var appliedShift = alignment.Status == "applied" ? alignment.EstimatedShiftPx : null;
                 var map = PageMap.Global(normalized.OriginalSizeA, normalized.OriginalSizeB, normalized.A.Size(), appliedShift);
                 using var correctedB = appliedShift is null ? null : map.Render(normalized.B, PageSpace.B);
-                using var comparison = PageComparer.Compare(normalized.A, correctedB ?? normalized.B, parameters);
-                var textA = a.Annotate(page.PageNumber, map, PageSpace.A, comparison.Clusters, parameters.Exclude);
-                var textB = b.Annotate(page.PageNumber, map, PageSpace.B, comparison.Clusters, parameters.Exclude);
-                writer.AddComparedPage(page.PageNumber, normalized, comparison, a.Dpi, textA, textB, alignment, correctedB);
+                RowTextResult? wordsA = null, wordsB = null;
+                using var rows = RowComparer.Compare(normalized.A, correctedB ?? normalized.B, parameters, settings.Rows,
+                    () => (wordsA = a.ReadRowWords(page.PageNumber, map, PageSpace.A), wordsB = b.ReadRowWords(page.PageNumber, map, PageSpace.B)),
+                    pdfPair: a.Format == InputFormat.Pdf && b.Format == InputFormat.Pdf, originalSizesEqual: !normalized.SizeMismatch,
+                    minLineOverlap: settings.Text.MinLineOverlap, globalMap: map);
+                var comparison = rows.Display?.Comparison ?? rows.Comparison;
+                using var displayA = rows.Surface?.DisplayMap.Render(normalized.A, PageSpace.A);
+                using var displayB = rows.Surface?.DisplayMap.Render(correctedB ?? normalized.B, PageSpace.B);
+                var textA = rows.Surface is { } surfaceA
+                    ? RowTextAnnotations.Create(wordsA!, surfaceA.DisplayMap, PageSpace.A, a.Dpi, comparison.Clusters, parameters.Exclude, settings.Text)
+                    : a.Annotate(page.PageNumber, map, PageSpace.A, comparison.Clusters, parameters.Exclude);
+                var textB = rows.Surface is { } surfaceB
+                    ? RowTextAnnotations.Create(wordsB!, surfaceB.DisplayMap, PageSpace.B, b.Dpi, comparison.Clusters, parameters.Exclude, settings.Text)
+                    : b.Annotate(page.PageNumber, map, PageSpace.B, comparison.Clusters, parameters.Exclude);
+                PageTextAnnotations? structureA = null, structureB = null;
+                if (rows.Display is { } display)
+                {
+                    var structures = display.StructuralChanges.Select(s => new DifferenceCluster(s.Id, s.DisplayBounds, 0)).ToArray();
+                    structureA = RowTextAnnotations.Create(wordsA!, rows.Surface!.DisplayMap, PageSpace.A, a.Dpi, structures, parameters.Exclude, settings.Text);
+                    structureB = RowTextAnnotations.Create(wordsB!, rows.Surface.DisplayMap, PageSpace.B, b.Dpi, structures, parameters.Exclude, settings.Text);
+                }
+                writer.AddComparedPage(page.PageNumber, normalized, comparison, a.Dpi, textA, textB, alignment, correctedB,
+                    new(rows, displayA, displayB, structureA, structureB));
             }
             else
             {

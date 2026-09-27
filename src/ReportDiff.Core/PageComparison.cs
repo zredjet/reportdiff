@@ -9,6 +9,8 @@ public sealed record DifferenceCluster(int Id, Rect Bounds, int Pixels)
     public string? Kind { get; init; }
     public MovementShift? ShiftPx { get; init; }
     public IReadOnlyList<int> RelatedClusterIds { get; init; } = [];
+    /// <summary>行整列を採用した表示面に限り設定する。内容面のクラスタとの対応。</summary>
+    public RowClusterProjection? Row { get; init; }
     public double FillRatio => Pixels / ((double)Bounds.Width * Bounds.Height);
 }
 
@@ -29,5 +31,6 @@ public sealed class PageComparison(
     public Mat? RemovalMask { get; } = removalMask;
     public IReadOnlyList<string> Warnings { get; } = warnings;
     public RegionalComparison? Regional { get; internal set; }
+    internal ClusterProjectionData? ProjectionData { get; init; }
     public void Dispose() { RawMask.Dispose(); LabelMask.Dispose(); RemovalMask?.Dispose(); Regional?.Dispose(); }
 }

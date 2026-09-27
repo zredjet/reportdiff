@@ -52,7 +52,8 @@ public sealed class ReportWriter
     }
 
     public ReportPage AddComparedPage(int page, NormalizedPagePair images, PageComparison comparison, int dpi,
-        PageTextAnnotations? textA = null, PageTextAnnotations? textB = null, AlignmentResult? alignment = null, Mat? correctedB = null)
+        PageTextAnnotations? textA = null, PageTextAnnotations? textB = null, AlignmentResult? alignment = null, Mat? correctedB = null,
+        RowReportContext? rows = null)
     {
         CheckPage(page);
         if (page > Math.Min(inputs.A.Pages, inputs.B.Pages)) throw new ArgumentException("両方の入力にあるページを指定してください。");
@@ -62,10 +63,16 @@ public sealed class ReportWriter
         var shift = alignment.Status == "applied" ? alignment.EstimatedShiftPx : null;
         if ((shift is not null) != (correctedB is not null) || (alignment.Status == "applied" && shift is null))
             throw new ArgumentException("補正画像と適用した補正量を一緒に指定してください。");
-        var comparisonB = correctedB ?? images.B;
-        ValidateImage(comparisonB);
-        var size = images.A.Size();
-        if (images.B.Size() != size || comparisonB.Size() != size || comparison.RawMask.Size() != size || comparison.LabelMask.Size() != size
+        var rowApplied = rows?.Result.Display is not null;
+        if (rowApplied != (rows?.DisplayA is not null && rows.DisplayB is not null)
+            || rowApplied && !ReferenceEquals(comparison, rows!.Result.Display!.Comparison))
+            throw new ArgumentException("採用した行整列の表示結果とA/B画像を一緒に指定してください。");
+        var comparisonA = rows?.DisplayA ?? images.A;
+        var comparisonB = rows?.DisplayB ?? correctedB ?? images.B;
+        ValidateImage(comparisonA); ValidateImage(comparisonB);
+        var size = comparisonA.Size();
+        if (images.B.Size() != images.A.Size() || correctedB is not null && correctedB.Size() != images.A.Size()
+            || comparisonB.Size() != size || comparison.RawMask.Size() != size || comparison.LabelMask.Size() != size
             || (comparison.RemovalMask is { } removal && (removal.Size() != size || removal.Type() != MatType.CV_8UC1))
             || comparison.RawMask.Type() != MatType.CV_8UC1 || comparison.LabelMask.Type() != MatType.CV_8UC1)
             throw new ArgumentException("画像と差分マスクのサイズ・画素形式が一致していません。");
@@ -80,53 +87,67 @@ public sealed class ReportWriter
         var clusters = new List<ReportCluster>();
         ExecuteWrite(() =>
         {
-            if (comparison.Status != "same" || saveAllPages || shift is not null || comparison.Regional is not null)
+            if (comparison.Status != "same" || saveAllPages || shift is not null || comparison.Regional is not null || rowApplied)
             {
                 var prefix = "pages/" + PageStem(page);
                 paths = new(prefix + "_a.png", prefix + "_b.png", prefix + "_overlay.png");
                 PageImageWriteSchedule.Create(size.Width, size.Height, imageExecution).Run(side =>
-                    WritePng(side == 0 ? paths.A! : paths.B!, side == 0 ? images.A : comparisonB));
+                    WritePng(side == 0 ? paths.A! : paths.B!, side == 0 ? comparisonA : comparisonB));
                 if (shift is not null)
                 {
                     paths = paths with { BOriginal = prefix + "_b_original.png" };
                     WritePng(paths.BOriginal, images.B);
                 }
-                using var overlay = ReportImages.Overlay(comparisonB, comparison, config.Exclude.Concat((config.Regions ?? []).Where(r => r.Mode == "exclude")
+                if (rowApplied)
+                {
+                    paths = paths with { ContentA = prefix + "_content_a.png", ContentB = prefix + "_content_b.png" };
+                    WritePng(paths.ContentA, rows!.Result.ContentA!); WritePng(paths.ContentB, rows.Result.ContentB!);
+                }
+                using var overlay = rowApplied ? ReportImages.RowOverlay(comparisonB, rows!.Result.Display!, dpi)
+                    : ReportImages.Overlay(comparisonB, comparison, config.Exclude.Concat((config.Regions ?? []).Where(r => r.Mode == "exclude")
                     .Select(r => new ReportExclusion(r.Page, r.X, r.Y, r.W, r.H, r.Name)))
                     .Where(e => e.Page is null || e.Page == page), dpi);
                 WritePng(paths.Overlay!, overlay);
             }
             if (config.Report.RawOverlay)
                 rawEvidence = WriteRawEvidence(page, images.A, images.B, images.OriginalSizeA, images.OriginalSizeB,
-                    dpi, paths.A, shift is null ? paths.B : paths.BOriginal);
+                    dpi, rowApplied ? null : paths.A, rowApplied ? paths.BOriginal : shift is null ? paths.B : paths.BOriginal);
             foreach (var cluster in comparison.Clusters)
             {
                 var bounds = cluster.Bounds;
                 var crop = ReportImages.CropBounds(bounds, size, config.Report.CropMarginMm, dpi);
                 var prefix = "crops/" + PageStem(page) + "_c" + cluster.Id.ToString("D3", CultureInfo.InvariantCulture);
                 var crops = new ClusterCrops(prefix + "_a.png", prefix + "_b.png", prefix + "_diff.png");
-                using var a = new Mat(images.A, crop);
+                using var a = new Mat(comparisonA, crop);
                 using var b = new Mat(comparisonB, crop);
                 using var diff = ReportImages.DifferenceCrop(comparisonB, comparison.RawMask, crop, comparison.RemovalMask);
                 WritePng(crops.A, a); WritePng(crops.B, b); WritePng(crops.Diff, diff);
                 var mm = PageMap.CanvasMillimeters(bounds, dpi);
-                clusters.Add(new(cluster.Id, new(bounds.X, bounds.Y, bounds.Width, bounds.Height),
+                clusters.Add(ReportRows.Project(new(cluster.Id, new(bounds.X, bounds.Y, bounds.Width, bounds.Height),
                     new(mm.X, mm.Y, mm.W, mm.H),
                     cluster.Pixels, cluster.FillRatio, cluster.Kind,
                     cluster.ShiftPx is { } movement ? new PixelShift(movement.Dx, movement.Dy) : null,
                     textA?.TextByCluster.GetValueOrDefault(cluster.Id), textB?.TextByCluster.GetValueOrDefault(cluster.Id), crops)
-                    { RelatedClusterIds = Array.AsReadOnly(cluster.RelatedClusterIds.ToArray()) });
+                    { RelatedClusterIds = Array.AsReadOnly(cluster.RelatedClusterIds.ToArray()) }, cluster, dpi));
             }
         });
+        var rowAlignment = ReportRows.Create(rows, config, inputs, images, dpi);
+        var counts = StructureCounts.From(rowAlignment.StructuralChanges);
         var result = new ReportPage(page, comparison.Status, new(size.Width, size.Height), images.SizeMismatch,
             comparison.RawPixels, comparison.NoiseDropped, comparison.AbsorbedGroups, comparison.MaxShiftPx,
             paths, Array.AsReadOnly(clusters.ToArray()))
             { Alignment = alignment, GlobalShiftPx = shift is null ? null : new(shift.Dx, shift.Dy), RawEvidence = rawEvidence,
-                Regions = PageRegions.Create(config.Regions, page, dpi, new(size.Width, size.Height), comparison.Regional) };
+                Regions = PageRegions.Create(config.Regions, page, dpi, new(size.Width, size.Height), comparison.Regional),
+                RowAlignment = rowAlignment, StructuralChangeCount = counts.Total, StructuralChangeCounts = counts,
+                DifferenceCountComplete = comparison.Status != "too_different" && !comparison.Warnings.Contains("CLUSTER_LIMIT") };
         pages.Add(result);
+        if (rowApplied)
+            warnings.Add(new("ROW_ALIGNMENT_APPLIED", $"{page} ページ: 行整列を採用しました（追加 B→A の縦ずれ: {string.Join("、", rowAlignment.Segments.Where(s => s.AdditionalDyPx is not null).Select(s => s.AdditionalDyPx).Distinct())} px）。構造変化 {counts.Total} 件を相違に含めています。"));
+        else if (rows?.Result.Alignment.Suspected == true)
+            warnings.Add(new("ROW_SHIFT_SUSPECTED", $"{page} ページ: 行ずれの手がかりがありますが、安全条件を満たさないため行整列を見送りました（{rowAlignment.Reason}）。"));
         if (shift is not null)
             warnings.Add(new("GLOBAL_SHIFT_APPLIED", $"{page} ページ: B 全体を A に合わせて補正しました（B→A: 横 {shift.Dx}px、縦 {shift.Dy}px。右・下が正）。補正前 B も保存しています。"));
-        foreach (var (side, annotations) in new[] { ("A", textA), ("B", textB) })
+        foreach (var (side, annotations) in new[] { ("A", textA), ("B", textB), ("A・構造変化", rows?.StructuralTextA), ("B・構造変化", rows?.StructuralTextB) })
             if (annotations is not null)
                 foreach (var warning in annotations.Warnings)
                     warnings.Add(new(warning.Code, $"{side}・{page} ページ: {warning.Message}"));
@@ -168,7 +189,9 @@ public sealed class ReportWriter
         var result = new ReportPage(page, onlyA ? "only_in_a" : "only_in_b", new(image.Width, image.Height),
             false, 0, 0, 0, 0, new(onlyA ? path : null, onlyA ? null : path, null), [])
             { Alignment = config.Align.Enabled ? AlignmentResult.Skipped("unpaired_page") : AlignmentResult.Disabled,
-                RawEvidence = rawEvidence, Regions = PageRegions.Create(config.Regions, page,
+                RawEvidence = rawEvidence, RowAlignment = ReportRowAlignment.Skipped(config.Rows.Enabled ? "not_compared" : "disabled",
+                    inputs.A.Type == "pdf" && inputs.B.Type == "pdf" ? "pdf_text" : null, config.Rows.Enabled),
+                Regions = PageRegions.Create(config.Regions, page,
                     (onlyA ? inputs.A.Type : inputs.B.Type) == "pdf" ? config.Dpi : config.ImageDpi, new(image.Width, image.Height), null) };
         pages.Add(result);
         return result;
@@ -213,7 +236,13 @@ public sealed class ReportWriter
         var different = sorted.Count(p => p.Status != "same");
         var summary = new ReportSummary(different > 0 || inputs.A.Pages != inputs.B.Pages ? "different" : "same",
             sorted.Count(p => p.Status is not ("only_in_a" or "only_in_b")), different,
-            sorted.Sum(p => p.Clusters.Count), sorted.Sum(p => p.AbsorbedGroups));
+            sorted.Sum(p => p.Clusters.Count), sorted.Sum(p => p.AbsorbedGroups))
+        {
+            StructuralChangeCount = sorted.Sum(p => p.StructuralChangeCount),
+            StructuralChangeCounts = new(sorted.Sum(p => p.StructuralChangeCounts.Inserted), sorted.Sum(p => p.StructuralChangeCounts.Deleted),
+                sorted.Sum(p => p.StructuralChangeCounts.BlockMoved)),
+            DifferenceCountComplete = sorted.All(p => p.DifferenceCountComplete)
+        };
         var result = new ReportDocument(1, ReportTool.Current, generatedAt, inputs, config, summary,
             Array.AsReadOnly(warnings.ToArray()), Array.AsReadOnly(sorted));
         ExecuteWrite(() =>

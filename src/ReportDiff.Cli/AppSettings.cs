@@ -22,6 +22,7 @@ public sealed record AppSettings
     public ClusterOptions Cluster { get; init; } = new();
     public MoveOptions Move { get; init; } = new();
     public AlignOptions Align { get; init; } = new();
+    public RowOptions Rows { get; init; } = new();
     public TextOptions Text { get; init; } = new();
     public IReadOnlyList<ExclusionSetting> Exclude { get; init; } = [];
     public IReadOnlyList<RegionSetting> Regions { get; init; } = [];
@@ -32,7 +33,7 @@ public sealed record AppSettings
         Exclude.Select(e => new ReportExclusion(e.Page, e.X, e.Y, e.W, e.H, e.Note)).ToArray(),
         new ReportOutputOptions(Report.CropMarginMm) { SnippetMarginMm = Report.SnippetMarginMm, RawOverlay = Report.RawOverlay,
             RawOverlayCommonColor = Report.RawOverlayCommonColor })
-        { Ink = Ink, Move = Move, Align = Align, Text = Text,
+        { Ink = Ink, Move = Move, Align = Align, Rows = Rows, Text = Text,
             Regions = Regions.Count > 0 || RegionAudit is not null ? Regions.Select(r => r.ToReport(Diff)).ToArray() : null,
             RegionAudit = RegionAudit };
 

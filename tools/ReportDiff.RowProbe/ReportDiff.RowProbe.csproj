@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><OutputType>Exe</OutputType></PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../src/ReportDiff.Cli/ReportDiff.Cli.csproj" />
+    <Compile Include="../../tests/ReportDiff.Tests/PdfFixture.cs" Link="PdfFixture.cs" />
+    <Compile Include="../../tests/ReportDiff.Tests/PdfTextFixture.cs" Link="PdfTextFixture.cs" />
+    <Compile Include="../../tests/ReportDiff.Tests/RowGridFixture.cs" Link="GridFixture.cs" />
+    <Compile Include="../../src/ReportDiff.Report/RawOverlay.cs" Link="RawOverlay.cs" />
+  </ItemGroup>
+</Project>

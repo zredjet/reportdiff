@@ -1,0 +1,8 @@
+# 開発版用。配布済みv0.1.4ではrowsは未知キーとなる。
+# PDFテキスト層で行の挿入・削除を整列し、構造変化も相違として報告する。
+# 比較前の原画像を確認するため、独立した赤青オーバーレイも保存する。
+# 適用範囲・制限: docs/CONFIGURATION.md の「PDFの行整列」。
+rows:
+  enabled: true
+report:
+  raw_overlay: true

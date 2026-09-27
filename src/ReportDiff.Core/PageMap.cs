@@ -87,13 +87,23 @@ public sealed class PageMap
     /// 上端は次の帯、下端は前の帯を使うため、帯間の詰め物をまたぐ領域は高さが伸びる。
     /// 詰め物だけの領域には対応がない。
     /// </summary>
-    public PageBounds? MapBounds(PageBounds bounds, PageSpace from, PageSpace to)
+    public PageBounds? MapBounds(PageBounds bounds, PageSpace from, PageSpace to) => MapBoundsCore(bounds, from, to, null);
+
+    /// <summary>帯ごとの対応矩形。詰め物や別区間を外接矩形に含めたくない呼び出しに使う。</summary>
+    public IReadOnlyList<PageBounds> MapBoundsParts(PageBounds bounds, PageSpace from, PageSpace to)
+    {
+        var parts = new List<PageBounds>();
+        _ = MapBoundsCore(bounds, from, to, parts);
+        return parts.AsReadOnly();
+    }
+
+    private PageBounds? MapBoundsCore(PageBounds bounds, PageSpace from, PageSpace to, List<PageBounds>? parts)
     {
         var sourceSize = SizeOf(from); var targetSize = SizeOf(to);
         if (!Finite(bounds)) return null;
         bounds = Clip(bounds, sourceSize);
         if (!Positive(bounds)) return null;
-        if (from == to) return bounds;
+        if (from == to) { parts?.Add(bounds); return bounds; }
         PageBounds? result = null;
         foreach (var band in Segments)
         {
@@ -106,6 +116,7 @@ public sealed class PageMap
             var mapped = Clip(new(canvas.Left + OffsetX(to), canvas.Top + ((double)target - band.CanvasStart),
                 canvas.Right + OffsetX(to), canvas.Bottom + ((double)target - band.CanvasStart)), targetSize);
             if (!Positive(mapped)) continue;
+            parts?.Add(mapped);
             result = result is { } r ? new(Math.Min(r.Left, mapped.Left), Math.Min(r.Top, mapped.Top),
                 Math.Max(r.Right, mapped.Right), Math.Max(r.Bottom, mapped.Bottom)) : mapped;
         }

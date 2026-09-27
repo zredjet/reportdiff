@@ -1,0 +1,1165 @@
+{
+  "date": "2026-09-22",
+  "baseline_commit": "f77ac1c72a0754373041273f9f36b49e312379b7",
+  "task": "T3-1b",
+  "status": "stopped_at_preflight",
+  "product_code_changed": false,
+  "formal_acceptance_complete": false,
+  "core_and_reference_formula_changed": false,
+  "build": {
+    "configuration": "Release",
+    "warnings": 0,
+    "errors": 0
+  },
+  "environment": {
+    "platform": "macOS arm64",
+    "dotnet_sdk": "10.0.401",
+    "python_opencv": "4.13.0"
+  },
+  "source_size_px": {
+    "width": 999,
+    "height": 1250
+  },
+  "comparison_size_px": {
+    "width": 999,
+    "height": 1350
+  },
+  "segments": [
+    {
+      "CanvasStart": 0,
+      "Length": 400,
+      "AStart": 0,
+      "BStart": 0,
+      "Dy": 0
+    },
+    {
+      "CanvasStart": 400,
+      "Length": 100,
+      "AStart": null,
+      "BStart": 400,
+      "Dy": null
+    },
+    {
+      "CanvasStart": 500,
+      "Length": 750,
+      "AStart": 400,
+      "BStart": 500,
+      "Dy": -100
+    },
+    {
+      "CanvasStart": 1250,
+      "Length": 100,
+      "AStart": 1150,
+      "BStart": null,
+      "Dy": null
+    }
+  ],
+  "integer_exclusion_bands": [
+    [
+      400,
+      500
+    ],
+    [
+      1250,
+      1350
+    ]
+  ],
+  "csharp_reference_mask_and_cluster_checks": 24,
+  "pdf_cases": [
+    {
+      "id": "pdf-rule-0-inserted",
+      "profile": "normal",
+      "rule_width_pt": 0,
+      "number_changed": false,
+      "paired_pixel_max_difference": 0,
+      "status": "same",
+      "raw_pixels": 0,
+      "clusters": []
+    },
+    {
+      "id": "pdf-rule-0-inserted",
+      "profile": "strict",
+      "rule_width_pt": 0,
+      "number_changed": false,
+      "paired_pixel_max_difference": 0,
+      "status": "same",
+      "raw_pixels": 0,
+      "clusters": []
+    },
+    {
+      "id": "pdf-rule-0-changed",
+      "profile": "normal",
+      "rule_width_pt": 0,
+      "number_changed": true,
+      "paired_pixel_max_difference": 255,
+      "status": "different",
+      "raw_pixels": 69,
+      "clusters": [
+        {
+          "x": 412,
+          "y": 855,
+          "w": 54,
+          "h": 5,
+          "Pixels": 69
+        }
+      ]
+    },
+    {
+      "id": "pdf-rule-0-changed",
+      "profile": "strict",
+      "rule_width_pt": 0,
+      "number_changed": true,
+      "paired_pixel_max_difference": 255,
+      "status": "different",
+      "raw_pixels": 90,
+      "clusters": [
+        {
+          "x": 412,
+          "y": 855,
+          "w": 54,
+          "h": 5,
+          "Pixels": 90
+        }
+      ]
+    },
+    {
+      "id": "pdf-rule-0.24-inserted",
+      "profile": "normal",
+      "rule_width_pt": 0.24,
+      "number_changed": false,
+      "paired_pixel_max_difference": 0,
+      "status": "same",
+      "raw_pixels": 0,
+      "clusters": []
+    },
+    {
+      "id": "pdf-rule-0.24-inserted",
+      "profile": "strict",
+      "rule_width_pt": 0.24,
+      "number_changed": false,
+      "paired_pixel_max_difference": 0,
+      "status": "same",
+      "raw_pixels": 0,
+      "clusters": []
+    },
+    {
+      "id": "pdf-rule-0.24-changed",
+      "profile": "normal",
+      "rule_width_pt": 0.24,
+      "number_changed": true,
+      "paired_pixel_max_difference": 255,
+      "status": "different",
+      "raw_pixels": 69,
+      "clusters": [
+        {
+          "x": 412,
+          "y": 855,
+          "w": 54,
+          "h": 5,
+          "Pixels": 69
+        }
+      ]
+    },
+    {
+      "id": "pdf-rule-0.24-changed",
+      "profile": "strict",
+      "rule_width_pt": 0.24,
+      "number_changed": true,
+      "paired_pixel_max_difference": 255,
+      "status": "different",
+      "raw_pixels": 90,
+      "clusters": [
+        {
+          "x": 412,
+          "y": 855,
+          "w": 54,
+          "h": 5,
+          "Pixels": 90
+        }
+      ]
+    },
+    {
+      "id": "pdf-rule-0.48-inserted",
+      "profile": "normal",
+      "rule_width_pt": 0.48,
+      "number_changed": false,
+      "paired_pixel_max_difference": 0,
+      "status": "same",
+      "raw_pixels": 0,
+      "clusters": []
+    },
+    {
+      "id": "pdf-rule-0.48-inserted",
+      "profile": "strict",
+      "rule_width_pt": 0.48,
+      "number_changed": false,
+      "paired_pixel_max_difference": 0,
+      "status": "same",
+      "raw_pixels": 0,
+      "clusters": []
+    },
+    {
+      "id": "pdf-rule-0.48-changed",
+      "profile": "normal",
+      "rule_width_pt": 0.48,
+      "number_changed": true,
+      "paired_pixel_max_difference": 255,
+      "status": "different",
+      "raw_pixels": 69,
+      "clusters": [
+        {
+          "x": 412,
+          "y": 855,
+          "w": 54,
+          "h": 5,
+          "Pixels": 69
+        }
+      ]
+    },
+    {
+      "id": "pdf-rule-0.48-changed",
+      "profile": "strict",
+      "rule_width_pt": 0.48,
+      "number_changed": true,
+      "paired_pixel_max_difference": 255,
+      "status": "different",
+      "raw_pixels": 90,
+      "clusters": [
+        {
+          "x": 412,
+          "y": 855,
+          "w": 54,
+          "h": 5,
+          "Pixels": 90
+        }
+      ]
+    },
+    {
+      "id": "pdf-rule-0.72-inserted",
+      "profile": "normal",
+      "rule_width_pt": 0.72,
+      "number_changed": false,
+      "paired_pixel_max_difference": 0,
+      "status": "same",
+      "raw_pixels": 2,
+      "clusters": []
+    },
+    {
+      "id": "pdf-rule-0.72-inserted",
+      "profile": "strict",
+      "rule_width_pt": 0.72,
+      "number_changed": false,
+      "paired_pixel_max_difference": 0,
+      "status": "same",
+      "raw_pixels": 0,
+      "clusters": []
+    },
+    {
+      "id": "pdf-rule-0.72-changed",
+      "profile": "normal",
+      "rule_width_pt": 0.72,
+      "number_changed": true,
+      "paired_pixel_max_difference": 255,
+      "status": "different",
+      "raw_pixels": 71,
+      "clusters": [
+        {
+          "x": 412,
+          "y": 855,
+          "w": 54,
+          "h": 5,
+          "Pixels": 69
+        }
+      ]
+    },
+    {
+      "id": "pdf-rule-0.72-changed",
+      "profile": "strict",
+      "rule_width_pt": 0.72,
+      "number_changed": true,
+      "paired_pixel_max_difference": 255,
+      "status": "different",
+      "raw_pixels": 90,
+      "clusters": [
+        {
+          "x": 412,
+          "y": 855,
+          "w": 54,
+          "h": 5,
+          "Pixels": 90
+        }
+      ]
+    },
+    {
+      "id": "pdf-rule-0.96-inserted",
+      "profile": "normal",
+      "rule_width_pt": 0.96,
+      "number_changed": false,
+      "paired_pixel_max_difference": 0,
+      "status": "same",
+      "raw_pixels": 4,
+      "clusters": []
+    },
+    {
+      "id": "pdf-rule-0.96-inserted",
+      "profile": "strict",
+      "rule_width_pt": 0.96,
+      "number_changed": false,
+      "paired_pixel_max_difference": 0,
+      "status": "same",
+      "raw_pixels": 0,
+      "clusters": []
+    },
+    {
+      "id": "pdf-rule-0.96-changed",
+      "profile": "normal",
+      "rule_width_pt": 0.96,
+      "number_changed": true,
+      "paired_pixel_max_difference": 255,
+      "status": "different",
+      "raw_pixels": 73,
+      "clusters": [
+        {
+          "x": 412,
+          "y": 855,
+          "w": 54,
+          "h": 5,
+          "Pixels": 69
+        }
+      ]
+    },
+    {
+      "id": "pdf-rule-0.96-changed",
+      "profile": "strict",
+      "rule_width_pt": 0.96,
+      "number_changed": true,
+      "paired_pixel_max_difference": 255,
+      "status": "different",
+      "raw_pixels": 90,
+      "clusters": [
+        {
+          "x": 412,
+          "y": 855,
+          "w": 54,
+          "h": 5,
+          "Pixels": 90
+        }
+      ]
+    },
+    {
+      "id": "pdf-rule-1.44-inserted",
+      "profile": "normal",
+      "rule_width_pt": 1.44,
+      "number_changed": false,
+      "paired_pixel_max_difference": 0,
+      "status": "different",
+      "raw_pixels": 8,
+      "clusters": [
+        {
+          "x": 101,
+          "y": 399,
+          "w": 4,
+          "h": 1,
+          "Pixels": 4
+        },
+        {
+          "x": 101,
+          "y": 500,
+          "w": 4,
+          "h": 1,
+          "Pixels": 4
+        }
+      ]
+    },
+    {
+      "id": "pdf-rule-1.44-inserted",
+      "profile": "strict",
+      "rule_width_pt": 1.44,
+      "number_changed": false,
+      "paired_pixel_max_difference": 0,
+      "status": "same",
+      "raw_pixels": 0,
+      "clusters": []
+    },
+    {
+      "id": "pdf-rule-1.44-changed",
+      "profile": "normal",
+      "rule_width_pt": 1.44,
+      "number_changed": true,
+      "paired_pixel_max_difference": 255,
+      "status": "different",
+      "raw_pixels": 77,
+      "clusters": [
+        {
+          "x": 101,
+          "y": 399,
+          "w": 4,
+          "h": 1,
+          "Pixels": 4
+        },
+        {
+          "x": 101,
+          "y": 500,
+          "w": 4,
+          "h": 1,
+          "Pixels": 4
+        },
+        {
+          "x": 412,
+          "y": 855,
+          "w": 54,
+          "h": 5,
+          "Pixels": 69
+        }
+      ]
+    },
+    {
+      "id": "pdf-rule-1.44-changed",
+      "profile": "strict",
+      "rule_width_pt": 1.44,
+      "number_changed": true,
+      "paired_pixel_max_difference": 255,
+      "status": "different",
+      "raw_pixels": 90,
+      "clusters": [
+        {
+          "x": 412,
+          "y": 855,
+          "w": 54,
+          "h": 5,
+          "Pixels": 90
+        }
+      ]
+    }
+  ],
+  "pixel_cases": [
+    {
+      "name": "rule-0-normal",
+      "Status": "same",
+      "RawPixels": 0,
+      "clusters": []
+    },
+    {
+      "name": "rule-0-strict",
+      "Status": "same",
+      "RawPixels": 0,
+      "clusters": []
+    },
+    {
+      "name": "rule-1-normal",
+      "Status": "same",
+      "RawPixels": 0,
+      "clusters": []
+    },
+    {
+      "name": "rule-1-strict",
+      "Status": "same",
+      "RawPixels": 0,
+      "clusters": []
+    },
+    {
+      "name": "rule-2-normal",
+      "Status": "same",
+      "RawPixels": 0,
+      "clusters": []
+    },
+    {
+      "name": "rule-2-strict",
+      "Status": "same",
+      "RawPixels": 0,
+      "clusters": []
+    },
+    {
+      "name": "rule-3-normal",
+      "Status": "same",
+      "RawPixels": 2,
+      "clusters": []
+    },
+    {
+      "name": "rule-3-strict",
+      "Status": "same",
+      "RawPixels": 0,
+      "clusters": []
+    },
+    {
+      "name": "rule-4-normal",
+      "Status": "same",
+      "RawPixels": 4,
+      "clusters": []
+    },
+    {
+      "name": "rule-4-strict",
+      "Status": "same",
+      "RawPixels": 0,
+      "clusters": []
+    },
+    {
+      "name": "rule-6-normal",
+      "Status": "different",
+      "RawPixels": 8,
+      "clusters": [
+        {
+          "Top": 199,
+          "Bottom": 200,
+          "Left": 41,
+          "Right": 45,
+          "Location": {},
+          "Size": {},
+          "TopLeft": {},
+          "BottomRight": {}
+        },
+        {
+          "Top": 260,
+          "Bottom": 261,
+          "Left": 41,
+          "Right": 45,
+          "Location": {},
+          "Size": {},
+          "TopLeft": {},
+          "BottomRight": {}
+        }
+      ]
+    },
+    {
+      "name": "rule-6-strict",
+      "Status": "same",
+      "RawPixels": 0,
+      "clusters": []
+    }
+  ],
+  "cut_sweep": [
+    {
+      "cut_y": 392,
+      "reverse": false,
+      "paired_pixels_equal": true,
+      "status": "different",
+      "raw_pixels": 8,
+      "clusters": [
+        {
+          "id": 1,
+          "x": 101,
+          "y": 391,
+          "w": 4,
+          "h": 1,
+          "pixels": 4,
+          "fill_ratio": 1.0
+        },
+        {
+          "id": 2,
+          "x": 101,
+          "y": 492,
+          "w": 4,
+          "h": 1,
+          "pixels": 4,
+          "fill_ratio": 1.0
+        }
+      ]
+    },
+    {
+      "cut_y": 392,
+      "reverse": true,
+      "paired_pixels_equal": true,
+      "status": "different",
+      "raw_pixels": 8,
+      "clusters": [
+        {
+          "id": 1,
+          "x": 101,
+          "y": 391,
+          "w": 4,
+          "h": 1,
+          "pixels": 4,
+          "fill_ratio": 1.0
+        },
+        {
+          "id": 2,
+          "x": 101,
+          "y": 492,
+          "w": 4,
+          "h": 1,
+          "pixels": 4,
+          "fill_ratio": 1.0
+        }
+      ]
+    },
+    {
+      "cut_y": 396,
+      "reverse": false,
+      "paired_pixels_equal": true,
+      "status": "different",
+      "raw_pixels": 8,
+      "clusters": [
+        {
+          "id": 1,
+          "x": 101,
+          "y": 395,
+          "w": 4,
+          "h": 1,
+          "pixels": 4,
+          "fill_ratio": 1.0
+        },
+        {
+          "id": 2,
+          "x": 101,
+          "y": 496,
+          "w": 4,
+          "h": 1,
+          "pixels": 4,
+          "fill_ratio": 1.0
+        }
+      ]
+    },
+    {
+      "cut_y": 396,
+      "reverse": true,
+      "paired_pixels_equal": true,
+      "status": "different",
+      "raw_pixels": 8,
+      "clusters": [
+        {
+          "id": 1,
+          "x": 101,
+          "y": 395,
+          "w": 4,
+          "h": 1,
+          "pixels": 4,
+          "fill_ratio": 1.0
+        },
+        {
+          "id": 2,
+          "x": 101,
+          "y": 496,
+          "w": 4,
+          "h": 1,
+          "pixels": 4,
+          "fill_ratio": 1.0
+        }
+      ]
+    },
+    {
+      "cut_y": 398,
+      "reverse": false,
+      "paired_pixels_equal": true,
+      "status": "different",
+      "raw_pixels": 8,
+      "clusters": [
+        {
+          "id": 1,
+          "x": 101,
+          "y": 397,
+          "w": 4,
+          "h": 1,
+          "pixels": 4,
+          "fill_ratio": 1.0
+        },
+        {
+          "id": 2,
+          "x": 101,
+          "y": 498,
+          "w": 4,
+          "h": 1,
+          "pixels": 4,
+          "fill_ratio": 1.0
+        }
+      ]
+    },
+    {
+      "cut_y": 398,
+      "reverse": true,
+      "paired_pixels_equal": true,
+      "status": "different",
+      "raw_pixels": 8,
+      "clusters": [
+        {
+          "id": 1,
+          "x": 101,
+          "y": 397,
+          "w": 4,
+          "h": 1,
+          "pixels": 4,
+          "fill_ratio": 1.0
+        },
+        {
+          "id": 2,
+          "x": 101,
+          "y": 498,
+          "w": 4,
+          "h": 1,
+          "pixels": 4,
+          "fill_ratio": 1.0
+        }
+      ]
+    },
+    {
+      "cut_y": 399,
+      "reverse": false,
+      "paired_pixels_equal": true,
+      "status": "different",
+      "raw_pixels": 8,
+      "clusters": [
+        {
+          "id": 1,
+          "x": 101,
+          "y": 398,
+          "w": 4,
+          "h": 1,
+          "pixels": 4,
+          "fill_ratio": 1.0
+        },
+        {
+          "id": 2,
+          "x": 101,
+          "y": 499,
+          "w": 4,
+          "h": 1,
+          "pixels": 4,
+          "fill_ratio": 1.0
+        }
+      ]
+    },
+    {
+      "cut_y": 399,
+      "reverse": true,
+      "paired_pixels_equal": true,
+      "status": "different",
+      "raw_pixels": 8,
+      "clusters": [
+        {
+          "id": 1,
+          "x": 101,
+          "y": 398,
+          "w": 4,
+          "h": 1,
+          "pixels": 4,
+          "fill_ratio": 1.0
+        },
+        {
+          "id": 2,
+          "x": 101,
+          "y": 499,
+          "w": 4,
+          "h": 1,
+          "pixels": 4,
+          "fill_ratio": 1.0
+        }
+      ]
+    },
+    {
+      "cut_y": 400,
+      "reverse": false,
+      "paired_pixels_equal": true,
+      "status": "different",
+      "raw_pixels": 8,
+      "clusters": [
+        {
+          "id": 1,
+          "x": 101,
+          "y": 399,
+          "w": 4,
+          "h": 1,
+          "pixels": 4,
+          "fill_ratio": 1.0
+        },
+        {
+          "id": 2,
+          "x": 101,
+          "y": 500,
+          "w": 4,
+          "h": 1,
+          "pixels": 4,
+          "fill_ratio": 1.0
+        }
+      ]
+    },
+    {
+      "cut_y": 400,
+      "reverse": true,
+      "paired_pixels_equal": true,
+      "status": "different",
+      "raw_pixels": 8,
+      "clusters": [
+        {
+          "id": 1,
+          "x": 101,
+          "y": 399,
+          "w": 4,
+          "h": 1,
+          "pixels": 4,
+          "fill_ratio": 1.0
+        },
+        {
+          "id": 2,
+          "x": 101,
+          "y": 500,
+          "w": 4,
+          "h": 1,
+          "pixels": 4,
+          "fill_ratio": 1.0
+        }
+      ]
+    },
+    {
+      "cut_y": 401,
+      "reverse": false,
+      "paired_pixels_equal": true,
+      "status": "different",
+      "raw_pixels": 8,
+      "clusters": [
+        {
+          "id": 1,
+          "x": 101,
+          "y": 400,
+          "w": 4,
+          "h": 1,
+          "pixels": 4,
+          "fill_ratio": 1.0
+        },
+        {
+          "id": 2,
+          "x": 101,
+          "y": 501,
+          "w": 4,
+          "h": 1,
+          "pixels": 4,
+          "fill_ratio": 1.0
+        }
+      ]
+    },
+    {
+      "cut_y": 401,
+      "reverse": true,
+      "paired_pixels_equal": true,
+      "status": "different",
+      "raw_pixels": 8,
+      "clusters": [
+        {
+          "id": 1,
+          "x": 101,
+          "y": 400,
+          "w": 4,
+          "h": 1,
+          "pixels": 4,
+          "fill_ratio": 1.0
+        },
+        {
+          "id": 2,
+          "x": 101,
+          "y": 501,
+          "w": 4,
+          "h": 1,
+          "pixels": 4,
+          "fill_ratio": 1.0
+        }
+      ]
+    },
+    {
+      "cut_y": 402,
+      "reverse": false,
+      "paired_pixels_equal": true,
+      "status": "different",
+      "raw_pixels": 8,
+      "clusters": [
+        {
+          "id": 1,
+          "x": 101,
+          "y": 401,
+          "w": 4,
+          "h": 1,
+          "pixels": 4,
+          "fill_ratio": 1.0
+        },
+        {
+          "id": 2,
+          "x": 101,
+          "y": 502,
+          "w": 4,
+          "h": 1,
+          "pixels": 4,
+          "fill_ratio": 1.0
+        }
+      ]
+    },
+    {
+      "cut_y": 402,
+      "reverse": true,
+      "paired_pixels_equal": true,
+      "status": "different",
+      "raw_pixels": 8,
+      "clusters": [
+        {
+          "id": 1,
+          "x": 101,
+          "y": 401,
+          "w": 4,
+          "h": 1,
+          "pixels": 4,
+          "fill_ratio": 1.0
+        },
+        {
+          "id": 2,
+          "x": 101,
+          "y": 502,
+          "w": 4,
+          "h": 1,
+          "pixels": 4,
+          "fill_ratio": 1.0
+        }
+      ]
+    },
+    {
+      "cut_y": 404,
+      "reverse": false,
+      "paired_pixels_equal": true,
+      "status": "different",
+      "raw_pixels": 8,
+      "clusters": [
+        {
+          "id": 1,
+          "x": 101,
+          "y": 403,
+          "w": 4,
+          "h": 1,
+          "pixels": 4,
+          "fill_ratio": 1.0
+        },
+        {
+          "id": 2,
+          "x": 101,
+          "y": 504,
+          "w": 4,
+          "h": 1,
+          "pixels": 4,
+          "fill_ratio": 1.0
+        }
+      ]
+    },
+    {
+      "cut_y": 404,
+      "reverse": true,
+      "paired_pixels_equal": true,
+      "status": "different",
+      "raw_pixels": 8,
+      "clusters": [
+        {
+          "id": 1,
+          "x": 101,
+          "y": 403,
+          "w": 4,
+          "h": 1,
+          "pixels": 4,
+          "fill_ratio": 1.0
+        },
+        {
+          "id": 2,
+          "x": 101,
+          "y": 504,
+          "w": 4,
+          "h": 1,
+          "pixels": 4,
+          "fill_ratio": 1.0
+        }
+      ]
+    },
+    {
+      "cut_y": 408,
+      "reverse": false,
+      "paired_pixels_equal": true,
+      "status": "different",
+      "raw_pixels": 8,
+      "clusters": [
+        {
+          "id": 1,
+          "x": 101,
+          "y": 407,
+          "w": 4,
+          "h": 1,
+          "pixels": 4,
+          "fill_ratio": 1.0
+        },
+        {
+          "id": 2,
+          "x": 101,
+          "y": 508,
+          "w": 4,
+          "h": 1,
+          "pixels": 4,
+          "fill_ratio": 1.0
+        }
+      ]
+    },
+    {
+      "cut_y": 408,
+      "reverse": true,
+      "paired_pixels_equal": true,
+      "status": "different",
+      "raw_pixels": 8,
+      "clusters": [
+        {
+          "id": 1,
+          "x": 101,
+          "y": 407,
+          "w": 4,
+          "h": 1,
+          "pixels": 4,
+          "fill_ratio": 1.0
+        },
+        {
+          "id": 2,
+          "x": 101,
+          "y": 508,
+          "w": 4,
+          "h": 1,
+          "pixels": 4,
+          "fill_ratio": 1.0
+        }
+      ]
+    }
+  ],
+  "pixel_cause": [
+    {
+      "x": 101,
+      "y": 399,
+      "a": [
+        0,
+        0,
+        0
+      ],
+      "b": [
+        0,
+        0,
+        0
+      ],
+      "blur_delta_L": 33.33333206176758,
+      "threshold_L": 33.0
+    },
+    {
+      "x": 102,
+      "y": 399,
+      "a": [
+        0,
+        0,
+        0
+      ],
+      "b": [
+        0,
+        0,
+        0
+      ],
+      "blur_delta_L": 33.33333206176758,
+      "threshold_L": 33.0
+    },
+    {
+      "x": 103,
+      "y": 399,
+      "a": [
+        0,
+        0,
+        0
+      ],
+      "b": [
+        0,
+        0,
+        0
+      ],
+      "blur_delta_L": 33.33333206176758,
+      "threshold_L": 33.0
+    },
+    {
+      "x": 104,
+      "y": 399,
+      "a": [
+        0,
+        0,
+        0
+      ],
+      "b": [
+        0,
+        0,
+        0
+      ],
+      "blur_delta_L": 33.33333206176758,
+      "threshold_L": 33.0
+    },
+    {
+      "x": 101,
+      "y": 500,
+      "a": [
+        0,
+        0,
+        0
+      ],
+      "b": [
+        0,
+        0,
+        0
+      ],
+      "blur_delta_L": 33.33333206176758,
+      "threshold_L": 33.0
+    },
+    {
+      "x": 102,
+      "y": 500,
+      "a": [
+        0,
+        0,
+        0
+      ],
+      "b": [
+        0,
+        0,
+        0
+      ],
+      "blur_delta_L": 33.33333206176758,
+      "threshold_L": 33.0
+    },
+    {
+      "x": 103,
+      "y": 500,
+      "a": [
+        0,
+        0,
+        0
+      ],
+      "b": [
+        0,
+        0,
+        0
+      ],
+      "blur_delta_L": 33.33333206176758,
+      "threshold_L": 33.0
+    },
+    {
+      "x": 104,
+      "y": 500,
+      "a": [
+        0,
+        0,
+        0
+      ],
+      "b": [
+        0,
+        0,
+        0
+      ],
+      "blur_delta_L": 33.33333206176758,
+      "threshold_L": 33.0
+    }
+  ],
+  "probe_source_sha256": {
+    "tools/ReportDiff.RowProbe/GridFixture.cs": "6135908f9432b8638c6743190ad8e4795ef4f52acfb91ab8bcb88ec4420279da",
+    "tools/ReportDiff.RowProbe/PdfSeams.cs": "d14e2e05b470de3f7ecc2f5c59724d9d691cc48a698ac6dba98bfdb4bff41804",
+    "tools/ReportDiff.RowProbe/ProbeMasks.cs": "a38fcfa93e94614b2505d6d31e99d387beb07f12afa28c9c16562ae37ad88c6c",
+    "tools/ReportDiff.RowProbe/Program.cs": "4facc39a433689aa9efc796d0dc1b9e65f374e6319c38f2567e7cb87eb6f819b",
+    "tools/ReportDiff.RowProbe/README.md": "a9129e29e2344c42a8f77d9eeba9f76b9828a2726fa1e90add71a4375975ed22",
+    "tools/ReportDiff.RowProbe/ReportDiff.RowProbe.csproj": "eff08124e2d80b61851618358e4ee72a0b5ca95ac028333e94264e8085d73ade",
+    "tools/ReportDiff.RowProbe/check-reference.py": "a9e3a4518147f61a4b3e8c83de76c34453946695d633d462cfe1ce03e7e05ef8"
+  },
+  "outputs_sha256": {
+    "out/t3-1b-probe/results/pdf/pdf-rule-1.44-inserted-a.pdf": "8d095ba206427ac898c21bbe56dc3a2c5b02465ee1461c1e5a5271ab254c693b",
+    "out/t3-1b-probe/results/pdf/pdf-rule-1.44-inserted-aligned-a.png": "61f306f09c462f2ad8d7fef9b611b1443d0e8cdf2c7972b7724f9526bed04a09",
+    "out/t3-1b-probe/results/pdf/pdf-rule-1.44-inserted-aligned-b.png": "8d8c2a3d64b42ca160a7a448fd99c53c4cfa5dd2b22d546f9a0c66b94a3b9aaf",
+    "out/t3-1b-probe/results/pdf/pdf-rule-1.44-inserted-b.pdf": "b4ff9c5f3feed675f4c8d587873e945c61e91dbc1810d09f55e9260b1eeb0e5c",
+    "out/t3-1b-probe/results/pdf/pdf-rule-1.44-inserted-normal-raw.png": "f0cf428ee22b12f325f1772b43f641f4fe03242863ac955f26c42ce067ac74c8",
+    "out/t3-1b-probe/results/pdf/pdf-rule-1.44-inserted-strict-raw.png": "be26befc293d45e0c1ca446ac50a9f7aa7e75c41f98694b27d5ff0f66d0bcc45"
+  }
+}

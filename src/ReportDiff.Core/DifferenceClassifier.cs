@@ -17,7 +17,7 @@ internal static class DifferenceClassifier
         // 各種の有無だけで分類できるため、割合や多数決のしきい値を持たない。
         var states = new byte[keep.Length];
         var shapeMismatch = new bool[keep.Length];
-        var exclusions = parameters.Exclude.Select(e => PageMap.CanvasRectangle(e, parameters.Dpi, new(width, height))).ToArray();
+        var exclusions = regions?.ExclusionBounds ?? parameters.Exclude.Select(e => PageMap.CanvasRectangle(e, parameters.Dpi, new(width, height))).ToArray();
         byte[]? removed = null;
         for (var y = region.Top; y < region.Bottom; y++)
         for (var x = region.Left; x < region.Right; x++)

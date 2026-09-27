@@ -44,7 +44,9 @@ public sealed class ReportWriterTests
         Assert.Equal(new ReportTool("reportdiff", "0.1.4"), loaded.Tool);
         Assert.Equal(timestamp, loaded.GeneratedAt);
         Assert.Equal(result.Inputs, loaded.Inputs);
-        Keys(root.GetProperty("config"), "dpi", "image_dpi", "diff", "ink", "cluster", "move", "align", "text", "exclude", "report");
+        Keys(root.GetProperty("config"), "dpi", "image_dpi", "diff", "ink", "cluster", "move", "align", "rows", "text", "exclude", "report");
+        Keys(root.GetProperty("config").GetProperty("rows"), "enabled", "max_shift_mm", "min_word_match", "refine_mm", "min_improvement", "min_score_gap", "min_support_bands", "min_support_ink_mm2", "max_segments");
+        Assert.Equal(new RowOptions(), loaded.Config.Rows);
         Keys(root.GetProperty("config").GetProperty("align"), "enabled", "max_shift_mm", "min_score", "min_score_gap", "min_improvement", "coarse_max_side_samples", "refine_radius_samples", "min_support_cells", "min_support_rows", "min_support_columns", "min_ink_area_mm2");
         var clusterConfig = root.GetProperty("config").GetProperty("cluster");
         Keys(clusterConfig, "merge_x_mm", "merge_y_mm", "min_pixels", "max_clusters_per_page", "max_diff_ratio", "reading_band_mm");
@@ -58,7 +60,10 @@ public sealed class ReportWriterTests
         Assert.Equal(2, loaded.Config.Exclude[1].Page);
         Assert.Equal(new ReportSummary("different", 1, 1, 1, 0), loaded.Summary);
         var page = Assert.Single(loaded.Pages);
-        Keys(root.GetProperty("pages")[0], "page", "status", "size_px", "size_mismatch", "raw_pixels", "noise_dropped", "absorbed_groups", "max_shift_px", "global_shift_px", "alignment", "images", "clusters");
+        Keys(root.GetProperty("pages")[0], "page", "status", "size_px", "size_mismatch", "raw_pixels", "noise_dropped", "absorbed_groups", "max_shift_px", "global_shift_px", "alignment", "images", "clusters",
+            "row_alignment", "structural_change_count", "structural_change_counts", "difference_count", "difference_count_complete");
+        Assert.Equal("disabled", page.RowAlignment.Status);
+        Assert.Equal(1, page.DifferenceCount); Assert.Equal(0, page.StructuralChangeCount); Assert.True(page.DifferenceCountComplete);
         Keys(root.GetProperty("pages")[0].GetProperty("alignment"), "status", "reason", "estimated_shift_px", "score_before", "score_after", "score_gap", "coarse_score_gap", "support_cells");
         Keys(root.GetProperty("pages")[0].GetProperty("images"), "a", "b", "overlay", "b_original");
         Assert.Null(page.GlobalShiftPx); Assert.Null(page.Images.BOriginal);
@@ -137,7 +142,7 @@ public sealed class ReportWriterTests
         writer.AddUnpairedPage(2, image);
         var result = directory.CompleteAndRead(writer);
         Assert.Equal(new[] { 2, 3 }, result.Pages.Select(p => p.Page));
-        Assert.Equal(new ReportSummary("different", 0, 2, 0, 0), result.Summary);
+        Assert.Equal(new ReportSummary("different", 0, 2, 0, 0) { DifferenceCountComplete = false }, result.Summary);
         Assert.Equal(new[] { "PAGE_COUNT_MISMATCH", "MIXED_INPUT_TYPES" }, result.Warnings.Select(w => w.Code));
         foreach (var page in result.Pages)
         {

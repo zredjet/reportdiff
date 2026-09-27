@@ -4,6 +4,8 @@
 
 実行対象は Windows x64。開発・検証環境は macOS Apple Silicon。Intel Mac は対象外。分類・移動・PDF テキスト注釈・任意の全体補正・YAML 設定・フォント警告・フォルダ比較に加え、確認用の赤青オーバーレイ・領域別設定・HTMLからの除外YAML出力を実装済み。配布物は [GitHub Releases](https://github.com/zredjet/reportdiff/releases) から取得できる。実帳票による評価（T2-7）はサンプル未準備のためスキップしている。ユーザー実機での条件は [確認リスト](docs/TASKS.md#windows-確認リスト人が実機で行う)で管理する。
 
+開発版では、PDFの行挿入・削除の整列をCLI・JSON・HTMLまで接続している。既定では無効で、配布済みv0.1.4には含まれない。設定は [rows.yaml](examples/rows.yaml)、対応範囲と最終受け入れの残件は [検証記録](docs/verification/t3-1b-acceptance.md)を参照。
+
 ## 差異のサンプル画面
 
 自作の架空の検査記録を、既定設定（normal・300dpi）で比較した例。**数値を80→85へ変更、`DRAFT COPY`を削除、`CHECKED`を追加**し、3箇所の相違を検出している。画面はv0.1.4が出力したHTMLレポートをChromeで表示したもの。

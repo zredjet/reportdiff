@@ -1,0 +1,1540 @@
+{
+  "date": "2026-09-22",
+  "status": "performance_cli_audit_package_verified_browser_partially_checked_deferred",
+  "task_complete": false,
+  "committed": false,
+  "released": false,
+  "baseline_commit": "6a899d1a21a1023cf807c8b0342bac672e4dc62d",
+  "baseline_version": "0.1.4",
+  "product_source_unchanged_from_integration": true,
+  "product_source_sha256": {
+    "src/ReportDiff.Cli/AppSettings.cs": "b2c292532fc4286929a10c817b458a6373f94de9c635a1a300f8526647289b95",
+    "src/ReportDiff.Cli/AssemblyInfo.cs": "502510d8fadecad038256039d5f9b86967f68a15afc8678f06377713652881d3",
+    "src/ReportDiff.Cli/CliApplication.cs": "4de1aca7ac4125deb887f45199c5f38ca117641df4869b64f63e9a3d2116d4ad",
+    "src/ReportDiff.Cli/CommandLine.cs": "bc67f040e1ef7f8bfc4d516471426ff7aaa19126234d966e56848568723e4467",
+    "src/ReportDiff.Cli/ComparisonInput.cs": "1d754daa49db5501b96670b7df72a2564a7c6c635646a4bce214aa34c3d39d5f",
+    "src/ReportDiff.Cli/ComparisonRunner.cs": "c2c8b1087bf619137236f5d3fc0bb10b02ec2fbcd8c4bbaff23677a5589b4153",
+    "src/ReportDiff.Cli/ConfigurationLoader.cs": "be6b1cbb35ab88e28398ee2ce0a33856c398e2e0b391c00592039dc8bc2c9d21",
+    "src/ReportDiff.Cli/ConsoleProgress.cs": "0cb7b66daad44296b5d6b4926fc28dd419bf51704b8b663a833975a23049d52f",
+    "src/ReportDiff.Cli/DirectoryComparison.cs": "c85858c3b976f57197c0229784914fb8f591f35493d0e5c525347242d0dbb354",
+    "src/ReportDiff.Cli/DirectoryPlan.cs": "2ecb852089f07c15d4a9034207d81f83f58f2a3908580b4c0b08d63094ac9d28",
+    "src/ReportDiff.Cli/DirectoryRules.cs": "787adc3a21ec140d80da80b092bd280917b346bfe64190f5cc40e56be6353191",
+    "src/ReportDiff.Cli/OutputWorkspace.cs": "51acec7c80adca8d3e48921cb398737dcd989d5891ae414fd70b666927ce669e",
+    "src/ReportDiff.Cli/Program.cs": "b7a3b4da069f34065cf8b42f618a5828c84090358479cc58fe84755c528448c6",
+    "src/ReportDiff.Cli/RegionSetting.cs": "996d86b96f8650d79a77c6865c037939a9d792550cbdde062a9738c05481f316",
+    "src/ReportDiff.Core/AssemblyInfo.cs": "060494a4b480a2d869fb11948811c14bcc777dbd4aa419b50dff4dce085b180c",
+    "src/ReportDiff.Core/CandidateRowSchedule.cs": "d3c3deb2467083a063e2f9d5a522760ca616ff74d3439c92830e1ddd91c329d9",
+    "src/ReportDiff.Core/ClusterProjectionData.cs": "e66b6b052b86092d2038a4f8e6fd010a75a9575dc74991730b4137fdc5a16015",
+    "src/ReportDiff.Core/ComparisonFeatures.cs": "b8c53bfdede76a9623d26c6f3ef48e28e5f690f875a4f4defbc38d6930211fda",
+    "src/ReportDiff.Core/ComparisonInk.cs": "bb06f1b539af62988ece41b65d992c07c8c791ab41d3ee087e2ae6c4bfadcf03",
+    "src/ReportDiff.Core/ComparisonParameters.cs": "5d4f15ca53e464931a8458a6b1bbf78769c1f14e9ab4162df5a6a7caf3cccee4",
+    "src/ReportDiff.Core/ComparisonTimings.cs": "0f6b8bf17f527e6f20d0eeea01e87437d663bddc866ac84f91e527b665e4f981",
+    "src/ReportDiff.Core/DifferenceClassifier.cs": "dc43e65f285a86b9ce926e19ea5145904e6d516c39f5d01a4b742817c38f134c",
+    "src/ReportDiff.Core/FeatureStripeSchedule.cs": "c9a602a01dc32d731af4bef1b7ef1923254a27e60a6b1bd3a81c7e14bf14549d",
+    "src/ReportDiff.Core/GlobalAlignment.cs": "eaa3777e70ed94b4bf171c5414426138fde5fc7627410015af7511e625f9d034",
+    "src/ReportDiff.Core/GroupCandidateSchedule.cs": "a8bb6419e82d6e1b932de721e83267ce5788e577b1da8441abbede8c5ffeda57",
+    "src/ReportDiff.Core/GroupCandidateSearch.cs": "ca903b3a82423f993043126dfa015c90a5f8adebf0a0ba296034bfcef431a698",
+    "src/ReportDiff.Core/GroupRunIndex.cs": "28ff0084042dc65d92ba6e1aa95f07b560801c056d54c320b6d302e6e2281f4e",
+    "src/ReportDiff.Core/GroupSearchSchedule.cs": "b36fcd6ee1a9c7faa086e85fcd00dbb6c3a6f1bf86a268b82318f92890fa02cb",
+    "src/ReportDiff.Core/GroupShiftSearch.cs": "6e95c31ab2c87acddeb01a6b863d817542319d2362858553b27cc5b9dc8dafba",
+    "src/ReportDiff.Core/ImageInk.cs": "3f3cefe9141fac6275b30d87a83d742e5330130d81294c21e67581cddf72be09",
+    "src/ReportDiff.Core/InitialCandidates.cs": "74822751930b3401ca4145b7ec5e9e2cfe6f0569a234c8f189d580d8301136d2",
+    "src/ReportDiff.Core/LabStripeCache.cs": "f68aff9007a05c249158ffe1ce6079eb685fab9e638bd81469dc4e26606609ff",
+    "src/ReportDiff.Core/MatBuffers.cs": "d196bd1541bd385b89ab9fd78882498c0ead5b2239d89c0bb19b39f8d7af45f9",
+    "src/ReportDiff.Core/MovementAnnotator.cs": "f6ceb5f6a84b2b08da0dc8daa5d71861462d308f6f9390594fdd3fafc599e9b8",
+    "src/ReportDiff.Core/PageComparer.cs": "d560b3f307a0f6c37539ac36dd1157f394ac9eb77fe2223d9cea24d7087434e8",
+    "src/ReportDiff.Core/PageComparison.cs": "310e74bb4ac5c520cc3d853bdcd2aa939cafb52a19c08e8569d64b04f0e3847b",
+    "src/ReportDiff.Core/PageMap.cs": "d037a4dc953cd2b6e4445055d05ebe1daf6e7872836909862150b147a9a75079",
+    "src/ReportDiff.Core/RegionMap.cs": "00e09dea774c79818e297f2e674ae079f5fbfe8592672080fa9d0ccbb126716e",
+    "src/ReportDiff.Core/RegionalComparison.cs": "2629aa0fd34db7991067c87bae77efdc9a8815b0c287908961846b7b46985049",
+    "src/ReportDiff.Core/RowCandidateBuilder.cs": "f5f676712eb46ba58a466d8604433f3708ad020e09f23b3e692038c9f125e1a2",
+    "src/ReportDiff.Core/RowCanonicalizer.cs": "d1e66171499f03b5014afe846ba745e825707eb25b34d4d48334b345deaa4e81",
+    "src/ReportDiff.Core/RowComparison.cs": "3aac86bdf5bae8d6de6eac16f7d00f557eeac68c4fa87f141b688658140f895a",
+    "src/ReportDiff.Core/RowComparisonSurface.cs": "34fab9a23504973d274f75f69b23232924a737f291bb424eb6ecd81d5f888c5c",
+    "src/ReportDiff.Core/RowMatching.cs": "a7015cafed9839a10db95b32de5705abd209fa571bbbede0d70e9c83e87ade72",
+    "src/ReportDiff.Core/RowProjection.cs": "4715d629b2951837662c91d9d613a19a64ef4f77a6e50d545dffca720d90d7d1",
+    "src/ReportDiff.Core/RowSelector.cs": "fde9b78848ed9fcc123540d89693655af03b4514252645ee5c2c4540074c0155",
+    "src/ReportDiff.Core/RowStructures.cs": "d9edbb5e189b6aa5c1336f6d81cb741b572491c20f178a8e81e2c5bdc187ce11",
+    "src/ReportDiff.Core/RowSupport.cs": "db3a85cc3633a1fa4332ef5ff40c0f5724ea5e72d29ba8e6d43ce8b2a919c951",
+    "src/ReportDiff.Core/RowText.cs": "43fa7322ddfb229859dee495a90534488203ee6f51cc6c4494a8f44c4407fc75",
+    "src/ReportDiff.Core/TolerantDifference.cs": "5a9082634252a07b14b0ea2adf16c54fa2ce536eb9fd47374224f3a254c70e45",
+    "src/ReportDiff.Core/Units.cs": "2664a41731483bc23aaccd4dc5a7c462a90e7042960404fe93453a92ef4ea5e9",
+    "src/ReportDiff.Pdf/AssemblyInfo.cs": "502510d8fadecad038256039d5f9b86967f68a15afc8678f06377713652881d3",
+    "src/ReportDiff.Pdf/ImageReader.cs": "dd65252e10e2046c5401cb9b0c490d10ceb2a51ca974192507dfe4e811cdd8dd",
+    "src/ReportDiff.Pdf/InputFormat.cs": "a5ba93584766984432a613e038d249f49053a57bd8bd5ef433aecdeddb479fbc",
+    "src/ReportDiff.Pdf/LoadedImage.cs": "9a479a6e661bbfcdc3eb01e3d750914b6282b2fb5f19ee0fbb3a212b83e6ec44",
+    "src/ReportDiff.Pdf/PageNormalizer.cs": "78a9ba69476d8cf0e68b40d15d84beec72c4c5b80908cad16bfc57d48b2a8c0a",
+    "src/ReportDiff.Pdf/PagePairing.cs": "abd54c801c2816fb19518c20bf49c88d3e0366491648374ea1aaabee3c22554a",
+    "src/ReportDiff.Pdf/PageSelection.cs": "0cb8f84064f1d7263a2f30b06f20c77dd60688f877405103c57b3ab55ce999ab",
+    "src/ReportDiff.Pdf/PdfFontInspector.cs": "6ddcb863b79063e7594e5ad5779a62c9efd5a98fc80ebcc43be64636a5228997",
+    "src/ReportDiff.Pdf/PdfReader.cs": "a521c0532b0e2cd061e8ce6cd68403cd8eac45d3453f8a37b79b4d79647c20f5",
+    "src/ReportDiff.Pdf/PdfTextReader.cs": "dbc3cf40bd7e3c5a5c655a06507ff092db4b067d45e08abb4fab1bc102df4d30",
+    "src/ReportDiff.Pdf/RowTextAnnotations.cs": "446de90eff2def29253da9ef6e9be085266986c448b22e3210095ad44f4a9eb6",
+    "src/ReportDiff.Pdf/TextAnnotations.cs": "e5fd667b6573f13fd91c697395d4a74efcf3be66dc9a89992b7b6395a866a5dc",
+    "src/ReportDiff.Pdf/TextOptions.cs": "c8cc766ededff6c993791593583a7e9ccbf559e2fc5335cc58fad132079be9fb",
+    "src/ReportDiff.Pdf/TiffAlpha.cs": "e6bbb487b32ac0592ab01d5f1b0fd8f40ccb2c093f4c825e8d57aa3a70f98b79",
+    "src/ReportDiff.Report/AssemblyInfo.cs": "502510d8fadecad038256039d5f9b86967f68a15afc8678f06377713652881d3",
+    "src/ReportDiff.Report/DirectoryReportDocument.cs": "a39cd5125411dd8c33d8beeec0e3469d283a968a96d53e6331332001ced9e167",
+    "src/ReportDiff.Report/DirectoryReportWriter.cs": "abd8d41e469101e279358c377a8018e51610c648a263c41ff94b14ec1432c72c",
+    "src/ReportDiff.Report/ExclusionSnippet.cs": "80ee4fd3b2da35ded4b023f9f6f6fa7a4b95fc6f3e6c3220dc6b7437a75f0385",
+    "src/ReportDiff.Report/HtmlRegions.cs": "e68cab2a4ca0ed73b0235883a373d99cb96bdb5585f1346256bc071ed6c7ac8b",
+    "src/ReportDiff.Report/HtmlReportWriter.cs": "a9b7f474457d4c97b29add592e48a8bf91a70feec6c2516a46fae91130954dd2",
+    "src/ReportDiff.Report/HtmlRows.cs": "d38d7a7bc40465e07b4848d1031ea774f0b524e6ef34c975d8db74339aeb5f89",
+    "src/ReportDiff.Report/PageImageWriteSchedule.cs": "5bf20dce01198ed377d7c41807830a5fa0c991c26d45c84982911d234289b24a",
+    "src/ReportDiff.Report/RawOverlay.cs": "73a821cc489464ec7f0990dd782e5012e7a5a7de20ce16b65a4cc18f9d828a07",
+    "src/ReportDiff.Report/RegionDrawing.cs": "7babd3024d1a5f76299d5be90f2ce7f50a34d5073093bc97326da491a5a69da5",
+    "src/ReportDiff.Report/ReportColor.cs": "6979a1d00188bf4dd353523ba5dc1ae41cae63b9e337c349d8e450f2ee15a2ef",
+    "src/ReportDiff.Report/ReportDocument.cs": "1fa602c4ad68f242a56d7d94ea16977d649d8898affd8f8be89d75ef6cb97e3b",
+    "src/ReportDiff.Report/ReportImages.cs": "5d6826c78c5623acec087fd995e2864d4913a19d2691039c70b0530bbe4f4a8d",
+    "src/ReportDiff.Report/ReportRegions.cs": "5b9a45eb31fd0bdb41d206b74cb89335358969eebf9cc017494e54f185724443",
+    "src/ReportDiff.Report/ReportRows.cs": "95f0e706abd3e70a0a896a2540cb17af88fb632c53b7cb96234927abac6e76ee",
+    "src/ReportDiff.Report/ReportWriter.cs": "843793c3bcfa2bca1289d514e24a6e432a3f7c212e210e74dc2e079d2de99411"
+  },
+  "build": {
+    "configuration": "Release",
+    "warnings": 0,
+    "errors": 0
+  },
+  "tests": {
+    "all": 1713,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "not_run": 0,
+    "seconds": 154.913,
+    "fixed_reference_cases": 174,
+    "test_timings_are_performance_acceptance": false
+  },
+  "performance": {
+    "platform": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+    "cpu_count": 16,
+    "scope": "独立したCLIプロセスの起動・PDF描画・比較・注釈・HTML/JSON/PNG/raw evidence保存。macOS wait4の子プロセス別最大RSS（bytes）。全実行は逐次。",
+    "dpi": 300,
+    "page_mm": [
+      210,
+      297
+    ],
+    "render_size_px": [
+      2480,
+      3507
+    ],
+    "conditions": 12,
+    "runs": 96,
+    "iterations": 3,
+    "warmups_per_binary_and_condition": 1,
+    "all_runs_sequential": true,
+    "cold_cache_guaranteed": false,
+    "cli_sha256": "3160be37594e16e0f50372bfdfdaf22155ffbf0a8ee3c419f4a27fc7008cdb57",
+    "instrumented_cli_sha256": "cf2e3522416f8e3d27b06a9bc130eefcfd4eb410edde1abfc59e927b7995a22c",
+    "all_outputs_equal_except_generated_at": true,
+    "measurements": [
+      {
+        "case": {
+          "id": "identical-off",
+          "scenario": "identical",
+          "enabled": false,
+          "variants": 1,
+          "config": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1b-acceptance/measurements-final/identical-off.yaml",
+          "a": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1b-acceptance/inputs-final/short-a.pdf",
+          "b": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1b-acceptance/inputs-final/short-a.pdf"
+        },
+        "product": {
+          "median_ms": 505.36145898513496,
+          "min_ms": 505.32908306922764,
+          "max_ms": 533.8970829034224,
+          "median_peak_rss_bytes": 285540352,
+          "max_peak_rss_bytes": 285589504,
+          "output_bytes_median": 291998,
+          "png_bytes": 265290,
+          "png_count": 3
+        },
+        "instrumented": {
+          "median_ms": 520.4246669309214,
+          "min_ms": 506.6597079858184,
+          "max_ms": 533.1339999102056,
+          "median_peak_rss_bytes": 286294016,
+          "max_peak_rss_bytes": 286392320,
+          "output_bytes_median": 291998,
+          "png_bytes": 265290,
+          "png_count": 3,
+          "stages_median_ms": {
+            "annotations": 1.3378,
+            "baseline_compare": 11.0974,
+            "display_render_a": 0.0572,
+            "display_render_b": 0.021,
+            "fonts_a": 138.6786,
+            "fonts_b": 4.6411,
+            "global_align": 1.2233,
+            "normalize": 3.7595,
+            "open_a": 5.0175,
+            "open_b": 0.1175,
+            "render_a": 16.3081,
+            "render_b": 3.5885,
+            "save_html": 5.2255,
+            "save_json": 23.7802,
+            "save_page": 85.5917
+          }
+        }
+      },
+      {
+        "case": {
+          "id": "identical-on",
+          "scenario": "identical",
+          "enabled": true,
+          "variants": 1,
+          "config": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1b-acceptance/measurements-final/identical-on.yaml",
+          "a": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1b-acceptance/inputs-final/short-a.pdf",
+          "b": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1b-acceptance/inputs-final/short-a.pdf"
+        },
+        "product": {
+          "median_ms": 505.72820799425244,
+          "min_ms": 503.3185000065714,
+          "max_ms": 517.8729170002043,
+          "median_peak_rss_bytes": 285622272,
+          "max_peak_rss_bytes": 286392320,
+          "output_bytes_median": 292700,
+          "png_bytes": 265290,
+          "png_count": 3
+        },
+        "instrumented": {
+          "median_ms": 511.6703329840675,
+          "min_ms": 506.8838329752907,
+          "max_ms": 517.7643750794232,
+          "median_peak_rss_bytes": 285474816,
+          "max_peak_rss_bytes": 285655040,
+          "output_bytes_median": 292698,
+          "png_bytes": 265290,
+          "png_count": 3,
+          "stages_median_ms": {
+            "annotations": 1.3065,
+            "baseline_compare": 12.2021,
+            "display_render_a": 0.0523,
+            "display_render_b": 0.0187,
+            "fonts_a": 137.5773,
+            "fonts_b": 4.5349,
+            "global_align": 1.2793,
+            "normalize": 3.8039,
+            "open_a": 4.9936,
+            "open_b": 0.1042,
+            "render_a": 16.2711,
+            "render_b": 3.735,
+            "save_html": 5.4002,
+            "save_json": 23.9127,
+            "save_page": 85.1653
+          }
+        }
+      },
+      {
+        "case": {
+          "id": "adopted-off",
+          "scenario": "adopted",
+          "enabled": false,
+          "variants": 1,
+          "config": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1b-acceptance/measurements-final/adopted-off.yaml",
+          "a": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1b-acceptance/inputs-final/short-a.pdf",
+          "b": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1b-acceptance/inputs-final/short-b.pdf"
+        },
+        "product": {
+          "median_ms": 740.0849589612335,
+          "min_ms": 732.7920839888975,
+          "max_ms": 745.7264170516282,
+          "median_peak_rss_bytes": 961970176,
+          "max_peak_rss_bytes": 962527232,
+          "output_bytes_median": 533385,
+          "png_bytes": 484461,
+          "png_count": 25
+        },
+        "instrumented": {
+          "median_ms": 738.6888751061633,
+          "min_ms": 738.2592089707032,
+          "max_ms": 761.2441250821576,
+          "median_peak_rss_bytes": 965853184,
+          "max_peak_rss_bytes": 966017024,
+          "output_bytes_median": 533385,
+          "png_bytes": 484461,
+          "png_count": 25,
+          "stages_median_ms": {
+            "annotations": 148.4023,
+            "baseline_compare": 208.4746,
+            "display_render_a": 0.0553,
+            "display_render_b": 0.0196,
+            "fonts_a": 2.423,
+            "fonts_b": 0.5511,
+            "global_align": 1.2533,
+            "normalize": 3.7569,
+            "open_a": 5.2292,
+            "open_b": 0.111,
+            "render_a": 16.1597,
+            "render_b": 3.6883,
+            "save_html": 6.0571,
+            "save_json": 27.6069,
+            "save_page": 100.4394
+          }
+        }
+      },
+      {
+        "case": {
+          "id": "adopted-on",
+          "scenario": "adopted",
+          "enabled": true,
+          "variants": 1,
+          "config": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1b-acceptance/measurements-final/adopted-on.yaml",
+          "a": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1b-acceptance/inputs-final/short-a.pdf",
+          "b": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1b-acceptance/inputs-final/short-b.pdf"
+        },
+        "product": {
+          "median_ms": 1041.7417080607265,
+          "min_ms": 1040.431792032905,
+          "max_ms": 1110.8702919445932,
+          "median_peak_rss_bytes": 1170849792,
+          "max_peak_rss_bytes": 1173553152,
+          "output_bytes_median": 830512,
+          "png_bytes": 779045,
+          "png_count": 11
+        },
+        "instrumented": {
+          "median_ms": 1048.026124946773,
+          "min_ms": 1045.4086669487879,
+          "max_ms": 1088.8327920110896,
+          "median_peak_rss_bytes": 1169932288,
+          "max_peak_rss_bytes": 1174929408,
+          "output_bytes_median": 830512,
+          "png_bytes": 779045,
+          "png_count": 11,
+          "stages_median_ms": {
+            "annotations": 3.9268,
+            "baseline_compare": 208.6787,
+            "candidate_compare": 104.5846,
+            "content_render_a": 0.6618,
+            "content_render_b": 1.0507,
+            "display_project": 36.6898,
+            "display_render_a": 0.7242,
+            "display_render_b": 1.7756,
+            "fonts_a": 2.2092,
+            "fonts_b": 0.5355,
+            "global_align": 1.2233,
+            "normalize": 4.1563,
+            "open_a": 5.0854,
+            "open_b": 0.1305,
+            "render_a": 16.2185,
+            "render_b": 3.7972,
+            "row_select": 95.1193,
+            "row_text": 145.6297,
+            "save_html": 8.3777,
+            "save_json": 27.2201,
+            "save_page": 166.8092
+          }
+        }
+      },
+      {
+        "case": {
+          "id": "columns-off",
+          "scenario": "columns",
+          "enabled": false,
+          "variants": 1,
+          "config": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1b-acceptance/measurements-final/columns-off.yaml",
+          "a": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1b-acceptance/inputs-final/columns-a.pdf",
+          "b": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1b-acceptance/inputs-final/columns-b.pdf"
+        },
+        "product": {
+          "median_ms": 762.0246669976041,
+          "min_ms": 761.5099169779569,
+          "max_ms": 813.3560830028728,
+          "median_peak_rss_bytes": 965541888,
+          "max_peak_rss_bytes": 971374592,
+          "output_bytes_median": 2582876,
+          "png_bytes": 2498499,
+          "png_count": 61
+        },
+        "instrumented": {
+          "median_ms": 765.254957950674,
+          "min_ms": 763.6184999719262,
+          "max_ms": 807.7967501012608,
+          "median_peak_rss_bytes": 967688192,
+          "max_peak_rss_bytes": 968146944,
+          "output_bytes_median": 2582876,
+          "png_bytes": 2498499,
+          "png_count": 61,
+          "stages_median_ms": {
+            "annotations": 155.568,
+            "baseline_compare": 209.6204,
+            "display_render_a": 0.0536,
+            "display_render_b": 0.019,
+            "fonts_a": 2.471,
+            "fonts_b": 0.628,
+            "global_align": 1.2006,
+            "normalize": 3.9226,
+            "open_a": 5.2282,
+            "open_b": 0.1403,
+            "render_a": 19.1328,
+            "render_b": 6.7967,
+            "save_html": 6.2769,
+            "save_json": 26.8618,
+            "save_page": 114.4819
+          }
+        }
+      },
+      {
+        "case": {
+          "id": "columns-on",
+          "scenario": "columns",
+          "enabled": true,
+          "variants": 1,
+          "config": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1b-acceptance/measurements-final/columns-on.yaml",
+          "a": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1b-acceptance/inputs-final/columns-a.pdf",
+          "b": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1b-acceptance/inputs-final/columns-b.pdf"
+        },
+        "product": {
+          "median_ms": 789.4902089610696,
+          "min_ms": 782.8829579520971,
+          "max_ms": 828.4500000299886,
+          "median_peak_rss_bytes": 960659456,
+          "max_peak_rss_bytes": 964706304,
+          "output_bytes_median": 2584446,
+          "png_bytes": 2498499,
+          "png_count": 61
+        },
+        "instrumented": {
+          "median_ms": 791.1422080360353,
+          "min_ms": 782.455459004268,
+          "max_ms": 809.3123330036178,
+          "median_peak_rss_bytes": 964116480,
+          "max_peak_rss_bytes": 968556544,
+          "output_bytes_median": 2584446,
+          "png_bytes": 2498499,
+          "png_count": 61,
+          "stages_median_ms": {
+            "annotations": 10.3068,
+            "baseline_compare": 209.0192,
+            "display_render_a": 0.0459,
+            "display_render_b": 0.0172,
+            "fonts_a": 2.2757,
+            "fonts_b": 0.5891,
+            "global_align": 1.2752,
+            "normalize": 3.7178,
+            "open_a": 5.2928,
+            "open_b": 0.1234,
+            "render_a": 18.7461,
+            "render_b": 6.558,
+            "row_select": 17.3272,
+            "row_text": 155.4677,
+            "save_html": 6.5411,
+            "save_json": 25.116,
+            "save_page": 115.0755
+          }
+        }
+      },
+      {
+        "case": {
+          "id": "low-improvement-off",
+          "scenario": "low-improvement",
+          "enabled": false,
+          "variants": 1,
+          "config": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1b-acceptance/measurements-final/low-improvement-off.yaml",
+          "a": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1b-acceptance/inputs-final/adopted-a.pdf",
+          "b": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1b-acceptance/inputs-final/adopted-b.pdf"
+        },
+        "product": {
+          "median_ms": 768.530375091359,
+          "min_ms": 757.5460000662133,
+          "max_ms": 787.4791250796989,
+          "median_peak_rss_bytes": 974700544,
+          "max_peak_rss_bytes": 977207296,
+          "output_bytes_median": 1524987,
+          "png_bytes": 1440624,
+          "png_count": 61
+        },
+        "instrumented": {
+          "median_ms": 759.9339169682935,
+          "min_ms": 750.8245839271694,
+          "max_ms": 771.2878750171512,
+          "median_peak_rss_bytes": 969965568,
+          "max_peak_rss_bytes": 972062720,
+          "output_bytes_median": 1524987,
+          "png_bytes": 1440624,
+          "png_count": 61,
+          "stages_median_ms": {
+            "annotations": 150.9856,
+            "baseline_compare": 214.401,
+            "display_render_a": 0.0528,
+            "display_render_b": 0.0189,
+            "fonts_a": 2.3483,
+            "fonts_b": 0.5919,
+            "global_align": 1.22,
+            "normalize": 3.7829,
+            "open_a": 4.9739,
+            "open_b": 0.1125,
+            "render_a": 17.385,
+            "render_b": 4.9822,
+            "save_html": 6.3221,
+            "save_json": 27.6371,
+            "save_page": 110.7869
+          }
+        }
+      },
+      {
+        "case": {
+          "id": "low-improvement-on",
+          "scenario": "low-improvement",
+          "enabled": true,
+          "variants": 1,
+          "config": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1b-acceptance/measurements-final/low-improvement-on.yaml",
+          "a": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1b-acceptance/inputs-final/adopted-a.pdf",
+          "b": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1b-acceptance/inputs-final/adopted-b.pdf"
+        },
+        "product": {
+          "median_ms": 1048.3569171046838,
+          "min_ms": 1044.70141697675,
+          "max_ms": 1049.0822499850765,
+          "median_peak_rss_bytes": 1103331328,
+          "max_peak_rss_bytes": 1103429632,
+          "output_bytes_median": 1526668,
+          "png_bytes": 1440624,
+          "png_count": 61
+        },
+        "instrumented": {
+          "median_ms": 1043.2665420230478,
+          "min_ms": 1037.7445420017466,
+          "max_ms": 1062.2310420731083,
+          "median_peak_rss_bytes": 1102282752,
+          "max_peak_rss_bytes": 1108099072,
+          "output_bytes_median": 1526668,
+          "png_bytes": 1440624,
+          "png_count": 61,
+          "stages_median_ms": {
+            "annotations": 5.7527,
+            "baseline_compare": 221.2343,
+            "candidate_compare": 110.621,
+            "content_render_a": 0.6292,
+            "content_render_b": 1.0622,
+            "display_render_a": 0.0513,
+            "display_render_b": 0.0191,
+            "fonts_a": 2.2862,
+            "fonts_b": 0.5697,
+            "global_align": 1.186,
+            "normalize": 3.7915,
+            "open_a": 5.1008,
+            "open_b": 0.122,
+            "render_a": 17.1284,
+            "render_b": 4.815,
+            "row_select": 165.3928,
+            "row_text": 150.0775,
+            "save_html": 7.0579,
+            "save_json": 25.9284,
+            "save_page": 108.745
+          }
+        }
+      },
+      {
+        "case": {
+          "id": "regions-2-off",
+          "scenario": "regions-2",
+          "enabled": false,
+          "variants": 2,
+          "config": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1b-acceptance/measurements-final/regions-2-off.yaml",
+          "a": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1b-acceptance/inputs-final/short-a.pdf",
+          "b": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1b-acceptance/inputs-final/short-b.pdf"
+        },
+        "product": {
+          "median_ms": 865.2962920023128,
+          "min_ms": 844.8837079340592,
+          "max_ms": 865.4896250227466,
+          "median_peak_rss_bytes": 1020395520,
+          "max_peak_rss_bytes": 1022050304,
+          "output_bytes_median": 562901,
+          "png_bytes": 507677,
+          "png_count": 25
+        },
+        "instrumented": {
+          "median_ms": 858.7579170707613,
+          "min_ms": 857.8182089840993,
+          "max_ms": 874.5135000208393,
+          "median_peak_rss_bytes": 1021378560,
+          "max_peak_rss_bytes": 1022312448,
+          "output_bytes_median": 562901,
+          "png_bytes": 507677,
+          "png_count": 25,
+          "stages_median_ms": {
+            "annotations": 146.2756,
+            "baseline_compare": 304.4494,
+            "display_render_a": 0.0515,
+            "display_render_b": 0.0186,
+            "fonts_a": 2.2344,
+            "fonts_b": 1.4493,
+            "global_align": 1.1783,
+            "normalize": 3.7932,
+            "open_a": 5.1696,
+            "open_b": 0.1336,
+            "render_a": 15.51,
+            "render_b": 3.6615,
+            "save_html": 6.7301,
+            "save_json": 25.5449,
+            "save_page": 130.1021
+          }
+        }
+      },
+      {
+        "case": {
+          "id": "regions-2-on",
+          "scenario": "regions-2",
+          "enabled": true,
+          "variants": 2,
+          "config": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1b-acceptance/measurements-final/regions-2-on.yaml",
+          "a": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1b-acceptance/inputs-final/short-a.pdf",
+          "b": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1b-acceptance/inputs-final/short-b.pdf"
+        },
+        "product": {
+          "median_ms": 1246.0541659966111,
+          "min_ms": 1223.6835410585627,
+          "max_ms": 1285.8972910325974,
+          "median_peak_rss_bytes": 1258799104,
+          "max_peak_rss_bytes": 1261207552,
+          "output_bytes_median": 861654,
+          "png_bytes": 802780,
+          "png_count": 11
+        },
+        "instrumented": {
+          "median_ms": 1259.5355829689652,
+          "min_ms": 1230.9357500635087,
+          "max_ms": 1263.8672079192474,
+          "median_peak_rss_bytes": 1296728064,
+          "max_peak_rss_bytes": 1301348352,
+          "output_bytes_median": 861654,
+          "png_bytes": 802780,
+          "png_count": 11,
+          "stages_median_ms": {
+            "annotations": 3.9617,
+            "baseline_compare": 303.0142,
+            "candidate_compare": 164.312,
+            "content_render_a": 0.623,
+            "content_render_b": 0.5883,
+            "display_project": 42.5676,
+            "display_render_a": 0.6468,
+            "display_render_b": 1.778,
+            "fonts_a": 2.3385,
+            "fonts_b": 0.623,
+            "global_align": 1.2149,
+            "normalize": 3.9504,
+            "open_a": 5.2952,
+            "open_b": 0.1296,
+            "render_a": 16.1814,
+            "render_b": 3.5388,
+            "row_select": 98.4405,
+            "row_text": 145.912,
+            "save_html": 8.9734,
+            "save_json": 26.8519,
+            "save_page": 194.0461
+          }
+        }
+      },
+      {
+        "case": {
+          "id": "regions-3-off",
+          "scenario": "regions-3",
+          "enabled": false,
+          "variants": 3,
+          "config": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1b-acceptance/measurements-final/regions-3-off.yaml",
+          "a": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1b-acceptance/inputs-final/short-a.pdf",
+          "b": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1b-acceptance/inputs-final/short-b.pdf"
+        },
+        "product": {
+          "median_ms": 985.1862909272313,
+          "min_ms": 963.4559999685735,
+          "max_ms": 985.5473330244422,
+          "median_peak_rss_bytes": 1027555328,
+          "max_peak_rss_bytes": 1029636096,
+          "output_bytes_median": 587730,
+          "png_bytes": 529706,
+          "png_count": 25
+        },
+        "instrumented": {
+          "median_ms": 985.7523329555988,
+          "min_ms": 963.2077920250595,
+          "max_ms": 1030.6744580157101,
+          "median_peak_rss_bytes": 1029619712,
+          "max_peak_rss_bytes": 1029849088,
+          "output_bytes_median": 587730,
+          "png_bytes": 529706,
+          "png_count": 25,
+          "stages_median_ms": {
+            "annotations": 149.915,
+            "baseline_compare": 418.6365,
+            "display_render_a": 0.0502,
+            "display_render_b": 0.0186,
+            "fonts_a": 2.3174,
+            "fonts_b": 1.4661,
+            "global_align": 1.2561,
+            "normalize": 3.8992,
+            "open_a": 5.1672,
+            "open_b": 0.1126,
+            "render_a": 15.9874,
+            "render_b": 3.6756,
+            "save_html": 6.6392,
+            "save_json": 26.0664,
+            "save_page": 131.4515
+          }
+        }
+      },
+      {
+        "case": {
+          "id": "regions-3-on",
+          "scenario": "regions-3",
+          "enabled": true,
+          "variants": 3,
+          "config": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1b-acceptance/measurements-final/regions-3-on.yaml",
+          "a": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1b-acceptance/inputs-final/short-a.pdf",
+          "b": "/Users/redjet/aruma/repos/zredjet/reportdiff/out/t3-1b-acceptance/inputs-final/short-b.pdf"
+        },
+        "product": {
+          "median_ms": 1486.7402500240132,
+          "min_ms": 1444.5414999499917,
+          "max_ms": 1543.6707090120763,
+          "median_peak_rss_bytes": 1271332864,
+          "max_peak_rss_bytes": 1274937344,
+          "output_bytes_median": 885306,
+          "png_bytes": 822595,
+          "png_count": 11
+        },
+        "instrumented": {
+          "median_ms": 1497.556749964133,
+          "min_ms": 1460.9262089943513,
+          "max_ms": 1516.6542090009898,
+          "median_peak_rss_bytes": 1287127040,
+          "max_peak_rss_bytes": 1293778944,
+          "output_bytes_median": 885306,
+          "png_bytes": 822595,
+          "png_count": 11,
+          "stages_median_ms": {
+            "annotations": 3.9777,
+            "baseline_compare": 423.0984,
+            "candidate_compare": 279.0732,
+            "content_render_a": 0.5837,
+            "content_render_b": 0.5557,
+            "display_project": 57.8202,
+            "display_render_a": 0.7233,
+            "display_render_b": 1.6767,
+            "fonts_a": 2.4707,
+            "fonts_b": 0.6107,
+            "global_align": 1.2294,
+            "normalize": 3.8577,
+            "open_a": 5.2362,
+            "open_b": 0.1269,
+            "render_a": 15.7922,
+            "render_b": 3.5133,
+            "row_select": 89.3247,
+            "row_text": 145.8094,
+            "save_html": 9.7179,
+            "save_json": 30.0535,
+            "save_page": 199.0065
+          }
+        }
+      }
+    ]
+  },
+  "cli_audit": {
+    "runs": 20,
+    "measurements_raw_and_fallback_parity": [
+      {
+        "scenario": "identical",
+        "raw_evidence_identical": true,
+        "fallback_existing_outputs_identical": true
+      },
+      {
+        "scenario": "adopted",
+        "raw_evidence_identical": true,
+        "fallback_existing_outputs_identical": false
+      },
+      {
+        "scenario": "columns",
+        "raw_evidence_identical": true,
+        "fallback_existing_outputs_identical": true
+      },
+      {
+        "scenario": "low-improvement",
+        "raw_evidence_identical": true,
+        "fallback_existing_outputs_identical": true
+      },
+      {
+        "scenario": "regions-2",
+        "raw_evidence_identical": true,
+        "fallback_existing_outputs_identical": false
+      },
+      {
+        "scenario": "regions-3",
+        "raw_evidence_identical": true,
+        "fallback_existing_outputs_identical": false
+      }
+    ],
+    "cases": [
+      {
+        "id": "nested",
+        "exit_code": 1,
+        "summary": {
+          "status": "different",
+          "pages_compared": 1,
+          "pages_different": 1,
+          "clusters": 1,
+          "absorbed_groups": 0,
+          "structural_change_count": 2,
+          "structural_change_counts": {
+            "inserted": 1,
+            "deleted": 0,
+            "block_moved": 1
+          },
+          "difference_count": 3,
+          "difference_count_complete": true
+        },
+        "row_reason": "applied",
+        "row_detail": null,
+        "baseline_raw_pixels": 10661,
+        "candidate_raw_pixels": 69,
+        "structures": [
+          {
+            "kind": "inserted",
+            "excluded": false,
+            "exclusion_reason": null
+          },
+          {
+            "kind": "block_moved",
+            "excluded": false,
+            "exclusion_reason": null
+          }
+        ]
+      },
+      {
+        "id": "nested-excluded",
+        "exit_code": 1,
+        "summary": {
+          "status": "different",
+          "pages_compared": 1,
+          "pages_different": 1,
+          "clusters": 0,
+          "absorbed_groups": 0,
+          "structural_change_count": 2,
+          "structural_change_counts": {
+            "inserted": 1,
+            "deleted": 0,
+            "block_moved": 1
+          },
+          "difference_count": 2,
+          "difference_count_complete": true
+        },
+        "row_reason": "applied",
+        "row_detail": null,
+        "baseline_raw_pixels": 9775,
+        "candidate_raw_pixels": 0,
+        "structures": [
+          {
+            "kind": "inserted",
+            "excluded": false,
+            "exclusion_reason": null
+          },
+          {
+            "kind": "block_moved",
+            "excluded": false,
+            "exclusion_reason": null
+          }
+        ]
+      },
+      {
+        "id": "nested-audit",
+        "exit_code": 1,
+        "summary": {
+          "status": "different",
+          "pages_compared": 1,
+          "pages_different": 1,
+          "clusters": 1,
+          "absorbed_groups": 0,
+          "structural_change_count": 2,
+          "structural_change_counts": {
+            "inserted": 1,
+            "deleted": 0,
+            "block_moved": 1
+          },
+          "difference_count": 3,
+          "difference_count_complete": true
+        },
+        "row_reason": "applied",
+        "row_detail": null,
+        "baseline_raw_pixels": 11297,
+        "candidate_raw_pixels": 69,
+        "structures": [
+          {
+            "kind": "inserted",
+            "excluded": false,
+            "exclusion_reason": null
+          },
+          {
+            "kind": "block_moved",
+            "excluded": false,
+            "exclusion_reason": null
+          }
+        ]
+      },
+      {
+        "id": "nested-disabled",
+        "exit_code": 1,
+        "summary": {
+          "status": "different",
+          "pages_compared": 1,
+          "pages_different": 1,
+          "clusters": 7,
+          "absorbed_groups": 0,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 7,
+          "difference_count_complete": true
+        },
+        "row_reason": "disabled",
+        "row_detail": null,
+        "baseline_raw_pixels": null,
+        "candidate_raw_pixels": null,
+        "structures": []
+      },
+      {
+        "id": "structure-disabled",
+        "exit_code": 1,
+        "summary": {
+          "status": "different",
+          "pages_compared": 1,
+          "pages_different": 1,
+          "clusters": 4,
+          "absorbed_groups": 0,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 4,
+          "difference_count_complete": true
+        },
+        "row_reason": "disabled",
+        "row_detail": null,
+        "baseline_raw_pixels": null,
+        "candidate_raw_pixels": null,
+        "structures": []
+      },
+      {
+        "id": "structure-exclude",
+        "exit_code": 1,
+        "summary": {
+          "status": "different",
+          "pages_compared": 1,
+          "pages_different": 1,
+          "clusters": 0,
+          "absorbed_groups": 0,
+          "structural_change_count": 1,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 1
+          },
+          "difference_count": 1,
+          "difference_count_complete": true
+        },
+        "row_reason": "applied",
+        "row_detail": null,
+        "baseline_raw_pixels": 8179,
+        "candidate_raw_pixels": 0,
+        "structures": [
+          {
+            "kind": "inserted",
+            "excluded": true,
+            "exclusion_reason": "all_content_excluded"
+          },
+          {
+            "kind": "block_moved",
+            "excluded": false,
+            "exclusion_reason": null
+          }
+        ]
+      },
+      {
+        "id": "structure-region",
+        "exit_code": 1,
+        "summary": {
+          "status": "different",
+          "pages_compared": 1,
+          "pages_different": 1,
+          "clusters": 0,
+          "absorbed_groups": 0,
+          "structural_change_count": 1,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 1
+          },
+          "difference_count": 1,
+          "difference_count_complete": true
+        },
+        "row_reason": "applied",
+        "row_detail": null,
+        "baseline_raw_pixels": 8179,
+        "candidate_raw_pixels": 0,
+        "structures": [
+          {
+            "kind": "inserted",
+            "excluded": true,
+            "exclusion_reason": "all_content_excluded"
+          },
+          {
+            "kind": "block_moved",
+            "excluded": false,
+            "exclusion_reason": null
+          }
+        ]
+      },
+      {
+        "id": "all-support-excluded",
+        "exit_code": 0,
+        "summary": {
+          "status": "same",
+          "pages_compared": 1,
+          "pages_different": 0,
+          "clusters": 0,
+          "absorbed_groups": 0,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 0,
+          "difference_count_complete": true
+        },
+        "row_reason": "insufficient_support",
+        "row_detail": "excluded_text",
+        "baseline_raw_pixels": null,
+        "candidate_raw_pixels": null,
+        "structures": []
+      },
+      {
+        "id": "L03-disabled",
+        "exit_code": 1,
+        "summary": {
+          "status": "different",
+          "pages_compared": 1,
+          "pages_different": 1,
+          "clusters": 19,
+          "absorbed_groups": 0,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 19,
+          "difference_count_complete": true
+        },
+        "row_reason": "disabled",
+        "row_detail": null,
+        "baseline_raw_pixels": null,
+        "candidate_raw_pixels": null,
+        "structures": []
+      },
+      {
+        "id": "L03-enabled",
+        "exit_code": 1,
+        "summary": {
+          "status": "different",
+          "pages_compared": 1,
+          "pages_different": 1,
+          "clusters": 19,
+          "absorbed_groups": 0,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 19,
+          "difference_count_complete": true
+        },
+        "row_reason": "low_improvement",
+        "row_detail": null,
+        "baseline_raw_pixels": 9382,
+        "candidate_raw_pixels": 45750,
+        "structures": []
+      },
+      {
+        "id": "nested-reverse",
+        "exit_code": 1,
+        "summary": {
+          "status": "different",
+          "pages_compared": 1,
+          "pages_different": 1,
+          "clusters": 1,
+          "absorbed_groups": 0,
+          "structural_change_count": 2,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 1,
+            "block_moved": 1
+          },
+          "difference_count": 3,
+          "difference_count_complete": true
+        },
+        "row_reason": "applied",
+        "row_detail": null,
+        "baseline_raw_pixels": 10659,
+        "candidate_raw_pixels": 69,
+        "structures": [
+          {
+            "kind": "deleted",
+            "excluded": false,
+            "exclusion_reason": null
+          },
+          {
+            "kind": "block_moved",
+            "excluded": false,
+            "exclusion_reason": null
+          }
+        ]
+      },
+      {
+        "id": "nested-excluded-reverse",
+        "exit_code": 1,
+        "summary": {
+          "status": "different",
+          "pages_compared": 1,
+          "pages_different": 1,
+          "clusters": 0,
+          "absorbed_groups": 0,
+          "structural_change_count": 2,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 1,
+            "block_moved": 1
+          },
+          "difference_count": 2,
+          "difference_count_complete": true
+        },
+        "row_reason": "applied",
+        "row_detail": null,
+        "baseline_raw_pixels": 9879,
+        "candidate_raw_pixels": 0,
+        "structures": [
+          {
+            "kind": "deleted",
+            "excluded": false,
+            "exclusion_reason": null
+          },
+          {
+            "kind": "block_moved",
+            "excluded": false,
+            "exclusion_reason": null
+          }
+        ]
+      },
+      {
+        "id": "nested-audit-reverse",
+        "exit_code": 1,
+        "summary": {
+          "status": "different",
+          "pages_compared": 1,
+          "pages_different": 1,
+          "clusters": 1,
+          "absorbed_groups": 0,
+          "structural_change_count": 2,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 1,
+            "block_moved": 1
+          },
+          "difference_count": 3,
+          "difference_count_complete": true
+        },
+        "row_reason": "applied",
+        "row_detail": null,
+        "baseline_raw_pixels": 11295,
+        "candidate_raw_pixels": 69,
+        "structures": [
+          {
+            "kind": "deleted",
+            "excluded": false,
+            "exclusion_reason": null
+          },
+          {
+            "kind": "block_moved",
+            "excluded": false,
+            "exclusion_reason": null
+          }
+        ]
+      },
+      {
+        "id": "nested-disabled-reverse",
+        "exit_code": 1,
+        "summary": {
+          "status": "different",
+          "pages_compared": 1,
+          "pages_different": 1,
+          "clusters": 7,
+          "absorbed_groups": 0,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 7,
+          "difference_count_complete": true
+        },
+        "row_reason": "disabled",
+        "row_detail": null,
+        "baseline_raw_pixels": null,
+        "candidate_raw_pixels": null,
+        "structures": []
+      },
+      {
+        "id": "structure-disabled-reverse",
+        "exit_code": 1,
+        "summary": {
+          "status": "different",
+          "pages_compared": 1,
+          "pages_different": 1,
+          "clusters": 3,
+          "absorbed_groups": 0,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 3,
+          "difference_count_complete": true
+        },
+        "row_reason": "disabled",
+        "row_detail": null,
+        "baseline_raw_pixels": null,
+        "candidate_raw_pixels": null,
+        "structures": []
+      },
+      {
+        "id": "structure-exclude-reverse",
+        "exit_code": 1,
+        "summary": {
+          "status": "different",
+          "pages_compared": 1,
+          "pages_different": 1,
+          "clusters": 0,
+          "absorbed_groups": 0,
+          "structural_change_count": 1,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 1
+          },
+          "difference_count": 1,
+          "difference_count_complete": true
+        },
+        "row_reason": "applied",
+        "row_detail": null,
+        "baseline_raw_pixels": 5626,
+        "candidate_raw_pixels": 0,
+        "structures": [
+          {
+            "kind": "deleted",
+            "excluded": true,
+            "exclusion_reason": "all_content_excluded"
+          },
+          {
+            "kind": "block_moved",
+            "excluded": false,
+            "exclusion_reason": null
+          }
+        ]
+      },
+      {
+        "id": "structure-region-reverse",
+        "exit_code": 1,
+        "summary": {
+          "status": "different",
+          "pages_compared": 1,
+          "pages_different": 1,
+          "clusters": 0,
+          "absorbed_groups": 0,
+          "structural_change_count": 1,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 1
+          },
+          "difference_count": 1,
+          "difference_count_complete": true
+        },
+        "row_reason": "applied",
+        "row_detail": null,
+        "baseline_raw_pixels": 5626,
+        "candidate_raw_pixels": 0,
+        "structures": [
+          {
+            "kind": "deleted",
+            "excluded": true,
+            "exclusion_reason": "all_content_excluded"
+          },
+          {
+            "kind": "block_moved",
+            "excluded": false,
+            "exclusion_reason": null
+          }
+        ]
+      },
+      {
+        "id": "all-support-excluded-reverse",
+        "exit_code": 0,
+        "summary": {
+          "status": "same",
+          "pages_compared": 1,
+          "pages_different": 0,
+          "clusters": 0,
+          "absorbed_groups": 0,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 0,
+          "difference_count_complete": true
+        },
+        "row_reason": "insufficient_support",
+        "row_detail": "excluded_text",
+        "baseline_raw_pixels": null,
+        "candidate_raw_pixels": null,
+        "structures": []
+      },
+      {
+        "id": "L03-disabled-reverse",
+        "exit_code": 1,
+        "summary": {
+          "status": "different",
+          "pages_compared": 1,
+          "pages_different": 1,
+          "clusters": 19,
+          "absorbed_groups": 0,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 19,
+          "difference_count_complete": true
+        },
+        "row_reason": "disabled",
+        "row_detail": null,
+        "baseline_raw_pixels": null,
+        "candidate_raw_pixels": null,
+        "structures": []
+      },
+      {
+        "id": "L03-enabled-reverse",
+        "exit_code": 1,
+        "summary": {
+          "status": "different",
+          "pages_compared": 1,
+          "pages_different": 1,
+          "clusters": 19,
+          "absorbed_groups": 0,
+          "structural_change_count": 0,
+          "structural_change_counts": {
+            "inserted": 0,
+            "deleted": 0,
+            "block_moved": 0
+          },
+          "difference_count": 19,
+          "difference_count_complete": true
+        },
+        "row_reason": "low_improvement",
+        "row_detail": null,
+        "baseline_raw_pixels": 9382,
+        "candidate_raw_pixels": 45750,
+        "structures": []
+      }
+    ]
+  },
+  "observed_limits": {
+    "dense_24_rows": {
+      "baseline_raw_pixels": 19192,
+      "candidate_raw_pixels": 26970,
+      "reason": "low_improvement",
+      "default_conditions_preserved": true,
+      "cause_not_determined": true
+    },
+    "L03_fixed_grid_both_directions": {
+      "baseline_raw_pixels": 9382,
+      "candidate_raw_pixels": 45750,
+      "reason": "low_improvement",
+      "ordinary_clusters": 19,
+      "mandatory_detection_expectation": false
+    },
+    "real_reports_or_long_running_performance_guarantee": false
+  },
+  "packaging": {
+    "exe": "out/t3-1b-acceptance/publish/win-x64/reportdiff.exe",
+    "exe_sha256": "0970ec0ba733c17d2a35047eecba7b4fe698253b97405b0603076a8ce6924a1b",
+    "bundle_inspection": {
+      "file": "out/t3-1b-acceptance/publish/win-x64/reportdiff.exe",
+      "size_bytes": 156864069,
+      "sha256": "0970ec0ba733c17d2a35047eecba7b4fe698253b97405b0603076a8ce6924a1b",
+      "bundle_version": "6.0",
+      "bundle_id": "dlZ7B85Dhv3Q",
+      "embedded_files": 192,
+      "required_native_libraries": [
+        {
+          "name": "pdfium.dll",
+          "size_bytes": 7220736,
+          "machine": "win-x64",
+          "sha256": "d3d9f4b7c9dabe3363f30779c5c3c715c47332749fa590e4b4a2b8b6780cb1c4"
+        },
+        {
+          "name": "OpenCvSharpExtern.dll",
+          "size_bytes": 55547904,
+          "machine": "win-x64",
+          "sha256": "1fa122bdb8e94175e7719fb8aa8f2ab211268a756f5d0c7a13c710ed79ae30cd"
+        },
+        {
+          "name": "libSkiaSharp.dll",
+          "size_bytes": 12254048,
+          "machine": "win-x64",
+          "sha256": "c8770c219e0d3cd9bb119fad46f2d00ae1855b11315816e86e909e3332826212"
+        }
+      ],
+      "pdf_text_assemblies": [
+        {
+          "name": "UglyToad.PdfPig.Core.dll",
+          "size_bytes": 50176,
+          "sha256": "cbdd1809ee0f4ba617900845d182e5e67183377fe5848a8d9d1222b3c395116b"
+        },
+        {
+          "name": "UglyToad.PdfPig.DocumentLayoutAnalysis.dll",
+          "size_bytes": 248320,
+          "sha256": "c0d1e237eabcb2c741fc7ab7b26c255af6f5751d1cd7e86d7ae613611f79bc88"
+        },
+        {
+          "name": "UglyToad.PdfPig.Fonts.dll",
+          "size_bytes": 1095680,
+          "sha256": "30521d2aa02252c0097cd3a9b12832368d5c925e1ccb4bc3a5735671bd3d2e1e"
+        },
+        {
+          "name": "UglyToad.PdfPig.Package.dll",
+          "size_bytes": 4608,
+          "sha256": "3227f79347329b57e50745d2ade1deb7ccdfe57da1d382796283832aae6ea41a"
+        },
+        {
+          "name": "UglyToad.PdfPig.Tokenization.dll",
+          "size_bytes": 23040,
+          "sha256": "539d0ca2c7981b9eaf8541e17434911042f7cc73d3abc24962994bb99472ed3c"
+        },
+        {
+          "name": "UglyToad.PdfPig.Tokens.dll",
+          "size_bytes": 48128,
+          "sha256": "d6fbd73a520bb961ffcc98030ab686f43c88b03f5b059ba11e3781e0f091433d"
+        },
+        {
+          "name": "UglyToad.PdfPig.dll",
+          "size_bytes": 4251648,
+          "sha256": "c47abebdffebb6e48a1d40f4c22ce5f673c57558ecdb3187841b728112dea279"
+        }
+      ],
+      "dependencies": {
+        "runtimepack.Microsoft.NETCore.App.Runtime.win-x64/10.0.12": "runtimepack",
+        "bblanchon.PDFium.Win32/152.0.7961": "package",
+        "OpenCvSharp4/4.13.0.20260627": "package",
+        "OpenCvSharp4.runtime.win.slim/4.13.0.20260627": "package",
+        "PdfPig/0.1.16": "package",
+        "PDFtoImage/5.4.0": "package",
+        "SkiaSharp/4.150.1": "package",
+        "SkiaSharp.NativeAssets.Win32/4.150.1": "package",
+        "YamlDotNet/18.1.0": "package"
+      },
+      "runtime_options": {
+        "tfm": "net10.0",
+        "includedFrameworks": [
+          {
+            "name": "Microsoft.NETCore.App",
+            "version": "10.0.12"
+          }
+        ],
+        "configProperties": {
+          "System.Globalization.Invariant": false,
+          "System.Reflection.Metadata.MetadataUpdater.IsSupported": false,
+          "System.Runtime.Serialization.EnableUnsafeBinaryFormatterSerialization": false
+        }
+      },
+      "ffmpeg_assets": [],
+      "foreign_native_assets": []
+    },
+    "archive": "out/t3-1b-acceptance/reportdiff-rows-validation-win-x64.zip",
+    "archive_verification_record": "out/t3-1b-acceptance/package.json",
+    "archive_inclusion_check": "out/t3-1b-acceptance/package-content-check.json",
+    "windows_execution_verified": false,
+    "release_archive": false
+  },
+  "remaining_acceptance": [
+    "Browser acceptance is deferred by the user. The user reports broadly satisfactory manual operation, but some viewport and JavaScript conditions remain untested; exact completed conditions are unspecified, so no individual checklist item is promoted to passed."
+  ],
+  "separate_outstanding": [
+    "Windows real device",
+    "real confidential reports",
+    "long-running and multi-page performance guarantees",
+    "T2-8 D16/D17/J07/J08"
+  ],
+  "tools_and_fixture_sha256": {
+    "tools/ReportDiff.RowBenchmark/Fixtures.cs": "234653780155b0172e61148692aa1b86da539e64fae121a3368e18dd424e635e",
+    "tools/ReportDiff.RowBenchmark/Program.cs": "2b41d797952b4d6f47a65f246855f07bbe882b58cdc3b4739b4ea5807d949072",
+    "tools/ReportDiff.RowBenchmark/README.md": "30153b9ee6e09f19f44573a26152306c9acc50bdafd4a23d39716137af7bb981",
+    "tools/ReportDiff.RowBenchmark/ReportDiff.RowBenchmark.csproj": "a7fd6d8ea29eabd17af84fc9df78c73745c739a66439caca6d8f13ab34d54b20",
+    "tools/ReportDiff.RowBenchmark/instrument.py": "d50ffb8dc638dccbb1e087b546302aaf7260a4da0f5989f49f8a9222ac9a91e0",
+    "tools/ReportDiff.RowBenchmark/measure.py": "511494ff9fa71664a3a0e44d71ee980c2c4791a19ebcd9f72d8f57401bf93f95",
+    "tools/ReportDiff.RowBenchmark/verify.py": "ec1ab4c1f1f3ed48ccea3a5ac498a714579c5cb9e8adfcdad70f33dfa132b5e0",
+    "tests/ReportDiff.Tests/RowGridFixture.cs": "2499eb64de195a8c7d219e199973ab5417f2b4f48b96ec9439e2a035d59294d4"
+  },
+  "input_sha256": {
+    "out/t3-1b-acceptance/inputs-final-v3/R01-a.pdf": "35296d3d4245866cab515342db2cdba41d8341d87ec2ad910f47d2299737f1f6",
+    "out/t3-1b-acceptance/inputs-final-v3/R01-b.pdf": "150d623efb4d65c3ddc0b64aac88aa3f43ecf67a156dde0f3f17c5258dd116a3",
+    "out/t3-1b-acceptance/inputs-final-v3/R02-a.pdf": "35296d3d4245866cab515342db2cdba41d8341d87ec2ad910f47d2299737f1f6",
+    "out/t3-1b-acceptance/inputs-final-v3/R02-b.pdf": "b65a690ee7a0204b26c60f006a84320f22883433afed3cb64c50fb100770a149",
+    "out/t3-1b-acceptance/inputs-final-v3/adopted-a.pdf": "de8a6f7c89169375bdecc14a282c17a9afb03cde7aa3872ea48b520f870c89f9",
+    "out/t3-1b-acceptance/inputs-final-v3/adopted-b.pdf": "cd9d1101ea8540f336b34717f2ce319cc63d2667809897b7bc7c502b2dee48e6",
+    "out/t3-1b-acceptance/inputs-final-v3/columns-a.pdf": "8d65ee824e85890067ae276f7e819992e027dd57a4b43918c400d875e36fb2de",
+    "out/t3-1b-acceptance/inputs-final-v3/columns-b.pdf": "91d7d3292c401042bdeb64110e55d6cd076067858bd2c8bbb34b89f345c3195b",
+    "out/t3-1b-acceptance/inputs-final-v3/excluded-a.pdf": "6f46fee87bb631cce2b479174f2201316685a181d461673d4105184e0710d4b6",
+    "out/t3-1b-acceptance/inputs-final-v3/excluded-b.pdf": "f7073c908e2e3c888e293630fbbc0753958e6473ca612e23b89dc3fa6406c57e",
+    "out/t3-1b-acceptance/inputs-final-v3/excluded-blocks-a.pdf": "2f5830fd4d4b87d8bc0eec095488a2630b9afa29e701708beae231fcb16baf16",
+    "out/t3-1b-acceptance/inputs-final-v3/excluded-blocks-b.pdf": "5313b7c6b97490be2fc6bf32e798daf2ffbcda9c0983f877bb321be238dea635",
+    "out/t3-1b-acceptance/inputs-final-v3/fixed-grid-a.pdf": "e3ccffdc44ff80aee2e00896b296d45830b39cc7d34e641065faf9ee3ec089fe",
+    "out/t3-1b-acceptance/inputs-final-v3/fixed-grid-b.pdf": "ac0158f25cc8c740e2a28bded83b011fababe665d59e16f6c45d674ac7b2f0ed",
+    "out/t3-1b-acceptance/inputs-final-v3/short-a.pdf": "ef36310f622d87ef6f546099dd40c08dce33955445bbc125dfd30e185ba4e3bc",
+    "out/t3-1b-acceptance/inputs-final-v3/short-b.pdf": "da241ca5a5fb5da021061a9bf471a5a3d89b6ed94ea460744bad0ae88299e010"
+  },
+  "evidence_sha256": {
+    "out/t3-1b-acceptance/build.log": "0315cb2f5abe12a4a5c0de68360ff6ed7ebf3d7fcbe69a0acebb35c0293fb51b",
+    "out/t3-1b-acceptance/tests.log": "c0099059afbfaa8e0ff043403b82e79fddedfcc0e751aad2930e7a830a2c2247",
+    "out/t3-1b-acceptance/publish.log": "d96994fa5c563285925b28c2561626ad8bd48376a67053bccd6b08a5070126b5",
+    "out/t3-1b-acceptance/instrumented-build.log": "4f9b83b43f52a5fcfad5edf4f138287fb437b738336a21319de9ba71f92ce1ba",
+    "out/t3-1b-acceptance/instrumented-restore.log": "3d6de605bcb9d1ed8528231cd1ed5fd7cf5458cde592de06b18810619b99937a",
+    "out/t3-1b-acceptance/measurements-final.log": "09a85dad177d4ba4d8341055475e7d8401d7e04ce2f58cba50078d9a4f9acba1",
+    "out/t3-1b-acceptance/cli-audit.log": "e8912e4fde2985b5fe3b06b9370a98063d0557b2ca6895f6c6a094f9af97c977",
+    "out/t3-1b-acceptance/bundle-inspection.json": "8891ed79e985cbbceaae6941a727abcd4b28f1ecbf91cfe3d7bfddd36299018b",
+    "out/t3-1b-acceptance/measurements-final/verification.json": "c0c9d8f336477ca93d93d8c3b4b53c11026583537dc4eec26600f65fc4f3a17f",
+    "out/t3-1b-acceptance/cli-audit/verification.json": "13467a3780d7efd695698acb6318b604f10a27ddf4dbe5ed5dce856a746230ae",
+    "out/t3-1b-acceptance/instrumented/source-hashes.json": "38c27532b41470c6ae004c1b6ea43e41e89c0984680528658f2484433ce1e412"
+  },
+  "fixed_manifest_sha256": "0ede7a24f0e104dc0f33a639485191a4852457107d476145c7a5db91b3aa1253",
+  "browser_manual_review": {
+    "date": "2026-09-22",
+    "reviewer": "user",
+    "result": "概ね問題なかった。一部画面サイズやJavaScriptの確認は未実施。",
+    "individual_checks_identified": false,
+    "viewport_and_javascript_matrix_complete": false,
+    "deferral_authorized": true,
+    "next_task_authorized": "T3-1c",
+    "record": "docs/verification/t3-1b-browser-handoff.md"
+  }
+}

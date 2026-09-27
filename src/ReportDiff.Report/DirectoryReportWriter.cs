@@ -66,7 +66,7 @@ public static class DirectoryReportWriter
             var setting = file.Status is "only_in_a" or "only_in_b" ? "未適用（未比較）"
                 : file.SelectedRule is { } rule ? $"規則 {rule.Index}: {rule.Config} / {rule.Pattern}" : file.Error?.Code == "CONFIG_RULE_AMBIGUOUS" ? "未確定（複数の規則が一致）" : "共通設定";
             html.Append($"<dt>適用設定</dt><dd>{E(setting)}</dd><dt>比較結果</dt><dd>");
-            html.Append(file.Comparison is { } c ? $"比較 {c.PagesCompared} ページ / 相違 {c.PagesDifferent} ページ / {c.Clusters} 箇所 / 警告 {file.WarningCount} 件" : "未比較（ページ数・警告数は未検査）");
+            html.Append(file.Comparison is { } c ? $"比較 {c.PagesCompared} ページ / 相違 {c.PagesDifferent} ページ / {c.DifferenceCount} 箇所{(c.StructuralChangeCount > 0 ? $"（{c.StructuralChangeCounts.Description} を含む）" : "")} / 警告 {file.WarningCount} 件" : "未比較（ページ数・警告数は未検査）");
             html.Append("</dd></dl>");
             if (file.Error is { } error)
             {

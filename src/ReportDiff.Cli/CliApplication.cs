@@ -34,7 +34,8 @@ public static class CliApplication
             {
                 var status = result.Summary.Status == "same" ? "相違なし" : "相違あり";
                 var path = Path.Combine(command.Output, command.NoHtml ? "result.json" : "report.html");
-                output.WriteLine($"{status}: {result.Pages.Count} ページ中 {result.Summary.PagesDifferent} ページ、{result.Summary.Clusters} 箇所 → {OneLine(path)}");
+                var structures = result.Summary.StructuralChangeCount == 0 ? "" : $"（{result.Summary.StructuralChangeCounts.Description} を含む）";
+                output.WriteLine($"{status}: {result.Pages.Count} ページ中 {result.Summary.PagesDifferent} ページ、{result.Summary.DifferenceCount} 箇所{structures} → {OneLine(path)}");
             }
             return result.Summary.Status == "same" ? 0 : 1;
         }
