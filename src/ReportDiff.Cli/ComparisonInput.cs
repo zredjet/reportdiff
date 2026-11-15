@@ -11,9 +11,11 @@ namespace ReportDiff.Cli;
 [SupportedOSPlatform("macOS")]
 internal sealed class ComparisonInput : IDisposable
 {
+    private const int MaxCachedPages = 4;
     private readonly string path;
     private readonly PdfReader? pdf;
     private readonly PdfTextReader? text;
+    private readonly LinkedList<(int Page, Mat Pixels)> pageCache = new();
     public InputFormat Format { get; }
     internal string? InitialSha256 { get; }
     public int PageCount => pdf?.PageCount ?? 1;
@@ -44,7 +46,29 @@ internal sealed class ComparisonInput : IDisposable
     }
 
     public ReportInput Describe() => ReportInput.FromFile(path, Format, PageCount);
-    public LoadedImage ReadPage(int page) => pdf is null ? ImageReader.Read(path, Dpi) : pdf.ReadPage(page, Dpi);
+    public LoadedImage ReadPage(int page)
+    {
+        for (var node = pageCache.First; node is not null; node = node.Next)
+        {
+            if (node.Value.Page != page) continue;
+            if (node != pageCache.First)
+            {
+                pageCache.Remove(node);
+                pageCache.AddFirst(node);
+            }
+            return new LoadedImage(node.Value.Pixels.Clone(), Format, Dpi);
+        }
+        using var loaded = pdf is null ? ImageReader.Read(path, Dpi) : pdf.ReadPage(page, Dpi);
+        var pixels = loaded.TakePixels();
+        if (pageCache.Count >= MaxCachedPages)
+        {
+            var last = pageCache.Last!;
+            pageCache.RemoveLast();
+            last.Value.Pixels.Dispose();
+        }
+        pageCache.AddFirst((page, pixels));
+        return new LoadedImage(pixels.Clone(), Format, Dpi);
+    }
     public IReadOnlyList<PdfFontWarning> InspectFonts(int page) => text?.InspectFonts(page) ?? [];
     public RowTextResult ReadRowWords(int page, PageMap map, PageSpace side) => text is null ? new("no_text", null, [])
         : RowTextAnnotations.ToAligned(text.ReadRowWords(page, map.SizeOf(side), Dpi), map, side);
@@ -52,6 +76,9 @@ internal sealed class ComparisonInput : IDisposable
         IReadOnlyList<RectMm> exclusions) => text?.AnnotateMapped(page, map, side, Dpi, clusters, exclusions);
     public void Dispose()
     {
+        foreach (var (_, pixels) in pageCache)
+            pixels.Dispose();
+        pageCache.Clear();
         try { text?.Dispose(); }
         finally { pdf?.Dispose(); }
     }

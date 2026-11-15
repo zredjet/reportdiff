@@ -9,6 +9,11 @@ internal static class MatBuffers
     {
         var rows = mat.Rows;
         var data = new byte[checked(rows * mat.Cols * mat.Channels())];
+        if (mat.IsContinuous())
+        {
+            if (data.Length > 0) Marshal.Copy(mat.Data, data, 0, data.Length);
+            return data;
+        }
         var rowSize = mat.Cols * mat.Channels();
         for (var y = 0; y < rows; y++) Marshal.Copy(mat.Ptr(y), data, y * rowSize, rowSize);
         return data;
@@ -18,6 +23,11 @@ internal static class MatBuffers
     {
         var rows = mat.Rows;
         var data = new float[checked(rows * mat.Cols * mat.Channels())];
+        if (mat.IsContinuous())
+        {
+            if (data.Length > 0) Marshal.Copy(mat.Data, data, 0, data.Length);
+            return data;
+        }
         var rowSize = mat.Cols * mat.Channels();
         for (var y = 0; y < rows; y++) Marshal.Copy(mat.Ptr(y), data, y * rowSize, rowSize);
         return data;
@@ -28,6 +38,11 @@ internal static class MatBuffers
         var rows = mat.Rows;
         var cols = mat.Cols;
         var data = new int[checked(rows * cols)];
+        if (mat.IsContinuous())
+        {
+            if (data.Length > 0) Marshal.Copy(mat.Data, data, 0, data.Length);
+            return data;
+        }
         for (var y = 0; y < rows; y++) Marshal.Copy(mat.Ptr(y), data, y * cols, cols);
         return data;
     }

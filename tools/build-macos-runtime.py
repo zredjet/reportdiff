@@ -52,14 +52,48 @@ def source(name):
     return destination
 
 
+def is_valid_existing_package(package: Path) -> bool:
+    if not package.is_file():
+        return False
+    required = {
+        f"{PACKAGE}.nuspec",
+        "runtimes/osx-arm64/native/libOpenCvSharpExtern.dylib",
+        "runtimes/osx-x64/native/libOpenCvSharpExtern.dylib",
+        "licenses/NOTICE.md",
+        "build-evidence.json",
+        "[Content_Types].xml",
+    }
+    try:
+        with zipfile.ZipFile(package, "r") as archive:
+            names = set(archive.namelist())
+            if not required.issubset(names):
+                return False
+            if archive.testzip() is not None:
+                return False
+            evidence_bytes = archive.read("build-evidence.json")
+        WORK.mkdir(parents=True, exist_ok=True)
+        (WORK / "build-evidence.json").write_bytes(evidence_bytes)
+        return True
+    except (OSError, zipfile.BadZipFile, KeyError):
+        return False
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--jobs", type=int, default=min(os.cpu_count() or 2, 6))
+    parser.add_argument("--skip-existing", action="store_true",
+                        help="既存の有効な nupkg が存在する場合は再ビルドを省略する。")
     args = parser.parse_args()
     if platform.system() != "Darwin":
         parser.error("このスクリプトは macOS と Xcode Command Line Tools が必要です。")
     if args.jobs < 1:
         parser.error("--jobs は 1 以上を指定してください。")
+
+    packages = ROOT / "out/packages"
+    package = packages / f"{PACKAGE}.{VERSION}.nupkg"
+    if args.skip_existing and is_valid_existing_package(package):
+        print(f"既存のパッケージを使用します: {package}", flush=True)
+        return
 
     opencv = source("opencv")
     wrapper = source("opencvsharp")

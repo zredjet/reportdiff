@@ -12,6 +12,16 @@ public static class PageFlowAdoption
     public static PageFlowAdoptionResult Evaluate(PageFlowPlan plan, int page, Mat a, Mat b,
         ComparisonParameters parameters, RowOptions options, RowTextResult textA, RowTextResult textB, double minimumLineOverlap = .5)
     {
+        var result = Evaluate(plan, page, a, b, parameters, options, textA, textB, minimumLineOverlap, out var baseline, out var compared);
+        using (baseline) using (compared) return result;
+    }
+
+    public static PageFlowAdoptionResult Evaluate(PageFlowPlan plan, int page, Mat a, Mat b,
+        ComparisonParameters parameters, RowOptions options, RowTextResult textA, RowTextResult textB, double minimumLineOverlap,
+        out PageComparison? baselineComparison, out PageFlowComparison? flowComparison)
+    {
+        baselineComparison = null;
+        flowComparison = null;
         options.Validated(parameters.Dpi);
         if (!plan.Decision.Ready) return new(false, "document_gate_not_ready");
         plan.VerifyComparisonImage(new(PageSpace.A, page), a); plan.VerifyComparisonImage(new(PageSpace.B, page), b);
@@ -64,15 +74,30 @@ public static class PageFlowAdoption
         var scores = RowSupport.Score(a, b, linesA, linesB, [candidate], parameters, options,
             new([matches], null, eligible, linesB.Length));
         if (scores is null) return new(false, "insufficient_support", "common_support");
-        using var baseline = PageComparer.Compare(a, b, parameters);
-        using var compared = plan.Compare(page, a, b);
-        var unchangedMap = surface.OmittedBands.Count == 0 && segments.All(s => s.AStart == s.BStart && s.AStart is not null);
-        var improvement = baseline.RawPixels == 0 ? (unchangedMap ? 0 : (double?)null)
-            : (baseline.RawPixels - compared.Content.RawPixels) / (double)baseline.RawPixels;
-        var accepted = unchangedMap || improvement >= options.MinImprovement;
-        return new(accepted, accepted ? "applied" : "low_improvement", baseline.RawPixels == 0 && !unchangedMap ? "baseline_zero" : null,
-            scores[0].Score, validated.Groups.Where(g => g.Gap is not null).Select(g => g.Gap).DefaultIfEmpty(null).Min(), scores[0].BandsPerSegment,
-            baseline.RawPixels, compared.Content.RawPixels, improvement);
+        PageComparison? baseline = null;
+        PageFlowComparison? compared = null;
+        try
+        {
+            baseline = PageComparer.Compare(a, b, parameters);
+            compared = plan.Compare(page, a, b);
+            var unchangedMap = surface.OmittedBands.Count == 0 && segments.All(s => s.AStart == s.BStart && s.AStart is not null);
+            var improvement = baseline.RawPixels == 0 ? (unchangedMap ? 0 : (double?)null)
+                : (baseline.RawPixels - compared.Content.RawPixels) / (double)baseline.RawPixels;
+            var accepted = unchangedMap || improvement >= options.MinImprovement;
+            var result = new PageFlowAdoptionResult(accepted, accepted ? "applied" : "low_improvement", baseline.RawPixels == 0 && !unchangedMap ? "baseline_zero" : null,
+                scores[0].Score, validated.Groups.Where(g => g.Gap is not null).Select(g => g.Gap).DefaultIfEmpty(null).Min(), scores[0].BandsPerSegment,
+                baseline.RawPixels, compared.Content.RawPixels, improvement);
+            baselineComparison = baseline;
+            flowComparison = compared;
+            baseline = null;
+            compared = null;
+            return result;
+        }
+        finally
+        {
+            baseline?.Dispose();
+            compared?.Dispose();
+        }
 
         RowLine[] Lines(IReadOnlyList<PageFlowLine> lines, int radius) => lines.Where(l => !exclusions.Any(e =>
             l.Bounds.Left < e.Right && l.Bounds.Right > e.Left && l.Bounds.Top < e.Bottom + radius && l.Bounds.Bottom > e.Top - radius))

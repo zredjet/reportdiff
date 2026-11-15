@@ -1,3 +1,4 @@
+using System.Buffers;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using OpenCvSharp;
@@ -100,16 +101,76 @@ public sealed class PageFlowCollector
             Usage.Pixels + pixels, Usage.DescriptorBytes + PageFlowLimits.DescriptorBytes(size.Height, lines.Count, characters) + extraBytes);
         if (PageFlowLimits.Exceeded(next) is { } limit) return Fail(limit);
         var summaries = lines.Select(l => new PageFlowLine(string.Join(' ', l.Words.Select(w => w.Text)), l.Bounds, l.Baseline)).ToArray();
-        var hashes = new byte[size.Height * 32]; var nonwhite = new bool[size.Height]; var bytes = new byte[size.Width * 3];
-        using var wholePage = IncrementalHash.CreateHash(HashAlgorithmName.SHA256);
-        for (var y = 0; y < size.Height; y++)
+        var hashes = new byte[size.Height * 32]; var nonwhite = new bool[size.Height];
+        var rowLength = checked(size.Width * 3);
+        Span<byte> whiteRowHash = stackalloc byte[32];
+        var hasWhiteRowHash = false;
+        string wholePageHex;
+        if (image.IsContinuous())
         {
-            Marshal.Copy(image.Ptr(y), bytes, 0, bytes.Length);
-            nonwhite[y] = bytes.Any(v => v != 255);
-            SHA256.HashData(bytes, hashes.AsSpan(y * 32, 32)); wholePage.AppendData(bytes);
+            var totalLength = checked(size.Height * rowLength);
+            var rented = ArrayPool<byte>.Shared.Rent(totalLength);
+            try
+            {
+                if (totalLength > 0) Marshal.Copy(image.Data, rented, 0, totalLength);
+                var allSpan = rented.AsSpan(0, totalLength);
+                wholePageHex = Convert.ToHexStringLower(SHA256.HashData(allSpan));
+                for (var y = 0; y < size.Height; y++)
+                {
+                    var rowSpan = allSpan.Slice(y * rowLength, rowLength);
+                    var hasInk = rowSpan.ContainsAnyExcept((byte)255);
+                    nonwhite[y] = hasInk;
+                    var dest = hashes.AsSpan(y * 32, 32);
+                    if (hasInk)
+                    {
+                        SHA256.HashData(rowSpan, dest);
+                    }
+                    else
+                    {
+                        if (!hasWhiteRowHash)
+                        {
+                            SHA256.HashData(rowSpan, whiteRowHash);
+                            hasWhiteRowHash = true;
+                        }
+                        whiteRowHash.CopyTo(dest);
+                    }
+                }
+            }
+            finally
+            {
+                ArrayPool<byte>.Shared.Return(rented);
+            }
+        }
+        else
+        {
+            var bytes = new byte[rowLength];
+            using var wholePage = IncrementalHash.CreateHash(HashAlgorithmName.SHA256);
+            for (var y = 0; y < size.Height; y++)
+            {
+                Marshal.Copy(image.Ptr(y), bytes, 0, bytes.Length);
+                var rowSpan = bytes.AsSpan();
+                var hasInk = rowSpan.ContainsAnyExcept((byte)255);
+                nonwhite[y] = hasInk;
+                var dest = hashes.AsSpan(y * 32, 32);
+                if (hasInk)
+                {
+                    SHA256.HashData(rowSpan, dest);
+                }
+                else
+                {
+                    if (!hasWhiteRowHash)
+                    {
+                        SHA256.HashData(rowSpan, whiteRowHash);
+                        hasWhiteRowHash = true;
+                    }
+                    whiteRowHash.CopyTo(dest);
+                }
+                wholePage.AppendData(bytes);
+            }
+            wholePageHex = Convert.ToHexStringLower(wholePage.GetHashAndReset());
         }
         pages.Add(key, new(key, size, text.Status, text.Detail, summaries, hashes, nonwhite,
-            Convert.ToHexStringLower(wholePage.GetHashAndReset()), original, globalMap));
+            wholePageHex, original, globalMap));
         Usage = next;
         return true;
     }

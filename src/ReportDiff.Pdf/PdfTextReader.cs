@@ -14,23 +14,37 @@ public sealed record PageTextAnnotations(IReadOnlyDictionary<int, string> TextBy
 /// <summary>必要なページのテキストとフォントを調べる。描画用とは独立したストリームを所有する。</summary>
 public sealed class PdfTextReader(string path, TextOptions? textOptions = null) : IDisposable
 {
+    private const int MaxCachedPages = 4;
+    private const int MaxCachedRowWords = 16;
     private readonly TextOptions options = (textOptions ?? new()).Validated();
     private static readonly NearestNeighbourWordExtractor WordExtractor = new(new() { MaxDegreeOfParallelism = 1 });
     private FileStream? stream;
     private PdfDocument? document;
+    private PdfFontInspector? fontInspector;
     private bool openFailed;
     private bool disposed;
-    private int? cachedPageNumber;
-    private Page? cachedPage;
-    private IReadOnlyList<PdfFontWarning>? cachedFontWarnings;
+    private readonly LinkedList<(int PageNumber, Page Page, Word[]? Words)> pageCache = new();
+    private readonly Dictionary<(int PageNumber, Size Size, int Dpi), RowTextResult> rowWordsCache = [];
+    private readonly Dictionary<int, IReadOnlyList<PdfFontWarning>> fontWarningsCache = [];
 
     /// <summary>行整列用の元ページ座標。矩形下端をベースラインの代用にしない。</summary>
     public RowTextResult ReadRowWords(int pageNumber, Size originalSize, int dpi)
     {
         ObjectDisposedException.ThrowIf(disposed, this);
+        var cacheKey = (pageNumber, originalSize, dpi);
+        if (rowWordsCache.TryGetValue(cacheKey, out var cachedResult))
+            return cachedResult;
+        var computed = ReadRowWordsCore(pageNumber, originalSize, dpi);
+        if (rowWordsCache.Count < MaxCachedRowWords)
+            rowWordsCache[cacheKey] = computed;
+        return computed;
+    }
+
+    private RowTextResult ReadRowWordsCore(int pageNumber, Size originalSize, int dpi)
+    {
         try
         {
-            var page = GetPage(pageNumber);
+            var page = GetPage(pageNumber, out var cachedWords);
             if (page.Rotation.Value != 0) return Unavailable("rotated_page");
             if (page.Dictionary.TryGet(NameToken.UserUnit, out var unit)
                 && (unit is not NumericToken number || number.Double != 1)) return Unavailable("user_unit");
@@ -39,8 +53,7 @@ public sealed class PdfTextReader(string path, TextOptions? textOptions = null) 
                 || Math.Abs(Units.PointsToPixels(page.Width, dpi) - originalSize.Width) > 1
                 || Math.Abs(Units.PointsToPixels(page.Height, dpi) - originalSize.Height) > 1) return Unavailable("page_coordinates");
             if (page.Letters.Count > options.MaxLettersPerPage) return Unavailable("letter_limit");
-            var words = page.GetWords(WordExtractor).Where(w => !string.IsNullOrWhiteSpace(w.Text))
-                .Take(options.MaxWordsPerPage + 1).ToArray();
+            var words = cachedWords ?? GetWords(pageNumber, page);
             if (words.Length > options.MaxWordsPerPage) return Unavailable("word_limit");
             var map = PageMap.Unaligned(originalSize, originalSize);
             var result = new List<RowWord>();
@@ -77,10 +90,15 @@ public sealed class PdfTextReader(string path, TextOptions? textOptions = null) 
     public IReadOnlyList<PdfFontWarning> InspectFonts(int pageNumber)
     {
         ObjectDisposedException.ThrowIf(disposed, this);
+        if (fontWarningsCache.TryGetValue(pageNumber, out var cached))
+            return cached;
         try
         {
-            var page = GetPage(pageNumber);
-            return cachedFontWarnings ??= new PdfFontInspector(document!).Inspect(page);
+            var page = GetPage(pageNumber, out _);
+            fontInspector ??= new PdfFontInspector(document!);
+            var warnings = fontInspector.Inspect(page);
+            fontWarningsCache[pageNumber] = warnings;
+            return warnings;
         }
         catch (Exception ex) when (ex is not OutOfMemoryException)
         {
@@ -103,7 +121,7 @@ public sealed class PdfTextReader(string path, TextOptions? textOptions = null) 
         if (clusters.Count == 0) return new(new Dictionary<int, string>(), []);
         try
         {
-            var page = GetPage(pageNumber);
+            var page = GetPage(pageNumber, out var cachedWords);
             if (page.Rotation.Value != 0) return Skipped($"ページが {page.Rotation.Value} 度回転しているため注釈を省略しました。");
             if (page.Dictionary.TryGet(NameToken.UserUnit, out var unit)
                 && (unit is not NumericToken number || number.Double != 1))
@@ -114,7 +132,7 @@ public sealed class PdfTextReader(string path, TextOptions? textOptions = null) 
                 || Math.Abs(Units.PointsToPixels(page.Height, dpi) - originalSize.Height) > 1)
                 return Skipped("テキスト座標と描画サイズの対応を確認できないため注釈を省略しました。");
             if (page.Letters.Count > options.MaxLettersPerPage) return Skipped($"文字要素が {options.MaxLettersPerPage} 件を超えたため注釈を省略しました。");
-            var words = page.GetWords(WordExtractor).Where(w => !string.IsNullOrWhiteSpace(w.Text)).Take(options.MaxWordsPerPage + 1).ToArray();
+            var words = cachedWords ?? GetWords(pageNumber, page);
             if (words.Length > options.MaxWordsPerPage) return Skipped($"単語が {options.MaxWordsPerPage} 件を超えたため注釈を省略しました。");
             map ??= PageMap.Global(originalSize, originalSize, originalSize, shift);
             var mapped = new List<TextWord>();
@@ -138,7 +156,7 @@ public sealed class PdfTextReader(string path, TextOptions? textOptions = null) 
         }
     }
 
-    private Page GetPage(int pageNumber)
+    private Page GetPage(int pageNumber, out Word[]? cachedWords)
     {
         if (openFailed) throw new InvalidDataException("PDF テキスト層を開けませんでした。");
         if (document is null)
@@ -154,15 +172,36 @@ public sealed class PdfTextReader(string path, TextOptions? textOptions = null) 
                 throw;
             }
         }
-        // 注釈とフォント検査で解析を共有し、前ページの文字要素は保持しない。
-        if (cachedPageNumber != pageNumber)
+        for (var node = pageCache.First; node is not null; node = node.Next)
         {
-            cachedPageNumber = pageNumber;
-            cachedPage = null;
-            cachedFontWarnings = null;
-            cachedPage = document.GetPage(pageNumber);
+            if (node.Value.PageNumber != pageNumber) continue;
+            if (node != pageCache.First)
+            {
+                pageCache.Remove(node);
+                pageCache.AddFirst(node);
+            }
+            cachedWords = node.Value.Words;
+            return node.Value.Page;
         }
-        return cachedPage ?? throw new InvalidDataException("PDF のページを解析できませんでした。");
+        var page = document.GetPage(pageNumber) ?? throw new InvalidDataException("PDF のページを解析できませんでした。");
+        if (pageCache.Count >= MaxCachedPages)
+            pageCache.RemoveLast();
+        pageCache.AddFirst((pageNumber, page, null));
+        cachedWords = null;
+        return page;
+    }
+
+    private Word[] GetWords(int pageNumber, Page page)
+    {
+        var words = page.GetWords(WordExtractor).Where(w => !string.IsNullOrWhiteSpace(w.Text))
+            .Take(options.MaxWordsPerPage + 1).ToArray();
+        for (var node = pageCache.First; node is not null; node = node.Next)
+        {
+            if (node.Value.PageNumber != pageNumber) continue;
+            node.Value = (pageNumber, page, words);
+            break;
+        }
+        return words;
     }
 
     private static PageTextAnnotations Skipped(string reason) => new(new Dictionary<int, string>(), [new("TEXT_ANNOTATION_SKIPPED", reason)]);
@@ -171,6 +210,6 @@ public sealed class PdfTextReader(string path, TextOptions? textOptions = null) 
     {
         if (disposed) return;
         try { document?.Dispose(); }
-        finally { stream?.Dispose(); cachedPage = null; cachedFontWarnings = null; disposed = true; }
+        finally { stream?.Dispose(); pageCache.Clear(); rowWordsCache.Clear(); fontWarningsCache.Clear(); fontInspector = null; disposed = true; }
     }
 }

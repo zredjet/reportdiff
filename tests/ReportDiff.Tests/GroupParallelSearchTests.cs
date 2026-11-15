@@ -14,7 +14,7 @@ public sealed class GroupParallelSearchTests
     {
         var p = GoldenData.Parameters(GoldenData.Cases().Single(c => c.GetProperty("id").GetString() == id));
         using var a = GoldenData.Image(id, "a"); using var b = GoldenData.Image(id, "b");
-        using var reference = TolerantDifference.Calculate(a, b, p, false);
+        using var reference = GoldenData.UnoptimizedDifference(id, a, b, p);
         foreach (var degree in new[] { 1, 2, 4, 8, 0 })
         {
             using var actual = TolerantDifference.Calculate(a, b, p, true, null, null, new()

@@ -65,7 +65,7 @@ public sealed class PageFlowPlan
         if (ambiguity.FailureReason is { } failure)
             baseline.Decision = baseline.Decision with { Reasons = Array.AsReadOnly(baseline.Decision.Reasons.Append(failure).Distinct().Order(StringComparer.Ordinal).ToArray()) };
         if (ambiguity.Proofs.Count == 0) return TryTerminal(baseline);
-        var resolved = Build(ambiguity.Proposals, ambiguity);
+        var resolved = Build(ambiguity.Proposals, ambiguity, baseline);
         // 元画素と全ページの写像まで成立した場合だけ再検証の証拠を採用する。
         return resolved.Decision.Ready ? resolved : TryTerminal(baseline);
 
@@ -81,7 +81,7 @@ public sealed class PageFlowPlan
             if (additional.Proofs.Count > 0)
             {
                 nonflow = additional;
-                var independent = Build(inference.Proposals, PageFlowAmbiguity.Result.Empty);
+                var independent = Build(inference.Proposals, PageFlowAmbiguity.Result.Empty, previous);
                 if (independent.Decision.Ready) return independent;
                 nonflow = originalNonflow;
             }
@@ -92,16 +92,22 @@ public sealed class PageFlowPlan
             if (ambiguity.FailureReason is { } failure)
                 previous.Decision = previous.Decision with { Reasons = Array.AsReadOnly(previous.Decision.Reasons.Append(failure).Distinct().Order(StringComparer.Ordinal).ToArray()) };
             if (ambiguity.Proofs.Count == 0) return previous;
-            var terminal = Build(ambiguity.Proposals, ambiguity);
+            var terminal = Build(ambiguity.Proposals, ambiguity, previous);
             return terminal.Decision.Ready ? terminal : previous;
         }
 
-        PageFlowPlan Build(IReadOnlyList<Proposal> proposals, PageFlowAmbiguity.Result ambiguity)
+        PageFlowPlan Build(IReadOnlyList<Proposal> proposals, PageFlowAmbiguity.Result ambiguity, PageFlowPlan? reuseFrom = null)
         {
             var descriptors = document.Pages.ToDictionary(p => p.Key);
             var verifications = new List<PageFlowBandVerifier.Verification>();
-            foreach (var proposal in proposals)
+            for (var i = 0; i < proposals.Count; i++)
             {
+                var proposal = proposals[i];
+                if (reuseFrom is not null && i < reuseFrom.Inference.Proposals.Count && proposal == reuseFrom.Inference.Proposals[i])
+                {
+                    verifications.Add(reuseFrom.Verifications[i]);
+                    continue;
+                }
                 var original = proposal with { Source = OriginalBand(proposal.Source), Target = OriginalBand(proposal.Target) };
                 if (proposal.Status != "candidate") { verifications.Add(new(original, 0)); continue; }
                 if (original.Source is null || original.Target is null)
@@ -123,6 +129,7 @@ public sealed class PageFlowPlan
                 links = links.Select(l => l.Status == "band_verified" ? l with { Status = "skipped", Reason = "overlapping_candidates" } : l).ToArray();
                 verified = []; endpoints = [];
             }
+            var reuseVerified = reuseFrom?.Links.Where(l => l.Status == "band_verified").ToArray();
             var layouts = inference.Layouts.A.Concat(inference.Layouts.B).ToDictionary(l => l.Page.Key);
             var pages = new List<Page>(); var proofs = new List<PageFlowPageProof>();
             foreach (var number in document.Pages.Select(p => p.Key.Page).Distinct().Order())
@@ -139,7 +146,13 @@ public sealed class PageFlowPlan
                     continue;
                 }
                 PageFlowSurface.Built? built = null;
-                if (layouts.TryGetValue(ka, out var la) && layouts.TryGetValue(kb, out var lb))
+                if (reuseFrom is not null && reuseVerified is not null
+                    && reuseVerified.Where(p => p.Source?.Page.Page == number || p.Target?.Page.Page == number)
+                        .SequenceEqual(verified.Where(p => p.Source?.Page.Page == number || p.Target?.Page.Page == number)))
+                {
+                    built = reuseFrom.Pages.Single(p => p.Number == number).Built;
+                }
+                else if (layouts.TryGetValue(ka, out var la) && layouts.TryGetValue(kb, out var lb))
                 {
                     using var a = ReadComparison(ka); using var b = ReadComparison(kb);
                     built = PageFlowSurface.Create(la, lb, a, b, verified, parameters[number], numeric);

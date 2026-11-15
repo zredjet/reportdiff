@@ -1,3 +1,4 @@
+using System.Collections.Concurrent;
 using System.Runtime.Versioning;
 using System.Security.Cryptography;
 using System.Text.Json;
@@ -127,6 +128,7 @@ public sealed class AnchoredAcceptanceTests
     {
         internal string A { get; } internal string B { get; }
         private readonly PdfReader a, b; private readonly PdfTextReader ta, tb; private readonly Size size;
+        private readonly Dictionary<PageFlowPageKey, Mat> pages = [];
         internal Input(string variant, bool reverse)
         {
             var root = variant == "original" ? Path.Combine(AppContext.BaseDirectory, "Fixtures/page-flow-same-page-support/same-page-two")
@@ -134,9 +136,16 @@ public sealed class AnchoredAcceptanceTests
             A = Path.Combine(root, reverse ? "b.pdf" : "a.pdf"); B = Path.Combine(root, reverse ? "a.pdf" : "b.pdf");
             a = PdfReader.Open(A); b = PdfReader.Open(B); ta = new(A); tb = new(B);
             using var first = a.ReadPage(1); size = first.Pixels.Size();
+            pages[new(PageSpace.A, 1)] = first.TakePixels();
         }
         internal Mat Read(PageFlowPageKey key)
-        { using var page = (key.Side == PageSpace.A ? a : b).ReadPage(key.Page); return page.TakePixels(); }
+        {
+            if (pages.TryGetValue(key, out var cached)) return cached.Clone();
+            using var page = (key.Side == PageSpace.A ? a : b).ReadPage(key.Page);
+            var pixels = page.TakePixels();
+            pages[key] = pixels;
+            return pixels.Clone();
+        }
         internal RowTextResult Text(PageFlowPageKey key) => (key.Side == PageSpace.A ? ta : tb).ReadRowWords(key.Page, size, 300);
         internal AnchoredContentPlan Plan()
         {
@@ -148,15 +157,56 @@ public sealed class AnchoredAcceptanceTests
             var plan = AnchoredContentPlan.Prepare(previous, new(new(), new(), rows, new('a', 64), new('b', 64), new('c', 64)), out var reason);
             Assert.Null(reason); return Assert.IsType<AnchoredContentPlan>(plan);
         }
-        public void Dispose() { ta.Dispose(); tb.Dispose(); a.Dispose(); b.Dispose(); }
+        public void Dispose()
+        {
+            foreach (var page in pages.Values) page.Dispose();
+            pages.Clear();
+            ta.Dispose(); tb.Dispose(); a.Dispose(); b.Dispose();
+        }
     }
     private sealed class Output : IDisposable
     {
+        private readonly record struct BaselineKey(string PathA, string PathB, string Yaml, string Options);
+        private static readonly ConcurrentDictionary<BaselineKey, Lazy<IReadOnlyDictionary<string, byte[]>>> BaselineCache = new();
         private readonly string root = Path.Combine(Path.GetTempPath(), "reportdiff-acceptance-" + Guid.NewGuid().ToString("N"));
         internal Output() => Directory.CreateDirectory(root);
         internal string PathOf(string path, string? child = null) => child is null ? Path.Combine(root, path) : Path.Combine(root, path, child);
         internal ReportDocument Compare(Input input, string name, string yaml, params string[] options)
         {
+            if (name == "off")
+            {
+                var key = new BaselineKey(input.A, input.B, yaml, string.Join("\u001f", options));
+                var cached = BaselineCache.GetOrAdd(key, _ => new Lazy<IReadOnlyDictionary<string, byte[]>>(() =>
+                {
+                    var tempRoot = Path.Combine(Path.GetTempPath(), "reportdiff-acceptance-cache-" + Guid.NewGuid().ToString("N"));
+                    Directory.CreateDirectory(tempRoot);
+                    try
+                    {
+                        var tempConfig = Path.Combine(tempRoot, "off.yaml");
+                        var tempOut = Path.Combine(tempRoot, "off");
+                        File.WriteAllText(tempConfig, yaml + "\nreport: {raw_overlay: true}\n");
+                        using var outWriter = new StringWriter(); using var errWriter = new StringWriter();
+                        var code = CliApplication.Run(["compare", input.A, input.B, "--out", tempOut, "--config", tempConfig, "--quiet", "--no-html", .. options], outWriter, errWriter);
+                        Assert.Equal("", errWriter.ToString()); Assert.Equal(1, code);
+                        var files = new Dictionary<string, byte[]>(StringComparer.Ordinal);
+                        foreach (var file in Directory.EnumerateFiles(tempOut, "*", SearchOption.AllDirectories))
+                            files[Path.GetRelativePath(tempOut, file)] = File.ReadAllBytes(file);
+                        return files;
+                    }
+                    finally
+                    {
+                        if (Directory.Exists(tempRoot)) Directory.Delete(tempRoot, true);
+                    }
+                }, LazyThreadSafetyMode.ExecutionAndPublication)).Value;
+                var targetDir = PathOf(name);
+                foreach (var (rel, content) in cached)
+                {
+                    var dest = Path.Combine(targetDir, rel);
+                    Directory.CreateDirectory(Path.GetDirectoryName(dest)!);
+                    File.WriteAllBytes(dest, content);
+                }
+                return JsonSerializer.Deserialize<ReportDocument>(File.ReadAllBytes(PathOf(name, "result.json")), ReportJson.Options)!;
+            }
             var config = PathOf(name + ".yaml"); File.WriteAllText(config, yaml + "\nreport: {raw_overlay: true}\n");
             using var stdout = new StringWriter(); using var stderr = new StringWriter();
             var exit = CliApplication.Run(["compare", input.A, input.B, "--out", PathOf(name), "--config", config, "--quiet", .. options], stdout, stderr);
