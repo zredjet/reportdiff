@@ -12,6 +12,7 @@ namespace ReportDiff.Cli;
 [SupportedOSPlatform("macOS")]
 internal sealed class PageFlowRun : IDisposable
 {
+    private const long MaxRetainedComparisonBytes = 256L * 1024 * 1024;
     private readonly PagePairingPlan pairing;
     private readonly bool selectionLimited;
     private readonly int dpi;
@@ -22,10 +23,22 @@ internal sealed class PageFlowRun : IDisposable
     private readonly Dictionary<int, AlignmentResult> alignments = [];
     private readonly Dictionary<int, PageFlowComparison> comparisons = [];
     private readonly Dictionary<int, PageComparison> baselines = [];
+    private long retainedComparisonBytes;
     public AlignmentResult Alignment(int page) => alignments[page];
     public bool TryGetAlignment(int page, out AlignmentResult alignment) => alignments.TryGetValue(page, out alignment!);
-    public PageFlowComparison? TakeComparison(int page) => comparisons.Remove(page, out var value) ? value : null;
-    public PageComparison? TakeBaseline(int page) => baselines.Remove(page, out var value) ? value : null;
+    public PageFlowComparison? TakeComparison(int page)
+    {
+        if (!comparisons.Remove(page, out var value)) return null;
+        retainedComparisonBytes -= value.RetainedBytes;
+        return value;
+    }
+
+    public PageComparison? TakeBaseline(int page)
+    {
+        if (!baselines.Remove(page, out var value)) return null;
+        retainedComparisonBytes -= value.RetainedBytes;
+        return value;
+    }
     public PageFlowPlan? Plan { get; private set; }
     public Dictionary<int, PageFlowAdoptionResult> Adoptions { get; } = [];
     public bool Applied { get; private set; }
@@ -75,6 +88,7 @@ internal sealed class PageFlowRun : IDisposable
             if (document is null) return Skip(collector.FailureReason!);
             run.Plan = PageFlowPlan.PrepareForPages(document, ReadOriginal, n => settings.ForPage(n, a.Dpi), settings.Rows, selectionLimited, settings.Align.Enabled);
             if (!run.Plan.Decision.Ready) { run.reasons.AddRange(run.Plan.Decision.Reasons); return run; }
+            var allAccepted = true;
             foreach (var page in pairing.Pages.Where(p => p.CanCompare))
             {
                 using var ia = ReadOriginal(new(PageSpace.A, page.PageNumber)); using var ib = ReadOriginal(new(PageSpace.B, page.PageNumber));
@@ -86,19 +100,26 @@ internal sealed class PageFlowRun : IDisposable
                     a.ReadRowWords(page.PageNumber, map, PageSpace.A),
                     b.ReadRowWords(page.PageNumber, map, PageSpace.B), settings.Text.MinLineOverlap, out var baseline, out var comparison);
                 run.Adoptions.Add(page.PageNumber, adoption);
-                if (baseline is not null) run.baselines.Add(page.PageNumber, baseline);
-                if (comparison is not null) run.comparisons.Add(page.PageNumber, comparison);
+                if (!adoption.Accepted && allAccepted)
+                {
+                    allAccepted = false;
+                    run.ClearComparisons();
+                }
+                if (allAccepted && comparison is not null)
+                    run.TryRetainComparison(page.PageNumber, comparison);
+                else
+                    comparison?.Dispose();
+                if (baseline is not null)
+                    run.TryRetainBaseline(page.PageNumber, baseline);
             }
-            run.Applied = run.Adoptions.Values.All(d => d.Accepted);
+            run.Applied = allAccepted;
             if (run.Applied)
             {
-                foreach (var baseline in run.baselines.Values) baseline.Dispose();
-                run.baselines.Clear();
+                run.ClearBaselines();
             }
             else
             {
-                foreach (var comparison in run.comparisons.Values) comparison.Dispose();
-                run.comparisons.Clear();
+                run.ClearComparisons();
                 run.reasons.Add("adoption_not_ready");
             }
             return run;
@@ -120,9 +141,55 @@ internal sealed class PageFlowRun : IDisposable
 
     public void Dispose()
     {
-        foreach (var comparison in comparisons.Values) comparison.Dispose();
+        ClearComparisons();
+        ClearBaselines();
+    }
+
+    private void TryRetainComparison(int page, PageFlowComparison comparison)
+    {
+        var bytes = comparison.RetainedBytes;
+        if (retainedComparisonBytes + bytes <= MaxRetainedComparisonBytes)
+        {
+            comparisons.Add(page, comparison);
+            retainedComparisonBytes += bytes;
+        }
+        else
+        {
+            comparison.Dispose();
+        }
+    }
+
+    private void TryRetainBaseline(int page, PageComparison baseline)
+    {
+        var bytes = baseline.RetainedBytes;
+        if (retainedComparisonBytes + bytes <= MaxRetainedComparisonBytes)
+        {
+            baselines.Add(page, baseline);
+            retainedComparisonBytes += bytes;
+        }
+        else
+        {
+            baseline.Dispose();
+        }
+    }
+
+    private void ClearComparisons()
+    {
+        foreach (var comparison in comparisons.Values)
+        {
+            retainedComparisonBytes -= comparison.RetainedBytes;
+            comparison.Dispose();
+        }
         comparisons.Clear();
-        foreach (var baseline in baselines.Values) baseline.Dispose();
+    }
+
+    private void ClearBaselines()
+    {
+        foreach (var baseline in baselines.Values)
+        {
+            retainedComparisonBytes -= baseline.RetainedBytes;
+            baseline.Dispose();
+        }
         baselines.Clear();
     }
 

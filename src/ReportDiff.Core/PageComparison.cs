@@ -31,6 +31,11 @@ public sealed class PageComparison(
     public Mat? RemovalMask { get; } = removalMask;
     public IReadOnlyList<string> Warnings { get; } = warnings;
     public RegionalComparison? Regional { get; internal set; }
-    internal ClusterProjectionData? ProjectionData { get; init; }
+    internal ClusterProjectionData? ProjectionData { get; set; }
+    public long RetainedBytes =>
+        MatBytes(RawMask) + MatBytes(LabelMask) + MatBytes(RemovalMask) + MatBytes(Regional?.SuppressedMask)
+        + (ProjectionData is { } p ? checked(4L * p.RawClusterIds.Length) : 0);
     public void Dispose() { RawMask.Dispose(); LabelMask.Dispose(); RemovalMask?.Dispose(); Regional?.Dispose(); }
+    private static long MatBytes(Mat? mat) =>
+        mat is null || mat.Empty() ? 0 : checked((long)mat.Rows * mat.Cols * mat.ElemSize());
 }
