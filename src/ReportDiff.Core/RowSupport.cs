@@ -35,8 +35,19 @@ internal static class RowSupport
         for (var y = 0; y < by.Length; y++)
         {
             if (!by[y]) continue;
-            for (var x = 0; x < width; x++)
-                excludedB[y * width + x] = mapsB.Any(map => map[y] < 0 || excludedA[map[y] * width + x]);
+            var destRow = y * width;
+            foreach (var map in mapsB)
+            {
+                var mappedY = map[y];
+                if (mappedY < 0)
+                {
+                    Array.Fill(excludedB, true, destRow, width);
+                    break;
+                }
+                var srcRow = mappedY * width;
+                for (var x = 0; x < width; x++)
+                    if (excludedA[srcRow + x]) excludedB[destRow + x] = true;
+            }
         }
         var minimum = Units.SquareMmToPixels(options.MinSupportInkMm2, parameters.Dpi) * 255;
         var scores = new List<RowSupportScore>();

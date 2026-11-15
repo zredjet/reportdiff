@@ -36,28 +36,33 @@ internal static class RowGroupValidator
             var center = (int)Math.Round((deltas[(deltas.Length - 1) / 2] + deltas[deltas.Length / 2]) / 2);
             var min = Math.Max(-maxShift, center - refine); var max = Math.Min(maxShift, center + refine);
             if (min > max) return new(null, "insufficient_support");
-            var maskA = new HashSet<int>(); var maskB = new HashSet<int>();
+            var seenA = new bool[pixelsA.Length]; var seenB = new bool[pixelsB.Length];
+            var maskA = new List<int>(); var maskB = new List<int>();
             var supportA = new List<int[]>(); var supportB = new List<int[]>();
             foreach (var match in group)
             {
                 var rowA = Band(linesA[match.A], a.Height, b.Height, -max, -min, false);
                 var rowB = Band(linesB[match.B], b.Height, a.Height, min, max, true);
                 if (rowA is null || rowB is null) return new(null, "insufficient_support", "support_outside_page");
-                supportA.Add(rowA); supportB.Add(rowB); maskA.UnionWith(rowA); maskB.UnionWith(rowB);
+                supportA.Add(rowA); supportB.Add(rowB);
+                foreach (var p in rowA) if (!seenA[p]) { seenA[p] = true; maskA.Add(p); }
+                foreach (var p in rowB) if (!seenB[p]) { seenB[p] = true; maskB.Add(p); }
             }
             if (maskA.Count == 0 || maskB.Count == 0) return new(null, "insufficient_support");
+            var maskAArray = maskA.ToArray(); var maskBArray = maskB.ToArray();
             var scores = new List<(int Dy, double Score)>();
             for (var dy = min; dy <= max; dy++)
             {
                 long difference = 0; long sum = 0;
-                Accumulate(maskA, pixelsA, pixelsB, -dy);
-                Accumulate(maskB, pixelsB, pixelsA, dy);
+                Accumulate(maskAArray, pixelsA, pixelsB, -dy);
+                Accumulate(maskBArray, pixelsB, pixelsA, dy);
                 scores.Add((dy, sum == 0 ? 0 : 1 - difference / (double)sum));
-                void Accumulate(HashSet<int> mask, byte[] source, byte[] target, int offset)
+                void Accumulate(int[] mask, byte[] source, byte[] target, int offset)
                 {
+                    var shiftOffset = offset * width;
                     foreach (var pixel in mask)
                     {
-                        var da = 255 - source[pixel]; var db = 255 - target[pixel + offset * width];
+                        var da = 255 - source[pixel]; var db = 255 - target[pixel + shiftOffset];
                         difference += Math.Abs(da - db); sum += da + db;
                     }
                 }
@@ -88,11 +93,22 @@ internal static class RowGroupValidator
             var best = ordered[0]; double? gap = ordered.Length == 1 ? null : best.Score - ordered[1].Score;
             if (gap < options.MinScoreGap) return new(null, "ambiguous", "pixel_refinement");
             var required = Units.SquareMmToPixels(options.MinSupportInkMm2, parameters.Dpi) * 255;
-            var support = Enumerable.Range(0, group.Count).Count(i => supportA[i].Sum(p => (long)255 - pixelsA[p]) >= required
-                && supportB[i].Sum(p => (long)255 - pixelsB[p]) >= required);
+            var support = 0;
+            for (var i = 0; i < group.Count; i++)
+            {
+                if (SumInk(supportA[i], pixelsA) >= required && SumInk(supportB[i], pixelsB) >= required)
+                    support++;
+            }
             if (support < options.MinSupportBands) return new(null, "insufficient_support", "support_ink");
             groups.Add(new(best.Dy, group.AsReadOnly(), best.Score, gap, support));
         }
         return new(groups.AsReadOnly(), "candidate");
+
+        static long SumInk(int[] indices, byte[] pixels)
+        {
+            long sum = 0;
+            foreach (var p in indices) sum += 255 - pixels[p];
+            return sum;
+        }
     }
 }

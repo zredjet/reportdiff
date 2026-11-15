@@ -329,8 +329,8 @@ public sealed partial class PageFlowCliTests
     }
     private sealed class Files : IDisposable
     {
-        private readonly record struct BaselineKey(string ShaA, string ShaB, string ConfigYaml, string ExtraArgs);
-        private sealed record CachedBaseline(int Code, string Output, string Error, IReadOnlyDictionary<string, byte[]> OutputFiles);
+        private readonly record struct BaselineKey(string ShaA, string ShaB, string ConfigYaml, string ExtraArgs, bool NoHtml);
+        private sealed record CachedBaseline(string TempRoot, int Code, string Output, string Error, IReadOnlyDictionary<string, byte[]> OutputFiles);
 
         private static readonly ConcurrentDictionary<string, IReadOnlyDictionary<string, string>> FixtureHashes = new();
         private static readonly ConcurrentDictionary<string, byte[]> VerifiedFixturePdfs = new();
@@ -382,11 +382,12 @@ public sealed partial class PageFlowCliTests
                 + (rowSettings.Length == 0 ? "" : "  " + rowSettings + "\n") + "report: {raw_overlay: true}\n" + extraYaml;
             var config = Path.Combine(Root, name + ".yaml");
             File.WriteAllText(config, yamlContent);
-            if (name == "off" && carry == false && writer is null)
+            if (writer is null && !Directory.Exists(PathOf(name)))
             {
+                var noHtml = name == "off" && carry == false;
                 var shaA = Convert.ToHexStringLower(SHA256.HashData(File.ReadAllBytes(A)));
                 var shaB = Convert.ToHexStringLower(SHA256.HashData(File.ReadAllBytes(B)));
-                var key = new BaselineKey(shaA, shaB, yamlContent, string.Join("\u001f", extraArgs ?? []));
+                var key = new BaselineKey(shaA, shaB, yamlContent, string.Join("\u001f", extraArgs ?? []), noHtml);
                 var cached = BaselineCache.GetOrAdd(key, _ => new Lazy<CachedBaseline>(() =>
                 {
                     var tempRoot = Path.Combine(Path.GetTempPath(), "reportdiff-flow-cache-" + Guid.NewGuid().ToString("N"));
@@ -395,14 +396,17 @@ public sealed partial class PageFlowCliTests
                     {
                         var tempA = Path.Combine(tempRoot, "入力A.pdf");
                         var tempB = Path.Combine(tempRoot, "入力B.pdf");
-                        var tempConfig = Path.Combine(tempRoot, "off.yaml");
-                        var tempOut = Path.Combine(tempRoot, "off");
+                        var tempConfig = Path.Combine(tempRoot, "run.yaml");
+                        var tempOut = Path.Combine(tempRoot, "out");
                         File.Copy(A, tempA);
                         File.Copy(B, tempB);
                         File.WriteAllText(tempConfig, yamlContent);
                         using var cacheOut = new StringWriter();
                         using var cacheErr = new StringWriter();
-                        var runArgs = new[] { "compare", tempA, tempB, "--config", tempConfig, "--out", tempOut, "--no-html" }.Concat(extraArgs ?? []).ToArray();
+                        var baseArgs = noHtml
+                            ? new[] { "compare", tempA, tempB, "--config", tempConfig, "--out", tempOut, "--no-html" }
+                            : new[] { "compare", tempA, tempB, "--config", tempConfig, "--out", tempOut };
+                        var runArgs = baseArgs.Concat(extraArgs ?? []).ToArray();
                         var exitCode = CliApplication.Run(runArgs, cacheOut, cacheErr);
                         var files = new Dictionary<string, byte[]>(StringComparer.Ordinal);
                         if (Directory.Exists(tempOut))
@@ -410,7 +414,7 @@ public sealed partial class PageFlowCliTests
                             foreach (var file in Directory.EnumerateFiles(tempOut, "*", SearchOption.AllDirectories))
                                 files[Path.GetRelativePath(tempOut, file)] = File.ReadAllBytes(file);
                         }
-                        return new(exitCode, cacheOut.ToString(), cacheErr.ToString(), files);
+                        return new(tempRoot, exitCode, cacheOut.ToString(), cacheErr.ToString(), files);
                     }
                     finally
                     {
@@ -422,7 +426,18 @@ public sealed partial class PageFlowCliTests
                 {
                     var dest = Path.Combine(targetDir, rel);
                     Directory.CreateDirectory(Path.GetDirectoryName(dest)!);
-                    File.WriteAllBytes(dest, content);
+                    if (rel.EndsWith(".json", StringComparison.Ordinal) || rel.EndsWith(".html", StringComparison.Ordinal))
+                    {
+                        var text = System.Text.Encoding.UTF8.GetString(content)
+                            .Replace(cached.TempRoot.Replace("\\", "\\\\"), Root.Replace("\\", "\\\\"), StringComparison.Ordinal)
+                            .Replace(System.Net.WebUtility.HtmlEncode(cached.TempRoot), System.Net.WebUtility.HtmlEncode(Root), StringComparison.Ordinal)
+                            .Replace(cached.TempRoot, Root, StringComparison.Ordinal);
+                        File.WriteAllText(dest, text);
+                    }
+                    else
+                    {
+                        File.WriteAllBytes(dest, content);
+                    }
                 }
                 return (cached.Code, cached.Output, cached.Error);
             }
