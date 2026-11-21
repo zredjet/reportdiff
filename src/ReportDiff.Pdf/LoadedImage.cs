@@ -5,7 +5,7 @@ namespace ReportDiff.Pdf;
 /// <summary>BGR 8bit の Pixels を所有する。呼び出し側で using によって破棄する。</summary>
 public sealed class LoadedImage : IDisposable
 {
-    internal LoadedImage(Mat pixels, InputFormat format, int dpi)
+    public LoadedImage(Mat pixels, InputFormat format, int dpi)
     {
         this.pixels = pixels;
         Format = format;

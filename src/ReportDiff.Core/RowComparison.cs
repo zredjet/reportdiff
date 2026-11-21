@@ -33,10 +33,10 @@ public static class RowComparer
 {
     public static RowComparison Compare(Mat a, Mat b, ComparisonParameters parameters, RowOptions options,
         Func<(RowTextResult A, RowTextResult B)> readText, bool pdfPair = true, bool originalSizesEqual = true,
-        double minLineOverlap = 0.5, PageMap? globalMap = null)
+        double minLineOverlap = 0.5, PageMap? globalMap = null, PageComparison? precomputedBaseline = null)
     {
         options.Validated(parameters.Dpi);
-        PageComparison? baseline = PageComparer.Compare(a, b, parameters);
+        PageComparison? baseline = precomputedBaseline ?? PageComparer.Compare(a, b, parameters);
         PageComparison? candidate = null; Mat? ca = null; Mat? cb = null; RowDisplayProjection? display = null;
         try
         {

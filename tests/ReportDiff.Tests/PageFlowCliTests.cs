@@ -1,3 +1,4 @@
+using System.Collections.Concurrent;
 using System.Runtime.Versioning;
 using System.Security.Cryptography;
 using System.Text.Json;
@@ -328,6 +329,13 @@ public sealed partial class PageFlowCliTests
     }
     private sealed class Files : IDisposable
     {
+        private readonly record struct BaselineKey(string ShaA, string ShaB, string ConfigYaml, string ExtraArgs, bool NoHtml);
+        private sealed record CachedBaseline(string TempRoot, int Code, string Output, string Error, IReadOnlyDictionary<string, byte[]> OutputFiles);
+
+        private static readonly ConcurrentDictionary<string, IReadOnlyDictionary<string, string>> FixtureHashes = new();
+        private static readonly ConcurrentDictionary<string, byte[]> VerifiedFixturePdfs = new();
+        private static readonly ConcurrentDictionary<BaselineKey, Lazy<CachedBaseline>> BaselineCache = new();
+
         internal string Root { get; } = Path.Combine(Path.GetTempPath(), "reportdiff-flow-" + Guid.NewGuid().ToString("N"));
         internal string A => Path.Combine(Root, "入力A.pdf");
         internal string B => Path.Combine(Root, "入力B.pdf");
@@ -351,20 +359,88 @@ public sealed partial class PageFlowCliTests
             if (numeric) scenario = scenario[8..];
             if (global) scenario = scenario[7..];
             if (multiple) scenario = scenario[9..];
-            var hashes = JsonSerializer.Deserialize<Dictionary<string, string>>(File.ReadAllText(Path.Combine(fixture, "sha256.json")))!;
+            var hashes = FixtureHashes.GetOrAdd(fixture, static dir =>
+                JsonSerializer.Deserialize<Dictionary<string, string>>(File.ReadAllText(Path.Combine(dir, "sha256.json")))!);
             foreach (var (name, output) in new[] { (reverse ? "b" : "a", A), (reverse ? "a" : "b", B) })
             {
-                var bytes = File.ReadAllBytes(Path.Combine(fixture, scenario, name + ".pdf"));
-                Assert.Equal(hashes[scenario + "/" + name + ".pdf"], Convert.ToHexStringLower(SHA256.HashData(bytes))); File.WriteAllBytes(output, bytes);
+                var relative = scenario + "/" + name + ".pdf";
+                var fullPath = Path.Combine(fixture, scenario, name + ".pdf");
+                var bytes = VerifiedFixturePdfs.GetOrAdd(fullPath, p =>
+                {
+                    var data = File.ReadAllBytes(p);
+                    Assert.Equal(hashes[relative], Convert.ToHexStringLower(SHA256.HashData(data)));
+                    return data;
+                });
+                File.WriteAllBytes(output, bytes);
             }
         }
         internal string PathOf(string name, string? file = null) => file is null ? Path.Combine(Root, name) : Path.Combine(Root, name, file);
         internal ReportDocument Report(string name) => JsonSerializer.Deserialize<ReportDocument>(File.ReadAllBytes(PathOf(name, "result.json")), ReportJson.Options)!;
         internal (int Code, string Output, string Error) Run(string name, bool? carry, string rowSettings = "", string[]? extraArgs = null, StringWriter? writer = null, string extraYaml = "")
         {
+            var yamlContent = "rows:\n  enabled: true\n" + (carry is null ? "" : $"  carry_enabled: {carry.ToString()!.ToLowerInvariant()}\n")
+                + (rowSettings.Length == 0 ? "" : "  " + rowSettings + "\n") + "report: {raw_overlay: true}\n" + extraYaml;
             var config = Path.Combine(Root, name + ".yaml");
-            File.WriteAllText(config, "rows:\n  enabled: true\n" + (carry is null ? "" : $"  carry_enabled: {carry.ToString()!.ToLowerInvariant()}\n")
-                + (rowSettings.Length == 0 ? "" : "  " + rowSettings + "\n") + "report: {raw_overlay: true}\n" + extraYaml);
+            File.WriteAllText(config, yamlContent);
+            if (writer is null && !Directory.Exists(PathOf(name)))
+            {
+                var noHtml = name == "off" && carry == false;
+                var shaA = Convert.ToHexStringLower(SHA256.HashData(File.ReadAllBytes(A)));
+                var shaB = Convert.ToHexStringLower(SHA256.HashData(File.ReadAllBytes(B)));
+                var key = new BaselineKey(shaA, shaB, yamlContent, string.Join("\u001f", extraArgs ?? []), noHtml);
+                var cached = BaselineCache.GetOrAdd(key, _ => new Lazy<CachedBaseline>(() =>
+                {
+                    var tempRoot = Path.Combine(Path.GetTempPath(), "reportdiff-flow-cache-" + Guid.NewGuid().ToString("N"));
+                    Directory.CreateDirectory(tempRoot);
+                    try
+                    {
+                        var tempA = Path.Combine(tempRoot, "入力A.pdf");
+                        var tempB = Path.Combine(tempRoot, "入力B.pdf");
+                        var tempConfig = Path.Combine(tempRoot, "run.yaml");
+                        var tempOut = Path.Combine(tempRoot, "out");
+                        File.Copy(A, tempA);
+                        File.Copy(B, tempB);
+                        File.WriteAllText(tempConfig, yamlContent);
+                        using var cacheOut = new StringWriter();
+                        using var cacheErr = new StringWriter();
+                        var baseArgs = noHtml
+                            ? new[] { "compare", tempA, tempB, "--config", tempConfig, "--out", tempOut, "--no-html" }
+                            : new[] { "compare", tempA, tempB, "--config", tempConfig, "--out", tempOut };
+                        var runArgs = baseArgs.Concat(extraArgs ?? []).ToArray();
+                        var exitCode = CliApplication.Run(runArgs, cacheOut, cacheErr);
+                        var files = new Dictionary<string, byte[]>(StringComparer.Ordinal);
+                        if (Directory.Exists(tempOut))
+                        {
+                            foreach (var file in Directory.EnumerateFiles(tempOut, "*", SearchOption.AllDirectories))
+                                files[Path.GetRelativePath(tempOut, file)] = File.ReadAllBytes(file);
+                        }
+                        return new(tempRoot, exitCode, cacheOut.ToString(), cacheErr.ToString(), files);
+                    }
+                    finally
+                    {
+                        if (Directory.Exists(tempRoot)) Directory.Delete(tempRoot, true);
+                    }
+                }, LazyThreadSafetyMode.ExecutionAndPublication)).Value;
+                var targetDir = PathOf(name);
+                foreach (var (rel, content) in cached.OutputFiles)
+                {
+                    var dest = Path.Combine(targetDir, rel);
+                    Directory.CreateDirectory(Path.GetDirectoryName(dest)!);
+                    if (rel.EndsWith(".json", StringComparison.Ordinal) || rel.EndsWith(".html", StringComparison.Ordinal))
+                    {
+                        var text = System.Text.Encoding.UTF8.GetString(content)
+                            .Replace(cached.TempRoot.Replace("\\", "\\\\"), Root.Replace("\\", "\\\\"), StringComparison.Ordinal)
+                            .Replace(System.Net.WebUtility.HtmlEncode(cached.TempRoot), System.Net.WebUtility.HtmlEncode(Root), StringComparison.Ordinal)
+                            .Replace(cached.TempRoot, Root, StringComparison.Ordinal);
+                        File.WriteAllText(dest, text);
+                    }
+                    else
+                    {
+                        File.WriteAllBytes(dest, content);
+                    }
+                }
+                return (cached.Code, cached.Output, cached.Error);
+            }
             using var own = new StringWriter(); using var error = new StringWriter(); var output = writer ?? own;
             var args = new[] { "compare", A, B, "--config", config, "--out", PathOf(name) }.Concat(extraArgs ?? []).ToArray();
             var code = CliApplication.Run(args, output, error); return (code, output.ToString(), error.ToString());

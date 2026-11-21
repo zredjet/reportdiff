@@ -11,6 +11,7 @@ public sealed record PdfFontWarning(string Code, string Message);
 internal sealed class PdfFontInspector(PdfDocument document)
 {
     internal const string IncompleteCode = "FONT_INSPECTION_INCOMPLETE";
+    private readonly Dictionary<IndirectReference, PdfFontWarning?> inspectedFonts = [];
 
     public IReadOnlyList<PdfFontWarning> Inspect(Page page)
     {
@@ -49,6 +50,8 @@ internal sealed class PdfFontInspector(PdfDocument document)
 
     internal PdfFontWarning? InspectFont(IndirectReference reference)
     {
+        if (inspectedFonts.TryGetValue(reference, out var cached))
+            return cached;
         var identity = $"フォント名不明（{reference.ObjectNumber} {reference.Generation} R）";
         try
         {
@@ -56,12 +59,16 @@ internal sealed class PdfFontInspector(PdfDocument document)
             var subtype = Name(font, "Subtype");
             var name = Name(font, subtype == "Type3" ? "Name" : "BaseFont") ?? "名前不明";
             identity = $"フォント「{name}」（{reference.ObjectNumber} {reference.Generation} R）";
-            return InspectDefinition(font) is { } warning
+            var result = InspectDefinition(font) is { } warning
                 ? warning with { Message = $"{identity}: {warning.Message}" } : null;
+            inspectedFonts[reference] = result;
+            return result;
         }
         catch (Exception ex) when (ex is not OutOfMemoryException)
         {
-            return Incomplete($"{identity}: 辞書・参照・ストリームを解析できず、埋め込みを確認できません。");
+            var failed = Incomplete($"{identity}: 辞書・参照・ストリームを解析できず、埋め込みを確認できません。");
+            inspectedFonts[reference] = failed;
+            return failed;
         }
     }
 

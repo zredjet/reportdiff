@@ -10,8 +10,9 @@ namespace ReportDiff.Cli;
 [SupportedOSPlatform("windows")]
 [SupportedOSPlatform("linux")]
 [SupportedOSPlatform("macOS")]
-internal sealed class PageFlowRun
+internal sealed class PageFlowRun : IDisposable
 {
+    private const long MaxRetainedComparisonBytes = 256L * 1024 * 1024;
     private readonly PagePairingPlan pairing;
     private readonly bool selectionLimited;
     private readonly int dpi;
@@ -20,7 +21,24 @@ internal sealed class PageFlowRun
     private readonly List<PageFlowAggregation.Page> compared = [];
     private readonly Dictionary<(int Link, bool Source), string> images = [];
     private readonly Dictionary<int, AlignmentResult> alignments = [];
+    private readonly Dictionary<int, PageFlowComparison> comparisons = [];
+    private readonly Dictionary<int, PageComparison> baselines = [];
+    private long retainedComparisonBytes;
     public AlignmentResult Alignment(int page) => alignments[page];
+    public bool TryGetAlignment(int page, out AlignmentResult alignment) => alignments.TryGetValue(page, out alignment!);
+    public PageFlowComparison? TakeComparison(int page)
+    {
+        if (!comparisons.Remove(page, out var value)) return null;
+        retainedComparisonBytes -= value.RetainedBytes;
+        return value;
+    }
+
+    public PageComparison? TakeBaseline(int page)
+    {
+        if (!baselines.Remove(page, out var value)) return null;
+        retainedComparisonBytes -= value.RetainedBytes;
+        return value;
+    }
     public PageFlowPlan? Plan { get; private set; }
     public Dictionary<int, PageFlowAdoptionResult> Adoptions { get; } = [];
     public bool Applied { get; private set; }
@@ -32,65 +50,147 @@ internal sealed class PageFlowRun
         AppSettings settings, bool selectionLimited, ConsoleProgress? progress)
     {
         var run = new PageFlowRun(pairing, selectionLimited, a.Dpi, settings);
-        if (a.Format != InputFormat.Pdf || b.Format != InputFormat.Pdf) return Skip("not_pdf");
-        if (pairing.Pages.Count > PageFlowLimits.MaximumSelectedPages) return Skip("flow_page_limit");
-        var keys = pairing.Pages.SelectMany(p => new[] { p.HasA ? new PageFlowPageKey(PageSpace.A, p.PageNumber) : null,
-            p.HasB ? new PageFlowPageKey(PageSpace.B, p.PageNumber) : null }.OfType<PageFlowPageKey>()).ToArray();
-        var collector = new PageFlowCollector(keys);
-        if (collector.FailureReason is { } preflight) return Skip(preflight);
-        foreach (var page in pairing.Pages)
+        try
         {
-            progress?.Flow(page.PageNumber);
-            using var ia = page.HasA ? a.ReadPage(page.PageNumber) : null;
-            using var ib = page.HasB ? b.ReadPage(page.PageNumber) : null;
-            if (ia is not null && ib is not null)
+            if (a.Format != InputFormat.Pdf || b.Format != InputFormat.Pdf) return Skip("not_pdf");
+            if (pairing.Pages.Count > PageFlowLimits.MaximumSelectedPages) return Skip("flow_page_limit");
+            var keys = pairing.Pages.SelectMany(p => new[] { p.HasA ? new PageFlowPageKey(PageSpace.A, p.PageNumber) : null,
+                p.HasB ? new PageFlowPageKey(PageSpace.B, p.PageNumber) : null }.OfType<PageFlowPageKey>()).ToArray();
+            var collector = new PageFlowCollector(keys);
+            if (collector.FailureReason is { } preflight) return Skip(preflight);
+            foreach (var page in pairing.Pages)
             {
-                if (ia.Pixels.Size() != ib.Pixels.Size()) return Skip("size_mismatch");
-                var alignment = GlobalAligner.Estimate(ia.Pixels, ib.Pixels, settings.ForPage(page.PageNumber, a.Dpi), settings.Align);
-                run.alignments.Add(page.PageNumber, alignment);
-                if (alignment.Status == "applied" && (alignment.EstimatedShiftPx!.Dx != 0 || pairing.Pages.Any(p => !p.CanCompare)))
-                    return Skip("global_alignment_applied");
+                progress?.Flow(page.PageNumber);
+                using var ia = page.HasA ? a.ReadPage(page.PageNumber) : null;
+                using var ib = page.HasB ? b.ReadPage(page.PageNumber) : null;
+                if (ia is not null && ib is not null)
+                {
+                    if (ia.Pixels.Size() != ib.Pixels.Size()) return Skip("size_mismatch");
+                    var alignment = GlobalAligner.Estimate(ia.Pixels, ib.Pixels, settings.ForPage(page.PageNumber, a.Dpi), settings.Align);
+                    run.alignments.Add(page.PageNumber, alignment);
+                    if (alignment.Status == "applied" && (alignment.EstimatedShiftPx!.Dx != 0 || pairing.Pages.Any(p => !p.CanCompare)))
+                        return Skip("global_alignment_applied");
+                }
+                foreach (var (input, image, side) in new[] { (a, ia, PageSpace.A), (b, ib, PageSpace.B) })
+                {
+                    if (image is null) continue;
+                    var alignment = run.alignments.GetValueOrDefault(page.PageNumber);
+                    var shift = alignment?.Status == "applied" ? alignment.EstimatedShiftPx : null;
+                    var map = PageMap.Global(image.Pixels.Size(), image.Pixels.Size(), image.Pixels.Size(), shift);
+                    var text = input.ReadRowWords(page.PageNumber, map, side);
+                    var added = side == PageSpace.B && shift is not null
+                        ? collector.AddAligned(new(side, page.PageNumber), image.Pixels, shift, text, settings.Text.MinLineOverlap)
+                        : collector.Add(new(side, page.PageNumber), image.Pixels, text, settings.Text.MinLineOverlap);
+                    if (!added) return Skip(collector.FailureReason!);
+                }
             }
-            foreach (var (input, image, side) in new[] { (a, ia, PageSpace.A), (b, ib, PageSpace.B) })
+            var document = collector.Complete();
+            if (document is null) return Skip(collector.FailureReason!);
+            run.Plan = PageFlowPlan.PrepareForPages(document, ReadOriginal, n => settings.ForPage(n, a.Dpi), settings.Rows, selectionLimited, settings.Align.Enabled);
+            if (!run.Plan.Decision.Ready) { run.reasons.AddRange(run.Plan.Decision.Reasons); return run; }
+            var allAccepted = true;
+            foreach (var page in pairing.Pages.Where(p => p.CanCompare))
             {
-                if (image is null) continue;
-                var alignment = run.alignments.GetValueOrDefault(page.PageNumber);
-                var shift = alignment?.Status == "applied" ? alignment.EstimatedShiftPx : null;
-                var map = PageMap.Global(image.Pixels.Size(), image.Pixels.Size(), image.Pixels.Size(), shift);
-                var text = input.ReadRowWords(page.PageNumber, map, side);
-                var added = side == PageSpace.B && shift is not null
-                    ? collector.AddAligned(new(side, page.PageNumber), image.Pixels, shift, text, settings.Text.MinLineOverlap)
-                    : collector.Add(new(side, page.PageNumber), image.Pixels, text, settings.Text.MinLineOverlap);
-                if (!added) return Skip(collector.FailureReason!);
+                using var ia = ReadOriginal(new(PageSpace.A, page.PageNumber)); using var ib = ReadOriginal(new(PageSpace.B, page.PageNumber));
+                var alignment = run.alignments[page.PageNumber];
+                var shift = alignment.Status == "applied" ? alignment.EstimatedShiftPx : null;
+                var map = PageMap.Global(ia.Size(), ib.Size(), ia.Size(), shift);
+                using var correctedB = shift is null ? null : map.Render(ib, PageSpace.B);
+                var adoption = PageFlowAdoption.Evaluate(run.Plan, page.PageNumber, ia, correctedB ?? ib, settings.ForPage(page.PageNumber, a.Dpi), settings.Rows,
+                    a.ReadRowWords(page.PageNumber, map, PageSpace.A),
+                    b.ReadRowWords(page.PageNumber, map, PageSpace.B), settings.Text.MinLineOverlap, out var baseline, out var comparison);
+                run.Adoptions.Add(page.PageNumber, adoption);
+                if (!adoption.Accepted && allAccepted)
+                {
+                    allAccepted = false;
+                    run.ClearComparisons();
+                }
+                if (allAccepted && comparison is not null)
+                    run.TryRetainComparison(page.PageNumber, comparison);
+                else
+                    comparison?.Dispose();
+                if (baseline is not null)
+                    run.TryRetainBaseline(page.PageNumber, baseline);
             }
+            run.Applied = allAccepted;
+            if (run.Applied)
+            {
+                run.ClearBaselines();
+            }
+            else
+            {
+                run.ClearComparisons();
+                run.reasons.Add("adoption_not_ready");
+            }
+            return run;
         }
-        var document = collector.Complete();
-        if (document is null) return Skip(collector.FailureReason!);
-        run.Plan = PageFlowPlan.PrepareForPages(document, ReadOriginal, n => settings.ForPage(n, a.Dpi), settings.Rows, selectionLimited, settings.Align.Enabled);
-        if (!run.Plan.Decision.Ready) { run.reasons.AddRange(run.Plan.Decision.Reasons); return run; }
-        foreach (var page in pairing.Pages.Where(p => p.CanCompare))
+        catch
         {
-            using var ia = ReadOriginal(new(PageSpace.A, page.PageNumber)); using var ib = ReadOriginal(new(PageSpace.B, page.PageNumber));
-            var alignment = run.alignments[page.PageNumber];
-            var shift = alignment.Status == "applied" ? alignment.EstimatedShiftPx : null;
-            var map = PageMap.Global(ia.Size(), ib.Size(), ia.Size(), shift);
-            using var correctedB = shift is null ? null : map.Render(ib, PageSpace.B);
-            var adoption = PageFlowAdoption.Evaluate(run.Plan, page.PageNumber, ia, correctedB ?? ib, settings.ForPage(page.PageNumber, a.Dpi), settings.Rows,
-                a.ReadRowWords(page.PageNumber, map, PageSpace.A),
-                b.ReadRowWords(page.PageNumber, map, PageSpace.B), settings.Text.MinLineOverlap);
-            run.Adoptions.Add(page.PageNumber, adoption);
+            run.Dispose();
+            throw;
         }
-        run.Applied = run.Adoptions.Values.All(d => d.Accepted);
-        if (!run.Applied) run.reasons.Add("adoption_not_ready");
-        return run;
 
         PageFlowRun Skip(string reason) { run.reasons.Add(reason); return run; }
         Mat ReadOriginal(PageFlowPageKey key)
         {
             using var image = (key.Side == PageSpace.A ? a : b).ReadPage(key.Page);
             run.Plan?.VerifyOriginal(key, image.Pixels);
-            return image.Pixels.Clone();
+            return image.TakePixels();
         }
+    }
+
+    public void Dispose()
+    {
+        ClearComparisons();
+        ClearBaselines();
+    }
+
+    private void TryRetainComparison(int page, PageFlowComparison comparison)
+    {
+        var bytes = comparison.RetainedBytes;
+        if (retainedComparisonBytes + bytes <= MaxRetainedComparisonBytes)
+        {
+            comparisons.Add(page, comparison);
+            retainedComparisonBytes += bytes;
+        }
+        else
+        {
+            comparison.Dispose();
+        }
+    }
+
+    private void TryRetainBaseline(int page, PageComparison baseline)
+    {
+        var bytes = baseline.RetainedBytes;
+        if (retainedComparisonBytes + bytes <= MaxRetainedComparisonBytes)
+        {
+            baselines.Add(page, baseline);
+            retainedComparisonBytes += bytes;
+        }
+        else
+        {
+            baseline.Dispose();
+        }
+    }
+
+    private void ClearComparisons()
+    {
+        foreach (var comparison in comparisons.Values)
+        {
+            retainedComparisonBytes -= comparison.RetainedBytes;
+            comparison.Dispose();
+        }
+        comparisons.Clear();
+    }
+
+    private void ClearBaselines()
+    {
+        foreach (var baseline in baselines.Values)
+        {
+            retainedComparisonBytes -= baseline.RetainedBytes;
+            baseline.Dispose();
+        }
+        baselines.Clear();
     }
 
     public void VerifyAndSave(ReportWriter writer, int page, PageSpace side, Mat original)

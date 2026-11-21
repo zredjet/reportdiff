@@ -21,7 +21,7 @@ internal static class ComparisonRunner
         var inputs = new ReportInputs(a.Describe(), b.Describe());
         if (a.InitialSha256 is { } initialA && initialA != inputs.A.Sha256 || b.InitialSha256 is { } initialB && initialB != inputs.B.Sha256)
             throw new CommandLineException("送りの検証中に入力ファイルが変わりました。入力を固定して再実行してください。");
-        var flow = settings.Rows.CarryEnabled ? PageFlowRun.Prepare(a, b, plan, settings, command.Pages is not null, progress) : null;
+        using var flow = settings.Rows.CarryEnabled ? PageFlowRun.Prepare(a, b, plan, settings, command.Pages is not null, progress) : null;
         using var anchored = AnchoredRun.Prepare(a, b, inputs, flow, plan, settings, command.Pages is not null);
         var anchoredReport = anchored?.Save(command, output, progress, anchoredStage);
         if (anchoredReport is not null) return anchoredReport;
@@ -38,19 +38,22 @@ internal static class ComparisonRunner
                 flow?.VerifyAndSave(writer, page.PageNumber, PageSpace.B, imageB.Pixels);
                 using var normalized = PageNormalizer.Normalize(imageA.Pixels, imageB.Pixels);
                 var parameters = settings.ForPage(page.PageNumber, a.Dpi);
-                var alignment = flow?.Applied == true ? flow.Alignment(page.PageNumber)
+                var alignment = flow is not null && !normalized.SizeMismatch && flow.TryGetAlignment(page.PageNumber, out var flowAlignment)
+                    ? flowAlignment
                     : GlobalAligner.Estimate(normalized.A, normalized.B, parameters, settings.Align, normalized.SizeMismatch);
                 var appliedShift = alignment.Status == "applied" ? alignment.EstimatedShiftPx : null;
                 var map = PageMap.Global(normalized.OriginalSizeA, normalized.OriginalSizeB, normalized.A.Size(), appliedShift);
                 using var correctedB = appliedShift is null ? null : map.Render(normalized.B, PageSpace.B);
                 RowTextResult? wordsA = null, wordsB = null;
-                using var carry = flow?.Applied == true ? flow.Plan!.Compare(page.PageNumber, normalized.A, correctedB ?? normalized.B) : null;
+                using var carry = flow?.Applied == true
+                    ? (flow.TakeComparison(page.PageNumber) ?? flow.Plan!.Compare(page.PageNumber, normalized.A, correctedB ?? normalized.B))
+                    : null;
                 if (carry is not null)
                     (wordsA, wordsB) = (a.ReadRowWords(page.PageNumber, map, PageSpace.A), b.ReadRowWords(page.PageNumber, map, PageSpace.B));
                 using var rows = carry is not null ? null : RowComparer.Compare(normalized.A, correctedB ?? normalized.B, parameters, settings.Rows,
                     () => (wordsA = a.ReadRowWords(page.PageNumber, map, PageSpace.A), wordsB = b.ReadRowWords(page.PageNumber, map, PageSpace.B)),
                     pdfPair: a.Format == InputFormat.Pdf && b.Format == InputFormat.Pdf, originalSizesEqual: !normalized.SizeMismatch,
-                    minLineOverlap: settings.Text.MinLineOverlap, globalMap: map);
+                    minLineOverlap: settings.Text.MinLineOverlap, globalMap: map, precomputedBaseline: flow?.TakeBaseline(page.PageNumber));
                 var surface = carry is not null ? flow!.Plan!.Pages.Single(p => p.Number == page.PageNumber).Built!.Surface : rows!.Surface;
                 var projection = carry?.Display ?? rows?.Display;
                 var comparison = projection?.Comparison ?? rows!.Comparison;

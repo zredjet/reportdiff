@@ -10,6 +10,10 @@ public sealed class PageFlowComparison : IDisposable
     public Mat ContentB { get; }
     public PageComparison Content { get; }
     public RowDisplayProjection Display { get; }
+    public long RetainedBytes =>
+        checked((long)ContentA.Rows * ContentA.Cols * ContentA.ElemSize()
+            + (long)ContentB.Rows * ContentB.Cols * ContentB.ElemSize()
+            + Content.RetainedBytes + Display.Comparison.RetainedBytes);
     private readonly RowComparisonSurface surface;
     internal PageFlowComparison(int page, Mat a, Mat b, PageComparison content, RowDisplayProjection display, RowComparisonSurface surface)
     { this.surface = surface; Page = page; ContentA = a; ContentB = b; Content = content; Display = display; }
@@ -25,6 +29,7 @@ public sealed class PageFlowComparison : IDisposable
                 ? PageComparer.Compare(ca, cb, parameters, true, retainProjection: true)
                 : RegionalComparer.Compare(ca, cb, parameters with { Exclude = [] }, RegionMap.ForRows(surface, parameters), retainProjection: true);
             display = RowProjection.Create(content, surface, a, b, parameters, globalMap: globalMap);
+            content.ProjectionData = null;
             var result = new PageFlowComparison(page, ca, cb, content, display, surface);
             ca = cb = null; content = null; display = null;
             return result;

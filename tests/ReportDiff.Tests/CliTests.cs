@@ -317,7 +317,7 @@ public sealed class CliTests
         return new(code, output.ToString(), error.ToString());
     }
 
-    private static Task<CliResult> ProcessRun(params string[] args) => CliProcess.Run(args);
+    private static Task<CliResult> ProcessRun(params string[] args) => CliProcess.RunProcess(args);
 
     private static void AssertError(CliResult result, string? text = null)
     {

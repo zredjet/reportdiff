@@ -15,7 +15,7 @@ public sealed class CandidateParallelTests
         var p = GoldenData.Parameters(GoldenData.Cases().Single(c => c.GetProperty("id").GetString() == id));
         using var a = GoldenData.Image(id, "a"); using var b = GoldenData.Image(id, "b");
         // 初期候補も探索も変更前の全ページ走査で求める。
-        using var expected = TolerantDifference.Calculate(a, b, p, false);
+        using var expected = GoldenData.UnoptimizedDifference(id, a, b, p);
         foreach (var degree in new[] { 1, 2, 4, 8 })
         {
             using var actual = TolerantDifference.Calculate(a, b, p, true, null, null, new(),

@@ -1,3 +1,4 @@
+using System.Buffers;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using OpenCvSharp;
@@ -64,8 +65,24 @@ public static class PageFlowBandVerifier
 
     internal static string Digest(Mat image)
     {
+        var size = image.Size();
+        var rowLength = checked(size.Width * 3);
+        if (image.IsContinuous())
+        {
+            var totalLength = checked(size.Height * rowLength);
+            var rented = ArrayPool<byte>.Shared.Rent(totalLength);
+            try
+            {
+                if (totalLength > 0) Marshal.Copy(image.Data, rented, 0, totalLength);
+                return Convert.ToHexStringLower(SHA256.HashData(rented.AsSpan(0, totalLength)));
+            }
+            finally
+            {
+                ArrayPool<byte>.Shared.Return(rented);
+            }
+        }
         using var hash = IncrementalHash.CreateHash(HashAlgorithmName.SHA256);
-        var size = image.Size(); var row = new byte[size.Width * 3];
+        var row = new byte[rowLength];
         for (var y = 0; y < size.Height; y++)
         {
             Marshal.Copy(image.Ptr(y), row, 0, row.Length); hash.AppendData(row);

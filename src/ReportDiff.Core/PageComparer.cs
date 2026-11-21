@@ -41,6 +41,13 @@ public static class PageComparer
     {
         var width = difference.RawMask.Cols;
         var height = difference.RawMask.Rows;
+        var initialNonZero = Cv2.CountNonZero(difference.RawMask);
+        if (initialNonZero == 0)
+        {
+            return new("same", [], 0, 0, difference.AbsorbedGroups, difference.MaxShiftPx,
+                new Mat(height, width, MatType.CV_8UC1, Scalar.All(0)),
+                new Mat(height, width, MatType.CV_8UC1, Scalar.All(0)), []);
+        }
         var raw = MatBuffers.Bytes(difference.RawMask);
         foreach (var e in parameters.Exclude)
         {
@@ -48,12 +55,17 @@ public static class PageComparer
             for (var y = box.Top; y < box.Bottom; y++)
                 if (box.Width > 0) Array.Clear(raw, y * width + box.Left, box.Width);
         }
-        var rawPixels = raw.Count(value => value != 0);
+        var rawPixels = parameters.Exclude.Count == 0 ? initialNonZero : raw.Length - raw.AsSpan().Count((byte)0);
+        if (rawPixels == 0)
+        {
+            return new("same", [], 0, 0, difference.AbsorbedGroups, difference.MaxShiftPx,
+                new Mat(height, width, MatType.CV_8UC1, Scalar.All(0)),
+                new Mat(height, width, MatType.CV_8UC1, Scalar.All(0)), []);
+        }
         var labelMask = new byte[raw.Length];
         PageComparison Result(string status, IReadOnlyList<DifferenceCluster> clusters, int dropped, params string[] warnings) =>
             new(status, clusters, rawPixels, dropped, difference.AbsorbedGroups, difference.MaxShiftPx,
                 MatBuffers.Mask(raw, width, height), MatBuffers.Mask(labelMask, width, height), warnings);
-        if (rawPixels == 0) return Result("same", [], 0);
         if (rawPixels / (double)raw.Length > parameters.Cluster.MaxDiffRatio)
             return Result("too_different", [], 0, "TOO_DIFFERENT");
 

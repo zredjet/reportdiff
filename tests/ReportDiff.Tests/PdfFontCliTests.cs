@@ -148,7 +148,7 @@ public sealed class PdfFontCliTests
         // 実プロセスのタイムアウトも使い、辞書を解決し続ける回帰を検出する。
         using var files = new TextFile(PdfFixture.CreateFontResourceCycle());
         var output = Path.Combine(files.DirectoryPath, "結果");
-        var process = await CliProcess.Run("compare", files.Path, files.Path, "--out", output);
+        var process = await CliProcess.RunProcess("compare", files.Path, files.Path, "--out", output);
         Assert.Equal(0, process.Code); Assert.Empty(process.Error);
         var warnings = Read(output).Warnings;
         Assert.Equal(2, warnings.Count);

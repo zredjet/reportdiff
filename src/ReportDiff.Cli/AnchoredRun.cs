@@ -21,6 +21,8 @@ internal sealed class AnchoredRun : IDisposable
     private readonly AnchoredContentSettings snapshot;
     private readonly string settingsDigest;
     private readonly List<AnchoredContentBudget.Reservation> reservations = [];
+    private readonly Dictionary<PageFlowPageKey, RowTextResult> textCache = [];
+    private AnchoredComparisonResult? preparedResult;
     private string? signature;
     private bool bandVerified;
     internal AnchoredContentPlan Plan { get; }
@@ -48,9 +50,9 @@ internal sealed class AnchoredRun : IDisposable
             run.Reserve(AnchoredAllocation.DisplayPart, checked(128 + previous.Usage.Lines * 16L));
             run.Reserve(AnchoredAllocation.TextCharacter, 4096);
             run.Verify();
-            using var result = plan.Compare(run.Read, run.Text, out var reason);
+            var result = plan.Compare(run.Read, run.Text, out var reason);
             run.Reason = reason;
-            if (result is not null) { run.signature = Signature(result); run.bandVerified = true; }
+            if (result is not null) { run.preparedResult = result; run.signature = Signature(result); run.bandVerified = true; }
             return run;
         }
         catch (AnchoredContentResourceLimitException) { run.Reason = "flow_descriptor_limit"; return run; }
@@ -68,7 +70,8 @@ internal sealed class AnchoredRun : IDisposable
         try
         {
             stage?.Invoke("before_recompare", Plan, trial); Verify();
-            using var result = Plan.Compare(Read, Text, out var reason);
+            string? reason = null;
+            using var result = Interlocked.Exchange(ref preparedResult, null) ?? Plan.Compare(Read, Text, out reason);
             if (result is null)
             {
                 if (reason is "flow_descriptor_limit" or "resource_limit") { Reason = reason; return null; }
@@ -145,8 +148,11 @@ internal sealed class AnchoredRun : IDisposable
     }
     private RowTextResult Text(PageFlowPageKey key)
     {
+        if (textCache.TryGetValue(key, out var cached)) return cached;
         var size = Plan.Displays[key.Page - 1].OriginalSize;
-        return (key.Side == PageSpace.A ? a : b).ReadRowWords(key.Page, PageMap.Unaligned(size, size), key.Side);
+        var result = (key.Side == PageSpace.A ? a : b).ReadRowWords(key.Page, PageMap.Unaligned(size, size), key.Side);
+        textCache[key] = result;
+        return result;
     }
     private void Verify()
     {
@@ -172,5 +178,5 @@ internal sealed class AnchoredRun : IDisposable
         using (var stream = new CryptoStream(Stream.Null, hash, CryptoStreamMode.Write)) JsonSerializer.Serialize(stream, value);
         return Convert.ToHexStringLower(hash.Hash!);
     }
-    public void Dispose() { foreach (var r in reservations) r.Dispose(); Plan.Dispose(); }
+    public void Dispose() { preparedResult?.Dispose(); foreach (var r in reservations) r.Dispose(); Plan.Dispose(); }
 }
